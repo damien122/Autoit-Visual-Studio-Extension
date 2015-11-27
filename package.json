@@ -1,0 +1,41 @@
+{
+	"name": "autoit",
+	"displayName": "AutoIt Script",
+	"description": "AutoIt Script",
+	"version": "0.0.4",
+	"publisher": "Damien",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Languages",
+		"Snippets"
+	],
+	"scripts": {
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"run": "C:\\rogram Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.exe /run /prod /ErrorStdOut /in 'C:\\temp\\test.au3' /UserParams "
+	},
+	"contributes": {
+		"languages": [{
+			"id": "autoit",
+			"aliases": ["AutoIt Script", "autoit"],
+			"extensions": [".au3"],
+			"configuration": "./autoit.configuration.json"
+		}],
+		"grammars": [{
+			"language": "autoit",
+			"scopeName": "source.autoit",
+			"path": "./syntaxes/autoit.tmLanguage"
+		}],
+		"snippets": [
+			{
+				"language": "autoit",
+				"path": "./syntaxes/snippets.json"
+			}
+		],
+		"keybindings": [
+			{ "key": "F7", "when": "editorTextFocus", "command": "compile" },
+			{ "key": "F5", "when": "editorTextFocus", "command": "run" }
+		]
+	}
+}
