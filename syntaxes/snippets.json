@@ -8,7 +8,8 @@
     "ByRef":{
         "prefix": "ByRef",
         "body": "ByRef ",
-        "scope": "source.autoit"
+        "scope": "source.autoit",
+        "description": "Indicates that a parameter should be treated as a reference to the original"
     },
     "Case":{
         "prefix": "Case",
