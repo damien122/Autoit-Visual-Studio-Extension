@@ -12,9 +12,18 @@
         "description": "Indicates that a parameter should be treated as a reference to the original"
     },
     "Case":{
-        "prefix": "Case",
-        "body": "Case ",
-        "scope": "source.autoit"
+        "prefix":"Case",
+        "body": ["Case ${value/expression}",
+            "\t${statement}"],
+        "scope": "source.autoit",
+        "description": "A Case section for a Select or Switch statement"
+    },
+    "Case-Else":{
+        "prefix":"Case-Else",
+        "body": ["Case Else",
+            "\t${statement}"],
+        "scope": "source.autoit",
+        "description": "A Case Else section for a Select or Switch statement"
     },
     "Const":{
         "prefix": "Const",
