@@ -2,7 +2,8 @@
     "And":{
         "prefix": "And",
         "body": "And ",
-        "scope": "source.autoit"
+        "scope": "source.autoit",
+        "description": "Logical And operation.\ne.g. If $vVar = 5 And $vVar2 > 6 Then\n(True if $vVar equals 5 and $vVar2 is greater than 6)"
     },
     "ByRef":{
         "prefix": "ByRef",
