@@ -230,14 +230,22 @@
     "scope": "source.autoit"
 },
 "comments-start":{
-    "prefix": "comments-start",
-    "body": "#comments-start ",
-    "scope": "source.autoit"
+    "prefix": "#comments-start",
+    "body": [
+        "#comments-start",
+        "\t$1",
+        "#comments-end"],
+    "scope": "source.autoit",
+    "description": "Specify that an entire section of script should be commented out."
 },
 "#cs":{
-    "prefix": "cs",
-    "body": "#cs ",
-    "scope": "source.autoit"
+    "prefix": "#cs",
+    "body": [
+        "#cs ",
+        "\t$1",
+        "#ce"],
+    "scope": "source.autoit",
+    "description": "Specify that an entire section of script should be commented out."
 },
 "include":{
     "prefix": "include",
