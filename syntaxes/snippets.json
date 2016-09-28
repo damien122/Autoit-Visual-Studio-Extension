@@ -307,39 +307,46 @@
     "description": "Path to current user's Roaming Application Data"
 },
 "@AutoItExe":{
-    "prefix": "AutoItExe",
+    "prefix": "@AutoItExe",
     "body": "@AutoItExe ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "The full path and filename of the AutoIt executable currently running. For compiled scripts it is the path of the compiled script; for .a3x and .au3 files it is the path of the interpreter running the file."
 },
 "@AutoItPID":{
-    "prefix": "AutoItPID",
+    "prefix": "@AutoItPID",
     "body": "@AutoItPID ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Process identifier (PID) of the current script."
 },
 "@AutoItVersion":{
-    "prefix": "AutoItVersion",
+    "prefix": "@AutoItVersion",
     "body": "@AutoItVersion ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Version number of AutoIt such as 3.3.10.2"
 },
 "@AutoItX64":{
-    "prefix": "AutoItX64",
+    "prefix": "@AutoItX64",
     "body": "@AutoItX64 ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Returns 1 if the script is running under the native x64 version of AutoIt."
 },
 "@COM_EventObj":{
-    "prefix": "COM_EventObj",
+    "prefix": "@COM_EventObj",
     "body": "@COM_EventObj ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Object the COM event is being fired on. Only valid in a COM event function."
 },
 "@CommonFilesDir":{
-    "prefix": "CommonFilesDir",
+    "prefix": "@CommonFilesDir",
     "body": "@CommonFilesDir ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Path to Common Files folder"
 },
 "@Compiled":{
-    "prefix": "Compiled",
+    "prefix": "@Compiled",
     "body": "@Compiled ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Returns 1 if script is a compiled executable or an .a3x file; returns 0 if an .au3 file."
 },
 "@ComputerName":{
     "prefix": "ComputerName",
