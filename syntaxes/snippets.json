@@ -1214,25 +1214,25 @@
 "prefix": "ControlClick",
 "body": "ControlClick(${ title},${ text},${ controlID [},${ button = left [},${ clicks = 1 [},${ x [},${ y]]]] })",
 "description": "Sends a mouse click command to a given control.",
-"scope": "source.autoit",
+"scope": "source.autoit"
 },
 "ControlCommand": {
 "prefix": "ControlCommand",
 "body": "ControlCommand(${ title},${ text},${ classnameNN},${ IsVisible},${  })",
 "description": "Returns 1 if Control is visible, 0 otherwise",
-"scope": "source.autoit",
+"scope": "source.autoit"
 },
 "ControlCommand": {
 "prefix": "ControlCommand",
 "body": "ControlCommand(${ title},${ text},${ classnameNN},${ IsEnabled},${  })",
 "description": "Returns 1 if Control is enabled, 0 otherwise",
-"scope": "source.autoit",
+"scope": "source.autoit"
 },
 "ControlCommand": {
 "prefix": "ControlCommand",
 "body": "ControlCommand(${ title},${ text},${ classnameNN},${ ShowDropDown},${  })",
 "description": "Displays the ComboBox dropdown",
-"scope": "source.autoit",
+"scope": "source.autoit"
 },
 "ControlCommand": {
 "prefix": "ControlCommand",
@@ -1352,7 +1352,13 @@
 "prefix": "ControlCommand",
 "body": "ControlCommand(${ title},${ text},${ classnameNN},${ SendCommandID},${ Command ID })",
 "description": "Simulates the WM_COMMAND message. Usually used for ToolbarWindow32 controls - use the ToolBar tab of Au3Info to get the Command ID.",
-"scope": "source.autoit",
+"scope": "source.autoit"
+},
+"ControlCommand": {
+    "prefix": "ControlCommand",
+    "body": "ControlCommand(${title}, ${text}, ${controlID}, ${command})",
+    "description": "Sends a command to a control.",
+    "scope": "source.autoit"
 },
 "ControlDisable": {
 "prefix": "ControlDisable",
