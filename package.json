@@ -20,7 +20,7 @@
 			"id": "autoit",
 			"aliases": ["AutoIt Script", "autoit"],
 			"extensions": [".au3"],
-			"configuration": "./autoit.configuration.json"
+			"configuration": "./autoit-language-configuration.json"
 		}],
 		"grammars": [{
 			"language": "autoit",
