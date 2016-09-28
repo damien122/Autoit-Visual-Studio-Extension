@@ -349,29 +349,34 @@
     "description": "Returns 1 if script is a compiled executable or an .a3x file; returns 0 if an .au3 file."
 },
 "@ComputerName":{
-    "prefix": "ComputerName",
+    "prefix": "@ComputerName",
     "body": "@ComputerName ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Computer's network name."
 },
 "@ComSpec":{
-    "prefix": "ComSpec",
+    "prefix": "@ComSpec",
     "body": "@ComSpec ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Value of %COMSPEC%, the SPECified secondary COMmand interpreter;\nprimary for command line uses, e.g. Run(@ComSpec & \" /k help | more\")"
 },
 "@CPUArch":{
-    "prefix": "CPUArch",
+    "prefix": "@CPUArch",
     "body": "@CPUArch ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Returns \"X86\" when the CPU is a 32-bit CPU and \"X64\" when the CPU is 64-bit."
 },
 "@CR":{
-    "prefix": "CR",
+    "prefix": "@CR",
     "body": "@CR ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Carriage return, Chr(13); occasionally used for line breaks."
 },
 "@CRLF":{
-    "prefix": "CRLF",
+    "prefix": "@CRLF",
     "body": "@CRLF ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "@CR & @LF; typically used for line breaks."
 },
 "@DesktopCommonDir":{
     "prefix": "DesktopCommonDir",
