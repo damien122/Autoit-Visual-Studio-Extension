@@ -295,14 +295,16 @@
     "scope": "source.autoit"
 },
 "@AppDataCommonDir":{
-    "prefix": "AppDataCommonDir",
+    "prefix": "@AppDataCommonDir",
     "body": "@AppDataCommonDir ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Path to Application Data"
 },
 "@AppDataDir":{
-    "prefix": "AppDataDir",
+    "prefix": "@AppDataDir",
     "body": "@AppDataDir ",
-    "scope": "source.autoit"
+    "scope": "source.autoit",
+    "description": "Path to current user's Roaming Application Data"
 },
 "@AutoItExe":{
     "prefix": "AutoItExe",
