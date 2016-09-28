@@ -16,24 +16,26 @@
         "body": ["Case ${value/expression}",
             "\t${statement}"],
         "scope": "source.autoit",
-        "description": "A Case section for a Select or Switch statement"
+        "description": "A Case block for a Select or Switch statement"
     },
     "Case-Else":{
         "prefix":"Case-Else",
         "body": ["Case Else",
             "\t${statement}"],
         "scope": "source.autoit",
-        "description": "A Case Else section for a Select or Switch statement"
+        "description": "A Case Else block for a Select or Switch statement"
     },
     "Const":{
         "prefix": "Const",
-        "body": "Const ",
-        "scope": "source.autoit"
+        "body": "Const $",
+        "scope": "source.autoit",
+        "description": "Declare a constant"
     },
     "ContinueCase":{
         "prefix": "ContinueCase",
-        "body": "ContinueCase ",
-        "scope": "source.autoit"
+        "body": "ContinueCase\n",
+        "scope": "source.autoit",
+        "description": "Abort the code in the current Case block and continue with the code in the next Case block when in a Select or Switch structure."
     },
     "ContinueLoop":{
         "prefix": "ContinueLoop",
