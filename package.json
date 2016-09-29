@@ -3,7 +3,7 @@
 	"displayName": "AutoIt",
 	"description": "AutoIt Script",
 	"version": "0.0.5",
-	"publisher": "loganch",
+	"publisher": "LoganCH",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
