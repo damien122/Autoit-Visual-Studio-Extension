@@ -56,9 +56,12 @@
         "description": "Declare a variable in Local scope if the variable name doesn't already exist globally (in which case it reuses the global variable!)"
     },
     "Do":{
-        "prefix": "Do",
-        "body": "Do ",
-        "scope": "source.autoit"
+        "prefix": "Do...Until",
+        "body": ["Do",
+            "\t${statement(s)}",
+            "Until ${expression}"],
+        "scope": "source.autoit",
+        "description": "Loop based on an expression."
     },
     "Else":{
         "prefix": "Else",
