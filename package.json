@@ -12,9 +12,18 @@
 		"Snippets"
 	],
 	"scripts": {
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-		"run": "C:\\rogram Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.exe /run /prod /ErrorStdOut /in 'C:\\temp\\test.au3' /UserParams "
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
 	},
+	"devDependencies": {
+		"typescript": "^1.7.5",
+		"vscode": "^0.11.x"
+	},
+	"main": "./extension",
+	"activationEvents": [
+			"onCommand:extension.sayHello",
+			"onCommand:extension.runScript"
+	],
 	"contributes": {
 		"languages": [{
 			"id": "autoit",
@@ -22,6 +31,12 @@
 			"extensions": [".au3"],
 			"configuration": "./autoit-language-configuration.json"
 		}],
+		"commands": [{
+			"command": "extension.sayHello",
+			"title": "Hello World"},
+			{ "command": "extension.runScript",
+				"title": "AutoIt - Run Script"}
+		],
 		"grammars": [{
 			"language": "autoit",
 			"scopeName": "source.autoit",
@@ -33,9 +48,10 @@
 				"path": "./syntaxes/snippets.json"
 			}
 		],
-		"keybindings": [
-			{ "key": "F7", "when": "editorTextFocus", "command": "compile" },
-			{ "key": "F5", "when": "editorTextFocus", "command": "run" }
-		]
+		"keybindings": [{
+				"command": "extension.runScript",
+				"key": "f5",
+				"when": "editorTextFocus"
+		}]
 	}
 }
