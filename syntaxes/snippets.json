@@ -39,13 +39,15 @@
     },
     "ContinueLoop":{
         "prefix": "ContinueLoop",
-        "body": "ContinueLoop ",
-        "scope": "source.autoit"
+        "body": "ContinueLoop\n",
+        "scope": "source.autoit",
+        "description": "Continue a While/Do/For loop"
     },
     "Default":{
         "prefix": "Default",
-        "body": "Default ",
-        "scope": "source.autoit"
+        "body": "Default",
+        "scope": "source.autoit",
+        "description": "Keyword value used in function call."
     },
     "Dim":{
         "prefix": "Dim",
