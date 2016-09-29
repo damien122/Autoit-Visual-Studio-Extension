@@ -1,4 +1,4 @@
-# Autoit Script Language Support
+# AutoIt for Visual Studio Code
 ## Features
 
 * Show AutoIt Syntax highlighting
