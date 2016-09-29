@@ -11,16 +11,11 @@
 		"Languages",
 		"Snippets"
 	],
-	"scripts": {
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
 	"devDependencies": {
 		"vscode": "^0.11.x"
 	},
 	"main": "./extension",
 	"activationEvents": [
-			"onCommand:extension.sayHello",
 			"onCommand:extension.runScript"
 	],
 	"contributes": {
@@ -30,12 +25,10 @@
 			"extensions": [".au3"],
 			"configuration": "./autoit-language-configuration.json"
 		}],
-		"commands": [{
-			"command": "extension.sayHello",
-			"title": "Hello World"},
-			{ "command": "extension.runScript",
-				"title": "AutoIt - Run Script"}
-		],
+		"commands": [{ 
+			"command": "extension.runScript",
+			"title": "AutoIt - Run Script" 
+		}],
 		"grammars": [{
 			"language": "autoit",
 			"scopeName": "source.autoit",
