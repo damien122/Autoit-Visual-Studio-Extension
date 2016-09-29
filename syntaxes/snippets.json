@@ -51,8 +51,9 @@
     },
     "Dim":{
         "prefix": "Dim",
-        "body": "Dim ",
-        "scope": "source.autoit"
+        "body": "Dim $",
+        "scope": "source.autoit",
+        "description": "Declare a variable in Local scope if the variable name doesn't already exist globally (in which case it reuses the global variable!)"
     },
     "Do":{
         "prefix": "Do",
