@@ -14,6 +14,8 @@ function activate(context) {
 
     var runScript = vscode.commands.registerCommand('extension.runScript', function () {
         
+        //Save the file
+        vscode.window.activeTextEditor.document.save();
         //Get the current file name
         var thisFile = vscode.window.activeTextEditor.document.fileName;
         //Launch the AutoIt executable with the script's path

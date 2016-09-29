@@ -1,9 +1,9 @@
 {
 	"name": "autoit",
-	"displayName": "AutoIt Script",
+	"displayName": "AutoIt",
 	"description": "AutoIt Script",
-	"version": "0.0.4",
-	"publisher": "Damien",
+	"version": "0.0.5",
+	"publisher": "loganch",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
