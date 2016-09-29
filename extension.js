@@ -8,6 +8,7 @@ var launch = require('child_process').execFile;
 function activate(context) {
 
     var aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"
+    var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('AutoIt is now active!');
@@ -25,6 +26,24 @@ function activate(context) {
                 return;
             }
         });
+    });
+
+    var launchHelp = vscode.commands.registerCommand('extension.launchHelp', function () {
+        
+        var editor = vscode.window.activeTextEditor;
+
+        if (!editor) {
+            return; // No open text editor
+        }
+
+        //Get selected text and launch it
+        var selection = editor.selection;
+        var query = editor.document.getText(selection);
+
+        vscode.window.setStatusBarMessage("Searching documentation for " 
+            + query, 1500);
+
+        launch(helpPath, [query]);
     });
 
     context.subscriptions.push(runScript);

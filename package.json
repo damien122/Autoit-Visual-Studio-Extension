@@ -16,7 +16,8 @@
 	},
 	"main": "./extension",
 	"activationEvents": [
-			"onCommand:extension.runScript"
+			"onCommand:extension.runScript",
+			"onCommand:extension.launchHelp"
 	],
 	"contributes": {
 		"languages": [{
@@ -28,6 +29,9 @@
 		"commands": [{ 
 			"command": "extension.runScript",
 			"title": "AutoIt - Run Script" 
+		}, {
+			"command": "extension.launchHelp",
+			"title": "AutoIt - Help"
 		}],
 		"grammars": [{
 			"language": "autoit",
@@ -41,9 +45,13 @@
 			}
 		],
 		"keybindings": [{
-				"command": "extension.runScript",
-				"key": "f5",
-				"when": "editorTextFocus"
+			"command": "extension.runScript",
+			"key": "f5",
+			"when": "editorTextFocus"
+		}, {
+			"command": "extension.launchHelp",
+			"key": "ctrl+f1",
+			"when": "editorTextFocus"
 		}]
 	}
 }
