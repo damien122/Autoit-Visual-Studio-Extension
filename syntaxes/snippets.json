@@ -65,8 +65,9 @@
     },
     "Else":{
         "prefix": "Else",
-        "body": "Else ",
-        "scope": "source.autoit"
+        "body": "Else\n\t${[else statement(s)]}",
+        "scope": "source.autoit",
+        "description": "An Else block for an If statement"
     },
     "ElseIf":{
         "prefix": "ElseIf",
