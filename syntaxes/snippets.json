@@ -820,9 +820,10 @@
         "scope": "source.autoit"
     },
     "@UserName":{
-        "prefix": "UserName",
-        "body": "@UserName ",
-        "scope": "source.autoit"
+        "prefix": "@UserName",
+        "body": "@UserName",
+        "scope": "source.autoit",
+        "description": "ID of the currently logged on user."
     },
     "@UserProfileDir":{
         "prefix": "UserProfileDir",
