@@ -46,6 +46,11 @@ function activate(context) {
         launch(helpPath, [query]);
     });
 
+    var launchInfo = vscode.commands.registerCommand('extension.launchInfo', function () {
+
+        launch('C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe')
+    });
+
     context.subscriptions.push(runScript);
 }
 exports.activate = activate;

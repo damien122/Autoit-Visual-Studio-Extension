@@ -17,7 +17,8 @@
 	"main": "./extension",
 	"activationEvents": [
 			"onCommand:extension.runScript",
-			"onCommand:extension.launchHelp"
+			"onCommand:extension.launchHelp",
+			"onCommand:extension.launchInfo"
 	],
 	"contributes": {
 		"languages": [{
@@ -32,6 +33,9 @@
 		}, {
 			"command": "extension.launchHelp",
 			"title": "AutoIt - Help"
+		}, {
+			"command": "extension.launchInfo",
+			"title": "AutoIt - Au3Info"
 		}],
 		"grammars": [{
 			"language": "autoit",
@@ -51,6 +55,10 @@
 		}, {
 			"command": "extension.launchHelp",
 			"key": "ctrl+f1",
+			"when": "editorTextFocus"
+		}, {
+			"command": "extension.launchInfo",
+			"key": "ctrl+f6",
 			"when": "editorTextFocus"
 		}]
 	}
