@@ -81,8 +81,9 @@
     },
     "EndIf":{
         "prefix": "EndIf",
-        "body": "EndIf ",
-        "scope": "source.autoit"
+        "body": "EndIf\n",
+        "scope": "source.autoit",
+        "description": "Closes an If block"
     },
     "EndSelect":{
         "prefix": "EndSelect",
@@ -136,8 +137,9 @@
     },
     "If":{
         "prefix": "If",
-        "body": "If ",
-        "scope": "source.autoit"
+        "body": "If ${<expression>} Then\n\t${statement}\nEndIf",
+        "scope": "source.autoit",
+        "description": "Conditionally run statements."
     },
     "If...Then":{
         "prefix": "If...Then",
