@@ -139,6 +139,12 @@
         "body": "If ",
         "scope": "source.autoit"
     },
+    "If...Then":{
+        "prefix": "If...Then",
+        "body": "If ${<expression>} Then ${statement}\n",
+        "scope": "source.autoit",
+        "description": "Conditionally run a single statement."
+    },
     "In":{
         "prefix": "In",
         "body": "In ",
@@ -246,7 +252,7 @@
     },
     "comments-end":{
         "prefix": "comments-end",
-        "body": "#comments-end ",
+        "body": "#comments-end\n",
         "scope": "source.autoit"
     },
     "comments-start":{
@@ -846,11 +852,11 @@
         "body": "@YEAR ",
         "scope": "source.autoit"
     },
-        "Abs": {
-    "prefix": "Abs",
-    "body": "Abs(${ expression })",
-    "description": "Calculates the absolute value of a number.",
-    "scope": "source.autoit",
+    "Abs": {
+        "prefix": "Abs",
+        "body": "Abs(${ expression })",
+        "description": "Calculates the absolute value of a number.",
+        "scope": "source.autoit"
     },
     "ACos": {
     "prefix": "ACos",
