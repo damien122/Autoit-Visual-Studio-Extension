@@ -1,26 +1,14 @@
 # AutoIt for Visual Studio Code
+
+Welcome to the AutoIt extension for Visual Studio Code! This has been forked 
+and developed from Damien122's release.
+
 ## Features
 
 * Show AutoIt Syntax highlighting
-* Autocomplete or Intellisense (`Cmd+Space` on OSX or `Ctrl+Space` on Windows and Linux) 
-
+* Snippets for almost everything
+* Launch scripts from VSC
+* Get AutoIt Help for highlighted text 
 
 ## GitHub
-Now with GitHub repo.
-
-* [Autoit Visual Studio Extension](https://github.com/damien122/Autoit-Visual-Studio-Extension.git)
-
-
-## Missing Features
-
-* run build
-* compile build
-* keybinding for build and run
-* keybinding for open AutoIt Help
-
-## I'm looking for help
-
-To every body who is interested in helping me, please contact me at Github!
-
-
-** Enjoy!**
+Check out the code and leave feedback and feature requests on [GitHub](https://github.com/loganch/AutoIt-VSCode)
