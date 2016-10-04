@@ -2530,10 +2530,10 @@
     "scope": "source.autoit",
     },
     "InputBox": {
-    "prefix": "InputBox",
-    "body": "InputBox(${ title},${ prompt [},${ default [},${ password char [},${ width = -1 [},${ height = -1 [},${ left = Default [},${ top = Default [},${ timeout = 0 [},${ hwnd]]]]]]]] })",
-    "description": "Displays an input box to ask the user to enter a string.",
-    "scope": "source.autoit",
+        "prefix": "InputBox",
+        "body": "InputBox( ${title}, ${prompt}, ${default}, ${password char}, ${width}, ${height}, ${left}, ${top}, ${timeout}, ${hwnd})",
+        "description": "Displays an input box to ask the user to enter a string.",
+        "scope": "source.autoit"
     },
     "Int": {
     "prefix": "Int",
