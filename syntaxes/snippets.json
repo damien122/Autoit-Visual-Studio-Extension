@@ -857,33 +857,33 @@
     },
     "Abs": {
         "prefix": "Abs",
-        "body": "Abs(${ expression })",
+        "body": "Abs(${expression})",
         "description": "Calculates the absolute value of a number.",
         "scope": "source.autoit"
     },
     "ACos": {
-    "prefix": "ACos",
-    "body": "ACos(${ expression })",
-    "description": "Calculates the arcCosine of a number.",
-    "scope": "source.autoit",
+        "prefix": "ACos",
+        "body": "ACos(${expression})",
+        "description": "Calculates the arcCosine of a number.",
+        "scope": "source.autoit"
     },
     "AdlibRegister": {
-    "prefix": "AdlibRegister",
-    "body": "AdlibRegister(${ function [},${ time = 250] })",
-    "description": "Registers an Adlib function.",
-    "scope": "source.autoit",
+        "prefix": "AdlibRegister",
+        "body": "AdlibRegister(${function}, ${time})",
+        "description": "Registers an Adlib function.",
+        "scope": "source.autoit"
     },
     "AdlibUnRegister": {
-    "prefix": "AdlibUnRegister",
-    "body": "AdlibUnRegister(${ [function] })",
-    "description": "Unregisters an adlib function.",
-    "scope": "source.autoit",
+        "prefix": "AdlibUnRegister",
+        "body": "AdlibUnRegister(${[function]})",
+        "description": "Unregisters an adlib function.",
+        "scope": "source.autoit"
     },
     "Asc": {
-    "prefix": "Asc",
-    "body": "Asc(${ char })",
-    "description": "Returns the ASCII code of a character.",
-    "scope": "source.autoit",
+        "prefix": "Asc",
+        "body": "Asc(\"${char}\")",
+        "description": "Returns the ASCII code of a character.",
+        "scope": "source.autoit"
     },
     "AscW": {
     "prefix": "AscW",
