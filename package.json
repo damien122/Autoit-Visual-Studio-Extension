@@ -1,7 +1,7 @@
 {
 	"name": "autoit",
 	"displayName": "AutoIt",
-	"description": "AutoIt Script",
+	"description": "AutoIt",
 	"version": "0.0.5",
 	"publisher": "loganch",
 	"engines": {
@@ -32,7 +32,7 @@
 	"contributes": {
 		"languages": [{
 			"id": "autoit",
-			"aliases": ["AutoIt Script", "autoit"],
+			"aliases": ["AutoIt", "autoit"],
 			"extensions": [".au3"],
 			"configuration": "./autoit-language-configuration.json"
 		}],
