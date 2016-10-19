@@ -886,208 +886,214 @@
         "scope": "source.autoit"
     },
     "AscW": {
-    "prefix": "AscW",
-    "body": "AscW(${ char })",
-    "description": "Returns the unicode code of a character.",
-    "scope": "source.autoit",
+        "prefix": "AscW",
+        "body": "AscW(\"${char}\")",
+        "description": "Returns the unicode code of a character.",
+        "scope": "source.autoit"
     },
     "ASin": {
-    "prefix": "ASin",
-    "body": "ASin(${ expression })",
-    "description": "Calculates the arcsine of a number.",
-    "scope": "source.autoit",
+        "prefix": "ASin",
+        "body": "ASin(${ expression })",
+        "description": "Calculates the arcsine of a number.",
+        "scope": "source.autoit"
     },
     "Assign": {
-    "prefix": "Assign",
-    "body": "Assign(${ varname},${ data [},${ flag = 0] })",
-    "description": "Assigns a variable by name with the data.",
-    "scope": "source.autoit",
+        "prefix": "Assign",
+        "body": "Assign(${1: \"varname\"}, ${2:\"data\" [}${3:, ${4:flag = 0]}})",
+        "description": "Assigns a variable by name with the data.",
+        "scope": "source.autoit"
     },
     "ATan": {
-    "prefix": "ATan",
-    "body": "ATan(${ expression })",
-    "description": "Calculates the arctangent of a number.",
-    "scope": "source.autoit",
+        "prefix": "ATan",
+        "body": "ATan(${ expression })",
+        "description": "Calculates the arctangent of a number.",
+        "scope": "source.autoit"
     },
     "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ CaretCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+        "prefix": "AutoItSetOption",
+        "description": "Changes the operation of various AutoIt functions/parameters.",
+        "body": "AutoItSetOption(${1: \"option\" [}${2:, ${3:param]}})",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ ExpandEnvStrings [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - CaretCoordMode": {
+        "prefix": "AutoItSetOption-CaretCoordMode",
+        "body": "AutoItSetOption(\"CaretCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ ExpandVarStrings [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - ExpandEnvStrings": {
+        "prefix": "AutoItSetOption-ExpandEnvStrings",
+        "body": "AutoItSetOption(\"ExpandEnvStrings\", ${0|1})",
+        "description": "Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., \"The temp directory is: %temp%\".\n0 = (default) do not expand environment variables\n1 = expand environment variables",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUICloseOnESC [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - ExpandVarStrings": {
+        "prefix": "AutoItSetOption-ExpandVarStrings",
+        "body": "AutoItSetOption(\"ExpandVarStrings\", ${0|1})",
+        "description": "Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., \"The value of var1 is $var1$\".\n0 = (default) do not expand variables\n1 = expand variables (when in this mode and you want to use a literal $ or @ then double it up: \"This is a single dollar $$ sign\".",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUICoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUICloseOnESC": {
+        "prefix": "AutoItSetOption-GUICloseOnESC",
+        "body": "AutoItSetOption(\"GUICloseOnESC\", ${0|1})",
+        "description": "When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.\n0 = Don't send the $GUI_EVENT_CLOSE message when ESC is pressed.\n1 = (default) Send() the $GUI_EVENT_CLOSE message when ESC is pressed.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUIDataSeparatorChar [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUICoordMode": {
+        "prefix": "AutoItSetOption-GUICoordMode",
+        "body": "AutoItSetOption(\"GUICoordMode\", ${0|1|2})",
+        "description": "Alters the position of a control defined by GUICtrlSetPos().\n0 = relative position to the start of the last control (upper left corner).\n1 = (default) absolute coordinates still relative to the dialog box.\n2 = cell positioning relative to current cell. A -1 for left or top parameter don't increment the start.\nSo next line is -1, offset; next cell is offset,-1; current cell is -1,-1.\nObviously \"offset\" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUIOnEventMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUIDataSeparatorChar": {
+        "prefix": "AutoItSetOption-GUIDataSeparatorChar",
+        "body": "AutoItSetOption(\"GUIDataSeparatorChar\", \"${char}\")",
+        "description": "Define the character which delimits subitems in GUICtrlSetData().\nThe default character is '|'.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUIResizeMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUIOnEventMode": {
+        "prefix": "AutoItSetOption-GUIOnEventMode",
+        "body": "AutoItSetOption(\"GUIOnEventMode\", ${0=disable/1=enable})",
+        "description": "Enable/disable OnEvent functions notifications.\n0 = (default) disable.\n1 = enable.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ GUIEventOptions [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUIResizeMode": {
+        "prefix": "AutoItSetOption-GUIResizeMode",
+        "body": "AutoItSetOption(\"GUIResizeMode\", ${param})",
+        "description": "Change default resizing for a control.\n0 = (default) keep default control resizing.\n<1024 = any type of resizing see GUICtrlSetResizing().",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ MouseClickDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - GUIEventOptions": {
+        "prefix": "AutoItSetOption-GUIEventOptions",
+        "body": "AutoItSetOption(\"GUIEventOptions\", ${param})",
+        "description": "Change special event behavior or GUI function return values.\n0 = (default) Windows behavior on click on Minimize,Restore, Maximize, Resize.\n1 = suppress windows behavior on minimize, restore or maximize click button or window resize. Just sends the notification.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ MouseClickDownDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - MouseClickDelay": {
+        "prefix": "AutoItSetOption-MouseClickDelay",
+        "body": "AutoItSetOption(\"MouseClickDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause in between mouse clicks.\nTime in milliseconds to pause (default=10).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ MouseClickDragDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - MouseClickDownDelay": {
+        "prefix": "AutoItSetOption-MouseClickDownDelay",
+        "body": "AutoItSetOption(\"MouseClickDownDelay\", ${milliseconds})",
+        "description": "Alters the length a click is held down before release.\nTime in milliseconds to pause (default=10).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ MouseCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - MouseClickDragDelay": {
+        "prefix": "AutoItSetOption-MouseClickDragDelay",
+        "body": "AutoItSetOption(\"MouseClickDragDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause at the start and end of a mouse drag operation.\nTime in milliseconds to pause (default=250).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ MustDeclareVars [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - MouseCoordMode": {
+        "prefix": "AutoItSetOption-MouseCoordMode",
+        "body": "AutoItSetOption(\"MouseCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ PixelCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - MustDeclareVars": {
+        "prefix": "AutoItSetOption-MustDeclareVars",
+        "body": "AutoItSetOption(\"MustDeclareVars\", ${0|1})",
+        "description": "If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.\n0 = (default) Variables don't need to be pre-declared\n1 = Variables must be pre-declared. See Dim / Global / Local / Const for details on declaring variables.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ SendAttachMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - PixelCoordMode": {
+        "prefix": "AutoItSetOption-PixelCoordMode",
+        "body": "AutoItSetOption(\"PixelCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):\n0 = relative coords to the defined window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the defined window",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ SendCapslockMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - SendAttachMode": {
+        "prefix": "AutoItSetOption-SendAttachMode",
+        "body": "AutoItSetOption(\"SendAttachMode\", ${0|1})",
+        "description": "Specifies if AutoIt attaches input threads when using Send() function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the Send(\"{... down/up}\") syntax will not work and there may be problems with sending keys to \"hung\" windows. ControlSend() ALWAYS attaches and is not affected by this mode.\n0 = (default) don't attach\n1 = attach",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ SendKeyDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - SendCapslockMode": {
+        "prefix": "AutoItSetOption-SendCapslockMode",
+        "body": "AutoItSetOption(\"SendCapslockMode\", ${0|1})",
+        "description": "Specifies if AutoIt should store the state of capslock before a Send() function and restore it afterwards.\n0 = don't store/restore\n1 = (default) store and restore",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ SendKeyDownDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - SendKeyDelay": {
+        "prefix": "AutoItSetOption-SendKeyDelay",
+        "body": "AutoItSetOption(\"SendKeyDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TCPTimeout [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - SendKeyDownDelay": {
+        "prefix": "AutoItSetOption-SendKeyDownDelay",
+        "body": "AutoItSetOption(\"SendKeyDownDelay\", ${milliseconds})",
+        "description": "Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TrayAutoPause [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TCPTimeout": {
+        "prefix": "AutoItSetOption-TCPTimeout",
+        "body": "AutoItSetOption(\"TCPTimeout\", ${milliseconds})",
+        "description": "Defines the time before TCP functions stop if no communication.\nTime in milliseconds before timeout (default=100).",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TrayIconDebug [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TrayAutoPause": {
+        "prefix": "AutoItSetOption-TrayAutoPause",
+        "body": "AutoItSetOption(\"TrayAutoPause\", ${0|1})",
+        "description": "Script pauses when click on tray icon.\n0 = no pause\n1 = (default) pause. If there is no DefaultMenu no pause will occurs.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TrayIconHide [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TrayIconDebug": {
+        "prefix": "AutoItSetOption-TrayIconDebug",
+        "body": "AutoItSetOption(\"TrayIconDebug\", ${0|1})",
+        "description": "If enabled shows the current script line in the tray icon tip to help debugging.\n0 = (default) no debug information\n1 = show debug",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TrayMenuMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TrayIconHide": {
+        "prefix": "AutoItSetOption-TrayIconHide",
+        "body": "AutoItSetOption(\"TrayIconHide\", ${0|1})",
+        "description": "Hides the AutoIt tray icon. Note: The icon will still initially appear for ~750 milliseconds.\n0 = (default) show icon\n1 = hide icon",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ TrayOnEventMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TrayMenuMode": {
+        "prefix": "AutoItSetOption-TrayMenuMode",
+        "body": "AutoItSetOption(\"TrayMenuMode\", ${param})",
+        "description": "Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.\n0 = (default) default menu items (Script Paused/Exit) are appended to the usercreated menu; items will automatically be checked/unchecked when clicked; double clicking the tray icon returns the controlID of the $TRAY_DEFAULT item.\n1 = no default menu\n2 = items will not automatically check/uncheck when clicked\n4 = do not return the $TRAY_DEFAULT item controlID when the tray icon is double clicked\n8 = turn off auto check of radio item groups",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ WinDetectHiddenText [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - TrayOnEventMode": {
+        "prefix": "AutoItSetOption-TrayOnEventMode",
+        "body": "AutoItSetOption(\"TrayOnEventMode\", ${0|1})",
+        "description": "Enable/disable OnEvent functions notifications for the tray.\n0 = (default) disable\n1 = enable",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ WinSearchChildren [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - WinDetectHiddenText": {
+        "prefix": "AutoItSetOption-WinDetectHiddenText",
+        "body": "AutoItSetOption(\"WinDetectHiddenText\", ${0|1})",
+        "description": "Specifies if hidden window text can be \"seen\" by the window matching functions.\n0 = (default) Do not detect hidden text\n1 = Detect hidden text",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ WinTextMatchMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - WinSearchChildren": {
+        "prefix": "AutoItSetOption-WinSearchChildren",
+        "body": "AutoItSetOption(\"WinSearchChildren\", ${0|1})",
+        "description": "Allows the window search routines to search child windows as well as top-level windows.\n0 = (default) Only search top-level windows\n1 = Search top-level and child windows",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ WinTitleMatchMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - WinTextMatchMode": {
+        "prefix": "AutoItSetOption-WinTextMatchMode",
+        "body": "AutoItSetOption(\"WinTextMatchMode\", ${1|2})",
+        "description": "Alters the method that is used to match window text during search operations.\n1 = (default) Complete / Slow mode\n2 = Quick mode\nIn quick mode AutoIt can usually only \"see\" dialog text, button text and the captions of some controls. In the default mode much more text can be seen (for instance the contents of the Notepad window).\nIf you are having performance problems when performing many window searches then changing to the \"quick\" mode may help.",
+        "scope": "source.autoit"
     },
-    "AutoItSetOption": {
-    "prefix": "AutoItSetOption",
-    "body": "AutoItSetOption(${ WinWaitDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit",
+    "AutoItSetOption - WinTitleMatchMode": {
+        "prefix": "AutoItSetOption-WinTitleMatchMode",
+        "body": "AutoItSetOption(\"WinTitleMatchMode\", ${-1|-2|-3|-4|1|2|3|4})",
+        "description": "Alters the method that is used to match window titles during search operations.\n1 = (default) Match the title from the start\n2 = Match any substring in the title\n3 = Exact title match\n4 = Advanced mode (retained for backwards compatibility only\n-1 to -4 = Case insensitive match according to the other type of match.",
+        "scope": "source.autoit"
+    },
+    "AutoItSetOption - WinWaitDelay": {
+        "prefix": "AutoItSetOption-WinWaitDelay",
+        "body": "AutoItSetOption(\"WinWaitDelay\", ${milliseconds})",
+        "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
+        "scope": "source.autoit"
     },
     "AutoItWinGetTitle": {
     "prefix": "AutoItWinGetTitle",
@@ -2536,22 +2542,22 @@
         "scope": "source.autoit"
     },
     "Int": {
-    "prefix": "Int",
-    "body": "Int(${ expression [},${ flag = 0] })",
-    "description": "Returns the integer (whole number) representation of an expression.",
-    "scope": "source.autoit",
+        "prefix": "Int",
+        "body": "Int(${ expression [},${ flag = 0] })",
+        "description": "Returns the integer (whole number) representation of an expression.",
+        "scope": "source.autoit"
     },
     "IsAdmin": {
-    "prefix": "IsAdmin",
-    "body": "IsAdmin(${  })",
-    "description": "Checks if the current user has full administrator privileges.",
-    "scope": "source.autoit",
+        "prefix": "IsAdmin",
+        "body": "IsAdmin()",
+        "description": "Checks if the current user has full administrator privileges.",
+        "scope": "source.autoit"
     },
     "IsArray": {
-    "prefix": "IsArray",
-    "body": "IsArray(${ variable })",
-    "description": "Checks if a variable is an array type.",
-    "scope": "source.autoit",
+        "prefix": "IsArray",
+        "body": "IsArray(${ variable })",
+        "description": "Checks if a variable is an array type.",
+        "scope": "source.autoit"
     },
     "IsBinary": {
     "prefix": "IsBinary",
