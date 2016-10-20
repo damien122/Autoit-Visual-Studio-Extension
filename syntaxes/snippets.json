@@ -1396,10 +1396,10 @@
         "scope": "source.autoit"
     },
     "ControlDisable": {
-    "prefix": "ControlDisable",
-    "body": "ControlDisable(${ title},${ text},${ controlID })",
-    "description": "Disables or grays-out a control.",
-    "scope": "source.autoit"
+        "prefix": "ControlDisable",
+        "body": "ControlDisable(${\"title\"}, ${\"text\"}, ${controlID})",
+        "description": "Disables or grays-out a control.",
+        "scope": "source.autoit"
     },
     "ControlEnable": {
     "prefix": "ControlEnable",
@@ -1444,82 +1444,88 @@
     "scope": "source.autoit"
     },
     "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ DeSelect},${ From [},${ To] })",
-    "description": "Deselects one or more items.",
-    "scope": "source.autoit"
+        "prefix": "ControlListView",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, ${\"command\"}${, ${[option1]}}${, ${[option2]}})",
+        "description": "Sends a command to a ListView32 control.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ FindItem},${ string to find [},${ SubItem] })",
-    "description": "Returns the item index of the string. Returns -1 if the string is not found.",
-    "scope": "source.autoit"
+    "ControlListView - DeSelect": {
+        "prefix": "ControlListView-DeSelect",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"DeSelect\", ${From [}${, ${To]}})",
+        "description": "Deselects one or more items.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ GetItemCount })",
-    "description": "Returns the number of list items.",
-    "scope": "source.autoit"
+    "ControlListView - FindItem": {
+        "prefix": "ControlListView-FindItem",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"FindItem\" , ${\"string to find\"}${, ${[SubItem]}})",
+        "description": "Returns the item index of the string. Returns -1 if the string is not found.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ GetSelected [},${ option] })",
-    "description": "Returns a string containing the item index of selected items. If option=0 (default) only the first selected item is returned. If option=1 then all the selected items are returned delimited by |, e.g: &quot;0|3|4|10&quot;. If no items are selected a blank  string is returned.",
-    "scope": "source.autoit"
+    "ControlListView - GetItemCount": {
+        "prefix": "ControlListView-GetItemCount",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetItemCount\")",
+        "description": "Returns the number of list items.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ GetSelectedCount })",
-    "description": "Returns the number of items that are selected.",
-    "scope": "source.autoit"
+    "ControlListView - GetSelected": {
+        "prefix": "ControlListView-GetSelected",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSelected\"${, ${0|1}})",
+        "description": "Returns a string containing the item index of selected items. If option=0 (default) only the first selected item is returned. If option=1 then all the selected items are returned delimited by |, e.g: \"0|3|4|10\". If no items are selected a blank  string is returned.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ GetSubItemCount })",
-    "description": "Returns the number of subitems.",
-    "scope": "source.autoit"
+    "ControlListView - GetSelectedCount": {
+        "prefix": "ControlListView-GetSelectedCount",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSelectedCount\")",
+        "description": "Returns the number of items that are selected.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ GetText},${ Item},${ SubItem })",
-    "description": "Returns the text of a given item/subitem.",
-    "scope": "source.autoit"
+    "ControlListView - GetSubItemCount": {
+        "prefix": "ControlListView-GetSubItemCount",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSubItemCount\")",
+        "description": "Returns the number of subitems.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ IsSelected},${ Item })",
-    "description": "Returns 1 if the item is selected, otherwise returns 0.",
-    "scope": "source.autoit"
+    "ControlListView - GetText": {
+        "prefix": "ControlListView-GetText",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetText\", ${Item}, ${SubItem})",
+        "description": "Returns the text of a given item/subitem.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ Select},${ From [},${ To] })",
-    "description": "Selects one or more items.",
-    "scope": "source.autoit"
+    "ControlListView - IsSelected": {
+        "prefix": "ControlListView-IsSelected",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"IsSelected\", ${Item})",
+        "description": "Returns 1 if the item is selected, otherwise returns 0.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ SelectAll })",
-    "description": "Selects all items.",
-    "scope": "source.autoit"
+    "ControlListView - Select": {
+        "prefix": "ControlListView-Select",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"Select\", ${From [}${, ${ To] }})",
+        "description": "Selects one or more items.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ SelectClear })",
-    "description": "Clears the selection of all items.",
-    "scope": "source.autoit"
+    "ControlListView - SelectAll": {
+        "prefix": "ControlListView-SelectAll",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectAll\")",
+        "description": "Selects all items.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ SelectInvert })",
-    "description": "Inverts the current selection.",
-    "scope": "source.autoit"
+    "ControlListView - SelectClear": {
+        "prefix": "ControlListView-SelectClear",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectClear\")",
+        "description": "Clears the selection of all items.",
+        "scope": "source.autoit"
     },
-    "ControlListView": {
-    "prefix": "ControlListView",
-    "body": "ControlListView(${ title},${ text},${ classnameNN},${ ViewChange},${ view })",
-    "description": "Changes the current view. Valid views are list, details, smallicons, largeicons.",
-    "scope": "source.autoit"
+    "ControlListView - SelectInvert": {
+        "prefix": "ControlListView-SelectInvert",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectInvert\")",
+        "description": "Inverts the current selection.",
+        "scope": "source.autoit"
+    },
+    "ControlListView - ViewChange": {
+        "prefix": "ControlListView-ViewChange",
+        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"ViewChange\", ${\"list|details|smallicons|largeicons\"})",
+        "description": "Changes the current view. Valid views are \"list\", \"details\", \"smallicons\", \"largeicons\".",
+        "scope": "source.autoit"
     },
     "ControlMove": {
     "prefix": "ControlMove",
