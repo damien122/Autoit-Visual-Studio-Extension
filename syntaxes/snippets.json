@@ -1096,16 +1096,16 @@
         "scope": "source.autoit"
     },
     "AutoItWinGetTitle": {
-    "prefix": "AutoItWinGetTitle",
-    "body": "AutoItWinGetTitle(${  })",
-    "description": "Retrieves the title of the AutoIt window.",
-    "scope": "source.autoit"
+        "prefix": "AutoItWinGetTitle",
+        "body": "AutoItWinGetTitle()",
+        "description": "Retrieves the title of the AutoIt window.",
+        "scope": "source.autoit"
     },
     "AutoItWinSetTitle": {
-    "prefix": "AutoItWinSetTitle",
-    "body": "AutoItWinSetTitle(${ newtitle })",
-    "description": "Changes the title of the AutoIt window.",
-    "scope": "source.autoit"
+        "prefix": "AutoItWinSetTitle",
+        "body": "AutoItWinSetTitle(\"${newtitle}\")",
+        "description": "Changes the title of the AutoIt window.",
+        "scope": "source.autoit"
     },
     "Beep": {
     "prefix": "Beep",
