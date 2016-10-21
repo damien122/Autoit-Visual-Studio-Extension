@@ -2770,184 +2770,190 @@
     "scope": "source.autoit"
     },
     "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ CaretCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+        "prefix": "Opt",
+        "description": "Changes the operation of various AutoIt functions/parameters.",
+        "body": "Opt(${1: \"option\" [}${2:, ${3:param]}})",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ ExpandEnvStrings [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - CaretCoordMode": {
+        "prefix": "Opt-CaretCoordMode",
+        "body": "Opt(\"CaretCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ ExpandVarStrings [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - ExpandEnvStrings": {
+        "prefix": "Opt-ExpandEnvStrings",
+        "body": "Opt(\"ExpandEnvStrings\", ${0|1})",
+        "description": "Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., \"The temp directory is: %temp%\".\n0 = (default) do not expand environment variables\n1 = expand environment variables",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUICloseOnESC [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - ExpandVarStrings": {
+        "prefix": "Opt-ExpandVarStrings",
+        "body": "Opt(\"ExpandVarStrings\", ${0|1})",
+        "description": "Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., \"The value of var1 is $var1$\".\n0 = (default) do not expand variables\n1 = expand variables (when in this mode and you want to use a literal $ or @ then double it up: \"This is a single dollar $$ sign\".",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUICoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUICloseOnESC": {
+        "prefix": "Opt-GUICloseOnESC",
+        "body": "Opt(\"GUICloseOnESC\", ${0|1})",
+        "description": "When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.\n0 = Don't send the $GUI_EVENT_CLOSE message when ESC is pressed.\n1 = (default) Send() the $GUI_EVENT_CLOSE message when ESC is pressed.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUIDataSeparatorChar [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUICoordMode": {
+        "prefix": "Opt-GUICoordMode",
+        "body": "Opt(\"GUICoordMode\", ${0|1|2})",
+        "description": "Alters the position of a control defined by GUICtrlSetPos().\n0 = relative position to the start of the last control (upper left corner).\n1 = (default) absolute coordinates still relative to the dialog box.\n2 = cell positioning relative to current cell. A -1 for left or top parameter don't increment the start.\nSo next line is -1, offset; next cell is offset,-1; current cell is -1,-1.\nObviously \"offset\" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUIOnEventMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUIDataSeparatorChar": {
+        "prefix": "Opt-GUIDataSeparatorChar",
+        "body": "Opt(\"GUIDataSeparatorChar\", \"${char}\")",
+        "description": "Define the character which delimits subitems in GUICtrlSetData().\nThe default character is '|'.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUIResizeMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUIOnEventMode": {
+        "prefix": "Opt-GUIOnEventMode",
+        "body": "Opt(\"GUIOnEventMode\", ${0=disable/1=enable})",
+        "description": "Enable/disable OnEvent functions notifications.\n0 = (default) disable.\n1 = enable.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ GUIEventOptions [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUIResizeMode": {
+        "prefix": "Opt-GUIResizeMode",
+        "body": "Opt(\"GUIResizeMode\", ${param})",
+        "description": "Change default resizing for a control.\n0 = (default) keep default control resizing.\n<1024 = any type of resizing see GUICtrlSetResizing().",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ MouseClickDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - GUIEventOptions": {
+        "prefix": "Opt-GUIEventOptions",
+        "body": "Opt(\"GUIEventOptions\", ${param})",
+        "description": "Change special event behavior or GUI function return values.\n0 = (default) Windows behavior on click on Minimize,Restore, Maximize, Resize.\n1 = suppress windows behavior on minimize, restore or maximize click button or window resize. Just sends the notification.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ MouseClickDownDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - MouseClickDelay": {
+        "prefix": "Opt-MouseClickDelay",
+        "body": "Opt(\"MouseClickDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause in between mouse clicks.\nTime in milliseconds to pause (default=10).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ MouseClickDragDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - MouseClickDownDelay": {
+        "prefix": "Opt-MouseClickDownDelay",
+        "body": "Opt(\"MouseClickDownDelay\", ${milliseconds})",
+        "description": "Alters the length a click is held down before release.\nTime in milliseconds to pause (default=10).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ MouseCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - MouseClickDragDelay": {
+        "prefix": "Opt-MouseClickDragDelay",
+        "body": "Opt(\"MouseClickDragDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause at the start and end of a mouse drag operation.\nTime in milliseconds to pause (default=250).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ MustDeclareVars [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - MouseCoordMode": {
+        "prefix": "Opt-MouseCoordMode",
+        "body": "Opt(\"MouseCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ PixelCoordMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - MustDeclareVars": {
+        "prefix": "Opt-MustDeclareVars",
+        "body": "Opt(\"MustDeclareVars\", ${0|1})",
+        "description": "If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.\n0 = (default) Variables don't need to be pre-declared\n1 = Variables must be pre-declared. See Dim / Global / Local / Const for details on declaring variables.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ SendAttachMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - PixelCoordMode": {
+        "prefix": "Opt-PixelCoordMode",
+        "body": "Opt(\"PixelCoordMode\", ${0|1|2})",
+        "description": "Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):\n0 = relative coords to the defined window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the defined window",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ SendCapslockMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - SendAttachMode": {
+        "prefix": "Opt-SendAttachMode",
+        "body": "Opt(\"SendAttachMode\", ${0|1})",
+        "description": "Specifies if AutoIt attaches input threads when using Send() function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the Send(\"{... down/up}\") syntax will not work and there may be problems with sending keys to \"hung\" windows. ControlSend() ALWAYS attaches and is not affected by this mode.\n0 = (default) don't attach\n1 = attach",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ SendKeyDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - SendCapslockMode": {
+        "prefix": "Opt-SendCapslockMode",
+        "body": "Opt(\"SendCapslockMode\", ${0|1})",
+        "description": "Specifies if AutoIt should store the state of capslock before a Send() function and restore it afterwards.\n0 = don't store/restore\n1 = (default) store and restore",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ SendKeyDownDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - SendKeyDelay": {
+        "prefix": "Opt-SendKeyDelay",
+        "body": "Opt(\"SendKeyDelay\", ${milliseconds})",
+        "description": "Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TCPTimeout [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - SendKeyDownDelay": {
+        "prefix": "Opt-SendKeyDownDelay",
+        "body": "Opt(\"SendKeyDownDelay\", ${milliseconds})",
+        "description": "Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TrayAutoPause [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TCPTimeout": {
+        "prefix": "Opt-TCPTimeout",
+        "body": "Opt(\"TCPTimeout\", ${milliseconds})",
+        "description": "Defines the time before TCP functions stop if no communication.\nTime in milliseconds before timeout (default=100).",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TrayIconDebug [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TrayAutoPause": {
+        "prefix": "Opt-TrayAutoPause",
+        "body": "Opt(\"TrayAutoPause\", ${0|1})",
+        "description": "Script pauses when click on tray icon.\n0 = no pause\n1 = (default) pause. If there is no DefaultMenu no pause will occurs.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TrayIconHide [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TrayIconDebug": {
+        "prefix": "Opt-TrayIconDebug",
+        "body": "Opt(\"TrayIconDebug\", ${0|1})",
+        "description": "If enabled shows the current script line in the tray icon tip to help debugging.\n0 = (default) no debug information\n1 = show debug",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TrayMenuMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TrayIconHide": {
+        "prefix": "Opt-TrayIconHide",
+        "body": "Opt(\"TrayIconHide\", ${0|1})",
+        "description": "Hides the AutoIt tray icon. Note: The icon will still initially appear for ~750 milliseconds.\n0 = (default) show icon\n1 = hide icon",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ TrayOnEventMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TrayMenuMode": {
+        "prefix": "Opt-TrayMenuMode",
+        "body": "Opt(\"TrayMenuMode\", ${param})",
+        "description": "Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.\n0 = (default) default menu items (Script Paused/Exit) are appended to the usercreated menu; items will automatically be checked/unchecked when clicked; double clicking the tray icon returns the controlID of the $TRAY_DEFAULT item.\n1 = no default menu\n2 = items will not automatically check/uncheck when clicked\n4 = do not return the $TRAY_DEFAULT item controlID when the tray icon is double clicked\n8 = turn off auto check of radio item groups",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ WinDetectHiddenText [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - TrayOnEventMode": {
+        "prefix": "Opt-TrayOnEventMode",
+        "body": "Opt(\"TrayOnEventMode\", ${0|1})",
+        "description": "Enable/disable OnEvent functions notifications for the tray.\n0 = (default) disable\n1 = enable",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ WinSearchChildren [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - WinDetectHiddenText": {
+        "prefix": "Opt-WinDetectHiddenText",
+        "body": "Opt(\"WinDetectHiddenText\", ${0|1})",
+        "description": "Specifies if hidden window text can be \"seen\" by the window matching functions.\n0 = (default) Do not detect hidden text\n1 = Detect hidden text",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ WinTextMatchMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - WinSearchChildren": {
+        "prefix": "Opt-WinSearchChildren",
+        "body": "Opt(\"WinSearchChildren\", ${0|1})",
+        "description": "Allows the window search routines to search child windows as well as top-level windows.\n0 = (default) Only search top-level windows\n1 = Search top-level and child windows",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ WinTitleMatchMode [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - WinTextMatchMode": {
+        "prefix": "Opt-WinTextMatchMode",
+        "body": "Opt(\"WinTextMatchMode\", ${1|2})",
+        "description": "Alters the method that is used to match window text during search operations.\n1 = (default) Complete / Slow mode\n2 = Quick mode\nIn quick mode AutoIt can usually only \"see\" dialog text, button text and the captions of some controls. In the default mode much more text can be seen (for instance the contents of the Notepad window).\nIf you are having performance problems when performing many window searches then changing to the \"quick\" mode may help.",
+        "scope": "source.autoit"
     },
-    "Opt": {
-    "prefix": "Opt",
-    "body": "Opt(${ WinWaitDelay [},${ param ] })",
-    "description": "",
-    "scope": "source.autoit"
+    "Opt - WinTitleMatchMode": {
+        "prefix": "Opt-WinTitleMatchMode",
+        "body": "Opt(\"WinTitleMatchMode\", ${-1|-2|-3|-4|1|2|3|4})",
+        "description": "Alters the method that is used to match window titles during search operations.\n1 = (default) Match the title from the start\n2 = Match any substring in the title\n3 = Exact title match\n4 = Advanced mode (retained for backwards compatibility only\n-1 to -4 = Case insensitive match according to the other type of match.",
+        "scope": "source.autoit"
+    },
+    "Opt - WinWaitDelay": {
+        "prefix": "Opt-WinWaitDelay",
+        "body": "Opt(\"WinWaitDelay\", ${milliseconds})",
+        "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
+        "scope": "source.autoit"
     },
     "Ping": {
     "prefix": "Ping",
