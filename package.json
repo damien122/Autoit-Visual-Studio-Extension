@@ -3,7 +3,7 @@
 	"displayName": "AutoIt",
 	"description": "AutoIt",
 	"version": "0.0.5",
-	"publisher": "loganch",
+	"publisher": "Damien",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
@@ -22,8 +22,8 @@
 	"activationEvents": [
 			"onCommand:extension.runScript",
 			"onCommand:extension.launchHelp",
-			"onCommand:extension.launchInfo",
-			"onLanguage:autoit"
+			"onCommand:extension.launchInfo"//,
+			// "onLanguage:autoit"
 	],
 	"scripts": {
 		 "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
