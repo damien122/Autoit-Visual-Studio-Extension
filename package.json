@@ -22,8 +22,7 @@
 	"activationEvents": [
 			"onCommand:extension.runScript",
 			"onCommand:extension.launchHelp",
-			"onCommand:extension.launchInfo"//,
-			// "onLanguage:autoit"
+			"onCommand:extension.launchInfo"
 	],
 	"scripts": {
 		 "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
