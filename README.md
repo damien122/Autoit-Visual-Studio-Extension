@@ -6,9 +6,9 @@ and developed from Damien122's release.
 ## Features
 
 * Show AutoIt Syntax highlighting
-* Snippets for almost everything
-* Launch scripts from VSC
-* Get AutoIt Help for highlighted text 
+* Snippets for Functions, Packaged UDFs, and Macros
+* Launch scripts from VSCode
+* Launch AutoIt Help for highlighted text 
 
 ## GitHub
-Check out the code and leave feedback and feature requests on [GitHub](https://github.com/loganch/AutoIt-VSCode)
+Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
