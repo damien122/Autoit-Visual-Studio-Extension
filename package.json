@@ -24,10 +24,6 @@
 			"onCommand:extension.launchHelp",
 			"onCommand:extension.launchInfo"
 	],
-	"scripts": {
-		 "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-		 "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
 	"contributes": {
 		"languages": [{
 			"id": "autoit",
