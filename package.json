@@ -19,7 +19,8 @@
 	"activationEvents": [
 			"onCommand:extension.runScript",
 			"onCommand:extension.launchHelp",
-			"onCommand:extension.launchInfo"
+			"onCommand:extension.launchInfo",
+			"onCommand:extension.debugMsgBox"
 	],
 	"contributes": {
 		"languages": [{
@@ -37,6 +38,9 @@
 		}, {
 			"command": "extension.launchInfo",
 			"title": "AutoIt - Au3Info"
+		}, {
+			"command": "extension.debugMsgBox",
+			"title": "AutoIt - Debug to MsgBox"
 		}],
 		"grammars": [{
 			"language": "autoit",
@@ -60,6 +64,10 @@
 		}, {
 			"command": "extension.launchInfo",
 			"key": "ctrl+f6",
+			"when": "editorTextFocus"
+		}, {
+			"command": "extension.debugMsgBox",
+			"key": "ctrl+shift+d",
 			"when": "editorTextFocus"
 		}],
 		"repository": {

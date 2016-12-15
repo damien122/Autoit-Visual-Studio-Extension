@@ -51,6 +51,35 @@ function activate(context) {
         launch('C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe')
     });
 
+    //Debug MsgBox
+    var debugMsgBox = vscode.commands.registerCommand('extension.debugMsgBox', function () {
+        var editor = vscode.window.activeTextEditor;
+
+        if  (!editor) {
+            return; // No open text editor
+        }
+
+        var selection = editor.selection;
+        var varToDebug = editor.document.getText(selection);
+        //Make sure that a variable is selected
+        if (varToDebug.charAt(0) !== "$") {
+            vscode.window.showErrorMessage("Select a variable to generate a Debug MessageBox");
+            return;
+        } else {
+            // Get the line for the new MsgBox
+            var nextLine = editor.selection.active.line + 1;
+            // vscode.window.showInformationMessage(currentLine + " is the current line");
+
+            editor.edit(edit => {
+                edit.insert(new vscode.Position(nextLine, 0), 
+                "MsgBox(262144, 'Debug line ~' & @ScriptLineNumber - 1, 'Selection:' & @CRLF & '${varToDebug}' & @CRLF & @CRLF & 'Return:' & @CRLF & " + varToDebug + ") ;### Debug MSGBOX \n")
+            });
+        }
+        
+
+
+    });
+
     context.subscriptions.push(runScript);
 }
 exports.activate = activate;
