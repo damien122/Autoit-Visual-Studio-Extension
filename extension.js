@@ -51,7 +51,7 @@ function activate(context) {
         launch('C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe')
     });
 
-    //Debug MsgBox
+    //Insert a Debug MsgBox
     var debugMsgBox = vscode.commands.registerCommand('extension.debugMsgBox', function () {
         var editor = vscode.window.activeTextEditor;
 
@@ -61,23 +61,25 @@ function activate(context) {
 
         var selection = editor.selection;
         var varToDebug = editor.document.getText(selection);
-        //Make sure that a variable is selected
-        if (varToDebug.charAt(0) !== "$") {
-            vscode.window.showErrorMessage("Select a variable to generate a Debug MessageBox");
-            return;
-        } else {
-            // Get the line for the new MsgBox
-            var nextLine = editor.selection.active.line + 1;
-            // vscode.window.showInformationMessage(currentLine + " is the current line");
-
-            editor.edit(edit => {
-                edit.insert(new vscode.Position(nextLine, 0), 
-                "MsgBox(262144, 'Debug line ~' & @ScriptLineNumber - 1, 'Selection:' & @CRLF & '${varToDebug}' & @CRLF & @CRLF & 'Return:' & @CRLF & " + varToDebug + ") ;### Debug MSGBOX \n")
-            });
-        }
         
+        //Make sure that a variable or macro is selected
+        if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
+            // Get the value of the next line after selected variable for the new MsgBox
+            var nextLine = editor.selection.active.line + 1;
+            var newPosition = new vscode.Position(nextLine, 0);
+            
+            var debugCode = "MsgBox(262144, 'Debug line ~' & @ScriptLineNumber - 1, 'Selection:' & @CRLF & '";
+            debugCode +=  varToDebug + "' & @CRLF & @CRLF & 'Return:' & @CRLF & " + varToDebug
+            debugCode += ") ;### Debug MSGBOX\n";
 
-
+            //Insert the code for the MsgBox into the script
+            editor.edit(edit => {
+                edit.insert(newPosition, debugCode)
+            });
+        } else {
+            vscode.window.showErrorMessage("Select a variable or macro to generate a Debug MessageBox");
+            return;
+        }
     });
 
     context.subscriptions.push(runScript);
