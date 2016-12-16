@@ -2,6 +2,7 @@
 	"name": "autoit",
 	"displayName": "AutoIt",
 	"description": "AutoIt",
+	"icon": "img/ai_icon.png",
 	"version": "0.0.5",
 	"publisher": "Damien",
 	"galleryBanner": {
