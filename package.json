@@ -7,7 +7,7 @@
 	"publisher": "Damien",
 	"galleryBanner": {
 		"color": "#254768",
-		"theme": "light"
+		"theme": "dark"
 	},
 	"engines": {
 		"vscode": "^0.10.1"
