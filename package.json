@@ -28,6 +28,11 @@
 			"onCommand:extension.launchInfo",
 			"onCommand:extension.debugMsgBox"
 	],
+	"repository": {
+			"type": "git",
+			"url": "https://github.com/loganch/AutoIt-VSCode.git"
+		},
+	"homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md",
 	"contributes": {
 		"languages": [{
 			"id": "autoit",
@@ -82,11 +87,6 @@
 			"command": "extension.debugMsgBox",
 			"key": "ctrl+shift+d",
 			"when": "editorTextFocus"
-		}],
-		"repository": {
-			"type": "git",
-			"url": "https://github.com/loganch/AutoIt-VSCode.git"
-		},
-		"homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md"
+		}]
 	}
 }
