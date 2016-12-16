@@ -60,7 +60,7 @@ function activate(context) {
         }
 
         var selection = editor.selection;
-        var varToDebug = editor.document.getText(selection);
+        var varToDebug = editor.document.getText(selection).trim();
         
         //Make sure that a variable or macro is selected
         if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
