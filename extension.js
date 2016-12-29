@@ -7,8 +7,9 @@ var launch = require('child_process').execFile;
 // your extension is activated the very first time the command is executed
 function activate(context) {
 
-    var aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"
-    var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"
+    var aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
+    var wrapperPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3";
+    var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe";
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
     console.log('AutoIt is now active!');
@@ -80,6 +81,22 @@ function activate(context) {
             vscode.window.showErrorMessage("Select a variable or macro to generate a Debug MessageBox");
             return;
         }
+    });
+
+    //Compile scripts
+    var compile = vscode.commands.registerCommand('extension.compile', function () {
+        //Save the file
+        vscode.window.activeTextEditor.document.save();
+        //Get the current file name
+        var thisFile = vscode.window.activeTextEditor.document.fileName;
+        
+        //Launch the AutoIt Wrapper executable with the script's path
+        launch(aiPath, [wrapperPath, '/prod', '/in', thisFile], (err, stdout, stderr) => {
+            if (err) {
+                vscode.window.showErrorMessage(err);
+                return;
+            }
+        });
     });
 
     context.subscriptions.push(runScript);
