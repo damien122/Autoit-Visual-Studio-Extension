@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.0.8
+* Structure adjustment of the extension.
+* Added more snippets.
+
 ## 0.0.7
 * Implemented an option to compile scripts (Currently the AutoIt3Wrapper folder must be present in the "C:\Program Files (x86)\AutoIt3\SciTE" directory)
 
