@@ -7,7 +7,7 @@
 	"publisher": "Damien",
 	"galleryBanner": {
 		"color": "#254768",
-		"theme": "light"
+		"theme": "dark"
 	},
 	"engines": {
 		"vscode": "^0.10.1"
@@ -28,6 +28,11 @@
 			"onCommand:extension.launchInfo",
 			"onCommand:extension.debugMsgBox"
 	],
+	"repository": {
+			"type": "git",
+			"url": "https://github.com/loganch/AutoIt-VSCode.git"
+		},
+	"homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md",
 	"contributes": {
 		"languages": [{
 			"id": "autoit",
@@ -80,11 +85,6 @@
 			"command": "extension.debugMsgBox",
 			"key": "ctrl+shift+d",
 			"when": "editorTextFocus"
-		}],
-		"repository": {
-			"type": "git",
-			"url": "https://github.com/loganch/AutoIt-VSCode.git"
-		},
-		"homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md"
+		}]
 	}
 }
