@@ -22,11 +22,7 @@
 	},
 	"main": "./out/src/extension",
 	"activationEvents": [
-			"onCommand:extension.runScript",
-			"onCommand:extension.compile",
-			"onCommand:extension.launchHelp",
-			"onCommand:extension.launchInfo",
-			"onCommand:extension.debugMsgBox"
+			"onLanguage:autoit"
 	],
 	"repository": {
 			"type": "git",
