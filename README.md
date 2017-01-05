@@ -7,7 +7,7 @@ and developed from Damien122's release.
 
 * Show AutoIt Syntax highlighting
 * Snippets for Functions, Packaged UDFs, and Macros
-* Launch scripts from VSCode
+* Launch and compile scripts from VSCode
 * Launch AutoIt Help for highlighted text 
 
 ## GitHub
