@@ -1,8 +1,9 @@
 {
 	"name": "autoit",
 	"displayName": "AutoIt",
+	"description": "AutoIt language extension for Visual Studio Code",
 	"icon": "img/ai_icon.png",
-	"version": "0.0.6",
+	"version": "0.0.8",
 	"publisher": "Damien",
 	"galleryBanner": {
 		"color": "#254768",
@@ -19,7 +20,7 @@
 		"vscode": "^0.11.x",
 		"typescript": "^1.6.2"
 	},
-	"main": "./extension",
+	"main": "./out/src/extension",
 	"activationEvents": [
 			"onCommand:extension.runScript",
 			"onCommand:extension.compile",
@@ -37,7 +38,7 @@
 			"id": "autoit",
 			"aliases": ["AutoIt", "autoit"],
 			"extensions": [".au3"],
-			"configuration": "./autoit-language-configuration.json"
+			"configuration": "./syntaxes/autoit-language-configuration.json"
 		}],
 		"commands": [{ 
 			"command": "extension.runScript",
@@ -60,12 +61,10 @@
 			"scopeName": "source.autoit",
 			"path": "./syntaxes/autoit.tmLanguage"
 		}],
-		"snippets": [
-			{
-				"language": "autoit",
-				"path": "./syntaxes/snippets.json"
-			}
-		],
+		"snippets": [{
+			"language": "autoit",
+			"path": "./snippets/autoit.json"
+		}],
 		"keybindings": [{
 			"command": "extension.runScript",
 			"key": "f5",
