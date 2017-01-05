@@ -16,9 +16,6 @@
 		"Languages",
 		"Snippets"
 	],
-	"dependencies": {
-		"vscode-languageclient": "^2.6.3"
-	},
 	"devDependencies": {
 		"vscode": "^0.11.x",
 		"typescript": "^1.6.2"
