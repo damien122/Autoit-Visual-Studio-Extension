@@ -1,16 +1,32 @@
 {
+
+    "@AppDataCommonDir": [
+        "`@AppDataCommonDir` _(macro)_",
+        "Path to Application Data"
+    ],
 	"@exitCode": [
 		"`@exitCode` _(macro)_",
 		"Exit code as set by Exit statement."
 	],
+    
 	"_Array1DToHistogram": [
 		"`_Array1DToHistogram ( $aArray [, $iSizing = 100] )` _(function)_",
 		"Transform a 1D array to Histogram"
 	],
-	"ClipGet": ["`ClipGet ( )` _(function)_",
+	"ClipGet": [
+        "`ClipGet ( )` _(function)_",
 		"Retrieves text from the clipboard."
 	],
-	"ClipPut": ["`ClipPut ( \"value\" )` _(function)_",
+	"ClipPut": [
+        "`ClipPut ( \"value\" )` _(function)_",
 		"Writes text to the clipboard."
-	]
+	],
+    "ConsoleWrite": [
+        "`ConsoleWrite ( \"data\" )` _(function)_",
+        "Writes data to the STDOUT stream."
+    ],
+    "MsgBox": [
+        "`MsgBox ( flag, \"title\", \"text\" [, timeout = 0 [, hwnd]] )` _(function)_",
+        "Displays a simple message box with optional timeout."
+    ]
 }
