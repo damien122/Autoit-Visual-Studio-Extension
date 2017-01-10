@@ -1,0 +1,16 @@
+{
+	"@exitCode": [
+		"`@exitCode` _(macro)_",
+		"Exit code as set by Exit statement."
+	],
+	"_Array1DToHistogram": [
+		"`_Array1DToHistogram ( $aArray [, $iSizing = 100] )` _(function)_",
+		"Transform a 1D array to Histogram"
+	],
+	"ClipGet": ["`ClipGet ( )` _(function)_",
+		"Retrieves text from the clipboard."
+	],
+	"ClipPut": ["`ClipPut ( \"value\" )` _(function)_",
+		"Writes text to the clipboard."
+	]
+}
