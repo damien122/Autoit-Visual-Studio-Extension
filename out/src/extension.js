@@ -2,27 +2,11 @@
 // Import the module and reference it with the alias vscode in your code below
 var { languages, Hover, commands } = require('vscode');
 var ai_commands  = require("./ai_commands");
+var ai_hover = require('./ai_hover');
 
 function activate(ctx) {
 
-    ctx.subscriptions.push(languages.registerHoverProvider({ language: 'autoit', scheme: 'file' }, {
-        provideHover(document, position, token) {
-            let wordRange = document.getWordRangeAtPosition(position);
-	        let lineText = document.lineAt(position.line).text;
-            let word = wordRange ? document.getText(wordRange) : '';
-            let hover;
-
-            switch(word) {
-                case 'ClipGet':
-                    hover = "(function) ClipGet() - Retrieves text from the clipboard."        
-                    break;
-                default:
-                    
-                    break;
-            }
-            return new Hover(hover);
-        }
-    }));
+    ctx.subscriptions.push(ai_hover);
     
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated

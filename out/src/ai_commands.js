@@ -20,7 +20,7 @@ module.exports = {
         launch(aiPath, [thisFile, '/run', '/prod', '/ErrorStdOut', '/in'], (err, stdout, stderr) => {
             if (err) {
                 window.showErrorMessage(err);
-                console.log(stderr);
+                console.error(stderr);
                 return;
             }
             
@@ -88,10 +88,10 @@ module.exports = {
         launch(aiPath, [wrapperPath, '/prod', '/in', thisFile], (err, stdout, stderr) => {
             if (err) {
                 window.showErrorMessage(stderr);
-                console.log(stderr);
+                console.error(stderr);
                 return;
             }
             console.log(stdout);
-        })
+        });
     }
 };
