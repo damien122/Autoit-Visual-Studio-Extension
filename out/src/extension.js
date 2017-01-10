@@ -1,6 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-var { languages, Hover, commands } = require('vscode');
+var { languages, Hover, commands, workspace } = require('vscode');
 var ai_commands  = require("./ai_commands");
 var ai_hover = require('./ai_hover');
 
@@ -12,11 +12,15 @@ function activate(ctx) {
     // This line of code will only be executed once when your extension is activated
     console.log('AutoIt is now active!');
 
+    ctx.subscriptions.push(languages.setLanguageConfiguration(
+        'autoit', { wordPattern: /(-?\d.\d\w)|([^`~!#\%\^\&*()-\=+[{\]}\|\;\:\'\"\,.\<>\/\?\s]+)/ }));
+
     commands.registerCommand('extension.runScript', () => {
         ai_commands.runScript();
     }); // Run Script Command
     commands.registerCommand('extension.launchHelp', () => {
         ai_commands.launchHelp();
+        
     }); // Launch Help Command
     commands.registerCommand('extension.launchInfo', () => {
         ai_commands.launchInfo();
