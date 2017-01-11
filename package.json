@@ -46,6 +46,9 @@
 			"command": "extension.compile",
 			"title": "AutoIt - Compile"
 		}, {
+			"command": "extension.build",
+			"title": "AutoIt - Build"
+		}, {
 			"command": "extension.launchHelp",
 			"title": "AutoIt - Help"
 		}, {
@@ -70,6 +73,10 @@
 			"when": "editorTextFocus"
 		}, {
 			"command": "extension.compile",
+			"key": "ctrl+f7",
+			"when": "editorTextFocus"
+		}, {
+			"command": "extension.build",
 			"key": "f7",
 			"when": "editorTextFocus"
 		}, {

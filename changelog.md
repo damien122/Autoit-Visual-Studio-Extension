@@ -1,7 +1,11 @@
 # AutoIt-VSCode Changelog
 
-##0.0.9
-* Added console output for running and compiling scripts
+## 0.0.9
+* Running, compiling and building will now require the full install of SciTE4AutoIt3 (found [here](https://www.autoitscript.com/site/autoit-script-editor/downloads/)) in the default install location
+* Changed compile command to closer reflect SciTe4AutoIt3 version (Opens GUI)
+* Implemented build command, which works similar to previous compile command
+* Added console output for running, compiling and building scripts
+* Run, compile and build commands exit early if current file isn't AutoIt
 * Implemented first steps for the hover feature
 
 ## 0.0.8

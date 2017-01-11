@@ -6,25 +6,35 @@ const aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
 const wrapperPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3";
 var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe";
 
+var aiOut = window.createOutputChannel('AutoIt');
+
 module.exports = {
     
     runScript: () => {
         var thisDoc = window.activeTextEditor.document; // Get the object of the text editor
         var thisFile = thisDoc.fileName; // Get the current file name
+
+        if (!isAutoIt()) {
+            console.error("Not an AutoIt file!");
+            return;
+        }
         
         // Save the file
         thisDoc.save();
 
         window.setStatusBarMessage("Running the script...", 1500);
+        aiOut.show(true);
         // Launch the AutoIt executable with the script's path
-        launch(aiPath, [thisFile, '/run', '/prod', '/ErrorStdOut', '/in'], (err, stdout, stderr) => {
+        launch(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
+            thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)'], (err, stdout, stderr) => {
             if (err) {
-                window.showErrorMessage(err);
                 console.error(stderr);
+                aiOut.appendLine(stderr);
                 return;
             }
             
             console.log(stdout);
+            aiOut.appendLine(stdout);
         });
     },
 
@@ -79,19 +89,63 @@ module.exports = {
     },
 
     compileScript: () => {
+        if (!isAutoIt()) {
+            console.error("Not an AutoIt file!");
+            return;
+        }
+
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
         var thisFile = window.activeTextEditor.document.fileName;
 
+        window.setStatusBarMessage('Compiling script...', 1500);
+        aiOut.show(true);
         // Launch the AutoIt Wrapper executable with the script's path
-        launch(aiPath, [wrapperPath, '/prod', '/in', thisFile], (err, stdout, stderr) => {
+        launch(aiPath, [wrapperPath, '/ShowGui', '/prod', '/in', thisFile], (err, stdout, stderr) => {
             if (err) {
                 window.showErrorMessage(stderr);
                 console.error(stderr);
+                aiOut.appendLine(stderr);
+                return;
+            }
+            console.info(stdout);
+            aiOut.appendLine(stdout);
+        });
+    },
+
+    buildScript: () => {
+        if (!isAutoIt()) {
+            console.error("Not an AutoIt file!");
+            return;
+        }
+
+        // Save the file
+        window.activeTextEditor.document.save();
+        // Get the current file name
+        var thisFile = window.activeTextEditor.document.fileName;
+
+        window.setStatusBarMessage('Building script...', 1500);
+        aiOut.show(true);
+        // Launch the AutoIt Wrapper executable with the script's path
+        launch(aiPath, [wrapperPath, '/NoStatus', '/prod', '/in', thisFile], (err, stdout, stderr) => {
+            if (err) {
+                window.showErrorMessage(stderr);
+                console.error(stderr);
+                aiOut.appendLine(stderr);
                 return;
             }
             console.log(stdout);
+            aiOut.appendLine(stdout);
         });
+    }
+};
+
+
+function isAutoIt() {
+    if (window.activeTextEditor.document.fileName.indexOf('.au3') > -1) {
+        return true;
+    } else {
+        return false;
     }
 };

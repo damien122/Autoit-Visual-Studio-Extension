@@ -20,7 +20,6 @@ function activate(ctx) {
     }); // Run Script Command
     commands.registerCommand('extension.launchHelp', () => {
         ai_commands.launchHelp();
-        
     }); // Launch Help Command
     commands.registerCommand('extension.launchInfo', () => {
         ai_commands.launchInfo();
@@ -31,7 +30,9 @@ function activate(ctx) {
     commands.registerCommand('extension.compile', () => {
         ai_commands.compileScript();
     }); // Compile scripts
-    
+    commands.registerCommand('extension.build', () => {
+        ai_commands.buildScript();
+    }); // Build scripts
 }
 exports.activate = activate;
 
