@@ -13,6 +13,11 @@
 		"`_Array1DToHistogram ( $aArray [, $iSizing = 100] )` _(function)_",
 		"Transform a 1D array to Histogram"
 	],
+    "_ArrayAdd": [
+        "`_ArrayAdd ( ByRef $aArray, $vValue [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]] )` _(function)_",
+        "Adds a specified value at the end of an existing 1D or 2D array",
+        "Requires #include <Array.au3>"
+    ],
 	"ClipGet": [
         "`ClipGet ( )` _(function)_",
 		"Retrieves text from the clipboard."
@@ -25,8 +30,16 @@
         "`ConsoleWrite ( \"data\" )` _(function)_",
         "Writes data to the STDOUT stream."
     ],
+    "InputBox": [
+        "`InputBox ( \"title\", \"prompt\" [, \"default\" [, \"password char\" [, width = -1 [, height = -1 [, left = Default [, top = Default [, timeout = 0 [, hwnd]]]]]]]] )` _(function)_",
+        "Displays an input box to ask the user to enter a string."
+    ],
     "MsgBox": [
         "`MsgBox ( flag, \"title\", \"text\" [, timeout = 0 [, hwnd]] )` _(function)_",
         "Displays a simple message box with optional timeout."
+    ],
+    "Sleep": [
+        "`Sleep ( delay )` _(function)_",
+        "Pause script execution."
     ]
 }
