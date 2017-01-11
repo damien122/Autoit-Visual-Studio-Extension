@@ -3610,7 +3610,7 @@
     },
     "ClipGet": {
         "prefix": "ClipGet",
-        "body": "ClipGet(${  })",
+        "body": "ClipGet()",
         "description": "Retrieves text from the clipboard.",
         "scope": "source.autoit"
     },
