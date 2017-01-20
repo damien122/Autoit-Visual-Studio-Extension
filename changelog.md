@@ -6,7 +6,7 @@
 * Implemented build command, which works similar to previous compile command
 * Added console output for running, compiling and building scripts
 * Run, compile and build commands exit early if current file isn't AutoIt
-* Implemented first steps for the hover feature
+* Implemented the hover feature and the first fewf hovers
 
 ## 0.0.8
 * Implemented an option to compile scripts (Currently the AutoIt3Wrapper folder must be present in the "C:\Program Files (x86)\AutoIt3\SciTE" directory)
