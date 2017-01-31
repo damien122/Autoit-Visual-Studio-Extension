@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.0
+* Running, compiling and building now generate output live
+* Added the ability to create console debug lines for highlighted variables and macros with Alt+D
+
 ## 0.0.9
 * Running, compiling and building will now require the full install of SciTE4AutoIt3 (found [here](https://www.autoitscript.com/site/autoit-script-editor/downloads/)) in the default install location
 * Changed compile command to closer reflect SciTe4AutoIt3 version (Opens GUI)

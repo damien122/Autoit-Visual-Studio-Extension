@@ -59,23 +59,15 @@ module.exports = {
         var selection = editor.selection;
         var varToDebug = editor.document.getText(selection).trim();
 
-        // Make sure that a variable or macro is selected
-        if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
-            // Get the value of the next line after selected variable for the new MsgBox
-            var nextLine = editor.selection.active.line + 1;
-            var newPosition = new Position(nextLine, 0);
+        var debugText = getDebugText();
 
-            var debugCode = "MsgBox(262144, 'Debug line ~' & @ScriptLineNumber - 1, 'Selection:' & @CRLF & '";
-            debugCode +=  varToDebug + "' & @CRLF & @CRLF & 'Return:' & @CRLF & " + varToDebug;
-            debugCode += ") ;### Debug MSGBOX\n";
+        if (debugText) {
+            var debugCode = `MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text}) ;### Debug MSGBOX\n`;
 
-            // Insert the code for the MsgBox into the script
+            //Insert the code for the MsgBox into the script
             editor.edit(edit => {
-                edit.insert(newPosition, debugCode);
+                edit.insert(debugText.position, debugCode);
             });
-        } else {
-            window.showErrorMessage("Select variable or macro to generate a Debug MsgBox");
-            return;
         }
     },
 
@@ -112,6 +104,25 @@ module.exports = {
         
         // Launch the AutoIt Wrapper executable with the script's path
         procRunner([wrapperPath, '/NoStatus', '/prod', '/in', thisFile]);   
+    },
+
+    debugConsole: () => {
+        var editor = window.activeTextEditor;
+
+        if (!editor) {
+            return; // No open editor
+        }
+
+        var debugText = getDebugText();
+
+        if (debugText) {
+            var debugCode = `ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console\n`;
+
+            //Insert the code for the MsgBox into the script
+            editor.edit(edit => {
+                edit.insert(debugText.position, debugCode);
+            });
+        }
     }
 };
 
@@ -144,4 +155,26 @@ function procRunner(args) {
             console.log(`Process exited with code ${code}`);
             aiOut.appendLine(`Process exited with code ${code}`);
     });
+}
+
+function getDebugText() {
+    var editor = window.activeTextEditor;
+
+    if (!editor) {
+        return; // No open editor
+    }
+
+    var selection = editor.selection;
+    var varToDebug = editor.document.getText(selection).trim();
+
+    // Make sure that a variable or macro is selected
+    if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
+        var nextLine = editor.selection.active.line + 1;
+        var newPosition = new Position(nextLine, 0);
+
+        return {text: varToDebug, position: newPosition};
+    } else {
+        window.showErrorMessage("Select variable or macro to generate a debug line");
+        return {};
+    }
 }

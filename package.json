@@ -54,6 +54,9 @@
 		}, {
 			"command": "extension.debugMsgBox",
 			"title": "AutoIt - Debug to MsgBox"
+		}, {
+			"command": "extension.debugConsole",
+			"title": "AutoIt - Debug to Console"
 		}],
 		"grammars": [{
 			"language": "autoit",
@@ -87,6 +90,10 @@
 		}, {
 			"command": "extension.debugMsgBox",
 			"key": "ctrl+shift+d",
+			"when": "editorTextFocus"
+		}, {
+			"command": "extension.debugConsole",
+			"key": "alt+d",
 			"when": "editorTextFocus"
 		}]
 	}

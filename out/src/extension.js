@@ -33,6 +33,9 @@ function activate(ctx) {
     commands.registerCommand('extension.build', () => {
         ai_commands.buildScript();
     }); // Build scripts
+    commands.registerCommand('extension.debugConsole', () => {
+        ai_commands.debugConsole();
+    })
 }
 exports.activate = activate;
 
