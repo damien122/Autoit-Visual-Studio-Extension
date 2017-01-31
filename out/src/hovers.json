@@ -4,6 +4,22 @@
         "`@AppDataCommonDir` _(macro)_",
         "Path to Application Data"
     ],
+    "@AppDataDir": [
+        "`@AppDataDir` _(macro)_",
+        "Path to current user's Roaming Application Data"
+    ],
+    "@AutoItExe": [
+        "`@AutoItExe` _(macro)_",
+        "The full path and filename of the AutoIt executable currently running. For compiled scripts it is the path of the compiled script; for .a3x and .au3 files it is the path of the interpreter running the file."
+    ],
+    "@AutoItPID": [
+        "`@AutoItPID` _(macro)_",
+        "Process identifier (PID) of the current script."
+    ],
+    "@AutoItVersion": [
+        "`@AutoItVersion` \t_Macro_",
+        "Version number of AutoIt such as 3.3.10.2"
+    ],
 	"@exitCode": [
 		"`@exitCode` _(macro)_",
 		"Exit code as set by Exit statement."
