@@ -1,5 +1,6 @@
 var { window, Position } = require('vscode');
 var launch = require('child_process').execFile;
+const spawn = require('child_process').spawn;
 
 // Executable paths
 const aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
@@ -23,19 +24,9 @@ module.exports = {
         thisDoc.save();
 
         window.setStatusBarMessage("Running the script...", 1500);
-        aiOut.show(true);
-        // Launch the AutoIt executable with the script's path
-        launch(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
-            thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)'], (err, stdout, stderr) => {
-            if (err) {
-                console.error(stderr);
-                aiOut.appendLine(stderr);
-                return;
-            }
-            
-            console.log(stdout);
-            aiOut.appendLine(stdout);
-        });
+                
+        procRunner([wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
+            thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)']);
     },
 
     launchHelp: () => {
@@ -100,18 +91,10 @@ module.exports = {
         var thisFile = window.activeTextEditor.document.fileName;
 
         window.setStatusBarMessage('Compiling script...', 1500);
-        aiOut.show(true);
+
+              
         // Launch the AutoIt Wrapper executable with the script's path
-        launch(aiPath, [wrapperPath, '/ShowGui', '/prod', '/in', thisFile], (err, stdout, stderr) => {
-            if (err) {
-                window.showErrorMessage(stderr);
-                console.error(stderr);
-                aiOut.appendLine(stderr);
-                return;
-            }
-            console.info(stdout);
-            aiOut.appendLine(stdout);
-        });
+        procRunner([wrapperPath, '/ShowGui', '/prod', '/in', thisFile]);
     },
 
     buildScript: () => {
@@ -126,21 +109,11 @@ module.exports = {
         var thisFile = window.activeTextEditor.document.fileName;
 
         window.setStatusBarMessage('Building script...', 1500);
-        aiOut.show(true);
+        
         // Launch the AutoIt Wrapper executable with the script's path
-        launch(aiPath, [wrapperPath, '/NoStatus', '/prod', '/in', thisFile], (err, stdout, stderr) => {
-            if (err) {
-                window.showErrorMessage(stderr);
-                console.error(stderr);
-                aiOut.appendLine(stderr);
-                return;
-            }
-            console.log(stdout);
-            aiOut.appendLine(stdout);
-        });
+        procRunner([wrapperPath, '/NoStatus', '/prod', '/in', thisFile]);   
     }
 };
-
 
 function isAutoIt() {
     if (window.activeTextEditor.document.fileName.indexOf('.au3') > -1) {
@@ -149,3 +122,26 @@ function isAutoIt() {
         return false;
     }
 };
+
+function procRunner(args) {
+    aiOut.show(true);
+
+    var runner = spawn(aiPath, args);
+
+    runner.stdout.on('data', (data) => {
+            var output = data.toString();
+            console.log(output);
+            aiOut.append(output);
+        });
+
+        runner.stderr.on('data', (data) => {
+            var output = data.toString();
+            console.log(output);
+            aiOut.append(output);
+        });
+
+        runner.on('exit', (code) => {
+            console.log(`Process exited with code ${code}`);
+            aiOut.appendLine(`Process exited with code ${code}`);
+    });
+}
