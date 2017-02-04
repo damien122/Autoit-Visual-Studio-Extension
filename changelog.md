@@ -3,7 +3,8 @@
 ## 0.1.0
 * Running, compiling and building now generate output live
 * Added the ability to create console debug lines for highlighted variables and macros with Alt+D
-* Add hovers for all macros
+* Added hovers for all macros
+* Added hovers for all basic AutoIt functions
 
 ## 0.0.9
 * Running, compiling and building will now require the full install of SciTE4AutoIt3 (found [here](https://www.autoitscript.com/site/autoit-script-editor/downloads/)) in the default install location
