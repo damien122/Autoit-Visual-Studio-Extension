@@ -6,5 +6,113 @@
     "_ArrayAdd": [
 		"Adds a specified value at the end of an existing 1D or 2D array",
 		"```\r#include <Array.au3>\r_ArrayAdd ( ByRef $aArray, $vValue [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]] )\r```"
+	],
+	"_ArrayBinarySearch": [
+		"Uses the binary search algorithm to search through a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayBinarySearch ( Const ByRef $aArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iColumn = 0]]] )\r```"
+	],
+	"_ArrayColDelete": [
+		"Deletes a specified column from a 2D array",
+		"```\r#include <Array.au3>\r_ArrayColDelete ( ByRef $aArray, $iColumn [, $bConvert = False] )\r```"
+	],
+	"_ArrayColInsert": [
+		"Inserts a specified column into a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayColInsert ( ByRef $aArray, $iColumn )\r```"
+	],
+	"_ArrayCombinations": [
+		"Returns an array of the combinations of a set of elements from a selected 1D array",
+		"```\r#include <Array.au3>\r_ArrayCombinations ( Const ByRef $aArray, $iSet [, $sDelimiter = \"\"] )\r```"
+	],
+	"_ArrayConcatenate": [
+		"Concatenate two arrays - either 1D or 2D with the same number of columns",
+		"```\r#include <Array.au3>\r_ArrayConcatenate ( Const ByRef $aArrayTarget, ByRef $aArraySource [, $iStart = 0] )\r```"
+	],
+	"_ArrayDelete": [
+		"Deletes the specified element(s) from the specified 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayDelete ( ByRef $aArray, $vRange )\r```"
+	],
+	"_ArrayDisplay": [
+		"Displays a 1D or 2D array in a ListView",
+		"```\r#include <Array.au3>\r_ArrayDisplay ( Const ByRef $aArray [, $sTitle = \"ArrayDisplay\" [, $sArrayRange = \"\" [, $iFlags = 0 [, $vUser_Separator = Default [, $sHeader = Default [, $iMax_ColWidth = Default [, $iAlt_Color = Default [, $hUser_Function = \"\"]]]]]]]] )\r```"
+	],
+	"_ArrayExtract": [
+		"Extracts an array from the specified element(s) of a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayExtract ( Const ByRef $aArray [, $iStart_Row = -1 [, $iEnd_Row = -1 [, $iStart_Col = -1 [, $iEnd_Col = -1]]]] )\r```"
+	],
+	"_ArrayFindAll": [
+		"Find the indices of all ocurrences of a search query between two points in a 1D or 2D array using `_ArraySearch()`",
+		"```\r#include <Array.au3>\r_ArrayFindAll ( Const ByRef $aArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare = 0 [, $iSubItem = 0 [, $bRow = False]]]]]] )\r```"
+	],
+	"_ArrayInsert": [
+		"Insert a new value at the specified position of a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayInsert ( ByRef $aArray, $vRange [, $vValue = \"\" [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]]] )\r```"
+	],
+	"_ArrayMax": [
+		"Returns the highest value held in a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayMax ( Const ByRef $aArray [, $iCompNumeric = 0 [, $iStart = -1 [, $iEnd = -1 [, $iSubItem = 0]]]] )\r```"
+	],
+	"_ArrayMaxIndex": [
+		"Returns the index where the highest value occurs in a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayMaxIndex ( Const ByRef $aArray [, $iCompNumeric = 0 [, $iStart = -1 [, $iEnd = -1 [, $iSubItem = 0]]]] )\r```"
+	],
+	"_ArrayMin": [
+		"Returns the lowest value held in a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayMin ( Const ByRef $aArray [, $iCompNumeric = 0 [, $iStart = -1 [, $iEnd = -1 [, $iSubItem = 0]]]] )\r```"
+	],
+	"_ArrayMinIndex": [
+		"Returns the index where the lowest value occurs in a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayMinIndex ( Const ByRef $aArray [, $iCompNumeric = 0 [, $iStart = -1 [, $iEnd = -1 [, $iSubItem = 0]]]] )\r```"
+	],
+	"_ArrayPermute": [
+		"Returns an array of the Permutations of all Elements in a 1D array",
+		"```\r#include <Array.au3>\r_ArrayPermute ( ByRef $aArray [, $sDelimiter = \"\"] )\r```"
+	],
+	"_ArrayPop": [
+		"Returns the last element of an array, deleting that element from the array at the same time",
+		"```\r#include <Array.au3>\r_ArrayPop ( ByRef $aArray )\r```"
+	],
+	"_ArrayPush": [
+		"Add new values without increasing array size by inserting at the end the new value and deleting the first one or vice versa",
+		"```\r#include <Array.au3>\r_ArrayPush ( ByRef $aArray, $vValue [, $iDirection = 0] )\r```"
+	],
+	"_ArrayReverse": [
+		"Takes the given array and reverses the order in which the elements appear in a 1D array",
+		"```\r#include <Array.au3>\r_ArrayReverse ( ByRef $aArray [, $iStart = 0 [, $iEnd = 0]] )\r```"
+	],
+	"_ArraySearch": [
+		"Finds an entry within a 1D or 2D array. Similar to `_ArrayBinarySearch()`, except that the array does not need to be sorted",
+		"```\r#include <Array.au3>\r_ArraySearch ( Const ByRef $aArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iCase = 0 [, $iCompare = 0 [, $iForward = 1 [, $iSubItem = -1 [, $bRow = False]]]]]]] )\r```"
+	],
+	"_ArrayShuffle": [
+		"Shuffles selected rows of 1D or 2D arrays - can be limited to a specific column in 2D arrays",
+		"```\r#include <Array.au3>\r_ArrayShuffle ( ByRef $aArray [, $iStart_Row = 0 [, $iEnd_Row = 0 [, $iCol = -1]]] )\r```"
+	],
+	"_ArraySort": [
+		"Sort a 1D or 2D array on a specific index using the dualpivotsort/quicksort/insertionsort algorithms",
+		"```\r#include <Array.au3>\r_ArraySort ( ByRef $aArray [, $iDescending = 0 [, $iStart = 0 [, $iEnd = 0 [, $iSubItem = 0 [, $iPivot = 0]]]]] )\r```"
+	],
+	"_ArraySwap": [
+		"Swaps elements of a 1D array and full or part rows/columns of a 2D array",
+		"```\r#include <Array.au3>\r_ArraySwap ( ByRef $aArray, $iIndex_1, $iIndex_2 [, $bCol = False [, $iStart = -1 [, $iEnd = -1]]] )\r```"
+	],
+	"_ArrayToClip": [
+		"Sends the contents of a 1D or 2D array to the clipboard, each element separated by a specified delimiter",
+		"```\r#include <Array.au3>\r_ArrayToClip ( Const ByRef $aArray [, $sDelim_Col = \"|\" [, $iStart_Row = -1 [, $iEnd_Row = -1 [, $sDelim_Row = @CRLF [, $iStart_Col = -1 [, $iEnd_Col = -1]]]]]] )\r```"
+	],
+	"_ArrayToString": [
+		"Places the elements of a 1D or 2D array into a single string, separated by the specified delimiters",
+		"```\r#include <Array.au3>\r_ArrayToString ( Const ByRef $aArray [, $sDelim_Col = \"|\" [, $iStart_Row = -1 [, $iEnd_Row = -1 [, $sDelim_Row = @CRLF [, $iStart_Col = -1 [, $iEnd_Col = -1]]]]]] )\r```"
+	],
+	"_ArrayTranspose": [
+		"Transposes a 1D or 2D array (swaps rows and columns)",
+		"```\r#include <Array.au3>\r_ArrayTranspose ( ByRef $aArray )\r```"
+	],
+	"_ArrayTrim": [
+		"Trims a certain number of characters from all elements in a 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayTrim ( ByRef $aArray, $iTrimNum [, $iDirection = 0 [, $iStart = 0 [, $iEnd = 0 [, $iSubItem = 0]]]] )\r```"
+	],
+	"_ArrayUnique": [
+		"Returns the Elements from a column of a 1D or 2D array, removing all duplicates",
+		"```\r#include <Array.au3>\r_ArrayUnique ( Const ByRef $aArray [, $iColumn = 0 [, $iBase = 0 [, $iCase = 0 [, $iCount = $ARRAYUNIQUE_COUNT [, $iIntType = $ARRAYUNIQUE_AUTO]]]]] )\r```"
 	]
 }
