@@ -1,0 +1,10 @@
+{
+    "_Array1DToHistogram": [
+		"Transform a 1D array to Histogram",
+		"```\r#include <Array.au3>\r_Array1DToHistogram ( $aArray [, $iSizing = 100] )\r```"
+	],
+    "_ArrayAdd": [
+		"Adds a specified value at the end of an existing 1D or 2D array",
+		"```\r#include <Array.au3>\r_ArrayAdd ( ByRef $aArray, $vValue [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]] )\r```"
+	]
+}
