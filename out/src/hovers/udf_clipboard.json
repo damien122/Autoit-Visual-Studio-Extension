@@ -1,0 +1,82 @@
+{
+    "_ClipBoard_ChangeChain": [
+		"Removes a specified window from the chain of clipboard viewers",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_ChangeChain ( $hRemove, $hNewNext )\r```"
+	],
+    "_ClipBoard_Close": [
+		"Closes the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_Close ( )\r```"
+	],
+    "_ClipBoard_CountFormats": [
+		"Retrieves the number of different data formats currently on the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_CountFormats ( )\r```"
+	],
+    "_ClipBoard_Empty": [
+		"Empties the clipboard and frees handles to data in the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_Empty ( )\r```"
+	],
+    "_ClipBoard_EnumFormats": [
+		"Enumerates the data formats currently available on the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_EnumFormats ( $iFormat )\r```"
+	],
+    "_ClipBoard_FormatStr": [
+		"Returns a string representation of a standard clipboard format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_FormatStr ( $iFormat )\r```"
+	],
+    "_ClipBoard_GetData": [
+		"Retrieves data from the clipboard in a specified format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetData ( [$iFormat = 1] )\r```"
+	],
+    "_ClipBoard_GetDataEx": [
+		"Retrieves data from the clipboard in a specified format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetDataEx ( [$iFormat = 1] )\r```"
+	],
+    "_ClipBoard_GetFormatName": [
+		"Retrieves the name of the specified registered format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetFormatName ( $iFormat )\r```"
+	],
+    "_ClipBoard_GetOpenWindow": [
+		"Retrieves the handle to the window that currently has the clipboard open",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetOpenWindow ( )\r```"
+	],
+    "_ClipBoard_GetOwner": [
+		"Retrieves the window handle of the current owner of the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetOwner ( )\r```"
+	],
+    "_ClipBoard_GetPriorityFormat": [
+		"Retrieves the first available clipboard format in the specified list",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetPriorityFormat ( $aFormats )\r```"
+	],
+    "_ClipBoard_GetSequenceNumber": [
+		"Retrieves the clipboard sequence number for the current window station",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetSequenceNumber ( )\r```"
+	],
+    "_ClipBoard_GetViewer": [
+		"Retrieves the handle to the first window in the clipboard viewer chain",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_GetViewer ( )\r```"
+	],
+    "_ClipBoard_IsFormatAvailable": [
+		"Determines whether the clipboard contains data in the specified format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_IsFormatAvailable ( $iFormat )\r```"
+	],
+    "_ClipBoard_Open": [
+		"Opens the clipboard and prevents other applications from modifying the clipboard",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_Open ( $hOwner )\r```"
+	],
+    "_ClipBoard_RegisterFormat": [
+		"Registers a new clipboard format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_RegisterFormat ( $sFormat )\r```"
+	],
+    "_ClipBoard_SetData": [
+		"Places data on the clipboard in a specified clipboard format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_SetData ( $vData [, $iFormat = 1] )\r```"
+	],
+    "_ClipBoard_SetDataEx": [
+		"Places data on the clipboard in a specified clipboard format",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_SetDataEx ( ByRef $hMemory [, $iFormat = 1] )\r```"
+	],
+    "_ClipBoard_SetViewer": [
+		"Adds the specified window to the chain of clipboard viewers",
+		"```\r#include <Clipboard.au3>\r_ClipBoard_SetViewer ( $hViewer )\r```"
+	]
+}
