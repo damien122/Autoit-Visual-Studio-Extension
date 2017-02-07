@@ -1,0 +1,38 @@
+{
+    "_ColorConvertHSLtoRGB": [
+        "Converts HSL to RGB",
+        "```\r#include <Color.au3>\r_ColorConvertHSLtoRGB ( $aArray )\r```"
+    ],
+    "_ColorConvertRGBtoHSL": [
+        "Converts RGB to HSL",
+        "```\r#include <Color.au3>\r_ColorConvertRGBtoHSL ( $aArray )\r```"
+    ],
+    "_ColorGetBlue": [
+        "Returns the blue component of a given color",
+        "```\r#include <Color.au3>\r_ColorGetBlue ( $iColor )\r```"
+    ],
+    "_ColorGetCOLORREF": [
+        "Returns the COLORREF color",
+        "```\r#include <Color.au3>\r_ColorGetCOLORREF ( $iColor )\r```"
+    ],
+    "_ColorGetGreen": [
+        "Returns the green component of a given color",
+        "```\r#include <Color.au3>\r_ColorGetGreen ( $iColor )\r```"
+    ],
+    "_ColorGetRed": [
+        "Returns the red component of a given color",
+        "```\r#include <Color.au3>\r_ColorGetRed ( $iColor )\r```"
+    ],
+    "_ColorGetRGB": [
+        "Returns an array containing RGB values in their respective positions",
+        "```\r#include <Color.au3>\r_ColorGetRGB ( $iColor )\r```"
+    ],
+    "_ColorSetCOLORREF": [
+        "Returns the COLORREF color",
+        "```\r#include <Color.au3>\r_ColorSetCOLORREF ( $aColor )\r```"
+    ],
+    "_ColorSetRGB": [
+        "Returns the RGB color",
+        "```\r#include <Color.au3>\r_ColorSetRGB ( $aColor )\r```"
+    ]
+}
