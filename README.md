@@ -15,3 +15,5 @@ Advanced functions on the full install of [SciTE4AutoIt3](https://www.autoitscri
 
 ## GitHub
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
+### Contributing
+Please fork the repository and contribute back using pull requests.
