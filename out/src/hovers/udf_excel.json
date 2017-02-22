@@ -1,0 +1,130 @@
+{
+    "_Excel_BookAttach": [
+        "Attaches to the first instance of a workbook where the search string matches based on the selected mode",
+        "```\r#include <Excel.au3>\r_Excel_BookAttach ( $sString [, $sMode = \"FilePath\" [, $oInstance = Default]] )\r```"
+    ],
+    "_Excel_BookClose": [
+        "Closes the specified workbook",
+        "```\r#include <Excel.au3>\r_Excel_BookClose ( $oWorkbook [, $bSave = True] )\r```"
+    ],
+    "_Excel_BookList": [
+        "Returns a list of workbooks of a specified or all Excel instances",
+        "```\r#include <Excel.au3>\r_Excel_BookList ( [$oExcel = Default] )\r```"
+    ],
+    "_Excel_BookNew": [
+        "Creates a new workbook",
+        "```\r#include <Excel.au3>\r_Excel_BookNew ( $oExcel [, $iSheets = Default] )\r```"
+    ],
+    "_Excel_BookOpen": [
+        "Opens an existing workbook",
+        "```\r#include <Excel.au3>\r_Excel_BookOpen ( $oExcel, $sFilePath [, $bReadOnly = False [, $bVisible = True [, $sPassword = Default [, $sWritePassword = Default [, $bUpdateLinks = Default]]]]] )\r```"
+    ],
+    "_Excel_BookOpenText": [
+        "Opens a text file and parses the content to a new workbook with a single sheet",
+        "```\r#include <Excel.au3>\r_Excel_BookOpenText ( $oExcel, $sFilePath [, $iStartRow = 1 [, $iDataType = Default [, $sTextQualifier = $xlTextQualifierDoubleQuote [, $bConsecutiveDelimiter = False [, $sDelimiter = \",\" [, $aFieldInfo = \"\" [, $sDecimalSeparator = Default [, $sThousandsSeparator = Default [, $bTrailingMinusNumbers = True [, $iOrigin = Default]]]]]]]]]] )\r```"
+    ],
+    "_Excel_BookSave": [
+        "Saves the specified workbook",
+        "```\r#include <Excel.au3>\r_Excel_BookSave ( $oWorkbook )\r```"
+    ],
+    "_Excel_BookSaveAs": [
+        "Saves the specified workbook with a new filename and/or type",
+        "```\r#include <Excel.au3>\r_Excel_BookSaveAs ( $oWorkbook, $sFilePath [, $iFormat = $xlWorkbookDefault [, $bOverWrite = False [, $sPassword = Default [, $sWritePassword = Default [, $bReadOnlyRecommended = False]]]]] )\r```"
+    ],
+    "_Excel_Close": [
+        "Closes all worksheets and the instance of the Excel application",
+        "```\r#include <Excel.au3>\r_Excel_Close ( $oExcel [, $bSaveChanges = True [, $bForceClose = False]] )\r```"
+    ],
+    "_Excel_ColumnToLetter": [
+        "Converts the column number to letter(s)",
+        "```\r#include <Excel.au3>\r_Excel_ColumnToLetter ( $iColumn )\r```"
+    ],
+    "_Excel_ColumnToNumber": [
+        "Converts the column letter(s) to a number",
+        "```\r#include <Excel.au3>\r_Excel_ColumnToNumber ( $sColumn )\r```"
+    ],
+    "_Excel_ConvertFormula": [
+        "Converts cell references in a formula between A1 and R1C1 reference styles, relative and absolute reference type, or both",
+        "```\r#include <Excel.au3>\r_Excel_ConvertFormula ( $oExcel, $sFormula, $iFromStyle [, $iToStyle = Default [, $iToAbsolute = Default [, $vRelativeTo = Default]]] )\r```"
+    ],
+    "_Excel_Export": [
+        "Exports a workbook, worksheet, chart or range as PDF or XPS",
+        "```\r#include <Excel.au3>\r_Excel_Export ( $oExcel, $vObject, $sFileName [, $iType = $xlTypePDF [, $iQuality = $xlQualityStandard [, $bIncludeProperties = True [, $iFrom = Default [, $iTo = Default [, $bOpenAfterPublish = Default]]]]]] )\r```"
+    ],
+    "_Excel_FilterGet": [
+        "Returns a list of set filters",
+        "```\r#include <Excel.au3>\r_Excel_FilterGet ( $oWorkbook [, $vWorksheet = Default] )\r```"
+    ],
+    "_Excel_FilterSet": [
+        "Sets/unsets filter definitions and filters the range",
+        "```\r#include <Excel.au3>\r_Excel_FilterSet ( $oWorkbook, $vWorksheet, $vRange, $iField [, $sCriteria1 = Default [, $iOperator = Default [, $sCriteria2 = Default]]] )\r```"
+    ],
+    "_Excel_Open": [
+        "Connects to an existing Excel instance or creates a new one",
+        "```\r#include <Excel.au3>\r_Excel_Open ( [$bVisible = True [, $bDisplayAlerts = False [, $bScreenUpdating = True [, $bInteractive = True [, $bForceNew = False]]]]] )\r```"
+    ],
+    "_Excel_PictureAdd": [
+        "Adds a picture on the specified workbook and worksheet",
+        "```\r#include <Excel.au3>\r_Excel_PictureAdd ( $oWorkbook, $vWorksheet, $sFile, $vRangeOrLeft [, $iTop = Default [, $iWidth = Default [, $iHeight = Default [, $bKeepRatio = True]]]] )\r```"
+    ],
+    "_Excel_Print": [
+        "Prints a workbook, worksheet, chart or range",
+        "```\r#include <Excel.au3>\r_Excel_Print ( $oExcel, $vObject [, $iCopies = Default [, $sPrinter = Default [, $bPreview = Default [, $iFrom = Default [, $iTo = Default [, $bPrintToFile = Default [, $bCollate = Default [, $sPrToFileName = \"\"]]]]]]]] )\r```"
+    ],
+    "_Excel_RangeCopyPaste": [
+        "Cuts or copies one or multiple cells, rows or columns to a range or from/to the clipboard",
+        "```\r#include <Excel.au3>\r_Excel_RangeCopyPaste ( $oWorksheet, $vSourceRange [, $vTargetRange = Default [, $bCut = False [, $iPaste = Default [, $iOperation = Default [, $bSkipBlanks = False [, $bTranspose = False]]]]]] )\r```"
+    ],
+    "_Excel_RangeDelete": [
+        "Deletes one or multiple cells, rows or columns from the specified worksheet",
+        "```\r#include <Excel.au3>\r_Excel_RangeDelete ( $oWorksheet, $vRange [, $iShift = Default [, $iEntireRowCol = Default]] )\r```"
+    ],
+    "_Excel_RangeFind": [
+        "Finds matching cells in a range or workbook and returns an array with information about the found cells",
+        "```\r#include <Excel.au3>\r_Excel_RangeFind ( $oWorkbook, $sSearch [, $vRange = Default [, $iLookIn = $xlValues [, $iLookAt = $xlPart [, $bMatchcase = False]]]] )\r```"
+    ],
+    "_Excel_RangeInsert": [
+        "Inserts one or multiple empty cells, rows or columns into the specified worksheet",
+        "```\r#include <Excel.au3>\r_Excel_RangeInsert ( $oWorksheet, $vRange [, $iShift = Default [, $iCopyOrigin = Default]] )\r```"
+    ],
+    "_Excel_RangeLinkAddRemove": [
+        "Adds or removes a hyperlink to/from a specified range",
+        "```\r#include <Excel.au3>\r_Excel_RangeLinkAddRemove ( $oWorkbook, $vWorksheet, $vRange, $sAddress [, $sSubAddress = Default [, $sScreenTip = Default [, $sTextToDisplay = Default]]] )\r```"
+    ],
+    "_Excel_RangeRead": [
+        "Reads the value, formula or displayed text from a cell or range of cells of the specified workbook and worksheet",
+        "```\r#include <Excel.au3>\r_Excel_RangeRead ( $oWorkbook [, $vWorksheet = Default [, $vRange = Default [, $iReturn = 1 [, $bForceFunc = False]]]] )\r```"
+    ],
+    "_Excel_RangeReplace": [
+        "Finds and replaces matching strings in a range or worksheet",
+        "```\r#include <Excel.au3>\r_Excel_RangeReplace ( $oWorkbook, $vWorksheet, $vRange, $sSearch, $sReplace [, $iLookAt = $xlPart [, $bMatchcase = False]] )\r```"
+    ],
+    "_Excel_RangeSort": [
+        "Sorts a cell range",
+        "```\r#include <Excel.au3>\r_Excel_RangeSort ( $oWorkbook, $vWorksheet, $vRange, $vKey1 [, $iOrder1 = $xlAscending [, $iSortText = $xlSortNormal [, $iHeader = $xlNo [, $bMatchcase = False [, $iOrientation = $xlSortRows [, $vKey2 = Default [, $iOrder2 = Default [, $vKey3 = Default [, $iOrder3 = Default]]]]]]]]] )\r```"
+    ],
+    "_Excel_RangeValidate": [
+        "Adds data validation to the specified range",
+        "```\r#include <Excel.au3>\r_Excel_RangeValidate ( $oWorkbook, $vWorksheet, $vRange, $iType, $sFormula1 [, $iOperator = Default [, $sFormula2 = Default [, $bIgnoreBlank = True [, $iAlertStyle = $xlValidAlertStop [, $sErrorMessage = Default [, $sInputMessage = Default]]]]]] )\r```"
+    ],
+    "_Excel_RangeWrite": [
+        "Writes value(s) or formula(s) to a cell or a cell range on the specified workbook and worksheet",
+        "```\r#include <Excel.au3>\r_Excel_RangeWrite ( $oWorkbook, $vWorksheet, $vValue [, $vRange = \"A1\" [, $bValue = True [, $bForceFunc = False]]] )\r```"
+    ],
+    "_Excel_SheetAdd": [
+        "Adds new sheet(s) to a workbook and sets their names",
+        "```\r#include <Excel.au3>\r_Excel_SheetAdd ( $oWorkbook [, $vSheet = Default [, $bBefore = True [, $iCount = 1 [, $sName = \"\"]]]] )\r```"
+    ],
+    "_Excel_SheetCopyMove": [
+        "Copies or moves the specified sheet before or after a specified sheet in the same or a different workbook",
+        "```\r#include <Excel.au3>\r_Excel_SheetCopyMove ( $oSourceBook [, $vSourceSheet = Default [, $oTargetBook = $oSourceBook [, $vTargetSheet = 1 [, $bBefore = True [, $bCopy = True]]]]] )\r```"
+    ],
+    "_Excel_SheetDelete": [
+        "Deletes the specified sheet by object, string name or by number",
+        "```\r#include <Excel.au3>\r_Excel_SheetDelete ( $oWorkbook [, $vSheet = Default] )\r```"
+    ],
+    "_Excel_SheetList": [
+        "Returns a list of all sheets in the specified workbook",
+        "```\r#include <Excel.au3>\r_Excel_SheetList ( $oWorkbook )\r```"
+    ]
+}
