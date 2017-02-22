@@ -1,0 +1,62 @@
+{
+    "_FileCountLines": [
+		"Returns the number of lines in the specified file",
+		"```\r#include <File.au3>\r_FileCountLines ( $sFilePath )\r```"
+	],
+    "_FileCreate": [
+		"Creates or zero's out the length of the file specified",
+		"```\r#include <File.au3>\r_FileCreate ( $sFilePath )\r```"
+	],
+    "_FileListToArray": [
+		"Lists files and\\or folders in a specified folder (Similar to using Dir with the /B Switch)",
+		"```\r#include <File.au3>\r_FileListToArray ( $sFilePath [, $sFilter = \"*\" [, $iFlag = $FLTA_FILESFOLDERS [, $bReturnPath = False]]] )\r```"
+	],
+    "_FileListToArrayRec": [
+		"Lists files and\\or folders in specified path with optional recursion to defined level and result sorting",
+		"```\r#include <File.au3>\r_FileListToArrayRec ( $sFilePath [, $sMask = \"*\" [, $iReturn = $FLTAR_FILESFOLDERS [, $iRecur = $FLTAR_NORECUR [, $iSort = $FLTAR_NOSORT [, $iReturnPath = $FLTAR_RELPATH]]]]] )\r```"
+	],
+    "_FilePrint": [
+		"Prints a plain text file",
+		"```\r#include <File.au3>\r_FilePrint ( $sFilePath [, $iShow = @SW_HIDE] )\r```"
+	],
+    "_FileReadToArray": [
+		"Reads the specified file into a 1D or 2D array",
+		"```\r#include <File.au3>\r_FileReadToArray ( $sFilePath, ByRef $vReturn [, $iFlags = $FRTA_COUNT [, $sDelimiter = \"\"]] )\r```"
+	],
+    "_FileWriteFromArray": [
+		"Writes an array to a specified file",
+		"```\r#include <File.au3>\r_FileWriteFromArray ( $sFilePath, Const ByRef $aArray [, $iBase = Default [, $iUBound = Default [, $sDelimiter = \"|\"]]] )\r```"
+	],
+    "_FileWriteLog": [
+		"Writes current date, time and the specified text to a log file",
+		"```\r#include <File.au3>\r_FileWriteLog ( $sLogPath, $sLogMsg [, $iFlag = -1] )\r```"
+	],
+    "_FileWriteToLine": [
+		"Writes text to a specific line in a file",
+		"```\r#include <File.au3>\r_FileWriteToLine ( $sFilePath, $iLine, $sText [, $bOverWrite = False] )\r```"
+	],
+    "_PathFull": [
+		"Creates a path based on the relative path you provide. The newly created absolute path is returned",
+		"```\r#include <File.au3>\r_PathFull ( $sRelativePath [, $sBasePath = @WorkingDir] )\r```"
+	],
+    "_PathGetRelative": [
+		"Returns the relative path to a directory",
+		"```\r#include <File.au3>\r_PathGetRelative ( $sFrom, $sTo )\r```"
+	],
+    "_PathMake": [
+		"Creates a path from drive, directory, file name and file extension parts",
+		"```\r#include <File.au3>\r_PathMake ( $sDrive, $sDir, $sFileName, $sExtension )\r```"
+	],
+    "_PathSplit": [
+		"Splits a path into the drive, directory, file name and file extension parts. An empty string is set if a part is missing",
+		"```\r#include <File.au3>\r_PathSplit ( $sFilePath, ByRef $sDrive, ByRef $sDir, ByRef $sFileName, ByRef $sExtension )\r```"
+	],
+    "_ReplaceStringInFile": [
+		"Replaces substrings in a file",
+		"```\r#include <File.au3>\r_ReplaceStringInFile ( $sFilePath, $sSearchString, $sReplaceString [, $iCaseSensitive = 0 [, $iOccurance = 1]] )\r```"
+	],
+    "_TempFile": [
+		"Generate a name for a temporary file. The file is guaranteed not to exist yet",
+		"```\r#include <File.au3>\r_TempFile ( [$sDirectoryName = @TempDir [, $sFilePrefix = \"~\" [, $sFileExtension = \".tmp\" [, $iRandomLength = 7]]]] )\r```"
+	]
+}
