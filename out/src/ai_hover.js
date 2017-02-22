@@ -1,12 +1,15 @@
 'use strict'
 
-var { languages, document, Hover } = require('vscode')
-var hovers = require('./hovers/ai_functions.json')
-var macros = require('./hovers/macros.json')
-var udf_array = require('./hovers/udf_array.json')
-var udf_clipboard = require('./hovers/udf_clipboard.json')
+var { languages, Hover } = require('vscode')
+var fs = require('fs')
+var hovers = {}
+var addJSON
 
-hovers = Object.assign(hovers, macros, udf_array, udf_clipboard)
+var files = fs.readdirSync(__dirname + '/hovers')
+for (var i in files)  {
+    addJSON = require('./hovers/' + files[i])
+    hovers = Object.assign(hovers, addJSON)
+}
 
 module.exports = languages.registerHoverProvider(
     { language: 'autoit', scheme: 'file' },
