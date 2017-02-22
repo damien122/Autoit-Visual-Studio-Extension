@@ -1,0 +1,54 @@
+{
+    "_EventLog__Backup": [
+		"Saves the event log to a backup file",
+		"```\r#include <EventLog.au3>\r_EventLog__Backup ( $hEventLog, $sFileName )\r```"
+	],
+    "_EventLog__Clear": [
+		"Clears the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Clear ( $hEventLog, $sFileName )\r```"
+	],
+    "_EventLog__Close": [
+		"Closes a read handle to the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Close ( $hEventLog )\r```"
+	],
+    "_EventLog__Count": [
+		"Retrieves the number of records in the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Count ( $hEventLog )\r```"
+	],
+    "_EventLog__DeregisterSource": [
+		"Closes a write handle to the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__DeregisterSource ( $hEventLog )\r```"
+	],
+    "_EventLog__Full": [
+		"Retrieves whether the event log is full",
+		"```\r#include <EventLog.au3>\r_EventLog__Full ( $hEventLog )\r```"
+	],
+    "_EventLog__Notify": [
+		"Enables an application to receive event notifications",
+		"```\r#include <EventLog.au3>\r_EventLog__Notify ( $hEventLog, $hEvent )\r```"
+	],
+    "_EventLog__Oldest": [
+		"Retrieves the absolute record number of the oldest record in the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Oldest ( $hEventLog )\r```"
+	],
+    "_EventLog__Open": [
+		"Opens a handle to the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Open ( $sServerName, $sSourceName )\r```"
+	],
+    "_EventLog__OpenBackup": [
+		"Opens a handle to a backup event log",
+		"```\r#include <EventLog.au3>\r_EventLog__OpenBackup ( $sServerName, $sFileName )\r```"
+	],
+    "_EventLog__Read": [
+		"Reads an entry from the event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Read ( $hEventLog [, $bRead = True [, $bForward = True [, $iOffset = 0]]] )\r```"
+	],
+    "_EventLog__RegisterSource": [
+		"Retrieves a registered handle to the specified event log",
+		"```\r#include <EventLog.au3>\r_EventLog__RegisterSource ( $sServerName, $sSourceName )\r```"
+	],
+    "_EventLog__Report": [
+		"Writes an entry at the end of the specified event log",
+		"```\r#include <EventLog.au3>\r_EventLog__Report ( $hEventLog, $iType, $iCategory, $iEventID, $sUserName, $sDesc, $aData )\r```"
+	]
+}
