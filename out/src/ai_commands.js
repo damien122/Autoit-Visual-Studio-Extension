@@ -5,6 +5,8 @@ const spawn = require('child_process').spawn;
 // Executable paths
 const aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
 const wrapperPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3";
+const tidyPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe";
+const checkPath = "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe";
 var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe";
 
 var aiOut = window.createOutputChannel('AutoIt');
@@ -25,7 +27,7 @@ module.exports = {
 
         window.setStatusBarMessage("Running the script...", 1500);
                 
-        procRunner([wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
+        procRunner(aiPath,[wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
             thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)']);
     },
 
@@ -76,7 +78,7 @@ module.exports = {
             console.error("Not an AutoIt file!");
             return;
         }
-
+        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -86,7 +88,42 @@ module.exports = {
 
               
         // Launch the AutoIt Wrapper executable with the script's path
-        procRunner([wrapperPath, '/ShowGui', '/prod', '/in', thisFile]);
+        procRunner(aiPath,[wrapperPath, '/ShowGui', '/prod', '/in', thisFile]);
+    },
+
+
+    tidyScript: () => {
+        if (!isAutoIt()) {
+            console.error("Not an AutoIt file!");
+            return;
+        }
+        
+        // Save the file
+        window.activeTextEditor.document.save();
+        // Get the current file name
+        var thisFile = window.activeTextEditor.document.fileName;
+
+        window.setStatusBarMessage('Tidying script...' + thisFile, 1500);
+              
+        // Launch the AutoIt Wrapper executable with the script's path
+        procRunner(tidyPath,[thisFile ]);
+    },
+
+    checkScript: () => {
+        if (!isAutoIt()) {
+            console.error("Not an AutoIt file!");
+            return;
+        }
+        
+        // Save the file
+        window.activeTextEditor.document.save();
+        // Get the current file name
+        var thisFile = window.activeTextEditor.document.fileName;
+
+        window.setStatusBarMessage('Checking script...' + thisFile, 1500);
+              
+        // Launch the AutoIt Wrapper executable with the script's path
+        procRunner(checkPath,[thisFile ]);
     },
 
     buildScript: () => {
@@ -103,7 +140,7 @@ module.exports = {
         window.setStatusBarMessage('Building script...', 1500);
         
         // Launch the AutoIt Wrapper executable with the script's path
-        procRunner([wrapperPath, '/NoStatus', '/prod', '/in', thisFile]);   
+        procRunner(aiPath,[wrapperPath, '/NoStatus', '/prod', '/in', thisFile]);   
     },
 
     debugConsole: () => {
@@ -134,10 +171,10 @@ function isAutoIt() {
     }
 };
 
-function procRunner(args) {
+function procRunner(cmdPath,args) {
     aiOut.show(true);
 
-    var runner = spawn(aiPath, args);
+    var runner = spawn(cmdPath, args);
 
     runner.stdout.on('data', (data) => {
             var output = data.toString();

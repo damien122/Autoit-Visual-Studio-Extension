@@ -43,6 +43,12 @@
 			"command": "extension.compile",
 			"title": "AutoIt - Compile"
 		}, {
+			"command": "extension.tidy",
+			"title": "AutoIt - Tidy"
+		}, {
+			"command": "extension.check",
+			"title": "AutoIt - Check"
+		}, {
 			"command": "extension.build",
 			"title": "AutoIt - Build"
 		}, {
