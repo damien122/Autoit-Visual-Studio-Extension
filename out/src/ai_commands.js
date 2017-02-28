@@ -37,8 +37,8 @@ module.exports = {
         }
 
         // Get the selected text and launch it
-        var selection = editor.selection;
-        var query = editor.document.getText(selection).trim();
+        var doc = editor.document
+        var query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
 
         window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
 

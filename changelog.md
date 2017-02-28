@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.1
+* You can now launch AutoIt Help by simply placing the cursor on functions and macros (complete selection no longer required)
+* Even more hovers for UDFs
+
 ## 0.1.0
 * Running, compiling and building now generate output live
 * Added the ability to create console debug lines for highlighted variables and macros with Alt+D
