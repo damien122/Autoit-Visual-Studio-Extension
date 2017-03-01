@@ -78,6 +78,10 @@
 			"key": "f5",
 			"when": "editorTextFocus"
 		}, {
+			"command": "extension.check",
+			"key": "ctrl+f5",
+			"when": "editorTextFocus"
+		}, {
 			"command": "extension.compile",
 			"key": "ctrl+f7",
 			"when": "editorTextFocus"
