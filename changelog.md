@@ -1,6 +1,7 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.1
+* You can now run a Syntax check and the Tidy tool
 * You can now launch AutoIt Help by simply placing the cursor on functions and macros (complete selection no longer required)
 * Even more hovers for UDFs
 
