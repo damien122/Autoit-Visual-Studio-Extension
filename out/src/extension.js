@@ -30,6 +30,12 @@ function activate(ctx) {
     commands.registerCommand('extension.compile', () => {
         ai_commands.compileScript();
     }); // Compile scripts
+    commands.registerCommand('extension.tidy', () => {
+        ai_commands.tidyScript();
+    }); // Tidy script
+    commands.registerCommand('extension.check', () => {
+        ai_commands.checkScript();
+    }); // Check script
     commands.registerCommand('extension.build', () => {
         ai_commands.buildScript();
     }); // Build scripts
