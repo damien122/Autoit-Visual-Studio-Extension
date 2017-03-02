@@ -1,6 +1,7 @@
 var { window, Position } = require('vscode');
 var launch = require('child_process').execFile;
 const spawn = require('child_process').spawn;
+var path = require('path');
 
 // Executable paths
 const aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
@@ -173,8 +174,12 @@ function isAutoIt() {
 
 function procRunner(cmdPath,args) {
     aiOut.show(true);
-
-    var runner = spawn(cmdPath, args);
+    
+    // Set working directory to AutoIt script dir so that compile and build
+    // commands work right
+    var workDir = path.dirname(window.activeTextEditor.document.fileName);
+    
+    var runner = spawn(cmdPath, args, { cwd: workDir });
 
     runner.stdout.on('data', (data) => {
             var output = data.toString();
