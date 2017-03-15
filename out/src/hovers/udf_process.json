@@ -1,0 +1,14 @@
+{
+    "_ProcessGetName": [
+        "Returns a string containing the process name that belongs to a given PID",
+        "```\r#include <Process.au3>\r_ProcessGetName ( $iPID )\r```"
+    ],
+    "_ProcessGetPriority": [
+        "Get the priority of an open process",
+        "```\r#include <Process.au3>\r_ProcessGetPriority ( $vProcess )\r```"
+    ],
+    "_RunDos": [
+        "Executes a DOS command in a hidden command window",
+        "```\r#include <Process.au3>\r_RunDos ( $sCommand )\r```"
+    ] 
+}
