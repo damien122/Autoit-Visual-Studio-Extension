@@ -1,0 +1,66 @@
+{
+    "_GUICtrlDTP_Create": [
+        "Create a DTP control",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_Create ( $hWnd, $iX, $iY [, $iWidth = 120 [, $iHeight = 21 [, $iStyle = 0x00000000 [, $iExStyle = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlDTP_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetMCColor": [
+        "Retrieves the specified color",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetMCColor ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlDTP_GetMCFont": [
+        "Retrieves the month calendar font handle",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetMCFont ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetMonthCal": [
+        "Retrieves the handle to child month calendar control",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetMonthCal ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetRange": [
+        "Retrieves the current minimum and maximum allowable system times",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetRange ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetRangeEx": [
+        "Retrieves the current minimum and maximum allowable system times",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetRangeEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetSystemTime": [
+        "Retrieves the currently selected date and time",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetSystemTime ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_GetSystemTimeEx": [
+        "Retrieves the currently selected date and time",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_GetSystemTimeEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlDTP_SetFormat": [
+        "Sets the display based on a given format string",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetFormat ( $hWnd, $sFormat )\r```"
+    ],
+    "_GUICtrlDTP_SetMCColor": [
+        "Sets the color for a given portion of the month calendar",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetMCColor ( $hWnd, $iIndex, $iColor )\r```"
+    ],
+    "_GUICtrlDTP_SetMCFont": [
+        "Sets the month calendar font",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetMCFont ( $hWnd, $hFont [, $bRedraw = True] )\r```"
+    ],
+    "_GUICtrlDTP_SetRange": [
+        "Sets the current minimum and maximum allowable system times",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetRange ( $hWnd, ByRef $aRange )\r```"
+    ],
+    "_GUICtrlDTP_SetRangeEx": [
+        "Sets the current minimum and maximum allowable system times",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetRangeEx ( $hWnd, ByRef $tRange )\r```"
+    ],
+    "_GUICtrlDTP_SetSystemTime": [
+        "Sets the currently selected date and time",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetSystemTime ( $hWnd, ByRef $aDate )\r```"
+    ],
+    "_GUICtrlDTP_SetSystemTimeEx": [
+        "Sets the currently selected date and time",
+        "```\r#include <GuiDateTimePicker.au3>\r_GUICtrlDTP_SetSystemTimeEx ( $hWnd, ByRef $tDate [, $bFlag = False] )\r```"
+    ]
+}
