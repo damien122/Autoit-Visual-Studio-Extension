@@ -1,0 +1,122 @@
+{
+    "_GUIImageList_Add": [
+        "Adds an image or images to an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Add ( $hWnd, $hImage [, $hMask = 0] )\r```"
+    ],
+    "_GUIImageList_AddBitmap": [
+        "Adds a bitmap to an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_AddBitmap ( $hWnd, $sImage [, $sMask = \"\"] )\r```"
+    ],
+    "_GUIImageList_AddIcon": [
+        "Adds an icon to an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_AddIcon ( $hWnd, $sFilePath [, $iIndex = 0 [, $bLarge = False]] )\r```"
+    ],
+    "_GUIImageList_AddMasked": [
+        "Adds an image or images to an image list, generating a mask from the specified bitmap",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_AddMasked ( $hWnd, $hImage [, $iMask = 0] )\r```"
+    ],
+    "_GUIImageList_BeginDrag": [
+        "Begins dragging an image",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_BeginDrag ( $hWnd, $iTrack, $iXHotSpot, $iYHotSpot )\r```"
+    ],
+    "_GUIImageList_Copy": [
+        "Source image is copied to the destination image's index",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Copy ( $hWnd, $iSource, $iDestination )\r```"
+    ],
+    "_GUIImageList_Create": [
+        "Create an ImageList control",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Create ( [$iCX = 16 [, $iCY = 16 [, $iColor = 4 [, $iOptions = 0 [, $iInitial = 4 [, $iGrow = 4]]]]]] )\r```"
+    ],
+    "_GUIImageList_Destroy": [
+        "Destroys an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Destroy ( $hWnd )\r```"
+    ],
+    "_GUIImageList_DestroyIcon": [
+        "Destroys an icon and frees any memory the icon occupied",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_DestroyIcon ( $hIcon )\r```"
+    ],
+    "_GUIImageList_DragEnter": [
+        "Displays the drag image at the specified position within the window",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_DragEnter ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUIImageList_DragLeave": [
+        "Unlocks the specified window and hides the drag image, allowing the window to be updated",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_DragLeave ( $hWnd )\r```"
+    ],
+    "_GUIImageList_DragMove": [
+        "Moves the image that is being dragged during a drag-and-drop operation",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_DragMove ( $iX, $iY )\r```"
+    ],
+    "_GUIImageList_Draw": [
+        "Draws an image list item in the specified device context",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Draw ( $hWnd, $iIndex, $hDC, $iX, $iY [, $iStyle = 0] )\r```"
+    ],
+    "_GUIImageList_DrawEx": [
+        "Draws an image list item in the specified device context",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_DrawEx ( $hWnd, $iIndex, $hDC, $iX, $iY [, $iDX = 0 [, $iDY = 0 [, $iRGBBk = 0xFFFFFFFF [, $iRGBFg = 0xFFFFFFFF [, $iStyle = 0]]]]] )\r```"
+    ],
+    "_GUIImageList_Duplicate": [
+        "Creates a duplicate of an existing image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Duplicate ( $hWnd )\r```"
+    ],
+    "_GUIImageList_EndDrag": [
+        "Ends a drag operation",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_EndDrag ( )\r```"
+    ],
+    "_GUIImageList_GetBkColor": [
+        "Retrieves the current background color for an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetBkColor ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetIcon": [
+        "Creates an icon from an image and mask in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetIcon ( $hWnd, $iIndex [, $iStyle = 0] )\r```"
+    ],
+    "_GUIImageList_GetIconHeight": [
+        "Retrieves the height of the images in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetIconHeight ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetIconSize": [
+        "Retrieves the dimensions of images in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetIconSize ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetIconSizeEx": [
+        "Retrieves the dimensions of images in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetIconSizeEx ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetIconWidth": [
+        "Retrieves the width of the images in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetIconWidth ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetImageCount": [
+        "Retrieves the number of images in an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetImageCount ( $hWnd )\r```"
+    ],
+    "_GUIImageList_GetImageInfoEx": [
+        "Retrieves information about an image",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_GetImageInfoEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUIImageList_Remove": [
+        "Remove Image(s) from the ImageList",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Remove ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUIImageList_ReplaceIcon": [
+        "Replaces an image with an icon or cursor",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_ReplaceIcon ( $hWnd, $iIndex, $hIcon )\r```"
+    ],
+    "_GUIImageList_SetBkColor": [
+        "Sets the background color for an image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_SetBkColor ( $hWnd, $iClrBk )\r```"
+    ],
+    "_GUIImageList_SetIconSize": [
+        "Sets the dimensions of images in an image list and removes all images from the list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_SetIconSize ( $hWnd, $iCX, $iCY )\r```"
+    ],
+    "_GUIImageList_SetImageCount": [
+        "Resizes an existing image list",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_SetImageCount ( $hWnd, $iNewCount )\r```"
+    ],
+    "_GUIImageList_Swap": [
+        "Swap image between Source and Destination image's index",
+        "```\r#include <GuiImageList.au3>\r_GUIImageList_Swap ( $hWnd, $iSource, $iDestination )\r```"
+    ]
+}
