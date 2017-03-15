@@ -1,0 +1,118 @@
+{
+    "_GUICtrlButton_Click": [
+        "Simulates the user clicking a button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_Click ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_Create": [
+        "Creates a Button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_Create ( $hWnd, $sText, $iX, $iY, $iWidth, $iHeight [, $iStyle = -1 [, $iExStyle = -1]] )\r```"
+    ],
+    "_GUICtrlButton_Destroy": [
+        "Delete the Button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlButton_Enable": [
+        "Enables or disables mouse and keyboard input to the specified button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_Enable ( $hWnd [, $bEnable = True] )\r```"
+    ],
+    "_GUICtrlButton_GetCheck": [
+        "Gets the check state of a radio button or check box",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetCheck ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetFocus": [
+        "Retrieves if the button has keyboard focus",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetFocus ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetIdealSize": [
+        "Gets the size of the button that best fits its text and image, if an image list is present",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetIdealSize ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetImage": [
+        "Retrieves a handle to the image (icon or bitmap) associated with the button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetImage ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetImageList": [
+        "Retrieves an array that describes the image list assigned to a button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetNote": [
+        "Gets the text of the note associated with the Command Link button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetNote ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetNoteLength": [
+        "Gets the length of the note text that may be displayed in the description for a command link button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetNoteLength ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetSplitInfo": [
+        "Gets information for a split button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetSplitInfo ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetState": [
+        "Determines the state of a button or check box",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetState ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetText": [
+        "Retrieve the text of the button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetText ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_GetTextMargin": [
+        "Gets the margins used to draw text in a button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_GetTextMargin ( $hWnd )\r```"
+    ],
+    "_GUICtrlButton_SetCheck": [
+        "Sets the check state of a radio button or check box",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetCheck ( $hWnd [, $iState = $BST_CHECKED] )\r```"
+    ],
+    "_GUICtrlButton_SetDontClick": [
+        "Sets the state of $BST_DONTCLICK flag on a button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetDontClick ( $hWnd [, $bState = True] )\r```"
+    ],
+    "_GUICtrlButton_SetFocus": [
+        "Sets the keyboard focus to the specified button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetFocus ( $hWnd [, $bFocus = True] )\r```"
+    ],
+    "_GUICtrlButton_SetImage": [
+        "Sets the image of a button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetImage ( $hWnd, $sImageFile [, $iIconID = -1 [, $bLarge = False]] )\r```"
+    ],
+    "_GUICtrlButton_SetImageList": [
+        "Assigns an image list to a button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetImageList ( $hWnd, $hImage [, $iAlign = 0 [, $iLeft = 1 [, $iTop = 1 [, $iRight = 1 [, $iBottom = 1]]]]] )\r```"
+    ],
+    "_GUICtrlButton_SetNote": [
+        "Sets the text of the note associated with a command link button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetNote ( $hWnd, $sNote )\r```"
+    ],
+    "_GUICtrlButton_SetShield": [
+        "Sets the elevation required state for a specified button or command link to display an elevated icon",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetShield ( $hWnd [, $bRequired = True] )\r```"
+    ],
+    "_GUICtrlButton_SetSize": [
+        "Sets the size of the button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetSize ( $hWnd, $iWidth, $iHeight )\r```"
+    ],
+    "_GUICtrlButton_SetSplitInfo": [
+        "Gets information for a split button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetSplitInfo ( $hWnd [, $hImlGlyph = -1 [, $iSplitStyle = $BCSS_ALIGNLEFT [, $iWidth = 0 [, $iHeight = 0]]]] )\r```"
+    ],
+    "_GUICtrlButton_SetState": [
+        "Sets the highlight state of a button. The highlight state indicates whether the button is highlighted as if the user had pushed it",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetState ( $hWnd [, $bHighlighted = True] )\r```"
+    ],
+    "_GUICtrlButton_SetStyle": [
+        "Sets the style of a button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetStyle ( $hWnd, $iStyle )\r```"
+    ],
+    "_GUICtrlButton_SetText": [
+        "Sets the text of the button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlButton_SetTextMargin": [
+        "Sets the margins for drawing text in a button control",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_SetTextMargin ( $hWnd [, $iLeft = 1 [, $iTop = 1 [, $iRight = 1 [, $iBottom = 1]]]] )\r```"
+    ],
+    "_GUICtrlButton_Show": [
+        "Show/Hide button",
+        "```\r#include <GuiButton.au3>\r_GUICtrlButton_Show ( $hWnd [, $bShow = True] )\r```"
+    ]
+}
