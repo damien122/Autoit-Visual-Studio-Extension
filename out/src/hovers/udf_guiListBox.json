@@ -1,0 +1,222 @@
+{
+    "_GUICtrlListBox_AddFile": [
+        "Adds the specified filename that contains a directory listing",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_AddFile ( $hWnd, $sFilePath )\r```"
+    ],
+    "_GUICtrlListBox_AddString": [
+        "Add a string",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_AddString ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlListBox_BeginUpdate": [
+        "Prevents updating of the control until the EndUpdate function is called",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_BeginUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_ClickItem": [
+        "Clicks an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_ClickItem ( $hWnd, $iIndex [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 0]]]] )\r```"
+    ],
+    "_GUICtrlListBox_Create": [
+        "Create a Listbox control",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_Create ( $hWnd, $sText, $iX, $iY [, $iWidth = 100 [, $iHeight = 200 [, $iStyle = 0x00B00002 [, $iExStyle = 0x00000200]]]] )\r```"
+    ],
+    "_GUICtrlListBox_DeleteString": [
+        "Delete a string",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_DeleteString ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_Dir": [
+        "Adds the names of directories and files",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_Dir ( $hWnd, $sFilePath [, $iAttributes = 0 [, $bBrackets = True]] )\r```"
+    ],
+    "_GUICtrlListBox_EndUpdate": [
+        "Enables screen repainting that was turned off with the BeginUpdate function",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_EndUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_FindInText": [
+        "Searches for an item that contains the specified text anywhere in its text",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_FindInText ( $hWnd, $sText [, $iStart = -1 [, $bWrapOK = True]] )\r```"
+    ],
+    "_GUICtrlListBox_FindString": [
+        "Search for a string",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_FindString ( $hWnd, $sText [, $bExact = False] )\r```"
+    ],
+    "_GUICtrlListBox_GetAnchorIndex": [
+        "Retrieves the index of the anchor item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetAnchorIndex ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetCaretIndex": [
+        "Return index of item that has the focus rectangle",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetCaretIndex ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetCount": [
+        "Retrieves the number of items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetCurSel": [
+        "Retrieve the index of the currently selected item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetCurSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetHorizontalExtent": [
+        "Retrieve from a list box the the scrollable width",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetHorizontalExtent ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetItemData": [
+        "Retrieves the application defined value associated with an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetItemData ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetItemHeight": [
+        "Retrieves the height of items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetItemHeight ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetItemRect": [
+        "Retrieves the rectangle that bounds an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetItemRect ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetItemRectEx": [
+        "Retrieves the rectangle that bounds an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetItemRectEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetListBoxInfo": [
+        "Retrieve the number of items per column in a specified list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetListBoxInfo ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetLocale": [
+        "Retrieves the current locale",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetLocale ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetLocaleCountry": [
+        "Retrieves the current country code",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetLocaleCountry ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetLocaleLang": [
+        "Retrieves the current language identifier",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetLocaleLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetLocalePrimLang": [
+        "Extract primary language id from a language id",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetLocalePrimLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetLocaleSubLang": [
+        "Extract sublanguage id from a language id",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetLocaleSubLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetSel": [
+        "Retrieves the selection state of an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetSel ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetSelCount": [
+        "Retrieves the total number of selected items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetSelCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetSelItems": [
+        "Fills a buffer with an array of selected items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetSelItems ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetSelItemsText": [
+        "Retrieves the text of selected items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetSelItemsText ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_GetText": [
+        "Returns the item (string) at the specified index",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetText ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetTextLen": [
+        "Gets the length of a string in a list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetTextLen ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_GetTopIndex": [
+        "Retrieve the index of the first visible item in a list",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_GetTopIndex ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_InitStorage": [
+        "This message allocates memory for storing items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_InitStorage ( $hWnd, $iItems, $iBytes )\r```"
+    ],
+    "_GUICtrlListBox_InsertString": [
+        "Insert a string into the list",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_InsertString ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlListBox_ItemFromPoint": [
+        "Retrieves the 0-based index of the item nearest the specified point",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_ItemFromPoint ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlListBox_ReplaceString": [
+        "Replaces the text of an item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_ReplaceString ( $hWnd, $iIndex, $sText )\r```"
+    ],
+    "_GUICtrlListBox_ResetContent": [
+        "Remove all items from the list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_ResetContent ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_SelectString": [
+        "Searchs for an item that begins with the specified string",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SelectString ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlListBox_SelItemRange": [
+        "Select one or more consecutive items in a multiple-selection list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SelItemRange ( $hWnd, $iFirst, $iLast [, $bSelect = True] )\r```"
+    ],
+    "_GUICtrlListBox_SelItemRangeEx": [
+        "Select one or more consecutive items in a multiple-selection list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SelItemRangeEx ( $hWnd, $iFirst, $iLast )\r```"
+    ],
+    "_GUICtrlListBox_SetAnchorIndex": [
+        "Set the anchor item—that is, the item from which a multiple selection starts",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetAnchorIndex ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_SetCaretIndex": [
+        "Set the focus rectangle to the item at the specified index in a multiple-selection list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetCaretIndex ( $hWnd, $iIndex [, $bPartial = False] )\r```"
+    ],
+    "_GUICtrlListBox_SetColumnWidth": [
+        "Set the width, in pixels, of all columns",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetColumnWidth ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUICtrlListBox_SetCurSel": [
+        "Select a string and scroll it into view, if necessary",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetCurSel ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_SetHorizontalExtent": [
+        "Set the width, in pixels, by which a list box can be scrolled horizontally",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetHorizontalExtent ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUICtrlListBox_SetItemData": [
+        "Sets the value associated with the specified item",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetItemData ( $hWnd, $iIndex, $iValue )\r```"
+    ],
+    "_GUICtrlListBox_SetItemHeight": [
+        "Sets the height, in pixels, of items",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetItemHeight ( $hWnd, $iHeight [, $iIndex = 0] )\r```"
+    ],
+    "_GUICtrlListBox_SetLocale": [
+        "Set the current locale",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetLocale ( $hWnd, $iLocal )\r```"
+    ],
+    "_GUICtrlListBox_SetSel": [
+        "Select a string(s) in a multiple-selection list box",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetSel ( $hWnd [, $iIndex = -1 [, $iSelect = -1]] )\r```"
+    ],
+    "_GUICtrlListBox_SetTabStops": [
+        "Sets the tab-stop positions",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetTabStops ( $hWnd, $aTabStops )\r```"
+    ],
+    "_GUICtrlListBox_SetTopIndex": [
+        "Ensure that a particular item in a list box is visible",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SetTopIndex ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListBox_Sort": [
+        "Re-sorts list box if it has the $LBS_SORT style",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_Sort ( $hWnd )\r```"
+    ],
+    "_GUICtrlListBox_SwapString": [
+        "Swaps the text of two items at the specified indices",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_SwapString ( $hWnd, $iIndexA, $iIndexB )\r```"
+    ],
+    "_GUICtrlListBox_UpdateHScroll": [
+        "Update the horizontal scroll bar based on the longest string",
+        "```\r#include <GuiListBox.au3>\r_GUICtrlListBox_UpdateHScroll ( $hWnd )\r```"
+    ]
+}
