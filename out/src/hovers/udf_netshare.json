@@ -1,0 +1,70 @@
+{
+    "_Net_Share_ConnectionEnum": [
+        "Lists all connections made to a shared resource",
+        "```\r#include <NetShare.au3>\r_Net_Share_ConnectionEnum ( $sServer, $sQualifier )\r```"
+    ],
+    "_Net_Share_FileClose": [
+        "Forces a resource to close",
+        "```\r#include <NetShare.au3>\r_Net_Share_FileClose ( $sServer, $iFileID )\r```"
+    ],
+    "_Net_Share_FileEnum": [
+        "Returns information about open files on a server",
+        "```\r#include <NetShare.au3>\r_Net_Share_FileEnum ( [$sServer = \"\" [, $sBaseName = \"\" [, $sUserName = \"\"]]] )\r```"
+    ],
+    "_Net_Share_FileGetInfo": [
+        "Retrieves information about a particular opening of a server resource",
+        "```\r#include <NetShare.au3>\r_Net_Share_FileGetInfo ( $sServer, $iFileID )\r```"
+    ],
+    "_Net_Share_PermStr": [
+        "Returns the string representation of a resource's permissions",
+        "```\r#include <NetShare.au3>\r_Net_Share_PermStr ( $iPerm )\r```"
+    ],
+    "_Net_Share_ResourceStr": [
+        "Returns the string representation of a resource",
+        "```\r#include <NetShare.au3>\r_Net_Share_ResourceStr ( $iResource )\r```"
+    ],
+    "_Net_Share_SessionDel": [
+        "Ends a network session between a server and a workstation",
+        "```\r#include <NetShare.au3>\r_Net_Share_SessionDel ( [$sServer = \"\" [, $sClientName = \"\" [, $sUserName = \"\"]]] )\r```"
+    ],
+    "_Net_Share_SessionEnum": [
+        "Provides information about sessions established on a server",
+        "```\r#include <NetShare.au3>\r_Net_Share_SessionEnum ( [$sServer = \"\" [, $sClientName = \"\" [, $sUserName = \"\"]]] )\r```"
+    ],
+    "_Net_Share_SessionGetInfo": [
+        "Retrieves information about a session established between a server and workstation",
+        "```\r#include <NetShare.au3>\r_Net_Share_SessionGetInfo ( $sServer, $sClientName, $sUserName )\r```"
+    ],
+    "_Net_Share_ShareAdd": [
+        "Shares a server resource",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareAdd ( $sServer, $sShare, $iType, $sResourcePath [, $sComment = \"\" [, $iMaxUses = -1]] )\r```"
+    ],
+    "_Net_Share_ShareCheck": [
+        "Checks whether or not a server is sharing a device",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareCheck ( $sServer, $sShare )\r```"
+    ],
+    "_Net_Share_ShareDel": [
+        "Deletes a share name from a server's list of shared resources",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareDel ( $sServer, $sShare )\r```"
+    ],
+    "_Net_Share_ShareEnum": [
+        "Retrieves information about each shared resource on a server",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareEnum ( [$sServer = \"\"] )\r```"
+    ],
+    "_Net_Share_ShareGetInfo": [
+        "Retrieves information about a particular shared resource on a server",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareGetInfo ( $sServer, $sShare )\r```"
+    ],
+    "_Net_Share_ShareSetInfo": [
+        "Shares a server resource",
+        "```\r#include <NetShare.au3>\r_Net_Share_ShareSetInfo ( $sServer, $sShare, $sComment, $iMaxUses )\r```"
+    ],
+    "_Net_Share_StatisticsGetSvr": [
+        "Retrieves operating statistics for a server",
+        "```\r#include <NetShare.au3>\r_Net_Share_StatisticsGetSvr ( [$sServer = \"\"] )\r```"
+    ],
+    "_Net_Share_StatisticsGetWrk": [
+        "Retrieves operating statistics for a workstation",
+        "```\r#include <NetShare.au3>\r_Net_Share_StatisticsGetWrk ( [$sWorkStation = \"\"] )\r```"
+    ]
+}
