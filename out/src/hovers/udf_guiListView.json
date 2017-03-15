@@ -408,7 +408,7 @@
         "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewTile ( $hWnd )\r```"
     ],
     "_GUICtrlListView_HideColumn": [
-        "Hides the column "sets column width to zero"",
+        "Hides the column \"sets column width to zero\"",
         "```\r#include <GuiListView.au3>\r_GUICtrlListView_HideColumn ( $hWnd, $iCol )\r```"
     ],
     "_GUICtrlListView_HitTest": [
