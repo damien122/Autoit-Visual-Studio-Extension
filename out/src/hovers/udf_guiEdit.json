@@ -1,0 +1,190 @@
+{
+    "_GUICtrlEdit_AppendText": [
+        "Append text",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_AppendText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlEdit_BeginUpdate": [
+        "Prevents updating of the control until the _GUICtrlEdit_EndUpdate function is called",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_BeginUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_CanUndo": [
+        "Determines whether there are any actions in an edit control's undo queue",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_CanUndo ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_CharFromPos": [
+        "Retrieve information about the character closest to a specified point in the client area",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_CharFromPos ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlEdit_Create": [
+        "Create an Edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_Create ( $hWnd, $sText, $iX, $iY [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = 0x003010C4 [, $iExStyle = 0x00000200]]]] )\r```"
+    ],
+    "_GUICtrlEdit_Destroy": [
+        "Delete the Edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_EmptyUndoBuffer": [
+        "Resets the undo flag of an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_EmptyUndoBuffer ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_EndUpdate": [
+        "Enables screen repainting that was turned off with the _GUICtrlEdit_BeginUpdate function",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_EndUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_Find": [
+        "Initiates a find dialog",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_Find ( $hWnd [, $bReplace = False] )\r```"
+    ],
+    "_GUICtrlEdit_FmtLines": [
+        "Determines whether an edit control includes soft line-break characters",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_FmtLines ( $hWnd [, $bSoftBreak = False] )\r```"
+    ],
+    "_GUICtrlEdit_GetCueBanner": [
+        "Gets the cue banner text displayed in the edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetCueBanner ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetFirstVisibleLine": [
+        "Retrieves the 0-based index of the uppermost visible line in a multiline edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetFirstVisibleLine ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetLimitText": [
+        "Gets the current text limit for an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetLimitText ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetLine": [
+        "Retrieves a line of text from an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetLine ( $hWnd, $iLine )\r```"
+    ],
+    "_GUICtrlEdit_GetLineCount": [
+        "Retrieves the number of lines",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetLineCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetMargins": [
+        "Retrieves the widths of the left and right margins",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetMargins ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetModify": [
+        "Retrieves the state of an edit control's modification flag",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetModify ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetPasswordChar": [
+        "Gets the password character that an edit control displays when the user enters text",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetPasswordChar ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetRECT": [
+        "Retrieves the formatting rectangle of an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetRECT ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetRECTEx": [
+        "Retrieves the formatting rectangle of an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetRECTEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetSel": [
+        "Retrieves the starting and ending character positions of the current selection",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetText": [
+        "Get the text from the edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetText ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_GetTextLen": [
+        "Get the length of all the text from the edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_GetTextLen ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_HideBalloonTip": [
+        "Hides any balloon tip associated with an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_HideBalloonTip ( $hWnd )\r```"
+    ],
+    "_GUICtrlEdit_InsertText": [
+        "Insert text",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_InsertText ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlEdit_LineFromChar": [
+        "Retrieves the index of the line that contains the specified character index",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_LineFromChar ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlEdit_LineIndex": [
+        "Retrieves the character index of the first character of a specified line",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_LineIndex ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlEdit_LineLength": [
+        "Retrieves the length, in characters, of a line",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_LineLength ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlEdit_LineScroll": [
+        "Scrolls the text",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_LineScroll ( $hWnd, $iHoriz, $iVert )\r```"
+    ],
+    "_GUICtrlEdit_PosFromChar": [
+        "Retrieves the client area coordinates of a specified character in an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_PosFromChar ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlEdit_ReplaceSel": [
+        "Replaces the current selection",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_ReplaceSel ( $hWnd, $sText [, $bUndo = True] )\r```"
+    ],
+    "_GUICtrlEdit_Scroll": [
+        "Scrolls the text vertically",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_Scroll ( $hWnd, $iDirection )\r```"
+    ],
+    "_GUICtrlEdit_SetCueBanner": [
+        "Sets the cue banner text that is displayed for the edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetCueBanner ( $hWnd, $sText [, $bOnFocus = False] )\r```"
+    ],
+    "_GUICtrlEdit_SetLimitText": [
+        "Sets the text limit",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetLimitText ( $hWnd, $iLimit )\r```"
+    ],
+    "_GUICtrlEdit_SetMargins": [
+        "Sets the widths of the left and right margins",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetMargins ( $hWnd [, $iMargin = 0x1 [, $iLeft = 0xFFFF [, $iRight = 0xFFFF]]] )\r```"
+    ],
+    "_GUICtrlEdit_SetModify": [
+        "Sets or clears the modification flag",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetModify ( $hWnd, $bModified )\r```"
+    ],
+    "_GUICtrlEdit_SetPasswordChar": [
+        "Sets or removes the password character for an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetPasswordChar ( $hWnd [, $sDisplayChar = \"0\"] )\r```"
+    ],
+    "_GUICtrlEdit_SetReadOnly": [
+        "Sets or removes the read-only style ($ES_READONLY)",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetReadOnly ( $hWnd, $bReadOnly )\r```"
+    ],
+    "_GUICtrlEdit_SetRECT": [
+        "Sets the formatting rectangle of a multiline edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetRECT ( $hWnd, $aRect )\r```"
+    ],
+    "_GUICtrlEdit_SetRECTEx": [
+        "Sets the formatting rectangle of a multiline edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetRECTEx ( $hWnd, $tRECT )\r```"
+    ],
+    "_GUICtrlEdit_SetRECTNP": [
+        "Sets the formatting rectangle of a multiline edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetRECTNP ( $hWnd, $aRect )\r```"
+    ],
+    "_GUICtrlEdit_SetRectNPEx": [
+        "Sets the formatting rectangle of a multiline edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetRectNPEx ( $hWnd, $tRECT )\r```"
+    ],
+    "_GUICtrlEdit_SetSel": [
+        "Selects a range of characters",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetSel ( $hWnd, $iStart, $iEnd )\r```"
+    ],
+    "_GUICtrlEdit_SetTabStops": [
+        "Sets the tab stops",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetTabStops ( $hWnd, $aTabStops )\r```"
+    ],
+    "_GUICtrlEdit_SetText": [
+        "Set the text",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_SetText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlEdit_ShowBalloonTip": [
+        "Displays a balloon tip associated with an edit control",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_ShowBalloonTip ( $hWnd, $sTitle, $sText, $iIcon )\r```"
+    ],
+    "_GUICtrlEdit_Undo": [
+        "Undoes the last edit control operation in the control's undo queue",
+        "```\r#include <GuiEdit.au3>\r_GUICtrlEdit_Undo ( $hWnd )\r```"
+    ]
+}
