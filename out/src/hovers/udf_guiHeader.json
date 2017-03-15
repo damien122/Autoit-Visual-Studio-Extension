@@ -1,0 +1,190 @@
+{
+    "_GUICtrlHeader_AddItem": [
+        "Adds a new header item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_AddItem ( $hWnd, $sText [, $iWidth = 50 [, $iAlign = 0 [, $iImage = -1 [, $bOnRight = False]]]] )\r```"
+    ],
+    "_GUICtrlHeader_ClearFilter": [
+        "Clears the filter",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_ClearFilter ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_ClearFilterAll": [
+        "Clears all of the filters",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_ClearFilterAll ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_Create": [
+        "Creates a Header control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_Create ( $hWnd [, $iStyle = 0x00000046] )\r```"
+    ],
+    "_GUICtrlHeader_CreateDragImage": [
+        "Creates a semi-transparent version of an item's image for use as a dragging image",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_CreateDragImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_DeleteItem": [
+        "Deletes a header item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_DeleteItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_Destroy": [
+        "Delete the Header control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_EditFilter": [
+        "Starts editing the specified filter",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_EditFilter ( $hWnd, $iIndex [, $bDiscard = True] )\r```"
+    ],
+    "_GUICtrlHeader_GetBitmapMargin": [
+        "Retrieves the width of the bitmap margin",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetBitmapMargin ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_GetImageList": [
+        "Retrieves the handle to the image list",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_GetItem": [
+        "Retrieves information about an item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItem ( $hWnd, $iIndex, ByRef $tItem )\r```"
+    ],
+    "_GUICtrlHeader_GetItemAlign": [
+        "Retrieves the item text alignment",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemAlign ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemBitmap": [
+        "Retrieves the item bitmap handle",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemBitmap ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemCount": [
+        "Retrieves a count of the items",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_GetItemDisplay": [
+        "Returns the item display information",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemDisplay ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemFlags": [
+        "Returns the item flag information",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemFlags ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemFormat": [
+        "Returns the format of the item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemFormat ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemImage": [
+        "Retrieves the index of an image within the image list",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemOrder": [
+        "Retrieves the order in which the item appears",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemOrder ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemParam": [
+        "Retrieves the param value of the item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemParam ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemRect": [
+        "Retrieves the bounding rectangle for a given item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemRect ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemRectEx": [
+        "Retrieves the bounding rectangle for a given item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemRectEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemText": [
+        "Retrieves the item text",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemText ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetItemWidth": [
+        "Retrieves the item's width",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetItemWidth ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlHeader_GetOrderArray": [
+        "Retrieves the current left-to-right order of items in a header control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetOrderArray ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlHeader_HitTest": [
+        "Tests a point to determine which item is at the specified point",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_HitTest ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlHeader_InsertItem": [
+        "Inserts a new header item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_InsertItem ( $hWnd, $iIndex, $sText [, $iWidth = 50 [, $iAlign = 0 [, $iImage = -1 [, $bOnRight = False]]]] )\r```"
+    ],
+    "_GUICtrlHeader_Layout": [
+        "Retrieves the correct size and position of the control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_Layout ( $hWnd, ByRef $tRECT )\r```"
+    ],
+    "_GUICtrlHeader_OrderToIndex": [
+        "Retrieves an index value for an item based on its order",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_OrderToIndex ( $hWnd, $iOrder )\r```"
+    ],
+    "_GUICtrlHeader_SetBitmapMargin": [
+        "Sets the width of the margin, specified in pixels, of a bitmap",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetBitmapMargin ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUICtrlHeader_SetFilterChangeTimeout": [
+        "Sets the filter change timeout interval",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetFilterChangeTimeout ( $hWnd, $iTimeOut )\r```"
+    ],
+    "_GUICtrlHeader_SetHotDivider": [
+        "Changes the hot divider color",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetHotDivider ( $hWnd, $iFlag, $iInputValue )\r```"
+    ],
+    "_GUICtrlHeader_SetImageList": [
+        "Assigns an image list",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetImageList ( $hWnd, $hImage )\r```"
+    ],
+    "_GUICtrlHeader_SetItem": [
+        "Sets information about an item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItem ( $hWnd, $iIndex, ByRef $tItem )\r```"
+    ],
+    "_GUICtrlHeader_SetItemAlign": [
+        "Sets the item text alignment",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemAlign ( $hWnd, $iIndex, $iAlign )\r```"
+    ],
+    "_GUICtrlHeader_SetItemBitmap": [
+        "Sets the item bitmap handle",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemBitmap ( $hWnd, $iIndex, $hBitmap )\r```"
+    ],
+    "_GUICtrlHeader_SetItemDisplay": [
+        "Returns the item display information",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemDisplay ( $hWnd, $iIndex, $iDisplay )\r```"
+    ],
+    "_GUICtrlHeader_SetItemFlags": [
+        "Returns the item flag information",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemFlags ( $hWnd, $iIndex, $iFlags )\r```"
+    ],
+    "_GUICtrlHeader_SetItemFormat": [
+        "Sets the format of the item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemFormat ( $hWnd, $iIndex, $iFormat )\r```"
+    ],
+    "_GUICtrlHeader_SetItemImage": [
+        "Sets the index of an image within the image list",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemImage ( $hWnd, $iIndex, $iImage )\r```"
+    ],
+    "_GUICtrlHeader_SetItemOrder": [
+        "Sets the order in which the item appears",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemOrder ( $hWnd, $iIndex, $iOrder )\r```"
+    ],
+    "_GUICtrlHeader_SetItemParam": [
+        "Sets the param value of the item",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemParam ( $hWnd, $iIndex, $iParam )\r```"
+    ],
+    "_GUICtrlHeader_SetItemText": [
+        "Sets the item text",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemText ( $hWnd, $iIndex, $sText )\r```"
+    ],
+    "_GUICtrlHeader_SetItemWidth": [
+        "Sets the item's width",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetItemWidth ( $hWnd, $iIndex, $iWidth )\r```"
+    ],
+    "_GUICtrlHeader_SetOrderArray": [
+        "Sets the current left-to-right order of items",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetOrderArray ( $hWnd, ByRef $aOrder )\r```"
+    ],
+    "_GUICtrlHeader_SetUnicodeFormat": [
+        "Sets the Unicode character format flag for the control",
+        "```\r#include <GuiHeader.au3>\r_GUICtrlHeader_SetUnicodeFormat ( $hWnd, $bUnicode )\r```"
+    ]
+}
