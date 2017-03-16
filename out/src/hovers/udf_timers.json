@@ -1,0 +1,30 @@
+{
+    "_Timer_Diff": [
+        "Returns the difference in time from a previous call to _Timer_Init",
+        "```\r#include <Timers.au3>\r_Timer_Diff ( $iTimeStamp )\r```"
+    ],
+    "_Timer_GetIdleTime": [
+        "Returns the number of ticks since last user activity (i.e. KYBD/Mouse)",
+        "```\r#include <Timers.au3>\r_Timer_GetIdleTime ( )\r```"
+    ],
+    "_Timer_GetTimerID": [
+        "Returns the Timer ID from $wParam",
+        "```\r#include <Timers.au3>\r_Timer_GetTimerID ( $wParam )\r```"
+    ],
+    "_Timer_Init": [
+        "Returns a timestamp (in milliseconds)",
+        "```\r#include <Timers.au3>\r_Timer_Init ( )\r```"
+    ],
+    "_Timer_KillAllTimers": [
+        "Destroys all the timers",
+        "```\r#include <Timers.au3>\r_Timer_KillAllTimers ( $hWnd )\r```"
+    ],
+    "_Timer_KillTimer": [
+        "Destroys the specified timer",
+        "```\r#include <Timers.au3>\r_Timer_KillTimer ( $hWnd, $iTimerID )\r```"
+    ],
+    "_Timer_SetTimer": [
+        "Creates a timer with the specified time-out value",
+        "```\r#include <Timers.au3>\r_Timer_SetTimer ( $hWnd [, $iElapse = 250 [, $sTimerFunc = \"\" [, $iTimerID = -1]]] )\r```"
+    ]   
+}
