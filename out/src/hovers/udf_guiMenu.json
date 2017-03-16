@@ -1,0 +1,306 @@
+{
+    "_GUICtrlMenu_AddMenuItem": [
+        "Adds a new menu item to the end of the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_AddMenuItem ( $hMenu, $sText [, $iCmdID = 0 [, $hSubMenu = 0]] )\r```"
+    ],
+    "_GUICtrlMenu_AppendMenu": [
+        "Appends a new item to the end of the specified menu bar, drop-down menu, submenu, or shortcut menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_AppendMenu ( $hMenu, $iFlags, $iNewItem, $vNewItem )\r```"
+    ],
+    "_GUICtrlMenu_CalculatePopupWindowPosition": [
+        "Calculates an appropriate pop-up window position",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_CalculatePopupWindowPosition ( $iX, $iY, $iWidth, $iHeight [, $iFlags = 0 [, $tExclude = 0]] )\r```"
+    ],
+    "_GUICtrlMenu_CheckMenuItem": [
+        "Sets the state of the specified menu item's check mark attribute to either selected or clear",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_CheckMenuItem ( $hMenu, $iItem [, $bCheck = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_CheckRadioItem": [
+        "Checks a specified menu item and makes it a radio item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_CheckRadioItem ( $hMenu, $iFirst, $iLast, $iCheck [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_CreateMenu": [
+        "Creates a menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_CreateMenu ( [$iStyle = $MNS_CHECKORBMP] )\r```"
+    ],
+    "_GUICtrlMenu_CreatePopup": [
+        "Creates a drop down menu, submenu, or shortcut menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_CreatePopup ( [$iStyle = $MNS_CHECKORBMP] )\r```"
+    ],
+    "_GUICtrlMenu_DeleteMenu": [
+        "Deletes an item from the specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_DeleteMenu ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_DestroyMenu": [
+        "Destroys the specified menu and frees any memory that the menu occupies",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_DestroyMenu ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_DrawMenuBar": [
+        "Redraws the menu bar of the specified window",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_DrawMenuBar ( $hWnd )\r```"
+    ],
+    "_GUICtrlMenu_EnableMenuItem": [
+        "Enables, disables, or grays the specified menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_EnableMenuItem ( $hMenu, $iItem [, $iState = 0 [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_FindItem": [
+        "Retrieves a menu item based on it's text",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_FindItem ( $hMenu, $sText [, $bInStr = False [, $iStart = 0]] )\r```"
+    ],
+    "_GUICtrlMenu_FindParent": [
+        "Retrieves the window to which a menu belongs",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_FindParent ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetItemBmp": [
+        "Retrieves the bitmap displayed for the item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemBmp ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemBmpChecked": [
+        "Retrieves the bitmap displayed if the item is selected",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemBmpChecked ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemBmpUnchecked": [
+        "Retrieves the bitmap displayed if the item is not selected",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemBmpUnchecked ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemChecked": [
+        "Retrieves the status of the menu item checked state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemChecked ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemCount": [
+        "Retrieves the number of items in the specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemCount ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetItemData": [
+        "Retrieves the application defined value associated with the menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemData ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemDefault": [
+        "Retrieves the status of the menu item default state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemDefault ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemDisabled": [
+        "Retrieves the status of the menu item disabled state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemDisabled ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemEnabled": [
+        "Retrieves the status of the menu item enabled state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemEnabled ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemGrayed": [
+        "Retrieves the status of the menu item grayed state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemGrayed ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemHighlighted": [
+        "Retrieves the status of the menu item highlighted state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemHighlighted ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemID": [
+        "Retrieves the menu item ID",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemID ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemInfo": [
+        "Retrieves information about a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemInfo ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemRect": [
+        "Retrieves the bounding rectangle for the specified menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemRect ( $hWnd, $hMenu, $iItem )\r```"
+    ],
+    "_GUICtrlMenu_GetItemRectEx": [
+        "Retrieves the bounding rectangle for the specified menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemRectEx ( $hWnd, $hMenu, $iItem )\r```"
+    ],
+    "_GUICtrlMenu_GetItemState": [
+        "Retrieves the menu item state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemState ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemStateEx": [
+        "Retrieves the menu flags associated with the specified menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemStateEx ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemSubMenu": [
+        "Retrieves a the submenu activated by a specified item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemSubMenu ( $hMenu, $iItem )\r```"
+    ],
+    "_GUICtrlMenu_GetItemText": [
+        "Retrieves the text of the specified menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemText ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetItemType": [
+        "Retrieves the menu item type",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetItemType ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_GetMenu": [
+        "Retrieves the handle of the menu assigned to the given window",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenu ( $hWnd )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuBackground": [
+        "Retrieves the brush to use for the menu's background",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuBackground ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuBarInfo": [
+        "Retrieves information about the specified menu bar",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuBarInfo ( $hWnd [, $iItem = 0 [, $iObject = 1]] )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuContextHelpID": [
+        "Retrieves the context help identifier",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuContextHelpID ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuData": [
+        "Retrieves the application defined value",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuData ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuDefaultItem": [
+        "Retrieves the default menu item on the specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuDefaultItem ( $hMenu [, $bByPos = True [, $iFlags = 0]] )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuHeight": [
+        "Retrieves the maximum height of a menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuHeight ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuInfo": [
+        "Retrieves information about a specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuInfo ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetMenuStyle": [
+        "Retrieves the style information for a menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetMenuStyle ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_GetSystemMenu": [
+        "Allows the application to access the window menu for copying and modifying",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_GetSystemMenu ( $hWnd [, $bRevert = False] )\r```"
+    ],
+    "_GUICtrlMenu_InsertMenuItem": [
+        "Inserts a new menu item at the specified position",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_InsertMenuItem ( $hMenu, $iIndex, $sText [, $iCmdID = 0 [, $hSubMenu = 0]] )\r```"
+    ],
+    "_GUICtrlMenu_InsertMenuItemEx": [
+        "Inserts a new menu item at the specified position in a menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_InsertMenuItemEx ( $hMenu, $iIndex, ByRef $tMenu [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_IsMenu": [
+        "Determines whether a handle is a menu handle",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_IsMenu ( $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_LoadMenu": [
+        "Loads the specified menu resource from the executable file associated with an application instance",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_LoadMenu ( $hInst, $sMenuName )\r```"
+    ],
+    "_GUICtrlMenu_MapAccelerator": [
+        "Maps a menu accelerator key to it's position in the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_MapAccelerator ( $hMenu, $sAccelKey )\r```"
+    ],
+    "_GUICtrlMenu_MenuItemFromPoint": [
+        "Determines which menu item is at the specified location",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_MenuItemFromPoint ( $hWnd, $hMenu [, $iX = -1 [, $iY = -1]] )\r```"
+    ],
+    "_GUICtrlMenu_RemoveMenu": [
+        "Deletes a menu item or detaches a submenu from the specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_RemoveMenu ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemBitmaps": [
+        "Associates the specified bitmap with a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemBitmaps ( $hMenu, $iItem, $hChecked, $hUnChecked [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemBmp": [
+        "Sets the bitmap displayed for the item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemBmp ( $hMenu, $iItem, $hBitmap [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemBmpChecked": [
+        "Sets the bitmap displayed if the item is selected",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemBmpChecked ( $hMenu, $iItem, $hBitmap [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemBmpUnchecked": [
+        "Sets the bitmap displayed if the item is not selected",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemBmpUnchecked ( $hMenu, $iItem, $hBitmap [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemChecked": [
+        "Sets the checked state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemChecked ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemData": [
+        "Sets the application defined value for a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemData ( $hMenu, $iItem, $iData [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemDefault": [
+        "Sets the status of the menu item default state",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemDefault ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemDisabled": [
+        "Sets the disabled state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemDisabled ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemEnabled": [
+        "Sets the enabled state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemEnabled ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemGrayed": [
+        "Sets the grayed state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemGrayed ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemHighlighted": [
+        "Sets the highlighted state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemHighlighted ( $hMenu, $iItem [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemID": [
+        "Sets the menu item ID",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemID ( $hMenu, $iItem, $iID [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemInfo": [
+        "Changes information about a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemInfo ( $hMenu, $iItem, ByRef $tInfo [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemState": [
+        "Sets the state of a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemState ( $hMenu, $iItem, $iState [, $bState = True [, $bByPos = True]] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemSubMenu": [
+        "Sets the drop down menu or submenu associated with the menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemSubMenu ( $hMenu, $iItem, $hSubMenu [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemText": [
+        "Sets the text for a menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemText ( $hMenu, $iItem, $sText [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetItemType": [
+        "Sets the menu item type",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetItemType ( $hMenu, $iItem, $iType [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetMenu": [
+        "Assigns a new menu to the specified window",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenu ( $hWnd, $hMenu )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuBackground": [
+        "Sets the background brush for the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuBackground ( $hMenu, $hBrush )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuContextHelpID": [
+        "Sets the context help identifier for the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuContextHelpID ( $hMenu, $iHelpID )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuData": [
+        "Sets the application defined for the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuData ( $hMenu, $iData )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuDefaultItem": [
+        "Sets the default menu item",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuDefaultItem ( $hMenu, $iItem [, $bByPos = True] )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuHeight": [
+        "Sets the maximum height of the menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuHeight ( $hMenu, $iHeight )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuInfo": [
+        "Sets information for a specified menu",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuInfo ( $hMenu, ByRef $tInfo )\r```"
+    ],
+    "_GUICtrlMenu_SetMenuStyle": [
+        "Sets the menu style",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_SetMenuStyle ( $hMenu, $iStyle )\r```"
+    ],
+    "_GUICtrlMenu_TrackPopupMenu": [
+        "Displays a shortcut menu at the specified location",
+        "```\r#include <GuiMenu.au3>\r_GUICtrlMenu_TrackPopupMenu ( $hMenu, $hWnd [, $iX = -1 [, $iY = -1 [, $iAlignX = 1 [, $iAlignY = 1 [, $iNotify = 0 [, $iButtons = 0]]]]]] )\r```"
+    ]
+}
