@@ -1,0 +1,218 @@
+{
+    "_WinAPI_BeginBufferedPaint": [
+        "Begins a buffered paint operation",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat = 0 [, $iFlags = 0 [, $tExclude = 0 [, $iAlpha = -1]]]] )\r```"
+    ],
+    "_WinAPI_BufferedPaintClear": [
+        "Clears a specified rectangle in the buffer to ARGB = {0,0,0,0}",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintClear ( $hBP [, $tRECT = 0] )\r```"
+    ],
+    "_WinAPI_BufferedPaintInit": [
+        "Initialize buffered painting for the current thread",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintInit ( )\r```"
+    ],
+    "_WinAPI_BufferedPaintSetAlpha": [
+        "Sets the alpha to a specified value in a given rectangle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintSetAlpha ( $hBP [, $iAlpha = 255 [, $tRECT = 0]] )\r```"
+    ],
+    "_WinAPI_BufferedPaintUnInit": [
+        "Closes down buffered painting for the current thread",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintUnInit ( )\r```"
+    ],
+    "_WinAPI_CloseThemeData": [
+        "Closes the theme data handle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_CloseThemeData ( $hTheme )\r```"
+    ],
+    "_WinAPI_DrawThemeBackground": [
+        "Draws the border and fill defined by the visual style for the specified control part",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeBackground ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT [, $tCLIP = 0] )\r```"
+    ],
+    "_WinAPI_DrawThemeEdge": [
+        "Draws one or more edges defined by the visual style of a rectangle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeEdge ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT, $iEdge, $iFlags [, $tAREA = 0] )\r```"
+    ],
+    "_WinAPI_DrawThemeIcon": [
+        "Draws an image from an image list with the icon effect defined by the visual style",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeIcon ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT, $hIL, $iIndex )\r```"
+    ],
+    "_WinAPI_DrawThemeParentBackground": [
+        "Draws the part of a parent control that is covered by a partially-transparent or alpha-blended child control",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeParentBackground ( $hWnd, $hDC [, $tRECT = 0] )\r```"
+    ],
+    "_WinAPI_DrawThemeText": [
+        "Draws text using the color and font defined by the visual style",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeText ( $hTheme, $iPartID, $iStateID, $hDC, $sText, $tRECT, $iFlags )\r```"
+    ],
+    "_WinAPI_DrawThemeTextEx": [
+        "Draws text using the color and font defined by the visual style",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_DrawThemeTextEx ( $hTheme, $iPartID, $iStateID, $hDC, $sText, $tRECT, $iFlags, $tDTTOPTS )\r```"
+    ],
+    "_WinAPI_EndBufferedPaint": [
+        "Completes a buffered paint operation and frees the associated buffered paint handle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_EndBufferedPaint ( $hBP [, $bUpdate = True] )\r```"
+    ],
+    "_WinAPI_GetBufferedPaintBits": [
+        "Retrieves a pointer to the buffer bitmap if the buffer is a device-independent bitmap (DIB)",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetBufferedPaintBits ( $hBP )\r```"
+    ],
+    "_WinAPI_GetBufferedPaintDC": [
+        "Gets the paint device context (DC)",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetBufferedPaintDC ( $hBP )\r```"
+    ],
+    "_WinAPI_GetBufferedPaintTargetDC": [
+        "Retrieves the target device context (DC)",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetBufferedPaintTargetDC ( $hBP )\r```"
+    ],
+    "_WinAPI_GetBufferedPaintTargetRect": [
+        "Retrieves the target rectangle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetBufferedPaintTargetRect ( $hBP )\r```"
+    ],
+    "_WinAPI_GetCurrentThemeName": [
+        "Retrieves the name of the current visual styles, color scheme name, and size name",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetCurrentThemeName ( )\r```"
+    ],
+    "_WinAPI_GetThemeAppProperties": [
+        "Retrieves the property flags that control how visual styles are applied in the current application",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeAppProperties ( )\r```"
+    ],
+    "_WinAPI_GetThemeBackgroundContentRect": [
+        "Retrieves the size of the content area for the background defined by the visual style",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeBackgroundContentRect ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT )\r```"
+    ],
+    "_WinAPI_GetThemeBackgroundExtent": [
+        "Calculates the size and location of the background, defined by the visual style, given the content area",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeBackgroundExtent ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT )\r```"
+    ],
+    "_WinAPI_GetThemeBackgroundRegion": [
+        "Computes the region for a regular or partially transparent background that is bounded by a specified rectangle",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeBackgroundRegion ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT )\r```"
+    ],
+    "_WinAPI_GetThemeBitmap": [
+        "Retrieves the bitmap associated with a particular theme, part, state, and property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeBitmap ( $hTheme, $iPartID, $iStateID, $iPropID [, $iFlag = 0x01] )\r```"
+    ],
+    "_WinAPI_GetThemeBool": [
+        "Retrieves the value of a BOOL property from the SysMetrics section of theme data",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeBool ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeColor": [
+        "Retrieves the value of a color property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeColor ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeDocumentationProperty": [
+        "Retrieves the value for a theme property from the documentation section of the specified theme file",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeDocumentationProperty ( $sFilePath, $sProperty )\r```"
+    ],
+    "_WinAPI_GetThemeEnumValue": [
+        "Retrieves the value of an enumerated type property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeEnumValue ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeFilename": [
+        "Retrieves the value of a filename property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeFilename ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeFont": [
+        "Retrieves the value of a font property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeFont ( $hTheme, $iPartID, $iStateID, $iPropID [, $hDC = 0] )\r```"
+    ],
+    "_WinAPI_GetThemeInt": [
+        "Retrieves the value of an INT property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeInt ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeMargins": [
+        "Retrieves the value of a margins property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeMargins ( $hTheme, $iPartID, $iStateID, $iPropID, $hDC, $tRECT )\r```"
+    ],
+    "_WinAPI_GetThemeMetric": [
+        "Retrieves the value of a metric property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeMetric ( $hTheme, $iPartID, $iStateID, $iPropID [, $hDC = 0] )\r```"
+    ],
+    "_WinAPI_GetThemePartSize": [
+        "Calculates the original size of the part defined by a visual style",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemePartSize ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT, $iType )\r```"
+    ],
+    "_WinAPI_GetThemePosition": [
+        "Retrieves the value of a position property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemePosition ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemePropertyOrigin": [
+        "Retrieves the location of the theme property definition for a property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemePropertyOrigin ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeRect": [
+        "Retrieves the value of a RECT property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeRect ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeString": [
+        "Retrieves the value of a string property",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeString ( $hTheme, $iPartID, $iStateID, $iPropID )\r```"
+    ],
+    "_WinAPI_GetThemeSysBool": [
+        "Retrieves the Boolean value of a system metric",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysBool ( $hTheme, $iBoolID )\r```"
+    ],
+    "_WinAPI_GetThemeSysColor": [
+        "Retrieves the value of a system color",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysColor ( $hTheme, $iColorID )\r```"
+    ],
+    "_WinAPI_GetThemeSysColorBrush": [
+        "Retrieves a system color brush",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysColorBrush ( $hTheme, $iColorID )\r```"
+    ],
+    "_WinAPI_GetThemeSysFont": [
+        "Retrieves the font information of a system font",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysFont ( $hTheme, $iFontID )\r```"
+    ],
+    "_WinAPI_GetThemeSysInt": [
+        "Retrieves the value of a system INT",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysInt ( $hTheme, $iIntID )\r```"
+    ],
+    "_WinAPI_GetThemeSysSize": [
+        "Retrieves the value of a system size metric from theme data",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysSize ( $hTheme, $iSizeID )\r```"
+    ],
+    "_WinAPI_GetThemeSysString": [
+        "Retrieves the value of a system string",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeSysString ( $hTheme, $iStringID )\r```"
+    ],
+    "_WinAPI_GetThemeTextExtent": [
+        "Calculates the size and location of the specified text when rendered in the visual style font",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeTextExtent ( $hTheme, $iPartID, $iStateID, $hDC, $sText, $tRECT, $iFlags )\r```"
+    ],
+    "_WinAPI_GetThemeTextMetrics": [
+        "Retrieves information about the font specified by a visual style for a particular part",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeTextMetrics ( $hTheme, $iPartID, $iStateID [, $hDC = 0] )\r```"
+    ],
+    "_WinAPI_GetThemeTransitionDuration": [
+        "Gets the duration for the specified transition",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetThemeTransitionDuration ( $hTheme, $iPartID, $iStateIDFrom, $iStateIDTo, $iPropID )\r```"
+    ],
+    "_WinAPI_GetWindowTheme": [
+        "Retrieves a theme handle to a window that has visual styles applied",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_GetWindowTheme ( $hWnd )\r```"
+    ],
+    "_WinAPI_IsThemeActive": [
+        "Tests if a visual style for the current application is active",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_IsThemeActive ( )\r```"
+    ],
+    "_WinAPI_IsThemeBackgroundPartiallyTransparent": [
+        "Retrieves whether the background specified by the visual style has transparent pieces or alpha-blended pieces",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_IsThemeBackgroundPartiallyTransparent ( $hTheme, $iPartID, $iStateID )\r```"
+    ],
+    "_WinAPI_IsThemePartDefined": [
+        "Retrieves whether a visual style has defined parameters for the specified part",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_IsThemePartDefined ( $hTheme, $iPartID )\r```"
+    ],
+    "_WinAPI_OpenThemeData": [
+        "Opens the theme data for a window and its associated class",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_OpenThemeData ( $hWnd, $sClass )\r```"
+    ],
+    "_WinAPI_SetThemeAppProperties": [
+        "Sets the flags that determine how visual styles are implemented in the calling application",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_SetThemeAppProperties ( $iFlags )\r```"
+    ],
+    "_WinAPI_SetWindowTheme": [
+        "Causes a window to use a different set of visual style information than its class normally uses",
+        "```\r#include <WinAPITheme.au3>\r_WinAPI_SetWindowTheme ( $hWnd [, $sName = 0 [, $sList = 0]] )\r```"
+    ]    
+}
