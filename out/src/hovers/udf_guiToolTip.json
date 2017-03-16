@@ -1,0 +1,170 @@
+{
+    "_GUIToolTip_Activate": [
+        "Activates a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Activate ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_AddTool": [
+        "Registers a tool with the ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_AddTool ( $hTool, $hWnd, $sText [, $iID = 0 [, $iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0 [, $iFlags = Default [, $iParam = 0]]]]]]] )\r```"
+    ],
+    "_GUIToolTip_AdjustRect": [
+        "Calculates the text display rectangle from the window rectangle",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_AdjustRect ( $hWnd, ByRef $tRECT [, $bLarger = True] )\r```"
+    ],
+    "_GUIToolTip_BitsToTTF": [
+        "Decode bit flags to TTF_* strings",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_BitsToTTF ( $iFlags )\r```"
+    ],
+    "_GUIToolTip_Create": [
+        "Creates a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Create ( $hWnd [, $iStyle = $_TT_ghTTDefaultStyle] )\r```"
+    ],
+    "_GUIToolTip_Deactivate": [
+        "Deactivates a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Deactivate ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_DelTool": [
+        "Deletes a tool from a tooltip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_DelTool ( $hWnd, $hTool [, $iID = 0] )\r```"
+    ],
+    "_GUIToolTip_Destroy": [
+        "Delete a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUIToolTip_EnumTools": [
+        "Retrieves information about the current tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_EnumTools ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUIToolTip_GetBubbleHeight": [
+        "Returns the height of the control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetBubbleHeight ( $hWnd, $hTool, $iID [, $iFlags = 0x00000001 + 0x00000010] )\r```"
+    ],
+    "_GUIToolTip_GetBubbleSize": [
+        "Returns the width and height of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetBubbleSize ( $hWnd, $hTool, $iID [, $iFlags = 0x00000001 + 0x00000010] )\r```"
+    ],
+    "_GUIToolTip_GetBubbleWidth": [
+        "Returns the width of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetBubbleWidth ( $hWnd, $hTool, $iID [, $iFlags = 0x00000001 + 0x00000010] )\r```"
+    ],
+    "_GUIToolTip_GetCurrentTool": [
+        "Retrieves information for the current tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetCurrentTool ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetDelayTime": [
+        "Retrieves the initial, pop-up or reshow durations of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetDelayTime ( $hWnd, $iDuration )\r```"
+    ],
+    "_GUIToolTip_GetMargin": [
+        "Retrieves the top, left, bottom, and right margins of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetMargin ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetMarginEx": [
+        "Retrieves the top, left, bottom, and right margins of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetMarginEx ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetMaxTipWidth": [
+        "Retrieves the maximum width of a ToolTip window",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetMaxTipWidth ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetText": [
+        "Retrieves the text of a tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetText ( $hWnd, $hTool, $iID )\r```"
+    ],
+    "_GUIToolTip_GetTipBkColor": [
+        "Retrieves the background color",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetTipBkColor ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetTipTextColor": [
+        "Retrieves the text color of a ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetTipTextColor ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetTitleBitMap": [
+        "Retrieves the title bitmap icon",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetTitleBitMap ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetTitleText": [
+        "Retrieve the title",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetTitleText ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetToolCount": [
+        "Returns the count of tools maintained by the ToolTip control",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetToolCount ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_GetToolInfo": [
+        "Retrieves the information about a specific tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_GetToolInfo ( $hWnd, $hTool, $iID )\r```"
+    ],
+    "_GUIToolTip_HitTest": [
+        "Retrieves the information that a ToolTip control maintains about a tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_HitTest ( $hWnd, $hTool, $iX, $iY )\r```"
+    ],
+    "_GUIToolTip_NewToolRect": [
+        "Sets a new bounding rectangle for a tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_NewToolRect ( $hWnd, $hTool, $iID, $iLeft, $iTop, $iRight, $iBottom )\r```"
+    ],
+    "_GUIToolTip_Pop": [
+        "Removes a displayed ToolTip from view",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Pop ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_PopUp": [
+        "Causes the ToolTip to display at the coordinates of the last mouse message",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_PopUp ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_SetDelayTime": [
+        "Sets the initial, pop-up, and reshow durations of a ToolTip",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetDelayTime ( $hWnd, $iDuration, $iTime )\r```"
+    ],
+    "_GUIToolTip_SetMargin": [
+        "Sets the top, left, bottom, and right margins of a ToolTip",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetMargin ( $hWnd, $iLeft, $iTop, $iRight, $iBottom )\r```"
+    ],
+    "_GUIToolTip_SetMaxTipWidth": [
+        "Sets the maximum width for a ToolTip window",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetMaxTipWidth ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUIToolTip_SetTipBkColor": [
+        "Sets the background color of a ToolTip",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetTipBkColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUIToolTip_SetTipTextColor": [
+        "Sets the text color",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetTipTextColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUIToolTip_SetTitle": [
+        "Adds a standard icon and title string",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetTitle ( $hWnd, $sTitle [, $iIcon = 0] )\r```"
+    ],
+    "_GUIToolTip_SetToolInfo": [
+        "Sets the information for a tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetToolInfo ( $hWnd, $sText [, $iID = 0 [, $iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0 [, $iFlags = Default [, $iParam = 0]]]]]]] )\r```"
+    ],
+    "_GUIToolTip_SetWindowTheme": [
+        "Sets the visual style",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_SetWindowTheme ( $hWnd, $sStyle )\r```"
+    ],
+    "_GUIToolTip_ToolExists": [
+        "Determines whether a tool currently exists (is displayed)",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_ToolExists ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_ToolToArray": [
+        "Transfers a ToolInfo structure to an array",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_ToolToArray ( $hWnd, ByRef $tToolInfo, $iError )\r```"
+    ],
+    "_GUIToolTip_TrackActivate": [
+        "Activates or deactivates a tracking ToolTip",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_TrackActivate ( $hWnd [, $bActivate = True [, $hTool = 0 [, $iID = 0]]] )\r```"
+    ],
+    "_GUIToolTip_TrackPosition": [
+        "Sets the position of a tracking ToolTip",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_TrackPosition ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUIToolTip_Update": [
+        "Forces the current tool to be redrawn",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_Update ( $hWnd )\r```"
+    ],
+    "_GUIToolTip_UpdateTipText": [
+        "Sets the ToolTip text for a tool",
+        "```\r#include <GuiToolTip.au3>\r_GUIToolTip_UpdateTipText ( $hWnd, $hTool, $iID, $sText )\r```"
+    ]
+}
