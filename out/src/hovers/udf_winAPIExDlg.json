@@ -94,6 +94,5 @@
     "_WinAPI_ShellUserAuthenticationDlgEx": [
         "Creates and displays a configurable dialog box that accepts credentials information from a user",
         "```\r#include <WinAPIDlg.au3>\r_WinAPI_ShellUserAuthenticationDlgEx ( $sCaption, $sMessage, $sUser, $sPassword [, $iFlags = 0 [, $iAuthError = 0 [, $bSave = False [, $iPackage = 0 [, $hParent = 0]]]]] )\r```"
-    ],
-    
+    ]   
 }
