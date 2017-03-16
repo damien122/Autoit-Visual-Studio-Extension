@@ -1,0 +1,198 @@
+{
+    "_IE_Example": [
+        "Display a new browser window pre-loaded with documents to be used in IE.au3 examples or your own testing",
+        "```\r#include <IE.au3>\r_IE_Example ( [$sModule = \"basic\"] )\r```"
+    ],
+    "_IE_Introduction": [
+        "Display introductory information about IE.au3 in a new browser window",
+        "```\r#include <IE.au3>\r_IE_Introduction ( [$sModule = \"basic\"] )\r```"
+    ],
+    "_IE_VersionInfo": [
+        "Returns an array of information about the IE.au3 version",
+        "```\r#include <IE.au3>\r_IE_VersionInfo ( )\r```"
+    ],
+    "_IEAction": [
+        "Perform any of a set of simple actions on the Browser",
+        "```\r#include <IE.au3>\r_IEAction ( ByRef $oObject, $sAction )\r```"
+    ],
+    "_IEAttach": [
+        "Attach to the specified instance of Internet Explorer where the search string sub-string matches (based on the selected mode)",
+        "```\r#include <IE.au3>\r_IEAttach ( $sString [, $sMode = \"title\" [, $iInstance = 1]] )\r```"
+    ],
+    "_IEBodyReadHTML": [
+        "Returns the HTML inside the <body> tag of the document",
+        "```\r#include <IE.au3>\r_IEBodyReadHTML ( ByRef $oObject )\r```"
+    ],
+    "_IEBodyReadText": [
+        "Returns the Text inside the <body> tag of the document",
+        "```\r#include <IE.au3>\r_IEBodyReadText ( ByRef $oObject )\r```"
+    ],
+    "_IEBodyWriteHTML": [
+        "Replaces the HTML inside the <body> tag of the document",
+        "```\r#include <IE.au3>\r_IEBodyWriteHTML ( ByRef $oObject, $sHTML )\r```"
+    ],
+    "_IECreate": [
+        "Create an Internet Explorer Browser Window",
+        "```\r#include <IE.au3>\r_IECreate ( [$sUrl = \"about:blank\" [, $iTryAttach = 0 [, $iVisible = 1 [, $iWait = 1 [, $iTakeFocus = 1]]]]] )\r```"
+    ],
+    "_IECreateEmbedded": [
+        "Create a Webbrowser object suitable for embedding in an AutoIt GUI with GUICtrlCreateObj()",
+        "```\r#include <IE.au3>\r_IECreateEmbedded ( )\r```"
+    ],
+    "_IEDocGetObj": [
+        "Given any DOM object, returns a reference to the associated document object",
+        "```\r#include <IE.au3>\r_IEDocGetObj ( ByRef $oObject )\r```"
+    ],
+    "_IEDocInsertHTML": [
+        "Inserts HTML Text in or around an element",
+        "```\r#include <IE.au3>\r_IEDocInsertHTML ( ByRef $oObject, $sString [, $sWhere = \"beforeend\"] )\r```"
+    ],
+    "_IEDocInsertText": [
+        "Inserts Text in or around an element",
+        "```\r#include <IE.au3>\r_IEDocInsertText ( ByRef $oObject, $sString [, $sWhere = \"beforeend\"] )\r```"
+    ],
+    "_IEDocReadHTML": [
+        "Returns the full HTML source of a document",
+        "```\r#include <IE.au3>\r_IEDocReadHTML ( ByRef $oObject )\r```"
+    ],
+    "_IEDocWriteHTML": [
+        "Replaces the HTML for the entire document",
+        "```\r#include <IE.au3>\r_IEDocWriteHTML ( ByRef $oObject, $sHTML )\r```"
+    ],
+    "_IEErrorNotify": [
+        "Specifies whether IE.au3 automatically notifies of Warnings and Errors (to the console)",
+        "```\r#include <IE.au3>\r_IEErrorNotify ( [$vNotify = Default] )\r```"
+    ],
+    "_IEFormElementCheckBoxSelect": [
+        "Set the value of a specified form element",
+        "```\r#include <IE.au3>\r_IEFormElementCheckBoxSelect ( ByRef $oObject, $sString [, $sName = \"\" [, $iSelect = 1 [, $sMode = \"byValue\" [, $iFireEvent = 1]]]] )\r```"
+    ],
+    "_IEFormElementGetCollection": [
+        "Returns a collection object variable representing all Form Elements within a given Form",
+        "```\r#include <IE.au3>\r_IEFormElementGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IEFormElementGetObjByName": [
+        "Returns an object reference to a Form Element by name",
+        "```\r#include <IE.au3>\r_IEFormElementGetObjByName ( ByRef $oObject, $sName [, $iIndex = 0] )\r```"
+    ],
+    "_IEFormElementGetValue": [
+        "Returns the value of a given Form Element",
+        "```\r#include <IE.au3>\r_IEFormElementGetValue ( ByRef $oObject )\r```"
+    ],
+    "_IEFormElementOptionSelect": [
+        "Set the value of a specified form element",
+        "```\r#include <IE.au3>\r_IEFormElementOptionSelect ( ByRef $oObject, $sString [, $iSelect = 1 [, $sMode = \"byValue\" [, $iFireEvent = 1]]] )\r```"
+    ],
+    "_IEFormElementRadioSelect": [
+        "Set the value of a specified form element",
+        "```\r#include <IE.au3>\r_IEFormElementRadioSelect ( ByRef $oObject, $sString, $sName [, $iSelect = 1 [, $sMode = \"byValue\" [, $iFireEvent = 1]]] )\r```"
+    ],
+    "_IEFormElementSetValue": [
+        "Set the value of a specified Form Element",
+        "```\r#include <IE.au3>\r_IEFormElementSetValue ( ByRef $oObject, $sNewValue [, $iFireEvent = 1] )\r```"
+    ],
+    "_IEFormGetCollection": [
+        "Returns a collection object variable representing the Forms in the document or a single form by index",
+        "```\r#include <IE.au3>\r_IEFormGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IEFormGetObjByName": [
+        "Returns an object reference to a Form by name",
+        "```\r#include <IE.au3>\r_IEFormGetObjByName ( ByRef $oObject, $sName [, $iIndex = 0] )\r```"
+    ],
+    "_IEFormImageClick": [
+        "Simulate a mouse click on an <input type=image>. Match by sub-string match of alt text, name or src",
+        "```\r#include <IE.au3>\r_IEFormImageClick ( ByRef $oObject, $sLinkText [, $sMode = \"src\" [, $iIndex = 0 [, $iWait = 1]]] )\r```"
+    ],
+    "_IEFormReset": [
+        "Reset a specified Form setting the values back to their loaded defaults",
+        "```\r#include <IE.au3>\r_IEFormReset ( ByRef $oObject )\r```"
+    ],
+    "_IEFormSubmit": [
+        "Submit a specified Form",
+        "```\r#include <IE.au3>\r_IEFormSubmit ( ByRef $oObject [, $iWait = 1] )\r```"
+    ],
+    "_IEFrameGetCollection": [
+        "Returns a collection object containing the frames in a FrameSet or the iFrames on a normal page or a single Frame or iFrame by index",
+        "```\r#include <IE.au3>\r_IEFrameGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IEFrameGetObjByName": [
+        "Returns an object reference to a Frame or iFrame by name",
+        "```\r#include <IE.au3>\r_IEFrameGetObjByName ( ByRef $oObject, $sName )\r```"
+    ],
+    "_IEGetObjById": [
+        "Returns an object variable by id",
+        "```\r#include <IE.au3>\r_IEGetObjById ( ByRef $oObject, $sID )\r```"
+    ],
+    "_IEGetObjByName": [
+        "Returns an object variable by name",
+        "```\r#include <IE.au3>\r_IEGetObjByName ( ByRef $oObject, $sName [, $iIndex = 0] )\r```"
+    ],
+    "_IEHeadInsertEventScript": [
+        "Inserts a Javascript into the Head of the document",
+        "```\r#include <IE.au3>\r_IEHeadInsertEventScript ( ByRef $oObject, $sHTMLFor, $sEvent, $sScript )\r```"
+    ],
+    "_IEImgClick": [
+        "Simulate a mouse click on an image. Match by sub-string match of alt text, name, or src",
+        "```\r#include <IE.au3>\r_IEImgClick ( ByRef $oObject, $sLinkText [, $sMode = \"src\" [, $iIndex = 0 [, $iWait = 1]]] )\r```"
+    ],
+    "_IEImgGetCollection": [
+        "Returns a collection object variable representing the IMG tags in the document or a single image by index",
+        "```\r#include <IE.au3>\r_IEImgGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IEIsFrameSet": [
+        "Checks to see if the specified Window contains a FrameSet",
+        "```\r#include <IE.au3>\r_IEIsFrameSet ( ByRef $oObject )\r```"
+    ],
+    "_IELinkClickByIndex": [
+        "Simulate a mouse click on a link by 0-based index (in source order)",
+        "```\r#include <IE.au3>\r_IELinkClickByIndex ( ByRef $oObject, $iIndex [, $iWait = 1] )\r```"
+    ],
+    "_IELinkClickByText": [
+        "Simulate a mouse click on a link with text sub-string matching the string provided",
+        "```\r#include <IE.au3>\r_IELinkClickByText ( ByRef $oObject, $sLinkText [, $iIndex = 0 [, $iWait = 1]] )\r```"
+    ],
+    "_IELinkGetCollection": [
+        "Returns a collection object containing all links in the document or a single link by index",
+        "```\r#include <IE.au3>\r_IELinkGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IELoadWait": [
+        "Wait for a browser page load to complete before returning",
+        "```\r#include <IE.au3>\r_IELoadWait ( ByRef $oObject [, $iDelay = 0 [, $iTimeout = -1]] )\r```"
+    ],
+    "_IELoadWaitTimeout": [
+        "Retrieve or set the current value in milliseconds _IELoadWait() will try before timing out",
+        "```\r#include <IE.au3>\r_IELoadWaitTimeout ( [$iTimeout = -1] )\r```"
+    ],
+    "_IENavigate": [
+        "Directs an existing browser window to navigate to the specified URL",
+        "```\r#include <IE.au3>\r_IENavigate ( ByRef $oObject, $sUrl [, $iWait = 1] )\r```"
+    ],
+    "_IEPropertyGet": [
+        "Returns a select property of the Browser or DOM element",
+        "```\r#include <IE.au3>\r_IEPropertyGet ( ByRef $oObject, $sProperty )\r```"
+    ],
+    "_IEPropertySet": [
+        "Set a select property of the Browser or DOM element",
+        "```\r#include <IE.au3>\r_IEPropertySet ( ByRef $oObject, $sProperty, $vValue )\r```"
+    ],
+    "_IEQuit": [
+        "Close the browser and remove the object reference to it",
+        "```\r#include <IE.au3>\r_IEQuit ( ByRef $oObject )\r```"
+    ],
+    "_IETableGetCollection": [
+        "Returns a collection object variable representing all the tables in a document or a single table by index",
+        "```\r#include <IE.au3>\r_IETableGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IETableWriteToArray": [
+        "Reads the contents of a Table into an array",
+        "```\r#include <IE.au3>\r_IETableWriteToArray ( ByRef $oObject [, $bTranspose = False] )\r```"
+    ],
+    "_IETagNameAllGetCollection": [
+        "Returns a collection object all elements in the document or document hierarchy in source order or a single element by index",
+        "```\r#include <IE.au3>\r_IETagNameAllGetCollection ( ByRef $oObject [, $iIndex = -1] )\r```"
+    ],
+    "_IETagNameGetCollection": [
+        "Returns a collection object of all elements in the object with the specified TagName or a single element by index",
+        "```\r#include <IE.au3>\r_IETagNameGetCollection ( ByRef $oObject, $sTagName [, $iIndex = -1] )\r```"
+    ]
+}
