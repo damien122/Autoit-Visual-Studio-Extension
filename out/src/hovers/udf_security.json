@@ -1,0 +1,78 @@
+{
+    "_Security__AdjustTokenPrivileges": [
+        "Enables or disables privileges in the specified access token",
+        "```\r#include <Security.au3>\r_Security__AdjustTokenPrivileges ( $hToken, $bDisableAll, $tNewState, $iBufferLen [, $tPrevState = 0 [, $pRequired = 0]] )\r```"
+    ],
+    "_Security__CreateProcessWithToken": [
+        "Creates a new process and its primary thread running in the security context of the specified token",
+        "```\r#include <Security.au3>\r_Security__CreateProcessWithToken ( $hToken, $iLogonFlags, $sCommandLine, $iCreationFlags, $sCurDir, $tSTARTUPINFO, $tPROCESS_INFORMATION )\r```"
+    ],
+    "_Security__DuplicateTokenEx": [
+        "Creates a new access token that duplicates an existing token",
+        "```\r#include <Security.au3>\r_Security__DuplicateTokenEx ( $hExistingToken, $iDesiredAccess, $iImpersonationLevel, $iTokenType )\r```"
+    ],
+    "_Security__GetAccountSid": [
+        "Retrieves the security identifier (SID) for an account",
+        "```\r#include <Security.au3>\r_Security__GetAccountSid ( $sAccount [, $sSystem = \"\"] )\r```"
+    ],
+    "_Security__GetLengthSid": [
+        "Returns the length, in bytes, of a valid SID",
+        "```\r#include <Security.au3>\r_Security__GetLengthSid ( $pSID )\r```"
+    ],
+    "_Security__GetTokenInformation": [
+        "Retrieves a specified type of information about an access token",
+        "```\r#include <Security.au3>\r_Security__GetTokenInformation ( $hToken, $iClass )\r```"
+    ],
+    "_Security__ImpersonateSelf": [
+        "Obtains an access token that impersonates the calling process security context",
+        "```\r#include <Security.au3>\r_Security__ImpersonateSelf ( [$iLevel = $SECURITYIMPERSONATION] )\r```"
+    ],
+    "_Security__IsValidSid": [
+        "Validates a SID",
+        "```\r#include <Security.au3>\r_Security__IsValidSid ( $pSID )\r```"
+    ],
+    "_Security__LookupAccountName": [
+        "Retrieves a security identifier (SID) for the account and the name of the domain",
+        "```\r#include <Security.au3>\r_Security__LookupAccountName ( $sAccount [, $sSystem = \"\"] )\r```"
+    ],
+    "_Security__LookupAccountSid": [
+        "Retrieves the name of the account for a SID",
+        "```\r#include <Security.au3>\r_Security__LookupAccountSid ( $vSID [, $sSystem = \"\"] )\r```"
+    ],
+    "_Security__LookupPrivilegeValue": [
+        "Retrieves the locally unique identifier (LUID) for a privilege value in form of 64bit integer",
+        "```\r#include <Security.au3>\r_Security__LookupPrivilegeValue ( $sSystem, $sName )\r```"
+    ],
+    "_Security__OpenProcessToken": [
+        "Returns the access token associated with a process",
+        "```\r#include <Security.au3>\r_Security__OpenProcessToken ( $hProcess, $iAccess )\r```"
+    ],
+    "_Security__OpenThreadToken": [
+        "Opens the access token associated with a thread",
+        "```\r#include <Security.au3>\r_Security__OpenThreadToken ( $iAccess [, $hThread = 0 [, $bOpenAsSelf = False]] )\r```"
+    ],
+    "_Security__OpenThreadTokenEx": [
+        "Opens the access token associated with a thread, impersonating the client's security context if required",
+        "```\r#include <Security.au3>\r_Security__OpenThreadTokenEx ( $iAccess [, $hThread = 0 [, $bOpenAsSelf = False]] )\r```"
+    ],
+    "_Security__SetPrivilege": [
+        "Enables or disables a local token privilege",
+        "```\r#include <Security.au3>\r_Security__SetPrivilege ( $hToken, $sPrivilege, $bEnable )\r```"
+    ],
+    "_Security__SetTokenInformation": [
+        "Sets various types of information for a specified access token",
+        "```\r#include <Security.au3>\r_Security__SetTokenInformation ( $hToken, $iTokenInformation, $vTokenInformation, $iTokenInformationLength )\r```"
+    ],
+    "_Security__SidToStringSid": [
+        "Converts a binary SID to a string",
+        "```\r#include <Security.au3>\r_Security__SidToStringSid ( $pSID )\r```"
+    ],
+    "_Security__SidTypeStr": [
+        "Converts a SID type to string form",
+        "```\r#include <Security.au3>\r_Security__SidTypeStr ( $iType )\r```"
+    ],
+    "_Security__StringSidToSid": [
+        "Converts a String SID to a binary SID",
+        "```\r#include <Security.au3>\r_Security__StringSidToSid ( $sSID )\r```"
+    ]
+}
