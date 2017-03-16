@@ -1,0 +1,126 @@
+{
+    "_GUICtrlStatusBar_Create": [
+        "Create a statusbar",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_Create ( $hWnd [, $vPartEdge = -1 [, $vPartText = \"\" [, $iStyles = -1 [, $iExStyles = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlStatusBar_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_EmbedControl": [
+        "Embeds a child control in the control",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_EmbedControl ( $hWnd, $iPart, $hControl [, $iFit = 4] )\r```"
+    ],
+    "_GUICtrlStatusBar_GetBorders": [
+        "Retrieves the current widths of the horizontal and vertical borders",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetBorders ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetBordersHorz": [
+        "Retrieves the current width of the horizontal border",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetBordersHorz ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetBordersRect": [
+        "Retrieves the current width of the rectangle border",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetBordersRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetBordersVert": [
+        "Retrieves the current width of the vertical border",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetBordersVert ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetCount": [
+        "Retrieves the number of parts",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetHeight": [
+        "Retrieves the height of the statusbar",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetHeight ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetIcon": [
+        "Retrieves the icon for a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetIcon ( $hWnd [, $iIndex = 0] )\r```"
+    ],
+    "_GUICtrlStatusBar_GetParts": [
+        "Retrieves the number of parts and the part edges",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetParts ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetRect": [
+        "Retrieves the bounding rectangle of a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetRect ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetRectEx": [
+        "Retrieves the bounding rectangle of a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetRectEx ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetText": [
+        "Retrieves the text from the specified part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetText ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetTextFlags": [
+        "Retrieves the text length flags for a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetTextFlags ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetTextLength": [
+        "Retrieves the length of a part text",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetTextLength ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetTextLengthEx": [
+        "Retrieves the uFlag of a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetTextLengthEx ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetTipText": [
+        "Retrieves the ToolTip text for a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetTipText ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_GetWidth": [
+        "Retrieves the width of a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_GetWidth ( $hWnd, $iPart )\r```"
+    ],
+    "_GUICtrlStatusBar_IsSimple": [
+        "Checks a status bar control to determine if it is in simple mode",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_IsSimple ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_Resize": [
+        "Causes the status bar to resize itself",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_Resize ( $hWnd )\r```"
+    ],
+    "_GUICtrlStatusBar_SetBkColor": [
+        "Sets the background color",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetBkColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlStatusBar_SetIcon": [
+        "Sets the icon for a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetIcon ( $hWnd, $iPart [, $hIcon = -1 [, $sIconFile = \"\"]] )\r```"
+    ],
+    "_GUICtrlStatusBar_SetMinHeight": [
+        "Sets the minimum height of a status window's drawing area",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetMinHeight ( $hWnd, $iMinHeight )\r```"
+    ],
+    "_GUICtrlStatusBar_SetParts": [
+        "Sets the number of parts and the part edges",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetParts ( $hWnd [, $aParts = -1 [, $aPartWidth = 25]] )\r```"
+    ],
+    "_GUICtrlStatusBar_SetSimple": [
+        "Specifies whether a status window displays simple text or displays all window parts",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetSimple ( $hWnd [, $bSimple = True] )\r```"
+    ],
+    "_GUICtrlStatusBar_SetText": [
+        "Sets the text in the specified part of a status window",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetText ( $hWnd [, $sText = \"\" [, $iPart = 0 [, $iUFlag = 0]]] )\r```"
+    ],
+    "_GUICtrlStatusBar_SetTipText": [
+        "Sets the ToolTip text for a part",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetTipText ( $hWnd, $iPart, $sText )\r```"
+    ],
+    "_GUICtrlStatusBar_SetUnicodeFormat": [
+        "Sets the Unicode character format flag",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_SetUnicodeFormat ( $hWnd [, $bUnicode = True] )\r```"
+    ],
+    "_GUICtrlStatusBar_ShowHide": [
+        "Show/Hide the StatusBar control",
+        "```\r#include <GuiStatusBar.au3>\r_GUICtrlStatusBar_ShowHide ( $hWnd, $iState )\r```"
+    ]
+}
