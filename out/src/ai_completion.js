@@ -1,11 +1,18 @@
 'use strict'
 
 var { languages, Completion, CompletionList, CompletionItemKind, editor } = require('vscode')
+var fs = require('fs')
+var completions = []
+var newComp
 
-var macros = require('./completions/macros')
-var mainFunctions = require('./completions/mainFunctions')
+var files = fs.readdirSync(__dirname + '/completions')
+for (var i in files) {
+    newComp = require('./completions/' + files[i])
+    completions = completions.concat(newComp)
+}
 
-var completions = [].concat(macros, mainFunctions)
+// var macros = require('./completions/macros')
+// var mainFunctions = require('./completions/mainFunctions')
 
 module.exports = languages.registerCompletionItemProvider(
     { language: 'autoit', scheme: 'file' },
