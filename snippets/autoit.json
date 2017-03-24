@@ -2446,12 +2446,6 @@
         ],
         "scope": "source.autoit"
     },
-    "AdlibRegister": {
-        "prefix": "AdlibRegister",
-        "body": "AdlibRegister(${function}, ${time})",
-        "description": "Registers an Adlib function.",
-        "scope": "source.autoit"
-    },
     "AdlibUnRegister": {
         "prefix": "AdlibUnRegister",
         "body": "AdlibUnRegister(${[function]})",
@@ -2468,12 +2462,6 @@
         "prefix": "AscW",
         "body": "AscW(\"${char}\")",
         "description": "Returns the unicode code of a character.",
-        "scope": "source.autoit"
-    },
-    "ASin": {
-        "prefix": "ASin",
-        "body": "ASin(${ expression })",
-        "description": "Calculates the arcsine of a number.",
         "scope": "source.autoit"
     },
     "Assign": {
