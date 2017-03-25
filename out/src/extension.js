@@ -4,11 +4,13 @@ var { languages, commands } = require('vscode');
 var ai_commands  = require("./ai_commands");
 var ai_hover = require('./ai_hover');
 var ai_completion = require('./ai_completion');
+var ai_symbols = require('./ai_symbols');
 
 function activate(ctx) {
 
     ctx.subscriptions.push(ai_hover);
     ctx.subscriptions.push(ai_completion);
+    ctx.subscriptions.push(ai_symbols);
     
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
