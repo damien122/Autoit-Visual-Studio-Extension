@@ -1,7 +1,10 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.2
-* Hovers been created for all UDFs!
+The IntelliSense release!
+* Hovers have been added for all UDFs
+* Implementation of Completion Items has begun (Function, Macro and Variable suggestions will now have icons, and slowly be transitioned away from Snippets)
+* Symbol search added, press Ctrl+Shift+O to see where Functions and Variables have been declared in scripts 
 
 ## 0.1.1
 * You can now run a Syntax check and the Tidy tool
