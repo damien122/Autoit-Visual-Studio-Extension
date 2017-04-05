@@ -65,7 +65,7 @@ module.exports = {
         var debugText = getDebugText();
 
         if (debugText) {
-            var debugCode = `MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text}) ;### Debug MSGBOX\n`;
+            var debugCode = `\n;### Debug MSGBOX ↓↓↓\nMsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
 
             //Insert the code for the MsgBox into the script
             editor.edit(edit => {
@@ -154,7 +154,7 @@ module.exports = {
         var debugText = getDebugText();
 
         if (debugText) {
-            var debugCode = `ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF) ;### Debug Console\n`;
+            var debugCode = `\n;### Debug CONSOLE ↓↓↓\nConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
 
             //Insert the code for the MsgBox into the script
             editor.edit(edit => {
