@@ -31,12 +31,6 @@
         "scope": "source.autoit",
         "description": "Key for Send() function.\nHolds the ALT key down until {ALTUP} is sent"
     },
-    "And": {
-        "prefix": "And",
-        "body": "And ",
-        "scope": "source.autoit",
-        "description": "Logical And operation.\ne.g. If $vVar = 5 And $vVar2 > 6 Then\n(True if $vVar equals 5 and $vVar2 is greater than 6)"
-    },
     "APPSKEY": {
         "prefix": "APPSKEY",
         "body": "{APPSKEY}",
@@ -55,12 +49,6 @@
         "scope": "source.autoit",
         "description": "Key for Send() function."
     },
-    "ByRef": {
-        "prefix": "ByRef",
-        "body": "ByRef ",
-        "scope": "source.autoit",
-        "description": "Indicates that a parameter should be treated as a reference to the original"
-    },
     "BREAK": {
         "prefix": "BREAK",
         "body": "{BREAK}",
@@ -73,8 +61,8 @@
         "scope": "source.autoit",
         "description": "Key for Send() function."
     },
-    "Case": {
-        "prefix": "Case",
+    "Case Block": {
+        "prefix": "Case Block",
         "body": [
             "Case ${value/expression}",
             "\t${statement}"
@@ -82,8 +70,8 @@
         "scope": "source.autoit",
         "description": "A Case block for a Select or Switch statement"
     },
-    "Case-Else": {
-        "prefix": "Case-Else",
+    "Case-Else Block": {
+        "prefix": "Case-Else Block",
         "body": [
             "Case Else",
             "\t${statement}"
@@ -91,35 +79,11 @@
         "scope": "source.autoit",
         "description": "A Case Else block for a Select or Switch statement"
     },
-    "Const": {
-        "prefix": "Const",
-        "body": "Const ",
-        "scope": "source.autoit",
-        "description": "Declare a constant"
-    },
-    "ContinueCase": {
-        "prefix": "ContinueCase",
-        "body": "ContinueCase\n",
-        "scope": "source.autoit",
-        "description": "Abort the code in the current Case block and continue with the code in the next Case block when in a Select or Switch structure."
-    },
-    "ContinueLoop": {
-        "prefix": "ContinueLoop",
-        "body": "ContinueLoop\n",
-        "scope": "source.autoit",
-        "description": "Continue a While/Do/For loop"
-    },
     "CTRLDOWN": {
         "prefix": "CTRLDOWN",
         "body": "{CTRLDOWN}",
         "scope": "source.autoit",
         "description": "Key for Send() function.\nHolds the CTRL key down until {CTRLUP} is sent"
-    },
-    "Default": {
-        "prefix": "Default",
-        "body": "Default",
-        "scope": "source.autoit",
-        "description": "Keyword value used in function call."
     },
     "DELETE": {
         "prefix": "DELETE",
@@ -127,14 +91,8 @@
         "scope": "source.autoit",
         "description": "Key for Send() function."
     },
-    "Dim": {
-        "prefix": "Dim",
-        "body": "Dim ",
-        "scope": "source.autoit",
-        "description": "Declare a variable in Local scope if the variable name doesn't already exist globally (in which case it reuses the global variable!)"
-    },
-    "Do": {
-        "prefix": "Do...Until",
+    "Do Loop": {
+        "prefix": "Do Loop",
         "body": [
             "Do",
             "\t${statement(s)}",
@@ -149,42 +107,11 @@
         "scope": "source.autoit",
         "description": "Key for Send() function.\nDown arrow"
     },
-    "Else": {
-        "prefix": "Else",
+    "Else Block": {
+        "prefix": "Else Block",
         "body": "Else\n\t${[else statement(s)]}",
         "scope": "source.autoit",
         "description": "An Else block for an If statement"
-    },
-    "ElseIf": {
-        "prefix": "ElseIf",
-        "body": "ElseIf ",
-        "scope": "source.autoit"
-    },
-    "EndFunc": {
-        "prefix": "EndFunc",
-        "body": "EndFunc ",
-        "scope": "source.autoit"
-    },
-    "EndIf": {
-        "prefix": "EndIf",
-        "body": "EndIf\n",
-        "scope": "source.autoit",
-        "description": "Closes an If block"
-    },
-    "EndSelect": {
-        "prefix": "EndSelect",
-        "body": "EndSelect ",
-        "scope": "source.autoit"
-    },
-    "EndSwitch": {
-        "prefix": "EndSwitch",
-        "body": "EndSwitch ",
-        "scope": "source.autoit"
-    },
-    "EndWith": {
-        "prefix": "EndWith",
-        "body": "EndWith ",
-        "scope": "source.autoit"
     },
     "END": {
         "prefix": "END",
@@ -197,11 +124,6 @@
         "body": "{ENTER}",
         "scope": "source.autoit",
         "description": "Key for Send() function.\nENTER key on the main keyboard"
-    },
-    "Enum": {
-        "prefix": "Enum",
-        "body": "Enum ",
-        "scope": "source.autoit"
     },
     "ES_AUTOHSCROLL": {
         "prefix": "ES_AUTOHSCROLL",
@@ -273,16 +195,6 @@
         "body": "{ESC}",
         "scope": "source.autoit",
         "description": "Key for Send() function."
-    },
-    "Exit": {
-        "prefix": "Exit",
-        "body": "Exit ",
-        "scope": "source.autoit"
-    },
-    "ExitLoop": {
-        "prefix": "ExitLoop",
-        "body": "ExitLoop ",
-        "scope": "source.autoit"
     },
     "F1": {
         "prefix": "F1",
@@ -356,16 +268,6 @@
         "scope": "source.autoit",
         "description": "Key for Send() function."
     },
-    "False": {
-        "prefix": "False",
-        "body": "False ",
-        "scope": "source.autoit"
-    },
-    "For": {
-        "prefix": "For",
-        "body": "For ",
-        "scope": "source.autoit"
-    },
     "For...In...Next": {
         "prefix": "For...In...Next",
         "body": [
@@ -386,11 +288,6 @@
         "scope": "source.autoit",
         "description": "Loop based on an expression."
     },
-    "Func": {
-        "prefix": "Func",
-        "body": "Func ",
-        "scope": "source.autoit"
-    },
     "Func...EndFunc": {
         "prefix": "Func...EndFunc",
         "body": [
@@ -401,11 +298,6 @@
         ],
         "scope": "source.autoit",
         "description": "Function that takes zero or more arguments and optionally returns a result."
-    },
-    "Global": {
-        "prefix": "Global",
-        "body": "Global ",
-        "scope": "source.autoit"
     },
     "GUI_WS_EX_PARENTDRAG": {
         "prefix": "GUI_WS_EX_PARENTDRAG",
@@ -418,11 +310,11 @@
         "scope": "source.autoit",
         "description": "Key for Send() function."
     },
-    "If": {
-        "prefix": "If",
+    "If Block": {
+        "prefix": "If Block",
         "body": "If ${<expression>} Then\n\t${statement}\nEndIf",
         "scope": "source.autoit",
-        "description": "Conditionally run statements."
+        "description": "Single-line If block snippet"
     },
     "If...EndIf": {
         "prefix": "If...EndIf",
@@ -432,12 +324,7 @@
             "EndIf"
         ],
         "scope": "source.autoit",
-        "description": "Conditionally run a single statement."
-    },
-    "In": {
-        "prefix": "In",
-        "body": "In ",
-        "scope": "source.autoit"
+        "description": "Multi-line If block snippet"
     },
     "INSERT": {
         "prefix": "INSERT",
@@ -521,11 +408,6 @@
         "body": "{LEFT}",
         "scope": "source.autoit",
         "description": "Key for Send() function.\nLeft arrow"
-    },
-    "Local": {
-        "prefix": "Local",
-        "body": "Local ",
-        "scope": "source.autoit"
     },
     "LSHIFT": {
         "prefix": "LSHIFT",
@@ -665,56 +547,6 @@
         "scope": "source.autoit",
         "description": "Key for Send() function.\nHolds the left Windows key down until {LWINUP} is sent"
     },
-    "Next": {
-        "prefix": "Next",
-        "body": "Next ",
-        "scope": "source.autoit"
-    },
-    "Not": {
-        "prefix": "Not",
-        "body": "Not ",
-        "scope": "source.autoit"
-    },
-    "Null": {
-        "prefix": "Null",
-        "body": "Null ",
-        "scope": "source.autoit"
-    },
-    "Or": {
-        "prefix": "Or",
-        "body": "Or ",
-        "scope": "source.autoit"
-    },
-    "ReDim": {
-        "prefix": "ReDim",
-        "body": "ReDim ",
-        "scope": "source.autoit"
-    },
-    "Return": {
-        "prefix": "Return",
-        "body": "Return ",
-        "scope": "source.autoit"
-    },
-    "Select": {
-        "prefix": "Select",
-        "body": "Select ",
-        "scope": "source.autoit"
-    },
-    "Static": {
-        "prefix": "Static",
-        "body": "Static ",
-        "scope": "source.autoit"
-    },
-    "Step": {
-        "prefix": "Step",
-        "body": "Step ",
-        "scope": "source.autoit"
-    },
-    "Switch": {
-        "prefix": "Switch",
-        "body": "Switch ",
-        "scope": "source.autoit"
-    },
     "Switch...EndSwitch": {
         "prefix": "Switch...EndSwitch",
         "body": [
@@ -728,28 +560,13 @@
             "EndSwitch"
         ],
         "scope": "source.autoit",
-        "description": "Conditionally run statements."
+        "description": "Switch block snippet"
     },
     "Ternary": {
         "prefix": "Ternary",
         "body": "\\$${1:result} = ( ${2:\\$a == \\$b} ) ? ${3:true} : ${4:false}",
         "scope": "source.autoit",
         "description": "Ternary Conditional Operator"
-    },
-    "Then": {
-        "prefix": "Then",
-        "body": "Then ",
-        "scope": "source.autoit"
-    },
-    "To": {
-        "prefix": "To",
-        "body": "To ",
-        "scope": "source.autoit"
-    },
-    "True": {
-        "prefix": "True",
-        "body": "True ",
-        "scope": "source.autoit"
     },
     "TCS_SCROLLOPPOSITE": {
         "prefix": "TCS_SCROLLOPPOSITE",
@@ -966,26 +783,6 @@
         "body": "\\$TBS_TOP",
         "scope": "source.autoit"
     },
-    "Until": {
-        "prefix": "Until",
-        "body": "Until ",
-        "scope": "source.autoit"
-    },
-    "Volatile": {
-        "prefix": "Volatile",
-        "body": "Volatile ",
-        "scope": "source.autoit"
-    },
-    "WEnd": {
-        "prefix": "WEnd",
-        "body": "WEnd ",
-        "scope": "source.autoit"
-    },
-    "While": {
-        "prefix": "While",
-        "body": "While ",
-        "scope": "source.autoit"
-    },
     "While...WEnd": {
         "prefix": "While",
         "body": [
@@ -994,12 +791,7 @@
             "WEnd"
         ],
         "scope": "source.autoit",
-        "description": "Loop based on an expression."
-    },
-    "With": {
-        "prefix": "With",
-        "body": "With ",
-        "scope": "source.autoit"
+        "description": "While Loop snippet"
     },
     "WM_ACTIVATE": {
         "prefix": "WM_ACTIVATE",
