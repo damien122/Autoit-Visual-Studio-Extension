@@ -19,48 +19,6 @@
         "body": "\\$ACS_NONTRANSPARENT",
         "scope": "source.autoit"
     },
-    "ALT": {
-        "prefix": "ALT",
-        "body": "{ALT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "ALTDOWN": {
-        "prefix": "ALTDOWN",
-        "body": "{ALTDOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nHolds the ALT key down until {ALTUP} is sent"
-    },
-    "APPSKEY": {
-        "prefix": "APPSKEY",
-        "body": "{APPSKEY}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nWindows App key"
-    },
-    "ASC": {
-        "prefix": "ASC",
-        "body": "{ASC ${1:numeric}}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nSend the ALT+nnnn key combination"
-    },
-    "BACKSPACE": {
-        "prefix": "BACKSPACE",
-        "body": "{BS}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BREAK": {
-        "prefix": "BREAK",
-        "body": "{BREAK}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "CAPSLOCK": {
-        "prefix": "CAPSLOCK",
-        "body": "{CAPSLOCK}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "Case Block": {
         "prefix": "Case Block",
         "body": [
@@ -79,18 +37,6 @@
         "scope": "source.autoit",
         "description": "A Case Else block for a Select or Switch statement"
     },
-    "CTRLDOWN": {
-        "prefix": "CTRLDOWN",
-        "body": "{CTRLDOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nHolds the CTRL key down until {CTRLUP} is sent"
-    },
-    "DELETE": {
-        "prefix": "DELETE",
-        "body": "{DEL}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "Do Loop": {
         "prefix": "Do Loop",
         "body": [
@@ -101,29 +47,11 @@
         "scope": "source.autoit",
         "description": "Loop based on an expression."
     },
-    "DOWN": {
-        "prefix": "DOWN",
-        "body": "{DOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nDown arrow"
-    },
     "Else Block": {
         "prefix": "Else Block",
         "body": "Else\n\t${[else statement(s)]}",
         "scope": "source.autoit",
         "description": "An Else block for an If statement"
-    },
-    "END": {
-        "prefix": "END",
-        "body": "{END}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "ENTER": {
-        "prefix": "ENTER",
-        "body": "{ENTER}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nENTER key on the main keyboard"
     },
     "ES_AUTOHSCROLL": {
         "prefix": "ES_AUTOHSCROLL",
@@ -190,84 +118,6 @@
         "body": "\\$ES_WANTRETURN",
         "scope": "source.autoit"
     },
-    "ESCAPE": {
-        "prefix": "ESCAPE",
-        "body": "{ESC}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F1": {
-        "prefix": "F1",
-        "body": "{F1}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F2": {
-        "prefix": "F2",
-        "body": "{F2}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F3": {
-        "prefix": "F3",
-        "body": "{F3}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F4": {
-        "prefix": "F4",
-        "body": "{F4}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F5": {
-        "prefix": "F5",
-        "body": "{F5}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F6": {
-        "prefix": "F6",
-        "body": "{F6}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F7": {
-        "prefix": "F7",
-        "body": "{F7}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F8": {
-        "prefix": "F8",
-        "body": "{F8}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F9": {
-        "prefix": "F9",
-        "body": "{F9}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F10": {
-        "prefix": "F10",
-        "body": "{F10}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F11": {
-        "prefix": "F11",
-        "body": "{F11}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "F12": {
-        "prefix": "F12",
-        "body": "{F12}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "For...In...Next": {
         "prefix": "For...In...Next",
         "body": [
@@ -304,12 +154,6 @@
         "body": "\\$GUI_WS_EX_PARENTDRAG",
         "scope": "source.autoit"
     },
-    "HOME": {
-        "prefix": "HOME",
-        "body": "{HOME}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "If Block": {
         "prefix": "If Block",
         "body": "If ${<expression>} Then\n\t${statement}\nEndIf",
@@ -325,42 +169,6 @@
         ],
         "scope": "source.autoit",
         "description": "Multi-line If block snippet"
-    },
-    "INSERT": {
-        "prefix": "INSERT",
-        "body": "{INS}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "LAUNCH_MAIL": {
-        "prefix": "LAUNCH_MAIL",
-        "body": "{LAUNCH_MAIL}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "LAUNCH_MEDIA": {
-        "prefix": "LAUNCH_MEDIA",
-        "body": "{LAUNCH_MEDIA}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "LALT": {
-        "prefix": "LALT",
-        "body": "{LALT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nLeft ALT key"
-    },
-    "LAUNCH_APP1": {
-        "prefix": "LAUNCH_APP1",
-        "body": "{LAUNCH_APP1}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "LAUNCH_APP2": {
-        "prefix": "LAUNCH_APP2",
-        "body": "{LAUNCH_APP2}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
     },
     "LBS_DISABLENOSCROLL": {
         "prefix": "LBS_DISABLENOSCROLL",
@@ -396,24 +204,6 @@
         "prefix": "LBS_USETABSTOPS",
         "body": "\\$LBS_USETABSTOPS",
         "scope": "source.autoit"
-    },
-    "LCTRL": {
-        "prefix": "LCTRL",
-        "body": "{LCTRL}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nLeft CTRL key"
-    },
-    "LEFT": {
-        "prefix": "LEFT",
-        "body": "{LEFT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nLeft arrow"
-    },
-    "LSHIFT": {
-        "prefix": "LSHIFT",
-        "body": "{LSHIFT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nLeft Shift key"
     },
     "LVS_ICON": {
         "prefix": "LVS_ICON",
@@ -534,18 +324,6 @@
         "prefix": "LVS_EX_INFOTIP",
         "body": "\\$LVS_EX_INFOTIP",
         "scope": "source.autoit"
-    },
-    "LWIN": {
-        "prefix": "LWIN",
-        "body": "{LWIN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nLeft Windows key"
-    },
-    "LWINDOWN": {
-        "prefix": "LWINDOWN",
-        "body": "{LWINDOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nHolds the left Windows key down until {LWINUP} is sent"
     },
     "Switch...EndSwitch": {
         "prefix": "Switch...EndSwitch",
@@ -2442,46 +2220,6 @@
         "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
     },
-    "BROWSER_BACK": {
-        "prefix": "BROWSER_BACK",
-        "body": "{BROWSER_BACK}"
-    },
-    "BROWSER_FORWARD": {
-        "prefix": "BROWSER_FORWARD",
-        "body": "{BROWSER_FORWARD}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BROWSER_REFRESH": {
-        "prefix": "BROWSER_REFRESH",
-        "body": "{BROWSER_REFRESH}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BROWSER_STOP": {
-        "prefix": "BROWSER_STOP",
-        "body": "{BROWSER_STOP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BROWSER_SEARCH": {
-        "prefix": "BROWSER_SEARCH",
-        "body": "{BROWSER_SEARCH}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BROWSER_FAVORITES": {
-        "prefix": "BROWSER_FAVORITES",
-        "body": "{BROWSER_FAVORITES}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "BROWSER_HOME": {
-        "prefix": "BROWSER_HOME",
-        "body": "{BROWSER_HOME}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "BS_3STATE": {
         "prefix": "BS_3STATE",
         "body": "\\$BS_3STATE",
@@ -3112,138 +2850,6 @@
         "body": "\\$MCS_WEEKNUMBERS",
         "scope": "source.autoit"
     },
-    "MEDIA_NEXT": {
-        "prefix": "MEDIA_NEXT",
-        "body": "{MEDIA_NEXT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "MEDIA_PREV": {
-        "prefix": "MEDIA_PREV",
-        "body": "{MEDIA_PREV}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "MEDIA_STOP": {
-        "prefix": "MEDIA_STOP",
-        "body": "{MEDIA_STOP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "MEDIA_PLAY_PAUSE": {
-        "prefix": "MEDIA_PLAY_PAUSE",
-        "body": "{MEDIA_PLAY_PAUSE}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMLOCK": {
-        "prefix": "NUMLOCK",
-        "body": "{NUMLOCK}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD0": {
-        "prefix": "NUMPAD0",
-        "body": "{NUMPAD0}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD1": {
-        "prefix": "NUMPAD1",
-        "body": "{NUMPAD1}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD2": {
-        "prefix": "NUMPAD2",
-        "body": "{NUMPAD2}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD3": {
-        "prefix": "NUMPAD3",
-        "body": "{NUMPAD3}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD4": {
-        "prefix": "NUMPAD4",
-        "body": "{NUMPAD4}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD5": {
-        "prefix": "NUMPAD5",
-        "body": "{NUMPAD5}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD6": {
-        "prefix": "NUMPAD6",
-        "body": "{NUMPAD6}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD7": {
-        "prefix": "NUMPAD7",
-        "body": "{NUMPAD7}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD8": {
-        "prefix": "NUMPAD8",
-        "body": "{NUMPAD8}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPAD9": {
-        "prefix": "NUMPAD9",
-        "body": "{NUMPAD9}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "NUMPADMULT": {
-        "prefix": "NUMPADMULT",
-        "body": "{NUMPADMULT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nNumpad Multiply"
-    },
-    "NUMPADADD": {
-        "prefix": "NUMPADADD",
-        "body": "{NUMPADADD}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nNumpad Add"
-    },
-    "NUMPADSUB": {
-        "prefix": "NUMPADSUB",
-        "body": "{NUMPADSUB}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nNumpad Subtract"
-    },
-    "NUMPADDIV": {
-        "prefix": "NUMPADDIV",
-        "body": "{NUMPADDIV}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nNumpad Divide"
-    },
-    "NUMPADDOT": {
-        "prefix": "NUMPADDOT",
-        "body": "{NUMPADDOT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nNumpad period"
-    },
-    "NUMPADENTER": {
-        "prefix": "NUMPADENTER",
-        "body": "{NUMPADENTER}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nEnter key on the numpad"
-    },
-    "OEM_102": {
-        "prefix": "OEM_102",
-        "body": "{OEM_102}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nEither the angle bracket key or the backslash key on the RT 102-key keyboard to be used at least for Hungarian keyboard for 'Í' or 'í'"
-    },
     "Opt": {
         "prefix": "Opt",
         "description": "Changes the operation of various AutoIt functions/parameters.",
@@ -3445,90 +3051,6 @@
         "body": "\\$PBS_VERTICAL",
         "scope": "source.autoit"
     },
-    "PAGE UP": {
-        "prefix": "PAGE UP",
-        "body": "{PGUP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "PAGE DOWN": {
-        "prefix": "PAGE DOWN",
-        "body": "{PGDN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "PAUSE": {
-        "prefix": "PAUSE",
-        "body": "{PAUSE}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "PRINTSCREEN": {
-        "prefix": "PRINTSCREEN",
-        "body": "{PRINTSCREEN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "RALT": {
-        "prefix": "RALT",
-        "body": "{RALT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nRight ALT key"
-    },
-    "RCTRL": {
-        "prefix": "RCTRL",
-        "body": "{RCTRL}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nRight CTRL key"
-    },
-    "RIGHT": {
-        "prefix": "RIGHT",
-        "body": "{RIGHT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nRight arrow"
-    },
-    "RSHIFT": {
-        "prefix": "RSHIFT",
-        "body": "{RSHIFT}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nRight Shift key"
-    },
-    "RWIN": {
-        "prefix": "RWIN",
-        "body": "{RWIN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nRight Windows key"
-    },
-    "RWINDOWN": {
-        "prefix": "RWINDOWN",
-        "body": "{RWINDOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nHolds the right Windows key down until {RWINUP} is sent"
-    },
-    "SCROLLLOCK": {
-        "prefix": "SCROLLLOCK",
-        "body": "{SCROLLLOCK}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "SHIFTDOWN": {
-        "prefix": "SHIFTDOWN",
-        "body": "{SHIFTDOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nHolds the SHIFT key down until {SHIFTUP} is sent"
-    },
-    "SLEEP_KEY": {
-        "prefix": "SLEEP_KEY",
-        "body": "{SLEEP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nComputer SLEEP key"
-    },
-    "SPACE": {
-        "prefix": "SPACE",
-        "body": "{SPACE}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "SS_BLACKFRAME": {
         "prefix": "SS_BLACKFRAME",
         "body": "\\$SS_BLACKFRAME",
@@ -3624,12 +3146,6 @@
         "body": "\\$SS_WHITERECT",
         "scope": "source.autoit"
     },
-    "TAB": {
-        "prefix": "TAB",
-        "body": "{TAB}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
     "UDS_ALIGNLEFT": {
         "prefix": "UDS_ALIGNLEFT",
         "body": "\\$UDS_ALIGNLEFT",
@@ -3659,29 +3175,5 @@
         "prefix": "UDS_WRAP",
         "body": "\\$UDS_WRAP",
         "scope": "source.autoit"
-    },
-    "UP": {
-        "prefix": "UP",
-        "body": "{UP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function.\nUp arrow"
-    },
-    "VOLUME_MUTE": {
-        "prefix": "VOLUME_MUTE",
-        "body": "{VOLUME_MUTE}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "VOLUME_DOWN": {
-        "prefix": "VOLUME_DOWN",
-        "body": "{VOLUME_DOWN}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
-    },
-    "VOLUME_UP": {
-        "prefix": "VOLUME_UP",
-        "body": "{VOLUME_UP}",
-        "scope": "source.autoit",
-        "description": "Key for Send() function."
     }
 }
