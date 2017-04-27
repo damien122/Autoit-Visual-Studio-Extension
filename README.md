@@ -5,8 +5,8 @@ and developed from Damien122's release.
 
 ## Features
 
-* Show AutoIt Syntax highlighting
-* Snippets for Functions, Packaged UDFs, and Macros
+* AutoIt Syntax highlighting
+* IntelliSense (code hints and completion)
 * Launch, compile and build scripts from VSCode
 * Launch AutoIt Help for highlighted text 
 
@@ -16,4 +16,4 @@ Advanced functions on the full install of [SciTE4AutoIt3](https://www.autoitscri
 ## GitHub
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
 ### Contributing
-Please fork the repository and contribute back using pull requests.
+Please fork the repository and contribute using pull requests.
