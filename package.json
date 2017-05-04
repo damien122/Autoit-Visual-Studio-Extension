@@ -134,6 +134,11 @@
 					"type": "string",
 					"default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe",
 					"description": "Path AutoIt3Help.exe"
+				},
+				"autoit.infoPath": {
+					"type": "string",
+					"default": "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe",
+					"description": "Path Au3Info.exe"
 				}
 			}
 		}

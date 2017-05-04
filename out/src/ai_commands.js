@@ -10,6 +10,7 @@ const wrapperPath = configuration.wrapperPath;
 const tidyPath = configuration.tidyPath;
 const checkPath = configuration.checkPath;
 const helpPath = configuration.helpPath;
+const infoPath = configuration.infoPath;
 
 var aiOut = window.createOutputChannel('AutoIt');
 
@@ -50,7 +51,7 @@ module.exports = {
     },
 
     launchInfo: () => {
-        launch('C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe');   
+        launch(infoPath);   
     },
 
     debugMsgBox: () => {
