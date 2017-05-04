@@ -1,14 +1,15 @@
-var { window, Position } = require('vscode');
+var { window, Position, workspace } = require('vscode');
 var launch = require('child_process').execFile;
 const spawn = require('child_process').spawn;
 var path = require('path');
+var configuration = workspace.getConfiguration('autoit');
 
 // Executable paths
-const aiPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe";
-const wrapperPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3";
-const tidyPath = "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe";
-const checkPath = "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe";
-var helpPath = "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe";
+const aiPath = configuration.aiPath;
+const wrapperPath = configuration.wrapperPath;
+const tidyPath = configuration.tidyPath;
+const checkPath = configuration.checkPath;
+const helpPath = configuration.helpPath;
 
 var aiOut = window.createOutputChannel('AutoIt');
 

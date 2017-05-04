@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.3
+* Added AutoIt Configuration in Visual Studio Code Preferences.
+
 ## 0.1.2
 The IntelliSense release!
 * Hovers have been added for all UDFs

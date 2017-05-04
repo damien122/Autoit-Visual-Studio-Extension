@@ -10,6 +10,14 @@ and developed from Damien122's release.
 * Launch, compile and build scripts from VSCode
 * Launch AutoIt Help for highlighted text 
 
+## Configuration
+
+* Access the command palette (Ctrl + Shift + P), type Preferences: Open User Settings or Preferences: Open Workspace Settings.
+<img src="https://github.com/loganch/AutoIt-VSCode/blob/master/img/docs/CtrlShiftP.png" />
+
+* Configure the paths according to your AutoIt installation.
+<img src="https://github.com/loganch/AutoIt-VSCode/blob/master/img/docs/AutoItConfiguration.png" />
+
 ### Note
 Advanced functions on the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
