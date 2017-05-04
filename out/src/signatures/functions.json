@@ -1,0 +1,10 @@
+{
+    "ClipGet": {
+        "description": "Retrieves text from the clipboard.",
+        "signature": "( )"
+    },
+    "ClipPut": {
+        "description": "Writes text to the clipboard.",
+        "signature": "( \"value\" )"
+    }
+}
