@@ -13,10 +13,10 @@ and developed from Damien122's release.
 ## Configuration
 
 * Access the command palette (Ctrl + Shift + P), type Preferences: Open User Settings or Preferences: Open Workspace Settings.
-<img src="https://raw.githubusercontent.com/loganch/AutoIt-VSCode/master/img/docs/CtrlShiftP.png" />
+![CtrlShiftP](img/docs/CtrlShiftP.png)
 
 * Configure the paths according to your AutoIt installation.
-<img src="https://raw.githubusercontent.com/loganch/AutoIt-VSCode/master/img/docs/AutoItConfiguration.png" />
+![AutoItConfiguration](img/docs/AutoItConfiguration.png)
 
 ### Note
 Advanced functions on the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
