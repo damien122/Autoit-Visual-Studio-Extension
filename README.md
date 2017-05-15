@@ -13,9 +13,11 @@ and developed from Damien122's release.
 ## Configuration
 
 * Access the command palette (Ctrl + Shift + P), type Preferences: Open User Settings or Preferences: Open Workspace Settings.
+
 ![CtrlShiftP](img/docs/CtrlShiftP.png)
 
 * Configure the paths according to your AutoIt installation.
+
 ![AutoItConfiguration](img/docs/AutoItConfiguration.png)
 
 ### Note
