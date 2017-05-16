@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.4
+* Added configuration for path to Au3Info
+
 ## 0.1.3
 * Added AutoIt Configuration in Visual Studio Code Preferences.
 
