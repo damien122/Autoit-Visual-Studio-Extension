@@ -2,68 +2,51 @@
 
 var { languages, Position, SignatureHelp, SignatureInformation, ParameterInformation } = require('vscode')
 
+var signatures = require('./signatures/functions.json')
 
 module.exports = languages.registerSignatureHelpProvider(
     { language: 'autoit', scheme: 'file' },
     {
         provideSignatureHelp(document, position, token) {
-            let theCall = frontOfCall(document, position)
-            if (theCall == null) {
+            // console.log("Actually getting into signature code")
+            // Find out what called for sig
+            let caller = startOfCall(document, position)
+            if (caller == null) {
                 return null
             }
-            let callerPos = this.prevTokenPos(document, theCall.openParen)
-            return definitionLocation(document, callerPos, { language: 'autoit', scheme: 'file' }).then(res => {
-                if (!res) {
-                    // The definition was not found
-                    return null
-                }
-                if (res.line === callerPos.line) {
-                    // This must be a function definition
-                    return null
-                }
-                let result = new SignatureHelp()
-                let declarationText, sig
-                let si
-                declarationText = res.declarationlines[0]
-                let funcNameStart = declarationText.indexOf(res.name + '('); // Find 'functionname(' to remove anything before it
-                if (funcNameStart > 0) {
-                    declarationText = declarationText.substring(funcNameStart)
-                }
-                si = new SignatureInformation(declarationText, res.doc)
-                sig = declarationText.substring(res.name.length)
+            let callPos = previousPosition(document, caller.openParen)
+            let callWord = document.getText(document.getWordRangeAtPosition(callPos))
+            
+            //Get the called word from the json files
+            let foundSig = signatures[callWord]
+            if (foundSig == null) {
+                return null
+            }
 
-                si.parameters = parameters(sig).map(paramText =>
-                    new ParameterInformation(paramText)
-                )
-                result.signatures = [si]
-                result.activeSignature = 0;
-                result.activeParameter = Math.min(theCall.commas.length, si.parameters.length - 1)
-                return result
-            })
+
+            // let declarationText, sig
+            let result = new SignatureHelp()
+            let si = new SignatureInformation(foundSig.label, foundSig.documentation)
+            //Enter parameter information into signature information
+            si.parameters = foundSig.params
+            
+            //Place signature information into results
+            result.signatures = [si]
+            result.activeSignature = 0
+            result.activeParameter = Math.min(caller.commas.length, si.parameters.length - 1)
+            
+            return result
         }
-    },
-    ',', '('
-)
+    }, '(', ',')
 
-var prevTokenPos = function(doc, pos) {
-    while (pos.character > 0) {
-        let word = doc.getWordRangeAtPosition(pos)
-        if (word) {
-            return word.start
-        }
 
-        pos = pos.translate(0, -1)
-    }
-    return null
-}
-
-var frontOfCall = function(doc, pos) {
+function startOfCall(doc, pos) {
     let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
     let parenBalance = 0
     let commas = []
 
     for (let char = pos.character; char >= 0; char--) {
-        switch(currentLine[char]) {
+        switch (currentLine[char]) {
             case '(':
                 parenBalance--
                 if (parenBalance < 0) {
@@ -81,6 +64,17 @@ var frontOfCall = function(doc, pos) {
                     commas.push(new Position(pos.line, char))
                 }
         }
+    }
+    return null
+}
+
+function previousPosition(doc, pos) {
+    while (pos.character > 0) {
+        let word = doc.getWordRangeAtPosition(pos)
+        if (word) {
+            return word.start
+        }
+        pos = pos.translate(0, -1)
     }
     return null
 }

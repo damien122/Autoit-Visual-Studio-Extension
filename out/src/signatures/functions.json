@@ -1,10 +1,114 @@
 {
-    "ClipGet": {
-        "description": "Retrieves text from the clipboard.",
-        "signature": "( )"
+    "Abs": {
+        "documentation": "Calculates the absolute value of a number.",
+        "label": "Abs(expression)",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any valid numeric expression."
+        }]
+    },
+    "ACos": {
+        "documentation": "Calculates the arcCosine of a number.",
+        "label": "ACos(expression)",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any value between -1 and 1 inclusive."
+        }]
+    },
+    "ASin": {
+        "label": "ASin(expression)",
+        "documentation": "Calculates the arcsine of a number.",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any value between -1 and 1 (inclusive)."
+        }]
+    },
+    "ATan": {
+        "label": "ATan(expression)",
+        "documentation": "Calculates the arctangent of a number.",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any valid numeric expression."
+        }]
+    },
+    "BitAND": {
+        "label": "BitAND (value1, value2 [, value n])",
+        "documentation": "Performs a bitwise AND operation.",
+        "params": [{
+            "label": "value1",
+            "documentation": "The first number."
+        }, {
+            "label": "value2",
+            "documentation": "The second number."
+        }, {
+            "label": "value n",
+            "documentation": "[optional] The nth number - up to 255 values can be specified."
+        }]
+    },
+    "BitNOT": {
+        "label": "BitNOT ( value )",
+        "documentation": "Performs a bitwise NOT operation.",
+        "params": [{
+            "label": "value",
+            "documentation": "The number to operate on."
+        }]
+    },
+    "BitOR": {
+        "label": "BitOR ( value1, value2 [, value n] )",
+        "documentation": "Performs a bitwise OR operation.",
+        "params": [{
+            "label": "value1",
+            "documentation": "The first number."
+        }, {
+            "label": "value2",
+            "documentation": "The second number."
+        }, {
+            "label": "value n",
+            "documentation": "[optional] The nth number - up to 255 values can be specified."
+        }]
+    },
+    "BitRotate": {
+        "label": "BitRotate ( value [, shift = 1 [, size = \"W\"]] )",
+        "documentation": "Performs a bitwise OR operation.",
+        "params": [{
+            "label": "value",
+            "documentation": "The number to be operated on."
+        }, {
+            "label": "shift",
+            "documentation": "[optional] Number of bits to rotate to the left (negative numbers rotate right). If not given, the default is 1."
+        }, {
+            "label": "size",
+            "documentation": "[optional] A string that determines the rotation size, the default is (16 bits). "
+        }]
+    },
+    "BitShift": {
+        "label": "BitShift ( value, shift )",
+        "documentation": "Performs a bit shifting operation.",
+        "params": [{
+            "label": "value",
+            "documentation": "The number to be shifted."
+        }, {
+            "label": "shift",
+            "documentation": "Number of bits to shift to the right (negative numbers shift left)."
+        }]
     },
     "ClipPut": {
-        "description": "Writes text to the clipboard.",
-        "signature": "( \"value\" )"
+        "label": "ClipPut(\"value\")",
+        "params": [{
+            "label": "\"value\"",
+            "documentation": "The text to write to the clipboard."
+        }]
+    },
+    "Send": {
+        "label": "Send(\"keys\", flag = 0)",
+        "params": [{
+                "label": "\"keys\"",
+                "documentation": "The sequence of keys to send."
+            },
+            {
+                "label": "flag = 0",
+                "documentation": "[optional] Changes how \"keys\" is processed"
+            }
+        ]
     }
 }
