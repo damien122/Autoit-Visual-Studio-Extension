@@ -15,6 +15,41 @@
             "documentation": "Any value between -1 and 1 inclusive."
         }]
     },
+    "AdlibRegister": {
+        "documentation": "Registers an Adlib function.",
+        "label": "AdlibRegister ( \"function\" [, time = 250] )",
+        "params": [{
+            "label": "\"function\"",
+            "documentation": "The name of the adlib function to be registered."
+        }, {
+            "label": "time",
+            "documentation": "[optional] how often in milliseconds to call the function. Default is 250 ms."
+        }]
+    },
+    "AdlibUnRegister": {
+        "documentation": "Registers an Adlib function.",
+        "label": "AdlibUnRegister ( [\"function\"] )",
+        "params": [{
+            "label": "function",
+            "documentation": "[optional] The name of the adlib function to be Unregistered. See remarks for more information."
+        }]
+    },
+    "Asc": {
+        "documentation": "Returns the unicode code of a character.",
+        "label": "Asc ( \"char\" )",
+        "params": [{
+            "label": "char",
+            "documentation": "The character to get the code for. If a string is used, the code for the first character is given."
+        }]
+    },
+    "AscW": {
+        "documentation": "Returns the ASCII code of a character.",
+        "label": "AscW ( \"char\" )",
+        "params": [{
+            "label": "char",
+            "documentation": "The character to get the code for. If a string is used, the code for the first character is given."
+        }]
+    },
     "ASin": {
         "label": "ASin(expression)",
         "documentation": "Calculates the arcsine of a number.",
@@ -23,12 +58,97 @@
             "documentation": "Any value between -1 and 1 (inclusive)."
         }]
     },
+    "Assign": {
+        "label": "Assign ( \"varname\", \"data\" [, flag = 0] )",
+        "documentation": "Assigns a variable by name with the data.",
+        "params": [{
+            "label": "varname",
+            "documentation": "The name of the variable you wish to assign. Cannot be an array element and must only contain letters, digits and underscore characters (as per normal variable naming conventions)."
+        }, {
+            "label": "data",
+            "documentation": "The data you wish to assign to the variable."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] controls the way that variables are assigned"
+        }]
+    },
     "ATan": {
         "label": "ATan(expression)",
         "documentation": "Calculates the arctangent of a number.",
         "params": [{
             "label": "expression",
             "documentation": "Any valid numeric expression."
+        }]
+    },
+    "AutoItSetOption": {
+        "label": "AutoItSetOption ( \"option\" [, param] )",
+        "documentation": "Changes the operation of various AutoIt functions/parameters.",
+        "params": [{
+            "label": "option",
+            "documentation": "The option to change."
+        }, {
+            "label": "param",
+            "documentation": "[optional] The value to assign to the option. The type and meaning vary by option. See remarks below. If the param is not provided, then the function just returns the value already assigned to the option. The keyword Default can be used for the parameter to reset the option to its default value."
+        }]
+    },
+    "AutoItWinSetTitle": {
+        "label": "AutoItWinSetTitle ( \"newtitle\" )",
+        "documentation": "Changes the title of the AutoIt window.",
+        "params": [{
+            "label": "newtitle",
+            "documentation": "The new title to give to the window."
+        }]
+    },
+    "Beep": {
+        "label": "Beep ( [Frequency = 500 [, Duration = 1000]] )",
+        "documentation": "Plays back a beep to the user.",
+        "params": [{
+            "label": "Frequency",
+            "documentation": "[optional] The frequency of the beep in hertz. Can be anywhere from 37 through 32,767 (0x25 through 0x7FFF). Default is 500 Hz."
+        }, {
+            "label": "Duration",
+            "documentation": "[optional] The length of the beep in milliseconds. Default = 1000 ms."
+        }]
+    },
+    "Binary": {
+        "label": "Binary ( expression )",
+        "documentation": "Returns the binary representation of an expression.",
+        "params": [{
+            "label": "expression",
+            "documentation": "An expression to convert into binary/byte data."
+        }]
+    },
+    "BinaryLen": {
+        "label": "BinaryLen ( binary )",
+        "documentation": "Returns the number of bytes in a binary variant.",
+        "params": [{
+            "label": "binary",
+            "documentation": "The binary data to evaluate."
+        }]
+    },
+    "BinaryMid": {
+        "label": "BinaryMid ( binary, start [, count] )",
+        "documentation": "Returns the number of bytes in a binary variant.",
+        "params": [{
+            "label": "binary",
+            "documentation": "The binary data to evaluate."
+        }, {
+            "label": "start",
+            "documentation": "The byte position to start. (1 = first byte)"
+        }, {
+            "label": "count",
+            "documentation": "[optional] The number of bytes to extract. By default the entire remainder of the binary data."
+        }]
+    },
+    "BinaryToString": {
+        "label": "BinaryToString ( expression [, flag = 1] )",
+        "documentation": "Converts a binary variant into a string.",
+        "params": [{
+            "label": "expression",
+            "documentation": "An expression to convert into a string."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] Changes how the binary data is converted"
         }]
     },
     "BitAND": {
@@ -91,6 +211,48 @@
             "label": "shift",
             "documentation": "Number of bits to shift to the right (negative numbers shift left)."
         }]
+    },
+    "BitXOR": {
+        "label": "BitXOR ( value1, value2 [, value n] )",
+        "documentation": "Performs a bitwise exclusive OR (XOR) operation.",
+        "params": [{
+            "label": "value1",
+            "documentation": "The first number."
+        }, {
+            "label": "value2",
+            "documentation": "The second number."
+        }, {
+            "label": "value n",
+            "documentation": "[optional] The nth number - up to 255 values can be specified."
+        }]
+    },
+    "BlockInput": {
+        "label": "BlockInput ( flag )",
+        "documentation": "Disable/enable the mouse and keyboard.",
+        "params": [{
+            "label": "flag",
+            "documentation": "$BI_DISABLE (1) = Disable user input / $BI_ENABLE (0) = Enable user input"
+        }]
+    },
+    "Break": {
+        "label": "Break ( mode )",
+        "params": [{
+            "label": "mode",
+            "documentation": "Sets the script break mode: $BREAK_ENABLE (1) = Break is enabled (user can quit) (default) / $BREAK_DISABLE (0) = Break is disabled (user cannot quit)"
+        }]
+    },
+    "Call": {
+        "label": "Call ( \"function\" [, paramN] )",
+        "documentation": "Calls a user-defined or built-in function contained in first parameter.",
+        "params": [{
+                "label": "function",
+                "documentation": "The name of function or function to call."
+            },
+            {
+                "label": "paramN",
+                "documentation": "Argument(s) that will be passed to the function being invoked."
+            }
+        ]
     },
     "ClipPut": {
         "label": "ClipPut(\"value\")",
