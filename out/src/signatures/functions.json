@@ -254,11 +254,353 @@
             }
         ]
     },
+    "CDTray": {
+        "label": "CDTray ( \"drive\", \"status\" )",
+        "documentation": "Opens or closes the CD tray.",
+        "params": [{
+                "label": "drive",
+                "documentation": "The drive letter of the CD tray to control, in the format D:, E:, etc."
+            },
+            {
+                "label": "status",
+                "documentation": "Specifies if you want the CD tray to be open or closed"
+            }
+        ]
+    },
+    "Ceiling": {
+        "label": "Ceiling ( expression )",
+        "documentation": "Returns a number rounded up to the next integer.",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any valid numeric expression."
+        }]
+    },
+    "Chr": {
+        "label": "Chr ( ASCIIcode )",
+        "documentation": "Returns a character corresponding to an ASCII code.",
+        "params": [{
+            "label": "ASCIIcode",
+            "documentation": "An ASCII code in the range 0-255 (e.g., 65 returns the capital letter A)."
+        }]
+    },
+    "ChrW": {
+        "label": "ChrW ( UNICODEcode  )",
+        "documentation": "Returns a character corresponding to a unicode code.",
+        "params": [{
+            "label": "UNICODEcode",
+            "documentation": "A unicode code in the range 0-65535 (e.g., 65 returns the capital letter A)."
+        }]
+    },
     "ClipPut": {
         "label": "ClipPut(\"value\")",
         "params": [{
             "label": "\"value\"",
             "documentation": "The text to write to the clipboard."
+        }]
+    },
+    "ConsoleRead": {
+        "label": "ConsoleRead ( [peek = False [, binary = False]] )",
+        "documentation": "Read from the STDIN stream of the AutoIt script process.",
+        "params": [{
+            "label": "peek",
+            "documentation": "[optional] If True the function does not remove the read characters from the stream."
+        }, {
+            "label": "binary",
+            "documentation": "[optional] If True the function reads the data as binary instead of text (default is text)."
+        }]
+    },
+    "ConsoleWrite": {
+        "label": "ConsoleWrite ( \"data\" )",
+        "documentation": "Writes data to the STDOUT stream. Some text editors can read this stream as can other programs which may be expecting data on this stream.",
+        "params": [{
+            "label": "data",
+            "documentation": "The data you wish to output. This may either be text or binary."
+        }]
+    },
+    "ConsoleWriteError": {
+        "label": "ConsoleWriteError ( \"data\" )",
+        "documentation": "Writes data to the STDERR stream. Some text editors can read this stream as can other programs which may be expecting data on this stream.",
+        "params": [{
+            "label": "data",
+            "documentation": "The data you wish to output. This may either be text or binary."
+        }]
+    },
+    "ControlClick": {
+        "label": "ControlClick ( \"title\", \"text\", controlID [, button = \"left\" [, clicks = 1 [, x [, y]]]] )",
+        "documentation": "Sends a mouse click command to a given control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "button",
+            "documentation": "[optional] The button to click, \"left\", \"right\", \"middle\", \"main\", \"menu\", \"primary\", \"secondary\". Default is the left button."
+        }, {
+            "label": "clicks",
+            "documentation": "[optional] The number of times to click the mouse. Default is 1."
+        }, {
+            "label": "x",
+            "documentation": "[optional] The x position to click within the control. Default is center."
+        }, {
+            "label": "y",
+            "documentation": "[optional] The y position to click within the control. Default is center."
+        }]
+    },
+    "ControlCommand": {
+        "label": "ControlCommand ( \"title\", \"text\", controlID, \"command\" [, \"option\"] )",
+        "documentation": "Sends a command to a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "command",
+            "documentation": "The command to send to the control."
+        }, {
+            "label": "option",
+            "documentation": "[optional] Additional parameter required by some commands."
+        }]
+    },
+    "ControlDisable": {
+        "label": "ControlDisable ( \"title\", \"text\", controlID )",
+        "documentation": "Disables or \"grays-out\" a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlEnable": {
+        "label": "ControlEnable ( \"title\", \"text\", controlID )",
+        "documentation": "Enables a \"grayed-out\" control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlFocus": {
+        "label": "ControlFocus ( \"title\", \"text\", controlID )",
+        "documentation": "Sets input focus to a given control on a window.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlGetFocus": {
+        "label": "ControlGetFocus ( \"title\" [, \"text\"] )",
+        "documentation": "Returns the ControlRef# of the control that has keyboard focus within a specified window.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "[optional] The text of the window to access."
+        }]
+    },
+    "ControlGetHandle": {
+        "label": "ControlGetHandle ( \"title\", \"text\", controlID )",
+        "documentation": "Retrieves the internal handle of a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlGetPos": {
+        "label": "ControlGetPos ( \"title\", \"text\", controlID )",
+        "documentation": "Retrieves the position and size of a control relative to its window.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlGetText": {
+        "label": "ControlGetText ( \"title\", \"text\", controlID )",
+        "documentation": "Retrieves text from a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlHide": {
+        "label": "ControlHide ( \"title\", \"text\", controlID )",
+        "documentation": "Hides a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlListView": {
+        "label": "ControlListView ( \"title\", \"text\", controlID, \"command\" [, option1 [, option2]] )",
+        "documentation": "Sends a command to a ListView32 control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "command",
+            "documentation": "The command to send to the control."
+        }, {
+            "label": "option1",
+            "documentation": "[optional] Additional parameter required by some commands."
+        }, {
+            "label": "option2",
+            "documentation": "[optional] Additional parameter required by some commands."
+        }]
+    },
+    "ControlMove": {
+        "label": "ControlMove ( \"title\", \"text\", controlID, x, y [, width [, height]] )",
+        "documentation": "Moves a control within a window.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "x",
+            "documentation": "X coordinate to move to relative to the window client area."
+        }, {
+            "label": "y",
+            "documentation": "Y coordinate to move to relative to the window client area."
+        }, {
+            "label": "width",
+            "documentation": "[optional] New width of the window."
+        }, {
+            "label": "height",
+            "documentation": "[optional] New height of the window."
+        }]
+    },
+    "ControlSend": {
+        "label": "ControlSend ( \"title\", \"text\", controlID, \"string\" [, flag = 0] )",
+        "documentation": "Sends a string of characters to a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "string",
+            "documentation": "String of characters to send to the control."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] Changes how \"keys\" is processed"
+        }]
+    },
+    "ControlSetText": {
+        "label": "ControlSetText  ( \"title\", \"text\", controlID, \"new text\" [, flag = 0] )",
+        "documentation": "Sets text of a control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "new text",
+            "documentation": "The new text to be set into the control."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] when different from 0 (default) will force the target window to be redrawn."
+        }]
+    },
+    "ControlShow": {
+        "label": "ControlShow ( \"title\", \"text\", controlID )",
+        "documentation": "Shows a control that was hidden.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }]
+    },
+    "ControlTreeView": {
+        "label": "ControlTreeView ( \"title\", \"text\", controlID, \"command\" [, option1] )",
+        "documentation": "Sends a command to a TreeView32 control.",
+        "params": [{
+            "label": "title",
+            "documentation": "The title/hWnd/class of the window to access."
+        }, {
+            "label": "text",
+            "documentation": "The text of the window to access."
+        }, {
+            "label": "controlID",
+            "documentation": "The control to interact with."
+        }, {
+            "label": "command",
+            "documentation": "The command to send to the control."
+        }, {
+            "label": "option1",
+            "documentation": "[optional] Additional parameter required by some commands."
         }]
     },
     "Send": {
