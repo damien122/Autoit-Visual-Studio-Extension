@@ -952,6 +952,266 @@
             "documentation": "Path of drive to receive information from. "
         }]
     },
+    "EnvGet": {
+        "documentation": "Retrieves an environment variable.",
+        "label": "EnvGet ( \"envvariable\" )",
+        "params": [{
+            "label": "envvariable",
+            "documentation": "Name of the environment variable to get such as \"TEMP\" or \"PATH\". "
+        }]
+    },
+    "EnvSet": {
+        "documentation": "Writes an environment variable.",
+        "label": "EnvSet ( \"envvariable\" [, \"value\"] )",
+        "params": [{
+            "label": "envvariable",
+            "documentation": "Name of the environment variable to set. "
+        }, {
+            "label": "value",
+            "documentation": "[optional] Value to set the environment variable to. If a value is not used the environment variable will be deleted. "
+        }]
+    },
+    "Eval": {
+        "documentation": "Return the value of the variable defined by a string.",
+        "label": "Eval ( string )",
+        "params": [{
+            "label": "string",
+            "documentation": "string representing name of the variable. "
+        }]
+    },
+    "Execute": {
+        "documentation": "Execute an expression.",
+        "label": "Execute ( string )",
+        "params": [{
+            "label": "string",
+            "documentation": "string representing an expression to be evaluated. "
+        }]
+    },
+    "Exp": {
+        "documentation": "Calculates e to the power of a number.",
+        "label": "Exp ( expression )",
+        "params": [{
+            "label": "expression",
+            "documentation": "Any valid numeric expression. "
+        }]
+    },
+    "FileChangeDir": {
+        "documentation": "Changes the current working directory.",
+        "label": "FileChangeDir ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "The path to make the current working directory. "
+        }]
+    },
+    "FileClose": {
+        "documentation": "Closes a previously opened file.",
+        "label": "FileClose ( \"filehandle\" )",
+        "params": [{
+            "label": "filehandle",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). "
+        }]
+    },
+    "FileCopy": {
+        "documentation": "Copies one or more files.",
+        "label": "FileCopy ( \"source\", \"dest\" [, flag = 0] )",
+        "params": [{
+            "label": "source",
+            "documentation": "The source path of the file(s) to copy. (* and ? wildcards accepted - See Remarks) "
+        }, {
+            "label": "dest",
+            "documentation": "The destination path of the copied file(s). "
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines whether to overwrite files if they already exist."
+        }]
+    },
+    "FileCreateNTFSLink": {
+        "documentation": "Creates an NTFS hardlink to a file or a directory.",
+        "label": "FileCreateNTFSLink ( \"source\", \"hardlink\" [, flag = 0] )",
+        "params": [{
+            "label": "source",
+            "documentation": "Path of the source to which the hardlink will be created. "
+        }, {
+            "label": "hardlink",
+            "documentation": "Path of the hardlink. "
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines whether to overwrite link if they already exist."
+        }]
+    },
+    "FileCreateShortcut": {
+        "documentation": "Creates a shortcut (.lnk) to a file.",
+        "label": "FileCreateShortcut ( \"file\", \"lnk\" [, \"workdir\" [, \"args\" [, \"desc\" [, \"icon\" [, \"hotkey\" [, icon number [, state]]]]]]] )",
+        "params": [{
+                "label": "file",
+                "documentation": "Full path and file name of file to which the shortcut will point. "
+            },
+            {
+                "label": "lnk",
+                "documentation": "Full path and file name of the shortcut. "
+            },
+            {
+                "label": "workdir",
+                "documentation": "[optional] Working directory. "
+            },
+            {
+                "label": "args",
+                "documentation": "[optional] Additional file arguments. "
+            },
+            {
+                "label": "desc",
+                "documentation": "[optional] File Description. "
+            },
+            {
+                "label": "icon",
+                "documentation": "[optional] Full Path/File name of icon to use. "
+            },
+            {
+                "label": "hotkey",
+                "documentation": "[optional] Hotkey - same as the Send() key format. "
+            },
+            {
+                "label": "icon number",
+                "documentation": "[optional] The icon instance to use (usually 0) "
+            },
+            {
+                "label": "state",
+                "documentation": "[optional] The state the shortcut is launched in. Use either @SW_SHOWNORMAL, @SW_SHOWMINNOACTIVE or @SW_SHOWMAXIMIZED "
+            }
+        ]
+    },
+    "FileDelete": {
+        "documentation": "Delete one or more files.",
+        "label": "FileDelete ( \"filename\" )",
+        "params": [{
+            "label": "filename",
+            "documentation": "The path of the file(s) to delete.  "
+        }]
+    },
+    "FileExists": {
+        "documentation": "Checks if a file or directory exists.",
+        "label": "FileExists ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "The directory or file to check. "
+        }]
+    },
+    "FileFindFirstFile": {
+        "documentation": "Creates a search handle, defined by a path and file mask.",
+        "label": "FileFindFirstFile ( \"filename\" )",
+        "params": [{
+            "label": "filename",
+            "documentation": "The path and file name. "
+        }]
+    },
+    "FileFindNextFile": {
+        "documentation": "Returns the next filename defined by the search handle.",
+        "label": "FileFindNextFile ( search [, flag = 0])",
+        "params": [{
+                "label": "search",
+                "documentation": "The search handle, as returned by FileFindFirstFile(). "
+            },
+            {
+                "label": "flag",
+                "documentation": "[optional] this flag determines whether to return detailed file attribute information in @extended. "
+            }
+        ]
+    },
+    "FileFlush": {
+        "documentation": "Flushes the file's buffer to disk.",
+        "label": "FileFlush ( \"filehandle\" )",
+        "params": [{
+            "label": "filehandle",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). "
+        }]
+    },
+    "FileGetAttrib": {
+        "documentation": "Returns a code string representing a file's attributes.",
+        "label": "FileGetAttrib ( \"filename\" )",
+        "params": [{
+            "label": "filename",
+            "documentation": "The path to the file or directory to check. "
+        }]
+    },
+    "FileGetEncoding": {
+        "documentation": "Determines the text encoding used in a file.",
+        "label": "FileGetEncoding ( \"filehandle/filename\" [, mode = 1] )",
+        "params": [{
+            "label": "filehandle/filename",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter. "
+        }, {
+            "label": "mode",
+            "documentation": "[optional] The UTF8 detection mode to use. "
+        }]
+    },
+    "FileGetLongName": {
+        "documentation": "Returns the long path+name of the path+name passed.",
+        "label": "FileGetLongName ( \"filename\" [, flag = 0] )",
+        "params": [{
+            "label": "filename",
+            "documentation": "Full path and file name to convert "
+        }, {
+            "label": "flag",
+            "documentation": "[optional] $FN_FULLPATH (0) - Default; $FN_RELATIVEPATH (1) - file can have relative dir, e.g. \"..\file.txt\""
+        }]
+    },
+    "FileGetPos": {
+        "documentation": "Retrieves the current file position.",
+        "label": "FileGetPos ( \"filehandle\" )",
+        "params": [{
+            "label": "filehandle",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). "
+        }]
+    },
+    "FileGetShortcut": {
+        "documentation": "Retrieves details about a shortcut.",
+        "label": "FileGetShortcut ( \"lnk\" )",
+        "params": [{
+            "label": "lnk",
+            "documentation": "Full path and file name of the shortcut. "
+        }]
+    },
+    "FileGetShortName": {
+        "documentation": "Returns the 8.3 short path+name of the path+name passed.",
+        "label": "FileGetShortName ( \"filename\" [, flag = 0] )",
+        "params": [{
+            "label": "filename",
+            "documentation": "full path and file name to convert "
+        }, {
+            "label": "flag",
+            "documentation": "[optional] $FN_FULLPATH (0) - Default; $FN_RELATIVEPATH (1) - file can have relative dir, e.g. \"..\file.txt\" "
+        }]
+    },
+    "FileGetSize": {
+        "documentation": "Returns the size of a file in bytes.",
+        "label": "FileGetSize ( \"filename\" )",
+        "params": [{
+            "label": "filename",
+            "documentation": "Filename to check. "
+        }]
+    },
+    "FileGetTime": {
+        "documentation": "Returns the time and date information for a file.",
+        "label": "FileGetTime ( \"filename\" [, option = 0 [, format = 0]] )",
+        "params": [{
+            "label": "filename",
+            "documentation": "The path to the file or directory to check. "
+        }, {
+            "label": "option",
+            "documentation": "[optional] Flag to indicate which timestamp: $FT_MODIFIED (0) = Last modified (default); $FT_CREATED (1) = Created; $FT_ACCESSED (2) = Last accessed "
+        }]
+    },
+    "FileGetVersion": {
+        "documentation": "Returns version information stored in a file.",
+        "label": "FileGetVersion ( \"filename\" [, \"stringname\"] )",
+        "params": [{
+            "label": "filename",
+            "documentation": "Filename. "
+        }, {
+            "label": "stringname",
+            "documentation": "[optional] Name of the string field to be retrieved from the header version file info: $FV_COMMENTS (\"Comments\"); $FV_COMPANYNAME (\"CompanyName\"); $FV_FILEDESCRIPTION (\"FileDescription\"); $FV_FILEVERSION (\"FileVersion\"); $FV_INTERNALNAME (\"InternalName\"); $FV_LEGALCOPYRIGHT (\"LegalCopyright\"); $FV_LEGALTRADEMARKS (\"LegalTrademarks\"); $FV_ORIGINALFILENAME (\"OriginalFilename\"); $FV_PRODUCTNAME (\"ProductName\"); $FV_PRODUCTVERSION (\"ProductVersion\"); $FV_PRIVATEBUILD (\"PrivateBuild\"); $FV_SPECIALBUILD (\"SpecialBuild\") "
+        }]
+    },
     "Send": {
         "label": "Send(\"keys\", flag = 0)",
         "params": [{
