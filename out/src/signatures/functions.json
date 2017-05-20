@@ -603,6 +603,355 @@
             "documentation": "[optional] Additional parameter required by some commands."
         }]
     },
+    "Cos": {
+        "label": "Cos ( expression )",
+        "documentation": "Calculates the cosine of a number.",
+        "params": [{
+            "label": "expression",
+            "documentation": "Value in radians."
+        }]
+    },
+    "Dec": {
+        "label": "Dec ( \"hex\" [, flag = 0] )",
+        "documentation": "Returns a numeric representation of a hexadecimal string.",
+        "params": [{
+            "label": "hex",
+            "documentation": "The hexadecimal string to convert."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] Defines behavior."
+        }]
+    },
+    "DirCopy": {
+        "label": "DirCopy ( \"source dir\", \"dest dir\" [, flag = 0] )",
+        "documentation": "Copies a directory and all sub-directories and files (Similar to xcopy).",
+        "params": [{
+            "label": "source dir",
+            "documentation": "Path of the source directory (with no trailing backslash). e.g. \"C:\\Path1\""
+        }, {
+            "label": "dest dir",
+            "documentation": "Path of the destination dir (with no trailing backslash). e.g. \"C:\\Path_Copy\""
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines whether to overwrite files if they already exist"
+        }]
+    },
+    "DirCreate": {
+        "label": "DirCreate ( \"path\" )",
+        "documentation": "Creates a directory/folder.",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of the directory to create."
+        }]
+    },
+    "DirGetSize": {
+        "label": "DirGetSize ( \"path\" [, flag = 0] )",
+        "documentation": "Returns the size in bytes of a given directory.",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of the directory to create."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines the behaviour and result of the function"
+        }]
+    },
+    "DirMove": {
+        "label": "DirMove ( \"source dir\", \"dest dir\" [, flag = 0] )",
+        "documentation": "Copies a directory and all sub-directories and files (Similar to xcopy).",
+        "params": [{
+            "label": "source dir",
+            "documentation": "Path of the source directory (with no trailing backslash). e.g. \"C:\\Path1\""
+        }, {
+            "label": "dest dir",
+            "documentation": "Path of the destination dir (with no trailing backslash). e.g. \"C:\\Path_Copy\""
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines whether to overwrite files if they already exist"
+        }]
+    },
+    "DirRemove": {
+        "label": "DirRemove ( \"path\" [, recurse = 0] )",
+        "documentation": "Deletes a directory/folder.",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of the directory to remove."
+        }, {
+            "label": "recurse",
+            "documentation": "[optional] Use this flag to specify if you want to delete sub-directories too."
+        }]
+    },
+    "DllCall": {
+        "label": "DllCall ( \"dll\", \"return type\", \"function\" [, type1, param1 [, type n, param n]] )",
+        "documentation": "Dynamically calls a function in a DLL.",
+        "params": [{
+            "label": "dll",
+            "documentation": "The filename of the DLL to use. e.g. \"user32.dll\". A handle obtained from DllOpen can also be used (See Remarks)."
+        }, {
+            "label": "return type",
+            "documentation": "The return type of the function"
+        }, {
+            "label": "function",
+            "documentation": "The name, eg. \"MessageBox\" or the ordinal value, e.g. 62, of the function in the DLL to call."
+        }, {
+            "label": "type1",
+            "documentation": "[optional] The type of the parameter "
+        }, {
+            "label": "param1",
+            "documentation": "[optional] The actual parameter"
+        }, {
+            "label": "type n",
+            "documentation": "[optional] The type of the nth parameter"
+        }, {
+            "label": "param n",
+            "documentation": "[optional] The actual nth parameter"
+        }]
+    },
+    "DllCallAddress": {
+        "label": "DllCallAddress ( \"return type\", address  [, type1, param1 [, type n, param n]] )",
+        "documentation": "Dynamically calls a function in a DLL.",
+        "params": [{
+            "label": "return type",
+            "documentation": "The return type of the function"
+        }, {
+            "label": "address",
+            "documentation": "The address of a function."
+        }, {
+            "label": "type1",
+            "documentation": "[optional] The type of the parameter "
+        }, {
+            "label": "param1",
+            "documentation": "[optional] The actual parameter"
+        }, {
+            "label": "type n",
+            "documentation": "[optional] The type of the nth parameter"
+        }, {
+            "label": "param n",
+            "documentation": "[optional] The actual nth parameter"
+        }]
+    },
+    "DllCallbackFree": {
+        "documentation": "Frees a previously created handle created with DllCallbackRegister.",
+        "label": "DllCallbackFree ( handle )",
+        "params": [{
+            "label": "handle",
+            "documentation": "The DllCallback handle, as returned by a previous call to DllCallbackRegister()."
+        }]
+    },
+    "DllCallbackGetPtr": {
+        "documentation": "Returns the pointer to a callback function that can be passed to the Win32 API.",
+        "label": "DllCallbackGetPtr ( handle )",
+        "params": [{
+            "label": "handle",
+            "documentation": "A DllCallback handle returned from DllCallbackRegister()."
+        }]
+    },
+    "DllCallbackRegister": {
+        "label": "DllCallbackRegister ( \"function\", \"return type\", \"params\" )",
+        "documentation": "Creates a user-defined DLL Callback function.",
+        "params": [{
+            "label": "function",
+            "documentation": "The name of the User Defined Function to call."
+        }, {
+            "label": "return type",
+            "documentation": "The return type and calling convention of the function"
+        }, {
+            "label": "params",
+            "documentation": "A semi-colon separated list of parameters that will be passed to this function."
+        }]
+    },
+    "DllClose": {
+        "label": "DllClose ( dllhandle )",
+        "documentation": "Closes a previously opened DLL.",
+        "params": [{
+            "label": "dllhandle",
+            "documentation": "The handle of a dll, as returned by a previous call to DllOpen()."
+        }]
+    },
+    "DllOpen": {
+        "label": "DllOpen ( \"filename\" )",
+        "documentation": "Opens a DLL file for use in DllCall.",
+        "params": [{
+            "label": "filename",
+            "documentation": "Filename of the DLL file to open."
+        }]
+    },
+    "DllStructCreate": {
+        "documentation": "Creates a C/C++ style structure to be used in DllCall.",
+        "label": "DllStructCreate ( Struct [, Pointer] )",
+        "params": [{
+            "label": "Struct",
+            "documentation": "A string representing the structure to create."
+        }, {
+            "label": "Pointer",
+            "documentation": "[optional] If supplied the struct will not allocate memory but use the pointer supplied."
+        }]
+    },
+    "DllStructGetData": {
+        "documentation": "Returns the data of an element of the struct.",
+        "label": "DllStructGetData ( Struct, Element [, index = Default] )",
+        "params": [{
+                "label": "Struct",
+                "documentation": "The struct returned by DllStructCreate(). "
+            }, {
+                "label": "Element",
+                "documentation": "Which element of the struct you want to access, starting at 1 or the element name as defined in DllStructCreate(). "
+            },
+            {
+                "label": "index",
+                "documentation": "[optional] For elements that are an array this specifies the 1-based index to retrieve. If omitted or the Default keyword then the entire array is retrieved (Useful for quickly retrieving strings). Not used for non-array elements. "
+            }
+        ]
+    },
+    "DllStructGetPtr": {
+        "documentation": "Returns the pointer to the struct or an element in the struct.",
+        "label": "DllStructGetPtr ( Struct [, Element] )",
+        "params": [{
+            "label": "Struct",
+            "documentation": "The struct returned by DllStructCreate(). "
+        }, {
+            "label": "Element",
+            "documentation": "[optional] The element of the struct whose pointer you need, starting at 1 or the element name as defined in DllStructCreate(). "
+        }]
+    },
+    "DllStructGetSize": {
+        "documentation": "Returns the size of the struct in bytes.",
+        "label": "DllStructGetSize ( Struct )",
+        "params": [{
+            "label": "Struct",
+            "documentation": "The struct returned by DllStructCreate()."
+        }]
+    },
+    "DllStructSetData": {
+        "documentation": "Sets the data of an element in the struct.",
+        "label": "DllStructSetData ( Struct, Element, value [, index] )",
+        "params": [{
+            "label": "Struct",
+            "documentation": "The struct returned by DllStructCreate(). "
+        }, {
+            "label": "Element",
+            "documentation": "Which element of the struct you want to access, starting at 1, or the element name as defined in DllStructCreate(). "
+        }, {
+            "label": "value",
+            "documentation": "The new value to place in the struct element. "
+        }, {
+            "label": "index",
+            "documentation": "[optional] For elements that are an array this specifies the 1-based index to set. If omitted or the Default keyword then as much of the value as possible will be set in element starting at index 1 (Useful for quickly setting strings). Not used for non-array elements. "
+        }]
+    },
+    "DriveGetDrive": {
+        "documentation": "Returns an array containing the enumerated drives.",
+        "label": "DriveGetDrive ( \"type\" )",
+        "params": [{
+            "label": "type",
+            "documentation": "Type of drive to find"
+        }]
+    },
+    "DriveGetFileSystem": {
+        "documentation": "Returns File System Type of a drive.",
+        "label": "DriveGetFileSystem ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
+    "DriveGetLabel": {
+        "documentation": "Returns Volume Label of a drive, if it has one.",
+        "label": "DriveGetLabel ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
+    "DriveGetSerial": {
+        "documentation": "Returns Serial Number of a drive.",
+        "label": "DriveGetSerial ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
+    "DriveGetType": {
+        "documentation": "Returns drive type.",
+        "label": "DriveGetType ( \"path\" [, operation = 1] )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }, {
+            "label": "operation",
+            "documentation": "[optional] The drive type operation to perform."
+        }]
+    },
+    "DriveMapAdd": {
+        "documentation": "Maps a network drive.",
+        "label": "DriveMapAdd ( \"device\", \"remote share\" [, flags = 0 [, \"user\" [, \"password\"]]] )",
+        "params": [{
+            "label": "device",
+            "documentation": "The device to map, for example \"O:\" or \"LPT1:\". If you pass an empty string for this parameter a connection is made but not mapped to a specific drive. If you specify \"*\" an unused drive letter will be automatically selected. "
+        }, {
+            "label": "remote share",
+            "documentation": "The remote share to connect to in the form \"\\\\server\\share\". "
+        }, {
+            "label": "flags",
+            "documentation": "[optional] A combination of the following: $DMA_DEFAULT (0) = default; $DMA_PERSISTENT (1) = Persistent mapping; $DMA_AUTHENTICATION (8) = Show authentication dialog if required"
+        }, {
+            "label": "user",
+            "documentation": "[optional] The username to use to connect. In the form \"username\" or \"domain\\username\". "
+        }, {
+            "label": "password",
+            "documentation": "[optional] The password to use to connect. "
+        }]
+    },
+    "DriveMapDel": {
+        "documentation": "Disconnects a network drive.",
+        "label": "DriveMapDel ( \"drive\" )",
+        "params": [{
+            "label": "drive",
+            "documentation": "The device to disconnect, e.g. \"O:\" or \"LPT1:\". "
+        }]
+    },
+    "DriveMapGet": {
+        "documentation": "Retrieves the details of a mapped drive.",
+        "label": "DriveMapGet ( \"device\" )",
+        "params": [{
+            "label": "device",
+            "documentation": "The device (drive or printer) letter to query, e.g. \"O:\" or \"LPT1:\" "
+        }]
+    },
+    "DriveSetLabel": {
+        "documentation": "Sets the Volume Label of a drive.",
+        "label": "DriveSetLabel ( \"path\", \"label\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to change. "
+        }, {
+            "label": "label",
+            "documentation": "New volume label for the drive. (11 characters is usually max length) "
+        }]
+    },
+    "DriveSpaceFree": {
+        "documentation": "Returns the free disk space of a path in Megabytes.",
+        "label": "DriveSpaceFree ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
+    "DriveSpaceTotal": {
+        "documentation": "Returns the total disk space of a path in Megabytes.",
+        "label": "DriveSpaceTotal ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
+    "DriveStatus": {
+        "documentation": "Returns the status of the drive as a string.",
+        "label": "DriveStatus ( \"path\" )",
+        "params": [{
+            "label": "path",
+            "documentation": "Path of drive to receive information from. "
+        }]
+    },
     "Send": {
         "label": "Send(\"keys\", flag = 0)",
         "params": [{
