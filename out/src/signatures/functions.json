@@ -1212,6 +1212,110 @@
             "documentation": "[optional] Name of the string field to be retrieved from the header version file info: $FV_COMMENTS (\"Comments\"); $FV_COMPANYNAME (\"CompanyName\"); $FV_FILEDESCRIPTION (\"FileDescription\"); $FV_FILEVERSION (\"FileVersion\"); $FV_INTERNALNAME (\"InternalName\"); $FV_LEGALCOPYRIGHT (\"LegalCopyright\"); $FV_LEGALTRADEMARKS (\"LegalTrademarks\"); $FV_ORIGINALFILENAME (\"OriginalFilename\"); $FV_PRODUCTNAME (\"ProductName\"); $FV_PRODUCTVERSION (\"ProductVersion\"); $FV_PRIVATEBUILD (\"PrivateBuild\"); $FV_SPECIALBUILD (\"SpecialBuild\") "
         }]
     },
+    "FileInstall": {
+        "documentation": "Include and install a file with the compiled script.",
+        "label": "FileInstall ( \"source\", \"dest\" [, flag = 0] )",
+        "params": [{
+            "label": "source",
+            "documentation": "The source path of the file to compile. This must be a literal string; it cannot be a variable or the result of a function call. It can be a relative path (using .\\ or ..\\ in the path) to the source file (.au3)."
+        }, {
+            "label": "dest",
+            "documentation": "The destination path of the file with trailing backslash if only the directory is used. This can be a variable."
+        }, {
+            "label": "flag",
+            "documentation": "[optional] this flag determines whether to overwrite files if they already exist: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files; $FC_OVERWRITE (1) = overwrite existing files"
+        }]
+    },
+    "FileMove": {
+        "documentation": "Moves one or more files.",
+        "label": "FileMove ( \"source\", \"dest\" [, flag = 0] )",
+        "params": [{
+                "label": "source",
+                "documentation": "The source path and filename of the file to move. (* wildcards accepted - See Remarks)"
+            }, {
+                "label": "dest",
+                "documentation": "The destination path and filename of the moved file. (* wildcards accepted - See Remarks)"
+            },
+            {
+                "label": "flag",
+                "documentation": "[optional] this flag determines whether to overwrite files if they already exist: Can be a combination of the following: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files.; $FC_OVERWRITE (1) = overwrite existing files.; $FC_CREATEPATH (8) = Create destination directory structure if it doesn't exist (See Remarks)."
+            }
+        ]
+    },
+    "FileOpen": {
+        "documentation": "Opens a file for reading or writing.",
+        "label": "FileOpen ( \"filename\" [, mode = 0] )",
+        "params": [{
+            "label": "filename",
+            "documentation": "Filename of the file to open."
+        }, {
+            "label": "mode",
+            "documentation": "[optional] Mode to open the file in."
+        }]
+    },
+    "FileOpenDialog": {
+        "documentation": "Initiates a Open File Dialog.",
+        "label": "FileOpenDialog ( \"title\", \"init dir\", \"filter\" [, options = 0 [, \"default name\" [, hwnd]]] )",
+        "params": [{
+                "label": "title",
+                "documentation": "Title text of the Dialog GUI."
+            },
+            {
+                "label": "init dir",
+                "documentation": "Initial directory selected in the GUI file tree."
+            },
+            {
+                "label": "filter",
+                "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\" (See Remarks)."
+            },
+            {
+                "label": "options",
+                "documentation": "[optional] Dialog Options: To use more than one option, BitOR the required values together.; $FD_FILEMUSTEXIST (1) = File Must Exist (if user types a filename); $FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash); $FD_MULTISELECT (4) = Allow MultiSelect; $FD_PROMPTCREATENEW (8) = Prompt to Create New File (if does not exist)"
+            }, {
+                "label": "default name",
+                "documentation": "[optional] Suggested file name for the user to open. Default is blank (\"\")."
+            }, {
+                "label": "hwnd",
+                "documentation": "[optional] The window handle to use as the parent for this dialog."
+            }
+        ]
+    },
+    "FileRead": {
+        "documentation": "Read in a number of characters from a previously opened file.",
+        "label": "FileRead ( \"filehandle/filename\" [, count] )",
+        "params": [{
+            "label": "filehandle/filename",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
+        }, {
+            "label": "count",
+            "documentation": "[optional] The number of characters to read. See remarks."
+        }]
+    },
+    "FileReadLine": {
+        "documentation": "Read in a line of text from a previously opened text file.",
+        "label": "FileReadLine ( \"filehandle/filename\" [, line = 1] )",
+        "params": [{
+            "label": "filehandle/filename",
+            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
+        }, {
+            "label": "line",
+            "documentation": "[optional] The line number to read. The first line of a text file is line 1 (not zero), last line is -1."
+        }]
+    },
+    "FileReadToArray": { "documentation": "Reads the specified file into an array.", "label": "FileReadToArray ( \"filehandle/filename\" )", "params": [{ "label": "filehandle/filename", "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter." }] },
+    "FileRecycle": { "documentation": "Sends a file or directory to the recycle bin.", "label": "FileRecycle ( \"source\" )", "params": [{ "label": "source", "documentation": "The source path of the file(s) or directory to Recycle. (* and ? wildcards accepted - See Remarks)" }] },
+    "FileRecycleEmpty": { "documentation": "Empties the recycle bin.", "label": "FileRecycleEmpty ( [\"source\"] )", "params": [{ "label": "source", "documentation": "[optional] The rootpath to empty - if omitted the recycle bin for all drives is emptied." }] },
+    "FileSaveDialog": { "documentation": "Initiates a Save File Dialog.", "label": "FileSaveDialog ( \"title\", \"init dir\", \"filter\" [, options = 0 [, \"default name\" [, hwnd]]] )", "params": [{ "label": "title", "documentation": "Title text of the Dialog GUI." }, { "label": "init dir", "documentation": "Initial directory selected in the GUI file tree." }, { "label": "filter", "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\" (See Remarks)." }, { "label": "options", "documentation": "[optional] Dialog Options: To use more than one option, BitOR the required values together.    $FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash)    $FD_PROMPTOVERWRITE (16) = Prompt to OverWrite FileConstants are defined in FileConstants.au3." }, { "label": "default name", "documentation": "[optional] File name to suggest to the user to save the file with. Default is blank (\"\")." }, { "label": "hwnd", "documentation": "[optional] The window handle to use as the parent for this dialog." }] },
+    "FileSelectFolder": { "documentation": "Initiates a Browse For Folder dialog.", "label": "FileSelectFolder ( \"dialog text\", \"root dir\" [, flag = 0 [, \"initial dir\" [, hwnd]]] )", "params": [{ "label": "dialog text", "documentation": "Text greeting in dialog." }, { "label": "root dir", "documentation": "Root directory of GUI file tree. It limits a choice in the root folder. Use \"\" for Desktop to be root." }, { "label": "flag", "documentation": "[optional]    $FSF_CREATEBUTTON (1) = Show Create Folder Button (XP only)    $FSF_NEWDIALOG (2) = Use New Dialog Style (XP only)    $FSF_EDITCONTROL (4) = Show Edit Control (XP only)Constants are defined in FileConstants.au3." }, { "label": "initial dir", "documentation": "[optional] The full path of the folder you selected/highlighted when displaying dialogue (if it exists in the root folder). Default is blank (\"\")." }, { "label": "hwnd", "documentation": "[optional] The window handle to use as the parent for this dialog." }] },
+    "FileSetAttrib": { "documentation": "Sets the attributes of one or more files/directories.", "label": "FileSetAttrib ( \"file pattern\", \"+-RASHNOT\" [, recurse = 0] )", "params": [{ "label": "file pattern", "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted - See Remarks)" }, { "label": "+-RASHNOT", "documentation": "Attribute(s) to set/clear. e.g. \"+A\", \"+RA-SH\"" }, { "label": "recurse", "documentation": "[optional]    $FT_NONRECURSIVE (0) - no recursion (Default)    $FT_RECURSIVE (1) - directories are recursed into. Constants are defined in FileConstants.au3." }] },
+    "FileSetEnd": { "documentation": "Sets the end of the file at the current file position.", "label": "FileSetEnd ( \"filehandle\" )", "params": [{ "label": "filehandle", "documentation": "The handle of a file, as returned by a previous call to FileOpen()." }] },
+    "FileSetPos": { "documentation": "Sets the current file position.", "label": "FileSetPos ( \"filehandle\", offset, origin )", "params": [{ "label": "filehandle", "documentation": "The handle of a file, as returned by a previous call to FileOpen()." }, { "label": "offset", "documentation": "The offset to move from the origin. This value may be positive or negative. Negative values move backwards from the origin." }, { "label": "origin", "documentation": "Must be one of the following:    $FILE_BEGIN (0) = Beginning of the file.    $FILE_CURRENT (1) = Current position.    $FILE_END (2) = End of the file. Constants are defined in FileConstants.au3." }] },
+    "FileSetTime": { "documentation": "Sets the timestamp of one of more files.", "label": "FileSetTime ( \"file pattern\", \"time\" [, type = 0 [, recurse = 0]] )", "params": [{ "label": "file pattern", "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted - See Remarks)" }, { "label": "time", "documentation": "The new time to set in the format \"YYYYMMDDHHMMSS\" (Year, month, day, hours (24hr clock), seconds). If the time is blank \"\" then the current time is used." }, { "label": "type", "documentation": "[optional] The timestamp to change:    $FT_MODIFIED (0) = Last modified (default)    $FT_CREATED (1) = Created    $FT_ACCESSED (2) = Last accessedConstants are defined in FileConstants.au3" }, { "label": "recurse", "documentation": "[optional]    $FT_NONRECURSIVE (0) - no recursion (Default).    $FT_RECURSIVE (1) - directories are recursed into. Constants are defined in FileConstants.au3" }] },
+    "FileWrite": { "documentation": "Write text/data to the end of a previously opened file.", "label": "FileWrite ( \"filehandle/filename\", \"text/data\" )", "params": [{ "label": "filehandle/filename", "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively, you may use a string filename as the first parameter." }, { "label": "text/data", "documentation": "The text/data to write to the file. The text is written as is - no @CR or @LF characters are added. See remark for data type." }] },
+    "FileWriteLine": { "documentation": "Append a line of text to the end of a previously opened text file.", "label": "FileWriteLine ( \"filehandle/filename\", \"line\" )", "params": [{ "label": "filehandle/filename", "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively, you may use a string filename as the first parameter." }, { "label": "line", "documentation": "The line of text to write to the text file. If the line does NOT end in @CR or @LF then a DOS linefeed (@CRLF) will be automatically added." }] },
+    "Floor": { "documentation": "Returns a number rounded down to the closest integer.", "label": "Floor ( expression )", "params": [{ "label": "expression", "documentation": "Any valid numeric expression." }] },
+    "FtpSetProxy": { "documentation": "Sets the internet proxy to use for ftp access.", "label": "FtpSetProxy ( mode = 0 [, \"proxy:port\" [, \"username\" [, \"password\"]]] )", "params": [{ "label": "mode", "documentation": "The proxy mode to use:    $PROXY_IE (0) = (default) Use current Internet Explorer settings for proxy.    $PROXY_NONE (1) = Use no proxy (direct access)    $PROXY_SPECIFIED (2) = Use the proxy specifiedConstants are deined in \"AutoItConstants.au3\"." }, { "label": "proxy:port", "documentation": "[optional] The address and port of the proxy to use. See remarks below." }, { "label": "username", "documentation": "[optional] If required, the username for the proxy" }, { "label": "password", "documentation": "[optional] If required, the password for the proxy" }] },
+    "FuncName": { "documentation": "Returns the name of a function stored in a variable.", "label": "FuncName ( $Functionvariable )", "params": [{ "label": "$Functionvariable", "documentation": "A variable containing a Function whose name you want to retrieve." }] },
     "Send": {
         "label": "Send(\"keys\", flag = 0)",
         "params": [{
