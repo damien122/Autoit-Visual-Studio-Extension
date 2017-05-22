@@ -1353,11 +1353,11 @@ var items = [{
         documentation: 'Sends data on a connected socket. '
     },
     {
-        label: 'TCPShutdown,',
+        label: 'TCPShutdown',
         documentation: 'TCPShutdown Stops TCP services. '
     },
     {
-        label: 'TCPStartup,',
+        label: 'TCPStartup',
         documentation: 'TCPStartup Starts TCP services. '
     },
     {
@@ -1465,11 +1465,11 @@ var items = [{
         documentation: 'Sends data on an opened socket. '
     },
     {
-        label: 'UDPShutdown,',
+        label: 'UDPShutdown',
         documentation: 'UDPShutdown Stops UDP services. '
     },
     {
-        label: 'UDPStartup,',
+        label: 'UDPStartup',
         documentation: 'UDPStartup Starts UDP services. '
     },
     {
