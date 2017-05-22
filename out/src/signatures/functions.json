@@ -2897,13 +2897,7 @@
     "IsAdmin": {
         "documentation": "Checks if the current user has full administrator privileges.",
         "label": "IsAdmin (  )",
-        "params": [{
-            "label": "Success:",
-            "documentation": "1 if the current user has administrator privileges."
-        }, {
-            "label": "Failure:",
-            "documentation": "0 if user lacks admin privileges."
-        }]
+        "params": []
     },
     "IsArray": {
         "documentation": "Checks if a variable is an array type.",
@@ -4352,33 +4346,25 @@
             "documentation": "binary/string to be send to the connected socket."
         }]
     },
-    "TCPShutdown, UDPShutdown": {
-        "documentation": "Stops TCP/UDP services.",
+    "TCPShutdown": {
+        "documentation": "Stops TCP services.",
         "label": "TCPShutdown (  )",
-        "params": [{
-            "label": "Success:",
-            "documentation": "1."
-        }, {
-            "label": "Failure:",
-            "documentation": "0 and sets the @error flag to non-zero."
-        }, {
-            "label": "@error:",
-            "documentation": "Windows API WSACleanup return value (see MSDN)."
-        }]
+        "params": []
     },
-    "TCPStartup, UDPStartup": {
-        "documentation": "Starts TCP or UDP services.",
+    "UDPShutdown": {
+        "documentation": "Stops UDP services.",
+        "label": "UDPShutdown (  )",
+        "params": []
+    },
+    "TCPStartup": {
+        "documentation": "Starts TCP services.",
         "label": "TCPStartup (  )",
-        "params": [{
-            "label": "Success:",
-            "documentation": "1."
-        }, {
-            "label": "Failure:",
-            "documentation": "0 and sets the @error flag to non-zero."
-        }, {
-            "label": "@error:",
-            "documentation": "Windows API WSAStartup return value (see MSDN)."
-        }]
+        "params": []
+    },
+    "UDPStartup": {
+        "documentation": "Starts UDP services.",
+        "label": "UDPStartup (  )",
+        "params": []
     },
     "TimerDiff": {
         "documentation": "Returns the difference in time from a previous call to TimerInit().",
@@ -4450,31 +4436,7 @@
     "TrayGetMsg": {
         "documentation": "Polls the tray to see if any events have occurred.",
         "label": "TrayGetMsg (  )",
-        "params": [{
-            "label": "$TRAY_EVENT_NONE (0):",
-            "documentation": "No event"
-        }, {
-            "label": "Control ID:",
-            "documentation": "the ID of the control sending the message"
-        }, {
-            "label": "$TRAY_EVENT_PRIMARYDOWN:",
-            "documentation": "the primary mouse button was pressed"
-        }, {
-            "label": "$TRAY_EVENT_PRIMARYUP:",
-            "documentation": "the primary mouse button was released"
-        }, {
-            "label": "$TRAY_EVENT_SECONDARYDOWN:",
-            "documentation": "the secondary mouse button was pressed"
-        }, {
-            "label": "$TRAY_EVENT_SECONDARYUP:",
-            "documentation": "the secondary mouse button was released"
-        }, {
-            "label": "$TRAY_EVENT_PRIMARYDOUBLE:",
-            "documentation": "the primary mouse button was double pressed"
-        }, {
-            "label": "$TRAY_EVENT_SECONDARYDOUBLE:",
-            "documentation": "the secondary mouse button was double pressed"
-        }]
+        "params": []
     },
     "TrayItemDelete": {
         "documentation": "Deletes a menu/item control from the tray menu.",
@@ -4756,13 +4718,7 @@
     "WinGetCaretPos": {
         "documentation": "Returns the coordinates of the caret in the foreground window.",
         "label": "WinGetCaretPos (  )",
-        "params": [{
-            "label": "Success:",
-            "documentation": "a 2-element array containing the following information:    $aArray[0] = X coordinate    $aArray[1] = Y coordinate"
-        }, {
-            "label": "Failure:",
-            "documentation": "sets the @error flag to non-zero."
-        }]
+        "params": []
     },
     "WinGetClassList": {
         "documentation": "Retrieves the classes from a window.",
