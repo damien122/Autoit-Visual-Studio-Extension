@@ -1,62 +1,52 @@
 'use strict'
 
 var {
-    CompletionItemKind,
-    SnippetString
+    CompletionItemKind
 } = require('vscode')
 
 var items = [{
         label: '_ColorConvertHSLtoRGB',
-        documentation: 'Converts HSL to RGB',
-        insertText: '_ColorConvertHSLtoRGB(${})'
+        documentation: 'Converts HSL to RGB'
     },
 
     {
         label: '_ColorConvertRGBtoHSL',
-        documentation: 'Converts RGB to HSL',
-        insertText: '_ColorConvertRGBtoHSL(${})'
+        documentation: 'Converts RGB to HSL'
     },
 
     {
         label: '_ColorGetBlue',
-        documentation: 'Returns the blue component of a given color',
-        insertText: '_ColorGetBlue(${})'
+        documentation: 'Returns the blue component of a given color'
     },
 
     {
         label: '_ColorGetCOLORREF',
-        documentation: 'Returns the COLORREF color',
-        insertText: '_ColorGetCOLORREF(${})'
+        documentation: 'Returns the COLORREF color'
     },
 
     {
         label: '_ColorGetGreen',
-        documentation: 'Returns the green component of a given color',
-        insertText: '_ColorGetGreen(${})'
+        documentation: 'Returns the green component of a given color'
     },
 
     {
         label: '_ColorGetRed',
-        documentation: 'Returns the red component of a given color',
-        insertText: '_ColorGetRed(${})'
+        documentation: 'Returns the red component of a given color'
     },
 
     {
         label: '_ColorGetRGB',
-        documentation: 'Returns an array containing RGB values in their respective positions',
-        insertText: '_ColorGetRGB(${})'
+        documentation: 'Returns an array containing RGB values in their respective positions'
     },
 
     {
         label: '_ColorSetCOLORREF',
-        documentation: 'Returns the COLORREF color',
-        insertText: '_ColorSetCOLORREF(${})'
+        documentation: 'Returns the COLORREF color'
     },
 
     {
         label: '_ColorSetRGB',
-        documentation: 'Returns the RGB color ',
-        insertText: '_ColorSetRGB(${})'
+        documentation: 'Returns the RGB color '
     },
 ]
 
@@ -64,7 +54,6 @@ var items = [{
 for (var i of items) {
     i.kind = CompletionItemKind.Function
     i.detail = 'Color UDF - #include <WinAPIGdi.au3>'
-    i.insertText = new SnippetString(i.insertText)
 }
 
 module.exports = items

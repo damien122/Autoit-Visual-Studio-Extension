@@ -1,20 +1,17 @@
 'use strict'
 
 var {
-    CompletionItemKind,
-    SnippetString
+    CompletionItemKind
 } = require('vscode')
 
 var items = [{
         label: '_SendMessage',
-        documentation: 'Wrapper for commonly used DLL Call',
-        insertText: '_SendMessage(${})'
+        documentation: 'Wrapper for commonly used DLL Call'
     },
 
     {
         label: '_SendMessageA',
-        documentation: 'Send a Message to a Window/Control (Force Ansi Call)',
-        insertText: '_SendMessageA(${})'
+        documentation: 'Send a Message to a Window/Control (Force Ansi Call)'
     }
 ]
 
@@ -22,7 +19,6 @@ var items = [{
 for (var i of items) {
     i.kind = CompletionItemKind.Function
     i.detail = 'UDF - #include <SendMessage.au3>'
-    i.insertText = new SnippetString(i.insertText)
 }
 
 module.exports = items

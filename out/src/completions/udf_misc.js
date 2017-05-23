@@ -1,50 +1,42 @@
 'use strict'
 
 var {
-    CompletionItemKind,
-    SnippetString
+    CompletionItemKind
 } = require('vscode')
 
 var items = [{
         label: '_ChooseColor',
-        documentation: 'Creates a Color dialog box that enables the user to select a color',
-        insertText: '_ChooseColor(${})'
+        documentation: 'Creates a Color dialog box that enables the user to select a color'
     },
 
     {
         label: '_ChooseFont',
-        documentation: 'Creates a Font dialog box that enables the user to choose attributes for a logical font',
-        insertText: '_ChooseFont(${})'
+        documentation: 'Creates a Font dialog box that enables the user to choose attributes for a logical font'
     },
 
     {
         label: '_ClipPutFile',
-        documentation: 'Copy Files to Clipboard Like Explorer does',
-        insertText: '_ClipPutFile(${})'
+        documentation: 'Copy Files to Clipboard Like Explorer does'
     },
 
     {
         label: '_IsPressed',
-        documentation: 'Check if key has been pressed',
-        insertText: '_IsPressed(${})'
+        documentation: 'Check if key has been pressed'
     },
 
     {
         label: '_MouseTrap',
-        documentation: 'Confine the Mouse Cursor to specified coords',
-        insertText: '_MouseTrap(${})'
+        documentation: 'Confine the Mouse Cursor to specified coords'
     },
 
     {
         label: '_Singleton',
-        documentation: 'Enforce a design paradigm where only one instance of the script may be running',
-        insertText: '_Singleton(${})'
+        documentation: 'Enforce a design paradigm where only one instance of the script may be running'
     },
 
     {
         label: '_VersionCompare',
-        documentation: 'Compares two file versions for equality ',
-        insertText: '_VersionCompare(${})'
+        documentation: 'Compares two file versions for equality '
     }
 ]
 
@@ -52,7 +44,6 @@ var items = [{
 for (var i of items) {
     i.kind = CompletionItemKind.Function
     i.detail = 'UDF - #include <Misc.au3>'
-    i.insertText = new SnippetString(i.insertText)
 }
 
 module.exports = items

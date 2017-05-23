@@ -1,68 +1,57 @@
 'use strict'
 
 var {
-    CompletionItemKind,
-    SnippetString
+    CompletionItemKind
 } = require('vscode')
 
 var items = [{
         label: '_SoundClose',
-        documentation: 'Closes a sound previously opened with _SoundOpen',
-        insertText: '_SoundClose(${})'
+        documentation: 'Closes a sound previously opened with _SoundOpen'
     },
 
     {
         label: '_SoundLength',
-        documentation: 'Returns the length of the soundfile',
-        insertText: '_SoundLength(${})'
+        documentation: 'Returns the length of the soundfile'
     },
 
     {
         label: '_SoundOpen',
-        documentation: 'Opens a sound file for use with other _Sound functions',
-        insertText: '_SoundOpen(${})'
+        documentation: 'Opens a sound file for use with other _Sound functions'
     },
 
     {
         label: '_SoundPause',
-        documentation: 'Pause a playing sound',
-        insertText: '_SoundPause(${})'
+        documentation: 'Pause a playing sound'
     },
 
     {
         label: '_SoundPlay',
-        documentation: 'Play a sound file',
-        insertText: '_SoundPlay(${})'
+        documentation: 'Play a sound file'
     },
 
     {
         label: '_SoundPos',
-        documentation: 'Returns the current position of the sound',
-        insertText: '_SoundPos(${})'
+        documentation: 'Returns the current position of the sound'
     },
 
     {
         label: '_SoundResume',
-        documentation: 'Resume a paused sound',
-        insertText: '_SoundResume(${})'
+        documentation: 'Resume a paused sound'
     },
 
     {
         label: '_SoundSeek',
-        documentation: 'Seeks the sound to the specified position',
-        insertText: '_SoundSeek(${})'
+        documentation: 'Seeks the sound to the specified position'
     },
 
     {
         label: '_SoundStatus',
-        documentation: 'Returns the status of the sound',
-        insertText: '_SoundStatus(${})'
+        documentation: 'Returns the status of the sound'
     },
 
     {
         label: '_SoundStop',
-        documentation: 'Stop a playing sound ',
-        insertText: '_SoundStop(${})'
+        documentation: 'Stop a playing sound '
     }
 ]
 
@@ -70,7 +59,6 @@ var items = [{
 for (var i of items) {
     i.kind = CompletionItemKind.Function
     i.detail = 'UDF - #include <Sound.au3>'
-    i.insertText = new SnippetString(i.insertText)
 }
 
 module.exports = items

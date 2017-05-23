@@ -1,49 +1,40 @@
 'use strict'
 
 var {
-    CompletionItemKind,
-    SnippetString
+    CompletionItemKind
 } = require('vscode')
 
 var items = [{
         label: '_Assert',
-        documentation: 'Display a message if assertion fails',
-        insertText: '_Assert(${})'
+        documentation: 'Display a message if assertion fails'
     },
     {
         label: '_DebugBugReportEnv',
-        documentation: 'Outputs a string containing information for Bug report submission',
-        insertText: '_DebugBugReportEnv(${})'
+        documentation: 'Outputs a string containing information for Bug report submission'
     },
     {
         label: '_DebugCOMError',
-        documentation: 'Sets, resets or queries the debug level for COM errors',
-        insertText: '_DebugCOMError(${})'
+        documentation: 'Sets, resets or queries the debug level for COM errors'
     },
     {
         label: '_DebugOut',
-        documentation: 'Displays output on a debugging session started by _DebugSetup()',
-        insertText: '_DebugOut(${})'
+        documentation: 'Displays output on a debugging session started by _DebugSetup()'
     },
     {
         label: '_DebugReport',
-        documentation: 'Writes to a debugging session',
-        insertText: '_DebugReport(${})'
+        documentation: 'Writes to a debugging session'
     },
     {
         label: '_DebugReportEx',
-        documentation: 'Writes to a debugging session a formatted message',
-        insertText: '_DebugReportEx(${})'
+        documentation: 'Writes to a debugging session a formatted message'
     },
     {
         label: '_DebugReportVar',
-        documentation: 'Writes to debugging session the content of a variable',
-        insertText: '_DebugReportVar(${})'
+        documentation: 'Writes to debugging session the content of a variable'
     },
     {
         label: '_DebugSetup',
-        documentation: 'Setup up a debug session using a specific reporting type ',
-        insertText: '_DebugSetup(${})'
+        documentation: 'Setup up a debug session using a specific reporting type '
     }
 ]
 
@@ -51,7 +42,6 @@ var items = [{
 for (var i of items) {
     i.kind = CompletionItemKind.Function
     i.detail = 'Debug UDF - #include <Debug.au3>'
-    i.insertText = new SnippetString(i.insertText)
 }
 
 module.exports = items
