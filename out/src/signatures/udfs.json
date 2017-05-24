@@ -662,7 +662,7 @@
         "label": "_ClipBoard_GetData ( [$iFormat = 1] )",
         "params": [{
             "label": "$iFormat",
-            "documentation": "[optional] Specifies a clipboard format:$CF_TEXT - Text format$CF_BITMAP - Handle to a bitmap (HBITMAP)$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)$CF_SYLK - Microsoft Symbolic Link (SYLK) format$CF_DIF - Software Arts' Data Interchange Format$CF_TIFF - Tagged image file format$CF_OEMTEXT - Text format containing characters in the OEM character set$CF_DIB - BITMAPINFO structure followed by the bitmap bits$CF_PALETTE - Handle to a color palette$CF_PENDATA - Data for the pen extensions to Pen Computing$CF_RIFF - Represents audio data in RIFF format$CF_WAVE - Represents audio data in WAVE format$CF_UNICODETEXT - Unicode text format$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)$CF_HDROP - Handle to type HDROP that identifies a list of files$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits$CF_OWNERDISPLAY - Owner display format$CF_DSPTEXT - Text display format associated with a private format$CF_DSPBITMAP - Bitmap display format associated with a private format$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format"
+            "documentation": "[optional] Specifies a clipboard format"
         }]
     },
     "_ClipBoard_GetDataEx": {
@@ -670,7 +670,7 @@
         "label": "_ClipBoard_GetDataEx ( [$iFormat = 1] )",
         "params": [{
             "label": "$iFormat",
-            "documentation": "[optional] Specifies a clipboard format:$CF_TEXT - Text format$CF_BITMAP - Handle to a bitmap (HBITMAP)$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)$CF_SYLK - Microsoft Symbolic Link (SYLK) format$CF_DIF - Software Arts' Data Interchange Format$CF_TIFF - Tagged image file format$CF_OEMTEXT - Text format containing characters in the OEM character set$CF_DIB - BITMAPINFO structure followed by the bitmap bits$CF_PALETTE - Handle to a color palette$CF_PENDATA - Data for the pen extensions to Pen Computing$CF_RIFF - Represents audio data in RIFF format$CF_WAVE - Represents audio data in WAVE format$CF_UNICODETEXT - Unicode text format$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)$CF_HDROP - Handle to type HDROP that identifies a list of files$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits$CF_OWNERDISPLAY - Owner display format$CF_DSPTEXT - Text display format associated with a private format$CF_DSPBITMAP - Bitmap display format associated with a private format$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format"
+            "documentation": "[optional] Specifies a clipboard format"
         }]
     },
     "_ClipBoard_GetFormatName": {
@@ -741,7 +741,7 @@
             "documentation": "Data in Binary or String format, or optionally NULL (0) (owner must render, see below).IMPORTANT: If a String is passed, and it is not of type $CF_TEXT, $CF_OEMTEXT, or $CF_UNICODETEXT, it will be treated as an ANSI string.To force Unicode strings for other types, you must pass the data in Binary format.Also, do NOT pass $CF_UNICODETEXT in Binary format (causes garbled data).When $vData is NULL, it indicates that the window provides data in the specified clipboard format upon request.If a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.If this function succeeds, the system owns the object identified by the $hMemory parameter.The application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.The memory must be unlocked before the clipboard is closed.If the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
         }, {
             "label": "$iFormat",
-            "documentation": "[optional] Specifies a clipboard format:$CF_TEXT - Text format$CF_BITMAP - Handle to a bitmap (HBITMAP)$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)$CF_SYLK - Microsoft Symbolic Link (SYLK) format$CF_DIF - Software Arts' Data Interchange Format$CF_TIFF - Tagged image file format$CF_OEMTEXT - Text format containing characters in the OEM character set$CF_DIB - BITMAPINFO structure followed by the bitmap bits$CF_PALETTE - Handle to a color palette$CF_PENDATA - Data for the pen extensions to Pen Computing$CF_RIFF - Represents audio data in RIFF format$CF_WAVE - Represents audio data in WAVE format$CF_UNICODETEXT - Unicode text format$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)$CF_HDROP - Handle to type HDROP that identifies a list of files$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits$CF_OWNERDISPLAY - Owner display format$CF_DSPTEXT - Text display format associated with a private format$CF_DSPBITMAP - Bitmap display format associated with a private format$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format"
+            "documentation": "[optional] Specifies a clipboard format"
         }]
     },
     "_ClipBoard_SetDataEx": {
@@ -752,7 +752,7 @@
             "documentation": "Handle to the data in the specified format. This parameter can be NULL, indicating that the window provides data in the specified clipboard format upon request.If a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.If this function succeeds, the system owns the object identified by the $hMemory parameter.The application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.The memory must be unlocked before the clipboard is closed.If the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
         }, {
             "label": "$iFormat",
-            "documentation": "[optional] Specifies a clipboard format:$CF_TEXT - Text format$CF_BITMAP - Handle to a bitmap (HBITMAP)$CF_METAFILEPICT - Handle to a metafile picture (METAFILEPICT)$CF_SYLK - Microsoft Symbolic Link (SYLK) format$CF_DIF - Software Arts' Data Interchange Format$CF_TIFF - Tagged image file format$CF_OEMTEXT - Text format containing characters in the OEM character set$CF_DIB - BITMAPINFO structure followed by the bitmap bits$CF_PALETTE - Handle to a color palette$CF_PENDATA - Data for the pen extensions to Pen Computing$CF_RIFF - Represents audio data in RIFF format$CF_WAVE - Represents audio data in WAVE format$CF_UNICODETEXT - Unicode text format$CF_ENHMETAFILE - Handle to an enhanced metafile (HENHMETAFILE)$CF_HDROP - Handle to type HDROP that identifies a list of files$CF_LOCALE - Handle to the locale identifier associated with text in the clipboard$CF_DIBV5 - BITMAPV5HEADER structure followed by bitmap color and the bitmap bits$CF_OWNERDISPLAY - Owner display format$CF_DSPTEXT - Text display format associated with a private format$CF_DSPBITMAP - Bitmap display format associated with a private format$CF_DSPMETAFILEPICT - Metafile picture display format associated with a private format$CF_DSPENHMETAFILE - Enhanced metafile display format associated with a private format"
+            "documentation": "[optional] Specifies a clipboard format"
         }]
     },
     "_ClipBoard_SetViewer": {
@@ -1007,7 +1007,7 @@
             "documentation": "Day number    1 = Sunday    2 = Monday    3 = Tuesday    4 = Wednesday    5 = Thursday    6 = Friday    7 = Saturday"
         }, {
             "label": "$iFormat",
-            "documentation": "[optional] Format:$DMW_LOCALE_USER (0) - Long name of the weekday (Default)$DMW_SHORTNAME (1) - Short name of the weekday e.g. Mon$DMW_LOCALE_LONGNAME (2) - Long name of the weekday in the user's default language$DMW_LOCALE_SHORTNAME (3) - Short name of the weekday in the user's default language"
+            "documentation": "[optional] Format"
         }]
     },
     "_DateDaysInMonth": {
@@ -1067,13 +1067,13 @@
         "label": "_DateTimeSplit ( $sDate, ByRef $aDatePart, ByRef $iTimePart )",
         "params": [{
             "label": "$sDate",
-            "documentation": "Any of these formats:\"yyyy/mm/dd[ hh:mm[:ss]]\"\"yyyy/mm/dd[Thh:mm[:ss]]\"\"yyyy-mm-dd[ hh:mm[:ss]]\"\"yyyy-mm-dd[Thh:mm[:ss]]\"\"yyyy.mm.dd[ hh:mm[:ss]]\"\"yyyy.mm.dd[Thh:mm[:ss]]\""
+            "documentation": "Any of these formats: \"yyyy/mm/dd[ hh:mm[:ss]]\"; \"yyyy/mm/dd[Thh:mm[:ss]]\"; \"yyyy-mm-dd[ hh:mm[:ss]]\"; \"yyyy-mm-dd[Thh:mm[:ss]]\"; \"yyyy.mm.dd[ hh:mm[:ss]]\"; \"yyyy.mm.dd[Thh:mm[:ss]]\""
         }, {
             "label": "$aDatePart",
-            "documentation": "array that contains the Date.$aDatePart[0] number of values returned"
+            "documentation": "array that contains the Date. $aDatePart[0] number of values returned"
         }, {
             "label": "$iTimePart",
-            "documentation": "array that contains the Time.$aTimePart[0] number of values returned"
+            "documentation": "array that contains the Time. $aTimePart[0] number of values returned"
         }]
     },
     "_DateToDayOfWeek": {
@@ -1123,10 +1123,10 @@
         "label": "_DateToMonth ( $iMonNum [, $iFormat = 0] )",
         "params": [{
             "label": "$iMonNum",
-            "documentation": "Month number    1 = January    2 = February    3 = March    ...    11 = November    12 = December"
+            "documentation": "Month number (1-12)"
         }, {
             "label": "$iFormat",
-            "documentation": "[optional] Format:$DMW_LOCALE_USER (0) - Long name of the month (Default)$DMW_SHORTNAME (1) - Short name of the month e.g. Jan$DMW_LOCALE_LONGNAME (2) - Long name of the month in the user's default language$DMW_LOCALE_SHORTNAME (3) - Short name of the month in the user's default language"
+            "documentation": "[optional] Format"
         }]
     },
     "_Date_Time_CompareFileTime": {
@@ -2506,10 +2506,10 @@
             "documentation": "Variable to hold returned data - does not need to be an array."
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] Add multiple values together as required$FRTA_NOCOUNT (0) - array is 0-based use UBound() to get size$FRTA_COUNT (1) - array count in the first element. (default)$FRTA_INTARRAYS (2) - Create \"array of arrays\" - see remarks$FRTA_ENTIRESPLIT (4) - Use entire delimiter string as split point (default each character defines a split point)"
+            "documentation": "[optional] Add multiple values together as required"
         }, {
             "label": "$sDelimiter",
-            "documentation": "[optional]Used to further split each line of the file - e.g. reading CSV files into a 2D array"
+            "documentation": "[optional] Used to further split each line of the file - e.g. reading CSV files into a 2D array"
         }]
     },
     "_FileWriteFromArray": {
@@ -9570,7 +9570,7 @@
             "documentation": "Handle to parent or owner window"
         }, {
             "label": "$iStyle",
-            "documentation": "[optional] Control styles:$HDS_BUTTONS - Each item in the control looks and behaves like a push button$HDS_DRAGDROP - Allows drag-and-drop reordering of header items$HDS_FILTERBAR - Include a filter bar as part of the standard header control$HDS_FLAT - Causes the header control to be drawn flat$HDS_FULLDRAG - Causes the header control to display column contents$HDS_HIDDEN - Indicates a header control that is intended to be hidden$HDS_HORZ - Creates a header control with a horizontal orientation$HDS_HOTTRACK - Enables hot trackingDefault: $HDS_BUTTONS, $HDS_HOTTRACK, $HDS_DRAGDROPForced : $WS_CHILD, $WS_VISIBLE"
+            "documentation": "[optional] Control styles"
         }]
     },
     "_GUICtrlHeader_CreateDragImage": {
@@ -12924,7 +12924,7 @@
         "label": "_GUICtrlMenu_CreateMenu ( [$iStyle = $MNS_CHECKORBMP] )",
         "params": [{
             "label": "$iStyle",
-            "documentation": "[optional] Style of the menu. It can be one or more of the following values:\t$MNS_AUTODISMISS - Menu automatically ends when mouse is outside the menu for 10 seconds\t$MNS_CHECKORBMP - The same space is reserved for the check mark and the bitmap (default)\t$MNS_DRAGDROP - Menu items are OLE drop targets or drag sources\t$MNS_MODELESS - Menu is modeless\t$MNS_NOCHECK - No space is reserved to the left of an item for a check mark\t$MNS_NOTIFYBYPOS - Menu owner receives a WM_MENUCOMMAND message instead of a WM_COMMAND message for selections"
+            "documentation": "[optional] Style of the menu"
         }]
     },
     "_GUICtrlMenu_CreatePopup": {
@@ -12932,7 +12932,7 @@
         "label": "_GUICtrlMenu_CreatePopup ( [$iStyle = $MNS_CHECKORBMP] )",
         "params": [{
             "label": "$iStyle",
-            "documentation": "[optional] Style of the menu. It can be one or more of the following values:\t$MNS_AUTODISMISS - Menu automatically ends when mouse is outside the menu for 10 seconds\t$MNS_CHECKORBMP - The same space is reserved for the check mark and the bitmap (default)\t$MNS_DRAGDROP - Menu items are OLE drop targets or drag sources\t$MNS_MODELESS - Menu is modeless\t$MNS_NOCHECK - No space is reserved to the left of an item for a check mark\t$MNS_NOTIFYBYPOS - Menu owner receives a WM_MENUCOMMAND message instead of a WM_COMMAND message for selections"
+            "documentation": "[optional] Style of the menu"
         }]
     },
     "_GUICtrlMenu_DeleteMenu": {
@@ -13854,7 +13854,7 @@
             "documentation": "Handle of the menu"
         }, {
             "label": "$iStyle",
-            "documentation": "Style of the menu. It can be one or more of the following values:\t$MNS_AUTODISMISS - Menu automatically ends when mouse is outside the menu for 10 seconds\t$MNS_CHECKORBMP - The same space is reserved for the check mark and the bitmap\t$MNS_DRAGDROP - Menu items are OLE drop targets or drag sources\t$MNS_MODELESS - Menu is modeless\t$MNS_NOCHECK - No space is reserved to the left of an item for a check mark\t$MNS_NOTIFYBYPOS - Menu owner receives a WM_MENUCOMMAND message instead of a WM_COMMAND message for selections"
+            "documentation": "Style of the menu."
         }]
     },
     "_GUICtrlMenu_TrackPopupMenu": {
@@ -21082,7 +21082,7 @@
             "documentation": "[optional] Y coordinate of the lower right corner of the rectangle"
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] Flags that control the ToolTip display:$TTF_IDISHWND - Indicates that $iID is a window or control handle, instead of the ID of the tool$TTF_CENTERTIP - Centers the tooltip below the control specified by $iID$TTF_RTLREADING - Indicates that text will be displayed in the opposite direction of the parent window (see remarks)$TTF_SUBCLASS - Indicates that the control should subclass the tool's window$TTF_TRACK    - Positions the tooltip window next to the tool to which it corresponds $TTF_ABSOLUTE - Positions the window at the same coordinates provided by TTM_TRACKPOSITION. (see remarks) $TTF_TRANSPARENT- Causes the control to forward mouse messages to the parent window$TTF_PARSELINKS - Indicates that links in the control text should be displayed as linksDefault = BitOr($TTF_SUBCLASS, $TTF_IDISHWND)"
+            "documentation": "[optional] Flags that control the ToolTip display"
         }, {
             "label": "$iParam",
             "documentation": "[optional] Application-defined value that is associated with the tool"
@@ -21118,7 +21118,7 @@
             "documentation": "Handle to the window that will own the tool tip control. See remarks."
         }, {
             "label": "$iStyle",
-            "documentation": "[optional] ToolTip style:$TTS_ALWAYSTIP (0x01)- Indicates that the ToolTip control appears when the cursor is on a tool even if the ToolTip control's owner window is inactive. Without this style, the ToolTip appears only when the tool's owner window is active.$TTS_NOPREFIX (0x02) - Prevents the system from stripping the ampersand character from a string. Without this style the system automatically strips ampersand characters. This allows an application to use the same string as both a menu item and as text in a ToolTip control.$TTS_NOANIMATE (0x10) - Disables sliding ToolTip animation.$TTS_NOFADE (0x20) - Disables fading ToolTip animation.$TTS_BALLOON (0x40) - Indicates that the ToolTip control has the appearance of a cartoon \"balloon\"$TTS_CLOSE (0x80) - Displays a close icon so that the tooltip can be cancelledDefault: $_TT_ghTTDefaultStyle = BitOr($TTS_ALWAYSTIP, $TTS_NOPREFIX)"
+            "documentation": "[optional] ToolTip style"
         }]
     },
     "_GUIToolTip_Deactivate": {
@@ -21193,7 +21193,7 @@
             "documentation": "Handle of the control that the tool is associated with, or the ID of the tool"
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] Flags that control the ToolTip display$TTF_IDISHWND = Indicates that $iID is the window handle to the tool instead of the ID$TTF_CENTERTIP = Centers the window below the tool specified by $iID$TTF_RTLREADING = Indicates that text will be displayed in the opposite direction$TTF_SUBCLASS = Indicates that the control should subclass the tool's window to intercept messages$TTF_TRACK = Positions the control next to the tool to which it corresponds$TTF_ABSOLUTE = Positions the window at the same coordinates provided by TTM_TRACKPOSITION$TTF_TRANSPARENT = Causes the control to forward mouse messages to the parent window $TTF_PARSELINKS = Indicates that links in the control text should be parsed"
+            "documentation": "[optional] Flags that control the ToolTip display"
         }]
     },
     "_GUIToolTip_GetBubbleWidth": {
@@ -21210,7 +21210,7 @@
             "documentation": "Handle of the control that the tool is associated with, or the ID of the tool"
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] Flags that control the ToolTip display    $TTF_IDISHWND = Indicates that $iID is the window handle to the tool instead of the ID    $TTF_CENTERTIP = Centers the window below the tool specified by $iID    $TTF_RTLREADING = Indicates that text will be displayed in the opposite direction    $TTF_SUBCLASS = Indicates that the control should subclass the tool's window to intercept messages    $TTF_TRACK = Positions the control next to the tool to which it corresponds    $TTF_ABSOLUTE = Positions the window at the same coordinates provided by TTM_TRACKPOSITION    $TTF_TRANSPARENT =  Causes the control to forward mouse messages to the parent window    $TTF_PARSELINKS = Indicates that links in the control text should be parsed"
+            "documentation": "[optional] Flags that control the ToolTip display"
         }]
     },
     "_GUIToolTip_GetCurrentTool": {
@@ -21229,7 +21229,7 @@
             "documentation": "Handle to the ToolTip control (returned by _GUIToolTip_Create.)"
         }, {
             "label": "$iDuration",
-            "documentation": "Flag that specifies which duration value will be retrieved:    $TTDT_RESHOW (1) = Time it takes for subsequent ToolTip windows to appear as the pointer moves from one tool to another    $TTDT_AUTOPOP (2) = Time the ToolTip window remains visible if the pointer is stationary within a tool's bounding rectangle    $TTDT_INITIAL (3) = Time the pointer must remain stationary within a tool's bounding rectangle before the window appears"
+            "documentation": "Flag that specifies which duration value will be retrieved"
         }]
     },
     "_GUIToolTip_GetMargin": {
@@ -22295,10 +22295,10 @@
         "label": "_MemGlobalAlloc ( $iBytes [, $iFlags = 0] )",
         "params": [{
             "label": "$iBytes",
-            "documentation": "The number of bytes to allocate. If this parameter is zero and the $iFlags parameter specifies$GMEM_MOVEABLE, the function returns a handle to a memory object that is marked as discarded."
+            "documentation": "The number of bytes to allocate. If this parameter is zero and the $iFlags parameter specifies $GMEM_MOVEABLE, the function returns a handle to a memory object that is marked as discarded."
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] The memory allocation attributes:    $GMEM_FIXED - Allocates fixed memory. The return value is a pointer.    $GMEM_MOVEABLE - Allocates movable memory. Memory blocks are never moved in physical memory, but they can be moved within the default heap.        The return value is a handle to the memory object.        To translate the handle into a pointer, use the _MemGlobalLock() function.        This value cannot be combined with $GMEM_FIXED.    $GMEM_ZEROINIT - Initializes memory contents to zero    $GHND - Combines $GMEM_MOVEABLE and $GMEM_ZEROINIT    $GPTR - Combines $GMEM_FIXED and $GMEM_ZEROINIT"
+            "documentation": "[optional] The memory allocation attributes"
         }]
     },
     "_MemGlobalFree": {
@@ -22358,10 +22358,10 @@
             "documentation": "Specifies the size, in bytes, of th region"
         }, {
             "label": "$iAllocation",
-            "documentation": "Specifies the type of allocation:    $MEM_COMMIT - Allocates physical storage in memory or in the paging file on disk for the specified region of pages.    $MEM_RESERVE - Reserves a range of the process's virtual address space without allocating any physical storage.$MEM_TOP_DOWN - Allocates memory at the highest possible address"
+            "documentation": "Specifies the type of allocation"
         }, {
             "label": "$iProtect",
-            "documentation": "Type of access protection:    $PAGE_READONLY - Enables read access to the committed region of pages    $PAGE_READWRITE - Enables read and write access to the committed region    $PAGE_EXECUTE - Enables execute access to the committed region    $PAGE_EXECUTE_READ - Enables execute and read access to the committed region    $PAGE_EXECUTE_READWRITE - Enables execute, read, and write access to the committed region of pages    $PAGE_GUARD - Pages in the region become guard pages    $PAGE_NOACCESS - Disables all access to the committed region of pages    $PAGE_NOCACHE - Allows no caching of the committed regions of pages"
+            "documentation": "Type of access protection"
         }]
     },
     "_MemVirtualAllocEx": {
@@ -23826,7 +23826,7 @@
             "documentation": "The end of the string to find. Passing an empty string searches from $sStart to end of string"
         }, {
             "label": "$iMode",
-            "documentation": "[optional] Search mode when $sStart = $sEnd$STR_ENDISSTART (0) the $sEnd string at the end of a match starts the next possible match (default)$STR_ENDNOTSTART (1) a further instance of the $sStart starts the next match"
+            "documentation": "[optional] Search mode when $sStart = $sEnd\n$STR_ENDISSTART (0) the $sEnd string at the end of a match starts the next possible match (default)\n$STR_ENDNOTSTART (1) a further instance of the $sStart starts the next match"
         }, {
             "label": "$bCase",
             "documentation": "[optional] False (default setting) = case-insensitive. True = case-sensitive."
@@ -24183,13 +24183,13 @@
         "label": "_WinAPI_AddFontResourceEx ( $sFont [, $iFlag = 0 [, $bNotify = False]] )",
         "params": [{
             "label": "$sFont",
-            "documentation": "String that contains a valid font file name. This parameter can specify any of the following files:.fon - Font resource file..fnt - Raw bitmap font file..ttf - Raw TrueType file..ttc - East Asian Windows: TrueType font collection..fot - TrueType resource file..otf - PostScript OpenType font..mmm - Multiple master Type1 font resource file. It must be used with .pfm and .pfb files..pfb - Type 1 font bits file. It is used with a .pfm file..pfm - Type 1 font metrics file. It is used with a .pfb file.To add a font whose information comes from several resource files, they must be separated by a \"|\".For example, abcxxxxx.pfm|abcxxxxx.pfb."
+            "documentation": "String that contains a valid font file name. This parameter can specify any of the following files:\n.fon - Font resource file.\n.fnt - Raw bitmap font file.\n.ttf - Raw TrueType file.\n.ttc - East Asian Windows: TrueType font collection.\n.fot - TrueType resource file.\n.otf - PostScript OpenType font.\n.mmm - Multiple master Type1 font resource file. It must be used with .pfm and .pfb files.\n.pfb - Type 1 font bits file. It is used with a .pfm file.\n.pfm - Type 1 font metrics file. It is used with a .pfb file.\n\nTo add a font whose information comes from several resource files, they must be separated by a \"|\".\nFor example, abcxxxxx.pfm|abcxxxxx.pfb."
         }, {
             "label": "$iFlag",
-            "documentation": "[optional] The characteristics of the font to be added to the system. This parameter can be one of the following values.$FR_PRIVATE$FR_NOT_ENUM"
+            "documentation": "[optional] The characteristics of the font to be added to the system. This parameter can be one of the following values.\n$FR_PRIVATE\n$FR_NOT_ENUM"
         }, {
             "label": "$bNotify",
-            "documentation": "[optional] Specifies whether sends a WM_FONTCHANGE message, valid values:    True - Send the WM_FONTCHANGE message to all top-level windows after changing the pool of font resources.    False - Don't send (Default)."
+            "documentation": "[optional] Specifies whether sends a WM_FONTCHANGE message, valid values:\n\tTrue - Send the WM_FONTCHANGE message to all top-level windows after changing the pool of font resources.\n\tFalse - Don't send (Default)."
         }]
     },
     "_WinAPI_AddIconOverlay": {
