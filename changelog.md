@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.5
+More IntelliSense-y!
+* Added in function signature helpers (parameter info)
+
 ## 0.1.4
 * Added configuration for path to Au3Info
 
