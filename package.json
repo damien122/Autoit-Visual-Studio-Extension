@@ -81,39 +81,39 @@
         },
         "commands": [{
                 "command": "extension.runScript",
-                "title": "AutoIt - Run Script"
+                "title": "AutoIt: Run Script"
             },
             {
                 "command": "extension.compile",
-                "title": "AutoIt - Compile"
+                "title": "AutoIt: Compile"
             },
             {
                 "command": "extension.tidy",
-                "title": "AutoIt - Tidy"
+                "title": "AutoIt: Tidy"
             },
             {
                 "command": "extension.check",
-                "title": "AutoIt - Check"
+                "title": "AutoIt: Check"
             },
             {
                 "command": "extension.build",
-                "title": "AutoIt - Build"
+                "title": "AutoIt: Build"
             },
             {
                 "command": "extension.launchHelp",
-                "title": "AutoIt - Help"
+                "title": "AutoIt: Help"
             },
             {
                 "command": "extension.launchInfo",
-                "title": "AutoIt - Au3Info"
+                "title": "AutoIt: Au3Info"
             },
             {
                 "command": "extension.debugMsgBox",
-                "title": "AutoIt - Debug to MsgBox"
+                "title": "AutoIt: Debug to MsgBox"
             },
             {
                 "command": "extension.debugConsole",
-                "title": "AutoIt - Debug to Console"
+                "title": "AutoIt: Debug to Console"
             }
         ],
         "grammars": [{
