@@ -20,16 +20,11 @@ module.exports = {
         var thisDoc = window.activeTextEditor.document; // Get the object of the text editor
         var thisFile = thisDoc.fileName; // Get the current file name
 
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         thisDoc.save();
 
         window.setStatusBarMessage("Running the script...", 1500);
-                
+
         procRunner(aiPath,[wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
             thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)']);
     },
@@ -77,11 +72,6 @@ module.exports = {
     },
 
     compileScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -96,11 +86,6 @@ module.exports = {
 
 
     tidyScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -113,11 +98,6 @@ module.exports = {
     },
 
     checkScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -130,11 +110,6 @@ module.exports = {
     },
 
     buildScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -163,14 +138,6 @@ module.exports = {
                 edit.insert(debugText.position, debugCode);
             });
         }
-    }
-};
-
-function isAutoIt() {
-    if (window.activeTextEditor.document.fileName.indexOf('.au3') > -1) {
-        return true;
-    } else {
-        return false;
     }
 };
 
