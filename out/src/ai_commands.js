@@ -56,9 +56,6 @@ module.exports = {
             return; // No open editor
         }
 
-        var selection = editor.selection;
-        var varToDebug = editor.document.getText(selection).trim();
-
         var debugText = getDebugText();
 
         if (debugText) {
