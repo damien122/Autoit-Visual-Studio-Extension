@@ -7,7 +7,9 @@ and developed from Damien122's release.
 
 * AutoIt Syntax highlighting
 * IntelliSense (code hints and completion)
-![Intellisense](img/docs/signaturehelp.gif)
+
+  ![Intellisense](img/docs/signaturehelp.gif)
+  
 * Launch, compile and build scripts from VSCode
 * Launch AutoIt Help for highlighted text 
 
