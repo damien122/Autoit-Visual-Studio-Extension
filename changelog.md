@@ -5,8 +5,10 @@
 * Added configuration for path to Koda and shortcut for launching Koda "Ctrl+K"
 
 ## 0.1.5
-More IntelliSense-y!
+More IntelliSense!
 * Added in function signature helpers (parameter info)
+* AutoIt commands and keybindings now only show/activate in AutoIt files
+* Debug MsgBoxes and Debug Consoles now match the indent of the line that they're generated from
 
 ## 0.1.4
 * Added configuration for path to Au3Info

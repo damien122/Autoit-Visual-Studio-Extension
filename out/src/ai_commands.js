@@ -20,26 +20,17 @@ module.exports = {
         var thisDoc = window.activeTextEditor.document; // Get the object of the text editor
         var thisFile = thisDoc.fileName; // Get the current file name
 
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         thisDoc.save();
 
         window.setStatusBarMessage("Running the script...", 1500);
-                
+
         procRunner(aiPath,[wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', 
             thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)']);
     },
 
     launchHelp: () => {
         var editor = window.activeTextEditor;
-
-        if (!editor) {
-            return; // No open text editor
-        }
 
         // Get the selected text and launch it
         var doc = editor.document
@@ -56,18 +47,14 @@ module.exports = {
 
     debugMsgBox: () => {
         var editor = window.activeTextEditor;
-
-        if (!editor) {
-            return; // No open editor
-        }
-
-        var selection = editor.selection;
-        var varToDebug = editor.document.getText(selection).trim();
+        var indent;
 
         var debugText = getDebugText();
-
+       
+        indent = getIndent()
+        
         if (debugText) {
-            var debugCode = `\n;### Debug MSGBOX ↓↓↓\nMsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
+            var debugCode = `${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
 
             //Insert the code for the MsgBox into the script
             editor.edit(edit => {
@@ -77,11 +64,6 @@ module.exports = {
     },
 
     compileScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -96,11 +78,6 @@ module.exports = {
 
 
     tidyScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -113,11 +90,6 @@ module.exports = {
     },
 
     checkScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-        
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -130,11 +102,6 @@ module.exports = {
     },
 
     buildScript: () => {
-        if (!isAutoIt()) {
-            console.error("Not an AutoIt file!");
-            return;
-        }
-
         // Save the file
         window.activeTextEditor.document.save();
         // Get the current file name
@@ -148,29 +115,20 @@ module.exports = {
 
     debugConsole: () => {
         var editor = window.activeTextEditor;
-
-        if (!editor) {
-            return; // No open editor
-        }
+        var indent;
 
         var debugText = getDebugText();
 
+        indent = getIndent()
+
         if (debugText) {
-            var debugCode = `\n;### Debug CONSOLE ↓↓↓\nConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
+            var debugCode = `${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
 
             //Insert the code for the MsgBox into the script
             editor.edit(edit => {
                 edit.insert(debugText.position, debugCode);
             });
         }
-    }
-};
-
-function isAutoIt() {
-    if (window.activeTextEditor.document.fileName.indexOf('.au3') > -1) {
-        return true;
-    } else {
-        return false;
     }
 };
 
@@ -204,10 +162,6 @@ function procRunner(cmdPath,args) {
 function getDebugText() {
     var editor = window.activeTextEditor;
 
-    if (!editor) {
-        return; // No open editor
-    }
-
     var selection = editor.selection;
     var varToDebug = editor.document.getText(selection).trim();
 
@@ -221,4 +175,15 @@ function getDebugText() {
         window.showErrorMessage("Select variable or macro to generate a debug line");
         return {};
     }
+}
+
+function getIndent() {
+    var editor = window.activeTextEditor;
+    var doc = editor.document;
+
+    // Grab the whole line
+    var currentLine = doc.lineAt(editor.selection.active.line).text
+    // Get the indent of the current line
+    var findIndent = /(\s*).+/
+    return findIndent.exec(currentLine)[1]
 }
