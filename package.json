@@ -175,7 +175,7 @@
             },
             {
                 "command": "extension.launchKoda",
-                "key": "ctrl+k",
+                "key": "alt+m",
                 "when": "editorTextFocus && editorLangId == autoit"
             }
         ],
