@@ -3,6 +3,7 @@
 ## 0.1.6
 * Fixed the intellisense of parameters in the scope of the function.
 * Added configuration for path to Koda and shortcut for launching Koda "Ctrl+K"
+* Fixed some snippet code to fit with VS Code syntax
 
 ## 0.1.5
 More IntelliSense!
