@@ -22,8 +22,8 @@
     "Case Block": {
         "prefix": "Case Block",
         "body": [
-            "Case ${value/expression}",
-            "\t${statement}"
+            "Case ${1:value/expression}",
+            "\t${2:statement}"
         ],
         "scope": "source.autoit",
         "description": "A Case block for a Select or Switch statement"
@@ -32,7 +32,7 @@
         "prefix": "Case-Else Block",
         "body": [
             "Case Else",
-            "\t${statement}"
+            "\t${1:statement}"
         ],
         "scope": "source.autoit",
         "description": "A Case Else block for a Select or Switch statement"
@@ -41,15 +41,17 @@
         "prefix": "Do Loop",
         "body": [
             "Do",
-            "\t${statement(s)}",
-            "Until ${expression}"
+            "\t${1:statement(s)}",
+            "Until ${2:expression}"
         ],
         "scope": "source.autoit",
         "description": "Loop based on an expression."
     },
     "Else Block": {
         "prefix": "Else Block",
-        "body": "Else\n\t${[else statement(s)]}",
+        "body": [
+            "Else",
+            "\t${1:[else statement(s)]}"],
         "scope": "source.autoit",
         "description": "An Else block for an If statement"
     },
@@ -156,7 +158,7 @@
     },
     "If Block": {
         "prefix": "If Block",
-        "body": "If ${<expression>} Then\n\t${statement}\nEndIf",
+        "body": "If ${1:<expression>} Then\n\t${2:statement}\nEndIf",
         "scope": "source.autoit",
         "description": "Single-line If block snippet"
     },
@@ -1899,7 +1901,7 @@
     },
     "include": {
         "prefix": "include",
-        "body": "#include <${file}>",
+        "body": "#include \"${1:file.au3}\"",
         "scope": "source.autoit"
     },
     "include <ColorConstants.au3>": {
@@ -2018,205 +2020,205 @@
     },
     "AdlibUnRegister": {
         "prefix": "AdlibUnRegister",
-        "body": "AdlibUnRegister(${[function]})",
+        "body": "AdlibUnRegister(${1:[function]})",
         "description": "Unregisters an adlib function.",
         "scope": "source.autoit"
     },
     "Asc": {
         "prefix": "Asc",
-        "body": "Asc(\"${char}\")",
+        "body": "Asc(\"${1:char}\")",
         "description": "Returns the ASCII code of a character.",
         "scope": "source.autoit"
     },
     "AscW": {
         "prefix": "AscW",
-        "body": "AscW(\"${char}\")",
+        "body": "AscW(\"${1:char}\")",
         "description": "Returns the unicode code of a character.",
         "scope": "source.autoit"
     },
     "ATan": {
         "prefix": "ATan",
-        "body": "ATan(${ expression })",
+        "body": "ATan(${1:expression})",
         "description": "Calculates the arctangent of a number.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - CaretCoordMode": {
         "prefix": "AutoItSetOption-CaretCoordMode",
-        "body": "AutoItSetOption(\"CaretCoordMode\", ${0|1|2})",
+        "body": "AutoItSetOption(\"CaretCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
         "scope": "source.autoit"
     },
     "AutoItSetOption - ExpandEnvStrings": {
         "prefix": "AutoItSetOption-ExpandEnvStrings",
-        "body": "AutoItSetOption(\"ExpandEnvStrings\", ${0|1})",
+        "body": "AutoItSetOption(\"ExpandEnvStrings\", ${1:0|1})",
         "description": "Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., \"The temp directory is: %temp%\".\n0 = (default) do not expand environment variables\n1 = expand environment variables",
         "scope": "source.autoit"
     },
     "AutoItSetOption - ExpandVarStrings": {
         "prefix": "AutoItSetOption-ExpandVarStrings",
-        "body": "AutoItSetOption(\"ExpandVarStrings\", ${0|1})",
+        "body": "AutoItSetOption(\"ExpandVarStrings\", ${1:0|1})",
         "description": "Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., \"The value of var1 is $var1$\".\n0 = (default) do not expand variables\n1 = expand variables (when in this mode and you want to use a literal $ or @ then double it up: \"This is a single dollar $$ sign\".",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUICloseOnESC": {
         "prefix": "AutoItSetOption-GUICloseOnESC",
-        "body": "AutoItSetOption(\"GUICloseOnESC\", ${0|1})",
+        "body": "AutoItSetOption(\"GUICloseOnESC\", ${1:0|1})",
         "description": "When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.\n0 = Don't send the $GUI_EVENT_CLOSE message when ESC is pressed.\n1 = (default) Send() the $GUI_EVENT_CLOSE message when ESC is pressed.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUICoordMode": {
         "prefix": "AutoItSetOption-GUICoordMode",
-        "body": "AutoItSetOption(\"GUICoordMode\", ${0|1|2})",
+        "body": "AutoItSetOption(\"GUICoordMode\", ${1:0|1|2})",
         "description": "Alters the position of a control defined by GUICtrlSetPos().\n0 = relative position to the start of the last control (upper left corner).\n1 = (default) absolute coordinates still relative to the dialog box.\n2 = cell positioning relative to current cell. A -1 for left or top parameter don't increment the start.\nSo next line is -1, offset; next cell is offset,-1; current cell is -1,-1.\nObviously \"offset\" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUIDataSeparatorChar": {
         "prefix": "AutoItSetOption-GUIDataSeparatorChar",
-        "body": "AutoItSetOption(\"GUIDataSeparatorChar\", \"${char}\")",
+        "body": "AutoItSetOption(\"GUIDataSeparatorChar\", \"${1:char}\")",
         "description": "Define the character which delimits subitems in GUICtrlSetData().\nThe default character is '|'.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUIOnEventMode": {
         "prefix": "AutoItSetOption-GUIOnEventMode",
-        "body": "AutoItSetOption(\"GUIOnEventMode\", ${0=disable/1=enable})",
+        "body": "AutoItSetOption(\"GUIOnEventMode\", ${1:0=disable/1=enable})",
         "description": "Enable/disable OnEvent functions notifications.\n0 = (default) disable.\n1 = enable.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUIResizeMode": {
         "prefix": "AutoItSetOption-GUIResizeMode",
-        "body": "AutoItSetOption(\"GUIResizeMode\", ${param})",
+        "body": "AutoItSetOption(\"GUIResizeMode\", ${1:param})",
         "description": "Change default resizing for a control.\n0 = (default) keep default control resizing.\n<1024 = any type of resizing see GUICtrlSetResizing().",
         "scope": "source.autoit"
     },
     "AutoItSetOption - GUIEventOptions": {
         "prefix": "AutoItSetOption-GUIEventOptions",
-        "body": "AutoItSetOption(\"GUIEventOptions\", ${param})",
+        "body": "AutoItSetOption(\"GUIEventOptions\", ${1:param})",
         "description": "Change special event behavior or GUI function return values.\n0 = (default) Windows behavior on click on Minimize,Restore, Maximize, Resize.\n1 = suppress windows behavior on minimize, restore or maximize click button or window resize. Just sends the notification.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - MouseClickDelay": {
         "prefix": "AutoItSetOption-MouseClickDelay",
-        "body": "AutoItSetOption(\"MouseClickDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"MouseClickDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause in between mouse clicks.\nTime in milliseconds to pause (default=10).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - MouseClickDownDelay": {
         "prefix": "AutoItSetOption-MouseClickDownDelay",
-        "body": "AutoItSetOption(\"MouseClickDownDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"MouseClickDownDelay\", ${1:milliseconds})",
         "description": "Alters the length a click is held down before release.\nTime in milliseconds to pause (default=10).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - MouseClickDragDelay": {
         "prefix": "AutoItSetOption-MouseClickDragDelay",
-        "body": "AutoItSetOption(\"MouseClickDragDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"MouseClickDragDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause at the start and end of a mouse drag operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - MouseCoordMode": {
         "prefix": "AutoItSetOption-MouseCoordMode",
-        "body": "AutoItSetOption(\"MouseCoordMode\", ${0|1|2})",
+        "body": "AutoItSetOption(\"MouseCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
         "scope": "source.autoit"
     },
     "AutoItSetOption - MustDeclareVars": {
         "prefix": "AutoItSetOption-MustDeclareVars",
-        "body": "AutoItSetOption(\"MustDeclareVars\", ${0|1})",
+        "body": "AutoItSetOption(\"MustDeclareVars\", ${1:0|1})",
         "description": "If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.\n0 = (default) Variables don't need to be pre-declared\n1 = Variables must be pre-declared. See Dim / Global / Local / Const for details on declaring variables.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - PixelCoordMode": {
         "prefix": "AutoItSetOption-PixelCoordMode",
-        "body": "AutoItSetOption(\"PixelCoordMode\", ${0|1|2})",
+        "body": "AutoItSetOption(\"PixelCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):\n0 = relative coords to the defined window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the defined window",
         "scope": "source.autoit"
     },
     "AutoItSetOption - SendAttachMode": {
         "prefix": "AutoItSetOption-SendAttachMode",
-        "body": "AutoItSetOption(\"SendAttachMode\", ${0|1})",
+        "body": "AutoItSetOption(\"SendAttachMode\", ${1:0|1})",
         "description": "Specifies if AutoIt attaches input threads when using Send() function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the Send(\"{... down/up}\") syntax will not work and there may be problems with sending keys to \"hung\" windows. ControlSend() ALWAYS attaches and is not affected by this mode.\n0 = (default) don't attach\n1 = attach",
         "scope": "source.autoit"
     },
     "AutoItSetOption - SendCapslockMode": {
         "prefix": "AutoItSetOption-SendCapslockMode",
-        "body": "AutoItSetOption(\"SendCapslockMode\", ${0|1})",
+        "body": "AutoItSetOption(\"SendCapslockMode\", ${1:0|1})",
         "description": "Specifies if AutoIt should store the state of capslock before a Send() function and restore it afterwards.\n0 = don't store/restore\n1 = (default) store and restore",
         "scope": "source.autoit"
     },
     "AutoItSetOption - SendKeyDelay": {
         "prefix": "AutoItSetOption-SendKeyDelay",
-        "body": "AutoItSetOption(\"SendKeyDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"SendKeyDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - SendKeyDownDelay": {
         "prefix": "AutoItSetOption-SendKeyDownDelay",
-        "body": "AutoItSetOption(\"SendKeyDownDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"SendKeyDownDelay\", ${1:milliseconds})",
         "description": "Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TCPTimeout": {
         "prefix": "AutoItSetOption-TCPTimeout",
-        "body": "AutoItSetOption(\"TCPTimeout\", ${milliseconds})",
+        "body": "AutoItSetOption(\"TCPTimeout\", ${1:milliseconds})",
         "description": "Defines the time before TCP functions stop if no communication.\nTime in milliseconds before timeout (default=100).",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TrayAutoPause": {
         "prefix": "AutoItSetOption-TrayAutoPause",
-        "body": "AutoItSetOption(\"TrayAutoPause\", ${0|1})",
+        "body": "AutoItSetOption(\"TrayAutoPause\", ${1:0|1})",
         "description": "Script pauses when click on tray icon.\n0 = no pause\n1 = (default) pause. If there is no DefaultMenu no pause will occurs.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TrayIconDebug": {
         "prefix": "AutoItSetOption-TrayIconDebug",
-        "body": "AutoItSetOption(\"TrayIconDebug\", ${0|1})",
+        "body": "AutoItSetOption(\"TrayIconDebug\", ${1:0|1})",
         "description": "If enabled shows the current script line in the tray icon tip to help debugging.\n0 = (default) no debug information\n1 = show debug",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TrayIconHide": {
         "prefix": "AutoItSetOption-TrayIconHide",
-        "body": "AutoItSetOption(\"TrayIconHide\", ${0|1})",
+        "body": "AutoItSetOption(\"TrayIconHide\", ${1:0|1})",
         "description": "Hides the AutoIt tray icon. Note: The icon will still initially appear for ~750 milliseconds.\n0 = (default) show icon\n1 = hide icon",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TrayMenuMode": {
         "prefix": "AutoItSetOption-TrayMenuMode",
-        "body": "AutoItSetOption(\"TrayMenuMode\", ${param})",
+        "body": "AutoItSetOption(\"TrayMenuMode\", ${1:param})",
         "description": "Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.\n0 = (default) default menu items (Script Paused/Exit) are appended to the usercreated menu; items will automatically be checked/unchecked when clicked; double clicking the tray icon returns the controlID of the $TRAY_DEFAULT item.\n1 = no default menu\n2 = items will not automatically check/uncheck when clicked\n4 = do not return the $TRAY_DEFAULT item controlID when the tray icon is double clicked\n8 = turn off auto check of radio item groups",
         "scope": "source.autoit"
     },
     "AutoItSetOption - TrayOnEventMode": {
         "prefix": "AutoItSetOption-TrayOnEventMode",
-        "body": "AutoItSetOption(\"TrayOnEventMode\", ${0|1})",
+        "body": "AutoItSetOption(\"TrayOnEventMode\", ${1:0|1})",
         "description": "Enable/disable OnEvent functions notifications for the tray.\n0 = (default) disable\n1 = enable",
         "scope": "source.autoit"
     },
     "AutoItSetOption - WinDetectHiddenText": {
         "prefix": "AutoItSetOption-WinDetectHiddenText",
-        "body": "AutoItSetOption(\"WinDetectHiddenText\", ${0|1})",
+        "body": "AutoItSetOption(\"WinDetectHiddenText\", ${1:0|1})",
         "description": "Specifies if hidden window text can be \"seen\" by the window matching functions.\n0 = (default) Do not detect hidden text\n1 = Detect hidden text",
         "scope": "source.autoit"
     },
     "AutoItSetOption - WinSearchChildren": {
         "prefix": "AutoItSetOption-WinSearchChildren",
-        "body": "AutoItSetOption(\"WinSearchChildren\", ${0|1})",
+        "body": "AutoItSetOption(\"WinSearchChildren\", ${1:0|1})",
         "description": "Allows the window search routines to search child windows as well as top-level windows.\n0 = (default) Only search top-level windows\n1 = Search top-level and child windows",
         "scope": "source.autoit"
     },
     "AutoItSetOption - WinTextMatchMode": {
         "prefix": "AutoItSetOption-WinTextMatchMode",
-        "body": "AutoItSetOption(\"WinTextMatchMode\", ${1|2})",
+        "body": "AutoItSetOption(\"WinTextMatchMode\", ${1:1|2})",
         "description": "Alters the method that is used to match window text during search operations.\n1 = (default) Complete / Slow mode\n2 = Quick mode\nIn quick mode AutoIt can usually only \"see\" dialog text, button text and the captions of some controls. In the default mode much more text can be seen (for instance the contents of the Notepad window).\nIf you are having performance problems when performing many window searches then changing to the \"quick\" mode may help.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - WinTitleMatchMode": {
         "prefix": "AutoItSetOption-WinTitleMatchMode",
-        "body": "AutoItSetOption(\"WinTitleMatchMode\", ${-1|-2|-3|-4|1|2|3|4})",
+        "body": "AutoItSetOption(\"WinTitleMatchMode\", ${1:-1|-2|-3|-4|1|2|3|4})",
         "description": "Alters the method that is used to match window titles during search operations.\n1 = (default) Match the title from the start\n2 = Match any substring in the title\n3 = Exact title match\n4 = Advanced mode (retained for backwards compatibility only\n-1 to -4 = Case insensitive match according to the other type of match.",
         "scope": "source.autoit"
     },
     "AutoItSetOption - WinWaitDelay": {
         "prefix": "AutoItSetOption-WinWaitDelay",
-        "body": "AutoItSetOption(\"WinWaitDelay\", ${milliseconds})",
+        "body": "AutoItSetOption(\"WinWaitDelay\", ${1:milliseconds})",
         "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
     },
@@ -2372,217 +2374,217 @@
     },
     "ControlCommand-IsVisible": {
         "prefix": "ControlCommand-IsVisible",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"IsVisible\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"IsVisible\", \"\")",
         "description": "Returns 1 if Control is visible, 0 otherwise",
         "scope": "source.autoit"
     },
     "ControlCommand-IsEnabled": {
         "prefix": "ControlCommand-IsEnabled",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"IsEnabled\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"IsEnabled\", \"\")",
         "description": "Returns 1 if Control is enabled, 0 otherwise",
         "scope": "source.autoit"
     },
     "ControlCommand-ShowDropDown": {
         "prefix": "ControlCommand-ShowDropDown",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"ShowDropDown\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"ShowDropDown\", \"\")",
         "description": "Displays the ComboBox dropdown",
         "scope": "source.autoit"
     },
     "ControlCommand-HideDropDown": {
         "prefix": "ControlCommand-HideDropDown",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"HideDropDown\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"HideDropDown\", \"\")",
         "description": "Hides the ComboBox dropdown",
         "scope": "source.autoit"
     },
     "ControlCommand-AddString": {
         "prefix": "ControlCommand-AddString",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"AddString\",  ${'string'})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"AddString\",  ${4:\"string\"})",
         "description": "Adds a string to the end in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-DelString": {
         "prefix": "ControlCommand-DelString",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"DelString\", ${occurrence})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"DelString\", ${4:occurrence})",
         "description": "Deletes a string according to occurrence in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-FindString": {
         "prefix": "ControlCommand-FindString",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"FindString\",  ${'string'})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"FindString\",  ${4:\"string\"})",
         "description": "Returns occurrence ref of the exact string in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-SetCurrentSelection": {
         "prefix": "ControlCommand-SetCurrentSelection",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"SetCurrentSelection\", ${occurrence})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"SetCurrentSelection\", ${4:occurrence})",
         "description": "Sets selection to occurrence ref in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-SelectString": {
         "prefix": "ControlCommand-SelectString",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"SelectString\", ${'string'})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"SelectString\", ${4:\"string\"})",
         "description": "Sets selection according to string in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-IsChecked": {
         "prefix": "ControlCommand-IsChecked",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"IsChecked\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"IsChecked\", \"\")",
         "description": "Returns 1 if Button is checked, 0 otherwise",
         "scope": "source.autoit"
     },
     "ControlCommand-Check": {
         "prefix": "ControlCommand-Check",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"Check\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"Check\", \"\")",
         "description": "Checks radio or check Button",
         "scope": "source.autoit"
     },
     "ControlCommand-UnCheck": {
         "prefix": "ControlCommand-UnCheck",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"UnCheck\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"UnCheck\", \"\")",
         "description": "Unchecks radio or check Button",
         "scope": "source.autoit"
     },
     "ControlCommand-GetCurrentLine": {
         "prefix": "ControlCommand-GetCurrentLine",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetCurrentLine\" , \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetCurrentLine\" , \"\")",
         "description": "Returns the line # where the caret is in an Edit",
         "scope": "source.autoit"
     },
     "ControlCommand-GetCurrentCol": {
         "prefix": "ControlCommand-GetCurrentCol",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetCurrentCol\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetCurrentCol\", \"\")",
         "description": "Returns the column # where the caret is in an Edit",
         "scope": "source.autoit"
     },
     "ControlCommand-GetCurrentSelection": {
         "prefix": "ControlCommand-GetCurrentSelection",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetCurrentSelection\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetCurrentSelection\", \"\")",
         "description": "Returns name of the currently selected item in a ListBox or ComboBox",
         "scope": "source.autoit"
     },
     "ControlCommand-GetLineCount": {
         "prefix": "ControlCommand-GetLineCount",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetLineCount\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetLineCount\", \"\")",
         "description": "Returns # of lines in an Edit",
         "scope": "source.autoit"
     },
     "ControlCommand-GetLine": {
         "prefix": "ControlCommand-GetLine",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetLine\", ${line#})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetLine\", ${4:line#})",
         "description": "Returns text at line # passed of an Edit",
         "scope": "source.autoit"
     },
     "ControlCommand-GetSelected": {
         "prefix": "ControlCommand-GetSelected",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"GetSelected\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"GetSelected\", \"\")",
         "description": "Returns selected text of an Edit",
         "scope": "source.autoit"
     },
     "ControlCommand-EditPaste": {
         "prefix": "ControlCommand-EditPaste",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"EditPaste\", ${'string'})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"EditPaste\", ${4:\"string\"})",
         "description": "Pastes the 'string' at the Edit's caret position",
         "scope": "source.autoit"
     },
     "ControlCommand-CurrentTab": {
         "prefix": "ControlCommand-CurrentTab",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"CurrentTab\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"CurrentTab\", \"\")",
         "description": "Returns the current Tab shown of a SysTabControl32",
         "scope": "source.autoit"
     },
     "ControlCommand-TabRight": {
         "prefix": "ControlCommand-TabRight",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"TabRight\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"TabRight\", \"\")",
         "description": "Moves to the next tab to the right of a SysTabControl32",
         "scope": "source.autoit"
     },
     "ControlCommand-TabLeft": {
         "prefix": "ControlCommand-TabLeft",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"TabLeft\", \"\")",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"TabLeft\", \"\")",
         "description": "Moves to the next tab to the left of a SysTabControl32",
         "scope": "source.autoit"
     },
     "ControlCommand-SendCommandID": {
         "prefix": "ControlCommand-SendCommandID",
-        "body": "ControlCommand(${title}, ${text}, ${classnameNN}, \"SendCommandID\", ${Command ID})",
+        "body": "ControlCommand(${1:title}, ${2:text}, ${3:classnameNN}, \"SendCommandID\", ${4:Command ID})",
         "description": "Simulates the WM_COMMAND message. Usually used for ToolbarWindow32 controls - use the ToolBar tab of Au3Info to get the Command ID.",
         "scope": "source.autoit"
     },
     "ControlListView - DeSelect": {
         "prefix": "ControlListView-DeSelect",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"DeSelect\", ${From [}${, ${To]}})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"DeSelect\", ${4:From [}${4:, ${5:To]}})",
         "description": "Deselects one or more items.",
         "scope": "source.autoit"
     },
     "ControlListView - FindItem": {
         "prefix": "ControlListView-FindItem",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"FindItem\" , ${\"string to find\"}${, ${[SubItem]}})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"FindItem\" , ${4:\"string to find\"}${5:, ${6:[SubItem]}})",
         "description": "Returns the item index of the string. Returns -1 if the string is not found.",
         "scope": "source.autoit"
     },
     "ControlListView - GetItemCount": {
         "prefix": "ControlListView-GetItemCount",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetItemCount\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"GetItemCount\")",
         "description": "Returns the number of list items.",
         "scope": "source.autoit"
     },
     "ControlListView - GetSelected": {
         "prefix": "ControlListView-GetSelected",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSelected\"${, ${0|1}})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"GetSelected\"${4:, ${5:0|1}})",
         "description": "Returns a string containing the item index of selected items. If option=0 (default) only the first selected item is returned. If option=1 then all the selected items are returned delimited by |, e.g: \"0|3|4|10\". If no items are selected a blank  string is returned.",
         "scope": "source.autoit"
     },
     "ControlListView - GetSelectedCount": {
         "prefix": "ControlListView-GetSelectedCount",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSelectedCount\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"GetSelectedCount\")",
         "description": "Returns the number of items that are selected.",
         "scope": "source.autoit"
     },
     "ControlListView - GetSubItemCount": {
         "prefix": "ControlListView-GetSubItemCount",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetSubItemCount\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"GetSubItemCount\")",
         "description": "Returns the number of subitems.",
         "scope": "source.autoit"
     },
     "ControlListView - GetText": {
         "prefix": "ControlListView-GetText",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"GetText\", ${Item}, ${SubItem})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"GetText\", ${4:Item}, ${5:SubItem})",
         "description": "Returns the text of a given item/subitem.",
         "scope": "source.autoit"
     },
     "ControlListView - IsSelected": {
         "prefix": "ControlListView-IsSelected",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"IsSelected\", ${Item})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"IsSelected\", ${4:Item})",
         "description": "Returns 1 if the item is selected, otherwise returns 0.",
         "scope": "source.autoit"
     },
     "ControlListView - Select": {
         "prefix": "ControlListView-Select",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"Select\", ${From [}${, ${ To] }})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"Select\", ${4:From [}${5:, ${6: To] }})",
         "description": "Selects one or more items.",
         "scope": "source.autoit"
     },
     "ControlListView - SelectAll": {
         "prefix": "ControlListView-SelectAll",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectAll\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"SelectAll\")",
         "description": "Selects all items.",
         "scope": "source.autoit"
     },
     "ControlListView - SelectClear": {
         "prefix": "ControlListView-SelectClear",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectClear\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"SelectClear\")",
         "description": "Clears the selection of all items.",
         "scope": "source.autoit"
     },
     "ControlListView - SelectInvert": {
         "prefix": "ControlListView-SelectInvert",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"SelectInvert\")",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"SelectInvert\")",
         "description": "Inverts the current selection.",
         "scope": "source.autoit"
     },
     "ControlListView - ViewChange": {
         "prefix": "ControlListView-ViewChange",
-        "body": "ControlListView(${\"title\"}, ${\"text\"}, ${controlID}, \"ViewChange\", ${\"list|details|smallicons|largeicons\"})",
+        "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"ViewChange\", ${4:\"list|details|smallicons|largeicons\"})",
         "description": "Changes the current view. Valid views are \"list\", \"details\", \"smallicons\", \"largeicons\".",
         "scope": "source.autoit"
     },
@@ -2858,181 +2860,181 @@
     },
     "Opt - CaretCoordMode": {
         "prefix": "Opt-CaretCoordMode",
-        "body": "Opt(\"CaretCoordMode\", ${0|1|2})",
+        "body": "Opt(\"CaretCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the caret functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
         "scope": "source.autoit"
     },
     "Opt - ExpandEnvStrings": {
         "prefix": "Opt-ExpandEnvStrings",
-        "body": "Opt(\"ExpandEnvStrings\", ${0|1})",
+        "body": "Opt(\"ExpandEnvStrings\", ${1:0|1})",
         "description": "Changes how literal strings and % symbols are interpreted. By default strings are treated literally, this option allows you to use %environment% variables inside strings, e.g., \"The temp directory is: %temp%\".\n0 = (default) do not expand environment variables\n1 = expand environment variables",
         "scope": "source.autoit"
     },
     "Opt - ExpandVarStrings": {
         "prefix": "Opt-ExpandVarStrings",
-        "body": "Opt(\"ExpandVarStrings\", ${0|1})",
+        "body": "Opt(\"ExpandVarStrings\", ${1:0|1})",
         "description": "Changes how literal strings and variable/macro ($ and @) symbols are interpreted. By default strings are treated literally, this option allows you to use variables and macros inside strings, e.g., \"The value of var1 is $var1$\".\n0 = (default) do not expand variables\n1 = expand variables (when in this mode and you want to use a literal $ or @ then double it up: \"This is a single dollar $$ sign\".",
         "scope": "source.autoit"
     },
     "Opt - GUICloseOnESC": {
         "prefix": "Opt-GUICloseOnESC",
-        "body": "Opt(\"GUICloseOnESC\", ${0|1})",
+        "body": "Opt(\"GUICloseOnESC\", ${1:0|1})",
         "description": "When ESC is pressed on a GUI the $GUI_EVENT_CLOSE message is sent. This option toggles this behavior on and off.\n0 = Don't send the $GUI_EVENT_CLOSE message when ESC is pressed.\n1 = (default) Send() the $GUI_EVENT_CLOSE message when ESC is pressed.",
         "scope": "source.autoit"
     },
     "Opt - GUICoordMode": {
         "prefix": "Opt-GUICoordMode",
-        "body": "Opt(\"GUICoordMode\", ${0|1|2})",
+        "body": "Opt(\"GUICoordMode\", ${1:0|1|2})",
         "description": "Alters the position of a control defined by GUICtrlSetPos().\n0 = relative position to the start of the last control (upper left corner).\n1 = (default) absolute coordinates still relative to the dialog box.\n2 = cell positioning relative to current cell. A -1 for left or top parameter don't increment the start.\nSo next line is -1, offset; next cell is offset,-1; current cell is -1,-1.\nObviously \"offset\" cannot be -1 which reserved to indicate the no increment. But if you can use a multiple of the width you choose to skip or go back.",
         "scope": "source.autoit"
     },
     "Opt - GUIDataSeparatorChar": {
         "prefix": "Opt-GUIDataSeparatorChar",
-        "body": "Opt(\"GUIDataSeparatorChar\", \"${char}\")",
+        "body": "Opt(\"GUIDataSeparatorChar\", \"${1:char}\")",
         "description": "Define the character which delimits subitems in GUICtrlSetData().\nThe default character is '|'.",
         "scope": "source.autoit"
     },
     "Opt - GUIOnEventMode": {
         "prefix": "Opt-GUIOnEventMode",
-        "body": "Opt(\"GUIOnEventMode\", ${0=disable/1=enable})",
+        "body": "Opt(\"GUIOnEventMode\", ${1:0=disable/1=enable})",
         "description": "Enable/disable OnEvent functions notifications.\n0 = (default) disable.\n1 = enable.",
         "scope": "source.autoit"
     },
     "Opt - GUIResizeMode": {
         "prefix": "Opt-GUIResizeMode",
-        "body": "Opt(\"GUIResizeMode\", ${param})",
+        "body": "Opt(\"GUIResizeMode\", ${1:param})",
         "description": "Change default resizing for a control.\n0 = (default) keep default control resizing.\n<1024 = any type of resizing see GUICtrlSetResizing().",
         "scope": "source.autoit"
     },
     "Opt - GUIEventOptions": {
         "prefix": "Opt-GUIEventOptions",
-        "body": "Opt(\"GUIEventOptions\", ${param})",
+        "body": "Opt(\"GUIEventOptions\", ${1:param})",
         "description": "Change special event behavior or GUI function return values.\n0 = (default) Windows behavior on click on Minimize,Restore, Maximize, Resize.\n1 = suppress windows behavior on minimize, restore or maximize click button or window resize. Just sends the notification.",
         "scope": "source.autoit"
     },
     "Opt - MouseClickDelay": {
         "prefix": "Opt-MouseClickDelay",
-        "body": "Opt(\"MouseClickDelay\", ${milliseconds})",
+        "body": "Opt(\"MouseClickDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause in between mouse clicks.\nTime in milliseconds to pause (default=10).",
         "scope": "source.autoit"
     },
     "Opt - MouseClickDownDelay": {
         "prefix": "Opt-MouseClickDownDelay",
-        "body": "Opt(\"MouseClickDownDelay\", ${milliseconds})",
+        "body": "Opt(\"MouseClickDownDelay\", ${1:milliseconds})",
         "description": "Alters the length a click is held down before release.\nTime in milliseconds to pause (default=10).",
         "scope": "source.autoit"
     },
     "Opt - MouseClickDragDelay": {
         "prefix": "Opt-MouseClickDragDelay",
-        "body": "Opt(\"MouseClickDragDelay\", ${milliseconds})",
+        "body": "Opt(\"MouseClickDragDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause at the start and end of a mouse drag operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
     },
     "Opt - MouseCoordMode": {
         "prefix": "Opt-MouseCoordMode",
-        "body": "Opt(\"MouseCoordMode\", ${0|1|2})",
+        "body": "Opt(\"MouseCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the mouse functions, either absolute coords or coords relative to the current active window:\n0 = relative coords to the active window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the active window",
         "scope": "source.autoit"
     },
     "Opt - MustDeclareVars": {
         "prefix": "Opt-MustDeclareVars",
-        "body": "Opt(\"MustDeclareVars\", ${0|1})",
+        "body": "Opt(\"MustDeclareVars\", ${1:0|1})",
         "description": "If this option is used then all variables must be pre-declared with Local, Global or in some cases Dim before they can be used - removes the chance for misspelled variables causing bugs.\n0 = (default) Variables don't need to be pre-declared\n1 = Variables must be pre-declared. See Dim / Global / Local / Const for details on declaring variables.",
         "scope": "source.autoit"
     },
     "Opt - PixelCoordMode": {
         "prefix": "Opt-PixelCoordMode",
-        "body": "Opt(\"PixelCoordMode\", ${0|1|2})",
+        "body": "Opt(\"PixelCoordMode\", ${1:0|1|2})",
         "description": "Sets the way coords are used in the pixel functions, either absolute coords or coords relative to the window defined by hwnd (default active window):\n0 = relative coords to the defined window\n1 = (default) absolute screen coordinates\n2 = relative coords to the client area of the defined window",
         "scope": "source.autoit"
     },
     "Opt - SendAttachMode": {
         "prefix": "Opt-SendAttachMode",
-        "body": "Opt(\"SendAttachMode\", ${0|1})",
+        "body": "Opt(\"SendAttachMode\", ${1:0|1})",
         "description": "Specifies if AutoIt attaches input threads when using Send() function. When not attaching (default mode=0) detecting the state of capslock/scrolllock and numlock can be unreliable under NT4. However, when you specify attach mode=1 the Send(\"{... down/up}\") syntax will not work and there may be problems with sending keys to \"hung\" windows. ControlSend() ALWAYS attaches and is not affected by this mode.\n0 = (default) don't attach\n1 = attach",
         "scope": "source.autoit"
     },
     "Opt - SendCapslockMode": {
         "prefix": "Opt-SendCapslockMode",
-        "body": "Opt(\"SendCapslockMode\", ${0|1})",
+        "body": "Opt(\"SendCapslockMode\", ${1:0|1})",
         "description": "Specifies if AutoIt should store the state of capslock before a Send() function and restore it afterwards.\n0 = don't store/restore\n1 = (default) store and restore",
         "scope": "source.autoit"
     },
     "Opt - SendKeyDelay": {
         "prefix": "Opt-SendKeyDelay",
-        "body": "Opt(\"SendKeyDelay\", ${milliseconds})",
+        "body": "Opt(\"SendKeyDelay\", ${1:milliseconds})",
         "description": "Alters the length of the brief pause in between sent keystrokes. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
         "scope": "source.autoit"
     },
     "Opt - SendKeyDownDelay": {
         "prefix": "Opt-SendKeyDownDelay",
-        "body": "Opt(\"SendKeyDownDelay\", ${milliseconds})",
+        "body": "Opt(\"SendKeyDownDelay\", ${1:milliseconds})",
         "description": "Alters the length of time a key is held down before being released during a keystroke. For applications that take a while to register keypresses you may need to raise this value from the default. A value of 0 removes the delay completely.\nTime in milliseconds to pause (default=5).",
         "scope": "source.autoit"
     },
     "Opt - TCPTimeout": {
         "prefix": "Opt-TCPTimeout",
-        "body": "Opt(\"TCPTimeout\", ${milliseconds})",
+        "body": "Opt(\"TCPTimeout\", ${1:milliseconds})",
         "description": "Defines the time before TCP functions stop if no communication.\nTime in milliseconds before timeout (default=100).",
         "scope": "source.autoit"
     },
     "Opt - TrayAutoPause": {
         "prefix": "Opt-TrayAutoPause",
-        "body": "Opt(\"TrayAutoPause\", ${0|1})",
+        "body": "Opt(\"TrayAutoPause\", ${1:0|1})",
         "description": "Script pauses when click on tray icon.\n0 = no pause\n1 = (default) pause. If there is no DefaultMenu no pause will occurs.",
         "scope": "source.autoit"
     },
     "Opt - TrayIconDebug": {
         "prefix": "Opt-TrayIconDebug",
-        "body": "Opt(\"TrayIconDebug\", ${0|1})",
+        "body": "Opt(\"TrayIconDebug\", ${1:0|1})",
         "description": "If enabled shows the current script line in the tray icon tip to help debugging.\n0 = (default) no debug information\n1 = show debug",
         "scope": "source.autoit"
     },
     "Opt - TrayIconHide": {
         "prefix": "Opt-TrayIconHide",
-        "body": "Opt(\"TrayIconHide\", ${0|1})",
+        "body": "Opt(\"TrayIconHide\", ${1:0|1})",
         "description": "Hides the AutoIt tray icon. Note: The icon will still initially appear for ~750 milliseconds.\n0 = (default) show icon\n1 = hide icon",
         "scope": "source.autoit"
     },
     "Opt - TrayMenuMode": {
         "prefix": "Opt-TrayMenuMode",
-        "body": "Opt(\"TrayMenuMode\", ${param})",
+        "body": "Opt(\"TrayMenuMode\", ${1:param})",
         "description": "Extend the behaviour of the script tray icon/menu. This can be done with a combination (adding) of the following values.\n0 = (default) default menu items (Script Paused/Exit) are appended to the usercreated menu; items will automatically be checked/unchecked when clicked; double clicking the tray icon returns the controlID of the $TRAY_DEFAULT item.\n1 = no default menu\n2 = items will not automatically check/uncheck when clicked\n4 = do not return the $TRAY_DEFAULT item controlID when the tray icon is double clicked\n8 = turn off auto check of radio item groups",
         "scope": "source.autoit"
     },
     "Opt - TrayOnEventMode": {
         "prefix": "Opt-TrayOnEventMode",
-        "body": "Opt(\"TrayOnEventMode\", ${0|1})",
+        "body": "Opt(\"TrayOnEventMode\", ${1:0|1})",
         "description": "Enable/disable OnEvent functions notifications for the tray.\n0 = (default) disable\n1 = enable",
         "scope": "source.autoit"
     },
     "Opt - WinDetectHiddenText": {
         "prefix": "Opt-WinDetectHiddenText",
-        "body": "Opt(\"WinDetectHiddenText\", ${0|1})",
+        "body": "Opt(\"WinDetectHiddenText\", ${1:0|1})",
         "description": "Specifies if hidden window text can be \"seen\" by the window matching functions.\n0 = (default) Do not detect hidden text\n1 = Detect hidden text",
         "scope": "source.autoit"
     },
     "Opt - WinSearchChildren": {
         "prefix": "Opt-WinSearchChildren",
-        "body": "Opt(\"WinSearchChildren\", ${0|1})",
+        "body": "Opt(\"WinSearchChildren\", ${1:0|1})",
         "description": "Allows the window search routines to search child windows as well as top-level windows.\n0 = (default) Only search top-level windows\n1 = Search top-level and child windows",
         "scope": "source.autoit"
     },
     "Opt - WinTextMatchMode": {
         "prefix": "Opt-WinTextMatchMode",
-        "body": "Opt(\"WinTextMatchMode\", ${1|2})",
+        "body": "Opt(\"WinTextMatchMode\", ${1:1|2})",
         "description": "Alters the method that is used to match window text during search operations.\n1 = (default) Complete / Slow mode\n2 = Quick mode\nIn quick mode AutoIt can usually only \"see\" dialog text, button text and the captions of some controls. In the default mode much more text can be seen (for instance the contents of the Notepad window).\nIf you are having performance problems when performing many window searches then changing to the \"quick\" mode may help.",
         "scope": "source.autoit"
     },
     "Opt - WinTitleMatchMode": {
         "prefix": "Opt-WinTitleMatchMode",
-        "body": "Opt(\"WinTitleMatchMode\", ${-1|-2|-3|-4|1|2|3|4})",
+        "body": "Opt(\"WinTitleMatchMode\", ${1:-1|-2|-3|-4|1|2|3|4})",
         "description": "Alters the method that is used to match window titles during search operations.\n1 = (default) Match the title from the start\n2 = Match any substring in the title\n3 = Exact title match\n4 = Advanced mode (retained for backwards compatibility only\n-1 to -4 = Case insensitive match according to the other type of match.",
         "scope": "source.autoit"
     },
     "Opt - WinWaitDelay": {
         "prefix": "Opt-WinWaitDelay",
-        "body": "Opt(\"WinWaitDelay\", ${milliseconds})",
+        "body": "Opt(\"WinWaitDelay\", ${1:milliseconds})",
         "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
     },
