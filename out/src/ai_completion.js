@@ -1,11 +1,12 @@
 'use strict'
 
-var { languages, Completion, CompletionItem, CompletionItemKind, editor, document, window } = require('vscode')
+var { languages, CompletionItem, CompletionItemKind, window } = require('vscode')
 var fs = require('fs')
 var path = require('path')
 var completions = []
 var newComp
-const readline = require('readline')
+var currentIncludeFiles = []
+var includes = []
 
 var files = fs.readdirSync(__dirname + '/completions')
 for (var i in files) {
@@ -25,6 +26,7 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
         var text = document.getText();
         var range = document.getWordRangeAtPosition(position);
         var prefix = range ? document.getText(range) : '';
+        var includesCheck = []
 
         if (!range) {
             range = new Range(position, position);
@@ -60,19 +62,28 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
             }
         }
 
+        // collect the includes of the document
         var pattern = null
-        
         while (pattern = _includePattern.exec(text)) {
-            var includeName = pattern[1]
-            var includeFunctions = []
-            includeFunctions = getIncludeData(includeName)
-
-            if (includeFunctions) {
-                for (var newFunc in includeFunctions) {
-                    result.push(createNewCompletionItem(CompletionItemKind.Function, includeFunctions[newFunc], includeName + ' Function'))
-                }
-            }
+            includesCheck.push(pattern[1])
         }
+
+        // Redo the include collecting if the includes are different
+        if (!arraysMatch(includesCheck, currentIncludeFiles)) {
+            includes = []
+            var includeFunctions = []
+            for (var i in includesCheck) {
+                includeFunctions = getIncludeData(includesCheck[i])
+                if (includeFunctions) {
+                    for (var newFunc in includeFunctions) {
+                        includes.push(createNewCompletionItem(CompletionItemKind.Function, includeFunctions[newFunc], includesCheck[i] + ' Function'))
+                    }
+                }        
+            }
+            currentIncludeFiles = includesCheck
+        }
+        
+        result = result.concat(includes) //Add either the existing include functions or the new ones to result
 
         return completions.concat(result);
     }
@@ -102,4 +113,13 @@ function getIncludeData(fileName) {
 
     console.log(funcLines)
     return (functions)
+}
+
+function arraysMatch(arr1, arr2) {
+    if(arr1.length == arr2.length && 
+        arr1.some((v) => arr2.indexOf(v) <= 0)) {
+            return true
+    } else {
+        return false
+    }
 }
