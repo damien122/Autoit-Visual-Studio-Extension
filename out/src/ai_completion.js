@@ -76,7 +76,7 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
                 includeFunctions = getIncludeData(includesCheck[i])
                 if (includeFunctions) {
                     for (var newFunc in includeFunctions) {
-                        includes.push(createNewCompletionItem(CompletionItemKind.Function, includeFunctions[newFunc], includesCheck[i] + ' Function'))
+                        includes.push(createNewCompletionItem(CompletionItemKind.Function, includeFunctions[newFunc], 'Function from ' + includesCheck[i]))
                     }
                 }        
             }
