@@ -94,8 +94,13 @@ function getIncludeData(fileName) {
     const _includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/
 
     var functions = []
+    var filePath = ""
 
-    var filePath =  path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName
+    if (fileName.indexOf("\\") > -1) {
+        filePath = path.normalize(fileName)
+    } else {
+        filePath = path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName
+    }
     // console.log(filePath)
     var pattern = null
 
