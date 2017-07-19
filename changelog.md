@@ -2,7 +2,7 @@
 
 ## 0.1.6
 * Fixed the intellisense of parameters in the scope of the function.
-* Added configuration for path to Koda and shortcut for launching Koda "Ctrl+K"
+* Added configuration for path to Koda and shortcut for launching Koda "Alt+M"
 * Fixed some snippet code to fit with VS Code syntax
 * Enabled the extension to read in the functions from user-specified include files
 
