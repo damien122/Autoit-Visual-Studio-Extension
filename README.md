@@ -12,10 +12,13 @@ and developed from Damien122's release.
   
 * Launch, compile and build scripts from VSCode
 * Launch AutoIt Help for highlighted text 
+* Symbol search, press `Ctrl+Shift+O` to see where Functions and Variables have been declared in scripts
+
+  ![SymbolSearch](img/docs/symbolsearch.gif)  
 
 ## Configuration
 
-* Access the command palette (Ctrl + Shift + P), type Preferences: Open User Settings or Preferences: Open Workspace Settings.
+* Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings.
 
   ![CtrlShiftP](img/docs/CtrlShiftP.png)
 
