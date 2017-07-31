@@ -27,7 +27,7 @@ and developed from Damien122's release.
   ![AutoItConfiguration](img/docs/AutoItConfiguration.png)
 
 ### Note
-Advanced functions on the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
+Launch, Compile and Build functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
 ## GitHub
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
