@@ -1,10 +1,10 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.6
-* Fixed the intellisense of parameters in the scope of the function.
-* Added configuration for path to Koda and shortcut for launching Koda "Alt+M"
-* Fixed some snippet code to fit with VS Code syntax
-* Enabled the extension to read in the functions from user-specified include files
+* The extension can now read in functions from user-specified include files and provide completion IntelliSense hints for them
+* Added internal function parameters to IntelliSense (they are not yet limited to appearing in the scope of the function)
+* Added configuration a path to launch Koda including an "Alt+M" shortcut
+* Adjusted snippet code to better follow VS Code syntax
 
 ## 0.1.5
 More IntelliSense!
