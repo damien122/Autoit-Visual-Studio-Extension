@@ -96,12 +96,8 @@ function getIncludeData(fileName) {
     var functions = []
     var filePath = ""
 
-    if (fileName.indexOf("\\") > -1) {
-        filePath = path.normalize(fileName)
-    } else {
-        filePath = path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName
-    }
-    // console.log(filePath)
+    filePath = path.normalize(path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName)
+    filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
     var pattern = null
 
     var fileData = fs.readFileSync(filePath)
@@ -116,7 +112,7 @@ function getIncludeData(fileName) {
         return pattern
     })
 
-    console.log(funcLines)
+    //console.log(funcLines)
     return (functions)
 }
 
