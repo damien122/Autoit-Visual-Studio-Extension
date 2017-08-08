@@ -96,7 +96,7 @@ function getIncludeData(fileName) {
     var functions = []
     var filePath = ""
 
-    if (fileName.indexOf("\\") > -1) {
+    if (path.isAbsolute(fileName) && fileName.indexOf("\\") != 0) {
         filePath = path.normalize(fileName)
     } else {
         filePath = path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName
