@@ -92,16 +92,21 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
 function getIncludeData(fileName) {
     // console.log(fileName)
     const _includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/
-
     var functions = []
     var filePath = ""
 
-    filePath = path.normalize(path.dirname(window.activeTextEditor.document.fileName) + '\\' + fileName)
+    if (fileName.charAt(1) == ':') {
+        filePath = fileName
+    } else {
+        console.log(path.dirname(window.activeTextEditor.document.fileName))
+        filePath = path.normalize(path.dirname(window.activeTextEditor.document.fileName) + 
+        (fileName.charAt(0) == '\\' || '\/' ? '' : '\\') +
+        fileName)
+    }
     filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
+
     var pattern = null
-
     var fileData = fs.readFileSync(filePath)
-
     var fileArray = fileData.toString().split("\n")
 
     var funcLines = fileArray.filter((line) => {
@@ -117,9 +122,9 @@ function getIncludeData(fileName) {
 }
 
 function arraysMatch(arr1, arr2) {
-    if(arr1.length == arr2.length && 
+    if (arr1.length == arr2.length &&
         arr1.some((v) => arr2.indexOf(v) <= 0)) {
-            return true
+        return true
     } else {
         return false
     }
