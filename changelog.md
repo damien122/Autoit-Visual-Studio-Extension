@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.7
+* Improved handling of functions from include scripts
+
 ## 0.1.6
 * The extension can now read in functions from user-specified include files and provide completion IntelliSense hints for them
 * Added internal function parameters to IntelliSense (they are not yet limited to appearing in the scope of the function)
