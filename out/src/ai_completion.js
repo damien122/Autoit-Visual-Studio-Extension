@@ -16,7 +16,7 @@ for (var i in files) {
 
 const _funcPattern = /Func\s+(\w*)\s*\(/g;
 const _varPattern = /\$(\w*)/g;
-const _includePattern = /#include\s"(.+)"/g
+const _includePattern = /^\s+#include\s"(.+)"/gm
 
 module.exports = languages.registerCompletionItemProvider({ language: 'autoit', scheme: 'file' }, {
     provideCompletionItems(document, position, token) {
