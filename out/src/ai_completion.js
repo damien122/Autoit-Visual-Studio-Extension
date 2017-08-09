@@ -98,7 +98,6 @@ function getIncludeData(fileName) {
     if (fileName.charAt(1) == ':') {
         filePath = fileName
     } else {
-        console.log(path.dirname(window.activeTextEditor.document.fileName))
         filePath = path.normalize(path.dirname(window.activeTextEditor.document.fileName) + 
         (fileName.charAt(0) == '\\' || '\/' ? '' : '\\') +
         fileName)
