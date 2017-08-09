@@ -20,6 +20,7 @@ const _includePattern = /#include\s"(.+)"/g
 
 module.exports = languages.registerCompletionItemProvider({ language: 'autoit', scheme: 'file' }, {
     provideCompletionItems(document, position, token) {
+        try{
         // Gather the functions created by the user
         var added = {};
         var result = [];
@@ -86,6 +87,7 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
         result = result.concat(includes) //Add either the existing include functions or the new ones to result
 
         return completions.concat(result);
+        } catch (e) { console.log(e)}
     }
 }, '.', '$')
 
@@ -99,7 +101,7 @@ function getIncludeData(fileName) {
         filePath = fileName
     } else {
         filePath = path.normalize(path.dirname(window.activeTextEditor.document.fileName) + 
-        (fileName.charAt(0) == '\\' || '\/' ? '' : '\\') +
+        ((fileName.charAt(0) == '\\' || fileName.charAt(0) == '\/') ? '' : '\\') +
         fileName)
     }
     filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
