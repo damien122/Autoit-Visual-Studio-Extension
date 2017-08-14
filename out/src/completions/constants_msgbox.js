@@ -188,7 +188,7 @@ var items = [{
 
 // Add the icon and detail to each entry
 for (var i of items) {
-    i.kind = CompletionItemKind.Variable
+    i.kind = CompletionItemKind.Constant
     i.documentation += '\n\nRequires #include <MsgBoxConstants.au3>'
 }
 
