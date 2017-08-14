@@ -1899,9 +1899,14 @@
         "scope": "source.autoit",
         "description": "Indicates that the AutoIt tray icon will not be shown when the script starts."
     },
-    "include": {
+    "Include UDF Functions": {
+        "prefix": "#include",
+        "body":  "#include <${1|Array,WinAPIGdi,WinAPISys|}.au3>",
+        "scope": "source.autoit"
+    },
+    "Include User Function": {
         "prefix": "include",
-        "body": "#include \"${1:file.au3}\"",
+        "body": "#include \"${1:file}.au3\"",
         "scope": "source.autoit"
     },
     "include <ColorConstants.au3>": {
@@ -1952,11 +1957,6 @@
     "include <WindowsConstants.au3>": {
         "prefix": "include <WindowsConstants.au3>",
         "body": "#include <WindowsConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <MsgBoxConstants.au3>": {
-        "prefix": "include <MsgBoxConstants.au3>",
-        "body": "#include <MsgBoxConstants.au3>",
         "scope": "source.autoit"
     },
     "include-once": {
