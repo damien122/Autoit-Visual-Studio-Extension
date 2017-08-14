@@ -174,9 +174,10 @@ function procRunner(cmdPath, args) {
 
 function getDebugText() {
     var editor = window.activeTextEditor;
-
-    var selection = editor.selection;
-    var varToDebug = editor.document.getText(selection).trim();
+    var thisDoc = editor.document
+    var varToDebug = thisDoc.getText(
+        thisDoc.getWordRangeAtPosition(editor.selection.active)
+    )
 
     // Make sure that a variable or macro is selected
     if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
@@ -188,7 +189,7 @@ function getDebugText() {
             position: newPosition
         };
     } else {
-        window.showErrorMessage("Select variable or macro to generate a debug line");
+        window.showErrorMessage(`"${varToDebug}" is not a variable or macro, debug line can't be generated`);
         return {};
     }
 }
