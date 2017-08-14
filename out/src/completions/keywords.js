@@ -170,7 +170,7 @@ var items = [{
         documentation: 'Function qualifier. (EXPERIMENTAL)'
     },
     {
-        label: 'Wend',
+        label: 'WEnd',
         documentation: 'Closes a While Loop'
     },
     {
