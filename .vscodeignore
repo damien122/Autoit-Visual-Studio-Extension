@@ -1,0 +1,5 @@
+.vscode/**
+.vscode-test/**
+img/**
+test/**
+.gitignore
