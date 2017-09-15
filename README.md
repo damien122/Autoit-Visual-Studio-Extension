@@ -26,8 +26,19 @@ and developed from Damien122's release.
 
   ![AutoItConfiguration](img/docs/AutoItConfiguration.png)
 
+## Keyboard Shortcuts
+* Run Script: `F5`
+* AutoIt Check: `Ctrl+F5`
+* Compile Script: `Ctrl+F7`
+* Build Script: `F7`
+* Run AutoIt Help: `Ctrl+F1`
+* Run Au3Info: `Ctrl+F6`
+* Debug to MsgBox: `Ctrl+Shift+D`
+* Debug to Console: `Alt+D`
+* Run Koda: `Alt+M`
+
 ### Note
-Launch, Compile and Build functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
+Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
 ## GitHub
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
