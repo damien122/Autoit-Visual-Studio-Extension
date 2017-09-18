@@ -3,6 +3,8 @@
 Welcome to the AutoIt extension for Visual Studio Code! This has been forked 
 and developed from Damien122's release.
 
+[Features](#features) | [Configuration](#configuration) | [Keyboard Shortcuts](#keyboard-shortcuts) | [Contributing](#contributing)
+
 ## Features
 
 * AutoIt Syntax highlighting
@@ -36,11 +38,15 @@ and developed from Damien122's release.
 * Debug to MsgBox: `Ctrl+Shift+D`
 * Debug to Console: `Alt+D`
 * Run Koda: `Alt+M`
+> **NOTE:**
+> 
+> Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
-### Note
-Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
-
-## GitHub
+## Contributing
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
-### Contributing
+
 Please fork the repository and contribute using pull requests.
+
+---
+
+[Features](#features) | [Configuration](#configuration) | [Keyboard Shortcuts](#keyboard-shortcuts) | [Contributing](#contributing)
