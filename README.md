@@ -19,14 +19,25 @@ and developed from Damien122's release.
   ![SymbolSearch](img/docs/symbolsearch.gif)  
 
 ## Configuration
+By default, this extension is set up for the default installation of AutoIt and SciTe4AutoIt on a 64-bit system. For alternate setups, you can access the user settings by navigating to `File-> Preferences-> Settings` or invoking the command palette (`Ctrl+Shift+P`) and searching for Preferences [(example)](img/docs/CtrlShiftP.png), and changing the following options:
 
-* Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings.
+|Config |Description|Default |
+|---|---|---|
+|`autoit.aiPath`|Path to AutoIt Executable|"C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"|
+|`autoit.wrapperPath`|Path to AutoIt3Wrapper|"C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3"|
+|`autoit.tidyPath`|Path to Tidy|"C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe"|
+|`autoit.checkPath`|Path to AutoIt Syntax Checker (Au3Check)|"C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe"|
+|`autoit.helpPath`|Path to AutoIt Help|"C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"|
+|`autoit.infoPath`|Path to Au3Info Executable|"C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe"|
+|`autoit.kodaPath`|Path to Koda Form Designer|"C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe"|
 
-  ![CtrlShiftP](img/docs/CtrlShiftP.png)
+<!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 
-* Configure the paths according to your AutoIt installation.
+  <!-- ![CtrlShiftP](img/docs/CtrlShiftP.png) -->
 
-  ![AutoItConfiguration](img/docs/AutoItConfiguration.png)
+<!-- * Configure the paths according to your AutoIt installation. -->
+
+  <!-- ![AutoItConfiguration](img/docs/AutoItConfiguration.png) -->
 
 ## Keyboard Shortcuts
 * Run Script: `F5`
