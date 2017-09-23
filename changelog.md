@@ -2,7 +2,8 @@
 
 ## 0.1.7
 * Improved handling of functions from include scripts
-* Debug Console and MsgBox can now be inserted with just the cursor on the variable
+* Debug Console and MsgBox can now be inserted solely with the cursor on the variable
+* Symbol search now catches multiple variables declared on the same line
 
 ## 0.1.6
 * The extension can now read in functions from user-specified include files and provide completion IntelliSense hints for them
