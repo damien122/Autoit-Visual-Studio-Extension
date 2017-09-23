@@ -21,6 +21,10 @@ module.exports = languages.registerDocumentSymbolProvider(
             for (let line = 0; line < lineCount; line++) {
                 const {text}  = doc.lineAt(line)
 
+                if (text == "") { // skip over empty lines
+                    continue
+                }
+
                 funcName = _funcPattern.exec(text)
                 if(funcName && found.indexOf(funcName[1]) === -1) {
                     result.push(new SymbolInformation(funcName[1], SymbolKind.Function, 
