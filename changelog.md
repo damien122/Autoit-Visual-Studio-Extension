@@ -1,6 +1,7 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.7
+* Updated ReadMe with links and more information about shortcuts and configuration
 * Improved handling of functions from include scripts
 * Debug Console and MsgBox can now be inserted solely with the cursor on the variable
 * Symbol search now catches multiple variables declared on the same line
