@@ -19,7 +19,7 @@ function activate(ctx) {
     console.log('AutoIt is now active!');
 
     ctx.subscriptions.push(languages.setLanguageConfiguration(
-        'autoit', { wordPattern: /([^`~!#\%\^\&*()-\=+[{\]}\|\;\:\'\"\,.\<>\/\?\s][A-z0-9]+)/ }));
+        'autoit', { wordPattern: /([^`~!\%\^\&*()-\=+[{\]}\|\;\:\'\"\,.\<>\/\?\s][A-z0-9]+)/ }));
 
     commands.registerCommand('extension.runScript', () => {
         ai_commands.runScript();
