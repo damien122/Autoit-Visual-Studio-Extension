@@ -184,8 +184,11 @@ var items = [{
     {
         label: '#NoTrayIcon',
         documentation: 'Indicates that the AutoIt tray icon will not be shown when the script starts.'
+    },
+    {
+        label: '#RequireAdmin',
+        documentation: 'Specifies that the current script requires full administrator rights to run.'
     }
-
 ]
 
 // Add the function icon and detail to each entry

@@ -1964,11 +1964,6 @@
         "body": "#OnAutoItStartRegister ",
         "scope": "source.autoit"
     },
-    "RequireAdmin": {
-        "prefix": "RequireAdmin",
-        "body": "#RequireAdmin ",
-        "scope": "source.autoit"
-    },
     "EndRegion": {
         "prefix": "EndRegion",
         "body": "#EndRegion ",

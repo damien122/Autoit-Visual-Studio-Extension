@@ -1,5 +1,8 @@
 {
     "#NoTrayIcon": [
         "Indicates that the AutoIt tray icon will not be shown when the script starts."
+    ],
+    "#RequireAdmin": [
+        "Specifies that the current script requires full administrator rights to run."
     ]
 }
