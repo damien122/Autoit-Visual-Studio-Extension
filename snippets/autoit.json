@@ -1893,75 +1893,15 @@
         "scope": "source.autoit",
         "description": "Specify that an entire section of script should be commented out."
     },
-    "Include UDF Functions": {
+    "Include From Library": {
         "prefix": "#include",
-        "body":  "#include <${1|Array,WinAPIGdi,WinAPISys|}.au3>",
-        "scope": "source.autoit"
-    },
-    "Include User Function": {
-        "prefix": "#include",
-        "body": "#include \"${1:file}.au3\"",
-        "scope": "source.autoit"
-    },
-    "include <ColorConstants.au3>": {
-        "prefix": "#include <ColorConstants.au3>",
-        "body": "#include <ColorConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <Constants.au3>": {
-        "prefix": "#include <Constants.au3>",
-        "body": "#include <Constants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <DirConstants.au3>": {
-        "prefix": "#include <DirConstants.au3>",
-        "body": "#include <DirConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <FileConstants.au3>": {
-        "prefix": "#include <FileConstants.au3>",
-        "body": "#include <FileConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <FontConstants.au3>": {
-        "prefix": "#include <FontConstants.au3>",
-        "body": "#include <FontConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <GUIConstants.au3>": {
-        "prefix": "#include <GUIConstants.au3>",
-        "body": "#include <GUIConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include <GUIConstantsEx.au3>": {
-        "prefix": "#include <GUIConstantsEx.au3>",
-        "body": "#include <GUIConstantsEx.au3>",
-        "scope": "source.autoit"
-    },
-    "include <GuiComboBox.au3>": {
-        "prefix": "#include <GuiComboBox.au3>",
-        "body": "#include <GuiComboBox.au3>",
-        "scope": "source.autoit"
-    },
-    "include <Array.au3>": {
-        "prefix": "#include <Array.au3>",
-        "body": "#include <Array.au3>",
-        "scope": "source.autoit"
-    },
-    "include <WindowsConstants.au3>": {
-        "prefix": "#include <WindowsConstants.au3>",
-        "body": "#include <WindowsConstants.au3>",
-        "scope": "source.autoit"
-    },
-    "include-once": {
-        "prefix": "#include-once",
-        "body": "#include-once",
+        "body":  "#include <${1|APIComConstants,APIConstants,APIDiagConstants,APIDlgConstants,APIErrorsConstants,APIFilesConstants,APIGdiConstants,APILocaleConstants,APIMiscConstants,APIProcConstants,APIRegConstants,APIResConstants,APIShellExConstants,APIShPathConstants,APISysConstants,APIThemeConstants,Array,AutoItConstants,AVIConstants,BorderConstants,ButtonConstants,Clipboard,Color,ColorConstants,ComboConstants,Constants,Crypt,Date,DateTimeConstants,Debug,DirConstants,EditConstants,EventLog,Excel,ExcelConstants,File,FileConstants,FontConstants,FrameConstants,FTPEx,GDIPlus,GDIPlusConstants,GuiAVI,GuiButton,GuiComboBox,GuiComboBoxEx,GUIConstants,GUIConstantsEx,GuiDateTimePicker,GuiEdit,GuiHeader,GuiImageList,GuiIPAddress,GuiListBox,GuiListView,GuiMenu,GuiMonthCal,GuiReBar,GuiRichEdit,GuiScrollBars,GuiSlider,GuiStatusBar,GuiTab,GuiToolbar,GuiToolTip,GuiTreeView,HeaderConstants,IE,ImageListConstants,Inet,InetConstants,IPAddressConstants,ListBoxConstants,ListViewConstants,Math,MathConstants,Memory,MemoryConstants,MenuConstants,Misc,MsgBoxConstants,NamedPipes,NetShare,NTSTATUSConstants,Process,ProcessConstants,ProgressConstants,RebarConstants,RichEditConstants,ScreenCapture,ScrollBarConstants,ScrollBarsConstants,Security,SecurityConstants,SendMessage,SliderConstants,Sound,SQLite,SQLite.dll,StaticConstants,StatusBarConstants,String,StringConstants,StructureConstants,TabConstants,Timers,ToolbarConstants,ToolTipConstants,TrayConstants,TreeViewConstants,UDFGlobalID,UpDownConstants,Visa,WinAPI,WinAPICom,WinAPIConstants,WinAPIDiag,WinAPIDlg,WinAPIError,WinAPIEx,WinAPIFiles,WinAPIGdi,WinAPIInternals,WinAPIlangConstants,WinAPILocale,WinAPIMisc,WinAPIProc,WinAPIReg,WinAPIRes,WinAPIShellEx,WinAPIShPath,WinAPISys,WinAPIsysinfoConstants,WinAPITheme,WinAPIvkeysConstants,WindowsConstants,WinNet,Word,WordConstants|}.au3>",
         "scope": "source.autoit",
-        "description": "Specifies that the current file should only be included once."
+        "description": "Scripts from the default AutoIt \\Include folder, in a dropdown list"
     },
-    "OnAutoItStartRegister": {
-        "prefix": "OnAutoItStartRegister",
-        "body": "#OnAutoItStartRegister ",
+    "Include User Script": {
+        "prefix": "#include",
+        "body": "#include \"${1:[path\\]filename}.au3\"",
         "scope": "source.autoit"
     },
     "EndRegion": {

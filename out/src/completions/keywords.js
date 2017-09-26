@@ -2,7 +2,7 @@
 
 var {
     CompletionItemKind,
-    // SnippetString
+    SnippetString
 } = require('vscode')
 
 var items = [{
@@ -188,6 +188,19 @@ var items = [{
     {
         label: '#RequireAdmin',
         documentation: 'Specifies that the current script requires full administrator rights to run.'
+    },
+    {
+        label: '#include',
+        documentation: 'Includes a file in the current script.'
+    },
+    {
+        label: '#include-once',
+        documentation: 'Specifies that the current file should only be included once.'
+    },
+    {
+        label: '#OnAutoItStartRegister',
+        documentation: 'Registers a function to be called when AutoIt starts.',
+        insertText: new SnippetString('\#OnAutoItStartRegister "${1:function}"')
     }
 ]
 
