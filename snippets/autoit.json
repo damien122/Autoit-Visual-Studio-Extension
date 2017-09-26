@@ -1893,81 +1893,71 @@
         "scope": "source.autoit",
         "description": "Specify that an entire section of script should be commented out."
     },
-    "#NoTrayIcon": {
-        "prefix": "#NoTrayIcon",
-        "body": "#NoTrayIcon",
-        "scope": "source.autoit",
-        "description": "Indicates that the AutoIt tray icon will not be shown when the script starts."
-    },
     "Include UDF Functions": {
         "prefix": "#include",
         "body":  "#include <${1|Array,WinAPIGdi,WinAPISys|}.au3>",
         "scope": "source.autoit"
     },
     "Include User Function": {
-        "prefix": "include",
+        "prefix": "#include",
         "body": "#include \"${1:file}.au3\"",
         "scope": "source.autoit"
     },
     "include <ColorConstants.au3>": {
-        "prefix": "include <ColorConstants.au3>",
+        "prefix": "#include <ColorConstants.au3>",
         "body": "#include <ColorConstants.au3>",
         "scope": "source.autoit"
     },
     "include <Constants.au3>": {
-        "prefix": "include <Constants.au3>",
+        "prefix": "#include <Constants.au3>",
         "body": "#include <Constants.au3>",
         "scope": "source.autoit"
     },
     "include <DirConstants.au3>": {
-        "prefix": "include <DirConstants.au3>",
+        "prefix": "#include <DirConstants.au3>",
         "body": "#include <DirConstants.au3>",
         "scope": "source.autoit"
     },
     "include <FileConstants.au3>": {
-        "prefix": "include <FileConstants.au3>",
+        "prefix": "#include <FileConstants.au3>",
         "body": "#include <FileConstants.au3>",
         "scope": "source.autoit"
     },
     "include <FontConstants.au3>": {
-        "prefix": "include <FontConstants.au3>",
+        "prefix": "#include <FontConstants.au3>",
         "body": "#include <FontConstants.au3>",
         "scope": "source.autoit"
     },
     "include <GUIConstants.au3>": {
-        "prefix": "include <GUIConstants.au3>",
+        "prefix": "#include <GUIConstants.au3>",
         "body": "#include <GUIConstants.au3>",
         "scope": "source.autoit"
     },
     "include <GUIConstantsEx.au3>": {
-        "prefix": "include <GUIConstantsEx.au3>",
+        "prefix": "#include <GUIConstantsEx.au3>",
         "body": "#include <GUIConstantsEx.au3>",
         "scope": "source.autoit"
     },
     "include <GuiComboBox.au3>": {
-        "prefix": "include <GuiComboBox.au3>",
+        "prefix": "#include <GuiComboBox.au3>",
         "body": "#include <GuiComboBox.au3>",
         "scope": "source.autoit"
     },
     "include <Array.au3>": {
-        "prefix": "include <Array.au3>",
+        "prefix": "#include <Array.au3>",
         "body": "#include <Array.au3>",
         "scope": "source.autoit"
     },
     "include <WindowsConstants.au3>": {
-        "prefix": "include <WindowsConstants.au3>",
+        "prefix": "#include <WindowsConstants.au3>",
         "body": "#include <WindowsConstants.au3>",
         "scope": "source.autoit"
     },
     "include-once": {
-        "prefix": "include-once",
-        "body": "#include-once ",
-        "scope": "source.autoit"
-    },
-    "NoTrayIcon": {
-        "prefix": "NoTrayIcon",
-        "body": "#NoTrayIcon ",
-        "scope": "source.autoit"
+        "prefix": "#include-once",
+        "body": "#include-once",
+        "scope": "source.autoit",
+        "description": "Specifies that the current file should only be included once."
     },
     "OnAutoItStartRegister": {
         "prefix": "OnAutoItStartRegister",

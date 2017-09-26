@@ -1,0 +1,5 @@
+{
+    "#NoTrayIcon": [
+        "Indicates that the AutoIt tray icon will not be shown when the script starts."
+    ]
+}

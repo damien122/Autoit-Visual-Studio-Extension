@@ -180,6 +180,10 @@ var items = [{
     {
         label: 'With',
         documentation: 'Used to reduce long references to dot-accessible type of variables.'
+    },
+    {
+        label: '#NoTrayIcon',
+        documentation: 'Indicates that the AutoIt tray icon will not be shown when the script starts.'
     }
 
 ]
