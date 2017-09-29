@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.8
+* Many Snippets have been changed to Completions
+
 ## 0.1.7
 * Updated ReadMe with links and more information about shortcuts and configuration
 * Improved handling of functions from include scripts
