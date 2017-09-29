@@ -1943,12 +1943,6 @@
         ],
         "scope": "source.autoit"
     },
-    "AdlibUnRegister": {
-        "prefix": "AdlibUnRegister",
-        "body": "AdlibUnRegister(${1:[function]})",
-        "description": "Unregisters an adlib function.",
-        "scope": "source.autoit"
-    },
     "AutoItSetOption - CaretCoordMode": {
         "prefix": "AutoItSetOption-CaretCoordMode",
         "body": "AutoItSetOption(\"CaretCoordMode\", ${1:0|1|2})",

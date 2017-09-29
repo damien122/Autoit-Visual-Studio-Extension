@@ -17,6 +17,10 @@ var items = [{
         documentation: 'Registers an Adlib function.'
     },
     {
+        label: 'AdlibUnRegister',
+        documentation: 'Unregisters an adlib function.'
+    },
+    {
         label: 'ASin',
         documentation: 'Calculates the arcsine of a number.'
     },
