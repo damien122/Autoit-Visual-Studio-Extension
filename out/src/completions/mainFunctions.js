@@ -25,6 +25,14 @@ var items = [{
         documentation: 'Assigns a variable by name with the data.'
     },
     {
+        label: 'Asc',
+        documentation: 'Returns the ASCII code of a character.'
+    },
+    {
+        label: 'AscW',
+        documentation: 'Returns the unicode code of a character.'
+    },
+    {
         label: 'ATan',
         documentation: 'Calculates the arctangent of a number.'
     },

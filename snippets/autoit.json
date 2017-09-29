@@ -1949,24 +1949,6 @@
         "description": "Unregisters an adlib function.",
         "scope": "source.autoit"
     },
-    "Asc": {
-        "prefix": "Asc",
-        "body": "Asc(\"${1:char}\")",
-        "description": "Returns the ASCII code of a character.",
-        "scope": "source.autoit"
-    },
-    "AscW": {
-        "prefix": "AscW",
-        "body": "AscW(\"${1:char}\")",
-        "description": "Returns the unicode code of a character.",
-        "scope": "source.autoit"
-    },
-    "ATan": {
-        "prefix": "ATan",
-        "body": "ATan(${1:expression})",
-        "description": "Calculates the arctangent of a number.",
-        "scope": "source.autoit"
-    },
     "AutoItSetOption - CaretCoordMode": {
         "prefix": "AutoItSetOption-CaretCoordMode",
         "body": "AutoItSetOption(\"CaretCoordMode\", ${1:0|1|2})",
