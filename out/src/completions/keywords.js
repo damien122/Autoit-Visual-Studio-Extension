@@ -201,6 +201,11 @@ var items = [{
         label: '#OnAutoItStartRegister',
         documentation: 'Registers a function to be called when AutoIt starts.',
         insertText: new SnippetString('\#OnAutoItStartRegister "${1:function}"')
+    },
+    {
+        label: "#pragma",
+        documentation: 'A special directive for controlling aspects of how the script is compiled.',
+        insertText: new SnippetString('\#pragma compile(${1:pragma-option}, ${2:parameter})')
     }
 ]
 

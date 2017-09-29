@@ -1274,11 +1274,6 @@
         "body": "#ignorefunc ",
         "scope": "source.autoit"
     },
-    "pragma": {
-        "prefix": "pragma",
-        "body": "#pragma ",
-        "scope": "source.autoit"
-    },
     "Region": {
         "prefix": "Region",
         "body": "#Region ",
@@ -1687,36 +1682,6 @@
         "prefix": "ControlListView-ViewChange",
         "body": "ControlListView(${1:\"title\"}, ${2:\"text\"}, ${3:controlID}, \"ViewChange\", ${4:\"list|details|smallicons|largeicons\"})",
         "description": "Changes the current view. Valid views are \"list\", \"details\", \"smallicons\", \"largeicons\".",
-        "scope": "source.autoit"
-    },
-    "DTS_UPDOWN": {
-        "prefix": "DTS_UPDOWN",
-        "body": "\\$DTS_UPDOWN",
-        "scope": "source.autoit"
-    },
-    "DTS_SHOWNONE": {
-        "prefix": "DTS_SHOWNONE",
-        "body": "\\$DTS_SHOWNONE",
-        "scope": "source.autoit"
-    },
-    "DTS_LONGDATEFORMAT": {
-        "prefix": "DTS_LONGDATEFORMAT",
-        "body": "\\$DTS_LONGDATEFORMAT",
-        "scope": "source.autoit"
-    },
-    "DTS_TIMEFORMAT": {
-        "prefix": "DTS_TIMEFORMAT",
-        "body": "\\$DTS_TIMEFORMAT",
-        "scope": "source.autoit"
-    },
-    "DTS_RIGHTALIGN": {
-        "prefix": "DTS_RIGHTALIGN",
-        "body": "\\$DTS_RIGHTALIGN",
-        "scope": "source.autoit"
-    },
-    "DTS_SHORTDATEFORMAT": {
-        "prefix": "DTS_SHORTDATEFORMAT",
-        "body": "\\$DTS_SHORTDATEFORMAT",
         "scope": "source.autoit"
     },
     "Opt": {
