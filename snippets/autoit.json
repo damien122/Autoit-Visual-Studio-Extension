@@ -1869,5 +1869,106 @@
         "body": "Opt(\"WinWaitDelay\", ${1:milliseconds})",
         "description": "Alters how long a script should briefly pause after a successful window-related operation.\nTime in milliseconds to pause (default=250).",
         "scope": "source.autoit"
+    },
+    "pragma Out": {
+        "prefix": "#pragma Out",
+        "body": "#pragma compile(Out, ${1:Filename})",
+        "description": "Sets the file name of the compiled executable.",
+        "scope": "source.autoit"
+    },
+    "pragma Icon": {
+        "prefix": "#pragma Icon",
+        "body": "#pragma compile(Icon, ${1:Filename})",
+        "description": "Sets the compiled executable icon."
+    },
+    "pragma ExecLevel": {
+        "prefix": "#pragma ExecLevel",
+        "body": "#pragma compile(ExecLevel, ${1|none,asInvoker,highestAvailable,requireAdministrator|})",
+        "description": "Sets the execution level in the compiled executable manifest."
+    },
+    "pragma UPX": {
+        "prefix": "#pragma UPX",
+        "body": "#pragma compile(UPX, ${1|false,true|})",
+        "description": "Sets the execution level in the compiled executable manifest."
+    },
+    "pragma AutoItExecuteAllowed": {
+        "prefix": "#pragma AutoItExecuteAllowed",
+        "body": "#pragma compile(AutoItExecuteAllowed, ${1|false,true|})",
+        "description": "Allows the compiled executable to execute non compiled scripts."
+    },
+    "pragma Console": {
+        "prefix": "#pragma Console",
+        "body": "#pragma compile(Console, ${1|false,true|})",
+        "description": "Compile the executable in console mode."
+    },
+    "pragma Compression": {
+        "prefix": "#pragma Compression",
+        "body": "#pragma compile(Compression, ${1|1,3,5,7,9|})",
+        "description": "Sets the compiled executable FileInstall() resources compression."
+    },
+    "pragma Compatibility": {
+        "prefix": "#pragma Compatibility",
+        "body": "#pragma compile(Compatibility, ${1|vista,win7,win8,win81,win10|})",
+        "description": "Sets the compatibility in the compiled executable manifest."
+    },
+    "pragma x64": {
+        "prefix": "#pragma x64",
+        "body": "#pragma compile(x64, ${1|false,true|})",
+        "description": "Compiles the executable in 64-bits."
+    },
+    "pragma inputboxres": {
+        "prefix": "#pragma inputboxres",
+        "body": "#pragma compile(inputboxres, ${1|false,true|})",
+        "description": "Omits the InputBox() resources from being included with the compiled executable."
+    },
+    "pragma Comments": {
+        "prefix": "#pragma Comments",
+        "body": "#pragma compile(Comments, ${1:comment})",
+        "description": "Sets a comment to the compiled executable."
+    },
+    "pragma CompanyName": {
+        "prefix": "#pragma CompanyName",
+        "body": "#pragma compile(CompanyName, ${1:'CompanyName'})",
+        "description": "Sets a comment to the compiled executable."
+    },
+    "pragma FileDescription": {
+        "prefix": "#pragma FileDescription",
+        "body": "#pragma compile(FileDescription, ${1:'Description'})",
+        "description": "Sets a file description to the compiled executable."
+    },
+    "pragma FileVersion": {
+        "prefix": "#pragma FileVersion",
+        "body": "#pragma compile(FileVersion, ${1:1.0})",
+        "description": "Sets a file version to the compiled executable."
+    },
+    "pragma InternalName": {
+        "prefix": "#pragma InternalName",
+        "body": "#pragma compile(InternalName, ${1:\"Internal Name\"})",
+        "description": "Sets an internal name to the compiled executable."
+    },
+    "pragma LegalCopyright": {
+        "prefix": "#pragma LegalCopyright",
+        "body": "#pragma compile(LegalCopyright, ${1:Legal stuff here})",
+        "description": "Sets a legal copyright to the compiled executable."
+    },
+    "pragma LegalTrademarks": {
+        "prefix": "#pragma LegalTrademarks",
+        "body": "#pragma compile(LegalTrademarks, ${1:\"Trademarks\"})",
+        "description": "Sets a legal trademark to the compiled executable."
+    },
+    "pragma OriginalFilename": {
+        "prefix": "#pragma OriginalFilename",
+        "body": "#pragma compile(OriginalFilename, ${1:OriginalName.exe})",
+        "description": "Sets an original filename to the compiled executable."
+    },
+    "pragma ProductName": {
+        "prefix": "#pragma ProductName",
+        "body": "#pragma compile(ProductName, ${1:No Name})",
+        "description": "Sets a product name to the compiled executable."
+    },
+    "pragma ProductVersion": {
+        "prefix": "#pragma ProductVersion",
+        "body": "#pragma compile(ProductVersion, ${1:1.0})",
+        "description": "Sets a product version to the compiled executable."
     }
 }
