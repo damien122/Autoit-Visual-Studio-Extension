@@ -31,7 +31,7 @@
         "label": "AdlibUnRegister ( [\"function\"] )",
         "params": [{
             "label": "function",
-            "documentation": "[optional] The name of the adlib function to be Unregistered. See remarks for more information."
+            "documentation": "[optional] The name of the adlib function to be Unregistered."
         }]
     },
     "Asc": {
@@ -88,7 +88,7 @@
             "documentation": "The option to change."
         }, {
             "label": "param",
-            "documentation": "[optional] The value to assign to the option. The type and meaning vary by option. See remarks below. If the param is not provided, then the function just returns the value already assigned to the option. The keyword Default can be used for the parameter to reset the option to its default value."
+            "documentation": "[optional] The value to assign to the option. The type and meaning vary by option. If the param is not provided, then the function just returns the value already assigned to the option. The keyword Default can be used for the parameter to reset the option to its default value."
         }]
     },
     "AutoItWinSetTitle": {
@@ -685,7 +685,7 @@
         "documentation": "Dynamically calls a function in a DLL.",
         "params": [{
             "label": "dll",
-            "documentation": "The filename of the DLL to use. e.g. \"user32.dll\". A handle obtained from DllOpen can also be used (See Remarks)."
+            "documentation": "The filename of the DLL to use. e.g. \"user32.dll\". A handle obtained from DllOpen can also be used."
         }, {
             "label": "return type",
             "documentation": "The return type of the function"
@@ -1016,7 +1016,7 @@
         "label": "FileCopy ( \"source\", \"dest\" [, flag = 0] )",
         "params": [{
             "label": "source",
-            "documentation": "The source path of the file(s) to copy. (* and ? wildcards accepted - See Remarks) "
+            "documentation": "The source path of the file(s) to copy. (* and ? wildcards accepted) "
         }, {
             "label": "dest",
             "documentation": "The destination path of the copied file(s). "
@@ -1231,14 +1231,14 @@
         "label": "FileMove ( \"source\", \"dest\" [, flag = 0] )",
         "params": [{
                 "label": "source",
-                "documentation": "The source path and filename of the file to move. (* wildcards accepted - See Remarks)"
+                "documentation": "The source path and filename of the file to move. (* wildcards accepted)"
             }, {
                 "label": "dest",
-                "documentation": "The destination path and filename of the moved file. (* wildcards accepted - See Remarks)"
+                "documentation": "The destination path and filename of the moved file. (* wildcards accepted)"
             },
             {
                 "label": "flag",
-                "documentation": "[optional] this flag determines whether to overwrite files if they already exist: Can be a combination of the following: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files.; $FC_OVERWRITE (1) = overwrite existing files.; $FC_CREATEPATH (8) = Create destination directory structure if it doesn't exist (See Remarks)."
+                "documentation": "[optional] this flag determines whether to overwrite files if they already exist: Can be a combination of the following: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files.; $FC_OVERWRITE (1) = overwrite existing files.; $FC_CREATEPATH (8) = Create destination directory structure if it doesn't exist."
             }
         ]
     },
@@ -1266,7 +1266,7 @@
             },
             {
                 "label": "filter",
-                "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\" (See Remarks)."
+                "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\"."
             },
             {
                 "label": "options",
@@ -1288,7 +1288,7 @@
             "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
         }, {
             "label": "count",
-            "documentation": "[optional] The number of characters to read. See remarks."
+            "documentation": "[optional] The number of characters to read."
         }]
     },
     "FileReadLine": {
@@ -1315,7 +1315,7 @@
         "label": "FileRecycle ( \"source\" )",
         "params": [{
             "label": "source",
-            "documentation": "The source path of the file(s) or directory to Recycle. (* and ? wildcards accepted - See Remarks)"
+            "documentation": "The source path of the file(s) or directory to Recycle. (* and ? wildcards accepted)"
         }]
     },
     "FileRecycleEmpty": {
@@ -1337,7 +1337,7 @@
             "documentation": "Initial directory selected in the GUI file tree."
         }, {
             "label": "filter",
-            "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\" (See Remarks)."
+            "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\"."
         }, {
             "label": "options",
             "documentation": "[optional] Dialog Options: To use more than one option, BitOR the required values together.    $FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash)    $FD_PROMPTOVERWRITE (16) = Prompt to OverWrite File. Constants are defined in FileConstants.au3."
@@ -1374,7 +1374,7 @@
         "label": "FileSetAttrib ( \"file pattern\", \"+-RASHNOT\" [, recurse = 0] )",
         "params": [{
             "label": "file pattern",
-            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted - See Remarks)"
+            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted)"
         }, {
             "label": "+-RASHNOT",
             "documentation": "Attribute(s) to set/clear. e.g. \"+A\", \"+RA-SH\""
@@ -1410,7 +1410,7 @@
         "label": "FileSetTime ( \"file pattern\", \"time\" [, type = 0 [, recurse = 0]] )",
         "params": [{
             "label": "file pattern",
-            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted - See Remarks)"
+            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted)"
         }, {
             "label": "time",
             "documentation": "The new time to set in the format \"YYYYMMDDHHMMSS\" (Year, month, day, hours (24hr clock), seconds). If the time is blank \"\" then the current time is used."
@@ -1430,7 +1430,7 @@
             "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively, you may use a string filename as the first parameter."
         }, {
             "label": "text/data",
-            "documentation": "The text/data to write to the file. The text is written as is - no @CR or @LF characters are added. See remark for data type."
+            "documentation": "The text/data to write to the file. The text is written as is - no @CR or @LF characters are added."
         }]
     },
     "FileWriteLine": {
@@ -1460,7 +1460,7 @@
             "documentation": "The proxy mode to use:    $PROXY_IE (0) = (default) Use current Internet Explorer settings for proxy.    $PROXY_NONE (1) = Use no proxy (direct access)    $PROXY_SPECIFIED (2) = Use the proxy specifiedConstants are deined in \"AutoItConstants.au3\"."
         }, {
             "label": "proxy:port",
-            "documentation": "[optional] The address and port of the proxy to use. See remarks below."
+            "documentation": "[optional] The address and port of the proxy to use."
         }, {
             "label": "username",
             "documentation": "[optional] If required, the username for the proxy"
@@ -2146,7 +2146,7 @@
             "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
         }, {
             "label": "advanced",
-            "documentation": "[optional] returns extended information of a control.    $GUI_READ_DEFAULT (0) = (Default) Returns a value with state or data of a control.    $GUI_READ_EXTENDED (1) = Returns extended information of a control (see Remarks). Constants are defined in GUIConstantsEx.au3."
+            "documentation": "[optional] returns extended information of a control.    $GUI_READ_DEFAULT (0) = (Default) Returns a value with state or data of a control.    $GUI_READ_EXTENDED (1) = Returns extended information of a control. Constants are defined in GUIConstantsEx.au3."
         }]
     },
     "GUICtrlRecvMsg": {
@@ -2477,7 +2477,7 @@
         "label": "GUISetAccelerators ( accelerators [, winhandle] )",
         "params": [{
             "label": "accelerators",
-            "documentation": "A 2 dimensional array holding the accelerator table (See remarks)."
+            "documentation": "A 2 dimensional array holding the accelerator table."
         }, {
             "label": "winhandle",
             "documentation": "[optional] Windows handle as returned by GUICreate() (default is the previously used window)."
@@ -2519,7 +2519,7 @@
         "label": "GUISetCursor ( [cursorID [, override = 0 [, winhandle]]] )",
         "params": [{
             "label": "cursorID",
-            "documentation": "[optional] Cursor Id (See Remarks)."
+            "documentation": "[optional] Cursor Id."
         }, {
             "label": "override",
             "documentation": "[optional] Force the requested mouse cursor even when over controls (see below).    $GUI_CURSOR_NOOVERRIDE (0) = (default) Don't override a control's default mouse cursor.    $GUI_CURSOR_OVERRIDE (1) = override control's default mouse cursor. Constants are defined in GUIConstantsEx.au3."
@@ -2650,7 +2650,7 @@
         "label": "HotKeySet ( \"key\" [, \"function\"] )",
         "params": [{
             "label": "key",
-            "documentation": "The key combination to use as the hotkey. Same format as Send(). See remarks."
+            "documentation": "The key combination to use as the hotkey. Same format as Send()."
         }, {
             "label": "function",
             "documentation": "[optional] The name of the function to call when the key is pressed. Not specifying this parameter will unset a previous hotkey."
@@ -2664,7 +2664,7 @@
             "documentation": "The proxy mode to use:    $PROXY_IE (0) = (default) Use current Internet Explorer settings for proxy.    $PROXY_NONE (1) = Use no proxy (direct access)    $PROXY_SPECIFIED (2) = Use the proxy specifiedConstants are deined in \"AutoItConstants.au3\"."
         }, {
             "label": "proxy:port",
-            "documentation": "[optional] The address and port of the proxy to use. See remarks below."
+            "documentation": "[optional] The address and port of the proxy to use."
         }, {
             "label": "username",
             "documentation": "[optional] If required, the username for the proxy"
@@ -2702,16 +2702,16 @@
         "label": "InetGet ( \"URL\", \"filename\" [, options = 0 [, background = 0]] )",
         "params": [{
             "label": "URL",
-            "documentation": "URL of the file to download. See remarks below."
+            "documentation": "URL of the file to download."
         }, {
             "label": "filename",
             "documentation": "Local filename to download to."
         }, {
             "label": "options",
-            "documentation": "[optional]$INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online (See remarks). Constants are defined in InetConstants.au3."
+            "documentation": "[optional]$INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online. Constants are defined in InetConstants.au3."
         }, {
             "label": "background",
-            "documentation": "[optional]    $INET_DOWNLOADWAIT (0) = Wait until the download is complete before continuing (default).    $INET_DOWNLOADBACKGROUND (1) = return immediately and download in the background (see remarks). Constants are defined in InetConstants.au3"
+            "documentation": "[optional]    $INET_DOWNLOADWAIT (0) = Wait until the download is complete before continuing (default).    $INET_DOWNLOADBACKGROUND (1) = return immediately and download in the background. Constants are defined in InetConstants.au3"
         }]
     },
     "InetGetInfo": {
@@ -2730,7 +2730,7 @@
         "label": "InetGetSize ( \"URL\" [, options = 0] )",
         "params": [{
             "label": "URL",
-            "documentation": "URL of the file to download. See remarks below."
+            "documentation": "URL of the file to download."
         }, {
             "label": "options",
             "documentation": "[optional]    $INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided. Constants are defined in InetConstants.au3."
@@ -2741,10 +2741,10 @@
         "label": "InetRead ( \"URL\" [, options = 0] )",
         "params": [{
             "label": "URL",
-            "documentation": "URL of the file to download. See remarks below."
+            "documentation": "URL of the file to download."
         }, {
             "label": "options",
-            "documentation": "[optional]    $INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online (See remarks). Constants are defined in InetConstants.au3."
+            "documentation": "[optional]    $INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online. Constants are defined in InetConstants.au3."
         }]
     },
     "IniDelete": {
@@ -2862,7 +2862,7 @@
             "documentation": "[optional] The value that the input box starts with."
         }, {
             "label": "password char",
-            "documentation": "[optional] The character to replace all typed characters with in the display. If you want the actual typed character to appear, define with an empty string (\"\") (default) or a space for the first character. If you provide a multi-character string, only the first character is used for character masking. There are special meanings for the second and subsequent characters. See Remarks."
+            "documentation": "[optional] The character to replace all typed characters with in the display. If you want the actual typed character to appear, define with an empty string (\"\") (default) or a space for the first character. If you provide a multi-character string, only the first character is used for character masking. There are special meanings for the second and subsequent characters."
         }, {
             "label": "width",
             "documentation": "[optional] The width of the window."
@@ -2891,7 +2891,7 @@
             "documentation": "An expression to convert into an integer."
         }, {
             "label": "flag",
-            "documentation": "[optional] Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer. See remarks.    $NUMBER_32BIT (1) = string is interpreted as a 32bit integer    $NUMBER_64BIT (2) = string is interpreted as a 64bit integer. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "[optional] Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer.    $NUMBER_32BIT (1) = string is interpreted as a 32bit integer    $NUMBER_64BIT (2) = string is interpreted as a 64bit integer. Constants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "IsAdmin": {
@@ -3087,7 +3087,7 @@
         "label": "MouseGetPos ( [dimension] )",
         "params": [{
             "label": "dimension",
-            "documentation": "[optional] argument that determines what the return value will be. See Return Value."
+            "documentation": "[optional] argument that determines what the return value will be."
         }]
     },
     "MouseMove": {
@@ -3128,7 +3128,7 @@
         "label": "MsgBox ( flag, \"title\", \"text\" [, timeout = 0 [, hwnd]] )",
         "params": [{
             "label": "flag",
-            "documentation": "The flag indicates the type of message box and the possible button combinations. See remarks."
+            "documentation": "The flag indicates the type of message box and the possible button combinations."
         }, {
             "label": "title",
             "documentation": "The title of the message box."
@@ -3151,7 +3151,7 @@
             "documentation": "An expression to convert into a number."
         }, {
             "label": "flag",
-            "documentation": "[optional] Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer. See remarks.    $NUMBER_32BIT (1) = the result is 32bit integer.    $NUMBER_64BIT (2) = the result is 64bit integer.    $NUMBER_DOUBLE (3) = the result is double. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "[optional] Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer.    $NUMBER_32BIT (1) = the result is 32bit integer.    $NUMBER_64BIT (2) = the result is 64bit integer.    $NUMBER_DOUBLE (3) = the result is double. Constants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "ObjCreate": {
@@ -3207,7 +3207,7 @@
         "label": "ObjGet ( \"filename\" [, \"classname\" [, instance]] )",
         "params": [{
             "label": "filename",
-            "documentation": "The full path and name to the file containing the object (See remarks)."
+            "documentation": "The full path and name to the file containing the object."
         }, {
             "label": "classname",
             "documentation": "[optional] Class identifier. Can be in either ProgID or the string representation of the CLSID."
@@ -3532,7 +3532,7 @@
         "label": "Run ( \"program\" [, \"workingdir\" [, show_flag [, opt_flag]]] )",
         "params": [{
             "label": "program",
-            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks)."
+            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
         }, {
             "label": "workingdir",
             "documentation": "[optional] The working directory. Blank (\"\") uses the current working directory. This is not the path to the program."
@@ -3561,7 +3561,7 @@
             "documentation": "    $RUN_LOGON_NOPROFILE (0) - Interactive logon with no profile.    $RUN_LOGON_PROFILE (1) - Interactive logon with profile.    $RUN_LOGON_NETWORK (2) - Network credentials only.    $RUN_LOGON_INHERIT (4) - Inherit the calling process's environment instead of the user's environment. Constants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "program",
-            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks)."
+            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
         }, {
             "label": "workingdir",
             "documentation": "[optional] The working directory. If not specified, then the value of @SystemDir will be used. This is not the path to the program."
@@ -3590,7 +3590,7 @@
             "documentation": "    $RUN_LOGON_NOPROFILE (0) - Interactive logon with no profile.    $RUN_LOGON_PROFILE (1) - Interactive logon with profile.    $RUN_LOGON_NETWORK (2) - Network credentials only.    $RUN_LOGON_INHERIT (4) - Inherit the calling process's environment instead of the user's environment. Constants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "program",
-            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks)."
+            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
         }, {
             "label": "workingdir",
             "documentation": "[optional] The working directory. If not specified, then the value of @SystemDir will be used. This is not the path to the program."
@@ -3607,7 +3607,7 @@
         "label": "RunWait ( \"program\" [, \"workingdir\" [, show_flag [, opt_flag]]] )",
         "params": [{
             "label": "program",
-            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run (see remarks)."
+            "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
         }, {
             "label": "workingdir",
             "documentation": "[optional] The working directory. Blank (\"\") uses the current working directory. This is not the path to the program."
@@ -3680,7 +3680,7 @@
             "documentation": "[optional] The working directory. Blank (\"\") uses the current working directory."
         }, {
             "label": "verb",
-            "documentation": "[optional] The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's propertiesSee remarks for more information on the default behavior when a verb is not specified. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "[optional] The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's properties. Constants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "showflag",
             "documentation": "[optional] The \"show\" flag of the executed program:    @SW_HIDE = Hidden window    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
@@ -3700,7 +3700,7 @@
             "documentation": "[optional] The working directory. Blank (\"\") uses the current working directory."
         }, {
             "label": "verb",
-            "documentation": "[optional] The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's propertiesSee remarks for more information on the default behavior when a verb is not specified. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "[optional] The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's properties. Constants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "showflag",
             "documentation": "[optional] The \"show\" flag of the executed program:    @SW_HIDE = Hidden window    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
@@ -3927,7 +3927,7 @@
         "label": "StringFormat ( \"format control\", var1 [, ... var32] )",
         "params": [{
             "label": "format control",
-            "documentation": "The format and flags to use (see Remarks)."
+            "documentation": "The format and flags to use."
         }, {
             "label": "var1...var32",
             "documentation": "Up to 32 variables that will be output according to the \"format control\"."
@@ -3970,7 +3970,7 @@
             "documentation": "[optional] The starting position of the search."
         }, {
             "label": "count",
-            "documentation": "[optional] The number of characters to search. This effectively limits the search to a portion of the full string. See remarks."
+            "documentation": "[optional] The number of characters to search. This effectively limits the search to a portion of the full string."
         }]
     },
     "StringIsAlNum": {
@@ -4122,7 +4122,7 @@
             "documentation": "The regular expression to compare. See StringRegExp for pattern definition characters."
         }, {
             "label": "replace",
-            "documentation": "The text to replace the regular expression matching text with. To insert matched group text, \\0 - \\9 (or $0 - $9) can be used as back-references. (See remarks)"
+            "documentation": "The text to replace the regular expression matching text with. To insert matched group text, \\0 - \\9 (or $0 - $9) can be used as back-references."
         }, {
             "label": "count",
             "documentation": "[optional] The number of times to execute the replacement in the string. The default is 0. Use 0 for global replacement."
@@ -4557,7 +4557,7 @@
         "label": "TraySetToolTip ( [text] )",
         "params": [{
             "label": "text",
-            "documentation": "[optional] The new text to be displayed as tooltip. The length is limited - see Remarks."
+            "documentation": "[optional] The new text to be displayed as tooltip. The length is limited."
         }]
     },
     "TrayTip": {
