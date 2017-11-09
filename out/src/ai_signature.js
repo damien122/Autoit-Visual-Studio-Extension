@@ -2,11 +2,14 @@
 
 var { languages, Position, SignatureHelp, SignatureInformation, ParameterInformation } = require('vscode')
 var mergeJSON = require('merge-json')
-
+var fs = require('fs')
+var path = require('path')
 var mainFunctions = require('./signatures/functions.json')
 var udfs = require('./signatures/udfs.json')
 
-var signatures = mergeJSON.merge(mainFunctions, udfs)
+var defaultSigs = mergeJSON.merge(mainFunctions, udfs)
+var currentIncludeFiles = []
+var includes = {}
 
 module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', scheme: 'file' }, {
     provideSignatureHelp(document, position, token) {
@@ -18,6 +21,9 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         }
         let callPos = previousPosition(document, caller.openParen)
         let callWord = document.getText(document.getWordRangeAtPosition(callPos))
+
+        //Integrate user functions
+        var signatures = mergeJSON.merge(defaultSigs, getIncludes(document))
 
         //Get the called word from the json files
         let foundSig = signatures[callWord]
@@ -79,4 +85,74 @@ function previousPosition(doc, pos) {
         pos = pos.translate(0, -1)
     }
     return null
+}
+
+function getIncludes(doc) { // determines whether includes should be re-parsed or not.
+    var text = doc.getText()
+    var pattern = null
+    const includePattern = /^\s+#include\s"(.+)"/gm
+    var includesCheck = []
+
+    while (pattern = includePattern.exec(text)) {
+        includesCheck.push(pattern[1])
+    }
+
+    if (!arraysMatch(includesCheck, currentIncludeFiles)) {
+        includes = {}
+        for (var i in includesCheck) {
+            var newIncludes = getIncludeData(includesCheck[i], doc)
+            Object.assign(includes, newIncludes)
+        }
+        currentIncludeFiles = includesCheck
+    }
+
+    return includes
+}
+
+function getIncludeData(fileName, doc) {
+    // console.log(fileName)
+    const _includeFuncPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g
+    var functions = {}
+    var filePath = ""
+
+    if (fileName.charAt(1) == ':') {
+        filePath = fileName
+    } else {
+        filePath = path.normalize(path.dirname(doc.fileName) + 
+        ((fileName.charAt(0) == '\\' || fileName.charAt(0) == '\/') ? '' : '\\') +
+        fileName)
+    }
+    filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
+    
+    var pattern = null
+    var fileData = fs.readFileSync(filePath).toString()
+    
+    while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
+        functions[pattern[2]] = { 
+                label: pattern[1],
+                params: getParams(pattern[3]) 
+            }
+    }
+
+    return functions
+}
+
+function getParams(paramText) {
+    var params = paramText.split(",")
+
+    for (var p in params) {
+        params[p] = { label: params[p].trim() }
+    }
+    
+    return params
+}
+
+
+function arraysMatch(arr1, arr2) {
+    if (arr1.length == arr2.length &&
+        arr1.some((v) => arr2.indexOf(v) <= 0)) {
+        return true
+    } else {
+        return false
+    }
 }
