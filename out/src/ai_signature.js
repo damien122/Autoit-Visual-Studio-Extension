@@ -41,7 +41,7 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         //Place signature information into results
         result.signatures = [si]
         result.activeSignature = 0
-        result.activeParameter = Math.min(caller.commas.length, si.parameters.length - 1)
+        result.activeParameter = caller.parameter
 
         return result
     }
@@ -49,31 +49,40 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
 
 
 function startOfCall(doc, pos) {
-    let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
-    let parenBalance = 0
+    // let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
+    let currentLine = doc.lineAt(pos.line).text
+    // let parenBalance = 0
     let commas = []
+    const commaRegex = /(?!\B"[^"]*),(?![^"]*"\B)/g
+    let commaSearch
 
-    for (let char = pos.character; char >= 0; char--) {
-        switch (currentLine[char]) {
-            case '(':
-                parenBalance--
-                if (parenBalance < 0) {
-                    return {
-                        openParen: new Position(pos.line, char),
-                        commas: commas
-                    }
-                }
-                break
-            case ')':
-                parenBalance++
-                break
-            case ',':
-                if (parenBalance === 0) {
-                    commas.push(new Position(pos.line, char))
-                }
+    var openParen = currentLine.search(/\(/) // Get the position of the opening paren
+    if (openParen === -1) {
+        return null
+    }
+
+    // Find all the commas not inside quotes
+    while ((commaSearch = commaRegex.exec(currentLine)) !== null) {
+        commas.push(new Position(pos.line, commaSearch.index))
+    }
+
+    // Determine which parameter the current position falls under
+    var parameter = -1
+    for (var p in commas) {
+        if (pos.character <= commas[p].character) {
+            parameter = parseInt(p)
+            break
         }
     }
-    return null
+    if (parameter === -1) { //set outside if there are too many commas
+        parameter = commas.length
+    }
+
+    return {
+        openParen: new Position(pos.line, openParen),
+        commas: commas,
+        parameter: parameter
+    }
 }
 
 function previousPosition(doc, pos) {
