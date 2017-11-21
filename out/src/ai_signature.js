@@ -53,7 +53,7 @@ function startOfCall(doc, pos) {
     let currentLine = doc.lineAt(pos.line).text
     // let parenBalance = 0
     let commas = []
-    const commaRegex = /(?!\B"[^"]*),(?![^"]*"\B)/g
+    const commaRegex = /(?!\B["'][^"']*),(?![^"']*['"]\B)/g
     let commaSearch
 
     var openParen = currentLine.search(/\(/) // Get the position of the opening paren
