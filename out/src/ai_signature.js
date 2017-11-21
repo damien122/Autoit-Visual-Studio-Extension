@@ -1,6 +1,6 @@
 'use strict'
 
-var { languages, Position, SignatureHelp, SignatureInformation, ParameterInformation } = require('vscode')
+var { languages, Position, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString } = require('vscode')
 var mergeJSON = require('merge-json')
 var fs = require('fs')
 var path = require('path')
@@ -34,9 +34,13 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
 
         // let declarationText, sig
         let result = new SignatureHelp()
-        let si = new SignatureInformation(foundSig.label, foundSig.documentation)
+        let si = new SignatureInformation(foundSig.label, 
+            new MarkdownString(foundSig.documentation))
             //Enter parameter information into signature information
-        si.parameters = foundSig.params
+        foundSig.params.forEach(element => {
+            si.parameters.push(new ParameterInformation(element.label, 
+                new MarkdownString(element.documentation)))
+        })
 
         //Place signature information into results
         result.signatures = [si]

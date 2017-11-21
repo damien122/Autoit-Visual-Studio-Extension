@@ -1,13 +1,13 @@
 {
     "_Array1DToHistogram": {
-        "documentation": "Transform a 1D array to Histogram",
+        "documentation": "#### Transform a 1D array to Histogram",
         "label": "_Array1DToHistogram ( $aArray [, $iSizing = 100] )",
         "params": [{
             "label": "$aArray",
             "documentation": "Array to transform"
         }, {
             "label": "$iSizing",
-            "documentation": "[optional] Allows to zoom the histogram. Default = 100 percent"
+            "documentation": "**[optional]** Allows to zoom the histogram. Default = 100 percent"
         }]
     },
     "_ArrayAdd": {
@@ -21,16 +21,16 @@
             "documentation": "Value(s) to add - can be a single item, a delimited string or an array"
         }, {
             "label": "$iStart",
-            "documentation": "[optional] Column in which addition is to begin (2D array only)"
+            "documentation": "**[optional]** Column in which addition is to begin (2D array only)"
         }, {
             "label": "$sDelim_Item",
-            "documentation": "[optional] Delimiter used if a string is to be split into items"
+            "documentation": "**[optional]** Delimiter used if a string is to be split into items"
         }, {
             "label": "$sDelim_Row",
-            "documentation": "[optional] Delimiter used if a string is to be split into rows (2D only)"
+            "documentation": "**[optional]** Delimiter used if a string is to be split into rows (2D only)"
         }, {
             "label": "$iForce",
-            "documentation": "[optional] Maintains default behaviour,    ARRAYFILL_FORCE_DEFAULT (0)Forces $vValue addition as a single item,    $ARRAYFILL_FORCE_SINGLEITEM (1)Or forces datatype for all added items    $ARRAYFILL_FORCE_INT (2)    $ARRAYFILL_FORCE_NUMBER (3)    $ARRAYFILL_FORCE_PTR (4)    $ARRAYFILL_FORCE_HWND (5)    $ARRAYFILL_FORCE_STRING (6)See Remarks for more details"
+            "documentation": "**[optional]** Maintains default behaviour,  \n`$ARRAYFILL_FORCE_DEFAULT` (0)  \nForces `$vValue` addition as a single item,  \n`$ARRAYFILL_FORCE_SINGLEITEM` (1)  \nOr forces datatype for all added items  \n`$ARRAYFILL_FORCE_INT` (2)  \n`$ARRAYFILL_FORCE_NUMBER` (3)  \n`$ARRAYFILL_FORCE_PTR` (4)  \n`$ARRAYFILL_FORCE_HWND` (5)  \n`$ARRAYFILL_FORCE_STRING` (6)"
         }]
     },
     "_ArrayBinarySearch": {
