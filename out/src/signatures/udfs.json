@@ -1,6 +1,6 @@
 {
     "_Array1DToHistogram": {
-        "documentation": "#### Transform a 1D array to Histogram",
+        "documentation": "Transform a 1D array to Histogram",
         "label": "_Array1DToHistogram ( $aArray [, $iSizing = 100] )",
         "params": [{
             "label": "$aArray",
@@ -44,13 +44,13 @@
             "documentation": "Value to find"
         }, {
             "label": "$iStart",
-            "documentation": "[optional] Index of array to start searching at"
+            "documentation": "**[optional]** Index of array to start searching at"
         }, {
             "label": "$iEnd",
-            "documentation": "[optional] Index of array to stop searching at"
+            "documentation": "**[optional]** Index of array to stop searching at"
         }, {
             "label": "$iColumn",
-            "documentation": "[optional] Column of array to search"
+            "documentation": "**[optional]** Column of array to search"
         }]
     },
     "_ArrayColDelete": {
@@ -64,7 +64,7 @@
             "documentation": "Column to delete"
         }, {
             "label": "$bConvert",
-            "documentation": "[optional] If True then if only one column remains the array is converted to 1D"
+            "documentation": "**[optional]** If True then if only one column remains the array is converted to 1D"
         }]
     },
     "_ArrayColInsert": {
@@ -89,7 +89,7 @@
             "documentation": "Size of the combinations set"
         }, {
             "label": "$sDelimiter",
-            "documentation": "[optional] String result separator, default is \"\" for none"
+            "documentation": "**[optional]** String result separator, default is \"\" for none"
         }]
     },
     "_ArrayConcatenate": {
@@ -103,7 +103,7 @@
             "documentation": "The array to concatenate to the target array"
         }, {
             "label": "$iStart",
-            "documentation": "[optional] index of the first Source array entry (Default = 0)"
+            "documentation": "**[optional]** index of the first Source array entry (Default = 0)"
         }]
     },
     "_ArrayDelete": {
@@ -125,28 +125,28 @@
             "documentation": "Array to display"
         }, {
             "label": "$sTitle",
-            "documentation": "[optional] Title for dialog. Default = \"ArrayDisplay\"."
+            "documentation": "**[optional]** Title for dialog. Default = \"ArrayDisplay\"."
         }, {
             "label": "$sArrayRange",
-            "documentation": "[optional] Range of rows/columns to display. Default (\"\") = entire array. (See below for details)"
+            "documentation": "**[optional]** Range of rows/columns to display. Default (\"\") = entire array."
         }, {
             "label": "$iFlags",
-            "documentation": "[optional] Determine UDF options. Add required values together    0 = (default) Column text alignment - left    1 = Transposes the array    2 = Column text alignment - right    4 = Column text alignment - center    8 = Verbose - display MsgBox on error and splash screens during processing of large arrays    16 = Only 'Copy' buttons displayed    32 = No buttons displayed    64 = No 'Row' column displayed"
+            "documentation": "**[optional]** Determine UDF options. Add required values together  \n  0 = (default) Column text alignment - left  \n    1 = Transposes the array  \n  2 = Column text alignment - right  \n4 = Column text alignment - center  \n8 = Verbose - display MsgBox on error and splash screens during processing of large arrays  \n16 = Only 'Copy' buttons displayed  \n32 = No buttons displayed  \n64 = No 'Row' column displayed"
         }, {
             "label": "$vUser_Separator",
-            "documentation": "[optional] Sets column display option when copying data to clipboard. Character = Delimiter between columns. Number = Fixed column width - longer items will be truncated.    Default = Current separator character (usually \"|\")."
+            "documentation": "**[optional]** Sets column display option when copying data to clipboard.  \n> Character = Delimiter between columns.  \n> Number = Fixed column width - longer items will be truncated.  \n> Default = Current separator character (usually \"|\")."
         }, {
             "label": "$sHeader",
-            "documentation": "[optional] Column names in header (string of names separated by current separator character - usually \"|\"). Default see Remarks."
+            "documentation": "**[optional]** Column names in header (string of names separated by current separator character - usually \"|\")."
         }, {
-            "label": "$iMax_Colwidth",
-            "documentation": "[optional] Max width to which a ListView column will expand to show content. Default = 350 pixels."
+            "label": "$iMax_ColWidth",
+            "documentation": "**[optional]** Max width to which a ListView column will expand to show content. Default = 350 pixels."
         }, {
             "label": "$iAlt_Color",
-            "documentation": "[optional] ListView alternate rows set to defined color. Default = all rows ListView background color."
+            "documentation": "**[optional]** ListView alternate rows set to defined color. Default = all rows ListView background color."
         }, {
             "label": "$hUser_Function",
-            "documentation": "[optional] A variable assigned to the user defined function to run. Default = none. See remarks."
+            "documentation": "**[optional]** A variable assigned to the user defined function to run. Default = none."
         }]
     },
     "_ArrayExtract": {

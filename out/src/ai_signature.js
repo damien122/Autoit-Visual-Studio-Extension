@@ -35,7 +35,7 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         // let declarationText, sig
         let result = new SignatureHelp()
         let si = new SignatureInformation(foundSig.label, 
-            new MarkdownString(foundSig.documentation))
+            new MarkdownString("**__" + foundSig.documentation + "__**"))
             //Enter parameter information into signature information
         foundSig.params.forEach(element => {
             si.parameters.push(new ParameterInformation(element.label, 
