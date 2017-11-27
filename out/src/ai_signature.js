@@ -57,7 +57,7 @@ function getCallInfo(doc, pos) {
     // Remove paren sets for easier parsing
     currentLine = currentLine.replace(/\([^()]*\)/g, '')
     // Remove multiple open paren for easier parsing
-    currentLine = currentLine.replace(/\([2,]/g, '(')
+    currentLine = currentLine.replace(/\({2,}/g, '(')
     // Split the string by open parens
     let parenSplit = currentLine.split('(')
     // Get the length - 2 item
