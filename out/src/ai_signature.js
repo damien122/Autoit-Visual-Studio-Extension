@@ -1,6 +1,6 @@
 'use strict'
 
-var { languages, Position, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString } = require('vscode')
+var { languages, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString } = require('vscode')
 var mergeJSON = require('merge-json')
 var fs = require('fs')
 var path = require('path')
@@ -13,20 +13,17 @@ var includes = {}
 
 module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', scheme: 'file' }, {
     provideSignatureHelp(document, position, token) {
-        // console.log("Actually getting into signature code")
         // Find out what called for sig
-        let caller = startOfCall(document, position)
+        let caller = getCallInfo(document, position)
         if (caller == null) {
             return null
         }
-        let callPos = previousPosition(document, caller.openParen)
-        let callWord = document.getText(document.getWordRangeAtPosition(callPos))
 
         //Integrate user functions
         var signatures = mergeJSON.merge(defaultSigs, getIncludes(document))
 
         //Get the called word from the json files
-        let foundSig = signatures[callWord]
+        let foundSig = signatures[caller.func]
         if (foundSig == null) {
             return null
         }
@@ -45,59 +42,37 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         //Place signature information into results
         result.signatures = [si]
         result.activeSignature = 0
-        result.activeParameter = caller.parameter
+        result.activeParameter = caller.commas
 
         return result
     }
 }, '(', ',')
 
 
-function startOfCall(doc, pos) {
-    // let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
-    let currentLine = doc.lineAt(pos.line).text
-    // let parenBalance = 0
-    let commas = []
-    const commaRegex = /(?!\B["'][^"']*),(?![^"']*['"]\B)/g
-    let commaSearch
-
-    var openParen = currentLine.search(/\(/) // Get the position of the opening paren
-    if (openParen === -1) {
-        return null
-    }
-
-    // Find all the commas not inside quotes
-    while ((commaSearch = commaRegex.exec(currentLine)) !== null) {
-        commas.push(new Position(pos.line, commaSearch.index))
-    }
-
-    // Determine which parameter the current position falls under
-    var parameter = -1
-    for (var p in commas) {
-        if (pos.character <= commas[p].character) {
-            parameter = parseInt(p)
-            break
-        }
-    }
-    if (parameter === -1) { //set outside if there are too many commas
-        parameter = commas.length
+function getCallInfo(doc, pos) {
+    // Acquire the text up the point where the current cursor/paren/comma is at
+    let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
+    // Remove whole functions from the string for easier parsing
+    currentLine = currentLine.replace(/\w+\([^()]*\)/g, '')
+    // Split the string by open parens
+    let parenSplit = currentLine.split('(')
+    // Get the length - 2 item
+    var currentFunc = parenSplit[parenSplit.length - 2]
+    currentFunc = currentFunc.match(/(.*)\b(\w+)/)[2]
+    // Find the position of the closest/last open paren
+    let openParen = currentLine.lastIndexOf('(')
+    // Count non-string commas in text following open paren
+    let commas = currentLine.slice(openParen).match(/(?!\B["'][^"']*),(?![^"']*['"]\B)/g)
+    if (commas === null) {
+        commas = 0
+    } else {
+        commas = commas.length
     }
 
     return {
-        openParen: new Position(pos.line, openParen),
-        commas: commas,
-        parameter: parameter
+        func: currentFunc,
+        commas: commas
     }
-}
-
-function previousPosition(doc, pos) {
-    while (pos.character > 0) {
-        let word = doc.getWordRangeAtPosition(pos)
-        if (word) {
-            return word.start
-        }
-        pos = pos.translate(0, -1)
-    }
-    return null
 }
 
 function getIncludes(doc) { // determines whether includes should be re-parsed or not.
