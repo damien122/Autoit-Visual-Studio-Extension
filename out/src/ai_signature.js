@@ -12,7 +12,7 @@ var currentIncludeFiles = []
 var includes = {}
 
 module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', scheme: 'file' }, {
-    provideSignatureHelp(document, position, token) {
+    provideSignatureHelp(document, position) {
         // Find out what called for sig
         let caller = getCallInfo(document, position)
         if (caller == null) {
@@ -51,23 +51,18 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
 
 function getCallInfo(doc, pos) {
     // Acquire the text up the point where the current cursor/paren/comma is at
-    let currentLine = doc.lineAt(pos.line).text.substring(0, pos.character)
-    // Remove whole functions from the string for easier parsing
-    currentLine = currentLine.replace(/\w+\([^()]*\)/g, '')
-        .replace(/"[^"]*"/, '').replace(/"[^"]*(?=$)/, '')
-    // Remove paren sets for easier parsing
-    currentLine = currentLine.replace(/\([^()]*\)/g, '')
-    // Remove multiple open paren for easier parsing
-    currentLine = currentLine.replace(/\({2,}/g, '(')
+    let codeAtPosition = doc.lineAt(pos.line).text.substring(0, pos.character)
+    let cleanCode = getParsableCode(codeAtPosition)
+    
     // Split the string by open parens
-    let parenSplit = currentLine.split('(')
+    let parenSplit = cleanCode.split('(')
     // Get the length - 2 item
     var currentFunc = parenSplit[parenSplit.length - 2]
     currentFunc = currentFunc.match(/(.*)\b(\w+)/)[2]
     // Find the position of the closest/last open paren
-    let openParen = currentLine.lastIndexOf('(')
+    let openParen = cleanCode.lastIndexOf('(')
     // Count non-string commas in text following open paren
-    let commas = currentLine.slice(openParen).match(/(?!\B["'][^"']*),(?![^"']*['"]\B)/g)
+    let commas = cleanCode.slice(openParen).match(/(?!\B["'][^"']*),(?![^"']*['"]\B)/g)
     if (commas === null) {
         commas = 0
     } else {
@@ -78,6 +73,18 @@ function getCallInfo(doc, pos) {
         func: currentFunc,
         commas: commas
     }
+}
+
+function getParsableCode(code) {
+    // Remove whole inner functions from the string for easier parsing
+    code = code.replace(/\w+\([^()]*\)/g, '')
+        .replace(/"[^"]*"/g, '').replace(/'[^']*'/g,'') // Remove double/single quote sets
+        .replace(/"[^"]*(?=$)/g, '') // Remove double quote and text at end of line
+        .replace(/'[^']*(?=$)/g, '') // Remove single quote and text at end of line
+        .replace(/\([^()]*\)/g, '') // Remove paren sets
+        .replace(/\({2,}/g, '(') // Reduce multiple open parens
+
+    return code
 }
 
 function getIncludes(doc) { // determines whether includes should be re-parsed or not.
