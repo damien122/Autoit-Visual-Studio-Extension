@@ -21,6 +21,7 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
 
         //Integrate user functions
         var signatures = mergeJSON.merge(defaultSigs, getIncludes(document))
+        signatures = mergeJSON.merge(signatures, getLocalSigs(document))
 
         //Get the called word from the json files
         let foundSig = signatures[caller.func]
@@ -141,13 +142,33 @@ function getIncludeData(fileName, doc) {
     return functions
 }
 
+function getLocalSigs(doc) {
+    const _includeFuncPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)\))/gm
+    let text = doc.getText()
+    let functions = {}
+    
+    let pattern = null
+    while ((pattern = _includeFuncPattern.exec(text)) !== null) {
+        functions[pattern[2]] = {
+            label: pattern[1],
+            documentation: '',
+            params: getParams(pattern[3])
+        }
+    }
+
+    return functions
+}
+
 function getParams(paramText) {
     var params = paramText.split(",")
 
     for (var p in params) {
-        params[p] = { label: params[p].trim() }
-    }
-    
+        params[p] = { 
+            label: params[p].trim(),
+            documentation: ''
+        }
+    }    
+
     return params
 }
 
