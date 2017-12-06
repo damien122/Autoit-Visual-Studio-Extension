@@ -28,8 +28,6 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
             return null
         }
 
-
-        // let declarationText, sig
         let result = new SignatureHelp()
         let si = new SignatureInformation(foundSig.label, 
             new MarkdownString("*" + foundSig.documentation + "*"))
@@ -54,24 +52,9 @@ function getCallInfo(doc, pos) {
     let codeAtPosition = doc.lineAt(pos.line).text.substring(0, pos.character)
     let cleanCode = getParsableCode(codeAtPosition)
     
-    // Split the string by open parens
-    let parenSplit = cleanCode.split('(')
-    // Get the length - 2 item
-    var currentFunc = parenSplit[parenSplit.length - 2]
-    currentFunc = currentFunc.match(/(.*)\b(\w+)/)[2]
-    // Find the position of the closest/last open paren
-    let openParen = cleanCode.lastIndexOf('(')
-    // Count non-string commas in text following open paren
-    let commas = cleanCode.slice(openParen).match(/(?!\B["'][^"']*),(?![^"']*['"]\B)/g)
-    if (commas === null) {
-        commas = 0
-    } else {
-        commas = commas.length
-    }
-
     return {
-        func: currentFunc,
-        commas: commas
+        func: getCurrentFunction(cleanCode),
+        commas: countCommas(cleanCode)
     }
 }
 
@@ -85,6 +68,27 @@ function getParsableCode(code) {
         .replace(/\({2,}/g, '(') // Reduce multiple open parens
 
     return code
+}
+
+function getCurrentFunction(code) {
+    let parenSplit = code.split('(')
+    // Get the 2nd to last item (right in front of last open paren)
+    // and clean up the results
+    return parenSplit[parenSplit.length - 2].match(/(.*)\b(\w+)/)[2]
+}
+
+function countCommas(code) {
+    // Find the position of the closest/last open paren
+    let openParen = code.lastIndexOf('(')
+    // Count non-string commas in text following open paren
+    let commas = code.slice(openParen).match(/(?!\B["'][^"']*),(?![^"']*['"]\B)/g)
+    if (commas === null) {
+        commas = 0
+    } else {
+        commas = commas.length
+    }
+
+    return commas
 }
 
 function getIncludes(doc) { // determines whether includes should be re-parsed or not.
