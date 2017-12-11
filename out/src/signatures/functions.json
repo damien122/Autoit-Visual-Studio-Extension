@@ -231,14 +231,15 @@
         "documentation": "Disable/enable the mouse and keyboard.",
         "params": [{
             "label": "flag",
-            "documentation": "$BI_DISABLE (1) = Disable user input / $BI_ENABLE (0) = Enable user input"
+            "documentation": "`$BI_DISABLE` (1) = Disable user input  \n`$BI_ENABLE` (0) = Enable user input"
         }]
     },
     "Break": {
         "label": "Break ( mode )",
+        "documentation:": "Enables or disables the users' ability to exit a script from the tray icon menu.",
         "params": [{
             "label": "mode",
-            "documentation": "Sets the script break mode: $BREAK_ENABLE (1) = Break is enabled (user can quit) (default) / $BREAK_DISABLE (0) = Break is disabled (user cannot quit)"
+            "documentation": "Sets the script break mode:  \n`$BREAK_ENABLE` (1) = Break is enabled (user can quit) (default)  \n`$BREAK_DISABLE` (0) = Break is disabled (user cannot quit)"
         }]
     },
     "Call": {
@@ -292,7 +293,8 @@
         }]
     },
     "ClipPut": {
-        "label": "ClipPut(\"value\")",
+        "label": "ClipPut( \"value\" )",
+        "documentation": "Writes text to the clipboard.",
         "params": [{
             "label": "\"value\"",
             "documentation": "The text to write to the clipboard."
@@ -892,7 +894,7 @@
             "documentation": "The remote share to connect to in the form \"\\\\server\\share\". "
         }, {
             "label": "flags",
-            "documentation": "**[optional]** A combination of the following: $DMA_DEFAULT (0) = default; $DMA_PERSISTENT (1) = Persistent mapping; $DMA_AUTHENTICATION (8) = Show authentication dialog if required"
+            "documentation": "**[optional]** A combination of the following:  \n`$DMA_DEFAULT` (0) = default;  \n`$DMA_PERSISTENT` (1) = Persistent mapping;  \n`$DMA_AUTHENTICATION` (8) = Show authentication dialog if required"
         }, {
             "label": "user",
             "documentation": "**[optional]** The username to use to connect. In the form \"username\" or \"domain\\username\". "
@@ -1076,7 +1078,7 @@
             },
             {
                 "label": "state",
-                "documentation": "**[optional]** The state the shortcut is launched in. Use either @SW_SHOWNORMAL, @SW_SHOWMINNOACTIVE or @SW_SHOWMAXIMIZED "
+                "documentation": "**[optional]** The state the shortcut is launched in. Use either `@SW_SHOWNORMAL`, `@SW_SHOWMINNOACTIVE` or `@SW_SHOWMAXIMIZED`"
             }
         ]
     },
@@ -1152,7 +1154,7 @@
             "documentation": "Full path and file name to convert "
         }, {
             "label": "flag",
-            "documentation": "**[optional]** $FN_FULLPATH (0) - Default; $FN_RELATIVEPATH (1) - file can have relative dir, e.g. \"..\file.txt\""
+            "documentation": "**[optional]**  \n`$FN_FULLPATH` (0) - Default;  \n`$FN_RELATIVEPATH` (1) - file can have relative dir, e.g. \"..\\file.txt\""
         }]
     },
     "FileGetPos": {
@@ -1179,7 +1181,7 @@
             "documentation": "full path and file name to convert "
         }, {
             "label": "flag",
-            "documentation": "**[optional]** $FN_FULLPATH (0) - Default; $FN_RELATIVEPATH (1) - file can have relative dir, e.g. \"..\file.txt\" "
+            "documentation": "**[optional]**  \n`$FN_FULLPATH` (0) - Default;  \n`$FN_RELATIVEPATH` (1) - file can have relative dir, e.g. \"..\\file.txt\""
         }]
     },
     "FileGetSize": {
@@ -1198,7 +1200,10 @@
             "documentation": "The path to the file or directory to check. "
         }, {
             "label": "option",
-            "documentation": "**[optional]** Flag to indicate which timestamp: $FT_MODIFIED (0) = Last modified (default); $FT_CREATED (1) = Created; $FT_ACCESSED (2) = Last accessed "
+            "documentation": "**[optional]** Flag to indicate which timestamp:  \n`$FT_MODIFIED` (0) = Last modified (default);  \n`$FT_CREATED` (1) = Created;  \n`$FT_ACCESSED` (2) = Last accessed"
+        }, {
+            "label": "format",
+            "documentation": "**[optional]** to specify type of return  \n`$FT_ARRAY` (0) = return an array (default)  \n`$FT_STRING` (1) = return a string YYYYMMDDHHMMSS"
         }]
     },
     "FileGetVersion": {
@@ -1209,7 +1214,7 @@
             "documentation": "Filename. "
         }, {
             "label": "stringname",
-            "documentation": "**[optional]** Name of the string field to be retrieved from the header version file info: $FV_COMMENTS (\"Comments\"); $FV_COMPANYNAME (\"CompanyName\"); $FV_FILEDESCRIPTION (\"FileDescription\"); $FV_FILEVERSION (\"FileVersion\"); $FV_INTERNALNAME (\"InternalName\"); $FV_LEGALCOPYRIGHT (\"LegalCopyright\"); $FV_LEGALTRADEMARKS (\"LegalTrademarks\"); $FV_ORIGINALFILENAME (\"OriginalFilename\"); $FV_PRODUCTNAME (\"ProductName\"); $FV_PRODUCTVERSION (\"ProductVersion\"); $FV_PRIVATEBUILD (\"PrivateBuild\"); $FV_SPECIALBUILD (\"SpecialBuild\") "
+            "documentation": "**[optional]** Name of the string field to be retrieved from the header version file info:  \n`$FV_COMMENTS` (\"Comments\");  \n`$FV_COMPANYNAME` (\"CompanyName\");  \n`$FV_FILEDESCRIPTION` (\"FileDescription\");  \n`$FV_FILEVERSION` (\"FileVersion\");  \n`$FV_INTERNALNAME` (\"InternalName\");  \n`$FV_LEGALCOPYRIGHT` (\"LegalCopyright\");  \n`$FV_LEGALTRADEMARKS` (\"LegalTrademarks\");  \n`$FV_ORIGINALFILENAME` (\"OriginalFilename\");  \n`$FV_PRODUCTNAME` (\"ProductName\");  \n`$FV_PRODUCTVERSION` (\"ProductVersion\");  \n`$FV_PRIVATEBUILD` (\"PrivateBuild\");  \n`$FV_SPECIALBUILD` (\"SpecialBuild\") "
         }]
     },
     "FileInstall": {
@@ -1217,13 +1222,13 @@
         "label": "FileInstall ( \"source\", \"dest\" [, flag = 0] )",
         "params": [{
             "label": "source",
-            "documentation": "The source path of the file to compile. This must be a literal string; it cannot be a variable or the result of a function call. It can be a relative path (using .\\ or ..\\ in the path) to the source file (.au3)."
+            "documentation": "The source path of the file to compile. **This must be a literal string; it cannot be a variable or the result of a function call.** It can be a relative path (using .\\ or ..\\ in the path) to the source file (.au3)."
         }, {
             "label": "dest",
             "documentation": "The destination path of the file with trailing backslash if only the directory is used. This can be a variable."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files; $FC_OVERWRITE (1) = overwrite existing files"
+            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \n`$FC_NOOVERWRITE` (0) = (default) do not overwrite existing files;  \n`$FC_OVERWRITE` (1) = overwrite existing files"
         }]
     },
     "FileMove": {
@@ -1238,7 +1243,7 @@
             },
             {
                 "label": "flag",
-                "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist: Can be a combination of the following: $FC_NOOVERWRITE (0) = (default) do not overwrite existing files.; $FC_OVERWRITE (1) = overwrite existing files.; $FC_CREATEPATH (8) = Create destination directory structure if it doesn't exist."
+                "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \nCan be a combination of the following:  \n`$FC_NOOVERWRITE` (0) = (default) do not overwrite existing files.;  \n`$FC_OVERWRITE` (1) = overwrite existing files.;  \n`$FC_CREATEPATH` (8) = Create destination directory structure if it doesn't exist."
             }
         ]
     },
@@ -1270,7 +1275,7 @@
             },
             {
                 "label": "options",
-                "documentation": "**[optional]** Dialog Options: To use more than one option, BitOR the required values together.; $FD_FILEMUSTEXIST (1) = File Must Exist (if user types a filename); $FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash); $FD_MULTISELECT (4) = Allow MultiSelect; $FD_PROMPTCREATENEW (8) = Prompt to Create New File (if does not exist)"
+                "documentation": "**[optional]** Dialog Options: To use more than one option, BitOR the required values together.;  \n`$FD_FILEMUSTEXIST` (1) = File Must Exist (if user types a filename);  \n`$FD_PATHMUSTEXIST` (2) = Path Must Exist (if user types a path, ending with a backslash);  \n`$FD_MULTISELECT` (4) = Allow MultiSelect;  \n`$FD_PROMPTCREATENEW` (8) = Prompt to Create New File (if does not exist)"
             }, {
                 "label": "default name",
                 "documentation": "**[optional]** Suggested file name for the user to open. Default is blank (\"\")."
@@ -1337,10 +1342,10 @@
             "documentation": "Initial directory selected in the GUI file tree."
         }, {
             "label": "filter",
-            "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\"."
+            "documentation": "File type single filter such as \"All (&ast;.&ast;)\" or \"Text files (&ast;.txt)\" or multiple filter groups such as \"All (&ast;.&ast;)|Text files (&ast;.txt)\"."
         }, {
             "label": "options",
-            "documentation": "**[optional]** Dialog Options: To use more than one option, BitOR the required values together.    $FD_PATHMUSTEXIST (2) = Path Must Exist (if user types a path, ending with a backslash)    $FD_PROMPTOVERWRITE (16) = Prompt to OverWrite File. Constants are defined in FileConstants.au3."
+            "documentation": "**[optional]** Dialog Options: To use more than one option, `BitOR` the required values together.  \n&emsp;`$FD_PATHMUSTEXIST` (2) = Path Must Exist (if user types a path, ending with a backslash)  \n&emsp;`$FD_PROMPTOVERWRITE` (16) = Prompt to OverWrite File.  \n\nConstants are defined in FileConstants.au3."
         }, {
             "label": "default name",
             "documentation": "**[optional]** File name to suggest to the user to save the file with. Default is blank (\"\")."
@@ -1360,7 +1365,7 @@
             "documentation": "Root directory of GUI file tree. It limits a choice in the root folder. Use \"\" for Desktop to be root."
         }, {
             "label": "flag",
-            "documentation": "**[optional]**    $FSF_CREATEBUTTON (1) = Show Create Folder Button (XP only)    $FSF_NEWDIALOG (2) = Use New Dialog Style (XP only)    $FSF_EDITCONTROL (4) = Show Edit Control (XP only)Constants are defined in FileConstants.au3."
+            "documentation": "**[optional]**  \n&emsp;`$FSF_CREATEBUTTON` (1) = Show Create Folder Button (XP only)  \n&emsp;`$FSF_NEWDIALOG` (2) = Use New Dialog Style (XP only)  \n&emsp;`$FSF_EDITCONTROL` (4) = Show Edit Control (XP only)  \n\nConstants are defined in FileConstants.au3."
         }, {
             "label": "initial dir",
             "documentation": "**[optional]** The full path of the folder you selected/highlighted when displaying dialogue (if it exists in the root folder). Default is blank (\"\")."
@@ -1374,13 +1379,13 @@
         "label": "FileSetAttrib ( \"file pattern\", \"+-RASHNOT\" [, recurse = 0] )",
         "params": [{
             "label": "file pattern",
-            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted)"
+            "documentation": "The path of the file(s) to set, e.g. C:&#92;&ast;.au3, C:&#92;Dir. (&ast; and ? wildcards accepted)"
         }, {
             "label": "+-RASHNOT",
             "documentation": "Attribute(s) to set/clear. e.g. \"+A\", \"+RA-SH\""
         }, {
             "label": "recurse",
-            "documentation": "**[optional]**    $FT_NONRECURSIVE (0) - no recursion (Default)    $FT_RECURSIVE (1) - directories are recursed into. Constants are defined in FileConstants.au3."
+            "documentation": "**[optional]**  \n&emsp;`$FT_NONRECURSIVE` (`0`) - no recursion (Default)  \n&emsp;`$FT_RECURSIVE` (`1`) - directories are recursed into.  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileSetEnd": {
@@ -1388,7 +1393,7 @@
         "label": "FileSetEnd ( \"filehandle\" )",
         "params": [{
             "label": "filehandle",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen()."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`."
         }]
     },
     "FileSetPos": {
@@ -1396,13 +1401,13 @@
         "label": "FileSetPos ( \"filehandle\", offset, origin )",
         "params": [{
             "label": "filehandle",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen()."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`."
         }, {
             "label": "offset",
             "documentation": "The offset to move from the origin. This value may be positive or negative. Negative values move backwards from the origin."
         }, {
             "label": "origin",
-            "documentation": "Must be one of the following:    $FILE_BEGIN (0) = Beginning of the file.    $FILE_CURRENT (1) = Current position.    $FILE_END (2) = End of the file. Constants are defined in FileConstants.au3."
+            "documentation": "Must be one of the following:  \n&emsp;`$FILE_BEGIN` (`0`) = Beginning of the file.  \n&emsp;`$FILE_CURRENT` (`1`) = Current position.  \n&emsp;`$FILE_END` (`2`) = End of the file.  \n\nfielConstants are defined in FileConstants.au3."
         }]
     },
     "FileSetTime": {
@@ -1410,16 +1415,16 @@
         "label": "FileSetTime ( \"file pattern\", \"time\" [, type = 0 [, recurse = 0]] )",
         "params": [{
             "label": "file pattern",
-            "documentation": "The path of the file(s) to set, e.g. C:\\*.au3, C:\\Dir. (* and ? wildcards accepted)"
+            "documentation": "The path of the file(s) to set, e.g. C:&#92;&ast;.au3, C:&#92;Dir. (&ast; and ? wildcards accepted)"
         }, {
             "label": "time",
             "documentation": "The new time to set in the format \"YYYYMMDDHHMMSS\" (Year, month, day, hours (24hr clock), seconds). If the time is blank \"\" then the current time is used."
         }, {
             "label": "type",
-            "documentation": "**[optional]** The timestamp to change:    $FT_MODIFIED (0) = Last modified (default)    $FT_CREATED (1) = Created    $FT_ACCESSED (2) = Last accessed. Constants are defined in FileConstants.au3"
+            "documentation": "**[optional]** The timestamp to change:  \n&emsp;`$FT_MODIFIED` (`0`) = Last modified (default)  \n&emsp;`$FT_CREATED` (`1`) = Created  \n&emsp;`$FT_ACCESSED` (`2`) = Last accessed.  \n\nConstants are defined in FileConstants.au3"
         }, {
             "label": "recurse",
-            "documentation": "**[optional]**    $FT_NONRECURSIVE (0) - no recursion (Default).    $FT_RECURSIVE (1) - directories are recursed into. Constants are defined in FileConstants.au3"
+            "documentation": "**[optional]**  \n&emsp;`$FT_NONRECURSIVE` (`0`) - no recursion (Default).  \n&emsp;`$FT_RECURSIVE` (`1`) - directories are recursed into.  \n\nConstants are defined in FileConstants.au3"
         }]
     },
     "FileWrite": {
@@ -1427,10 +1432,10 @@
         "label": "FileWrite ( \"filehandle/filename\", \"text/data\" )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively, you may use a string filename as the first parameter."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively, you may use a string filename as the first parameter."
         }, {
             "label": "text/data",
-            "documentation": "The text/data to write to the file. The text is written as is - no @CR or @LF characters are added."
+            "documentation": "The text/data to write to the file. The text is written as is - no `@CR` or `@LF` characters are added."
         }]
     },
     "FileWriteLine": {
@@ -1438,10 +1443,10 @@
         "label": "FileWriteLine ( \"filehandle/filename\", \"line\" )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively, you may use a string filename as the first parameter."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively, you may use a string filename as the first parameter."
         }, {
             "label": "line",
-            "documentation": "The line of text to write to the text file. If the line does NOT end in @CR or @LF then a DOS linefeed (@CRLF) will be automatically added."
+            "documentation": "The line of text to write to the text file. If the line does NOT end in `@CR` or `@LF` then a DOS linefeed (`@CRLF`) will be automatically added."
         }]
     },
     "Floor": {
@@ -1457,7 +1462,7 @@
         "label": "FtpSetProxy ( mode = 0 [, \"proxy:port\" [, \"username\" [, \"password\"]]] )",
         "params": [{
             "label": "mode",
-            "documentation": "The proxy mode to use:    $PROXY_IE (0) = (default) Use current Internet Explorer settings for proxy.    $PROXY_NONE (1) = Use no proxy (direct access)    $PROXY_SPECIFIED (2) = Use the proxy specifiedConstants are deined in \"AutoItConstants.au3\"."
+            "documentation": "The proxy mode to use:  \n&emsp;`$PROXY_IE` (`0`) = (default) Use current Internet Explorer settings for proxy.  \n&emsp;`$PROXY_NONE` (`1`) = Use no proxy (direct access)  \n&emsp;`$PROXY_SPECIFIED` (`2`) = Use the proxy specified  \n\nConstants are deined in \"AutoItConstants.au3\"."
         }, {
             "label": "proxy:port",
             "documentation": "**[optional]** The address and port of the proxy to use."
@@ -1497,10 +1502,10 @@
             "documentation": "**[optional]** The top of the dialog box. Default (-1) is centered"
         }, {
             "label": "style",
-            "documentation": "**[optional]** defines the style of the window. See GUI Control Styles Appendix.Use -1 for the default style which includes a combination of $WS_MINIMIZEBOX, $WS_CAPTION, $WS_POPUP, $WS_SYSMENU styles.Some styles are always included: $WS_CLIPSIBLINGS, and $WS_SYSMENU if $WS_MAXIMIZEBOX or $WS_SIZEBOX is specified."
+            "documentation": "**[optional]** defines the style of the window. See GUI Control Styles Appendix.  \nUse -1 for the default style which includes a combination of `$WS_MINIMIZEBOX`, `$WS_CAPTION`, `$WS_POPUP`, `$WS_SYSMENU` styles.  \nSome styles are always included: `$WS_CLIPSIBLINGS`, and `$WS_SYSMENU` if `$WS_MAXIMIZEBOX` or `$WS_SIZEBOX` is specified."
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** defines the extended style of the window. See the Extended Style Table below.Use -1 for the default, which is no extended styles.Forced styles: $WS_EX_WINDOWEDGE"
+            "documentation": "**[optional]** defines the extended style of the window. See the Extended Style Table.  \nUse -1 for the default, which is no extended styles.  \nForced styles: `$WS_EX_WINDOWEDGE`"
         }, {
             "label": "parent",
             "documentation": "**[optional]** The handle of another previously created window - this new window then becomes a child of that window."
@@ -1517,10 +1522,10 @@
             "documentation": "id of the subfile to be used. If the file only contains one video then use 0."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1529,7 +1534,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $ACS_TRANSPARENT    $ACS_TRANSPARENT is always used unless $ACS_NONTRANSPARENT is specified."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default (-1) : `$ACS_TRANSPARENT`  \n&emsp;`$ACS_TRANSPARENT` is always used unless `$ACS_NONTRANSPARENT` is specified."
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1543,10 +1548,10 @@
             "documentation": "The text of the button control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default text autofit in width)."
@@ -1555,10 +1560,10 @@
             "documentation": "**[optional]** The height of the control (default text autofit in height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : none.    forced styles : $WS_TABSTOP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : none.  \n&emsp;forced styles : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default ( -1) : WS_EX_WINDOWEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;defaulcreatet ( -1) : `WS_EX_WINDOWEDGE`"
         }]
     },
     "GUICtrlCreateCheckbox": {
@@ -1569,10 +1574,10 @@
             "documentation": "The text of the control checkbox."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default text autofit in width)."
@@ -1581,7 +1586,7 @@
             "documentation": "**[optional]** The height of the control (default text autofit in height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $BS_AUTOCHECKBOX.    forced styles : $WS_TABSTOP, and $BS_AUTOCHECKBOX if no checkbox style defined."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : `$BS_AUTOCHECKBOX`.  \n&emsp;forced styles : `$WS_TABSTOP`, and `$BS_AUTOCHECKBOX` if no checkbox style defined."
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1595,10 +1600,10 @@
             "documentation": "The text which will appear in the combo control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1607,10 +1612,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $CBS_DROPDOWN, $CBS_AUTOHSCROLL, $WS_VSCROLL    forced style : $WS_TABSTOP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default (-1) : `$CBS_DROPDOWN`, `$CBS_AUTOHSCROLL`, `$WS_VSCROLL`  \n&emsp;forced style : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default ( -1) : $WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;default ( -1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateContextMenu": {
