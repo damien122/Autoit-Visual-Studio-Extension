@@ -623,7 +623,7 @@
             "documentation": "Handle to the window to be removed from the chain.The handle must have been passed to the _ClipBoard_SetViewer() function."
         }, {
             "label": "$hNewNext",
-            "documentation": "Handle to the window that follows the $hRemove window in the clipboard viewer chain.This is the handle returned by _ClipBoard_SetViewer(), unless the sequence was changed in response to a $WM_CHANGECBCHAIN message."
+            "documentation": "Handle to the window that follows the $hRemove window in the clipboard viewer chain. This is the handle returned by _ClipBoard_SetViewer(), unless the sequence was changed in response to a $WM_CHANGECBCHAIN message."
         }]
     },
     "_ClipBoard_Close": {
@@ -646,7 +646,7 @@
         "label": "_ClipBoard_EnumFormats ( $iFormat )",
         "params": [{
             "label": "$iFormat",
-            "documentation": "Specifies a clipboard format that is known to be available. To start an enumeration of formats, set $iFormat to zero.When $iFormat is zero, the function retrieves the first available clipboard format.For subsequent calls during an enumeration, set $iFormat to the result of the previous call."
+            "documentation": "Specifies a clipboard format that is known to be available. To start an enumeration of formats, set $iFormat to zero.  \nWhen $iFormat is zero, the function retrieves the first available clipboard format.  \nFor subsequent calls during an enumeration, set $iFormat to the result of the previous call."
         }]
     },
     "_ClipBoard_FormatStr": {
@@ -696,7 +696,7 @@
         "label": "_ClipBoard_GetPriorityFormat ( $aFormats )",
         "params": [{
             "label": "$aFormats",
-            "documentation": "Array with the following format:[0] - Number of formats (n)[1] - Format 1[2] - Format 2[n] - Format n"
+            "documentation": "Array with the following format:  \n[0] - Number of formats (n)  \n[1] - Format 1  \n[2] - Format 2  \n[n] - Format n"
         }]
     },
     "_ClipBoard_GetSequenceNumber": {
@@ -738,7 +738,7 @@
         "label": "_ClipBoard_SetData ( $vData [, $iFormat = 1] )",
         "params": [{
             "label": "$vData",
-            "documentation": "Data in Binary or String format, or optionally NULL (0) (owner must render, see below).IMPORTANT: If a String is passed, and it is not of type $CF_TEXT, $CF_OEMTEXT, or $CF_UNICODETEXT, it will be treated as an ANSI string.To force Unicode strings for other types, you must pass the data in Binary format.Also, do NOT pass $CF_UNICODETEXT in Binary format (causes garbled data).When $vData is NULL, it indicates that the window provides data in the specified clipboard format upon request.If a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.If this function succeeds, the system owns the object identified by the $hMemory parameter.The application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.The memory must be unlocked before the clipboard is closed.If the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
+            "documentation": "Data in Binary or String format, or optionally NULL (0) (owner must render, see below).  \nIMPORTANT: If a String is passed, and it is not of type $CF_TEXT, $CF_OEMTEXT, or $CF_UNICODETEXT, it will be treated as an ANSI string.  \nTo force Unicode strings for other types, you must pass the data in Binary format.  \nAlso, do NOT pass $CF_UNICODETEXT in Binary format (causes garbled data).  \nWhen $vData is NULL, it indicates that the window provides data in the specified clipboard format upon request.  \nIf a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.  \nIf this function succeeds, the system owns the object identified by the $hMemory parameter.  \nThe application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.  \nThe memory must be unlocked before the clipboard is closed.  \nIf the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
         }, {
             "label": "$iFormat",
             "documentation": "**[optional]** Specifies a clipboard format"
@@ -749,7 +749,7 @@
         "label": "_ClipBoard_SetDataEx ( ByRef $hMemory [, $iFormat = 1] )",
         "params": [{
             "label": "$hMemory",
-            "documentation": "Handle to the data in the specified format. This parameter can be NULL, indicating that the window provides data in the specified clipboard format upon request.If a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.If this function succeeds, the system owns the object identified by the $hMemory parameter.The application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.The memory must be unlocked before the clipboard is closed.If the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
+            "documentation": "Handle to the data in the specified format. This parameter can be NULL, indicating that the window provides data in the specified clipboard format upon request.  \nIf a window delays rendering, it must process the $WM_RENDERFORMAT and $WM_RENDERALLFORMATS messages.  \nIf this function succeeds, the system owns the object identified by the $hMemory parameter.  \nThe application may not write to or free the data once ownership has been transferred to the system, but it can lock and read from the data until the _ClipBoard_Close() function is called.  \nThe memory must be unlocked before the clipboard is closed.  \nIf the $hMemory parameter identifies a memory object, the object must have been allocated using the function with the $GMEM_MOVEABLE flag."
         }, {
             "label": "$iFormat",
             "documentation": "**[optional]** Specifies a clipboard format"
@@ -835,7 +835,7 @@
         "label": "_ColorSetCOLORREF ( $aColor )",
         "params": [{
             "label": "$aColor",
-            "documentation": "an array of values in the range 0-255:[0] Red component color[1] Green component color[2] Blue component color"
+            "documentation": "an array of values in the range 0-255:  \n[0] Red component color  \n[1] Green component color  \n[2] Blue component color"
         }]
     },
     "_ColorSetRGB": {
@@ -843,7 +843,7 @@
         "label": "_ColorSetRGB ( $aColor )",
         "params": [{
             "label": "$aColor",
-            "documentation": "an array of values in the range 0-255:[0] Red component color[1] Green component color[2] Blue component color"
+            "documentation": "an array of values in the range 0-255:  \n[0] Red component color  \n[1] Green component color  \n[2] Blue component color"
         }]
     },
     "_Crypt_DecryptData": {
@@ -990,7 +990,7 @@
         "label": "_DateAdd ( $sType, $iNumber, $sDate )",
         "params": [{
             "label": "$sType",
-            "documentation": "Time interval to be used:D - Add/subtract days to/from the specified dateM - Add/subtract months to/from the specified dateY - Add/subtract years to/from the specified datew - Add/subtract Weeks to/from the specified dateh - Add/subtract hours to/from the specified daten - Add/subtract minutes to/from the specified en dates - Add/subtract seconds to/from the specified date"
+            "documentation": "Time interval to be used:  \nD - Add/subtract days to/from the specified date  \nM - Add/subtract months to/from the specified date  \nY - Add/subtract years to/from the specified date  \nw - Add/subtract Weeks to/from the specified date  \nh - Add/subtract hours to/from the specified date  \nn - Add/subtract minutes to/from the specified en date  \ns - Add/subtract seconds to/from the specified date"
         }, {
             "label": "$iNumber",
             "documentation": "Number of intervals to be added/subtracted (use unary minus for subtraction)"
@@ -1004,10 +1004,10 @@
         "label": "_DateDayOfWeek ( $iDayNum [, $iFormat = 0] )",
         "params": [{
             "label": "$iDayNum",
-            "documentation": "Day number    1 = Sunday    2 = Monday    3 = Tuesday    4 = Wednesday    5 = Thursday    6 = Friday    7 = Saturday"
+            "documentation": "Day number  \n1 = Sunday  \n2 = Monday  \n3 = Tuesday  \n4 = Wednesday  \n5 = Thursday  \n6 = Friday  \n7 = Saturday"
         }, {
             "label": "$iFormat",
-            "documentation": "**[optional]** Format"
+            "documentation": "**[optional]** Format:  \n`$DMW_LOCALE_USER` (0) - Long name of the weekday (Default)  \n`$DMW_SHORTNAME` (1) - Short name of the weekday e.g. Mon  \n`$DMW_LOCALE_LONGNAME` (2) - Long name of the weekday in the user's default language  \n`$DMW_LOCALE_SHORTNAME` (3) - Short name of the weekday in the user's default language"
         }]
     },
     "_DateDaysInMonth": {
@@ -1026,7 +1026,7 @@
         "label": "_DateDiff ( $sType, $sStartDate, $sEndDate )",
         "params": [{
             "label": "$sType",
-            "documentation": "One of the following:D = Difference in days between the given datesM = Difference in months between the given datesY = Difference in years between the given datesw = Difference in Weeks between the given datesh = Difference in hours between the given datesn = Difference in minutes between the given datess = Difference in seconds between the given dates"
+            "documentation": "One of the following:  \nD = Difference in days between the given dates  \nM = Difference in months between the given dates  \nY = Difference in years between the given dates  \nw = Difference in Weeks between the given dates  \nh = Difference in hours between the given dates  \nn = Difference in minutes between the given dates  \ns = Difference in seconds between the given dates"
         }, {
             "label": "$sStartDate",
             "documentation": "Input Start date in the format \"YYYY/MM/DD[ HH:MM:SS]\""
@@ -1059,7 +1059,7 @@
             "documentation": "Input date in the format \"YYYY/MM/DD[ HH:MM:SS]\""
         }, {
             "label": "$sType",
-            "documentation": "one the following:0 - Display a date and/or time. If there is a date part, display it as a short date.If there is a time part, display it as a long time. If present, both parts are displayed.1 - Display a date using the long date format specified in your computer's regional settings.2 - Display a date using the short date format specified in your computer's regional settings.3 - Display a time using the time format specified in your computer's regional settings.4 - Display a time using the 24-hour format (hh:mm).5 - Display a time using the 24-hour format (hh:mm:ss)."
+            "documentation": "one the following:  \n0 - Display a date and/or time. If there is a date part, display it as a short date.  \nIf there is a time part, display it as a long time. If present, both parts are displayed.  \n1 - Display a date using the long date format specified in your computer's regional settings.  \n2 - Display a date using the short date format specified in your computer's regional settings.  \n3 - Display a time using the time format specified in your computer's regional settings.  \n4 - Display a time using the 24-hour format (hh:mm).  \n5 - Display a time using the 24-hour format (hh:mm:ss)."
         }]
     },
     "_DateTimeSplit": {
@@ -1126,7 +1126,7 @@
             "documentation": "Month number (1-12)"
         }, {
             "label": "$iFormat",
-            "documentation": "**[optional]** Format"
+            "documentation": "**[optional]** Format:  \n`$DMW_LOCALE_USER` (0) - Long name of the month (Default)  \n`$DMW_SHORTNAME` (1) - Short name of the month e.g. Jan  \n`$DMW_LOCALE_LONGNAME` (2) - Long name of the month in the user's default language           \n`$DMW_LOCALE_SHORTNAME` (3) - Short name of the month in the user's default language"
         }]
     },
     "_Date_Time_CompareFileTime": {
@@ -1145,10 +1145,10 @@
         "label": "_Date_Time_DOSDateTimeToArray ( $iDosDate, $iDosTime )",
         "params": [{
             "label": "$iDosDate",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Day of the month (1–31)Bits 5- 8 Month (1 = January, 2 = February, and so on)Bits 9-15 Year offset from 1980 (add 1980 to get actual year)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Day of the month (1–31)  \nBits 5- 8 Month (1 = January, 2 = February, and so on)  \nBits 9-15 Year offset from 1980 (add 1980 to get actual year)"
         }, {
             "label": "$iDosTime",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Second divided by 2Bits 5-10 Minute (0–59)Bits 11-15 Hour (0–23 on a 24-hour clock)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Second divided by 2  \nBits 5-10 Minute (0–59)  \nBits 11-15 Hour (0–23 on a 24-hour clock)"
         }]
     },
     "_Date_Time_DOSDateTimeToFileTime": {
@@ -1156,10 +1156,10 @@
         "label": "_Date_Time_DOSDateTimeToFileTime ( $iFatDate, $iFatTime )",
         "params": [{
             "label": "$iFatDate",
-            "documentation": "The MS-DOS date, packed as follows:Bits 0- 4 Day of the month (1–31)Bits 5- 8 Month (1 = January, 2 = February, and so on)Bits 9-15 Year offset from 1980 (add 1980 to get actual year)"
+            "documentation": "The MS-DOS date, packed as follows:  \nBits 0- 4 Day of the month (1–31)  \nBits 5- 8 Month (1 = January, 2 = February, and so on)  \nBits 9-15 Year offset from 1980 (add 1980 to get actual year)"
         }, {
             "label": "$iFatTime",
-            "documentation": "Ths MS-DOS time, packed as follows:Bits 0- 4 Second divided by 2Bits 5-10 Minute (0–59)Bits 11-15 Hour (0–23 on a 24-hour clock)"
+            "documentation": "The MS-DOS date, packed as follows:  \nBits 0- 4 Second divided by 2  \nBits 5-10 Minute (0–59)  \nBits 11-15 Hour (0–23 on a 24-hour clock)"
         }]
     },
     "_Date_Time_DOSDateTimeToStr": {
@@ -1167,10 +1167,10 @@
         "label": "_Date_Time_DOSDateTimeToStr ( $iDosDate, $iDosTime )",
         "params": [{
             "label": "$iDosDate",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Day of the month (1–31)Bits 5- 8 Month (1 = January, 2 = February, and so on)Bits 9-15 Year offset from 1980 (add 1980 to get actual year)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Day of the month (1–31)  \nBits 5- 8 Month (1 = January, 2 = February, and so on)  \nBits 9-15 Year offset from 1980 (add 1980 to get actual year)"
         }, {
             "label": "$iDosTime",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Second divided by 2Bits 5-10 Minute (0–59)Bits 11-15 Hour (0–23 on a 24-hour clock)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Second divided by 2  \nBits 5-10 Minute (0–59)  \nBits 11-15 Hour (0–23 on a 24-hour clock)"
         }]
     },
     "_Date_Time_DOSDateToArray": {
@@ -1178,7 +1178,7 @@
         "label": "_Date_Time_DOSDateToArray ( $iDosDate )",
         "params": [{
             "label": "$iDosDate",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Day of the month (1–31)Bits 5- 8 Month (1 = January, 2 = February, and so on)Bits 9-15 Year offset from 1980 (add 1980 to get actual year)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Day of the month (1–31)  \nBits 5- 8 Month (1 = January, 2 = February, and so on)  \nBits 9-15 Year offset from 1980 (add 1980 to get actual year)"
         }]
     },
     "_Date_Time_DOSDateToStr": {
@@ -1186,7 +1186,7 @@
         "label": "_Date_Time_DOSDateToStr ( $iDosDate )",
         "params": [{
             "label": "$iDosDate",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Day of the month (1–31)Bits 5- 8 Month (1 = January, 2 = February, and so on)Bits 9-15 Year offset from 1980 (add 1980 to get actual year)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Day of the month (1–31)  \nBits 5- 8 Month (1 = January, 2 = February, and so on)  \nBits 9-15 Year offset from 1980 (add 1980 to get actual year)"
         }]
     },
     "_Date_Time_DOSTimeToArray": {
@@ -1194,7 +1194,7 @@
         "label": "_Date_Time_DOSTimeToArray ( $iDosTime )",
         "params": [{
             "label": "$iDosTime",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Second divided by 2Bits 5-10 Minute (0–59)Bits 11-15 Hour (0–23 on a 24-hour clock)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Second divided by 2  \nBits 5-10 Minute (0–59)  \nBits 11-15 Hour (0–23 on a 24-hour clock)"
         }]
     },
     "_Date_Time_DOSTimeToStr": {
@@ -1202,7 +1202,7 @@
         "label": "_Date_Time_DOSTimeToStr ( $iDosTime )",
         "params": [{
             "label": "$iDosTime",
-            "documentation": "MS-DOS date, packed as follows:Bits 0- 4 Second divided by 2Bits 5-10 Minute (0–59)Bits 11-15 Hour (0–23 on a 24-hour clock)"
+            "documentation": "MS-DOS date, packed as follows:  \nBits 0- 4 Second divided by 2  \nBits 5-10 Minute (0–59)  \nBits 11-15 Hour (0–23 on a 24-hour clock)"
         }]
     },
     "_Date_Time_EncodeFileTime": {
@@ -1289,7 +1289,7 @@
             "documentation": "$tagFILETIME structure"
         }, {
             "label": "$iFmt",
-            "documentation": "**[optional]** 0 returns mm/dd/yyyy hh:mm:ss (Default)1 returns yyyy/mm/dd hh:mm:ss"
+            "documentation": "**[optional]** 0 returns mm/dd/yyyy hh:mm:ss (Default)  \n1 returns yyyy/mm/dd hh:mm:ss"
         }]
     },
     "_Date_Time_FileTimeToSystemTime": {
@@ -1359,13 +1359,13 @@
             "documentation": "Handle to the file. The file handle must have been created using the CreateFile function with the FILE_WRITE_ATTRIBUTES access right."
         }, {
             "label": "$tCreateTime",
-            "documentation": "a $tagFILETIME structure that contains the new date and time the file was created.This be 0 if the application does not need to set this information."
+            "documentation": "a $tagFILETIME structure that contains the new date and time the file was created.  \nThis can be 0 if the application does not need to set this information."
         }, {
             "label": "$tLastAccess",
-            "documentation": "a $tagFILETIME structure that contains the new date and time the file was last accessed.The last access time includes the last time the file was written to, read from, or (in the case of executable files) run.This can be 0 if the application does not need to set this information.To preserve the existing last access time for a file even after accessing a file, call SetFileTime with this parameter set to -1 before closing the file handle."
+            "documentation": "a $tagFILETIME structure that contains the new date and time the file was last accessed.  \nThe last access time includes the last time the file was written to, read from, or (in the case of executable files) run.  \nThis can be 0 if the application does not need to set this information.  \nTo preserve the existing last access time for a file even after accessing a file, call SetFileTime with this parameter set to -1 before closing the file handle."
         }, {
             "label": "$tLastWrite",
-            "documentation": "a $tagFILETIME structure that contains the new date and time the file was last written to.This can be 0 if the application does not want to set this information."
+            "documentation": "a $tagFILETIME structure that contains the new date and time the file was last written to.  \nThis can be 0 if the application does not want to set this information."
         }]
     },
     "_Date_Time_SetLocalTime": {
@@ -1400,7 +1400,7 @@
         "label": "_Date_Time_SetTimeZoneInformation ( $iBias, $sStdName, $tStdDate, $iStdBias, $sDayName, $tDayDate, $iDayBias )",
         "params": [{
             "label": "$iBias",
-            "documentation": "The current bias for local time translation on this computer. The bias is the difference in minutes between Coordinated Universal Time (UTC) and local time.All translations between UTC and local time use the following formula: UTC = local time + bias"
+            "documentation": "The current bias for local time translation on this computer. The bias is the difference in minutes between Coordinated Universal Time (UTC) and local time.  \nAll translations between UTC and local time use the following formula: UTC = local time + bias"
         }, {
             "label": "$sStdName",
             "documentation": "The description for standard time"
@@ -1437,7 +1437,7 @@
             "documentation": "$tagSYSTEMTIME structure"
         }, {
             "label": "$iFmt",
-            "documentation": "**[optional]** 0 returns mm/dd/yyyy (Default)1 returns yyyy/mm/dd"
+            "documentation": "**[optional]** 0 returns mm/dd/yyyy (Default)  \n1 returns yyyy/mm/dd"
         }]
     },
     "_Date_Time_SystemTimeToDateTimeStr": {
@@ -1448,7 +1448,7 @@
             "documentation": "$tagSYSTEMTIME structure"
         }, {
             "label": "$iFmt",
-            "documentation": "**[optional]** 0 returns mm/dd/yyyy hh:mm:ss (Default)1 returns yyyy/mm/dd hh:mm:ss"
+            "documentation": "**[optional]** 0 returns mm/dd/yyyy hh:mm:ss (Default)  \n1 returns yyyy/mm/dd hh:mm:ss"
         }]
     },
     "_Date_Time_SystemTimeToFileTime": {
@@ -1475,7 +1475,7 @@
             "documentation": "a $tagSYSTEMTIME structure that specifies a time in UTC or a pointer to it. The function converts this time to the specified time zone's local time."
         }, {
             "label": "$tTimeZone",
-            "documentation": "**[optional]** a $tagTIME_ZONE_INFORMATION structure that specifies the time zone of interest or a pointer to it.If 0, the function uses the currently active time zone."
+            "documentation": "**[optional]** a $tagTIME_ZONE_INFORMATION structure that specifies the time zone of interest or a pointer to it.  \nIf 0, the function uses the currently active time zone."
         }]
     },
     "_Date_Time_TzSpecificLocalTimeToSystemTime": {
@@ -1486,7 +1486,7 @@
             "documentation": "a $tagSYSTEMTIME structure that specifies a local time or a pointer to it. The function converts this time to the corresponding UTC time."
         }, {
             "label": "$tTimeZone",
-            "documentation": "**[optional]** a $tagTIME_ZONE_INFORMATION structure that specifies the time zone of interest or a pointer to it.If 0, the function uses the currently active time zone."
+            "documentation": "**[optional]** a $tagTIME_ZONE_INFORMATION structure that specifies the time zone of interest or a pointer to it.  \nIf 0, the function uses the currently active time zone."
         }]
     },
     "_DayValueToDate": {
@@ -1516,7 +1516,7 @@
         "label": "_DebugCOMError ( [$iComDebug = 1 [, $bExit = False]] )",
         "params": [{
             "label": "$iComDebug",
-            "documentation": "**[optional]** Debug level. Possible values are:-1 - Return the current settings 0 - Disable debugging 1 - Enable debugging. Output the debug info (default)"
+            "documentation": "**[optional]** Debug level. Possible values are:  \n-1 - Return the current settings  \n0 - Disable debugging  \n1 - Enable debugging. Output the debug info (default)"
         }, {
             "label": "$bExit",
             "documentation": "**[optional]** True if the script must be terminated"
@@ -1552,7 +1552,7 @@
             "documentation": "Data to be reported (e.g. \"dllname|functionname\")"
         }, {
             "label": "$bLastError",
-            "documentation": "**[optional]** True if _WinAPI_GetLastErrorMessage() must be append to the data being reported"
+            "documentation": "**[optional]** True if `_WinAPI_GetLastErrorMessage()` must be append to the data being reported"
         }, {
             "label": "$bExit",
             "documentation": "**[optional]** True if the script must be terminated"
@@ -1569,10 +1569,10 @@
             "documentation": "the variable to be reported"
         }, {
             "label": "$bErrExt",
-            "documentation": "**[optional]** True if @error and @extended must also be displayed"
+            "documentation": "**[optional]** True if `@error` and `@extended` must also be displayed"
         }, {
             "label": "$iDebugLineNumber",
-            "documentation": "**[optional]** can be used to overwrite the current calling line number. Default = @ScriptLineNumber"
+            "documentation": "**[optional]** can be used to overwrite the current calling line number. Default = `@ScriptLineNumber`"
         }]
     },
     "_DebugSetup": {
@@ -1586,10 +1586,10 @@
             "documentation": "**[optional]** Display BugReport infos. Default value is False."
         }, {
             "label": "$vReportType",
-            "documentation": "**[optional]** 1 - Report Log Window (Default).2 - ConsoleWrite.3 - MsgBox.4 - FileWrite into $sLogFile defines the filename.5 - Report Notepad Window.string - name of specific report function to be used."
+            "documentation": "**[optional]** 1 - Report Log Window (Default).  \n2 - ConsoleWrite.  \n3 - MsgBox.  \n4 - FileWrite into `$sLogFile` defines the filename.  \n5 - Report Notepad Window.  \nstring - name of specific report function to be used."
         }, {
             "label": "$sLogFile",
-            "documentation": "**[optional]** Name of the file if $vReportType = 4"
+            "documentation": "**[optional]** Name of the file if `$vReportType` = 4"
         }, {
             "label": "$bTimeStamp",
             "documentation": "**[optional]** True if every message must be prefixed with a timeStamp \"YYYY/MM/DD HH:MM:SS\""
@@ -1706,13 +1706,13 @@
             "documentation": "A handle to the event log"
         }, {
             "label": "$bRead",
-            "documentation": "**[optional]** If True, operation proceeds sequentially from the last call to this function using this handle.If False, the read will operation proceeds from the record specified by the $iOffset parameter."
+            "documentation": "**[optional]** If True, operation proceeds sequentially from the last call to this function using this handle.  \nIf False, the read will operation proceeds from the record specified by the `$iOffset` parameter."
         }, {
             "label": "$bForward",
             "documentation": "**[optional]** If True, the log is read in date order. If False, the log is read in reverse date order."
         }, {
             "label": "$iOffset",
-            "documentation": "**[optional]** The number of the event record at which the read operation should start.This parameter is ignored if $bRead is True."
+            "documentation": "**[optional]** The number of the event record at which the read operation should start.  \nThis parameter is ignored if `$bRead` is True."
         }]
     },
     "_EventLog__RegisterSource": {
@@ -1734,7 +1734,7 @@
             "documentation": "A handle to the event log. As of Windows XP SP2, this cannot be a handle to the Security log."
         }, {
             "label": "$iType",
-            "documentation": "Event type. This can be one of the following values:    0 - Success event    1 - Error event    2 - Warning event    4 - Information event    8 - Success audit event    16 - Failue audit event"
+            "documentation": "Event type. This can be one of the following values:  \n0 - Success event    \n1 - Error event    \n2 - Warning event    \n4 - Information event    \n8 - Success audit event    \n16 - Failue audit event"
         }, {
             "label": "$iCategory",
             "documentation": "The event category. This is source specific information the category can have any value."
@@ -1749,7 +1749,7 @@
             "documentation": "Event description"
         }, {
             "label": "$aData",
-            "documentation": "Data array formated as follows:    [0] - Number of bytes in array    [1] - Byte 1    [2] - Byte 2    [n] - Byte n"
+            "documentation": "Data array formated as follows:    \n[0] - Number of bytes in array    \n[1] - Byte 1    \n[2] - Byte 2    \n[n] - Byte n"
         }]
     },
     "_Excel_BookAttach": {
@@ -1760,7 +1760,7 @@
             "documentation": "String to search for"
         }, {
             "label": "$sMode",
-            "documentation": "**[optional]** specifies search mode:    FileName - Name of the open workbook    FilePath - Full path to the open workbook (default)    Title - Title of the Excel window"
+            "documentation": "**[optional]** specifies search mode:    \nFileName - Name of the open workbook    \nFilePath - Full path to the open workbook (default)    \nTitle - Title of the Excel window"
         }, {
             "label": "$oInstance",
             "documentation": "**[optional]** Object of the Excel instance to be searched (default = keyword Default = all instances)"
@@ -1819,7 +1819,7 @@
             "documentation": "**[optional]** The password that was used to write-protect the workbook, if any (default is none)"
         }, {
             "label": "$bUpdateLinks",
-            "documentation": "**[optional]** Specifies the way external references (links) in the file are updated (default = keyword Default) Valid values are: Default: Excel prompts the user to decide how to update links. 0: Excel doesn't update links. 3: Excel updates all links."
+            "documentation": "**[optional]** Specifies the way external references (links) in the file are updated (default = keyword Default) Valid values are:  \nDefault: Excel prompts the user to decide how to update links.  \n0: Excel doesn't update links.  \n3: Excel updates all links."
         }]
     },
     "_Excel_BookOpenText": {
@@ -1836,7 +1836,7 @@
             "documentation": "**[optional]** The row at which to start parsing the file (default = 1)"
         }, {
             "label": "$iDataType",
-            "documentation": "**[optional]** Specifies the column format of the data in the file. Can be any of the XlTextParsingType enumeration.    If set to keyword Default Excel attempts to determine the column format (default = keyword Default)"
+            "documentation": "**[optional]** Specifies the column format of the data in the file. Can be any of the XlTextParsingType enumeration.  \nIf set to keyword Default Excel attempts to determine the column format (default = keyword Default)"
         }, {
             "label": "$sTextQualifier",
             "documentation": "**[optional]** Specifies the text qualifier (default = $xlTextQualifierDoubleQuote)"
@@ -1848,19 +1848,19 @@
             "documentation": "**[optional]** One or multiple characters to be used as delimiter (default = \",\")"
         }, {
             "label": "$aFieldInfo",
-            "documentation": "**[optional]** An array containing parse information for individual columns of data.    The interpretation depends on the value of DataType.    When the data is delimited, this argument is an array of two-element arrays, with each two-element array    specifying the conversion options for a particular column.    The first element is the column number (1-based), and the second element is one of the XlColumnDataType    constants specifying how the column is parsed (default = keyword Default)"
+            "documentation": "**[optional]** An array containing parse information for individual columns of data.  \nThe interpretation depends on the value of DataType.  \nWhen the data is delimited, this argument is an array of two-element arrays, with each two-element array specifying the conversion options for a particular column.  \nThe first element is the column number (1-based), and the second element is one of the XlColumnDataType constants specifying how the column is parsed (default = keyword Default)"
         }, {
             "label": "$sDecimalSeparator",
-            "documentation": "**[optional]** Decimal separator that Excel uses when recognizing numbers.    Default setting is the system setting (default = keyword Default)"
+            "documentation": "**[optional]** Decimal separator that Excel uses when recognizing numbers.  \nDefault setting is the system setting (default = keyword Default)"
         }, {
             "label": "$sThousandsSeparator",
-            "documentation": "**[optional]** Thousands separator that Excel uses when recognizing numbers.    Default setting is the system setting (default = keyword Default)"
+            "documentation": "**[optional]** Thousands separator that Excel uses when recognizing numbers.  \nDefault setting is the system setting (default = keyword Default)"
         }, {
             "label": "$bTrailingMinusNumbers",
-            "documentation": "**[optional]** True treats numbers with a minus character at the end as negative numbers.    False treats such numbers as text (default = True)"
+            "documentation": "**[optional]** True treats numbers with a minus character at the end as negative numbers.  \nFalse treats such numbers as text (default = True)"
         }, {
             "label": "$iOrigin",
-            "documentation": "**[optional]** Origin of the text file. Can be one of the XlPlatform constants.    Additionally, this could be an integer representing the code page number of the desired code page.    For example, \"1256\" would specify that the encoding is Arabic (Windows).    If this argument is omitted, the method uses the current setting of the File Origin option in the Text Import Wizard."
+            "documentation": "**[optional]** Origin of the text file. Can be one of the XlPlatform constants.  \nAdditionally, this could be an integer representing the code page number of the desired code page.  \nFor example, \"1256\" would specify that the encoding is Arabic (Windows).  \nIf this argument is omitted, the method uses the current setting of the File Origin option in the Text Import Wizard."
         }]
     },
     "_Excel_BookSave": {
@@ -1902,13 +1902,13 @@
         "label": "_Excel_Close ( $oExcel [, $bSaveChanges = True [, $bForceClose = False]] )",
         "params": [{
             "label": "$oExcel",
-            "documentation": "Excel application object as returned by _Excel_Open()"
+            "documentation": "Excel application object as returned by `_Excel_Open()`"
         }, {
             "label": "$bSaveChanges",
             "documentation": "**[optional]** Specifies whether changed worksheets should be saved before closing (default = True)"
         }, {
             "label": "$bForceClose",
-            "documentation": "**[optional]** If True the Excel application is closed even when it was not started by _Excel_Open() (default = False)"
+            "documentation": "**[optional]** If True the Excel application is closed even when it was not started by `_Excel_Open()` (default = False)"
         }]
     },
     "_Excel_ColumnToLetter": {
@@ -2004,13 +2004,13 @@
             "documentation": "Name, index or worksheet object to be filtered. If set to keyword Default the active sheet will be filtered"
         }, {
             "label": "$vRange",
-            "documentation": "A range object or an A1 range to specify the columns to filter on.    Use keyword Default to filter on all used columns of the specified worksheet"
+            "documentation": "A range object or an A1 range to specify the columns to filter on.  \nUse keyword Default to filter on all used columns of the specified worksheet"
         }, {
             "label": "$iField",
-            "documentation": "Integer offset of the field on which you want to base the filter (the leftmost field is field one).    If set to 0 all Autofilters on the worksheet will be removed"
+            "documentation": "Integer offset of the field on which you want to base the filter (the leftmost field is field one).  \nIf set to 0 all Autofilters on the worksheet will be removed"
         }, {
             "label": "$sCriteria1",
-            "documentation": "**[optional]** The criteria (a string or an array of strings). Use \"=\" to find blank fields, or use \"<>\" to find nonblank fields.    If this argument is omitted, the criteria is All.    If Operator is xlTop10Items, Criteria1 specifies the number of items (for example, \"10\")"
+            "documentation": "**[optional]** The criteria (a string or an array of strings). Use \"=\" to find blank fields, or use \"<>\" to find nonblank fields.  \nIf this argument is omitted, the criteria is All.  \nIf Operator is xlTop10Items, Criteria1 specifies the number of items (for example, \"10\")"
         }, {
             "label": "$iOperator",
             "documentation": "**[optional]** One of the constants of the XlAutoFilterOperator enumeration specifying the type of filter"
@@ -2056,7 +2056,7 @@
             "documentation": "Either an A1 range, a range object or an integer denoting the left position of the pictures upper left corner"
         }, {
             "label": "$iTop",
-            "documentation": "**[optional]** If $vRangeOrLeft is an integer then $iTop is the top position of the pictures upper left corner."
+            "documentation": "**[optional]** If `$vRangeOrLeft` is an integer then `$iTop` is the top position of the pictures upper left corner."
         }, {
             "label": "$iWidth",
             "documentation": "**[optional]** If specified, sets the width of the picture. If not specified, width will adjust automatically (default = Automatic)"
@@ -2065,7 +2065,7 @@
             "documentation": "**[optional]** If specified, sets the height of the picture. If not specified, height will adjust automatically (default = Automatic)"
         }, {
             "label": "$bKeepRatio",
-            "documentation": "**[optional]** Only used if $vRangeOrLeft is a multi-cell range (default = True)    True will maintain image aspect ratio while staying within the bounds of $vRangeOrLeft.    False will fill the $vRangeOrLeft regardless of original aspect ratio."
+            "documentation": "**[optional]** Only used if `$vRangeOrLeft` is a multi-cell range (default = True)    \nTrue will maintain image aspect ratio while staying within the bounds of `$vRangeOrLeft`.    \nFalse will fill the `$vRangeOrLeft` regardless of original aspect ratio."
         }]
     },
     "_Excel_Print": {
@@ -2094,13 +2094,13 @@
             "documentation": "**[optional]** Page number where to stop printing (default = keyword Default = last page)"
         }, {
             "label": "$bPrintToFile",
-            "documentation": "**[optional]** True to print to a file. See parameter $sPrToFileName (default = keyword Default = False)"
+            "documentation": "**[optional]** True to print to a file. See parameter `$sPrToFileName` (default = keyword Default = False)"
         }, {
             "label": "$bCollate",
             "documentation": "**[optional]** True to collate multiple copies (default = keyword Default = False)"
         }, {
             "label": "$sPrToFileName",
-            "documentation": "**[optional]** If $bPrintToFile is set to True, this argument specifies the name of the file you want to print to."
+            "documentation": "**[optional]** If `$bPrintToFile` is set to True, this argument specifies the name of the file you want to print to."
         }]
     },
     "_Excel_RangeCopyPaste": {
@@ -2111,19 +2111,19 @@
             "documentation": "Object of the source worksheet"
         }, {
             "label": "$vSourceRange",
-            "documentation": "Source range to copy/cut from. Can be a range object or an A1 range.    If set to keyword Default then the range will be copied from the clipboard."
+            "documentation": "Source range to copy/cut from. Can be a range object or an A1 range.  \nIf set to keyword Default then the range will be copied from the clipboard."
         }, {
             "label": "$vTargetRange",
-            "documentation": "**[optional]** Target range to copy/cut to. Can be a range object or an A1 range.    If set to keyword Default then the range will be copied to the clipboard (default = keyword Default)"
+            "documentation": "**[optional]** Target range to copy/cut to. Can be a range object or an A1 range.  \nIf set to keyword Default then the range will be copied to the clipboard (default = keyword Default)"
         }, {
             "label": "$bCut",
-            "documentation": "**[optional]** If set to True the source range isn't copied but cut out (default = False)    This parameter is ignored when $vSourceRange is set to keyword Default."
+            "documentation": "**[optional]** If set to True the source range isn't copied but cut out (default = False)  \nThis parameter is ignored when `$vSourceRange` is set to keyword Default."
         }, {
             "label": "$iPaste",
-            "documentation": "**[optional]** The part of the range to be pasted from the clipboard (formulas, formats ...). Must be a value of the XlPasteType enumeration    (default = keyword Default)"
+            "documentation": "**[optional]** The part of the range to be pasted from the clipboard (formulas, formats ...). Must be a value of the XlPasteType enumeration  \n(default = keyword Default)"
         }, {
             "label": "$iOperation",
-            "documentation": "**[optional]** The paste operation (add, divide, multiply ...). Must be a value of the XlPasteSpecialOperation enunmeration    (default = keyword Default)"
+            "documentation": "**[optional]** The paste operation (add, divide, multiply ...). Must be a value of the XlPasteSpecialOperation enunmeration  \n(default = keyword Default)"
         }, {
             "label": "$bSkipBlanks",
             "documentation": "**[optional]** If set to True blank cells from the clipboard will not be pasted into the target range (default = False)"
@@ -2143,7 +2143,7 @@
             "documentation": "Range can be a range object, an A1 range (e.g. \"A1:B2\", \"1:2\" (row 1 to 2), \"D:G\" (columns D to G) etc."
         }, {
             "label": "$iShift",
-            "documentation": "**[optional]** Specifies which way to shift the cells. Can be xlShiftToLeft or xlShiftUp of the XlDeleteShiftDirection enumeration.    If set to keyword Default, Excel decides based on the shape of the range (default = keyword Default)"
+            "documentation": "**[optional]** Specifies which way to shift the cells. Can be xlShiftToLeft or xlShiftUp of the XlDeleteShiftDirection enumeration.  \nIf set to keyword Default, Excel decides based on the shape of the range (default = keyword Default)"
         }, {
             "label": "$iEntireRowCol",
             "documentation": "**[optional]** If set to 1 the entire row is deleted, if set to 2 the entire column is deleted (default = keyword Default = only delete specified range)"
@@ -2183,7 +2183,7 @@
             "documentation": "Range can be a range object, an A1 range (e.g. \"A1:B2\", \"1:2\" (row 1 to 2), \"\"D:G\" (columns D to G) etc."
         }, {
             "label": "$iShift",
-            "documentation": "**[optional]** Specifies which way to shift the cells. Can be xlShiftToRight or xlShiftDown of the XlInsertShiftDirection enumeration.    If set to keyword Default, Excel decides based on the shape of the range (default = keyword Default)"
+            "documentation": "**[optional]** Specifies which way to shift the cells. Can be xlShiftToRight or xlShiftDown of the XlInsertShiftDirection enumeration.  \nIf set to keyword Default, Excel decides based on the shape of the range (default = keyword Default)"
         }, {
             "label": "$iCopyOrigin",
             "documentation": "**[optional]** Specifies which formatting option to copy. Can be any of the XlInsertFormatOrigin enumeration (default = keyword Default)"
@@ -2203,13 +2203,13 @@
             "documentation": "Either a range object or an A1 range to be set to a hyperlink"
         }, {
             "label": "$sAddress",
-            "documentation": "The address for the specified link. The address can be an E-mail address, an Internet    address or a file name. \"\" removes an existing hyperlink"
+            "documentation": "The address for the specified link. The address can be an E-mail address, an Internet address or a file name. \"\" removes an existing hyperlink"
         }, {
             "label": "$sSubAddress",
-            "documentation": "**[optional]** The name of a location within the destination file, such as a bookmark, named range    or slide number (default = keyword Default = None)"
+            "documentation": "**[optional]** The name of a location within the destination file, such as a bookmark, named range or slide number (default = keyword Default = None)"
         }, {
             "label": "$sScreenTip",
-            "documentation": "**[optional]** The text that appears as a ScreenTip when the mouse pointer is positioned over the    specified hyperlink (default = keyword Default = Uses value of $sAddress)"
+            "documentation": "**[optional]** The text that appears as a ScreenTip when the mouse pointer is positioned over the specified hyperlink (default = keyword Default = Uses value of `$sAddress`)"
         }, {
             "label": "$sTextToDisplay",
             "documentation": "**[optional]** The text to be displayed for the hyperlink (default = keyword Default = None)"
@@ -2229,10 +2229,10 @@
             "documentation": "**[optional]** Either a range object or an A1 range. If set to Default all used cells will be processed (default = keyword Default)"
         }, {
             "label": "$iReturn",
-            "documentation": "**[optional]** What to return from the specified cell:    1 - Value (default)    2 - Formula    3 - The displayed text    4 - Value2. The only difference between Value and Value2 is that the Value2 property doesn’t use the Currency and Date data types"
+            "documentation": "**[optional]** What to return from the specified cell:    \n1 - Value (default)    \n2 - Formula    \n3 - The displayed text    \n4 - Value2. The only difference between Value and Value2 is that the Value2 property doesn’t use the Currency and Date data types"
         }, {
             "label": "$bForceFunc",
-            "documentation": "**[optional]** True forces to use the _ArrayTranspose function instead of the Excel transpose method (default = False).    See the Remarks section for details."
+            "documentation": "**[optional]** True forces to use the `_ArrayTranspose` function instead of the Excel transpose method (default = False)."
         }]
     },
     "_Excel_RangeReplace": {
@@ -2363,7 +2363,7 @@
             "documentation": "**[optional]** If True the $vValue will be written to the value property. If False $vValue will be written to the formula property (default = True)"
         }, {
             "label": "$bForceFunc",
-            "documentation": "**[optional]** True forces to use the _ArrayTranspose function instead of the Excel transpose method (default = False).    See the Remarks section for details."
+            "documentation": "**[optional]** True forces to use the `_ArrayTranspose` function instead of the Excel transpose method (default = False)."
         }]
     },
     "_Excel_SheetAdd": {
