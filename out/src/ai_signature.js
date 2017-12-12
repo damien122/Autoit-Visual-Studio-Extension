@@ -152,7 +152,7 @@ function getLocalSigs(doc) {
     while ((pattern = _includeFuncPattern.exec(text)) !== null) {
         functions[pattern[2]] = {
             label: pattern[1],
-            documentation: '',
+            documentation: 'Local Function',
             params: getParams(pattern[3])
         }
     }
