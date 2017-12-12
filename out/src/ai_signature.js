@@ -135,6 +135,7 @@ function getIncludeData(fileName, doc) {
     while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
         functions[pattern[2]] = { 
                 label: pattern[1],
+                documentation: `Function from ${fileName}`,
                 params: getParams(pattern[3]) 
             }
     }
