@@ -69,7 +69,7 @@
             "documentation": "The data you wish to assign to the variable."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** controls the way that variables are assigned"
+            "documentation": "**[optional]** controls the way that variables are assigned  (add required options together):  \n&emsp;`$ASSIGN_CREATE` (`0`) = (default) Create variable if required  \n&emsp;`$ASSIGN_FORCELOCAL` (`1`) = Force creation in local scope  \n&emsp;`$ASSIGN_FORCEGLOBAL` (`2`) = Force creation in global scope  \n&emsp;`$ASSIGN_EXISTFAIL` (`4`) = Fail if variable does not already exist  \n\nConstants are defined in AutoItConstants.au3"
         }]
     },
     "ATan": {
@@ -148,7 +148,7 @@
             "documentation": "An expression to convert into a string."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes how the binary data is converted"
+            "documentation": "**[optional]** Changes how the binary data is converted:  \n&emsp;`$SB_ANSI` (`1`) = binary data is ANSI (default)  \n&emsp;`$SB_UTF16LE` (`2`) = binary data is UTF16 Little Endian  \n&emsp;`$SB_UTF16BE` (`3`) = binary data is UTF16 Big Endian  \n&emsp;`$SB_UTF8` (`4`) = binary data is UTF8  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "BitAND": {
@@ -231,7 +231,7 @@
         "documentation": "Disable/enable the mouse and keyboard.",
         "params": [{
             "label": "flag",
-            "documentation": "`$BI_DISABLE` (1) = Disable user input  \n`$BI_ENABLE` (0) = Enable user input"
+            "documentation": "&emsp;`$BI_DISABLE` (`1`) = Disable user input  \n&emsp;`$BI_ENABLE` (`0`) = Enable user input"
         }]
     },
     "Break": {
@@ -239,7 +239,7 @@
         "documentation:": "Enables or disables the users' ability to exit a script from the tray icon menu.",
         "params": [{
             "label": "mode",
-            "documentation": "Sets the script break mode:  \n`$BREAK_ENABLE` (1) = Break is enabled (user can quit) (default)  \n`$BREAK_DISABLE` (0) = Break is disabled (user cannot quit)"
+            "documentation": "Sets the script break mode:  \n&emsp;`$BREAK_ENABLE` (`1`) = Break is enabled (user can quit) (default)  \n&emsp;`$BREAK_DISABLE` (`0`) = Break is disabled (user cannot quit)  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "Call": {
@@ -260,11 +260,11 @@
         "documentation": "Opens or closes the CD tray.",
         "params": [{
                 "label": "drive",
-                "documentation": "The drive letter of the CD tray to control, in the format D:, E:, etc."
+                "documentation": "The drive letter of the CD tray to control, in the format **D:**, **E:**, etc."
             },
             {
                 "label": "status",
-                "documentation": "Specifies if you want the CD tray to be open or closed"
+                "documentation": "Specifies if you want the CD tray to be open or closed  \n&emsp;`$CDTRAY_OPEN` (\"open\") - to be open  \n&emsp;`$CDTRAY_CLOSED` (\"closed\") - to be closed on cd tray (not laptop-style)  \n\nConstants are defined in AutoItConstants.au3"
             }
         ]
     },
@@ -548,7 +548,7 @@
             "documentation": "String of characters to send to the control."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes how \"keys\" is processed"
+            "documentation": "**[optional]** Changes how \"keys\" is processed:  \n&emsp;`$SEND_DEFAULT` (`0`) = Text contains special characters like + and ! to indicate SHIFT and ALT key-presses (default).  \n&emsp;`SEND_RAW` (`1`) = keys are sent raw.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "ControlSetText": {
@@ -621,7 +621,7 @@
             "documentation": "The hexadecimal string to convert."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Defines behavior."
+            "documentation": "**[optional]** Defines behavior.  \nCan be one of the following:  \n&emsp;Default = string is interpreted as an integer. See remarks.  \n&emsp;`$NUMBER_32BIT` (`1`) = string is interpreted as a 32bit integer  \n&emsp;`$NUMBER_64BIT` (`2`) = string is interpreted as a 64bit integer  \n&emsp;`$NUMBER_DOUBLE` (`3`) = string is interpreted as a double  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "DirCopy": {
@@ -635,7 +635,7 @@
             "documentation": "Path of the destination dir (with no trailing backslash). e.g. \"C:\\Path_Copy\""
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist"
+            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing files  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing files  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "DirCreate": {
@@ -654,7 +654,7 @@
             "documentation": "Path of the directory to create."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines the behaviour and result of the function"
+            "documentation": "**[optional]** this flag determines the behaviour and result of the function, and can be a combination of the following:  \n&emsp;`$DIR_DEFAULT` (`0`) = (default)  \n&emsp;`$DIR_EXTENDED` (`1`) = Extended mode is On -> returns an array that contains extended information (see Remarks).  \n&emsp;`$DIR_NORECURSE` (`2`) = Don't get the size of files in subdirectories (recursive mode is Off)"
         }]
     },
     "DirMove": {
@@ -668,7 +668,7 @@
             "documentation": "Path of the destination dir (with no trailing backslash). e.g. \"C:\\Path_Copy\""
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist"
+            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing files;  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing files  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "DirRemove": {
@@ -679,7 +679,7 @@
             "documentation": "Path of the directory to remove."
         }, {
             "label": "recurse",
-            "documentation": "**[optional]** Use this flag to specify if you want to delete sub-directories too."
+            "documentation": "**[optional]** Use this flag to specify if you want to delete sub-directories too.  \n&emsp;`$DIR_DEFAULT` (`0`) = (default) deletes the folder, only if it is empty  \n&emsp;`$DIR_REMOVE` (`1`) = remove files and subdirectories (like the DOS DelTree command)  \nConstants are define in \"AutoItConstants.au3\"."
         }]
     },
     "DllCall": {
@@ -716,7 +716,7 @@
             "documentation": "The return type of the function"
         }, {
             "label": "address",
-            "documentation": "The address of a function."
+            "documentation": "The address of a function. **If this value is invalid your script will crash!**"
         }, {
             "label": "type1",
             "documentation": "**[optional]** The type of the parameter "
@@ -736,7 +736,7 @@
         "label": "DllCallbackFree ( handle )",
         "params": [{
             "label": "handle",
-            "documentation": "The DllCallback handle, as returned by a previous call to DllCallbackRegister()."
+            "documentation": "The DllCallback handle, as returned by a previous call to `DllCallbackRegister()`."
         }]
     },
     "DllCallbackGetPtr": {
@@ -744,7 +744,7 @@
         "label": "DllCallbackGetPtr ( handle )",
         "params": [{
             "label": "handle",
-            "documentation": "A DllCallback handle returned from DllCallbackRegister()."
+            "documentation": "A DllCallback handle returned from `DllCallbackRegister()`."
         }]
     },
     "DllCallbackRegister": {
@@ -766,7 +766,7 @@
         "documentation": "Closes a previously opened DLL.",
         "params": [{
             "label": "dllhandle",
-            "documentation": "The handle of a dll, as returned by a previous call to DllOpen()."
+            "documentation": "The handle of a dll, as returned by a previous call to `DllOpen()`."
         }]
     },
     "DllOpen": {
@@ -793,14 +793,14 @@
         "label": "DllStructGetData ( Struct, Element [, index = Default] )",
         "params": [{
                 "label": "Struct",
-                "documentation": "The struct returned by DllStructCreate(). "
+                "documentation": "The struct returned by `DllStructCreate()`."
             }, {
                 "label": "Element",
-                "documentation": "Which element of the struct you want to access, starting at 1 or the element name as defined in DllStructCreate(). "
+                "documentation": "Which element of the struct you want to access, starting at 1 or the element name as defined in `DllStructCreate()`. "
             },
             {
                 "label": "index",
-                "documentation": "**[optional]** For elements that are an array this specifies the 1-based index to retrieve. If omitted or the Default keyword then the entire array is retrieved (Useful for quickly retrieving strings). Not used for non-array elements. "
+                "documentation": "**[optional]** For elements that are an array this specifies the 1-based index to retrieve. If omitted or the Default keyword then the entire array is retrieved (Useful for quickly retrieving strings). **Not used for non-array elements.**"
             }
         ]
     },
@@ -809,10 +809,10 @@
         "label": "DllStructGetPtr ( Struct [, Element] )",
         "params": [{
             "label": "Struct",
-            "documentation": "The struct returned by DllStructCreate(). "
+            "documentation": "The struct returned by `DllStructCreate()`. "
         }, {
             "label": "Element",
-            "documentation": "**[optional]** The element of the struct whose pointer you need, starting at 1 or the element name as defined in DllStructCreate(). "
+            "documentation": "**[optional]** The element of the struct whose pointer you need, starting at 1 or the element name as defined in `DllStructCreate()`. "
         }]
     },
     "DllStructGetSize": {
@@ -820,7 +820,7 @@
         "label": "DllStructGetSize ( Struct )",
         "params": [{
             "label": "Struct",
-            "documentation": "The struct returned by DllStructCreate()."
+            "documentation": "The struct returned by `DllStructCreate()`."
         }]
     },
     "DllStructSetData": {
@@ -828,16 +828,16 @@
         "label": "DllStructSetData ( Struct, Element, value [, index] )",
         "params": [{
             "label": "Struct",
-            "documentation": "The struct returned by DllStructCreate(). "
+            "documentation": "The struct returned by `DllStructCreate()`. "
         }, {
             "label": "Element",
-            "documentation": "Which element of the struct you want to access, starting at 1, or the element name as defined in DllStructCreate(). "
+            "documentation": "Which element of the struct you want to access, starting at 1, or the element name as defined in `DllStructCreate()`. "
         }, {
             "label": "value",
             "documentation": "The new value to place in the struct element. "
         }, {
             "label": "index",
-            "documentation": "**[optional]** For elements that are an array this specifies the 1-based index to set. If omitted or the Default keyword then as much of the value as possible will be set in element starting at index 1 (Useful for quickly setting strings). Not used for non-array elements. "
+            "documentation": "**[optional]** For elements that are an array this specifies the 1-based index to set. If omitted or the Default keyword then as much of the value as possible will be set in element starting at index 1 (Useful for quickly setting strings). **Not used for non-array elements.**"
         }]
     },
     "DriveGetDrive": {
@@ -845,7 +845,7 @@
         "label": "DriveGetDrive ( \"type\" )",
         "params": [{
             "label": "type",
-            "documentation": "Type of drive to find"
+            "documentation": "Type of drive to find:  \n&emsp;`$DT_ALL` (\"ALL\")  \n&emsp;`$DT_CDROM` (\"CDROM\")  \n&emsp;`$DT_REMOVABLE` (\"REMOVABLE\")  \n&emsp;`$DT_FIXED` (\"FIXED\")  \n&emsp;`$DT_NETWORK` (\"NETWORK\")  \n&emsp;`$DT_RAMDISK` (\"RAMDISK\")  \n&emsp;`$DT_UNKNOWN` (\"UNKNOWN\")  \n\nConstants are defined in AutoItConstants.au3"
         }]
     },
     "DriveGetFileSystem": {
@@ -880,7 +880,7 @@
             "documentation": "Path of drive to receive information from. "
         }, {
             "label": "operation",
-            "documentation": "**[optional]** The drive type operation to perform."
+            "documentation": "**[optional]** The drive type operation to perform.  \n&emsp;`$DT_DRIVETYPE` (`1`) = the type of drive (default)  \n&emsp;`$DT_SSDSTATUS` (`2`) = SSD status of the drive  \n&emsp;`$DT_BUSTYPE` (`3`) = the bus type of drive  \n\nConstants are defined in AutoItConstants.au3."
         }]
     },
     "DriveMapAdd": {
@@ -888,19 +888,19 @@
         "label": "DriveMapAdd ( \"device\", \"remote share\" [, flags = 0 [, \"user\" [, \"password\"]]] )",
         "params": [{
             "label": "device",
-            "documentation": "The device to map, for example \"O:\" or \"LPT1:\". If you pass an empty string for this parameter a connection is made but not mapped to a specific drive. If you specify \"*\" an unused drive letter will be automatically selected. "
+            "documentation": "The device to map, for example \"O:\" or \"LPT1:\". If you pass an empty string for this parameter a connection is made but not mapped to a specific drive. If you specify \"*\" an unused drive letter will be automatically selected."
         }, {
             "label": "remote share",
-            "documentation": "The remote share to connect to in the form \"\\\\server\\share\". "
+            "documentation": "The remote share to connect to in the form \"&#92;&#92;server&#92;share\". "
         }, {
             "label": "flags",
-            "documentation": "**[optional]** A combination of the following:  \n`$DMA_DEFAULT` (0) = default;  \n`$DMA_PERSISTENT` (1) = Persistent mapping;  \n`$DMA_AUTHENTICATION` (8) = Show authentication dialog if required"
+            "documentation": "**[optional]** A combination of the following:  \n&emsp;`$DMA_DEFAULT` (`0`) = default;  \n&emsp;`$DMA_PERSISTENT` (`1`) = Persistent mapping;  \n&emsp;`$DMA_AUTHENTICATION` (`8`) = Show authentication dialog if required  \n\nConstants are defined in \"AutoItConstants.au3\""
         }, {
             "label": "user",
-            "documentation": "**[optional]** The username to use to connect. In the form \"username\" or \"domain\\username\". "
+            "documentation": "**[optional]** The username to use to connect. In the form \"username\" or \"domain\\username\"."
         }, {
             "label": "password",
-            "documentation": "**[optional]** The password to use to connect. "
+            "documentation": "**[optional]** The password to use to connect."
         }]
     },
     "DriveMapDel": {
@@ -1024,7 +1024,7 @@
             "documentation": "The destination path of the copied file(s). "
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist."
+            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist.  \nCan be a combination of the following:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing files  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing files  \n&emsp;`$FC_CREATEPATH` (`8`) = Create destination directory structure if it doesn't exist (See Remarks).  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileCreateNTFSLink": {
@@ -1038,7 +1038,7 @@
             "documentation": "Path of the hardlink. "
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite link if they already exist."
+            "documentation": "**[optional]** this flag determines whether to overwrite link if they already exist.  \nCan be a combination of the following:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing link  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing link  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileCreateShortcut": {
@@ -1111,11 +1111,11 @@
         "label": "FileFindNextFile ( search [, flag = 0])",
         "params": [{
                 "label": "search",
-                "documentation": "The search handle, as returned by FileFindFirstFile(). "
+                "documentation": "The search handle, as returned by `FileFindFirstFile()`. "
             },
             {
                 "label": "flag",
-                "documentation": "**[optional]** this flag determines whether to return detailed file attribute information in @extended. "
+                "documentation": "**[optional]** this flag determines whether to return detailed file attribute information in `@extended`.  \n&emsp;0 = (default) use `@extended` to return 1 or 0 if search item is a directory.  \n&emsp;1 = Return a string in `@extended` in the same format as `FileGetAttrib()`."
             }
         ]
     },
@@ -1140,10 +1140,10 @@
         "label": "FileGetEncoding ( \"filehandle/filename\" [, mode = 1] )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter. "
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively you may use a string filename as the first parameter. "
         }, {
             "label": "mode",
-            "documentation": "**[optional]** The UTF8 detection mode to use. "
+            "documentation": "**[optional]** The UTF8 detection mode to use.  \n&emsp;`$FE_ENTIRE_UTF8` (`1`) = Check entire file for UTF8 sequences (default)  \n&emsp;`$FE_PARTIALFIRST_UTF8` (`2`) = Check first part of file for UTF8 sequences (the same as `FileOpen()` uses by default)  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileGetLongName": {
@@ -1154,7 +1154,7 @@
             "documentation": "Full path and file name to convert "
         }, {
             "label": "flag",
-            "documentation": "**[optional]**  \n`$FN_FULLPATH` (0) - Default;  \n`$FN_RELATIVEPATH` (1) - file can have relative dir, e.g. \"..\\file.txt\""
+            "documentation": "**[optional]**  \n&emsp;`$FN_FULLPATH` (`0`) - Default;  \n&emsp;`$FN_RELATIVEPATH` (`1`) - file can have relative dir, e.g. \"..&#92;file.txt\"  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileGetPos": {
@@ -1181,7 +1181,7 @@
             "documentation": "full path and file name to convert "
         }, {
             "label": "flag",
-            "documentation": "**[optional]**  \n`$FN_FULLPATH` (0) - Default;  \n`$FN_RELATIVEPATH` (1) - file can have relative dir, e.g. \"..\\file.txt\""
+            "documentation": "**[optional]**  \n&emsp;`$FN_FULLPATH` (`0`) - Default;  \n&emsp;`$FN_RELATIVEPATH` (`1`) - file can have relative dir, e.g. \"..&#92;file.txt\"  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileGetSize": {
@@ -1200,10 +1200,10 @@
             "documentation": "The path to the file or directory to check. "
         }, {
             "label": "option",
-            "documentation": "**[optional]** Flag to indicate which timestamp:  \n`$FT_MODIFIED` (0) = Last modified (default);  \n`$FT_CREATED` (1) = Created;  \n`$FT_ACCESSED` (2) = Last accessed"
+            "documentation": "**[optional]** Flag to indicate which timestamp:  \n&emsp;`$FT_MODIFIED` (`0`) = Last modified (default);  \n&emsp;`$FT_CREATED` (`1`) = Created;  \n&emsp;`$FT_ACCESSED` (`2`) = Last accessed  \n\nConstants are defined in FileConstants.au3"
         }, {
             "label": "format",
-            "documentation": "**[optional]** to specify type of return  \n`$FT_ARRAY` (0) = return an array (default)  \n`$FT_STRING` (1) = return a string YYYYMMDDHHMMSS"
+            "documentation": "**[optional]** to specify type of return  \n&emsp;`$FT_ARRAY` (`0`) = return an array (default)  \n&emsp;`$FT_STRING` (`1`) = return a string YYYYMMDDHHMMSS  \n\nConstants are defined in FileConstants.au3"
         }]
     },
     "FileGetVersion": {
@@ -1214,7 +1214,7 @@
             "documentation": "Filename. "
         }, {
             "label": "stringname",
-            "documentation": "**[optional]** Name of the string field to be retrieved from the header version file info:  \n`$FV_COMMENTS` (\"Comments\");  \n`$FV_COMPANYNAME` (\"CompanyName\");  \n`$FV_FILEDESCRIPTION` (\"FileDescription\");  \n`$FV_FILEVERSION` (\"FileVersion\");  \n`$FV_INTERNALNAME` (\"InternalName\");  \n`$FV_LEGALCOPYRIGHT` (\"LegalCopyright\");  \n`$FV_LEGALTRADEMARKS` (\"LegalTrademarks\");  \n`$FV_ORIGINALFILENAME` (\"OriginalFilename\");  \n`$FV_PRODUCTNAME` (\"ProductName\");  \n`$FV_PRODUCTVERSION` (\"ProductVersion\");  \n`$FV_PRIVATEBUILD` (\"PrivateBuild\");  \n`$FV_SPECIALBUILD` (\"SpecialBuild\") "
+            "documentation": "**[optional]** Name of the string field to be retrieved from the header version file info:  \n&emsp;`$FV_COMMENTS` (\"Comments\");  \n&emsp;`$FV_COMPANYNAME` (\"CompanyName\");  \n&emsp;`$FV_FILEDESCRIPTION` (\"FileDescription\");  \n&emsp;`$FV_FILEVERSION` (\"FileVersion\");  \n&emsp;`$FV_INTERNALNAME` (\"InternalName\");  \n&emsp;`$FV_LEGALCOPYRIGHT` (\"LegalCopyright\");  \n&emsp;`$FV_LEGALTRADEMARKS` (\"LegalTrademarks\");  \n&emsp;`$FV_ORIGINALFILENAME` (\"OriginalFilename\");  \n&emsp;`$FV_PRODUCTNAME` (\"ProductName\");  \n&emsp;`$FV_PRODUCTVERSION` (\"ProductVersion\");  \n&emsp;`$FV_PRIVATEBUILD` (\"PrivateBuild\");  \n&emsp;`$FV_SPECIALBUILD` (\"SpecialBuild\")  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileInstall": {
@@ -1228,7 +1228,7 @@
             "documentation": "The destination path of the file with trailing backslash if only the directory is used. This can be a variable."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \n`$FC_NOOVERWRITE` (0) = (default) do not overwrite existing files;  \n`$FC_OVERWRITE` (1) = overwrite existing files"
+            "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing files  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing files  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileMove": {
@@ -1243,7 +1243,7 @@
             },
             {
                 "label": "flag",
-                "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \nCan be a combination of the following:  \n`$FC_NOOVERWRITE` (0) = (default) do not overwrite existing files.;  \n`$FC_OVERWRITE` (1) = overwrite existing files.;  \n`$FC_CREATEPATH` (8) = Create destination directory structure if it doesn't exist."
+                "documentation": "**[optional]** this flag determines whether to overwrite files if they already exist:  \nCan be a combination of the following:  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) do not overwrite existing files.  \n&emsp;`$FC_OVERWRITE` (`1`) = overwrite existing files.  \n&emsp;`$FC_CREATEPATH` (`8`) = Create destination directory structure if it doesn't exist (See Remarks).  \n\nConstants are defined in FileConstants.au3."
             }
         ]
     },
@@ -1255,7 +1255,7 @@
             "documentation": "Filename of the file to open."
         }, {
             "label": "mode",
-            "documentation": "**[optional]** Mode to open the file in."
+            "documentation": "**[optional]** Mode to open the file in.  \nCan be a combination of the following:  \n&emsp;`$FO_READ` (`0`) = Read mode (default)  \n&emsp;`$FO_APPEND` (`1`) = Write mode (append to end of file)  \n&emsp;`$FO_OVERWRITE` (`2`) = Write mode (erase previous contents)  \n&emsp;`$FO_CREATEPATH` (`8`) = Create directory structure if it doesn't exist (See Remarks).  \n&emsp;`$FO_BINARY` (`16`) = Force binary mode (See Remarks).  \n&emsp;`$FO_UNICODE` or `$FO_UTF16_LE` (`32`) = Use Unicode UTF16 Little Endian reading and writing mode.  \n&emsp;`$FO_UTF16_BE` (`64`) = Use Unicode UTF16 Big Endian reading and writing mode.  \n&emsp;`$FO_UTF8` (`128`) = Use Unicode UTF8 (with BOM) reading and writing mode.  \n&emsp;`$FO_UTF8_NOBOM` (`256`) = Use Unicode UTF8 (without BOM) reading and writing mode.  \n&emsp;`$FO_ANSI` (`512`) = Use ANSI reading and writing mode.  \n&emsp;`$FO_UTF16_LE_NOBOM` (`1024`) = Use Unicode UTF16 Little Endian (without BOM) reading and writing mode.  \n&emsp;`$FO_UTF16_BE_NOBOM` (`2048`) = Use Unicode UTF16 Big Endian (without BOM) reading and writing mode.  \n&emsp;`$FO_FULLFILE_DETECT` (`16384`) = When opening for reading and no BOM is present, use the entire file to determine if it is UTF8 or UTF16. If this is not used then only the initial part of the file (up to 64KB) is checked for performance reasons.  \nThe folder path must already exist (except using `$FO_CREATEPATH` mode - See Remarks).  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileOpenDialog": {
@@ -1271,11 +1271,11 @@
             },
             {
                 "label": "filter",
-                "documentation": "File type single filter such as \"All (*.*)\" or \"Text files (*.txt)\" or multiple filter groups such as \"All (*.*)|Text files (*.txt)\"."
+                "documentation": "File type single filter such as \"All (&ast;.&ast;)\" or \"Text files (&ast;.txt)\" or multiple filter groups such as \"All (&ast;.&ast;)|Text files (&ast;.txt)\"."
             },
             {
                 "label": "options",
-                "documentation": "**[optional]** Dialog Options: To use more than one option, BitOR the required values together.;  \n`$FD_FILEMUSTEXIST` (1) = File Must Exist (if user types a filename);  \n`$FD_PATHMUSTEXIST` (2) = Path Must Exist (if user types a path, ending with a backslash);  \n`$FD_MULTISELECT` (4) = Allow MultiSelect;  \n`$FD_PROMPTCREATENEW` (8) = Prompt to Create New File (if does not exist)"
+                "documentation": "**[optional]** Dialog Options: To use more than one option, BitOR the required values together.  \n&emsp;`$FD_FILEMUSTEXIST` (`1`) = File Must Exist (if user types a filename);  \n&emsp;`$FD_PATHMUSTEXIST` (`2`) = Path Must Exist (if user types a path, ending with a backslash)  \n&emsp;`$FD_MULTISELECT` (`4`) = Allow MultiSelect  \n&emsp;`$FD_PROMPTCREATENEW` (`8`) = Prompt to Create New File (if does not exist)  \n\nConstants are defined in FileConstants.au3."
             }, {
                 "label": "default name",
                 "documentation": "**[optional]** Suggested file name for the user to open. Default is blank (\"\")."
@@ -1290,7 +1290,7 @@
         "label": "FileRead ( \"filehandle/filename\" [, count] )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively you may use a string filename as the first parameter."
         }, {
             "label": "count",
             "documentation": "**[optional]** The number of characters to read."
@@ -1301,7 +1301,7 @@
         "label": "FileReadLine ( \"filehandle/filename\" [, line = 1] )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively you may use a string filename as the first parameter."
         }, {
             "label": "line",
             "documentation": "**[optional]** The line number to read. The first line of a text file is line 1 (not zero), last line is -1."
@@ -1312,7 +1312,7 @@
         "label": "FileReadToArray ( \"filehandle/filename\" )",
         "params": [{
             "label": "filehandle/filename",
-            "documentation": "The handle of a file, as returned by a previous call to FileOpen(). Alternatively you may use a string filename as the first parameter."
+            "documentation": "The handle of a file, as returned by a previous call to `FileOpen()`. Alternatively you may use a string filename as the first parameter."
         }]
     },
     "FileRecycle": {
@@ -1345,7 +1345,7 @@
             "documentation": "File type single filter such as \"All (&ast;.&ast;)\" or \"Text files (&ast;.txt)\" or multiple filter groups such as \"All (&ast;.&ast;)|Text files (&ast;.txt)\"."
         }, {
             "label": "options",
-            "documentation": "**[optional]** Dialog Options: To use more than one option, `BitOR` the required values together.  \n&emsp;`$FD_PATHMUSTEXIST` (2) = Path Must Exist (if user types a path, ending with a backslash)  \n&emsp;`$FD_PROMPTOVERWRITE` (16) = Prompt to OverWrite File.  \n\nConstants are defined in FileConstants.au3."
+            "documentation": "**[optional]** Dialog Options: To use more than one option, `BitOR` the required values together.  \n&emsp;`$FD_PATHMUSTEXIST` (`2`) = Path Must Exist (if user types a path, ending with a backslash)  \n&emsp;`$FD_PROMPTOVERWRITE` (`16`) = Prompt to OverWrite File.  \n\nConstants are defined in FileConstants.au3."
         }, {
             "label": "default name",
             "documentation": "**[optional]** File name to suggest to the user to save the file with. Default is blank (\"\")."
@@ -1365,7 +1365,7 @@
             "documentation": "Root directory of GUI file tree. It limits a choice in the root folder. Use \"\" for Desktop to be root."
         }, {
             "label": "flag",
-            "documentation": "**[optional]**  \n&emsp;`$FSF_CREATEBUTTON` (1) = Show Create Folder Button (XP only)  \n&emsp;`$FSF_NEWDIALOG` (2) = Use New Dialog Style (XP only)  \n&emsp;`$FSF_EDITCONTROL` (4) = Show Edit Control (XP only)  \n\nConstants are defined in FileConstants.au3."
+            "documentation": "**[optional]**  \n&emsp;`$FSF_CREATEBUTTON` (`1`) = Show Create Folder Button (XP only)  \n&emsp;`$FSF_NEWDIALOG` (`2`) = Use New Dialog Style (XP only)  \n&emsp;`$FSF_EDITCONTROL` (`4`) = Show Edit Control (XP only)  \n\nConstants are defined in FileConstants.au3."
         }, {
             "label": "initial dir",
             "documentation": "**[optional]** The full path of the folder you selected/highlighted when displaying dialogue (if it exists in the root folder). Default is blank (\"\")."
@@ -1407,7 +1407,7 @@
             "documentation": "The offset to move from the origin. This value may be positive or negative. Negative values move backwards from the origin."
         }, {
             "label": "origin",
-            "documentation": "Must be one of the following:  \n&emsp;`$FILE_BEGIN` (`0`) = Beginning of the file.  \n&emsp;`$FILE_CURRENT` (`1`) = Current position.  \n&emsp;`$FILE_END` (`2`) = End of the file.  \n\nfielConstants are defined in FileConstants.au3."
+            "documentation": "Must be one of the following:  \n&emsp;`$FILE_BEGIN` (`0`) = Beginning of the file.  \n&emsp;`$FILE_CURRENT` (`1`) = Current position.  \n&emsp;`$FILE_END` (`2`) = End of the file.  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "FileSetTime": {
@@ -1563,7 +1563,7 @@
             "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : none.  \n&emsp;forced styles : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;defaulcreatet ( -1) : `WS_EX_WINDOWEDGE`"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;default ( -1) : `WS_EX_WINDOWEDGE`"
         }]
     },
     "GUICtrlCreateCheckbox": {
@@ -1646,10 +1646,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $DTS_LONGDATEFORMAT    forced style : $WS_TABSTOP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default (-1) : `$DTS_LONGDATEFORMAT`  \n&emsp;forced style : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default (-1) : WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;default (-1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateEdit": {
@@ -1672,10 +1672,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $ES_WANTRETURN, $WS_VSCROLL, $WS_HSCROLL, $ES_AUTOVSCROLL, $ES_AUTOHSCROLL    forced styles : $ES_MULTILINE, $WS_TABSTOP only if not $ES_READONLY"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : `$ES_WANTRETURN`, `$WS_VSCROLL`, `$WS_HSCROLL`, `$ES_AUTOVSCROLL`, `$ES_AUTOHSCROLL`  \n&emsp;forced styles : `$ES_MULTILINE`, `$WS_TABSTOP` only if not `$ES_READONLY`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default ( -1) : $WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;default ( -1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateGraphic": {
@@ -1695,7 +1695,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $SS_NOTIFY."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : `$SS_NOTIFY`."
         }]
     },
     "GUICtrlCreateGroup": {
@@ -1706,10 +1706,10 @@
             "documentation": "The text of the control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1718,7 +1718,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : none.    forced styles : $WS_GROUP, $BS_GROUPBOX."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : none.  \n&emsp;forced styles : `$WS_GROUP`, `$BS_GROUPBOX`."
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1735,10 +1735,10 @@
             "documentation": "Icon name if the file contains multiple icons. Can be an ordinal name if negative number. Otherwise -1."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is 32)."
@@ -1747,7 +1747,7 @@
             "documentation": "**[optional]** The height of the control (default is 32)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $SS_NOTIFY    forced styles : $WS_TABSTOP, $SS_ICON"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : `$SS_NOTIFY`  \n&emsp;forced styles : `$WS_TABSTOP`, `$SS_ICON`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1761,10 +1761,10 @@
             "documentation": "The text of the control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1773,10 +1773,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $ES_LEFT, $ES_AUTOHSCROLL    forced styles : $WS_TABSTOP only if no $ES_READONLY. $ES_MULTILINE is always reset."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : `$ES_LEFT`, `$ES_AUTOHSCROLL`  \n&emsp;forced styles : `$WS_TABSTOP` only if no `$ES_READONLY`. `$ES_MULTILINE` is always reset."
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default ( -1) : $WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.  \n&emsp;default ( -1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateLabel": {
@@ -1787,10 +1787,10 @@
             "documentation": "The text of the control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default text autofit in width)."
@@ -1799,7 +1799,7 @@
             "documentation": "**[optional]** The height of the control (default text autofit in height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : none.    forced styles : $SS_NOTIFY, $SS_LEFT"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.  \n&emsp;default ( -1) : none.  \n&emsp;forced styles : `$SS_NOTIFY`, `$SS_LEFT`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1813,10 +1813,10 @@
             "documentation": "The text of the control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1825,10 +1825,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : $LBS_SORT, $WS_BORDER, $WS_VSCROLL    forced styles : $WS_TABSTOP, $LBS_NOTIFY"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default ( -1) : `$LBS_SORT`, `$WS_BORDER`, `$WS_VSCROLL`    \n&emsp;forced styles : `$WS_TABSTOP`, `$LBS_NOTIFY`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default ( -1) : $WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    \n&emsp;default ( -1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateListView": {
@@ -1836,13 +1836,13 @@
         "label": "GUICtrlCreateListView ( \"text\", left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )",
         "params": [{
             "label": "text",
-            "documentation": "definition of columns heading. Each of them are separated with Opt(\"GUIDataSeparatorChar\")."
+            "documentation": "definition of columns heading. Each of them are separated with `Opt(\"GUIDataSeparatorChar\")`."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1851,10 +1851,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $LVS_SHOWSELALWAYS, $LVS_SINGLESEL    forced style : $LVS_REPORT"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : `$LVS_SHOWSELALWAYS`, `$LVS_SINGLESEL`    \n&emsp;forced style : `$LVS_REPORT`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table or ListView Extended Style Table.    default (-1) : $LVS_EX_FULLROWSELECT, $WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table or ListView Extended Style Table.    \n&emsp;default (-1) : `$LVS_EX_FULLROWSELECT`, `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateListViewItem": {
@@ -1862,7 +1862,7 @@
         "label": "GUICtrlCreateListViewItem ( \"text\", listviewID )",
         "params": [{
             "label": "text",
-            "documentation": "subitemtext separated with Opt(\"GUIDataSeparatorChar\")."
+            "documentation": "subitemtext separated with `Opt(\"GUIDataSeparatorChar\")`."
         }, {
             "label": "listviewID",
             "documentation": "controlID of the ListView control holding the item."
@@ -1907,10 +1907,10 @@
             "documentation": "The preselected date (always as \"yyyy/mm/dd\")."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1919,10 +1919,10 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : none.    forced style : $WS_TABSTOP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : none.    \n&emsp;forced style : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    default (-1) : WS_EX_CLIENTEDGE"
+            "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table.    \n&emsp;default (-1) : `$WS_EX_CLIENTEDGE`"
         }]
     },
     "GUICtrlCreateObj": {
@@ -1933,10 +1933,10 @@
             "documentation": "A variable pointing to a previously opened object"
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1953,10 +1953,10 @@
             "documentation": "filename of the picture to be loaded : supported types BMP, JPG, GIF(but not animated)."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -1965,7 +1965,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $SS_NOTIFY    forced style : $SS_BITMAP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : `$SS_NOTIFY`    \n&emsp;forced style : `$SS_BITMAP`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -1976,10 +1976,10 @@
         "label": "GUICtrlCreateProgress ( left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )",
         "params": [{
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -2002,10 +2002,10 @@
             "documentation": "The text of the control."
         }, {
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default text autofit in width)."
@@ -2014,7 +2014,7 @@
             "documentation": "**[optional]** The height of the control (default text autofit in height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : none.    forced styles : $BS_AUTORADIOBUTTON and $WS_TABSTOP if first radio in the group."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default ( -1) : none.    \n&emsp;forced styles : `$BS_AUTORADIOBUTTON` and `$WS_TABSTOP` if first radio in the group."
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -2037,7 +2037,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $TBS_AUTOTICKS"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : `$TBS_AUTOTICKS`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -2060,7 +2060,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default ( -1) : none.    forced styles : $TCS_TOOLTIPS, $WS_TABSTOP, $WS_CLIPSIBLINGS"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default ( -1) : none.    \n&emsp;forced styles : `$TCS_TOOLTIPS`, `$WS_TABSTOP`, `$WS_CLIPSIBLINGS`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -2079,10 +2079,10 @@
         "label": "GUICtrlCreateTreeView ( left, top [, width [, height [, style = -1 [, exStyle = -1]]]] )",
         "params": [{
             "label": "left",
-            "documentation": "The left side of the control. If -1 is used then left will be computed according to GUICoordMode."
+            "documentation": "The left side of the control. If -1 is used then left will be computed according to `GUICoordMode`."
         }, {
             "label": "top",
-            "documentation": "The top of the control. If -1 is used then top will be computed according to GUICoordMode."
+            "documentation": "The top of the control. If -1 is used then top will be computed according to `GUICoordMode`."
         }, {
             "label": "width",
             "documentation": "**[optional]** The width of the control (default is the previously used width)."
@@ -2091,7 +2091,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $TVS_HASBUTTONS, $TVS_HASLINES, $TVS_LINESATROOT, $TVS_DISABLEDRAGDROP, $TVS_SHOWSELALWAYS    forced style : $WS_TABSTOP"
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : `$TVS_HASBUTTONS`, `$TVS_HASLINES`, `$TVS_LINESATROOT`, `$TVS_DISABLEDRAGDROP`, `$TVS_SHOWSELALWAYS`    \n&emsp;forced style : `$WS_TABSTOP`"
         }, {
             "label": "exStyle",
             "documentation": "**[optional]** Defines the extended style of the control. See Extended Style Table."
@@ -2116,7 +2116,7 @@
             "documentation": "The controlID of the input control in which the updown control will be created, or -1 for the last created control."
         }, {
             "label": "style",
-            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    default (-1) : $UDS_ALIGNRIGHT.    forced style : $UDS_SETBUDDYINT and $UDS_ALIGNRIGHT if no align defined."
+            "documentation": "**[optional]** Defines the style of the control. See GUI Control Styles Appendix.    \n&emsp;default (-1) : `$UDS_ALIGNRIGHT`.    \n&emsp;forced style : `$UDS_SETBUDDYINT` and `$UDS_ALIGNRIGHT` if no align defined."
         }]
     },
     "GUICtrlDelete": {
@@ -2124,7 +2124,7 @@
         "label": "GUICtrlDelete ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }]
     },
     "GUICtrlGetHandle": {
@@ -2132,7 +2132,7 @@
         "label": "GUICtrlGetHandle ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "Control identifier as returned by a GUICtrlCreate...() function."
+            "documentation": "Control identifier as returned by a `GUICtrlCreate...()` function."
         }]
     },
     "GUICtrlGetState": {
@@ -2140,7 +2140,7 @@
         "label": "GUICtrlGetState ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }]
     },
     "GUICtrlRead": {
@@ -2148,10 +2148,10 @@
         "label": "GUICtrlRead ( controlID [, advanced = 0] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "advanced",
-            "documentation": "**[optional]** returns extended information of a control.    $GUI_READ_DEFAULT (0) = (Default) Returns a value with state or data of a control.    $GUI_READ_EXTENDED (1) = Returns extended information of a control. Constants are defined in GUIConstantsEx.au3."
+            "documentation": "**[optional]** returns extended information of a control.    \n&emsp;`$GUI_READ_DEFAULT` (`0`) = (Default) Returns a value with state or data of a control.    \n&emsp;`$GUI_READ_EXTENDED` (`1`) = Returns extended information of a control.  \n\nConstants are defined in GUIConstantsEx.au3."
         }]
     },
     "GUICtrlRecvMsg": {
@@ -2159,7 +2159,7 @@
         "label": "GUICtrlRecvMsg ( controlID , msg [, wParam [, lParamType]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "msg",
             "documentation": "type of message to be send to the control as defined in the Windows controls documentation."
@@ -2187,7 +2187,7 @@
         "label": "GUICtrlSendMsg ( controlID, msg , wParam, lParam )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "msg",
             "documentation": "type of message to be send to the control as defined in the Windows control documentation."
@@ -2204,10 +2204,10 @@
         "label": "GUICtrlSendToDummy ( controlID [, state] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by GUICtrlCreateDummy()"
+            "documentation": "The control identifier (controlID) as returned by `GUICtrlCreateDummy()`"
         }, {
             "label": "state",
-            "documentation": "**[optional]** value that can be retrieved later on by GUICtrlRead()"
+            "documentation": "**[optional]** value that can be retrieved later on by `GUICtrlRead()`"
         }]
     },
     "GUICtrlSetBkColor": {
@@ -2215,7 +2215,7 @@
         "label": "GUICtrlSetBkColor ( controlID, backgroundcolor )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "backgroundcolor",
             "documentation": "The RGB color to use."
@@ -2226,7 +2226,7 @@
         "label": "GUICtrlSetColor ( controlID, textcolor )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "textcolor",
             "documentation": "The RGB color to use."
@@ -2237,7 +2237,7 @@
         "label": "GUICtrlSetCursor ( controlID, cursorID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "cursorID",
             "documentation": "cursor ID as used by Windows SetCursor API (use -1 for the default mouse cursor for the control)"
@@ -2248,13 +2248,13 @@
         "label": "GUICtrlSetData ( controlID, data [, default] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "data",
-            "documentation": "Combo, List, ListView, ListViewItem: An Opt(\"GUIDataSeparatorChar\",...) separated list of items.Progress: The percentage.Slider: The value.Button, Checkbox, Combo, Edit, Group, Input, Label, List, Menu, MenuItem, Radio, TabItem, TreeViewItem: Replaces the text.Date : The date or time depending the style of the control and the regional settings.Dummy: The value."
+            "documentation": "Combo, List, ListView, ListViewItem: An `Opt(\"GUIDataSeparatorChar\",...)` separated list of items.  \nProgress: The percentage.  \nSlider: The value.  \nButton, Checkbox, Combo, Edit, Group, Input, Label, List, Menu, MenuItem, Radio, TabItem, TreeViewItem: Replaces the text.  \nDate : The date or time depending the style of the control and the regional settings.  \nDummy: The value."
         }, {
             "label": "default",
-            "documentation": "**[optional]**Combo, List: The default value.Edit, Input: If non-empty (\"\"), the string is inserted at the current insertion point (caret)."
+            "documentation": "**[optional]**  \nCombo, List: The default value.  \nEdit, Input: If non-empty (\"\"), the string is inserted at the current insertion point (caret)."
         }]
     },
     "GUICtrlSetDefBkColor": {
@@ -2265,7 +2265,7 @@
             "documentation": "Default background color for all controls."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUICtrlSetDefColor": {
@@ -2276,7 +2276,7 @@
             "documentation": "Default text color for all controls."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUICtrlSetFont": {
@@ -2284,22 +2284,22 @@
         "label": "GUICtrlSetFont ( controlID, size [, weight [, attribute [, fontname [, quality]]]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "size",
             "documentation": "Fontsize (default is 8.5)."
         }, {
             "label": "weight",
-            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.The following values are defined for convenience.    $FW_DONTCARE = 0 (Use the default font weight)    $FW_THIN = 100    $FW_EXTRALIGHT = 200    $FW_LIGHT = 300    $FW_NORMAL = 400    $FW_MEDIUM = 500    $FW_SEMIBOLD = 600    $FW_BOLD = 700    $FW_EXTRABOLD = 800    $FW_HEAVY = 900. Constants are defined in FontConstants.au3."
+            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.  \nThe following values are defined for convenience.  \n&emsp;`$FW_DONTCARE` = `0` (Use the default font weight)    \n&emsp;`$FW_THIN` = `100`    \n&emsp;`$FW_EXTRALIGHT` = `200`    \n&emsp;`$FW_LIGHT` = `300`    \n&emsp;`$FW_NORMAL` = `400`    \n&emsp;`$FW_MEDIUM` = `500`    \n&emsp;`$FW_SEMIBOLD` = `600`    \n&emsp;`$FW_BOLD` = `700`    \n&emsp;`$FW_EXTRABOLD` = `800`    \n&emsp;`$FW_HEAVY` = `900`  \n\nConstants are defined in FontConstants.au3."
         }, {
             "label": "attribute",
-            "documentation": "**[optional]** Font attributes, which can be a combination of the following added together:    $GUI_FONTITALIC (2) = Italic    $GUI_FONTUNDER (4) = Underlined    $GUI_FONTSTRIKE (8) = Strike. Constants are defined in GUIConstantsEx.au3."
+            "documentation": "**[optional]** Font attributes, which can be a combination of the following added together:    \n&emsp;`$GUI_FONTITALIC` (`2`) = Italic    \n&emsp;`$GUI_FONTUNDER` (`4`) = Underlined    \n&emsp;`$GUI_FONTSTRIKE` (`8`) = Strike  \n\nConstants are defined in GUIConstantsEx.au3."
         }, {
             "label": "fontname",
             "documentation": "**[optional]** Name of the font to use. (OS default GUI font is used if the font is \"\" or is not found)."
         }, {
             "label": "quality",
-            "documentation": "**[optional]** Font quality to select. The following qualities are accepted:    $DEFAULT_QUALITY (0) = Appearance of the font does not matter.    $DRAFT_QUALITY (1) = Appearance of the font is less important than when $PROOF_QUALITY is used. For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    $PROOF_QUALITY (2) = (default) Character quality of the font is more important than exact matching of the logical-font attributes. For GDI raster fonts, scaling is disabled and the font closest in size is chosen. Although the chosen font size may not be mapped exactly when $PROOF_QUALITY is used, the quality of the font is high and there is no distortion of appearance. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    $NONANTIALIASED_QUALITY (3) = Font is never antialiased.    $ANTIALIASED_QUALITY (4) = Font is always antialiased if the font supports it and the size of the font is not too small or too large.    $CLEARTYPE_QUALITY (5) = If set, text is rendered (when possible) using ClearType antialiasing method. See the remarks on the msdn page for LOGFONT for details about when cleartype is not available.If neither $ANTIALIASED_QUALITY nor $NONANTIALIASED_QUALITY is selected, the font is antialiased only if the user chooses smooth screen fonts in Control Panel. Constants are defined in FontConstants.au3"
+            "documentation": "**[optional]** Font quality to select. The following qualities are accepted:    \n&emsp;`$DEFAULT_QUALITY` (`0`) = Appearance of the font does not matter.    \n&emsp;`$DRAFT_QUALITY` (`1`) = Appearance of the font is less important than when `$PROOF_QUALITY` is used. For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    \n&emsp;`$PROOF_QUALITY` (`2`) = (default) Character quality of the font is more important than exact matching of the logical-font attributes. For GDI raster fonts, scaling is disabled and the font closest in size is chosen. Although the chosen font size may not be mapped exactly when `$PROOF_QUALITY` is used, the quality of the font is high and there is no distortion of appearance. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    \n&emsp;`$NONANTIALIASED_QUALITY` (`3`) = Font is never antialiased.    \n&emsp;`$ANTIALIASED_QUALITY` (`4`) = Font is always antialiased if the font supports it and the size of the font is not too small or too large.    \n&emsp;`$CLEARTYPE_QUALITY` (`5`) = If set, text is rendered (when possible) using ClearType antialiasing method. See the remarks on the msdn page for LOGFONT for details about when cleartype is not available.  \nIf neither `$ANTIALIASED_QUALITY` nor `$NONANTIALIASED_QUALITY` is selected, the font is antialiased only if the user chooses smooth screen fonts in Control Panel.  \nConstants are defined in FontConstants.au3"
         }]
     },
     "GUICtrlSetGraphic": {
@@ -2307,7 +2307,7 @@
         "label": "GUICtrlSetGraphic ( controlID, type [, par1 [, ... par6]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreateGraphic() function."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreateGraphic()` function."
         }, {
             "label": "type",
             "documentation": "type of drawing : dot, line, bezier, rect, ellipse, pie."
@@ -2321,7 +2321,7 @@
         "label": "GUICtrlSetImage ( controlID, filename [, iconname [, icontype]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "filename",
             "documentation": "The filename containing the picture to be display on the control."
@@ -2338,7 +2338,7 @@
         "label": "GUICtrlSetLimit ( controlID, max [, min = 0] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "max",
             "documentation": "For List controls it is the extent you can scroll horizontally in pixels.For Input/Edit controls it is the max number of characters that can be entered."
@@ -2352,7 +2352,7 @@
         "label": "GUICtrlSetOnEvent ( controlID, \"function\" )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "function",
             "documentation": "The name of the user function to call."
@@ -2363,7 +2363,7 @@
         "label": "GUICtrlSetPos ( controlID, left [, top [, width [, height]]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "left",
             "documentation": "The left side of the control."
@@ -2383,10 +2383,10 @@
         "label": "GUICtrlSetResizing ( controlID, resizing )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "resizing",
-            "documentation": "See the Docking Values table below for values that can be used (add together multiple values if required)."
+            "documentation": "See the Docking Values table for values that can be used (add together multiple values if required)."
         }]
     },
     "GUICtrlSetState": {
@@ -2397,7 +2397,7 @@
             "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
         }, {
             "label": "state",
-            "documentation": "See the State table below."
+            "documentation": "See the State table."
         }]
     },
     "GUICtrlSetStyle": {
@@ -2405,7 +2405,7 @@
         "label": "GUICtrlSetStyle ( controlID, style [, exStyle] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "style",
             "documentation": "Defines the style of the control. See GUI Control Styles Appendix."
@@ -2419,7 +2419,7 @@
         "label": "GUICtrlSetTip ( controlID, tiptext [, \"title\" [, icon [, options]]] )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a GUICtrlCreate...() function, or -1 for the last created control."
+            "documentation": "The control identifier (controlID) as returned by a `GUICtrlCreate...()` function, or -1 for the last created control."
         }, {
             "label": "tiptext",
             "documentation": "Tip text that will be displayed when the mouse is hovered over the control."
@@ -2428,10 +2428,10 @@
             "documentation": "**[optional]** The title for the tooltip."
         }, {
             "label": "icon",
-            "documentation": "**[optional]** Pre-defined icon to show next to the title: requires a title.    $TIP_NOICON (0) = No icon    $TIP_INFOICON (1) = Info icon    $TIP_WARNINGICON (2) = Warning icon    $TIP_ERRORICON (3) = Error Icon. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Pre-defined icon to show next to the title: requires a title.    \n&emsp;`$TIP_NOICON` (`0`) = No icon    \n&emsp;`$TIP_INFOICON` (`1`) = Info icon    \n&emsp;`$TIP_WARNINGICON` (`2`) = Warning icon    \n&emsp;`$TIP_ERRORICON` (`3`) = Error Icon.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "options",
-            "documentation": "**[optional]** Sets different options for how the tooltip will be displayed (Can be added together):    $TIP_BALLOON (1) = Display as Balloon Tip.    $TIP_CENTER (2) = Center the tip horizontally along the control. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Sets different options for how the tooltip will be displayed (Can be added together):    \n&emsp;`$TIP_BALLOON` (`1`) = Display as Balloon Tip.    \n&emsp;`$TIP_CENTER` (`2`) = Center the tip horizontally along the control.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "GUIDelete": {
@@ -2439,7 +2439,7 @@
         "label": "GUIDelete ( [winhandle] )",
         "params": [{
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUIGetCursorInfo": {
@@ -2455,7 +2455,7 @@
         "label": "GUIGetMsg ( [advanced = 0] )",
         "params": [{
             "label": "advanced",
-            "documentation": "**[optional]** return extended information in an array.    $GUI_EVENT_SINGLE (0) = (default) Returns a single event.    $GUI_EVENT_ARRAY (1) = returns an array containing the event and extended information. Constants are defined in GUIConstantsEx.au3."
+            "documentation": "**[optional]** return extended information in an array.    \n&emsp;`$GUI_EVENT_SINGLE` (`0`) = (default) Returns a single event.    \n&emsp;`$GUI_EVENT_ARRAY` (`1`) = returns an array containing the event and extended information.  \n\nConstants are defined in GUIConstantsEx.au3."
         }]
     },
     "GUIGetStyle": {
@@ -2463,7 +2463,7 @@
         "label": "GUIGetStyle ( [winhandle] )",
         "params": [{
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUIRegisterMsg": {
@@ -2485,7 +2485,7 @@
             "documentation": "A 2 dimensional array holding the accelerator table."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetBkColor": {
@@ -2496,7 +2496,7 @@
             "documentation": "Background color of the dialog box."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetCoord": {
@@ -2516,7 +2516,7 @@
             "documentation": "**[optional]** The height of the control (default is the previously used height)."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetCursor": {
@@ -2527,10 +2527,10 @@
             "documentation": "**[optional]** Cursor Id."
         }, {
             "label": "override",
-            "documentation": "**[optional]** Force the requested mouse cursor even when over controls (see below).    $GUI_CURSOR_NOOVERRIDE (0) = (default) Don't override a control's default mouse cursor.    $GUI_CURSOR_OVERRIDE (1) = override control's default mouse cursor. Constants are defined in GUIConstantsEx.au3."
+            "documentation": "**[optional]** Force the requested mouse cursor even when over controls (see below).    \n&emsp;`$GUI_CURSOR_NOOVERRIDE` (`0`) = (default) Don't override a control's default mouse cursor.    \n&emsp;`$GUI_CURSOR_OVERRIDE` (`1`) = override control's default mouse cursor.  \n\nConstants are defined in GUIConstantsEx.au3."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetFont": {
@@ -2541,10 +2541,10 @@
             "documentation": "Fontsize (default is 8.5)."
         }, {
             "label": "weight",
-            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.The following values are defined for convenience.    $FW_DONTCARE = 0 (Use the default font weight)    $FW_THIN = 100    $FW_EXTRALIGHT = 200    $FW_LIGHT = 300    $FW_NORMAL = 400    $FW_MEDIUM = 500    $FW_SEMIBOLD = 600    $FW_BOLD = 700    $FW_EXTRABOLD = 800    $FW_HEAVY = 900. Constants are defined in FontConstants.au3."
+            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.  \nThe following values are defined for convenience.  \n&emsp;`$FW_DONTCARE` = `0` (Use the default font weight)    \n&emsp;`$FW_THIN` = `100`    \n&emsp;`$FW_EXTRALIGHT` = `200`    \n&emsp;`$FW_LIGHT` = `300`    \n&emsp;`$FW_NORMAL` = `400`    \n&emsp;`$FW_MEDIUM` = `500`    \n&emsp;`$FW_SEMIBOLD` = `600`    \n&emsp;`$FW_BOLD` = `700`    \n&emsp;`$FW_EXTRABOLD` = `800`    \n&emsp;`$FW_HEAVY` = `900`  \n\nConstants are defined in FontConstants.au3."
         }, {
             "label": "attribute",
-            "documentation": "**[optional]** Font attributes, which can be a combination of the following added together:    $GUI_FONTNORMAL (0) = Normal (Default)    $GUI_FONTITALIC (2) = Italic    $GUI_FONTUNDER (4) = Underlined    $GUI_FONTSTRIKE (8) = Strike. Constants are defined in GUIConstantsEx.au3."
+            "documentation": "**[optional]** Font attributes, which can be a combination of the following added together:    \n&emsp;`$GUI_FONTNORMAL` (`0`) = Normal (Default)  \n&emsp;`$GUI_FONTITALIC` (`2`) = Italic    \n&emsp;`$GUI_FONTUNDER` (`4`) = Underlined    \n&emsp;`$GUI_FONTSTRIKE` (`8`) = Strike  \n\nConstants are defined in GUIConstantsEx.au3."
         }, {
             "label": "fontname",
             "documentation": "**[optional]** Font to use. (OS default GUI font is used if the font is \"\" or is not found)."
@@ -2553,7 +2553,7 @@
             "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
         }, {
             "label": "quality",
-            "documentation": "**[optional]** Font quality to select. The following qualities are accepted:    $DEFAULT_QUALITY (0) = Appearance of the font does not matter (Default).    $DRAFT_QUALITY (1) = Appearance of the font is less important than when $PROOF_QUALITY is used. For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    $PROOF_QUALITY (2) = (default) Character quality of the font is more important than exact matching of the logical-font attributes. For GDI raster fonts, scaling is disabled and the font closest in size is chosen. Although the chosen font size may not be mapped exactly when $PROOF_QUALITY is used, the quality of the font is high and there is no distortion of appearance. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    $NONANTIALIASED_QUALITY (3) = Font is never anti aliased.    $ANTIALIASED_QUALITY (4) = Font is always anti aliased if the font supports it and the size of the font is not too small or too large.    $CLEARTYPE_QUALITY (5) = If set, text is rendered (when possible) using ClearType anti aliasing method. See the remarks on the MSDN page for LOGFONT for details about when ClearType is not available.If neither $ANTIALIASED_QUALITY nor $NONANTIALIASED_QUALITY is selected, the font is anti aliased only if the user chooses smooth screen fonts in Control Panel. Constants are defined in FontConstants.au3"
+            "documentation": "**[optional]** Font quality to select. The following qualities are accepted:    \n&emsp;`$DEFAULT_QUALITY` (`0`) = Appearance of the font does not matter.    \n&emsp;`$DRAFT_QUALITY` (`1`) = Appearance of the font is less important than when `$PROOF_QUALITY` is used. For GDI raster fonts, scaling is enabled, which means that more font sizes are available, but the quality may be lower. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    \n&emsp;`$PROOF_QUALITY` (`2`) = (default) Character quality of the font is more important than exact matching of the logical-font attributes. For GDI raster fonts, scaling is disabled and the font closest in size is chosen. Although the chosen font size may not be mapped exactly when `$PROOF_QUALITY` is used, the quality of the font is high and there is no distortion of appearance. Bold, italic, underline, and strikeout fonts are synthesized if necessary.    \n&emsp;`$NONANTIALIASED_QUALITY` (`3`) = Font is never antialiased.    \n&emsp;`$ANTIALIASED_QUALITY` (`4`) = Font is always antialiased if the font supports it and the size of the font is not too small or too large.    \n&emsp;`$CLEARTYPE_QUALITY` (`5`) = If set, text is rendered (when possible) using ClearType antialiasing method. See the remarks on the msdn page for LOGFONT for details about when cleartype is not available.  \nIf neither `$ANTIALIASED_QUALITY` nor `$NONANTIALIASED_QUALITY` is selected, the font is antialiased only if the user chooses smooth screen fonts in Control Panel.  \nConstants are defined in FontConstants.au3"
         }]
     },
     "GUISetHelp": {
@@ -2564,7 +2564,7 @@
             "documentation": "file that will be run if F1 is pressed when the GUI is active."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetIcon": {
@@ -2578,7 +2578,7 @@
             "documentation": "**[optional]** The ID of the icon in the iconfile. (Default is -1)."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetOnEvent": {
@@ -2586,13 +2586,13 @@
         "label": "GUISetOnEvent ( specialID, \"function\" [, winhandle] )",
         "params": [{
             "label": "specialID",
-            "documentation": "See the Special ID table below."
+            "documentation": "See the Special ID table."
         }, {
             "label": "function",
             "documentation": "The name of the user function to call."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetState": {
@@ -2600,24 +2600,24 @@
         "label": "GUISetState ( [flag [, winhandle]] )",
         "params": [{
             "label": "flag",
-            "documentation": "**[optional]** @SW_SHOW = Shows a previously hidden window (default)    @SW_HIDE = Hide window    @SW_MINIMIZE = Minimize window    @SW_MAXIMIZE = Maximize window    @SW_RESTORE = Undoes a window minimization    @SW_DISABLE = Disables the window    @SW_ENABLE = Enables the window    @SW_LOCK = Lock the window to avoid repainting.    @SW_UNLOCK = Unlock windows to allow painting.    @SW_SHOWDEFAULT - Sets the show state based on the SW_ flag specified in the STARTUPINFO structure    @SW_SHOWMAXIMIZED - Activates the window and displays it as a maximized window    @SW_SHOWMINIMIZED - Activates the window and displays it as a minimized window    @SW_SHOWMINNOACTIVE - Displays the window as a minimized window    @SW_SHOWNA - Displays the window in its current state    @SW_SHOWNOACTIVATE - Displays a window in its most recent size and position    @SW_SHOWNORMAL - Activates and displays a window"
+            "documentation": "**[optional]**  \n&emsp;`@SW_SHOW` = Shows a previously hidden window (default)    \n&emsp;`@SW_HIDE` = Hide window    \n&emsp;`@SW_MINIMIZE` = Minimize window    \n&emsp;`@SW_MAXIMIZE` = Maximize window    \n&emsp;`@SW_RESTORE` = Undoes a window minimization    \n&emsp;`@SW_DISABLE` = Disables the window    \n&emsp;`@SW_ENABLE` = Enables the window    \n&emsp;`@SW_LOCK` = Lock the window to avoid repainting.    \n&emsp;`@SW_UNLOCK` = Unlock windows to allow painting.    \n&emsp;`@SW_SHOWDEFAULT` - Sets the show state based on the SW_ flag specified in the STARTUPINFO structure    \n&emsp;`@SW_SHOWMAXIMIZED` - Activates the window and displays it as a maximized window    \n&emsp;`@SW_SHOWMINIMIZED` - Activates the window and displays it as a minimized window    \n&emsp;`@SW_SHOWMINNOACTIVE` - Displays the window as a minimized window    \n&emsp;`@SW_SHOWNA` - Displays the window in its current state    \n&emsp;`@SW_SHOWNOACTIVATE` - Displays a window in its most recent size and position    \n&emsp;`@SW_SHOWNORMAL` - Activates and displays a window"
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISetStyle": {
         "documentation": "Changes the styles of a GUI window.",
-        "label": "GUISetStyle ( Style [, ExStyle [, winhandle]] )",
+        "label": "GUISetStyle ( style [, exStyle [, winhandle]] )",
         "params": [{
             "label": "style",
-            "documentation": "defines the style of the window. See GUI Control Styles Appendix.Use -1 to leave it unchanged."
+            "documentation": "defines the style of the window. See GUI Control Styles Appendix.  \n\nUse -1 to leave it unchanged."
         }, {
             "label": "exStyle",
-            "documentation": "**[optional]** defines the extended style of the window. See the Extended Style Table. -1 is the default.Use -1 to leave it unchanged."
+            "documentation": "**[optional]** defines the extended style of the window. See the Extended Style Table. -1 is the default.  \nUse -1 to leave it unchanged."
         }, {
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUIStartGroup": {
@@ -2625,7 +2625,7 @@
         "label": "GUIStartGroup ( [winhandle] )",
         "params": [{
             "label": "winhandle",
-            "documentation": "**[optional]** Windows handle as returned by GUICreate() (default is the previously used window)."
+            "documentation": "**[optional]** Windows handle as returned by `GUICreate()` (default is the previously used window)."
         }]
     },
     "GUISwitch": {
@@ -2647,7 +2647,7 @@
             "documentation": "The expression to convert."
         }, {
             "label": "length",
-            "documentation": "**[optional]** Number of characters to be returned for integer.Characters are truncated from the left-hand side if length is too small.This parameter is ignored if the data is binary data."
+            "documentation": "**[optional]** Number of characters to be returned for integer.  \nCharacters are truncated from the left-hand side if length is too small.  \nThis parameter is ignored if the data is binary data."
         }]
     },
     "HotKeySet": {
@@ -2655,7 +2655,7 @@
         "label": "HotKeySet ( \"key\" [, \"function\"] )",
         "params": [{
             "label": "key",
-            "documentation": "The key combination to use as the hotkey. Same format as Send()."
+            "documentation": "The key combination to use as the hotkey. Same format as `Send()`."
         }, {
             "label": "function",
             "documentation": "**[optional]** The name of the function to call when the key is pressed. Not specifying this parameter will unset a previous hotkey."
@@ -2666,7 +2666,7 @@
         "label": "HttpSetProxy ( mode = 0 [, \"proxy:port\" [, \"username\" [, \"password\"]]] )",
         "params": [{
             "label": "mode",
-            "documentation": "The proxy mode to use:    $PROXY_IE (0) = (default) Use current Internet Explorer settings for proxy.    $PROXY_NONE (1) = Use no proxy (direct access)    $PROXY_SPECIFIED (2) = Use the proxy specifiedConstants are deined in \"AutoItConstants.au3\"."
+            "documentation": "The proxy mode to use:    \n&emsp;`$PROXY_IE` (`0`) = (default) Use current Internet Explorer settings for proxy.    \n&emsp;`$PROXY_NONE` (`1`) = Use no proxy (direct access)    \n&emsp;`$PROXY_SPECIFIED` (`2`) = Use the proxy specified  \n\nConstants are deined in \"AutoItConstants.au3\"."
         }, {
             "label": "proxy:port",
             "documentation": "**[optional]** The address and port of the proxy to use."
@@ -2699,7 +2699,7 @@
         "label": "InetClose ( handle )",
         "params": [{
             "label": "handle",
-            "documentation": "A handle return from InetGet()."
+            "documentation": "A handle return from `InetGet()`."
         }]
     },
     "InetGet": {
@@ -2713,10 +2713,10 @@
             "documentation": "Local filename to download to."
         }, {
             "label": "options",
-            "documentation": "**[optional]**$INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online. Constants are defined in InetConstants.au3."
+            "documentation": "**[optional]**  \n&emsp;`$INET_LOCALCACHE `(`0`) = Get the file from local cache if available (default).    \n&emsp;`$INET_FORCERELOAD` (`1`) = Forces a reload from the remote site.    \n&emsp;`$INET_IGNORESSL` (`2`) = Ignore all SSL errors (with HTTPS connections).    \n&emsp;`$INET_ASCIITRANSFER` (`4`) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag `$INET_BINARYTRANSFER (8)`).    \n&emsp;`$INET_BINARYTRANSFER` (`8`) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag `$INET_ASCIITRANSFER (4)`). This is the default transfer mode if none are provided.    \n&emsp;`$INET_FORCEBYPASS` (`16`) = By-pass forcing the connection online.  \n\nConstants are defined in InetConstants.au3."
         }, {
             "label": "background",
-            "documentation": "**[optional]**    $INET_DOWNLOADWAIT (0) = Wait until the download is complete before continuing (default).    $INET_DOWNLOADBACKGROUND (1) = return immediately and download in the background. Constants are defined in InetConstants.au3"
+            "documentation": "**[optional]**    \n&emsp;`$INET_DOWNLOADWAIT` (`0`) = Wait until the download is complete before continuing (default).    \n&emsp;`$INET_DOWNLOADBACKGROUND` (`1`) = return immediately and download in the background.  \n\nConstants are defined in InetConstants.au3"
         }]
     },
     "InetGetInfo": {
@@ -2724,10 +2724,10 @@
         "label": "InetGetInfo ( [handle [, index = -1]] )",
         "params": [{
             "label": "handle",
-            "documentation": "**[optional]** A handle return from InetGet()."
+            "documentation": "**[optional]** A handle return from `InetGet()`."
         }, {
             "label": "index",
-            "documentation": "**[optional]** The index for the data to retrieve. If this value is -1 an array containing all of the below data will be returned.    $INET_DOWNLOADREAD (0) - Bytes read so far (this is updated while the download progresses).    $INET_DOWNLOADSIZE (1) - The size of the download in bytes (this may not always be present).    $INET_DOWNLOADCOMPLETE (2) - Set to True if the download is complete, False if the download is still ongoing.    $INET_DOWNLOADSUCCESS (3) - True if the download was successful. If this is False then the next data member will be non-zero.    $INET_DOWNLOADERROR (4) - The error value for the download. The value itself is arbitrary. Testing that the value is non-zero is sufficient for determining if an error occurred.    $INET_DOWNLOADEXTENDED (5) - The extended value for the download. The value is arbitrary and is primarily only useful to the AutoIt developers. Constants are defined in InetConstants.au3."
+            "documentation": "**[optional]** The index for the data to retrieve. If this value is -1 an array containing all of the below data will be returned.    \n&emsp;`$INET_DOWNLOADREAD` (`0`) - Bytes read so far (this is updated while the download progresses).    \n&emsp;`$INET_DOWNLOADSIZE` (`1`) - The size of the download in bytes (this may not always be present).    \n&emsp;`$INET_DOWNLOADCOMPLETE` (`2`) - Set to True if the download is complete, False if the download is still ongoing.    \n&emsp;`$INET_DOWNLOADSUCCESS` (`3`) - True if the download was successful. If this is False then the next data member will be non-zero.    \n&emsp;`$INET_DOWNLOADERROR` (`4`) - The error value for the download. The value itself is arbitrary. Testing that the value is non-zero is sufficient for determining if an error occurred.    \n&emsp;`$INET_DOWNLOADEXTENDED` (`5`) - The extended value for the download. The value is arbitrary and is primarily only useful to the AutoIt developers.  \n\nConstants are defined in InetConstants.au3."
         }]
     },
     "InetGetSize": {
@@ -2738,7 +2738,7 @@
             "documentation": "URL of the file to download."
         }, {
             "label": "options",
-            "documentation": "**[optional]**    $INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided. Constants are defined in InetConstants.au3."
+            "documentation": "**[optional]**    \n&emsp;`$INET_LOCALCACHE` (`0`) = Get the file from local cache if available (default).    \n&emsp;`$INET_FORCERELOAD` (`1`) = Forces a reload from the remote site.    \n&emsp;`$INET_IGNORESSL` (`2`) = Ignore all SSL errors (with HTTPS connections).    \n&emsp;`$INET_ASCIITRANSFER` (`4`) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag `$INET_BINARYTRANSFER` (`8`)).    \n&emsp;`$INET_BINARYTRANSFER` (`8`) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag `$INET_ASCIITRANSFER` (`4`)). This is the default transfer mode if none are provided.  \n\nConstants are defined in InetConstants.au3."
         }]
     },
     "InetRead": {
@@ -2749,7 +2749,7 @@
             "documentation": "URL of the file to download."
         }, {
             "label": "options",
-            "documentation": "**[optional]**    $INET_LOCALCACHE (0) = Get the file from local cache if available (default).    $INET_FORCERELOAD (1) = Forces a reload from the remote site.    $INET_IGNORESSL (2) = Ignore all SSL errors (with HTTPS connections).    $INET_ASCIITRANSFER (4) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag $INET_BINARYTRANSFER (8)).    $INET_BINARYTRANSFER (8) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag $INET_ASCIITRANSFER (4)). This is the default transfer mode if none are provided.    $INET_FORCEBYPASS (16) = By-pass forcing the connection online. Constants are defined in InetConstants.au3."
+            "documentation": "**[optional]**    \n&emsp;`$INET_LOCALCACHE` (`0`) = Get the file from local cache if available (default).    \n&emsp;`$INET_FORCERELOAD` (`1`) = Forces a reload from the remote site.    \n&emsp;`$INET_IGNORESSL` (`2`) = Ignore all SSL errors (with HTTPS connections).    \n&emsp;`$INET_ASCIITRANSFER` (`4`) = Use ASCII when transferring files with the FTP protocol (Can not be combined with flag `$INET_BINARYTRANSFER` (`8`)).    \n&emsp;`$INET_BINARYTRANSFER` (`8`) = Use BINARY when transferring files with the FTP protocol (Can not be combined with flag `$INET_ASCIITRANSFER` (`4`)). This is the default transfer mode if none are provided.    \n&emsp;`$INET_FORCEBYPASS` (`16`) = By-pass forcing the connection online.  \n\nConstants are defined in InetConstants.au3."
         }]
     },
     "IniDelete": {
@@ -2816,7 +2816,7 @@
             "documentation": "The new section name."
         }, {
             "label": "flag",
-            "documentation": "**[optional]**    $FC_NOOVERWRITE(0) = (default) Fail if \"new section\" already exists.    $FC_OVERWRITE(1) = Overwrite \"new section\". This will erase any existing keys in \"new section\". Constants are defined in FileConstants.au3."
+            "documentation": "**[optional]**  \n&emsp;`$FC_NOOVERWRITE` (`0`) = (default) Fail if \"new section\" already exists.  \n&emsp;`$FC_OVERWRITE` (`1`) = Overwrite \"new section\". This will erase any existing keys in \"new section\".  \n\nConstants are defined in FileConstants.au3."
         }]
     },
     "IniWrite": {
@@ -2847,10 +2847,10 @@
             "documentation": "The section name in the .ini file."
         }, {
             "label": "data",
-            "documentation": "The data to write. The data can either be a string or an array. If the data is a string, then each key=value pair must be delimited by @LF. If the data is an array, the array must be 2-dimensional and the second dimension must be 2 elements."
+            "documentation": "The data to write. The data can either be a string or an array. If the data is a string, then each key=value pair must be delimited by `@LF`. If the data is an array, the array must be 2-dimensional and the second dimension must be 2 elements."
         }, {
             "label": "index",
-            "documentation": "**[optional]** If an array is passed as data, this specifies the index to start writing from. By default, this is 1 so that the return value of IniReadSection() can be used immediately. For manually created arrays, this value may need to be different depending on how the array was created. This parameter is ignored if a string is passed as data."
+            "documentation": "**[optional]** If an array is passed as data, this specifies the index to start writing from. By default, this is 1 so that the return value of `IniReadSection()` can be used immediately. For manually created arrays, this value may need to be different depending on how the array was created. This parameter is ignored if a string is passed as data."
         }]
     },
     "InputBox": {
@@ -2896,7 +2896,7 @@
             "documentation": "An expression to convert into an integer."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer.    $NUMBER_32BIT (1) = string is interpreted as a 32bit integer    $NUMBER_64BIT (2) = string is interpreted as a 64bit integer. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Defines behavior.  \nCan be one of the following:  \n&emsp;`$NUMBER_AUTO` (`0`) = (default) the result is auto-sized integer.  \n&emsp;`$NUMBER_32BIT` (`1`) = string is interpreted as a 32bit integer  \n&emsp;`$NUMBER_64BIT` (`2`) = string is interpreted as a 64bit integer.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "IsAdmin": {
@@ -3045,7 +3045,7 @@
         "label": "MouseClick ( \"button\" [, x, y [, clicks = 1 [, speed = 10]]] )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    $MOUSE_CLICK_RIGHT (\"right\")    $MOUSE_CLICK_MIDDLE (\"middle\")    $MOUSE_CLICK_MAIN (\"main\")    $MOUSE_CLICK_MENU (\"menu\")    $MOUSE_CLICK_PRIMARY (\"primary\")    $MOUSE_CLICK_SECONDARY (\"secondary\")Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "x, y",
             "documentation": "**[optional]** The x/y coordinates to move the mouse to. If no x and y coords are given, the current position is used (default)."
@@ -3062,7 +3062,7 @@
         "label": "MouseClickDrag ( \"button\", x1, y1, x2, y2 [, speed = 10] )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    $MOUSE_CLICK_RIGHT (\"right\")    $MOUSE_CLICK_MIDDLE (\"middle\")    $MOUSE_CLICK_MAIN (\"main\")    $MOUSE_CLICK_MENU (\"menu\")    $MOUSE_CLICK_PRIMARY (\"primary\")    $MOUSE_CLICK_SECONDARY (\"secondary\")Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "x1, y1",
             "documentation": "The x/y coords to start the drag operation from."
@@ -3079,7 +3079,7 @@
         "label": "MouseDown ( \"button\" )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    $MOUSE_CLICK_RIGHT (\"right\")    $MOUSE_CLICK_MIDDLE (\"middle\")    $MOUSE_CLICK_MAIN (\"main\")    $MOUSE_CLICK_MENU (\"menu\")    $MOUSE_CLICK_PRIMARY (\"primary\")    $MOUSE_CLICK_SECONDARY (\"secondary\")Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "MouseGetCursor": {
@@ -3114,7 +3114,7 @@
         "label": "MouseUp ( \"button\" )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    $MOUSE_CLICK_RIGHT (\"right\")    $MOUSE_CLICK_MIDDLE (\"middle\")    $MOUSE_CLICK_MAIN (\"main\")    $MOUSE_CLICK_MENU (\"menu\")    $MOUSE_CLICK_PRIMARY (\"primary\")    $MOUSE_CLICK_SECONDARY (\"secondary\")Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "MouseWheel": {
@@ -3122,7 +3122,7 @@
         "label": "MouseWheel ( \"direction\" [, clicks = 1] )",
         "params": [{
             "label": "direction",
-            "documentation": "The direction to move the wheel:    $MOUSE_WHEEL_UP (\"up\")    $MOUSE_WHEEL_DOWN (\"down\")Constants are defined in \"AuoItConstants.au3\"."
+            "documentation": "The direction to move the wheel:    \n&emsp;`$MOUSE_WHEEL_UP `(\"up\")    \n&emsp;`$MOUSE_WHEEL_DOWN` (\"down\")  \n\nConstants are defined in \"AuoItConstants.au3\"."
         }, {
             "label": "clicks",
             "documentation": "**[optional]** The number of times to move the wheel. Default is 1."
@@ -3156,7 +3156,7 @@
             "documentation": "An expression to convert into a number."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Defines behavior.Can be one of the following:    $NUMBER_AUTO (0) = (default) the result is auto-sized integer.    $NUMBER_32BIT (1) = the result is 32bit integer.    $NUMBER_64BIT (2) = the result is 64bit integer.    $NUMBER_DOUBLE (3) = the result is double. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Defines behavior.  \nCan be one of the following:  \n&emsp;`$NUMBER_AUTO` (`0`) = (default) the result is auto-sized integer.  \n&emsp;`$NUMBER_32BIT` (`1`) = the result is 32bit integer.  \n&emsp;`$NUMBER_64BIT` (`2`) = the result is 64bit integer.  \n&emsp;`$NUMBER_DOUBLE` (`3`) = the result is double.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "ObjCreate": {
@@ -3201,10 +3201,10 @@
             "documentation": "A variable containing an Object from which you want to receive events"
         }, {
             "label": "\"functionprefix\"",
-            "documentation": "The prefix of the functions you define to handle receiving events. The prefix is appended by the Objects method name."
+            "documentation": "The prefix of the functions you define to handle receiving events.  \nThe prefix is appended by the Objects method name."
         }, {
             "label": "\"interface name\"",
-            "documentation": "**[optional]** name of an Event interface to use. Note: It must be a supported as outgoing for the Object AND it must be of type DISPATCH."
+            "documentation": "**[optional]** name of an Event interface to use.  \nNote: It must be a supported as outgoing for the Object AND it must be of type DISPATCH."
         }]
     },
     "ObjGet": {
@@ -3229,7 +3229,7 @@
             "documentation": "A variable containing an Object whose name you want to retrieve"
         }, {
             "label": "Flag",
-            "documentation": "**[optional]**    $OBJ_NAME (1) = (default) The name of the Object    $OBJ_STRING (2) = Description string of the Object    $OBJ_PROGID (3) = The ProgID of the Object    $OBJ_FILE (4) = The file that is associated with the object in the Registry    $OBJ_MODULE (5) = Module name in which the object runs (WIN XP And above). Marshaller for non-inproc objects.    $OBJ_CLSID (6) = CLSID of the object's coclass    $OBJ_IID (7) = IID of the object's interface. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]**    \n&emsp;`$OBJ_NAME` (`1`) = (default) The name of the Object    \n&emsp;`$OBJ_STRING` (`2`) = Description string of the Object    \n&emsp;`$OBJ_PROGID` (`3`) = The ProgID of the Object    \n&emsp;`$OBJ_FILE` (`4`) = The file that is associated with the object in the Registry    \n&emsp;`$OBJ_MODULE` (`5`) = Module name in which the object runs (WIN XP And above). Marshaller for non-inproc objects.    \n&emsp;`$OBJ_CLSID` (`6`) = CLSID of the object's coclass    \n&emsp;`$OBJ_IID` (`7`) = IID of the object's interface.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "OnAutoItExitRegister": {
@@ -3276,7 +3276,7 @@
             "documentation": "bottom coordinate of rectangle."
         }, {
             "label": "step",
-            "documentation": "**[optional]** Instead of checksumming each pixel use a value larger than 1 to skip pixels (for speed). E.g. A value of 2 will only check every other pixel. Default is 1. It is not recommended to use a step value greater than 1."
+            "documentation": "**[optional]** Instead of checksumming each pixel use a value larger than 1 to skip pixels (for speed). E.g. A value of 2 will only check every other pixel. Default is 1. **It is not recommended to use a step value greater than 1.**"
         }, {
             "label": "hwnd",
             "documentation": "**[optional]** Window handle to be used. Default is the desktop window."
@@ -3322,7 +3322,7 @@
             "documentation": "**[optional]** A number between 0 and 255 to indicate the allowed number of shades of variation of the red, green, and blue components of the color. Default is 0 (exact match)."
         }, {
             "label": "step",
-            "documentation": "**[optional]** Instead of searching each pixel use a value larger than 1 to skip pixels (for speed). E.g. A value of 2 will only check every other pixel. Default is 1. It is not recommended to use a step value greater than 1."
+            "documentation": "**[optional]** Instead of searching each pixel use a value larger than 1 to skip pixels (for speed). E.g. A value of 2 will only check every other pixel. Default is 1. **It is not recommended to use a step value greater than 1.**"
         }, {
             "label": "hwnd",
             "documentation": "**[optional]** Window handle to be used. Default is the desktop window."
@@ -3352,7 +3352,7 @@
             "documentation": "**[optional]** The name or PID of the process to get infos from. Default (-1) is the current process."
         }, {
             "label": "type",
-            "documentation": "**[optional]**    $PROCESS_STATS_MEMORY (0) = (default) memory infos.    $PROCESS_STATS_IO (1) = IO infos. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]**    \n&emsp;`$PROCESS_STATS_MEMORY` (`0`) = (default) memory infos.    \n&emsp;`$PROCESS_STATS_IO` (`1`) = IO infos.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "ProcessList": {
@@ -3371,7 +3371,7 @@
             "documentation": "The name or PID of the process to check."
         }, {
             "label": "priority",
-            "documentation": "A flag which determines what priority to set    $PROCESS_LOW (0) = Idle/Low    $PROCESS_BELOWNORMAL (1) = Below Normal    $PROCESS_NORMAL (2) = Normal    $PROCESS_ABOVENORMAL (3) = Above Normal    $PROCESS_HIGH (4) = High    $PROCESS_REALTIME (5) = Realtime (Use with caution, may make the system unstable)Constants are define in \"AutoItConstants.au3\"."
+            "documentation": "A flag which determines what priority to set    \n&emsp;`$PROCESS_LOW` (`0`) = Idle/Low    \n&emsp;`$PROCESS_BELOWNORMAL` (`1`) = Below Normal    \n&emsp;`$PROCESS_NORMAL` (`2`) = Normal    \n&emsp;`$PROCESS_ABOVENORMAL` (`3`) = Above Normal    \n&emsp;`$PROCESS_HIGH` (`4`) = High    \n&emsp;`$PROCESS_REALTIME` (`5`) = Realtime (Use with caution, may make the system unstable)  \n\nConstants are define in \"AutoItConstants.au3\"."
         }]
     },
     "ProcessWait": {
@@ -3421,7 +3421,7 @@
             "documentation": "**[optional]** position from top (in pixels) of progress window. (default is centered)"
         }, {
             "label": "opt",
-            "documentation": "**[optional]** Default is 'always on top/with title'Add up the following options you want:    $DLG_NOTITLE (1) = borderless, titleless window    $DLG_NOTONTOP (2) = Without \"always on top\" attribute    $DLG_MOVEABLE (16) = Window can be moved. Constants are defined in AutoItConstants.au3"
+            "documentation": "**[optional]** Default is 'always on top/with title'  \nAdd up the following options you want:    \n&emsp;`$DLG_NOTITLE` (`1`) = borderless, titleless window    \n&emsp;`$DLG_NOTONTOP` (`2`) = Without \"always on top\" attribute    \n&emsp;`$DLG_MOVEABLE` (`16`) = Window can be moved.  \n\nConstants are defined in AutoItConstants.au3"
         }]
     },
     "ProgressSet": {
@@ -3543,10 +3543,10 @@
             "documentation": "**[optional]** The working directory. Blank (\"\") uses the current working directory. This is not the path to the program."
         }, {
             "label": "show_flag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window (or Default keyword)    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window (or Default keyword)  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }, {
             "label": "opt_flag",
-            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    $STDIN_CHILD (0x1) = Provide a handle to the child's STDIN stream    $STDOUT_CHILD (0x2) = Provide a handle to the child's STDOUT stream    $STDERR_CHILD (0x4) = Provide a handle to the child's STDERR stream    $STDERR_MERGED (0x8) = Provides the same handle for STDOUT and STDERR. Implies both $STDOUT_CHILD and $STDERR_CHILD.    $STDIO_INHERIT_PARENT (0x10) = Provide the child with the parent's STDIO streams. This flag can not be combined with any other STDIO flag. This flag is only useful when the parent is compiled as a Console application.    $RUN_CREATE_NEW_CONSOLE (0x10000) = The child console process should be created with it's own window instead of using the parent's window. This flag is only useful when the parent is compiled as a Console application. Constants are defined in AutoItConstants.au3."
+            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.  \n&emsp;`$STDIN_CHILD` (`0x1`) = Provide a handle to the child's STDIN stream    \n&emsp;`$STDOUT_CHILD` (`0x2`) = Provide a handle to the child's STDOUT stream    \n&emsp;`$STDERR_CHILD` (`0x4`) = Provide a handle to the child's STDERR stream    \n&emsp;`$STDERR_MERGED` (`0x8`) = Provides the same handle for STDOUT and STDERR. Implies both `$STDOUT_CHILD` and `$STDERR_CHILD`.    \n&emsp;`$STDIO_INHERIT_PARENT` (`0x10`) = Provide the child with the parent's STDIO streams. \nemsp;This flag can not be combined with any other STDIO flag. This flag is only useful when the parent is compiled as a Console application.    \n&emsp;`$RUN_CREATE_NEW_CONSOLE` (`0x10000`) = The child console process should be created with it's own window instead of using the parent's window. This flag is only useful when the parent is compiled as a Console application.  \n\nConstants are defined in AutoItConstants.au3."
         }]
     },
     "RunAs": {
@@ -3563,19 +3563,19 @@
             "documentation": "The password for the user."
         }, {
             "label": "logon_flag",
-            "documentation": "    $RUN_LOGON_NOPROFILE (0) - Interactive logon with no profile.    $RUN_LOGON_PROFILE (1) - Interactive logon with profile.    $RUN_LOGON_NETWORK (2) - Network credentials only.    $RUN_LOGON_INHERIT (4) - Inherit the calling process's environment instead of the user's environment. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "&emsp;`$RUN_LOGON_NOPROFILE` (`0`) - Interactive logon with no profile.    \n&emsp;`$RUN_LOGON_PROFILE` (`1`) - Interactive logon with profile.    \n&emsp;`$RUN_LOGON_NETWORK` (`2`) - Network credentials only.    \n&emsp;`$RUN_LOGON_INHERIT` (`4`) - Inherit the calling process's environment instead of the user's environment.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "program",
             "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
         }, {
             "label": "workingdir",
-            "documentation": "**[optional]** The working directory. If not specified, then the value of @SystemDir will be used. This is not the path to the program."
+            "documentation": "**[optional]** The working directory. If not specified, then the value of `@SystemDir` will be used. This is not the path to the program."
         }, {
             "label": "show_flag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window (or Default keyword)    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window (or Default keyword)  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }, {
             "label": "opt_flag",
-            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    $STDIN_CHILD (0x1) = Provide a handle to the child's STDIN stream    $STDOUT_CHILD (0x2) = Provide a handle to the child's STDOUT stream    $STDERR_CHILD (0x4) = Provide a handle to the child's STDERR stream    $STDERR_MERGED (0x8) = Provides the same handle for STDOUT and STDERR. Implies both $STDOUT_CHILD and $STDERR_CHILD.    $STDIO_INHERIT_PARENT (0x10) = Provide the child with the parent's STDIO streams. This flag can not be combined with any other STDIO flag. This flag is only useful when the parent is compiled as a Console application.    $RUN_CREATE_NEW_CONSOLE (0x10000) = The child console process should be created with it's own window instead of using the parent's window. This flag is only useful when the parent is compiled as a Console application. Constants are defined in AutoItConstants.au3"
+            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.  \n&emsp;`$STDIN_CHILD` (`0x1`) = Provide a handle to the child's STDIN stream    \n&emsp;`$STDOUT_CHILD` (`0x2`) = Provide a handle to the child's STDOUT stream    \n&emsp;`$STDERR_CHILD` (`0x4`) = Provide a handle to the child's STDERR stream    \n&emsp;`$STDERR_MERGED` (`0x8`) = Provides the same handle for STDOUT and STDERR. Implies both `$STDOUT_CHILD` and `$STDERR_CHILD`.    \n&emsp;`$STDIO_INHERIT_PARENT` (`0x10`) = Provide the child with the parent's STDIO streams. \nemsp;This flag can not be combined with any other STDIO flag. This flag is only useful when the parent is compiled as a Console application.    \n&emsp;`$RUN_CREATE_NEW_CONSOLE` (`0x10000`) = The child console process should be created with it's own window instead of using the parent's window. This flag is only useful when the parent is compiled as a Console application.  \n\nConstants are defined in AutoItConstants.au3."
         }]
     },
     "RunAsWait": {
@@ -3592,7 +3592,7 @@
             "documentation": "The password for the user."
         }, {
             "label": "logon_flag",
-            "documentation": "    $RUN_LOGON_NOPROFILE (0) - Interactive logon with no profile.    $RUN_LOGON_PROFILE (1) - Interactive logon with profile.    $RUN_LOGON_NETWORK (2) - Network credentials only.    $RUN_LOGON_INHERIT (4) - Inherit the calling process's environment instead of the user's environment. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "&emsp;`$RUN_LOGON_NOPROFILE` (`0`) - Interactive logon with no profile.    \n&emsp;`$RUN_LOGON_PROFILE` (`1`) - Interactive logon with profile.    \n&emsp;`$RUN_LOGON_NETWORK` (`2`) - Network credentials only.    \n&emsp;`$RUN_LOGON_INHERIT` (`4`) - Inherit the calling process's environment instead of the user's environment.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "program",
             "documentation": "The full path of the program (EXE, BAT, COM, or PIF) to run."
@@ -3601,10 +3601,10 @@
             "documentation": "**[optional]** The working directory. If not specified, then the value of @SystemDir will be used. This is not the path to the program."
         }, {
             "label": "show_flag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window (or Default keyword)    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window (or Default keyword)  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }, {
             "label": "opt_flag",
-            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    $RUN_CREATE_NEW_CONSOLE (0x10000) = The child console process should be created with its own window instead of using the parent's window. This flag is only useful when the parent is compiled as a Console application. Constant is defined in AutoItConstants.au3"
+            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    \n&emsp;`0x10000` (`$RUN_CREATE_NEW_CONSOLE`) = The child console process should be created with its own window instead of using the parents window. This flag is only useful when the parent is compiled as a Console application.  \n\nConstant is defined in AutoItConstants.au3"
         }]
     },
     "RunWait": {
@@ -3618,10 +3618,10 @@
             "documentation": "**[optional]** The working directory. Blank (\"\") uses the current working directory. This is not the path to the program."
         }, {
             "label": "show_flag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window (or Default keyword)    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window (or Default keyword)  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }, {
             "label": "opt_flag",
-            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    0x10000 ($RUN_CREATE_NEW_CONSOLE) = The child console process should be created with its own window instead of using the parents window. This flag is only useful when the parent is compiled as a Console application."
+            "documentation": "**[optional]** Controls various options related to how the parent and child process interact.    \n&emsp;`0x10000` (`$RUN_CREATE_NEW_CONSOLE`) = The child console process should be created with its own window instead of using the parents window. This flag is only useful when the parent is compiled as a Console application.  \n\nConstant is defined in AutoItConstants.au3"
         }]
     },
     "Send": {
@@ -3632,7 +3632,7 @@
             "documentation": "The sequence of keys to send."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes how \"keys\" is processed:    $SEND_DEFAULT (0) = Text contains special characters like + and ! to indicate SHIFT and ALT key-presses (default).    $SEND_RAW (1) = keys are sent raw. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Changes how \"keys\" is processed:    \n&emsp;`$SEND_DEFAULT` (`0`) = Text contains special characters like + and ! to indicate SHIFT and ALT key-presses (default).    \n&emsp;`$SEND_RAW` (`1`) = keys are sent raw.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "SendKeepActive": {
@@ -3643,7 +3643,7 @@
             "documentation": "The title/hWnd/class of the window to activate. See Title special definition. Use a blank title to disable the function."
         }, {
             "label": "text",
-            "documentation": "**[optional]** The text of the window. . Default is an empty string. See Text special definition."
+            "documentation": "**[optional]** The text of the window. Default is an empty string. See Text special definition."
         }]
     },
     "SetError": {
@@ -3651,10 +3651,10 @@
         "label": "SetError ( code [, extended = 0 [, return value]] )",
         "params": [{
             "label": "code",
-            "documentation": "The required value (integer) to set into the @error macro."
+            "documentation": "The required value (integer) to set into the `@error` macro."
         }, {
             "label": "extended",
-            "documentation": "**[optional]** The required value (integer) to set into the @extended macro. This sets the same macro as the SetExtended() function."
+            "documentation": "**[optional]** The required value (integer) to set into the `@extended` macro. This sets the same macro as the `SetExtended()` function."
         }, {
             "label": "return value",
             "documentation": "**[optional]** The value to be returned by the function - if no parameter used the return value is undefined."
@@ -3685,10 +3685,10 @@
             "documentation": "**[optional]** The working directory. Blank (\"\") uses the current working directory."
         }, {
             "label": "verb",
-            "documentation": "**[optional]** The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's properties. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** The \"verb\" to use, common verbs include:    \n&emsp;`$SHEX_OPEN` (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    \n&emsp;`$SHEX_EDIT` (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    \n&emsp;`$SHEX_PRINT` (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    \n&emsp;`$SHEX_PROPERTIES` (\"properties\") = Displays the file or folder's properties.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "showflag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }]
     },
     "ShellExecuteWait": {
@@ -3705,10 +3705,10 @@
             "documentation": "**[optional]** The working directory. Blank (\"\") uses the current working directory."
         }, {
             "label": "verb",
-            "documentation": "**[optional]** The \"verb\" to use, common verbs include:    $SHEX_OPEN (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    $SHEX_EDIT (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    $SHEX_PRINT (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    $SHEX_PROPERTIES (\"properties\") = Displays the file or folder's properties. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** The \"verb\" to use, common verbs include:    \n&emsp;`$SHEX_OPEN` (\"open\") = Opens the file specified. The file can be an executable file, a document file, or a folder    \n&emsp;`$SHEX_EDIT` (\"edit\") = Launches an editor and opens the document for editing. If \"filename\" is not a document file, the function will fail    \n&emsp;`$SHEX_PRINT` (\"print\") = Prints the document file specified. If \"filename\" is not a document file, the function will fail    \n&emsp;`$SHEX_PROPERTIES` (\"properties\") = Displays the file or folder's properties.  \n**See remarks for more information on the default behavior when a verb is not specified.**  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "showflag",
-            "documentation": "**[optional]** The \"show\" flag of the executed program:    @SW_HIDE = Hidden window    @SW_MINIMIZE = Minimized window    @SW_MAXIMIZE = Maximized window"
+            "documentation": "**[optional]** The \"show\" flag of the executed program:  \n&emsp;`@SW_HIDE` = Hidden window  \n&emsp;`@SW_MINIMIZE` = Minimized window  \n&emsp;`@SW_MAXIMIZE` = Maximized window"
         }]
     },
     "Shutdown": {
@@ -3743,7 +3743,7 @@
             "documentation": "Name of the file to be played (typically a WAV or MP3)"
         }, {
             "label": "wait",
-            "documentation": "**[optional]** This flag determines if the script should wait for the sound to finish before continuing:    $SOUND_WAIT(1) = wait until sound has finished    $SOUND_NOWAIT(0) = continue script while sound is playing (default)Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** This flag determines if the script should wait for the sound to finish before continuing:  \n&emsp;`$SOUND_WAIT`(`1`) = wait until sound has finished  \n&emsp;`$SOUND_NOWAIT`(`0`) = continue script while sound is playing (default)  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "SoundSetWaveVolume": {
@@ -3777,7 +3777,7 @@
             "documentation": "**[optional]** position from top (in pixels) of splash window. (default is centered)"
         }, {
             "label": "opt",
-            "documentation": "**[optional]** Default is 'always on top/with title'Add up the following options you want:    $DLG_NOTITLE (1) = borderless, titleless window    $DLG_NOTONTOP (2) = Without \"always on top\" attribute    $DLG_MOVEABLE (16) = Window can be moved. Constants are defined in AutoItConstants.au3."
+            "documentation": "**[optional]** Default is 'always on top/with title'Add up the following options you want:    \n&emsp;`$DLG_NOTITLE` (`1`) = borderless, titleless window    \n&emsp;`$DLG_NOTONTOP` (`2`) = Without \"always on top\" attribute    \n&emsp;`$DLG_MOVEABLE` (`16`) = Window can be moved.  \n\nConstants are defined in AutoItConstants.au3."
         }]
     },
     "SplashOff": {
@@ -3808,7 +3808,7 @@
             "documentation": "**[optional]** Position from top (in pixels) of splash window. (default is centered)"
         }, {
             "label": "opt",
-            "documentation": "**[optional]** Add them up - default is 'center justified/always on top/with title'    $DLG_CENTERONTOP (0) = Center justified/always on top/with title (default)    $DLG_NOTITLE (1) = Thin bordered titleless window    $DLG_NOTONTOP (2) = Without \"always on top\" attribute    $DLG_TEXTLEFT (4) = Left justified text    $DLG_TEXTRIGHT (8) = Right justified text    $DLG_MOVEABLE (16) = Windows can be moved    $DLG_TEXTVCENTER (32) = Center text vertically. Constants are defined in AutoItConstants.au3."
+            "documentation": "**[optional]** Add them up - default is 'center justified/always on top/with title'    \n&emsp;`$DLG_CENTERONTOP` (`0`) = Center justified/always on top/with title (default)    \n&emsp;`$DLG_NOTITLE` (`1`) = Thin bordered titleless window    \n&emsp;`$DLG_NOTONTOP` (`2`) = Without \"always on top\" attribute    \n&emsp;`$DLG_TEXTLEFT` (`4`) = Left justified text    \n&emsp;`$DLG_TEXTRIGHT` (`8`) = Right justified text    \n&emsp;`$DLG_MOVEABLE` (`16`) = Windows can be moved    \n&emsp;`$DLG_TEXTVCENTER` (`32`) = Center text vertically.  \n\nConstants are defined in AutoItConstants.au3."
         }, {
             "label": "fontname",
             "documentation": "**[optional]** Name of the font to use. (OS default GUI font is used if the font is \"\" or is not found)"
@@ -3817,7 +3817,7 @@
             "documentation": "**[optional]** Font size. (default is 12; standard sizes are 6 8 9 10 11 12 14 16 18 20 22 24 26 28 36 48 72)"
         }, {
             "label": "fontwt",
-            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.The following values are defined for convenience.    $FW_DONTCARE (0) (Use the default font weight)    $FW_THIN (100)    $FW_EXTRALIGHT (200)    $FW_LIGHT (300)    $FW_NORMAL (400)    $FW_MEDIUM (500)    $FW_SEMIBOLD (600)    $FW_BOLD (700)    $FW_EXTRABOLD (800)    $FW_HEAVY (900)Constants are defined in FontConstants.au3."
+            "documentation": "**[optional]** The weight of the font in the range 0 through 1000. For example, 400 is normal and 700 is bold. If this value is zero, a default weight is used.  \nThe following values are defined for convenience.    \n&emsp;`$FW_DONTCARE` (`0`) (Use the default font weight)    \n&emsp;`$FW_THIN` (`100`)    \n&emsp;`$FW_EXTRALIGHT` (`200`)    \n&emsp;`$FW_LIGHT` (`300`)    \n&emsp;`$FW_NORMAL` (`400`)    \n&emsp;`$FW_MEDIUM` (`500`)    \n&emsp;`$FW_SEMIBOLD` (`600`)    \n&emsp;`$FW_BOLD` (`700`)    \n&emsp;`$FW_EXTRABOLD` (`800`)    \n&emsp;`$FW_HEAVY` (`900`)  \n\nConstants are defined in FontConstants.au3."
         }]
     },
     "Sqrt": {
@@ -3924,7 +3924,7 @@
             "documentation": "The second string to evaluate."
         }, {
             "label": "casesense",
-            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    $STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)    $STR_CASESENSE (1) = case sensitive    $STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison. Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    \n&emsp;`$STR_NOCASESENSE` (`0`) = not case sensitive, using the user's locale (default)    \n&emsp;`$STR_CASESENSE` (`1`) = case sensitive    \n&emsp;`$STR_NOCASESENSEBASIC` (`2`) = not case sensitive, using a basic/faster comparison.  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringFormat": {
@@ -3940,7 +3940,7 @@
     },
     "StringFromASCIIArray": {
         "documentation": "Converts an array of ASCII codes to a string.",
-        "label": "StringFromASCIIArray ( array,[start = 0 [, end = -1 [, encoding = 0]]] )",
+        "label": "StringFromASCIIArray ( array, [start = 0 [, end = -1 [, encoding = 0]]] )",
         "params": [{
             "label": "array",
             "documentation": "The array of ASCII codes to convert to characters."
@@ -3949,10 +3949,10 @@
             "documentation": "**[optional]** The 0-based index to start processing from (Default: 0)."
         }, {
             "label": "end",
-            "documentation": "**[optional]** The 0-based index to end processing at (Default: UBound($aArray)). Note that the character at this index is NOT included in the output."
+            "documentation": "**[optional]** The 0-based index to end processing at (Default: `UBound($aArray)`). Note that the character at this index is NOT included in the output."
         }, {
             "label": "encoding",
-            "documentation": "**[optional]** The array contains values in the specified character set:    $SE_UTF16 (0) = UTF-16 (Default)    $SE_ANSI (1) = ANSI    $SE_UTF8 (2) = UTF-8. Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** The array contains values in the specified character set:    \n&emsp;`$SE_UTF16` (`0`) = UTF-16 (Default)    \n&emsp;`$SE_ANSI` (`1`) = ANSI    \n&emsp;`$SE_UTF8` (`2`) = UTF-8.  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringInStr": {
@@ -3966,7 +3966,7 @@
             "documentation": "The substring to search for."
         }, {
             "label": "casesense",
-            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    $STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)    $STR_CASESENSE (1) = case sensitive    $STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison. Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    \n&emsp;`$STR_NOCASESENSE` (`0`) = not case sensitive, using the user's locale (default)    \n&emsp;`$STR_CASESENSE` (`1`) = case sensitive    \n&emsp;`$STR_NOCASESENSEBASIC` (`2`) = not case sensitive, using a basic/faster comparison.  \n\nConstants are defined in StringConstants.au3."
         }, {
             "label": "occurrence",
             "documentation": "**[optional]** Which occurrence of the substring to find in the string. Use a negative occurrence to search from the right side. The default value is 1 (finds first occurrence)."
@@ -4147,10 +4147,10 @@
             "documentation": "The replacement string."
         }, {
             "label": "occurrence",
-            "documentation": "**[optional]** The number of times to replace the searchstring. Use a negative occurrence to replace from the right side.    0 = all searchstrings will be replaced (default)"
+            "documentation": "**[optional]** The number of times to replace the searchstring. Use a negative occurrence to replace from the right side.    \n&emsp;0 = all searchstrings will be replaced (default)"
         }, {
             "label": "casesense",
-            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    $STR_NOCASESENSE (0) = not case sensitive, using the user's locale (default)    $STR_CASESENSE (1) = case sensitive    $STR_NOCASESENSEBASIC (2) = not case sensitive, using a basic/faster comparison. Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** Flag to indicate if the operations should be case sensitive.    \n&emsp;$STR_NOCASESENSE` (`0`) = not case sensitive, using the user's locale (default)    \n&emsp;`$STR_CASESENSE` (`1`) = case sensitive    \n&emsp;`$STR_NOCASESENSEBASIC` (`2`) = not case sensitive, using a basic/faster comparison.  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringReverse": {
@@ -4161,7 +4161,7 @@
             "documentation": "The string to reverse."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes the way the string is reversed    $STR_UTF16 (0) = reversed in full UTF-16 mode. (default)    $STR_UCS2 (1) = a much faster method - only use if using UCS-2 text. Constants are defined in \"StringConstants.au3\"."
+            "documentation": "**[optional]** Changes the way the string is reversed    \n&emsp;`$STR_UTF16` (`0`) = reversed in full UTF-16 mode. (default)    \n&emsp;`$STR_UCS2` (`1`) = a much faster method - only use if using UCS-2 text.  \n\nConstants are defined in \"StringConstants.au3\"."
         }]
     },
     "StringRight": {
@@ -4186,7 +4186,7 @@
             "documentation": "One or more characters to use as delimiters (case sensitive)."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes how the string split works, add multiple flag values together if required:    $STR_CHRSPLIT (0) = each character in the delimiter string will mark where to split the string (default)    $STR_ENTIRESPLIT (1) = entire delimiter string is needed to mark the split    $STR_NOCOUNT (2) = disable the return count in the first element - effectively makes the array 0-based (must use UBound() to get the size of the array in this case). Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** Changes how the string split works, add multiple flag values together if required:    \n&emsp;`$STR_CHRSPLIT` (`0`) = each character in the delimiter string will mark where to split the string (default)    \nemsp;`$STR_ENTIRESPLIT` (`1`) = entire delimiter string is needed to mark the split    \n&emsp;`$STR_NOCOUNT` (`2`) = disable the return count in the first element - effectively makes the array 0-based (must use `UBound()` to get the size of the array in this case).  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringStripCR": {
@@ -4205,7 +4205,7 @@
             "documentation": "The string to strip."
         }, {
             "label": "flag",
-            "documentation": "Flag to indicate the type of stripping that should be performed (add the flags together for multiple operations):    $STR_STRIPLEADING (1) = strip leading white space    $STR_STRIPTRAILING (2) = strip trailing white space    $STR_STRIPSPACES (4) = strip double (or more) spaces between words    $STR_STRIPALL (8) = strip all spaces (over-rides all other flags)Constants are defined in StringConstants.au3."
+            "documentation": "Flag to indicate the type of stripping that should be performed (add the flags together for multiple operations):    \n&emsp;`$STR_STRIPLEADING` (`1`) = strip leading white space    \n&emsp;`$STR_STRIPTRAILING` (`2`) = strip trailing white space    \n&emsp;`$STR_STRIPSPACES` (`4`) = strip double (or more) spaces between words    \n&emsp;`$STR_STRIPALL` (`8`) = strip all spaces (over-rides all other flags)  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringToASCIIArray": {
@@ -4220,11 +4220,11 @@
             },
             {
                 "label": "end",
-                "documentation": "**[optional]** The 0-based position to end processing at (Default: StringLen(\"string\"))."
+                "documentation": "**[optional]** The 0-based position to end processing at (Default: `StringLen(\"string\")`)."
             },
             {
                 "label": "encoding",
-                "documentation": "**[optional]** The returned array will contain values in the specified character set:    $SE_UTF16 (0) = UTF-16 (Default)    $SE_ANSI (1) = ANSI    $SE_UTF8 (2) = UTF-8. Constants are defined in StringConstants.au3."
+                "documentation": "**[optional]** The returned array will contain values in the specified character set:    \n&emsp;`$SE_UTF16` (`0`) = UTF-16 (Default)    \n&emsp;`$SE_ANSI` (`1`) = ANSI    \n&emsp;`$SE_UTF8` (`2`) = UTF-8.  \n\nConstants are defined in StringConstants.au3."
             }
         ]
     },
@@ -4236,7 +4236,7 @@
             "documentation": "An expression to convert into binary data."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Changes how the string is stored as binary:    $SB_ANSI (1) = string data is ANSI (default)    $SB_UTF16LE (2) = string data is UTF16 Little Endian    $SB_UTF16BE (3) = string data is UTF16 Big Endian    $SB_UTF8 (4) = string data is UTF8. Constants are defined in StringConstants.au3."
+            "documentation": "**[optional]** Changes how the string is stored as binary:  \n&emsp;`$SB_ANSI` (`1`) = string data is ANSI (default)  \n&emsp;`$SB_UTF16LE` (`2`) = string data is UTF16 Little Endian  \n&emsp;`$SB_UTF16BE` (`3`) = string data is UTF16 Big Endian  \n&emsp;`$SB_UTF8` (`4`) = string data is UTF8.  \n\nConstants are defined in StringConstants.au3."
         }]
     },
     "StringTrimLeft": {
@@ -4282,7 +4282,7 @@
         "label": "TCPAccept ( mainsocket )",
         "params": [{
             "label": "mainsocket",
-            "documentation": "The main socket identifier (SocketID) as returned by a TCPListen() function."
+            "documentation": "The main socket identifier (SocketID) as returned by a `TCPListen()` function."
         }]
     },
     "TCPCloseSocket": {
@@ -4290,7 +4290,7 @@
         "label": "TCPCloseSocket ( socket )",
         "params": [{
             "label": "socket",
-            "documentation": "The socket identifier (SocketID) as returned by a TCPListen(),TCPConnect() or TCPAccept() functions."
+            "documentation": "The socket identifier (SocketID) as returned by a `TCPListen()`, `TCPConnect()` or `TCPAccept()` functions."
         }]
     },
     "TCPConnect": {
@@ -4331,13 +4331,13 @@
         "label": "TCPRecv ( mainsocket, maxlen [, flag = 0] )",
         "params": [{
             "label": "mainsocket",
-            "documentation": "The connected socket identifier (SocketID) as returned by a TCPAccept() or a TCPConnect() function."
+            "documentation": "The connected socket identifier (SocketID) as returned by a `TCPAccept()` or a `TCPConnect()` function."
         }, {
             "label": "maxlen",
             "documentation": "max # of characters to receive."
         }, {
             "label": "flag",
-            "documentation": "**[optional]** Forces the function to return binary data if set to 1 (default is 0, and will auto detect between binary/string).    $TCP_DATA_DEFAULT (0) - (Default) will auto detect between binary/string    $TCP_DATA_BINARY (1) - return binary data. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Forces the function to return binary data if set to 1 (default is 0, and will auto detect between binary/string).    \n&emsp;`$TCP_DATA_DEFAULT` (`0`) - (Default) will auto detect between binary/string    \n&emsp;`$TCP_DATA_BINARY` (`1`) - return binary data.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "TCPSend": {
@@ -4345,7 +4345,7 @@
         "label": "TCPSend ( mainsocket, data )",
         "params": [{
             "label": "mainsocket",
-            "documentation": "The connected socket identifier (SocketID) as returned by a TCPConnect() function."
+            "documentation": "The connected socket identifier (SocketID) as returned by a `TCPConnect()` function."
         }, {
             "label": "data",
             "documentation": "binary/string to be send to the connected socket."
@@ -4376,7 +4376,7 @@
         "label": "TimerDiff ( handle )",
         "params": [{
             "label": "handle",
-            "documentation": "Handle returned from a previous call to TimerInit()."
+            "documentation": "Handle returned from a previous call to `TimerInit()`."
         }]
     },
     "TimerInit": {
@@ -4401,10 +4401,10 @@
             "documentation": "**[optional]** The title for the tooltip."
         }, {
             "label": "icon",
-            "documentation": "**[optional]** Pre-defined icon to show next to the title: Requires a title.    $TIP_NOICON (0) = No icon    $TIP_INFOICON (1) = Info icon    $TIP_WARNINGICON (2) = Warning icon    $TIP_ERRORICON (3) = Error Icon. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Pre-defined icon to show next to the title: Requires a title.    \n&emsp;`$TIP_NOICON` (`0`) = No icon    \n&emsp;`$TIP_INFOICON` (`1`) = Info icon    \n&emsp;`$TIP_WARNINGICON` (`2`) = Warning icon    \n&emsp;`$TIP_ERRORICON` (`3`) = Error Icon.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "options",
-            "documentation": "**[optional]** Sets different options for how the tooltip will be displayed (Can be added together):    $TIP_BALLOON (1) = Display as Balloon Tip    $TIP_CENTER (2) = Center the tip at the x,y coordinates instead of using them for the upper left corner.    $TIP_FORCEVISIBLE (4) = Force the tooltip to always be visible confining it to monitor borders if necessary. If multiple monitors are used, then the tooltip will \"snap-to\" the nearest monitor. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]** Sets different options for how the tooltip will be displayed (Can be added together):    \n&emsp;`$TIP_BALLOON` (`1`) = Display as Balloon Tip    \n&emsp;`$TIP_CENTER` (`2`) = Center the tip at the x,y coordinates instead of using them for the upper left corner.    \n&emsp;`$TIP_FORCEVISIBLE` (`4`) = Force the tooltip to always be visible confining it to monitor borders if necessary. If multiple monitors are used, then the tooltip will \"snap-to\" the nearest monitor.  \n\nConstants are defined in \"AutoItConstants.au3\""
         }]
     },
     "TrayCreateItem": {
@@ -4421,7 +4421,7 @@
             "documentation": "**[optional]** Allows you to define the entry number to be created. The entries are numbered starting at 0. If equal -1 it will be added 'behind' the last created entry (default setting)."
         }, {
             "label": "menuradioitem",
-            "documentation": "**[optional]**    $TRAY_ITEM_NORMAL (0) = (default) create a normal menuitem.    $TRAY_ITEM_RADIO (1) = create a menuradioitem. Constants are defined in TrayConstants.au3."
+            "documentation": "**[optional]**    \n&emsp;`$TRAY_ITEM_NORMAL` (`0`) = (default) create a normal menuitem.    \n&emsp;`$TRAY_ITEM_RADIO` (`1`) = create a menuradioitem.  \n\nConstants are defined in TrayConstants.au3."
         }]
     },
     "TrayCreateMenu": {
@@ -4448,7 +4448,7 @@
         "label": "TrayItemDelete ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }]
     },
     "TrayItemGetHandle": {
@@ -4456,7 +4456,7 @@
         "label": "TrayItemGetHandle ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }]
     },
     "TrayItemGetState": {
@@ -4464,7 +4464,7 @@
         "label": "TrayItemGetState ( [controlID] )",
         "params": [{
             "label": "controlID",
-            "documentation": "**[optional]** The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "**[optional]** The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }]
     },
     "TrayItemGetText": {
@@ -4472,7 +4472,7 @@
         "label": "TrayItemGetText ( controlID )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }]
     },
     "TrayItemSetOnEvent": {
@@ -4480,7 +4480,7 @@
         "label": "TrayItemSetOnEvent ( itemID, \"function\" )",
         "params": [{
             "label": "itemID",
-            "documentation": "The item identifier (itemID) as returned by a TrayCreateItem function."
+            "documentation": "The item identifier (itemID) as returned by a `TrayCreateItem` function."
         }, {
             "label": "function",
             "documentation": "The name of the user function to call."
@@ -4491,10 +4491,10 @@
         "label": "TrayItemSetState ( controlID, state )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }, {
             "label": "state",
-            "documentation": "See the State table below."
+            "documentation": "See the State table."
         }]
     },
     "TrayItemSetText": {
@@ -4502,7 +4502,7 @@
         "label": "TrayItemSetText ( controlID, text )",
         "params": [{
             "label": "controlID",
-            "documentation": "The control identifier (controlID) as returned by a TrayCreateItem or TrayCreateMenu function."
+            "documentation": "The control identifier (controlID) as returned by a `TrayCreateItem` or `TrayCreateMenu` function."
         }, {
             "label": "text",
             "documentation": "The new text of the tray menu/item control."
@@ -4513,7 +4513,7 @@
         "label": "TraySetClick ( flag )",
         "params": [{
             "label": "flag",
-            "documentation": "0 = Tray menu will never be shown through a mouseclick1 = Pressing primary mouse button2 = Releasing primary mouse button4 = Double-click primary mouse button8 = Pressing secondary mouse button16 = Releasing secondary mouse button32 = Double-click secondary mouse button64 = Hovering over the tray icon"
+            "documentation": "0 = Tray menu will never be shown through a mouseclick  \n1 = Pressing primary mouse button  \n2 = Releasing primary mouse button  \n4 = Double-click primary mouse button  \n8 = Pressing secondary mouse button  \n16 = Releasing secondary mouse button  \n32 = Double-click secondary mouse button  \n64 = Hovering over the tray icon"
         }]
     },
     "TraySetIcon": {
@@ -4532,7 +4532,7 @@
         "label": "TraySetOnEvent ( specialID, \"function\" )",
         "params": [{
             "label": "specialID",
-            "documentation": "See the Special ID table below."
+            "documentation": "See the Special ID table."
         }, {
             "label": "function",
             "documentation": "The name of the user function to call."
@@ -4554,7 +4554,7 @@
         "label": "TraySetState ( [flag = 1] )",
         "params": [{
             "label": "flag",
-            "documentation": "**[optional]** A combination of the following:    $TRAY_ICONSTATE_SHOW (1) = Shows the tray icon (default)    $TRAY_ICONSTATE_HIDE (2) = Destroys/Hides the tray icon    $TRAY_ICONSTATE_FLASH (4) = Flashes the tray icon    $TRAY_ICONSTATE_STOPFLASH (8) = Stops tray icon flashing    $TRAY_ICONSTATE_RESET (16) = Resets the icon to the defaults (no flashing, default tip text)Constants are defined in TrayConstants.au3."
+            "documentation": "**[optional]** A combination of the following:    \n&emsp;`$TRAY_ICONSTATE_SHOW` (`1`) = Shows the tray icon (default)    \n&emsp;`$TRAY_ICONSTATE_HIDE` (`2`) = Destroys/Hides the tray icon    \n&emsp;`$TRAY_ICONSTATE_FLASH` (`4`) = Flashes the tray icon    \n&emsp;`$TRAY_ICONSTATE_STOPFLASH` (`8`) = Stops tray icon flashing    \n&emsp;`$TRAY_ICONSTATE_RESET` (`16`) = Resets the icon to the defaults (no flashing, default tip text)  \n\nConstants are defined in TrayConstants.au3."
         }]
     },
     "TraySetToolTip": {
@@ -4579,7 +4579,7 @@
             "documentation": "A rough estimate of the time (in seconds) the balloon tip should be displayed. (Windows has a min and max of about 10-30 seconds but does not always honor a time in that range.)"
         }, {
             "label": "option",
-            "documentation": "**[optional]**    $TIP_ICONNONE (0) = No icon (default)    $TIP_ICONASTERISK (1) = Info icon    $TIP_ICONEXCLAMATION (2) = Warning icon    $TIP_ICONHAND (3) = Error icon    $TIP_NOSOUND (16) = Disable sound. Constants are defined in TrayConstants.au3."
+            "documentation": "**[optional]**    \n&emsp;`$TIP_ICONNONE` (`0`) = No icon (default)    \n&emsp;`$TIP_ICONASTERISK` (`1`) = Info icon    \n&emsp;`$TIP_ICONEXCLAMATION` (`2`) = Warning icon    \n&emsp;`$TIP_ICONHAND` (`3`) = Error icon    \n&emsp;`$TIP_NOSOUND` (`16`) = Disable sound.  \n\nConstants are defined in TrayConstants.au3."
         }]
     },
     "UBound": {
@@ -4590,7 +4590,7 @@
             "documentation": "An array or map variable"
         }, {
             "label": "Dimension",
-            "documentation": "**[optional]** For an array - Which dimension size to return:    $UBOUND_DIMENSIONS (0) = Number of subscripts in the array    $UBOUND_ROWS (1) = Number of rows in the array (default)    $UBOUND_COLUMNS (2) = Number of columns in the arrayFor arrays with more than 2 dimensions, just use the corresponding integerFor a map - this parameter is ignored and the number of keys is returned. Constants are defined in AutoItConstants.au3."
+            "documentation": "**[optional]** For an array - Which dimension size to return:  \n&emsp;`$UBOUND_DIMENSIONS` (`0`) = Number of subscripts in the array  \n&emsp;`$UBOUND_ROWS` (`1`) = Number of rows in the array (default)  \n&emsp;`$UBOUND_COLUMNS` (`2`) = Number of columns in the array  \nFor arrays with more than 2 dimensions, just use the corresponding integer  \nFor a map - this parameter is ignored and the number of keys is returned.  \n\nConstants are defined in AutoItConstants.au3."
         }]
     },
     "UDPBind": {
@@ -4609,7 +4609,7 @@
         "label": "UDPCloseSocket ( socketarray )",
         "params": [{
             "label": "socketarray",
-            "documentation": "The socket/array as returned by a UDPBind() or UDPOpen() functions."
+            "documentation": "The socket/array as returned by a `UDPBind()` or `UDPOpen()` functions."
         }]
     },
     "UDPOpen": {
@@ -4623,7 +4623,7 @@
             "documentation": "port on which the created socket will be connected."
         }, {
             "label": "flag",
-            "documentation": "**[optional]**    $UDP_OPEN_DEFAULT (0) - (Default) - No additional options are set.    $UDP_OPEN_BROADCAST (1) - Allow the broadcasting on the address \"255.255.255.255\". Constants are defined in \"AutoIt Constants.au3\"."
+            "documentation": "**[optional]**    \n&emsp;`$UDP_OPEN_DEFAULT` (`0`) - (Default) - No additional options are set.    \n&emsp;`$UDP_OPEN_BROADCAST` (`1`) - Allow the broadcasting on the address \"255.255.255.255\".  \n\nConstants are defined in \"AutoIt Constants.au3\"."
         }]
     },
     "UDPRecv": {
@@ -4631,13 +4631,13 @@
         "label": "UDPRecv ( socketarray, maxlen [, flag = 0] )",
         "params": [{
             "label": "socketarray",
-            "documentation": "The socket/array as returned by a UDPBind() function."
+            "documentation": "The socket/array as returned by a `UDPBind()` function."
         }, {
             "label": "maxlen",
             "documentation": "max # of characters to receive."
         }, {
             "label": "flag",
-            "documentation": "**[optional]**    UDP_DATA_DEFAULT (0) - will auto detect between binary/string.    UDP_DATA_BINARY (1) - return binary data    $UDP_DATA_ARRAY (2) - returned in an Array : [0] data, [1] from IP, [2] from Port.If you want both just use 3. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "**[optional]**    \n&emsp;`$UDP_DATA_DEFAULT` (`0`) - will auto detect between binary/string.    \n&emsp;`$UDP_DATA_BINARY` (`1`) - return binary data    \n&emsp;`$UDP_DATA_ARRAY` (`2`) - returned in an Array : [0] data, [1] from IP, [2] from Port.  \nIf you want both just use 3.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "UDPSend": {
@@ -4645,7 +4645,7 @@
         "label": "UDPSend ( socketarray, data )",
         "params": [{
             "label": "socketarray",
-            "documentation": "The main socket/array as returned by a UDPOpen() function."
+            "documentation": "The main socket/array as returned by a `UDPOpen()` function."
         }, {
             "label": "data",
             "documentation": "binary/string to be sent to the connected socket"
@@ -4914,7 +4914,7 @@
             "documentation": "The text of the window to change. See Text special definition."
         }, {
             "label": "flag",
-            "documentation": "Determines whether the window should have the \"TOPMOST\" flag set.    $WINDOWS_NOONTOP (0) = remove on top flag    $WINDOWS_ONTOP (1) = set on top flag. Constants are defined in \"AutoItConstants.au3\"."
+            "documentation": "Determines whether the window should have the \"TOPMOST\" flag set.    \n&emsp;`$WINDOWS_NOONTOP` (`0`) = remove on top flag    \n&emsp;`$WINDOWS_ONTOP` (`1`) = set on top flag.  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }]
     },
     "WinSetState": {
@@ -4928,7 +4928,7 @@
             "documentation": "The text of the window to change the state. See Text special definition."
         }, {
             "label": "flag",
-            "documentation": "The \"show\" flag of the executed program:    @SW_HIDE = Hide window    @SW_SHOW = Shows a previously hidden window    @SW_MINIMIZE = Minimize window    @SW_MAXIMIZE = Maximize window    @SW_RESTORE = Undoes a window minimization or maximization    @SW_DISABLE = Disables the window    @SW_ENABLE = Enables the window"
+            "documentation": "The \"show\" flag of the executed program:    \n&emsp;`@SW_HIDE` = Hide window    \n&emsp;`@SW_SHOW` = Shows a previously hidden window    \n&emsp;`@SW_MINIMIZE` = Minimize window    \n&emsp;`@SW_MAXIMIZE` = Maximize window    \n&emsp;`@SW_RESTORE` = Undoes a window minimization or maximization    \n&emsp;`@SW_DISABLE` = Disables the window    \n&emsp;`@SW_ENABLE` = Enables the window"
         }]
     },
     "WinSetTitle": {
