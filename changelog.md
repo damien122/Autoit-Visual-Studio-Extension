@@ -1,7 +1,11 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.8
-* Many Snippets have been changed to Completions
+* Improved function signature helpers
+    * Parameter position in function has much improved detection (no longer tripped up by commas in quotes)
+    * Help for nested functions now work
+    * Parameter descriptions have been upgraded with Markdown for better styling and layout
+* Upgraded many snippets to Completions
 
 ## 0.1.7
 * Updated ReadMe with links and more information about shortcuts and configuration
