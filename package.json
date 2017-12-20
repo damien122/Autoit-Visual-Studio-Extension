@@ -127,11 +127,11 @@
         "grammars": [{
             "language": "autoit",
             "scopeName": "source.autoit",
-            "path": "./syntaxes/autoit.tmLanguage"
+            "path": "./syntaxes/aiSyntax.json"
         }],
         "snippets": [{
             "language": "autoit",
-            "path": "./snippets/autoit.json"
+            "path": "./snippets/aiSyntax.json"
         }],
         "keybindings": [{
                 "command": "extension.runScript",
