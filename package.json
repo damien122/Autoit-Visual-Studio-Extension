@@ -131,7 +131,7 @@
         }],
         "snippets": [{
             "language": "autoit",
-            "path": "./snippets/aiSyntax.json"
+            "path": "./snippets/autoit.json"
         }],
         "keybindings": [{
                 "command": "extension.runScript",
