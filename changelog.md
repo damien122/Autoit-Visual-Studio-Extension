@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.1.9
+* Upgraded Windows Message Codes from snippets to Completions
+
 ## 0.1.8
 * Improved function signature helpers
     * Parameter position in function has much improved detection (no longer tripped up by commas in quotes)
