@@ -4,6 +4,7 @@
 * Upgraded Windows Message Codes from snippets to Completions
 * Output window now clears on each Run, Compile or Build
 * Updated UDF file location for functions moved in latest AutoIt update (v3.3.14.3) 
+* Added configuration option to hide variables when using Ctrl+Shift+O to view symbols
 
 ## 0.1.8
 * Improved function signature helpers

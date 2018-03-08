@@ -30,22 +30,26 @@
     },
     "homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md",
     "contributes": {
-        "languages": [{
-            "id": "autoit",
-            "aliases": [
-                "AutoIt",
-                "autoit"
-            ],
-            "extensions": [
-                ".au3"
-            ],
-            "configuration": "./syntaxes/autoit-language-configuration.json"
-        }],
+        "languages": [
+            {
+                "id": "autoit",
+                "aliases": [
+                    "AutoIt",
+                    "autoit"
+                ],
+                "extensions": [
+                    ".au3"
+                ],
+                "configuration": "./syntaxes/autoit-language-configuration.json"
+            }
+        ],
         "menus": {
-            "commandPalette": [{
+            "commandPalette": [
+                {
                     "when": "editorLangId == autoit",
                     "command": "extension.runScript"
-                }, {
+                },
+                {
                     "when": "editorLangId == autoit",
                     "command": "extension.compile"
                 },
@@ -83,7 +87,8 @@
                 }
             ]
         },
-        "commands": [{
+        "commands": [
+            {
                 "command": "extension.runScript",
                 "title": "AutoIt: Run Script"
             },
@@ -124,16 +129,21 @@
                 "title": "AutoIt: Koda Form Designer"
             }
         ],
-        "grammars": [{
-            "language": "autoit",
-            "scopeName": "source.autoit",
-            "path": "./syntaxes/aiSyntax.json"
-        }],
-        "snippets": [{
-            "language": "autoit",
-            "path": "./snippets/autoit.json"
-        }],
-        "keybindings": [{
+        "grammars": [
+            {
+                "language": "autoit",
+                "scopeName": "source.autoit",
+                "path": "./syntaxes/aiSyntax.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "autoit",
+                "path": "./snippets/autoit.json"
+            }
+        ],
+        "keybindings": [
+            {
                 "command": "extension.runScript",
                 "key": "f5",
                 "when": "editorTextFocus && editorLangId == autoit"
@@ -217,6 +227,11 @@
                     "type": "string",
                     "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe",
                     "description": "Path FD.exe"
+                },
+                "autoit.showVariablesInGoToSymbol": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Determines whether variables show up when you use Ctrl+Shift+O to find symbols within a script"
                 }
             }
         }
