@@ -2,6 +2,7 @@
 
 ## 0.1.9
 * Upgraded Windows Message Codes from snippets to Completions
+* Output window now clears on each Run, Compile or Build
 
 ## 0.1.8
 * Improved function signature helpers

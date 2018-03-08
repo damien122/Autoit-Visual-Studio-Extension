@@ -144,6 +144,7 @@ module.exports = {
 };
 
 function procRunner(cmdPath, args) {
+    aiOut.clear();
     aiOut.show(true);
 
     // Set working directory to AutoIt script dir so that compile and build
