@@ -680,7 +680,23 @@ var items = [{
     {
         label: '_WinAPI_UpdateLayeredWindowIndirect',
         documentation: 'Updates the position, size, shape, content, and translucency of a layered window'
-    }
+    },
+    {
+        label: '_WinAPI_DefSubclassProc',
+        documentation: 'Calls the next handler in a window\'s subclass chain'
+    },
+    {
+        label: '_WinAPI_GetWindowSubclass',
+        documentation: 'Retrieves the reference data for the specified window subclass callback'
+    },
+    {
+        label: '_WinAPI_RemoveWindowSubclass',
+        documentation: 'Removes a subclass callback from a window'
+    },
+    {
+        label: '_WinAPI_SetWindowSubclass',
+        documentation: 'Installs or updates a window subclass callback'
+    },
 ]
 
 // Add the function icon and detail to each entry

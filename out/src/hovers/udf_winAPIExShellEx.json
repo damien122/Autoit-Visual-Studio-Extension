@@ -1,8 +1,4 @@
 {
-    "_WinAPI_DefSubclassProc": [
-        "Calls the next handler in a window's subclass chain",
-        "```\r#include <WinAPIShellEx.au3>\r_WinAPI_DefSubclassProc ( $hWnd, $iMsg, $wParam, $lParam )\r```"
-    ],
     "_WinAPI_DllGetVersion": [
         "Retrieves a DLL-specific version information",
         "```\r#include <WinAPIShellEx.au3>\r_WinAPI_DllGetVersion ( $sFilePath )\r```"
@@ -15,21 +11,9 @@
         "Retrieves the path to the root of the default user's profile",
         "```\r#include <WinAPIShellEx.au3>\r_WinAPI_GetDefaultUserProfileDirectory ( )\r```"
     ],
-    "_WinAPI_GetWindowSubclass": [
-        "Retrieves the reference data for the specified window subclass callback",
-        "```\r#include <WinAPIShellEx.au3>\r_WinAPI_GetWindowSubclass ( $hWnd, $pSubclassProc, $idSubClass )\r```"
-    ],
-    "_WinAPI_RemoveWindowSubclass": [
-        "Removes a subclass callback from a window",
-        "```\r#include <WinAPIShellEx.au3>\r_WinAPI_RemoveWindowSubclass ( $hWnd, $pSubclassProc, $idSubClass )\r```"
-    ],
     "_WinAPI_SetCurrentProcessExplicitAppUserModelID": [
         "Specifies a unique application-defined Application User Model ID that identifies the current process to the taskbar",
         "```\r#include <WinAPIShellEx.au3>\r_WinAPI_SetCurrentProcessExplicitAppUserModelID ( $sAppID )\r```"
-    ],
-    "_WinAPI_SetWindowSubclass": [
-        "Installs or updates a window subclass callback",
-        "```\r#include <WinAPIShellEx.au3>\r_WinAPI_SetWindowSubclass ( $hWnd, $pSubclassProc, $idSubClass [, $pData = 0] )\r```"
     ],
     "_WinAPI_ShellAddToRecentDocs": [
         "Adds a file to the most recently and frequently item list",

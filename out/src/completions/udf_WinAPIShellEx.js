@@ -4,10 +4,7 @@ var {
     CompletionItemKind
 } = require('vscode')
 
-var items = [{
-        label: '_WinAPI_DefSubclassProc',
-        documentation: 'Calls the next handler in a window\'s subclass chain'
-    },
+var items = [
     {
         label: '_WinAPI_DllGetVersion',
         documentation: 'Retrieves a DLL-specific version information'
@@ -21,20 +18,8 @@ var items = [{
         documentation: 'Retrieves the path to the root of the default user\'s profile'
     },
     {
-        label: '_WinAPI_GetWindowSubclass',
-        documentation: 'Retrieves the reference data for the specified window subclass callback'
-    },
-    {
-        label: '_WinAPI_RemoveWindowSubclass',
-        documentation: 'Removes a subclass callback from a window'
-    },
-    {
         label: '_WinAPI_SetCurrentProcessExplicitAppUserModelID',
         documentation: 'Specifies a unique application-defined Application User Model ID that identifies the current process to the taskbar'
-    },
-    {
-        label: '_WinAPI_SetWindowSubclass',
-        documentation: 'Installs or updates a window subclass callback'
     },
     {
         label: '_WinAPI_ShellAddToRecentDocs',

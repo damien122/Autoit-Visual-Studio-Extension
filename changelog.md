@@ -3,6 +3,7 @@
 ## 0.1.9
 * Upgraded Windows Message Codes from snippets to Completions
 * Output window now clears on each Run, Compile or Build
+* Updated UDF file location for functions moved in latest AutoIt update (v3.3.14.3) 
 
 ## 0.1.8
 * Improved function signature helpers
