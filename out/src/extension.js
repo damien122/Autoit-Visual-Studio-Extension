@@ -6,6 +6,7 @@ var ai_hover = require('./ai_hover');
 var ai_completion = require('./ai_completion');
 var ai_symbols = require('./ai_symbols');
 var ai_signature = require('./ai_signature');
+var ai_workspaceSymbols = require('./ai_workspaceSymbols');
 
 function activate(ctx) {
 
@@ -13,6 +14,7 @@ function activate(ctx) {
     ctx.subscriptions.push(ai_completion);
     ctx.subscriptions.push(ai_symbols);
     ctx.subscriptions.push(ai_signature);
+    ctx.subscriptions.push(ai_workspaceSymbols);
     
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
