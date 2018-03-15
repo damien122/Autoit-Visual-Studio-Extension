@@ -13,28 +13,42 @@ module.exports = languages.registerWorkspaceSymbolProvider({
     provideWorkspaceSymbols(search, token) {
         var scriptText
         var variableFound
-        var variables  = []
-        let results
+        var functionFound
+        var symbols  = []
+        var searchFilter
 
         // Get list of AutoIt files in workspace
-        return results = workspace.findFiles("**/*.{au3,a3x}").then((data) => {
+        return workspace.findFiles("**/*.{au3,a3x}").then((data) => {
             
             for (var file in data) {
                 // Go through each file and grab functions and variables (if active)
                 scriptText = fs.readFileSync(data[file].fsPath).toString().split("\n")
                 
                 var scriptVariables = scriptText.filter((line, index) => {
+                    let newName = ""
+                    let symbolKind
                     variableFound = _varPattern.exec(line)
+                    functionFound = _funcPattern.exec(line)
+
+                    searchFilter = new RegExp(search, 'i')
                     // Filter based on search (if it's not empty)
                     if (variableFound) {
-                        variables.push(makeSymbol(variableFound[1], SymbolKind.Variable,
-                            data[file], index))
+                        newName = variableFound[1]
+                        symbolKind = SymbolKind.Variable
+                        
+                    } else if (functionFound) {
+                        newName = functionFound[1]
+                        symbolKind = SymbolKind.Function
+                        
+                    } else {
+                        return false
                     }
+
+                    symbols.push(makeSymbol(newName, symbolKind, data[file], index))
                 })
             }
 
-            console.log(variables)
-            return variables
+            return symbols
         })
     }
 })
