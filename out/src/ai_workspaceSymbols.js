@@ -5,39 +5,52 @@ var { languages, SymbolInformation, SymbolKind, Location, Position,
 const fs = require('fs')
 
 const _funcPattern = /Func\s(.+)\(/
-const _varPattern = /(\$\w+)\s*=/g
+const _varPattern = /(\$\w+)/g
 var config = workspace.getConfiguration('autoit');
 
 module.exports = languages.registerWorkspaceSymbolProvider({
 
     provideWorkspaceSymbols(search, token) {
-        var scriptText
-        var variableFound
-        var functionFound
-        var symbols  = []
-        var searchFilter
+        let symbols  = []
+        let searchFilter = new RegExp(search, 'i')
+        
+        // Don't start searching when it's empty
+        if (!search) {
+            return []
+        }
 
         // Get list of AutoIt files in workspace
         return workspace.findFiles("**/*.{au3,a3x}").then((data) => {
             
             for (var file in data) {
+                let foundVars = []
                 // Go through each file and grab functions and variables (if active)
-                scriptText = fs.readFileSync(data[file].fsPath).toString().split("\n")
-                
-                var scriptVariables = scriptText.filter((line, index) => {
+                let scriptText = fs.readFileSync(data[file].fsPath).toString().split("\n").filter((line, index) => {
+
                     let newName = ""
                     let symbolKind
-                    variableFound = _varPattern.exec(line)
-                    functionFound = _funcPattern.exec(line)
-
-                    searchFilter = new RegExp(search, 'i')
-                    // Filter based on search (if it's not empty)
+                    let variableFound = _varPattern.exec(line)
+                    let functionFound = _funcPattern.exec(line)
+                    
                     if (variableFound) {
                         newName = variableFound[1]
+                        // Filter based on search (if it's not empty)
+                        if (!searchFilter.exec(newName)) {
+                            return false
+                        }
                         symbolKind = SymbolKind.Variable
                         
+                        if (foundVars.indexOf(newName) === -1) {
+                            foundVars.push(newName)
+                        } else {
+                            return false
+                        }
+
                     } else if (functionFound) {
                         newName = functionFound[1]
+                        if (!searchFilter.exec(newName)) {
+                            return false
+                        }
                         symbolKind = SymbolKind.Function
                         
                     } else {
