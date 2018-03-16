@@ -12,13 +12,15 @@ module.exports = languages.registerWorkspaceSymbolProvider({
 
     provideWorkspaceSymbols(search, token) {
         let symbols  = []
-        let searchFilter = new RegExp(search, 'i')
+        
         
         // Don't start searching when it's empty
         if (!search) {
             return []
         }
-
+        search = search.replace('$', '\$') // Enable searching for leading $ oif 
+        let searchFilter = new RegExp(search, 'i')
+        
         // Get list of AutoIt files in workspace
         return workspace.findFiles("**/*.{au3,a3x}").then((data) => {
             
