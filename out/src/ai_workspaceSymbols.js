@@ -34,7 +34,7 @@ module.exports = languages.registerWorkspaceSymbolProvider({
                     let variableFound = _varPattern.exec(line)
                     let functionFound = _funcPattern.exec(line)
                     
-                    if (variableFound) {
+                    if (variableFound && config.showVariablesInGoToSymbol) {
                         newName = variableFound[1]
                         // Filter based on search (if it's not empty)
                         if (!searchFilter.exec(newName)) {
