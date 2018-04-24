@@ -233,7 +233,7 @@
             }
         },
         "send-keys": {
-            "match": "{\\b(?i:appskey|backspace|browser_back|browser_favorites|browser_forward|browser_home|browser_refresh|browser_search|browser_stop|bs|capslock|del|delete|down|end|enter|esc|escape|f1|f10|f11|f12|f2|f3|f4|f5|f6|f7|f8|f9|home|ins|insert|launch_app1|launch_app2|launch_mail|launch_media|left|media_next|media_play_pause|media_prev|media_stop|numlock|numpad0|numpad1|numpad2|numpad3|numpad4|numpad5|numpad6|numpad7|numpad8|numpad9|numpadadd|numpaddiv|numpaddot|numpadenter|numpadmult|numpadsub|pause|pgdn|pgup|printscreen|right|scrolllock|sleep|space|tab|up|volume_down|volume_mute|volume_up)\\b}",
+            "match": "{\\b(?i:appskey|backspace|browser_(back|favorites|forward|home|refresh|search|stop)|bs|capslock|del(ete)?|down|end|enter|esc|escape|f([1-9]|1[0-2])|home|ins(ert)?|launch_(app[1-2]|mail|media)|left|media_(next|play_pause|prev|stop)|numlock|numpad([0-9]|add|div|dot|enter|mult|sub)|pause|pg(dn|up)|printscreen|right|scrolllock|sleep|space|tab|up|volume_(down|mute|up))\\b}",
             "name": "constant.other.autoit"
         },
         "udfs_word": { "match": "\\b(?:_word_(?:create|doc(a(dd|ttach)|close|export|find(replace)?|get|link(add|get)|open|p(rint|ictureadd)|rangeset|save(as)?|table(read|write))|quit))\\b" }
