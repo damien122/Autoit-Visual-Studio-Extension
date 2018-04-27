@@ -50,7 +50,7 @@
         {
             "comment": "Storage Modifiers",
             "name": "storage.modifier.autoit",
-            "match": "\\b(?i:enum|global|local|redim|static|volatile|byref|func|endfunc)\\b"
+            "match": "\\b(?i:enum|global|local|redim|static|volatile|byref)\\b"
         },
         {
             "comment": "Language Constants",
@@ -91,7 +91,7 @@
         {
             "comment": "Include from Library",
             "name": "string.quoted.other",
-            "begin": "(<)",
+            "begin": "#include(?:-once)? (<)",
             "beginCaptures": {
                 "1": {
                     "name": "punctuation.definition.generic.begin.autoit"
@@ -130,52 +130,7 @@
             }
         },
         {
-            "comment": "Double Quotes",
-            "name": "string.quoted.double.autoit",
-            "begin": "(\")",
-            "beginCaptures": {
-                "1": { "name": "punctuation.definition.string.begin.autoit" }
-            },
-            "end": "(\")(?!\")|^",
-            "endCaptures": {
-                "1": { "name": "punctuation.definition.string.end.autoit" }
-            },
-            "patterns": [
-                {
-                    "match": "\"\"",
-                    "name": "constant.character.escape.autoit"
-                },
-                {
-                    "include": "#send-keys"
-                },
-                {
-                    "include": "#restrict-newlines"
-                }
-            ]   
-        },
-        {
-            "comment": "Single Quotes",
-            "name": "string.quoted.single.autoit",
-            "begin": "(')",
-            "beginCaptures": {
-                "1": { "name": "punctuation.definition.string.begin.autoit" }
-            },
-            "end": "(')(?!')|^",
-            "endCaptures": {
-                "1": { "name": "punctuation.definition.string.end.autoit" }
-            },
-            "patterns": [
-                {
-                    "match": "''",
-                    "name": "constant.character.escape.autoit"
-                },
-                {
-                    "include": "#send-keys"
-                },
-                {
-                    "include": "#restrict-newlines"
-                }
-            ]   
+            "include": "#strings"
         },
         {
             "comment": "Variables",
@@ -206,12 +161,32 @@
         },
         {
             "comment": "Function Definition",
-            "name": "meta.function-call.autoit",
-            "match": "(?i:func\\s+)([\\w][\\w\\d]+)\\((.*)\\)",
-            "captures": {
-                "1": { "name": "entity.name.function.autoit" },
-                "2": { "name": "variable.parameter.autoit" }
-            }
+            "begin": "(?i)\\b(func)\\s*(?=\\()",
+            "beginCaptures": {
+                "1": {
+                    "name": "storage.type.function.autoit"
+                }
+            },
+            "end": "(?={)",
+            "name": "meta.function.closure.autoit",
+            "patterns": [
+                {
+                    "begin": "\\(",
+                    "beginCaptures":{
+                        "0": {
+                            "name": "punctuation.definition.parameters.begin.bracket.round.autoit"
+                        }
+                    },
+                    "contentName": "meta.function.parameters.autoit",
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.parameters.end.bracket.round.autoit"
+                        }
+                    }
+                }
+            ]
+
         },
 
         {
@@ -230,6 +205,44 @@
                 "name": "invalid.illegal.autoit"
             }
         },
+
+        "strings": {
+            "patterns": [
+                { "include": "#string-single-quoted" },
+                { "include": "#string-double-quoted" }
+            ]
+        },
+
+        "string-single-quoted": {
+            "begin": "'",
+            "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.autoit" } },
+            "end": "'",
+            "endCaptures": { "0": { "name": "punctuation.definition.string.end.autoit"} },
+            "name": "string.quoted.single.autoit",
+            "patterns": [
+                {
+                    "match": "\\\\[\\\\']",
+                    "name": "constant.character.escape.autoit"
+                }
+            ]
+        },
+
+        "string-double-quoted": {
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {  "name": "punctuation.definition.string.begin.php" } },
+			"end": "\"",
+			"endCaptures": {
+				"0": {  "name": "punctuation.definition.string.end.php" } },
+            "name": "string.quoted.double.php",
+            "patterns": [
+                {
+                    "match": "\\\\[\\\\']",
+                    "name": "constant.character.escape.autoit"
+                }
+            ]
+		},
+
         "send-keys": {
             "match": "{\\b(?i:appskey|backspace|browser_(back|favorites|forward|home|refresh|search|stop)|bs|capslock|del(ete)?|down|end|enter|esc|escape|f([1-9]|1[0-2])|home|ins(ert)?|launch_app[1-2]|launch_mail|launch_media|left|media_next|media_play_pause|media_prev|media_stop|numlock|numpad([0-9]|add|div|dot|enter|mult|sub)|pause|pg(dn|up)|printscreen|right|scrolllock|sleep|space|tab|up|volume_(down|volume_mute|volume_up)(\\b}",
             "name": "constant.other.autoit"
