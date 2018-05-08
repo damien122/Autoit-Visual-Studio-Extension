@@ -1,11 +1,14 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.9
-* Upgraded Windows Message Codes from snippets to Completions
+* Completions for files relative to include folders (e.g., `#include <Test.au3>`) are now provided
+    * Defaults to searching in C:\Program Files (x86)\AutoIt3\Include, more can be added in User Settings
 * Output window now clears on each Run, Compile or Build
+* Implemented Workspace/Folder-wide Symbol Search (`Ctrl+T`)
+* Upgraded Windows Message Codes from snippets to Completions
 * Updated UDF file location for functions moved in latest AutoIt update (v3.3.14.3) 
 * Added configuration option to hide variables when using Ctrl+Shift+O to view symbols
-* Implemented Workspace/Folder-wide Symbol Search (`Ctrl+T`)
+* Fixed word definitions to clear up highlighting/selection inconsistencies 
 
 ## 0.1.8
 * Improved function signature helpers
