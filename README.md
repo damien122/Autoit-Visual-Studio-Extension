@@ -30,7 +30,8 @@ By default, this extension is set up for the default installation of AutoIt and 
 |`autoit.helpPath`|Path to AutoIt Help|"C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"|
 |`autoit.infoPath`|Path to Au3Info Executable|"C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe"|
 |`autoit.kodaPath`|Path to Koda Form Designer|"C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe"|
-|`autoit.showVariablesInGoToSymbol`|Determines whether to show or hide variables when using Ctrl+Shift+O (added in v0.19)|true|
+|`autoit.showVariablesInGoToSymbol`|Determines whether to show or hide variables when using Ctrl+Shift+O (added in v0.1.9)|true|
+|`autoit.includePaths`|Paths to look for include files from, in an array. (added in v0.1.9)|["C:\\Program Files (x86)\\AutoIt3\\Include"]
 
 <!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 
