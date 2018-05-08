@@ -1,6 +1,6 @@
 'use strict'
 
-var { languages, CompletionItem, CompletionItemKind, window } = require('vscode')
+var { languages, CompletionItem, CompletionItemKind, window, workspace } = require('vscode')
 var fs = require('fs')
 var path = require('path')
 var completions = []
@@ -17,6 +17,34 @@ for (var i in files) {
 const _funcPattern = /Func\s+(\w*)\s*\(/g;
 const _varPattern = /\$(\w*)/g;
 const _includePattern = /^\s+#include\s"(.+)"/gm
+const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm
+const DEFAULT_UDFS = ['APIComConstants', 'APIConstants', 'APIDiagConstants', 
+    'APIDlgConstants', 'APIErrorsConstants', 'APIFilesConstants', 'APIGdiConstants', 
+    'APILocaleConstants', 'APIMiscConstants', 'APIProcConstants', 'APIRegConstants', 
+    'APIResConstants', 'APIShellExConstants', 'APIShPathConstants', 'APISysConstants',
+    'APIThemeConstants', 'Array', 'AutoItConstants', 'AVIConstants', 'BorderConstants',
+    'ButtonConstants', 'Clipboard', 'Color', 'ColorConstants', 'ComboConstants', 
+    'Constants', 'Crypt', 'Date', 'DateTimeConstants', 'Debug', 'DirConstants', 
+    'EditConstants', 'EventLog', 'Excel', 'ExcelConstants', 'File', 'FileConstants', 
+    'FontConstants', 'FrameConstants', 'FTPEx', 'GDIPlus', 'GDIPlusConstants', 'GuiAVI',
+    'GuiButton', 'GuiComboBox', 'GuiComboBoxEx', 'GUIConstants', 'GUIConstantsEx', 
+    'GuiDateTimePicker', 'GuiEdit', 'GuiHeader', 'GuiImageList', 'GuiIPAddress', 
+    'GuiListBox', 'GuiListView', 'GuiMenu', 'GuiMonthCal', 'GuiReBar', 'GuiRichEdit',
+    'GuiScrollBars', 'GuiSlider', 'GuiStatusBar', 'GuiTab', 'GuiToolbar', 'GuiToolTip',
+    'GuiTreeView', 'HeaderConstants', 'IE', 'ImageListConstants', 'Inet', 'InetConstants',
+    'IPAddressConstants', 'ListBoxConstants', 'ListViewConstants', 'Math', 'MathConstants',
+    'Memory', 'MemoryConstants', 'MenuConstants', 'Misc', 'MsgBoxConstants', 'NamedPipes',
+    'NetShare', 'NTSTATUSConstants', 'Process', 'ProcessConstants', 'ProgressConstants', 
+    'RebarConstants', 'RichEditConstants', 'ScreenCapture', 'ScrollBarConstants', 
+    'ScrollBarsConstants', 'Security', 'SecurityConstants', 'SendMessage', 
+    'SliderConstants', 'Sound', 'SQLite', 'SQLite.dll', 'StaticConstants', 
+    'StatusBarConstants', 'String', 'StringConstants', 'StructureConstants', 'TabConstants', 
+    'Timers', 'ToolbarConstants', 'ToolTipConstants', 'TrayConstants', 'TreeViewConstants', 
+    'UDFGlobalID', 'UpDownConstants', 'Visa', 'WinAPI', 'WinAPICom', 'WinAPIConstants',
+    'WinAPIDiag', 'WinAPIDlg', 'WinAPIError', 'WinAPIEx', 'WinAPIFiles', 'WinAPIGdi', 
+    'WinAPIInternals', 'WinAPIlangConstants', 'WinAPILocale', 'WinAPIMisc', 'WinAPIProc', 
+    'WinAPIReg', 'WinAPIRes', 'WinAPIShellEx', 'WinAPIShPath', 'WinAPISys', 'WinAPIsysinfoConstants', 
+    'WinAPITheme', 'WinAPIvkeysConstants', 'WindowsConstants', 'WinNet', 'Word', 'WordConstants']
 
 module.exports = languages.registerCompletionItemProvider({ language: 'autoit', scheme: 'file' }, {
     provideCompletionItems(document, position, token) {
@@ -27,6 +55,7 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
         var range = document.getWordRangeAtPosition(position);
         var prefix = range ? document.getText(range) : '';
         var includesCheck = []
+        var libraryIncludes = []
 
         if (!range) {
             range = new Range(position, position);
@@ -82,8 +111,30 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
             }
             currentIncludeFiles = includesCheck
         }
+
+        // Collect the library includes
+        while (pattern = LIBRARY_INCLUDE_PATTERN.exec(text)) {
+            // Filter out the default UDFs 
+            let filename = pattern[1].replace('.au3', '')
+            if (DEFAULT_UDFS.indexOf(filename) == -1) {
+                libraryIncludes.push(pattern[1])
+            }
+        }
+
+        let library = []
+        for (let file of libraryIncludes) {
+            let fullPath = findFilepath(file)
+            if (fullPath) {
+                let libraryResults = getIncludeData(fullPath)
+                if (libraryResults) {
+                    for (var newFunc in libraryResults) {
+                        library.push(createNewCompletionItem(CompletionItemKind.Function, libraryResults[newFunc], 'Function from ' + file))
+                    }
+                }
+            }
+        }
         
-        result = result.concat(includes) //Add either the existing include functions or the new ones to result
+        result = result.concat(includes, library) //Add either the existing include functions or the new ones to result
 
         return completions.concat(result);
     }
@@ -91,7 +142,7 @@ module.exports = languages.registerCompletionItemProvider({ language: 'autoit', 
 
 function getIncludeData(fileName) {
     // console.log(fileName)
-    const _includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/
+    const _includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/gm
     var functions = []
     var filePath = ""
 
@@ -106,18 +157,28 @@ function getIncludeData(fileName) {
     
     var pattern = null
     var fileData = fs.readFileSync(filePath)
-    var fileArray = fileData.toString().split("\n")
+    var fileText = fileData.toString()
 
-    var funcLines = fileArray.filter((line) => {
-        pattern = _includeFuncPattern.exec(line)
-        if (pattern) {
+    while(pattern = _includeFuncPattern.exec(fileText)) {
             functions.push(pattern[1])
-        }
-        return pattern
-    })
+    }
 
     //console.log(funcLines)
-    return (functions)
+    return functions
+}
+
+function findFilepath(file) {
+    let includePaths = workspace.getConfiguration('autoit').includePaths
+
+    for (const iPath of includePaths) {
+        let newPath = path.normalize(iPath + "\\") + file
+
+        if (fs.existsSync(newPath)) {
+            return newPath
+        }
+    }
+
+    return 0
 }
 
 function arraysMatch(arr1, arr2) {
