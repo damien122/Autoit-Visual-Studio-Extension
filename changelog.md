@@ -1,7 +1,7 @@
 # AutoIt-VSCode Changelog
 
 ## 0.1.9
-* Completions for files relative to include folders (e.g., `#include <Test.au3>`) are now provided
+* Completions and Signature Helpers for files relative to include folders (e.g., `#include <Test.au3>`) are now provided
     * Defaults to searching in C:\Program Files (x86)\AutoIt3\Include, more can be added in User Settings
 * Output window now clears on each Run, Compile or Build
 * Implemented Workspace/Folder-wide Symbol Search (`Ctrl+T`)
