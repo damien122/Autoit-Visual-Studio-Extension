@@ -13,8 +13,11 @@
         "vscode": "^0.10.1"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets"
+    ],
+    "keywords": [
+        "AutoIt", "scripting", "au3", "AutoIt3"
     ],
     "devDependencies": {
         "vscode": "^0.11.x",
@@ -133,7 +136,7 @@
             {
                 "language": "autoit",
                 "scopeName": "source.autoit",
-                "path": "./syntaxes/aiSyntax.json"
+                "path": "./syntaxes/autoit.tmLanguage"
             }
         ],
         "snippets": [
@@ -232,6 +235,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Determines whether variables show up when you use Ctrl+Shift+O to find symbols within a script"
+                },
+                "autoit.includePaths": {
+                    "type": "array",
+                    "default": ["C:\\Program Files (x86)\\AutoIt3\\Include"],
+                    "description": "File paths for additional include folders"
                 }
             }
         }
