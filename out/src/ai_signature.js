@@ -1,6 +1,6 @@
 'use strict'
 
-var { languages, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString } = require('vscode')
+var { languages, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString, workspace } = require('vscode')
 var mergeJSON = require('merge-json')
 var fs = require('fs')
 var path = require('path')
@@ -10,6 +10,33 @@ var udfs = require('./signatures/udfs.json')
 var defaultSigs = mergeJSON.merge(mainFunctions, udfs)
 var currentIncludeFiles = []
 var includes = {}
+const DEFAULT_UDFS = ['APIComConstants', 'APIConstants', 'APIDiagConstants', 
+    'APIDlgConstants', 'APIErrorsConstants', 'APIFilesConstants', 'APIGdiConstants', 
+    'APILocaleConstants', 'APIMiscConstants', 'APIProcConstants', 'APIRegConstants', 
+    'APIResConstants', 'APIShellExConstants', 'APIShPathConstants', 'APISysConstants',
+    'APIThemeConstants', 'Array', 'AutoItConstants', 'AVIConstants', 'BorderConstants',
+    'ButtonConstants', 'Clipboard', 'Color', 'ColorConstants', 'ComboConstants', 
+    'Constants', 'Crypt', 'Date', 'DateTimeConstants', 'Debug', 'DirConstants', 
+    'EditConstants', 'EventLog', 'Excel', 'ExcelConstants', 'File', 'FileConstants', 
+    'FontConstants', 'FrameConstants', 'FTPEx', 'GDIPlus', 'GDIPlusConstants', 'GuiAVI',
+    'GuiButton', 'GuiComboBox', 'GuiComboBoxEx', 'GUIConstants', 'GUIConstantsEx', 
+    'GuiDateTimePicker', 'GuiEdit', 'GuiHeader', 'GuiImageList', 'GuiIPAddress', 
+    'GuiListBox', 'GuiListView', 'GuiMenu', 'GuiMonthCal', 'GuiReBar', 'GuiRichEdit',
+    'GuiScrollBars', 'GuiSlider', 'GuiStatusBar', 'GuiTab', 'GuiToolbar', 'GuiToolTip',
+    'GuiTreeView', 'HeaderConstants', 'IE', 'ImageListConstants', 'Inet', 'InetConstants',
+    'IPAddressConstants', 'ListBoxConstants', 'ListViewConstants', 'Math', 'MathConstants',
+    'Memory', 'MemoryConstants', 'MenuConstants', 'Misc', 'MsgBoxConstants', 'NamedPipes',
+    'NetShare', 'NTSTATUSConstants', 'Process', 'ProcessConstants', 'ProgressConstants', 
+    'RebarConstants', 'RichEditConstants', 'ScreenCapture', 'ScrollBarConstants', 
+    'ScrollBarsConstants', 'Security', 'SecurityConstants', 'SendMessage', 
+    'SliderConstants', 'Sound', 'SQLite', 'SQLite.dll', 'StaticConstants', 
+    'StatusBarConstants', 'String', 'StringConstants', 'StructureConstants', 'TabConstants', 
+    'Timers', 'ToolbarConstants', 'ToolTipConstants', 'TrayConstants', 'TreeViewConstants', 
+    'UDFGlobalID', 'UpDownConstants', 'Visa', 'WinAPI', 'WinAPICom', 'WinAPIConstants',
+    'WinAPIDiag', 'WinAPIDlg', 'WinAPIError', 'WinAPIEx', 'WinAPIFiles', 'WinAPIGdi', 
+    'WinAPIInternals', 'WinAPIlangConstants', 'WinAPILocale', 'WinAPIMisc', 'WinAPIProc', 
+    'WinAPIReg', 'WinAPIRes', 'WinAPIShellEx', 'WinAPIShPath', 'WinAPISys', 'WinAPIsysinfoConstants', 
+    'WinAPITheme', 'WinAPIvkeysConstants', 'WindowsConstants', 'WinNet', 'Word', 'WordConstants']
 
 module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', scheme: 'file' }, {
     provideSignatureHelp(document, position) {
@@ -96,6 +123,7 @@ function getIncludes(doc) { // determines whether includes should be re-parsed o
     var text = doc.getText()
     var pattern = null
     const includePattern = /^\s+#include\s"(.+)"/gm
+    const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm
     var includesCheck = []
 
     while (pattern = includePattern.exec(text)) {
@@ -109,6 +137,18 @@ function getIncludes(doc) { // determines whether includes should be re-parsed o
             Object.assign(includes, newIncludes)
         }
         currentIncludeFiles = includesCheck
+    }
+
+    includesCheck = []
+    while(pattern = LIBRARY_INCLUDE_PATTERN.exec(text)) {
+        let filename = pattern[1].replace('.au3', '')
+        if (DEFAULT_UDFS.indexOf(filename) == -1) {
+            let fullPath = findFilepath(pattern[1])
+            if (fullPath) {
+                let newData = getIncludeData(fullPath, '')
+                Object.assign(includes, newData)
+            }
+        }
     }
 
     return includes
@@ -181,4 +221,18 @@ function arraysMatch(arr1, arr2) {
     } else {
         return false
     }
+}
+
+function findFilepath(file) {
+    let includePaths = workspace.getConfiguration('autoit').includePaths
+
+    for (const iPath of includePaths) {
+        let newPath = path.normalize(iPath + "\\") + file
+
+        if (fs.existsSync(newPath)) {
+            return newPath
+        }
+    }
+
+    return 0
 }
