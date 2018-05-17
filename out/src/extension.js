@@ -21,7 +21,7 @@ function activate(ctx) {
     console.log('AutoIt is now active!');
 
     ctx.subscriptions.push(languages.setLanguageConfiguration(
-        'autoit', { wordPattern: /([$@#_]?[A-Za-z]\w+)/ }));
+        'autoit', { wordPattern: /([$@#]?[A-Za-z_]\w+)/ }));
 
     commands.registerCommand('extension.runScript', () => {
         ai_commands.runScript();
