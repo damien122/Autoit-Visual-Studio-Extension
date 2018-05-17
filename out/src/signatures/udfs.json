@@ -37677,7 +37677,7 @@
             "documentation": "**[optional]** Specifies whether to link the picture to the file from which it was created.    True - Link the picture to the file from which it was created    False - Make the picture an independent copy of the file (default)"
         }, {
             "label": "$bSaveWithDocument",
-            "documentation": "**[optional]** Specifies whether to save the linked picture with the document.  \n\n| ||\n:---|---|:---\nTrue |- |Save the linked picture with the document\nFalse | - | Do not save the linked picture with the document (default)"
+            "documentation": "**[optional]** Specifies whether to save the linked picture with the document.  \n\n|  ||\n:---|---|:---\nTrue |- |Save the linked picture with the document\nFalse | - | Do not save the linked picture with the document (default)"
         }, {
             "label": "$oRange",
             "documentation": "**[optional]** The location where the picture will be placed in the text.  \nCan be 0 (the picture is placed automatically) or any range object (default = 0)"
