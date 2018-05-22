@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.2.0
+* Fixed the word pattern for the extension
+* Improved formatting for some parameter documentation in signature helpers
+
 ## 0.1.9
 * Completions and Signature Helpers for files relative to include folders (e.g., `#include <Test.au3>`) are now provided
     * Defaults to searching in C:\Program Files (x86)\AutoIt3\Include, more can be added in User Settings
