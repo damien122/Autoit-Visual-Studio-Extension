@@ -1,5 +1,6 @@
 
 var valHeader = "|Description |Value |\n|:---|:---:|\n"
+var descHeader = "|Value | |Description |\n|:---|---|:---:|\n"
 
 var setDetailAndDocumentation = (array, detail, doc) => {
     
@@ -14,5 +15,6 @@ var setDetailAndDocumentation = (array, detail, doc) => {
 
 module.exports = {
     valHeader: valHeader,
+    descHeader: descHeader,
     setDetail: setDetailAndDocumentation
 }
