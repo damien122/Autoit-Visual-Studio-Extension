@@ -16,10 +16,12 @@ module.exports = languages.registerHoverProvider(
     { 
         provideHover(document, position, token) {
             let wordRange = document.getWordRangeAtPosition(position)
-            let word = wordRange ? document.getText(wordRange) : ''
-            let hover
 
-            hover = hovers[word]
+            let word = wordRange ? document.getText(wordRange) : ''
+
+            let hover = hovers[Object.keys(hovers).find(
+                key => key.toLowerCase() === word.toLowerCase()
+            )]
 
             return new Hover(hover)
         }
