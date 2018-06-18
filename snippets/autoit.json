@@ -87,11 +87,11 @@
         "body": [
             "Switch (${1:\\$variable})",
             "\tCase ${2:6 To 11}",
-            "\t\t${3:true}",
+            "\t\t${3:True}",
             "\tCase ${4:12 To 17}",
-            "\t\t${5:true}",
+            "\t\t${5:True}",
             "\tCase Else",
-            "\t\t${6:false}",
+            "\t\t${6:False}",
             "EndSwitch"
         ],
         "scope": "source.autoit",
