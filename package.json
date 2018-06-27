@@ -17,7 +17,10 @@
         "Snippets"
     ],
     "keywords": [
-        "AutoIt", "scripting", "au3", "AutoIt3"
+        "AutoIt",
+        "scripting",
+        "au3",
+        "AutoIt3"
     ],
     "devDependencies": {
         "vscode": "^0.11.x",
@@ -238,13 +241,13 @@
                 },
                 "autoit.includePaths": {
                     "type": "array",
-                    "default": ["C:\\Program Files (x86)\\AutoIt3\\Include"],
+                    "default": [
+                        "C:\\Program Files (x86)\\AutoIt3\\Include"
+                    ],
                     "description": "File paths for additional include folders"
                 }
             }
         }
     },
-    "dependencies": {
-        "merge-json": "0.1.0-b.3"
-    }
+    "dependencies": {}
 }

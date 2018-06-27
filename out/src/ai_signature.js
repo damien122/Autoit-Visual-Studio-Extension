@@ -1,13 +1,14 @@
 'use strict'
 
-var { languages, SignatureHelp, SignatureInformation, ParameterInformation, MarkdownString, workspace } = require('vscode')
-var mergeJSON = require('merge-json')
+var { languages, SignatureHelp, SignatureInformation, ParameterInformation, 
+    MarkdownString, workspace } = require('vscode')
 var fs = require('fs')
 var path = require('path')
 var mainFunctions = require('./signatures/functions.json')
 var udfs = require('./signatures/udfs.json')
 
-var defaultSigs = mergeJSON.merge(mainFunctions, udfs)
+const defaultSigs = Object.assign({}, mainFunctions, udfs)
+
 var currentIncludeFiles = []
 var includes = {}
 const DEFAULT_UDFS = ['APIComConstants', 'APIConstants', 'APIDiagConstants', 
@@ -47,8 +48,9 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         }
 
         //Integrate user functions
-        var signatures = mergeJSON.merge(defaultSigs, getIncludes(document))
-        signatures = mergeJSON.merge(signatures, getLocalSigs(document))
+        const signatures = Object.assign({}, defaultSigs, getIncludes(document), 
+            getLocalSigs(document))
+        
 
         //Get the called word from the json files
         let foundSig = signatures[caller.func]
@@ -56,17 +58,17 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
             return null
         }
 
-        let result = new SignatureHelp()
-        let si = new SignatureInformation(foundSig.label, 
+        let thisSignature = new SignatureInformation(foundSig.label, 
             new MarkdownString("*" + foundSig.documentation + "*"))
             //Enter parameter information into signature information
         foundSig.params.forEach(element => {
-            si.parameters.push(new ParameterInformation(element.label, 
+            thisSignature.parameters.push(new ParameterInformation(element.label, 
                 new MarkdownString(element.documentation)))
         })
 
         //Place signature information into results
-        result.signatures = [si]
+        let result = new SignatureHelp()
+        result.signatures = [thisSignature]
         result.activeSignature = 0
         result.activeParameter = caller.commas
 
