@@ -1,5 +1,8 @@
 # AutoIt-VSCode Changelog
 
+## 0.2.1
+* Added "setupudf" snippet
+
 ## 0.2.0
 * Fixed the word pattern for the extension
 * Improved formatting for some parameter documentation in signature helpers
