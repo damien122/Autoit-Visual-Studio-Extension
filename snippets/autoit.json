@@ -870,5 +870,25 @@
         "prefix": "#pragma ProductVersion",
         "body": "#pragma compile(ProductVersion, ${1:1.0})",
         "description": "Sets a product version to the compiled executable."
+    },
+    "UDF Setup": {
+        "prefix": "setupudf",
+        "body": [
+            ";===============================================================================",
+            ";",
+            "; Function Name:\t${1}",
+            "; Description:\t\t${2}",
+            "; Parameter(s):\t\t${3}",
+            "; Requirement(s):\t${4}",
+            "; Return Value(s):\t${5}",
+            "; Author(s):\t\t${6}",
+            "; Modified:\t\t\t${7}",
+            "; Remarks:\t\t\t${8}",
+            ";",
+            ";===============================================================================",
+            ";"
+        ],
+        "description": "Adds comments for information about a UDF"
     }
 }
+
