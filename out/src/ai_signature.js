@@ -7,7 +7,8 @@ var path = require('path')
 var mainFunctions = require('./signatures/functions.json')
 var udfs = require('./signatures/udfs.json')
 
-const defaultSigs = Object.assign({}, mainFunctions, udfs)
+const defaultSigs = Object.assign({}, mainFunctions, udfs, 
+    require('./signatures/udf_word'))
 
 var currentIncludeFiles = []
 var includes = {}
@@ -59,7 +60,7 @@ module.exports = languages.registerSignatureHelpProvider({ language: 'autoit', s
         }
 
         let thisSignature = new SignatureInformation(foundSig.label, 
-            new MarkdownString("*" + foundSig.documentation + "*"))
+            new MarkdownString("##### " + foundSig.documentation))
             //Enter parameter information into signature information
         foundSig.params.forEach(element => {
             thisSignature.parameters.push(new ParameterInformation(element.label, 
