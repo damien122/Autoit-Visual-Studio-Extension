@@ -1,6 +1,9 @@
 
-var valHeader = "|Description |Value |\n|:---|:---:|\n"
-var descHeader = "|Value | |Description |\n|:---|---|:---:|\n"
+const descriptionHeader = "|Description |Value |\n|:---|:---:|\n";
+const valueFirstHeader = "\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|";
+const trueFalseHeader = `\n|&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;
+    :---|:---:|:---`
+const optTag = "##### [optional]  \n"
 
 var setDetailAndDocumentation = (array, detail, doc) => {
     
@@ -14,7 +17,9 @@ var setDetailAndDocumentation = (array, detail, doc) => {
 
 
 module.exports = {
-    valHeader: valHeader,
-    descHeader: descHeader,
-    setDetail: setDetailAndDocumentation
+    descriptionHeader: descriptionHeader,
+    valueFirstHeader: valueFirstHeader,
+    setDetail: setDetailAndDocumentation,
+    optTag: optTag,
+    trueFalseHader: trueFalseHeader    
 }
