@@ -4,6 +4,7 @@ const valueFirstHeader = "\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---
 const trueFalseHeader = `\n|&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;
     :---|:---:|:---`
 const optTag = "##### [optional]  \n"
+const br = "\u0020\u0020"
 
 var setDetailAndDocumentation = (array, detail, doc) => {
     
@@ -21,5 +22,6 @@ module.exports = {
     valueFirstHeader: valueFirstHeader,
     setDetail: setDetailAndDocumentation,
     optTag: optTag,
-    trueFalseHader: trueFalseHeader    
+    trueFalseHader: trueFalseHeader,
+    br: br
 }
