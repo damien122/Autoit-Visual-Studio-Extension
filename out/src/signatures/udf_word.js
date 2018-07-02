@@ -1,9 +1,240 @@
 const opt = require('../util').optTag
 const header = require('../util').valueFirstHeader
 const tfHeader = require('../util').trueFalseHader
+const br = require('../util').br
 const include = '(Requires: `#include <Word.au3>`)'
 
 const signatures = {
+    "_Word_Create": {
+        "documentation": "Connects to an existing Word instance or creates a new Word application object",
+        "label": "_Word_Create ( [$bVisible], [$bForceNew] )",
+        "params": [{
+            "label": "[$bVisible]",
+            "documentation": `${opt} \`True\` specifies that the window will be visible (default)`
+        }, {
+            "label": "[$bForceNew]",
+            "documentation": `${opt} \`True\` forces to create a new Word instance even if there is already a running instance (\`Default = False\`)`
+        }]
+    },
+    "_Word_DocAdd": {
+        "documentation": `Adds a new or empty document to the specified Word application ${include}`,
+        "label": "_Word_DocAdd ( $oAppl, [$iDocumentType], [$sDocumentTemplate], [$bNewTemplate] )",
+        "params": [{
+            "label": "$oAppl",
+            "documentation": "Word object returned by a preceding call to `_Word_Create()`"
+        }, {
+            "label": "[$iDocumentType]",
+            "documentation": `${opt} Can be one of the following WdNewDocumentType constants:${br}
+                \`$WdNewBlankDocument\`, \`$WdNewEmailMessage\`, \`$WdNewFrameset\` or \`$WdNewWebPage\` (\`Default = $WdNewBlankDocument\`)`
+        }, {
+            "label": "[$sDocumentTemplate]",
+            "documentation": `${opt} The name of the template to be used for the new document.${br}
+                If this argument is omitted, the Normal template is used (default = "")`
+        }, {
+            "label": "[$bNewTemplate]",
+            "documentation": `${opt} \`True\` to open the document as a template (\`Default = False\`)`
+        }]
+    },
+    "_Word_DocAttach": {
+        "documentation": `Attaches to the first instance of a Word document where the search string matches based on the selected mode ${include}`,
+        "label": "_Word_DocAttach ( $oAppl, $sString, [$sMode], [$iCase] )",
+        "params": [{
+            "label": "$oAppl",
+            "documentation": "Word object returned by a preceding call to `_Word_Create()`"
+        }, {
+            "label": "$sString",
+            "documentation": "String to search for"
+        }, {
+            "label": "[$sMode]",
+            "documentation": `${opt} Search mode to use. Valid modes are:${br}
+                ${tfHeader}
+                "FileName"|-|Name of the open document
+                "FilePath"|-|Full path to the open document (default)
+                "Text"|-|Text in the body of the document`
+        }, {
+            "label": "[$iCase]",
+            "documentation": `${opt} Specifies case-sensitivity of function \`StringInStr()\` used for search mode "Text":${br}
+                ${header}
+                \`0\`|-|not case-sensitive, using the user's locale (default)
+                \`1\`|-|case sensitive
+                \`2\`|-|not case sensitive, using a basic/faster comparison`
+        }]
+    },
+    "_Word_DocClose": {
+        "documentation": `Closes the specified Word document ${include}`,
+        "label": "_Word_DocClose ( $oDoc, [$iSaveChanges], [$iOriginalFormat] )",
+        "params": [{
+            "label": "$oDoc",
+            "documentation": "Word document object"
+        }, {
+            "label": "[$iSaveChanges]",
+            "documentation": `${opt} Specifies the save action for the document (\`Default = $WdDoNotSaveChanges\`).${br}
+                Can be one of the WdSaveOptions constants:${br}
+                \`$WdDoNotSaveChanges\`, \`$WdPromptToSaveChanges\` or \`$WdSaveChanges\``
+        }, {
+            "label": "[$iOriginalFormat]",
+            "documentation": `${opt} Specifies the save format for the document.${br}
+                Can be one of the WdOriginalFormat constants:${br}
+                    \`$WdOriginalDocumentFormat\`, \`$WdPromptUser\` or \`$WdWordDocument\` (\`Default = $WdOriginalDocumentFormat\`)`
+        }]
+    },
+    "_Word_DocExport": {
+        "documentation": `Exports the document or a range as PDF or XPS ${include}`,
+        "label": "_Word_DocExport ( $oDoc, $sFileName, [$iFormat], [$iRange], [$iFrom], [$iTo], [$bOpenAfterExport], [$bIncludeProperties], [$iCreateBookmarks], [$bUseISO19005] )",
+        "params": [{
+            "label": "$oDoc",
+            "documentation": "Word document object to be exported"
+        }, {
+            "label": "$sFileName",
+            "documentation": "Path/name of the exported file"
+        }, {
+            "label": "[$iFormat]",
+            "documentation": `${opt} Format to use for the export. Can be any of the WdExportFormat enumeration${br}
+                (\`Default = $WdExportFormatPDF\`)`
+        }, {
+            "label": "[$iRange]",
+            "documentation": `${opt} Specifies what to export. Can be any of the WdExportRange enumeration${br}
+                (\`Default = $WdExportAllDocument\`)`
+        }, {
+            "label": "[$iFrom]",
+            "documentation": `${opt} The page number at which to start publishing (default = start at the beginning)`
+        }, {
+            "label": "[$iTo]",
+            "documentation": `${opt} The page number at which to end publishing (default = end at the last page)`
+        }, {
+            "label": "[$bOpenAfterExport]",
+            "documentation": `${opt} \`True\` displays the file in a viewer after it is published (\`Default = False\`)`
+        }, {
+            "label": "[$bIncludeProperties]",
+            "documentation": `${opt} \`True\` indicates that document properties should be included (\`Default = True\`)`
+        }, {
+            "label": "[$iCreateBookmarks]",
+            "documentation": `${opt} Specifies whether to export bookmarks and the type of bookmarks to export.${br}
+                Can be any of the WdExportCreateBookmarks enumeration (default)`
+        }, {
+            "label": "[$bUseISO19005]",
+            "documentation": `${opt} Specifies whether the export should be created as PDF/A (self-contained PDF) (\`Default = False\`)`
+        }]
+    },
+    "_Word_DocFind": {
+        "documentation": `Runs or repeats the specified find operation ${include}`,
+        "label": "_Word_DocFind ( $oDoc, [$sFindText], [$vSearchRange], [$oFindRange], [$bForward], [$bMatchCase], [$bMatchWholeWord], [$bMatchWildcards], [$bMatchSoundsLike], [$bMatchAllWordForms], [$bFormat] )",
+        "params": [{
+            "label": "$oDoc",
+            "documentation": "Word document object"
+        }, {
+            "label": "[$sFindText]",
+            "documentation": `${opt} The text to be searched for. Use an empty string ("") to search for formatting only.\u0020\u0020
+                You can search for special characters by specifying appropriate character codes.\u0020\u0020
+                For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character (\`Default = ""\`)`
+        }, {
+            "label": "[$vSearchRange]",
+            "documentation": `${opt} Specifies the selection or range to search. Can be:
+            ${header}
+            \`-1\`|-|Specifies the current selection
+            \`0\`|-|Specifies the entire document (default)
+
+            Any Word range object.`
+        }, {
+            "label": "[$oFindRange]",
+            "documentation": `${opt} Specifies the range returned by the last call to \`_Word_DocFind()\`.${br}
+                This is required if you want to search for the next or previous occurrence of \`$sFindText\`.${br}
+                If set to \`Default\` then the search starts at the start of the \`$vSearchRange\` (default)`
+        }, {
+            "label": "[$bForward]",
+            "documentation": `${opt} \`True\` to search forward (toward the end of the document) (\`Default = True\`)`
+        }, {
+            "label": "[$bMatchCase]",
+            "documentation": `${opt} If \`True\` the find is case sensitive (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchWholeWord]",
+            "documentation": `${opt} If \`True\` only find entire words (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchWildcards]",
+            "documentation": `${opt} If \`True\` the find text has special search operators (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchSoundsLike]",
+            "documentation": `${opt} If \`True\` finds words that sound similar to the find text (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchAllWordForms]",
+            "documentation": `${opt} If \`True\` finds all forms of the find text${br}
+                (e.g. "sit" locates "sitting" and "sat") (\`Default = False\`)`
+        }, {
+            "label": "[$bFormat]",
+            "documentation": `${opt} \`True\` to have the find operation locate formatting in addition to or instead of the find text (\`Default = False\`)`
+        }]
+    },
+    "_Word_DocFindReplace": {
+        "documentation": `Runs the specified find and replace operation ${include}`,
+        "label": "_Word_DocFindReplace ( $oDoc, [$sFindText], [$sReplaceWith], [$iReplace], [$vSearchRange], [$bMatchCase], [$bMatchWholeWord], [$bMatchWildcards], [$bMatchSoundsLike], [$bMatchAllWordForms], [$bForward], [$iWrap], [$bFormat] )",
+        "params": [{
+            "label": "$oDoc",
+            "documentation": "Word document object"
+        }, {
+            "label": "[$sFindText]",
+            "documentation": `${opt} The text to be searched for. Use an empty string ("") to search for formatting only.\u0020\u0020
+                You can search for special characters by specifying appropriate character codes.\u0020\u0020
+                For example, "^p" corresponds to a paragraph mark and "^t" corresponds to a tab character (\`Default = ""\`)`
+        }, {
+            "label": "[$sReplaceWith]",
+            "documentation": `${opt} The replacement text. To delete found text use an empty string ("").\u0020\u0020
+                You specify special characters and advanced search criteria just as you do for the Find argument (\`Default = ""\`)`
+        }, {
+            "label": "[$iReplace]",
+            "documentation": `${opt} How many replacements are to be made: one, all, or none.${br}
+                Can be anyWdReplace constant (\`Default = $WdReplaceAll\`)`
+        }, {
+            "label": "[$vSearchRange]",
+            "documentation": `${opt} Specifies the selection or range to search. Can be:
+            ${header}
+            \`-1\`|-|Specifies the current selection
+            \`0\`|-|Specifies the entire document (default)
+
+            Any Word range object.`
+        }, {
+            "label": "[$bMatchCase]",
+            "documentation": `${opt} If \`True\` the find is case sensitive (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchWholeWord]",
+            "documentation": `${opt} If \`True\` only find entire words (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchWildcards]",
+            "documentation": `${opt} If \`True\` the find text has special search operators (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchSoundsLike]",
+            "documentation": `${opt} If \`True\` finds words that sound similar to the find text (\`Default = False\`)`
+        }, {
+            "label": "[$bMatchAllWordForms]",
+            "documentation": `${opt} If \`True\` finds all forms of the find text${br}
+                (e.g. "sit" locates "sitting" and "sat") (\`Default = False\`)`
+        }, {
+            "label": "[$bForward]",
+            "documentation": `${opt} \`True\` to search forward (toward the end of the document) (\`Default = True\`)`
+        }, {
+            "label": "[$iWrap]",
+            "documentation": `${opt} \`True\` wraps when the bottom or top of the document, selection or range is reached.${br}
+                Can be one of the WdFindWrap constants (\`Default = $WdFindContinue\`)`
+        }, {
+            "label": "[$bFormat]",
+            "documentation": `${opt} \`True\` to have the find operation locate formatting in addition to or instead of the find text (\`Default = False\`)`
+        }]
+    },
+    "_Word_DocGet": {
+        "documentation": `Returns a collection object containing all documents or an object for a single document ${include}`,
+        "label": "_Word_DocGet ( $oAppl , [$vIndex] )",
+        "params": [{
+            "label": "$oAppl",
+            "documentation": "Word object returned by a preceding call to `_Word_Create()`"
+        }, {
+            "label": "[$vIndex]",
+            "documentation": `${opt} Specifies what to return:\u0020\u0020
+                ${header}
+                \`-1\`|-|Returns a collection of all documents (default)
+                \`0\`|-|Returns the active document
+                \`n\`|-|The index number of the document to return (1 based)
+                \`x\`|-|The name of the document to return`
+        }]
+    },
     "_Word_DocLinkAdd": {
         "documentation": `Adds a hyperlink to the document ${include}`,
         "label": "_Word_DocLinkAdd ( $oDoc, [$oAnchor], [$sAddress], [$sSubAddress], [$sScreenTip], [$sTextToDisplay], [$sTarget] )",
