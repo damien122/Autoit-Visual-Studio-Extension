@@ -8,7 +8,8 @@ var mainFunctions = require('./signatures/functions.json')
 var udfs = require('./signatures/udfs.json')
 
 const defaultSigs = Object.assign({}, mainFunctions, udfs, 
-    require('./signatures/udf_word'))
+    require('./signatures/udf_word'),
+    require('./signatures/udf_winnet'))
 
 var currentIncludeFiles = []
 var includes = {}
