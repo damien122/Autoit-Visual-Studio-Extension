@@ -26,6 +26,7 @@
         "vscode": "^0.11.x",
         "typescript": "^1.6.2"
     },
+    "license": "MIT",
     "main": "./out/src/extension",
     "activationEvents": [
         "onLanguage:autoit"

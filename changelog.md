@@ -2,6 +2,7 @@
 
 ## 0.2.1
 * Added "setupudf" snippet
+* Added MIT license to extension
 
 ## 0.2.0
 * Fixed the word pattern for the extension
