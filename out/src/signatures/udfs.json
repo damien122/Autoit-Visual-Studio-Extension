@@ -1,15 +1,4 @@
 {
-    "_Array1DToHistogram": {
-        "documentation": "Transform a 1D array to Histogram",
-        "label": "_Array1DToHistogram ( $aArray [, $iSizing = 100] )",
-        "params": [{
-            "label": "$aArray",
-            "documentation": "Array to transform"
-        }, {
-            "label": "$iSizing",
-            "documentation": "**[optional]** Allows to zoom the histogram. Default = 100 percent"
-        }]
-    },
     "_ArrayAdd": {
         "documentation": "Adds a specified value at the end of an existing 1D or 2D array",
         "label": "_ArrayAdd ( ByRef $aArray, $vValue [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]] )",
