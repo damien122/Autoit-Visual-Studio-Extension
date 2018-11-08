@@ -30,9 +30,7 @@ module.exports = {
 
         window.setStatusBarMessage("Running the script...", 1500);
 
-        procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in',
-            thisFile, '/UserParams', '$(1)', '$(2)', '$(3)', '$(4)'
-        ]);
+        procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile]);
     },
 
     launchHelp: () => {
