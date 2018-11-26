@@ -3,6 +3,7 @@
 ## 0.2.1
 * Added "setupudf" snippet
 * Added MIT license to extension
+* Added functionality to set console parameters when runing a script, using the palette or `Ctrl+F8`
 
 ## 0.2.0
 * Fixed the word pattern for the extension

@@ -17,6 +17,8 @@ const helpPath = configuration.helpPath;
 const infoPath = configuration.infoPath;
 const kodaPath = configuration.kodaPath;
 
+
+
 var aiOut = window.createOutputChannel('AutoIt');
 
 module.exports = {
@@ -28,9 +30,11 @@ module.exports = {
         // Save the file
         thisDoc.save();
 
-        window.setStatusBarMessage("Running the script...", 1500);
+        let params = workspace.getConfiguration('autoit').get('consoleParams')
 
-        procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile]);
+        window.setStatusBarMessage("Running the script...", 1500);
+        
+        procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile, params]);
     },
 
     launchHelp: () => {
@@ -138,6 +142,23 @@ module.exports = {
     launchKoda: () => {
         //Launch Koda Form Designer(FD.exe)
         procRunner(kodaPath);
+    },
+
+    changeConsoleParams: () => {
+        window.showInputBox({ 
+            placeHolder: "param1 param2 param3 param4",
+            prompt: "Enter the parameters to send to command line when scripts are run, separated by a space."
+        }).then((input) => {
+            if (input == undefined) {
+                input = ''
+            }
+
+            configuration.update('consoleParams', input, false).then(()=> {
+                let params = workspace.getConfiguration('autoit').get('consoleParams')
+
+                window.showInformationMessage(`Params set to: ${params}`)
+            })
+        })
     }
 };
 

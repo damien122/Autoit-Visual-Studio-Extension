@@ -52,7 +52,10 @@ function activate(ctx) {
     }); // Launch Debug-Console
     commands.registerCommand('extension.launchKoda', () => {
         ai_commands.launchKoda();
-    }) // Launch Koda Form Designer
+    }); // Launch Koda Form Designer
+    commands.registerCommand('extension.changeParams', () => {
+        ai_commands.changeConsoleParams();
+    })
 }
 exports.activate = activate;
 
