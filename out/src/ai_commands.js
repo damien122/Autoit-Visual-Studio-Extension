@@ -34,7 +34,19 @@ module.exports = {
 
         window.setStatusBarMessage("Running the script...", 1500);
         
-        procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile, params]);
+        if (params) {
+            
+            let paramArray = params.match(/\w+|"[^"]+"/g) // split the string by space or quotes
+            let i = paramArray.length
+
+            while (i--) {
+                paramArray[i] = paramArray[i].replace(/"/g, "") // remove the quotes
+            }
+            
+            procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile, '/UserParams', ...paramArray]);
+        } else {
+            procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile]);
+        }
     },
 
     launchHelp: () => {
@@ -146,8 +158,8 @@ module.exports = {
 
     changeConsoleParams: () => {
         window.showInputBox({ 
-            placeHolder: "param1 param2 param3 param4",
-            prompt: "Enter the parameters to send to command line when scripts are run, separated by a space."
+            placeHolder: `param "param with spaces" 3`,
+            prompt: "Enter space-separated parameters to send to the command line when scripts are run. Wrap single parameters with one or more spaces with quotes."
         }).then((input) => {
             if (input == undefined) {
                 input = ''
