@@ -52,6 +52,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 * Debug to MsgBox: `Ctrl+Shift+D`
 * Debug to Console: `Alt+D`
 * Run Koda: `Alt+M`
+* Set Command Line Parameters: `Shift+F8`
 > **NOTE:**
 > 
 > Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
