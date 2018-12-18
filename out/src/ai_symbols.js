@@ -2,7 +2,7 @@
 
 var { languages, SymbolInformation, SymbolKind, 
     Location, Position, workspace } = require('vscode')
-
+const { AI_CONSTANTS } = require('./util')
 const _funcPattern = /Func\s(.+)\(/
 const _varPattern = /(\$\w+)/g
 var config = workspace.getConfiguration('autoit');
@@ -43,7 +43,7 @@ module.exports = languages.registerDocumentSymbolProvider(
                     {
                         for (var i = 0; i < variables.length; i++)
                         {
-                            if (found.indexOf(variables[i]) === -1) {
+                            if (found.indexOf(variables[i]) === -1 && AI_CONSTANTS.indexOf(variables[i]) === -1) {
                                 result.push(new SymbolInformation(variables[i], SymbolKind.Variable,
                                 '', new Location(doc.uri, new Position(line, 0))))
                                 found.push(variables[i])
