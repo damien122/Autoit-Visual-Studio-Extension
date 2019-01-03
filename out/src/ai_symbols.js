@@ -19,17 +19,18 @@ module.exports = languages.registerDocumentSymbolProvider(
 
             // Get the number of lines in the document to loop through
             const lineCount = Math.min(doc.lineCount, 10000)
-            for (let line = 0; line < lineCount; line++) {
-                const {text}  = doc.lineAt(line)
-
-                if (text == "") { // skip over empty lines
+            for (let lineNum = 0; lineNum < lineCount; lineNum++) {
+                const line = doc.lineAt(lineNum)
+                const text = line.text
+                
+                if (isSkippableLine(line)) {
                     continue
                 }
 
                 funcName = _funcPattern.exec(text)
                 if(funcName && found.indexOf(funcName[1]) === -1) {
                     result.push(new SymbolInformation(funcName[1], SymbolKind.Function, 
-                    '', new Location(doc.uri, new Position(line, 0))))
+                    '', new Location(doc.uri, new Position(lineNum, 0))))
                     found.push(funcName[1])
                 }
 
@@ -45,7 +46,7 @@ module.exports = languages.registerDocumentSymbolProvider(
                         {
                             if (found.indexOf(variables[i]) === -1 && AI_CONSTANTS.indexOf(variables[i]) === -1) {
                                 result.push(new SymbolInformation(variables[i], SymbolKind.Variable,
-                                '', new Location(doc.uri, new Position(line, 0))))
+                                '', new Location(doc.uri, new Position(lineNum, 0))))
                                 found.push(variables[i])
                             }
                         }
@@ -57,3 +58,18 @@ module.exports = languages.registerDocumentSymbolProvider(
         }
     }
 )
+
+const isSkippableLine = (line) => {
+    const skipChars = [';', '#']
+
+    if (line.isEmptyOrWhitespace) {
+        return true
+    }
+
+    const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex)
+    if (skipChars.includes(firstChar)) {
+        return true
+    }
+
+    return false
+}
