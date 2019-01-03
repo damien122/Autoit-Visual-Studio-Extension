@@ -18,7 +18,7 @@ module.exports = languages.registerWorkspaceSymbolProvider({
         if (!search) {
             return []
         }
-        search = search.replace('$', '\$') // Enable searching for leading $ oif 
+        search = search.replace('$', '\\$') // Enable searching for leading $ oif 
         let searchFilter = new RegExp(search, 'i')
         
         // Get list of AutoIt files in workspace
