@@ -1,4 +1,4 @@
-const opt = require('../util').optTag
+const { opt } = require('../util')
 const header = require('../util').valueFirstHeader
 const tfHeader = require('../util').trueFalseHader
 const br = require('../util').br
