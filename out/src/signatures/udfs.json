@@ -1,47 +1,4 @@
 {
-    "_ArrayAdd": {
-        "documentation": "Adds a specified value at the end of an existing 1D or 2D array",
-        "label": "_ArrayAdd ( ByRef $aArray, $vValue [, $iStart = 0 [, $sDelim_Item = \"|\" [, $sDelim_Row = @CRLF [, $iForce = $ARRAYFILL_FORCE_DEFAULT]]]] )",
-        "params": [{
-            "label": "$aArray",
-            "documentation": "Array to modify"
-        }, {
-            "label": "$vValue",
-            "documentation": "Value(s) to add - can be a single item, a delimited string or an array"
-        }, {
-            "label": "$iStart",
-            "documentation": "**[optional]** Column in which addition is to begin (2D array only)"
-        }, {
-            "label": "$sDelim_Item",
-            "documentation": "**[optional]** Delimiter used if a string is to be split into items"
-        }, {
-            "label": "$sDelim_Row",
-            "documentation": "**[optional]** Delimiter used if a string is to be split into rows (2D only)"
-        }, {
-            "label": "$iForce",
-            "documentation": "**[optional]** Maintains default behaviour,  \n`$ARRAYFILL_FORCE_DEFAULT` (0)  \nForces `$vValue` addition as a single item,  \n`$ARRAYFILL_FORCE_SINGLEITEM` (1)  \nOr forces datatype for all added items  \n`$ARRAYFILL_FORCE_INT` (2)  \n`$ARRAYFILL_FORCE_NUMBER` (3)  \n`$ARRAYFILL_FORCE_PTR` (4)  \n`$ARRAYFILL_FORCE_HWND` (5)  \n`$ARRAYFILL_FORCE_STRING` (6)"
-        }]
-    },
-    "_ArrayBinarySearch": {
-        "documentation": "Uses the binary search algorithm to search through a 1D or 2D array",
-        "label": "_ArrayBinarySearch ( Const ByRef $aArray, $vValue [, $iStart = 0 [, $iEnd = 0 [, $iColumn = 0]]] )",
-        "params": [{
-            "label": "$aArray",
-            "documentation": "Array to search"
-        }, {
-            "label": "$vValue",
-            "documentation": "Value to find"
-        }, {
-            "label": "$iStart",
-            "documentation": "**[optional]** Index of array to start searching at"
-        }, {
-            "label": "$iEnd",
-            "documentation": "**[optional]** Index of array to stop searching at"
-        }, {
-            "label": "$iColumn",
-            "documentation": "**[optional]** Column of array to search"
-        }]
-    },
     "_ArrayColDelete": {
         "documentation": "Deletes a specified column from a 2D array",
         "label": "_ArrayColDelete ( ByRef $aArray, $iColumn [, $bConvert = False] )",
