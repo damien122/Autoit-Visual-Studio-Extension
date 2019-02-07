@@ -164,14 +164,16 @@ module.exports = {
             value: currentParameters,
             prompt: "Enter space-separated parameters to send to the command line when scripts are run. Wrap single parameters with one or more spaces with quotes."
         }).then((input) => {
-            if (input == undefined) {
-                input = ''
+            if (input == undefined) { // Preserve standing console parameters if input is cancelled
+                input = currentParameters
             }
 
             configuration.update('consoleParams', input, false).then(()=> {
                 let params = workspace.getConfiguration('autoit').get('consoleParams')
+                
+                let message = params ? `Current console parameter(s): ${params}` : `Console parameter(s) have been cleared.`
 
-                window.showInformationMessage(`Params set to: ${params}`)
+                window.showInformationMessage(message)
             })
         })
     }
