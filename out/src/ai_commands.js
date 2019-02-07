@@ -36,8 +36,10 @@ module.exports = {
         
         if (params) {
             
-            let paramArray = params.match(/\w+|"[^"]+"/g) // split the string by space or quotes
+            let paramArray = params.match(/[\w-\/]+|"[^"]+"/g) // split the string by space or quotes
             let i = paramArray.length
+
+            console.log(paramArray)
 
             while (i--) {
                 paramArray[i] = paramArray[i].replace(/"/g, "") // remove the quotes
