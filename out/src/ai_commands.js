@@ -157,8 +157,11 @@ module.exports = {
     },
 
     changeConsoleParams: () => {
+        let currentParameters = workspace.getConfiguration('autoit').get('consoleParams')
+
         window.showInputBox({ 
             placeHolder: `param "param with spaces" 3`,
+            value: currentParameters,
             prompt: "Enter space-separated parameters to send to the command line when scripts are run. Wrap single parameters with one or more spaces with quotes."
         }).then((input) => {
             if (input == undefined) {
