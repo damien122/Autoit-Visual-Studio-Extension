@@ -1,5 +1,9 @@
 # AutoIt-VSCode Changelog
 
+## 0.2.2
+* Improved Console parameter function to show previous input and preserve existing text if cancelled
+* Added completions for DirConstants.au3, EditConstants.au3, ExcelConstants.au3, FileConstants.au3, FontConstants.au3, FrameConstants.au3, GDIPlusConstants.au3, StaticConstants.au3, StatusBarConstants.au3, StringConstants.au3, TrayConstants.au3 and TreeViewConstants.au3
+
 ## 0.2.1
 * Added "setupudf" snippet
 * Added MIT license to extension
