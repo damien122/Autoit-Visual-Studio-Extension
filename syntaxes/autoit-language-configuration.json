@@ -52,9 +52,5 @@
 		{ "open": "'", "close": "'", "notIn": [
 			"string", "comment"
 		]}
-	],
-	"indentationRules": {
-		"increaseIndentPattern": "^\\s*(For|Func|If|ElseIf|Else|Select|While|Case|Switch|With).*$",
-		"decreaseIndentPattern": "^\\s*(Next|EndFunc|EndIf|ElseIf|Else|EndSelect|EndSwitch|WEnd|EndWith).*$"
-	}
+	]
 }

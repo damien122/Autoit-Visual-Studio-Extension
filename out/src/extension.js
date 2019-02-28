@@ -7,6 +7,7 @@ var ai_completion = require('./ai_completion');
 var ai_symbols = require('./ai_symbols');
 var ai_signature = require('./ai_signature');
 var ai_workspaceSymbols = require('./ai_workspaceSymbols');
+var langConfig = require('./languageConfiguration')
 
 function activate(ctx) {
 
@@ -21,7 +22,7 @@ function activate(ctx) {
     console.log('AutoIt is now active!');
 
     ctx.subscriptions.push(languages.setLanguageConfiguration(
-        'autoit', { wordPattern: /([$@#]?[A-Za-z_]\w+)/ }));
+        'autoit', langConfig ));
 
     commands.registerCommand('extension.runScript', () => {
         ai_commands.runScript();
