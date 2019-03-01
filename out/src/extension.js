@@ -8,6 +8,7 @@ var ai_symbols = require('./ai_symbols');
 var ai_signature = require('./ai_signature');
 var ai_workspaceSymbols = require('./ai_workspaceSymbols');
 var langConfig = require('./languageConfiguration')
+const ai_definition = require('./ai_definition')
 
 function activate(ctx) {
 
@@ -16,6 +17,7 @@ function activate(ctx) {
     ctx.subscriptions.push(ai_symbols);
     ctx.subscriptions.push(ai_signature);
     ctx.subscriptions.push(ai_workspaceSymbols);
+    ctx.subscriptions.push(ai_definition)
     
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated

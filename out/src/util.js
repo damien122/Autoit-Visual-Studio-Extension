@@ -18,6 +18,23 @@ const setDetailAndDocumentation = (array, detail, doc) => {
 }
 
 const AI_CONSTANTS = ['$MB_ICONERROR', '$MB_ICONINFORMATION', '$MB_YESNO', '$MB_TASKMODAL', '$IDYES', '$IDNO',]
+const AUTOIT_MODE = { language: 'autoit', scheme: 'file' }
+
+
+const isSkippableLine = (line) => {
+    const skipChars = [';', '#']
+
+    if (line.isEmptyOrWhitespace) {
+        return true
+    }
+
+    const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex)
+    if (skipChars.includes(firstChar)) {
+        return true
+    }
+
+    return false
+}
 
 module.exports = {
     descriptionHeader: descriptionHeader,
@@ -28,4 +45,6 @@ module.exports = {
     br,
     AI_CONSTANTS: AI_CONSTANTS,
     defaultZero,
+    AUTOIT_MODE,
+    isSkippableLine
 }
