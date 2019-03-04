@@ -6,6 +6,7 @@ var fs = require('fs')
 var path = require('path')
 var mainFunctions = require('./signatures/functions.json')
 var udfs = require('./signatures/udfs.json')
+const { getIncludeText } = require('./util')
 
 const defaultSigs = Object.assign({}, mainFunctions, udfs, 
     require('./signatures/udf_word'),
@@ -175,7 +176,7 @@ function getIncludeData(fileName, doc) {
     filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
     
     var pattern = null
-    var fileData = fs.readFileSync(filePath).toString()
+    var fileData = getIncludeText(filePath)
     
     while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
         functions[pattern[2]] = { 

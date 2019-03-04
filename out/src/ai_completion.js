@@ -7,6 +7,7 @@ var completions = []
 var newComp
 var currentIncludeFiles = []
 var includes = []
+const { getIncludeText } = require('./util')
 
 var files = fs.readdirSync(__dirname + '/completions')
 for (var i in files) {
@@ -156,10 +157,9 @@ function getIncludeData(fileName) {
     filePath = filePath.charAt(0).toUpperCase() + filePath.slice(1)
     
     var pattern = null
-    var fileData = fs.readFileSync(filePath)
-    var fileText = fileData.toString()
+    var fileData = getIncludeText(filePath)
 
-    while(pattern = _includeFuncPattern.exec(fileText)) {
+    while(pattern = _includeFuncPattern.exec(fileData)) {
             functions.push(pattern[1])
     }
 

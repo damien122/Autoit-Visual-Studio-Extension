@@ -1,3 +1,4 @@
+const fs = require('fs')
 
 const descriptionHeader = "|Description |Value |\n|:---|:---:|\n";
 const valueFirstHeader = "\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|";
@@ -36,6 +37,10 @@ const isSkippableLine = (line) => {
     return false
 }
 
+const getIncludeText = (filePath) => {
+    return fs.readFileSync(filePath).toString()
+}
+
 module.exports = {
     descriptionHeader: descriptionHeader,
     valueFirstHeader: valueFirstHeader,
@@ -46,5 +51,6 @@ module.exports = {
     AI_CONSTANTS: AI_CONSTANTS,
     defaultZero,
     AUTOIT_MODE,
-    isSkippableLine
+    isSkippableLine,
+    getIncludeText,
 }
