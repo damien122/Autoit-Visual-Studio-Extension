@@ -5,6 +5,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>au3</string>
+		<string>a3x</string>
 	</array>
 	<key>name</key>
 	<string>AutoIt Script</string>
