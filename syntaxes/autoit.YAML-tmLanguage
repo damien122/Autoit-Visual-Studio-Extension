@@ -102,6 +102,9 @@ patterns:
     -
         match: '(\$)[a-zA-Z_][a-zA-Z0-9_]*'
         name: variable.other.autoit
+        captures:
+            '1': 
+                name: punctuation.defintion.variable
     -
         match: (?x:(?:0x\h+)|(?:-?(?:0|[1-9]\d*)(?:\.\d+)?(?:e[+-]?\d+)?))
         name: constant.numeric.autoit
