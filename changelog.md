@@ -1,11 +1,11 @@
 # AutoIt-VSCode Changelog
 
 ## 0.2.3
-* Add indentation rules for automatic indents for keywords that indent/unindent on the next line (currently doesn't work when the keyword is input from Intellisense)
+* Added indentation rules for automatic indents for keywords that indent/unindent on the next line (currently doesn't work when the keyword is input from Intellisense)
 * Implemented basic Go To Definition functionality for Functions and Variables
 * Added syntax highlighting rules to color user created functions differently from default AutoIt and standard UDFs (may be the same depending on theme)
 * Added syntax highlighting for '$' part of variables (depends on theme)
-*  
+* Implemented command to kill running scripts set to Ctrl+Pause/Break
 
 ## 0.2.2
 * Improved Console parameter func tion to show previous input and preserve existing text if cancelled
@@ -27,9 +27,9 @@
 * Output window now clears on each Run, Compile or Build
 * Implemented Workspace/Folder-wide Symbol Search (`Ctrl+T`)
 * Upgraded Windows Message Codes from snippets to Completions
-* Updated UDF file location for functions moved in latest AutoIt update (v3.3.14.3) 
+* Updated UDF file location for functions moved in latest AutoIt update (v3.3.14.3)
 * Added configuration option to hide variables when using Ctrl+Shift+O to view symbols
-* Fixed word definitions to clear up highlighting/selection inconsistencies 
+* Fixed word definitions to clear up highlighting/selection inconsistencies
 
 ## 0.1.8
 * Improved function signature helpers
