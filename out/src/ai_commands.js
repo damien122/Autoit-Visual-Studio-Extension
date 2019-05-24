@@ -21,6 +21,8 @@ const kodaPath = configuration.kodaPath;
 
 var aiOut = window.createOutputChannel('AutoIt');
 
+let runner
+
 module.exports = {
 
     runScript: () => {
@@ -33,9 +35,9 @@ module.exports = {
         let params = workspace.getConfiguration('autoit').get('consoleParams')
 
         window.setStatusBarMessage("Running the script...", 1500);
-        
+
         if (params) {
-            
+
             let paramArray = params.match(/[\w-\/]+|"[^"]+"/g) // split the string by space or quotes
             let i = paramArray.length
 
@@ -44,7 +46,7 @@ module.exports = {
             while (i--) {
                 paramArray[i] = paramArray[i].replace(/"/g, "") // remove the quotes
             }
-            
+
             procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile, '/UserParams', ...paramArray]);
         } else {
             procRunner(aiPath, [wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile]);
@@ -161,7 +163,7 @@ module.exports = {
     changeConsoleParams: () => {
         let currentParameters = workspace.getConfiguration('autoit').get('consoleParams')
 
-        window.showInputBox({ 
+        window.showInputBox({
             placeHolder: `param "param with spaces" 3`,
             value: currentParameters,
             prompt: "Enter space-separated parameters to send to the command line when scripts are run. Wrap single parameters with one or more spaces with quotes."
@@ -172,12 +174,17 @@ module.exports = {
 
             configuration.update('consoleParams', input, false).then(()=> {
                 let params = workspace.getConfiguration('autoit').get('consoleParams')
-                
+
                 let message = params ? `Current console parameter(s): ${params}` : `Console parameter(s) have been cleared.`
 
                 window.showInformationMessage(message)
             })
         })
+    },
+
+    killScript: () => {
+        runner.stdin.pause()
+        runner.kill()
     }
 };
 
@@ -189,7 +196,7 @@ function procRunner(cmdPath, args) {
     // commands work right
     var workDir = path.dirname(window.activeTextEditor.document.fileName);
 
-    var runner = spawn(cmdPath, args, {
+    runner = spawn(cmdPath, args, {
         cwd: workDir
     });
 

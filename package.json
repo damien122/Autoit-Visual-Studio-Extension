@@ -91,6 +91,10 @@
                 {
                     "command": "extension.launchKoda",
                     "when": "editorLangId == autoit"
+                },
+                {
+                    "command": "extension.killScript",
+                    "when": "editorLangId == autoit"
                 }
             ]
         },
@@ -138,6 +142,10 @@
             {
                 "command": "extension.changeParams",
                 "title": "AutoIt: Change Console Parameters"
+            },
+            {
+                "command": "extension.killScript",
+                "title": "AutoIt: Kill Running Script"
             }
         ],
         "grammars": [
@@ -203,6 +211,10 @@
                 "command": "extension.changeParams",
                 "key": "shift+f8",
                 "when": "editorTextFocus && editorLangId == autoit"
+            },
+            {
+                "command": "extension.killScript",
+                "key": "ctrl+pausebreak"
             }
         ],
         "configuration": {
