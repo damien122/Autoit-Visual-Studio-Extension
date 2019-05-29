@@ -1,6 +1,6 @@
 # AutoIt for Visual Studio Code
 
-Welcome to the AutoIt extension for Visual Studio Code! This has been forked 
+Welcome to the AutoIt extension for Visual Studio Code! This has been forked
 and developed from Damien122's release.
 
 [Features](#features) | [Configuration](#configuration) | [Keyboard Shortcuts](#keyboard-shortcuts) | [Contributing](#contributing)
@@ -11,12 +11,12 @@ and developed from Damien122's release.
 * IntelliSense (code hints and completion)
 
   ![Intellisense](img/docs/signaturehelp.gif)
-  
+
 * Launch, compile and build scripts from VSCode
-* Launch AutoIt Help for highlighted text 
+* Launch AutoIt Help for highlighted text
 * Symbol search, press `Ctrl+Shift+O` to see where Functions and Variables have been declared in the current script
 
-  ![SymbolSearch](img/docs/symbolsearch.gif)  
+  ![SymbolSearch](img/docs/symbolsearch.gif)
 
 ## Configuration
 By default, this extension is set up for the default installation of AutoIt and SciTe4AutoIt on a 64-bit system. For alternate setups, you can access the user settings by navigating to `File-> Preferences-> Settings` or invoking the command palette (`Ctrl+Shift+P`) and searching for Preferences [(example)](img/docs/CtrlShiftP.png), and changing the following options:
@@ -53,8 +53,9 @@ By default, this extension is set up for the default installation of AutoIt and 
 * Debug to Console: `Alt+D`
 * Run Koda: `Alt+M`
 * Set Command Line Parameters: `Shift+F8`
+* Kill Running Script: `Ctrl+Pause/Break`
 > **NOTE:**
-> 
+>
 > Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
 ## Contributing
