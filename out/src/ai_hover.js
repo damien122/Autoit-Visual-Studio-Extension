@@ -2,18 +2,21 @@
 
 var { languages, Hover } = require('vscode')
 var fs = require('fs')
-var hovers = {}
+import hovers from './hovers/_hovers'
 var addJSON
 
-var files = fs.readdirSync(__dirname + '/hovers')
-for (var i in files)  {
-    addJSON = require('./hovers/' + files[i])
-    hovers = Object.assign(hovers, addJSON)
-}
+
+
+// var files = fs.readdirSync(__dirname + '/hovers')
+// for (var i in files)  {
+//     addJSON = JSON.parse(fs.readFileSync(__dirname + '/hovers/' + files[i]))
+
+//     hovers = Object.assign(hovers, addJSON)
+// }
 
 module.exports = languages.registerHoverProvider(
     { language: 'autoit', scheme: 'file' },
-    { 
+    {
         provideHover(document, position, token) {
             let wordRange = document.getWordRangeAtPosition(position)
 
