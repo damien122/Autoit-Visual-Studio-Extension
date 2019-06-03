@@ -23,11 +23,12 @@
         "AutoIt3"
     ],
     "devDependencies": {
-        "vscode": "^0.11.x",
-        "typescript": "^1.6.2"
+        "parcel-bundler": "^1.12.3",
+        "typescript": "^1.6.2",
+        "vscode": "^0.11.x"
     },
     "license": "MIT",
-    "main": "./out/src/extension",
+    "main": "./dist/extension",
     "activationEvents": [
         "onLanguage:autoit"
     ],
@@ -276,5 +277,9 @@
             }
         }
     },
-    "dependencies": {}
+    "dependencies": {},
+    "scripts": {
+        "build": "parcel build out/src/extension.js --target node",
+        "vscode:prepublish": "parcel build out/src/extension.js --target node"
+    }
 }
