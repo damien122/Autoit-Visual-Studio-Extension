@@ -21,20 +21,6 @@ const AutoItDefinitionProvider = {
             console.log(`Looking up definition for ${lookup}()!`)
         }
         
-        // Search current document for definition first
-        // for (let lineNum = 0; lineNum < document.lineCount; lineNum++) {
-        //     const line = document.lineAt(lineNum)
-        //     const lineText = line.text
-
-        //     if (isSkippableLine(line)) {
-        //         continue
-        //     }
-
-        //     if (lineText.match(defRegex)) {
-        //         return new Location(document.uri, line.range)
-        //     }
-        // }
-
         let found = document.getText().match(defRegex)
 
         if (found) {
