@@ -15,11 +15,7 @@ var currentIncludeFiles = []
 var includes = []
 const { getIncludeText, getIncludePath } = require("./util")
 
-var files = fs.readdirSync(__dirname + "/completions")
-for (var i in files) {
-    newComp = require("./completions/" + files[i])
-    completions = completions.concat(newComp)
-}
+import completions from "./completions"
 
 const _funcPattern = /Func\s+(\w*)\s*\(/g
 const _varPattern = /\$(\w*)/g
@@ -99,7 +95,10 @@ module.exports = languages.registerCompletionItemProvider(
                 includes = []
                 var includeFunctions = []
                 for (var i in includesCheck) {
-                    includeFunctions = getIncludeData(includesCheck[i], document)
+                    includeFunctions = getIncludeData(
+                        includesCheck[i],
+                        document
+                    )
                     if (includeFunctions) {
                         for (var newFunc in includeFunctions) {
                             includes.push(
