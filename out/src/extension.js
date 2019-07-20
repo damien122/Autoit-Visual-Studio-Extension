@@ -1,71 +1,91 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-var { languages, commands } = require('vscode');
-var ai_commands  = require("./ai_commands");
-var ai_hover = require('./ai_hover');
-var ai_completion = require('./ai_completion');
-var ai_symbols = require('./ai_symbols');
-var ai_signature = require('./ai_signature');
-var ai_workspaceSymbols = require('./ai_workspaceSymbols');
-var langConfig = require('./languageConfiguration')
-const ai_definition = require('./ai_definition')
+import { languages, commands } from 'vscode';
+import langConfig from './languageConfiguration';
+import AutoItCommands from './ai_commands';
+import hoverFeature from './ai_hover';
+import completionFeature from './ai_completion';
+import symbolsFeature from './ai_symbols';
+import signaturesFeature from './ai_signature';
+import workspaceSymbolsFeature from './ai_workspaceSymbols';
+import goToDefinitionFeature from './ai_definition';
 
-function activate(ctx) {
+function activate(context) {
+  const features = [
+    hoverFeature,
+    completionFeature,
+    symbolsFeature,
+    signaturesFeature,
+    workspaceSymbolsFeature,
+    goToDefinitionFeature,
+  ];
+  context.subscriptions.push(...features);
 
-    ctx.subscriptions.push(ai_hover);
-    ctx.subscriptions.push(ai_completion);
-    ctx.subscriptions.push(ai_symbols);
-    ctx.subscriptions.push(ai_signature);
-    ctx.subscriptions.push(ai_workspaceSymbols);
-    ctx.subscriptions.push(ai_definition)
+  context.subscriptions.push(languages.setLanguageConfiguration('autoit', langConfig));
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('AutoIt is now active!');
+  // Run Script Command
+  commands.registerCommand('extension.runScript', () => {
+    AutoItCommands.runScript();
+  });
 
-    ctx.subscriptions.push(languages.setLanguageConfiguration(
-        'autoit', langConfig ));
+  // Launch Help Command
+  commands.registerCommand('extension.launchHelp', () => {
+    AutoItCommands.launchHelp();
+  });
 
-    commands.registerCommand('extension.runScript', () => {
-        ai_commands.runScript();
-    }); // Run Script Command
-    commands.registerCommand('extension.launchHelp', () => {
-        ai_commands.launchHelp();
-    }); // Launch Help Command
-    commands.registerCommand('extension.launchInfo', () => {
-        ai_commands.launchInfo();
-    }); // Launch Au3Info
-    commands.registerCommand('extension.debugMsgBox', () => {
-        ai_commands.debugMsgBox();
-    }); // Insert Debug MsgBox
-    commands.registerCommand('extension.compile', () => {
-        ai_commands.compileScript();
-    }); // Compile scripts
-    commands.registerCommand('extension.tidy', () => {
-        ai_commands.tidyScript();
-    }); // Tidy script
-    commands.registerCommand('extension.check', () => {
-        ai_commands.checkScript();
-    }); // Check script
-    commands.registerCommand('extension.build', () => {
-        ai_commands.buildScript();
-    }); // Build scripts
-    commands.registerCommand('extension.debugConsole', () => {
-        ai_commands.debugConsole();
-    }); // Launch Debug-Console
-    commands.registerCommand('extension.launchKoda', () => {
-        ai_commands.launchKoda();
-    }); // Launch Koda Form Designer
-    commands.registerCommand('extension.changeParams', () => {
-        ai_commands.changeConsoleParams();
-    })
-    commands.registerCommand('extension.killScript', () => {
-        ai_commands.killScript()
-    })
+  // Launch Au3Info
+  commands.registerCommand('extension.launchInfo', () => {
+    AutoItCommands.launchInfo();
+  });
+
+  // Insert Debug MsgBox
+  commands.registerCommand('extension.debugMsgBox', () => {
+    AutoItCommands.debugMsgBox();
+  });
+
+  // Compile scripts
+  commands.registerCommand('extension.compile', () => {
+    AutoItCommands.compileScript();
+  });
+
+  // Tidy script
+  commands.registerCommand('extension.tidy', () => {
+    AutoItCommands.tidyScript();
+  });
+
+  // Check script
+  commands.registerCommand('extension.check', () => {
+    AutoItCommands.checkScript();
+  });
+
+  // Build scripts
+  commands.registerCommand('extension.build', () => {
+    AutoItCommands.buildScript();
+  });
+
+  // Launch Debug-Console
+  commands.registerCommand('extension.debugConsole', () => {
+    AutoItCommands.debugConsole();
+  });
+
+  // Launch Koda Form Designer
+  commands.registerCommand('extension.launchKoda', () => {
+    AutoItCommands.launchKoda();
+  });
+
+  // Update console parameters
+  commands.registerCommand('extension.changeParams', () => {
+    AutoItCommands.changeConsoleParams();
+  });
+
+  // Kill running script command
+  commands.registerCommand('extension.killScript', () => {
+    AutoItCommands.killScript();
+  });
+
+  // eslint-disable-next-line no-console
+  console.log('AutoIt is now active!');
 }
 exports.activate = activate;
 
 // this method is called when your extension is deactivated
-function deactivate() {
-}
+function deactivate() {}
 exports.deactivate = deactivate;
