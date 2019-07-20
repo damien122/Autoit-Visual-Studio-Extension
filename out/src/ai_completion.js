@@ -1,5 +1,4 @@
-"use strict"
-
+import completions from "./completions"
 var {
     languages,
     CompletionItem,
@@ -9,13 +8,12 @@ var {
 } = require("vscode")
 var fs = require("fs")
 var path = require("path")
-var completions = []
 var newComp
 var currentIncludeFiles = []
 var includes = []
 const { getIncludeText, getIncludePath } = require("./util")
 
-import completions from "./completions"
+
 
 const _funcPattern = /Func\s+(\w*)\s*\(/g
 const _varPattern = /\$(\w*)/g
