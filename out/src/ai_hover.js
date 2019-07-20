@@ -1,18 +1,7 @@
 'use strict'
 
 var { languages, Hover } = require('vscode')
-var fs = require('fs')
-import hovers from './hovers/_hovers'
-var addJSON
-
-
-
-// var files = fs.readdirSync(__dirname + '/hovers')
-// for (var i in files)  {
-//     addJSON = JSON.parse(fs.readFileSync(__dirname + '/hovers/' + files[i]))
-
-//     hovers = Object.assign(hovers, addJSON)
-// }
+import hovers from './hovers'
 
 module.exports = languages.registerHoverProvider(
     { language: 'autoit', scheme: 'file' },
