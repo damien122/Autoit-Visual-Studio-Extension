@@ -24,8 +24,8 @@
     ],
     "devDependencies": {
         "parcel-bundler": "^1.12.3",
-        "typescript": "^1.6.2",
-        "vscode": "^0.11.x"
+        "typescript": "^3.5.3",
+        "vscode": "^1.1.x"
     },
     "license": "MIT",
     "main": "./dist/extension",
