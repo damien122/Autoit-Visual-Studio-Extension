@@ -1,84 +1,80 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require('fs');
+const path = require('path');
 
-const descriptionHeader = "|Description |Value |\n|:---|:---:|\n"
-const valueFirstHeader =
-    "\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|"
+const descriptionHeader = '|Description |Value |\n|:---|:---:|\n';
+const valueFirstHeader = '\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|';
 const trueFalseHeader = `\n|&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;
-    :---|:---:|:---`
-const opt = "##### [optional]  \n"
-const br = "\u0020\u0020"
-const defaultZero = br + br + "`Default = 0`"
+    :---|:---:|:---`;
+const opt = '##### [optional]  \n';
+const br = '\u0020\u0020';
+const defaultZero = `${br + br}\`Default = 0\``;
 
 const setDetailAndDocumentation = (array, detail, doc) => {
-    for (let i of array) {
-        i.detail = detail
-        i.documentation += `\n\n*${doc}*`
-    }
+  const newArray = array.map(item => {
+    return { ...item, detail, documentation: `${item.documentation}\n\n*${doc}*` };
+  });
 
-    return array
-}
+  return newArray;
+};
 
 const AI_CONSTANTS = [
-    "$MB_ICONERROR",
-    "$MB_ICONINFORMATION",
-    "$MB_YESNO",
-    "$MB_TASKMODAL",
-    "$IDYES",
-    "$IDNO",
-]
-const AUTOIT_MODE = { language: "autoit", scheme: "file" }
+  '$MB_ICONERROR',
+  '$MB_ICONINFORMATION',
+  '$MB_YESNO',
+  '$MB_TASKMODAL',
+  '$IDYES',
+  '$IDNO',
+];
+const AUTOIT_MODE = { language: 'autoit', scheme: 'file' };
 
 const isSkippableLine = line => {
-    const skipChars = [";", "#"]
+  const skipChars = [';', '#'];
 
-    if (line.isEmptyOrWhitespace) {
-        return true
-    }
+  if (line.isEmptyOrWhitespace) {
+    return true;
+  }
 
-    const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex)
-    if (skipChars.includes(firstChar)) {
-        return true
-    }
+  const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex);
+  if (skipChars.includes(firstChar)) {
+    return true;
+  }
 
-    return false
-}
+  return false;
+};
 
 const getIncludeText = filePath => {
-    return fs.readFileSync(filePath).toString()
-}
+  return fs.readFileSync(filePath).toString();
+};
 
 const getIncludePath = (fileOrPath, document) => {
-    let includePath = ""
+  let includePath = '';
 
-    if (fileOrPath.charAt(1) == ":") {
-        includePath = fileOrPath
-    } else {
-        let docDir = path.dirname(document.fileName)
+  if (fileOrPath.charAt(1) === ':') {
+    includePath = fileOrPath;
+  } else {
+    let docDir = path.dirname(document.fileName);
 
-        docDir +=
-            (fileOrPath.charAt(0) == "\\" || fileOrPath.charAt(0) == "/"
-                ? ""
-                : "\\") + fileOrPath
-        includePath = path.normalize(docDir)
-    }
+    docDir +=
+      (fileOrPath.charAt(0) === '\\' || fileOrPath.charAt(0) === '/' ? '' : '\\') + fileOrPath;
+    includePath = path.normalize(docDir);
+  }
 
-    includePath = includePath.charAt(0).toUpperCase() + includePath.slice(1)
+  includePath = includePath.charAt(0).toUpperCase() + includePath.slice(1);
 
-    return includePath
-}
+  return includePath;
+};
 
 module.exports = {
-    descriptionHeader: descriptionHeader,
-    valueFirstHeader: valueFirstHeader,
-    setDetail: setDetailAndDocumentation,
-    opt,
-    trueFalseHader: trueFalseHeader,
-    br,
-    AI_CONSTANTS: AI_CONSTANTS,
-    defaultZero,
-    AUTOIT_MODE,
-    isSkippableLine,
-    getIncludeText,
-    getIncludePath,
-}
+  descriptionHeader,
+  valueFirstHeader,
+  setDetail: setDetailAndDocumentation,
+  opt,
+  trueFalseHader: trueFalseHeader,
+  br,
+  AI_CONSTANTS,
+  defaultZero,
+  AUTOIT_MODE,
+  isSkippableLine,
+  getIncludeText,
+  getIncludePath,
+};
