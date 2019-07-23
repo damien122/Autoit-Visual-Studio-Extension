@@ -1,6 +1,7 @@
 import { languages, Location, Position, Uri } from 'vscode';
 import { AUTOIT_MODE, getIncludePath, getIncludeText } from './util';
 
+
 const AutoItDefinitionProvider = {
   provideDefinition(document, position) {
     const lookupRange = document.getWordRangeAtPosition(position);
@@ -10,10 +11,7 @@ const AutoItDefinitionProvider = {
     const includePattern = /^\s*#include\s"(.+)"/gm;
 
     if (lookup.charAt(0) === '$') {
-      defRegex = new RegExp(`(?:(?:Local|Global|Const)\s)?\\${lookup}\\s?=?`, 'i');
-      console.log(`Looking up definition for ${lookup}!`);
-    } else {
-      console.log(`Looking up definition for ${lookup}()!`);
+      defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
     }
 
     let found = docText.match(defRegex);
@@ -24,12 +22,14 @@ const AutoItDefinitionProvider = {
 
     // If nothing was found, search include files
     const scriptsToSearch = [];
-    while ((found = includePattern.exec(docText))) {
+    found = includePattern.exec(docText);
+    while (found) {
       scriptsToSearch.push(found[1]);
+      found = includePattern.exec(docText);
     }
 
     if (Array.isArray(scriptsToSearch) && scriptsToSearch.length) {
-      let found = null;
+      found = null;
       for (let i = 0; i < scriptsToSearch.length; i += 1) {
         const scriptPath = getIncludePath(scriptsToSearch[i], document);
         const scriptContent = getIncludeText(scriptPath);
