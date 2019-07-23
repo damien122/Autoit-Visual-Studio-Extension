@@ -1,6 +1,6 @@
 import { languages, commands } from 'vscode';
 import langConfig from './languageConfiguration';
-import AutoItCommands from './ai_commands';
+import * as AutoItCommands from './ai_commands';
 import hoverFeature from './ai_hover';
 import completionFeature from './ai_completion';
 import symbolsFeature from './ai_symbols';
