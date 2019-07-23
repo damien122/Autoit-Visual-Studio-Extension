@@ -1,21 +1,15 @@
-'use strict'
+import { languages, Hover } from 'vscode';
+import hovers from './hovers';
+import { AUTOIT_MODE } from './util';
 
-var { languages, Hover } = require('vscode')
-import hovers from './hovers'
+module.exports = languages.registerHoverProvider(AUTOIT_MODE, {
+  provideHover(document, position) {
+    const wordRange = document.getWordRangeAtPosition(position);
 
-module.exports = languages.registerHoverProvider(
-    { language: 'autoit', scheme: 'file' },
-    {
-        provideHover(document, position, token) {
-            let wordRange = document.getWordRangeAtPosition(position)
+    const word = wordRange ? document.getText(wordRange) : '';
 
-            let word = wordRange ? document.getText(wordRange) : ''
+    const hover = hovers[Object.keys(hovers).find(key => key.toLowerCase() === word.toLowerCase())];
 
-            let hover = hovers[Object.keys(hovers).find(
-                key => key.toLowerCase() === word.toLowerCase()
-            )]
-
-            return new Hover(hover)
-        }
-    }
-)
+    return new Hover(hover);
+  },
+});
