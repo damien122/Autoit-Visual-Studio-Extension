@@ -1,6 +1,5 @@
-import { languages, Location, Position, Uri } from 'vscode';
+import { languages, Location, Position, Uri, workspace } from 'vscode';
 import { AUTOIT_MODE, getIncludePath, getIncludeText } from './util';
-
 
 const AutoItDefinitionProvider = {
   provideDefinition(document, position) {
@@ -8,7 +7,11 @@ const AutoItDefinitionProvider = {
     const lookup = document.getText(lookupRange);
     const docText = document.getText();
     let defRegex = new RegExp(`Func\\s${lookup}\\(`);
-    const includePattern = /^\s*#include\s"(.+)"/gm;
+    const relativeInclude = /^\s*#include\s"(.+)"/gm;
+    const libraryInclude = /^\s*#include\s<(.+)>/gm;
+
+    const config = workspace.getConfiguration('autoit');
+    const includePaths = config.includePaths;
 
     if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
@@ -22,11 +25,22 @@ const AutoItDefinitionProvider = {
 
     // If nothing was found, search include files
     const scriptsToSearch = [];
-    found = includePattern.exec(docText);
+    found = relativeInclude.exec(docText);
     while (found) {
       scriptsToSearch.push(found[1]);
-      found = includePattern.exec(docText);
+      found = relativeInclude.exec(docText);
     }
+
+    found = libraryInclude.exec(docText);
+    while (found) {
+      for (let i = 0; i < includePaths.length; i += 1) {
+        scriptsToSearch.push(`${includePaths[i]}\\${found[1]}`);
+      }
+
+      found = libraryInclude.exec(docText);
+    }
+
+    console.log(scriptsToSearch);
 
     if (Array.isArray(scriptsToSearch) && scriptsToSearch.length) {
       found = null;
