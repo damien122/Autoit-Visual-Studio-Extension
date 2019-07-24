@@ -64,6 +64,14 @@ const getIncludePath = (fileOrPath, document) => {
   return includePath;
 };
 
+const fillCompletions = (entries, kind, detail) => {
+  const filledCompletion = entries.map(entry => {
+    return { ...entry, kind, detail };
+  });
+
+  return filledCompletion;
+};
+
 module.exports = {
   descriptionHeader,
   valueFirstHeader,
@@ -77,4 +85,5 @@ module.exports = {
   isSkippableLine,
   getIncludeText,
   getIncludePath,
+  fillCompletions,
 };
