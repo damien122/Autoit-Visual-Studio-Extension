@@ -71,6 +71,26 @@ function arraysMatch(arr1, arr2) {
   return false;
 }
 
+function getIncludeData(fileName, doc) {
+  // console.log(fileName)
+  const _includeFuncPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
+  const functions = {};
+  const filePath = getIncludePath(fileName, doc);
+
+  let pattern = null;
+  const fileData = getIncludeText(filePath);
+
+  while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
+    functions[pattern[2]] = {
+      label: pattern[1],
+      documentation: `Function from ${fileName}`,
+      params: getParams(pattern[3]),
+    };
+  }
+
+  return functions;
+}
+
 function getIncludes(doc) {
   // determines whether includes should be re-parsed or not.
   const text = doc.getText();
@@ -89,10 +109,10 @@ function getIncludes(doc) {
 
   if (!arraysMatch(includesCheck, currentIncludeFiles)) {
     includes = {};
-    for (const i in includesCheck) {
-      const newIncludes = getIncludeData(includesCheck[i], doc);
-      Object.assign(includes, newIncludes);
-    }
+    includesCheck.forEach(script => {
+      const newIncludes = getIncludeData(script, doc);
+      includes = { ...includes, newIncludes };
+    });
     currentIncludeFiles = includesCheck;
   }
 
@@ -175,26 +195,6 @@ module.exports = languages.registerSignatureHelpProvider(
   '(',
   ',',
 );
-
-function getIncludeData(fileName, doc) {
-  // console.log(fileName)
-  const _includeFuncPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
-  const functions = {};
-  const filePath = getIncludePath(fileName, doc);
-
-  let pattern = null;
-  const fileData = getIncludeText(filePath);
-
-  while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
-    functions[pattern[2]] = {
-      label: pattern[1],
-      documentation: `Function from ${fileName}`,
-      params: getParams(pattern[3]),
-    };
-  }
-
-  return functions;
-}
 
 function getParams(paramText) {
   const params = paramText.split(',');
