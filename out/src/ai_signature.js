@@ -73,20 +73,22 @@ function arraysMatch(arr1, arr2) {
 
 function getIncludeData(fileName, doc) {
   // console.log(fileName)
-  const _includeFuncPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
+  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
   const functions = {};
   const filePath = getIncludePath(fileName, doc);
 
   let pattern = null;
   const fileData = getIncludeText(filePath);
-
-  while ((pattern = _includeFuncPattern.exec(fileData)) !== null) {
-    functions[pattern[2]] = {
-      label: pattern[1],
-      documentation: `Function from ${fileName}`,
-      params: getParams(pattern[3]),
-    };
-  }
+  do {
+    pattern = functionPattern.exec(fileData);
+    if (pattern) {
+      functions[pattern[2]] = {
+        label: pattern[1],
+        documentation: `Function from ${fileName}`,
+        params: getParams(pattern[3]),
+      };
+    }
+  } while (pattern);
 
   return functions;
 }
