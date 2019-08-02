@@ -71,6 +71,22 @@ function arraysMatch(arr1, arr2) {
   return false;
 }
 
+function getParams(paramText) {
+  let params = {};
+
+  paramText.split(',').forEach(param => {
+    params = {
+      ...params,
+      [param]: {
+        label: param.trim(),
+        documentation: '',
+      },
+    };
+  });
+
+  return params;
+}
+
 function getIncludeData(fileName, doc) {
   // console.log(fileName)
   const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
@@ -91,6 +107,20 @@ function getIncludeData(fileName, doc) {
   } while (pattern);
 
   return functions;
+}
+
+function findFilepath(file) {
+  const { includePaths } = workspace.getConfiguration('autoit');
+  let newPath;
+
+  for (let i = 0; i < includePaths.length; i += 1) {
+    newPath = path.normalize(`${includePaths[i]}\\`) + file;
+    if (fs.existsSync(newPath)) {
+      return newPath;
+    }
+  }
+
+  return 0;
 }
 
 function getIncludes(doc) {
@@ -119,33 +149,46 @@ function getIncludes(doc) {
   }
 
   includesCheck = [];
-  while ((pattern = LIBRARY_INCLUDE_PATTERN.exec(text))) {
-    const filename = pattern[1].replace('.au3', '');
-    if (DEFAULT_UDFS.indexOf(filename) == -1) {
-      const fullPath = findFilepath(pattern[1]);
-      if (fullPath) {
-        const newData = getIncludeData(fullPath, doc);
-        Object.assign(includes, newData);
+
+  let filename = '';
+  let fullPath = '';
+  let newData = '';
+  do {
+    pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
+    if (pattern) {
+      filename = pattern[1].replace('.au3', '');
+      if (DEFAULT_UDFS.indexOf(filename) === -1) {
+        fullPath = findFilepath(pattern[1]);
+        if (fullPath) {
+          newData = getIncludeData(fullPath, doc);
+          includes = { ...includes, newData };
+        }
       }
     }
-  }
+  } while (pattern);
 
   return includes;
 }
 
 function getLocalSigs(doc) {
-  const _includeFuncPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)\))/gm;
+  const functionPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)\))/gm;
   const text = doc.getText();
-  const functions = {};
+  let functions = {};
 
   let pattern = null;
-  while ((pattern = _includeFuncPattern.exec(text)) !== null) {
-    functions[pattern[2]] = {
-      label: pattern[1],
-      documentation: 'Local Function',
-      params: getParams(pattern[3]),
-    };
-  }
+  do {
+    pattern = functionPattern.exec(text);
+    if (pattern) {
+      functions = {
+        ...functions,
+        [pattern[2]]: {
+          label: pattern[1],
+          documentation: 'Local Function',
+          params: getParams(pattern[3]),
+        },
+      };
+    }
+  } while (pattern);
 
   return functions;
 }
@@ -197,30 +240,3 @@ module.exports = languages.registerSignatureHelpProvider(
   '(',
   ',',
 );
-
-function getParams(paramText) {
-  const params = paramText.split(',');
-
-  for (const p in params) {
-    params[p] = {
-      label: params[p].trim(),
-      documentation: '',
-    };
-  }
-
-  return params;
-}
-
-function findFilepath(file) {
-  const includePaths = workspace.getConfiguration('autoit').includePaths;
-
-  for (const iPath of includePaths) {
-    const newPath = path.normalize(`${iPath}\\`) + file;
-
-    if (fs.existsSync(newPath)) {
-      return newPath;
-    }
-  }
-
-  return 0;
-}
