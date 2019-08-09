@@ -18,6 +18,7 @@ module.exports = languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       const { text } = line;
 
       if (isSkippableLine(line)) {
+        // eslint-disable-next-line no-continue
         continue;
       }
 
@@ -32,6 +33,7 @@ module.exports = languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
         const variables = text.match(variablePattern);
 
         if (!variables) {
+          // eslint-disable-next-line no-continue
           continue;
         }
 
