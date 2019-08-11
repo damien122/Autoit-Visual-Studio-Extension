@@ -285,7 +285,7 @@
     },
     "dependencies": {},
     "scripts": {
-        "build": "parcel build out/src/extension.js --target node",
-        "vscode:prepublish": "parcel build out/src/extension.js --target node"
+        "build": "parcel build src/extension.js --target node",
+        "vscode:prepublish": "parcel build src/extension.js --target node"
     }
 }
