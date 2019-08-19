@@ -2,6 +2,18 @@ import { br, opt, signatureToHover, valueFirstHeader as header } from '../util';
 
 const include = '(Requires: `#include <WinNet.au3>`)';
 
+const iOptionsParam = {
+  label: '[$iOptions]',
+  documentation: `${opt} Connection options. Can be one or more of the following:
+                ${header}
+                \`1\`|-|The network resource connection should be remembered
+                \`2\`|-|The operating system may interact with the user for authentication purposes
+                \`4\`|-|The system not to use any default setting for user names or passwords without offering the user the opportunity to supply an alternative. This flag is ignored unless bit 2 (interactive) is also set.
+                \`8\`|-|Forces the redirection of a local device when making the connection
+                \`16\`|-|The operating system prompts the user for authentication using the command line instead of a GUI. This flag is ignored unless bit 2 (interactive) is also set.
+                \`32\`|-|If this bit is set, and the operating system prompts for a credential, the credential is saved by the credential manager. If the credential manager is disabled for the caller's logon session, or if the network provider does not support saving credentials, this flag is ignored. This flag is also ignored unless you setbit 5 (command line instead of GUI).`,
+};
+
 const signatures = {
   _WinNet_AddConnection: {
     documentation: `Connects a local device to a network resource ${include}`,
@@ -57,17 +69,7 @@ const signatures = {
                 \`1\`|-|Disk
                 \`2\`|-|Print`,
       },
-      {
-        label: '[$iOptions]',
-        documentation: `${opt} Connection options. Can be one or more of the following:
-                ${header}
-                \`1\`|-|The network resource connection should be remembered
-                \`2\`|-|The operating system may interact with the user for authentication purposes
-                \`4\`|-|The system not to use any default setting for user names or passwords without offering the user the opportunity to supply an alternative. This flag is ignored unless bit 2 (interactive) is also set.
-                \`8\`|-|Forces the redirection of a local device when making the connection
-                \`16\`|-|The operating system prompts the user for authentication using the command line instead of a GUI. This flag is ignored unless bit 2 (interactive) is also set.
-                \`32\`|-|If this bit is set, and the operating system prompts for a credential, the credential is saved by the credential manager. If the credential manager is disabled for the caller's logon session, or if the network provider does not support saving credentials, this flag is ignored. This flag is also ignored unless you setbit 5 (command line instead of GUI).`,
-      },
+      iOptionsParam,
     ],
   },
   _WinNet_AddConnection3: {
@@ -105,17 +107,7 @@ const signatures = {
                 \`1\`|-|Disk
                 \`2\`|-|Print`,
       },
-      {
-        label: '[$iOptions]',
-        documentation: `${opt} Connection options. Can be one or more of the following:
-                ${header}
-                \`1\`|-|The network resource connection should be remembered
-                \`2\`|-|The operating system may interact with the user for authentication purposes
-                \`4\`|-|The system not to use any default setting for user names or passwords without offering the user the opportunity to supply an alternative. This flag is ignored unless bit 2 (interactive) is also set.
-                \`8\`|-|Forces the redirection of a local device when making the connection
-                \`16\`|-|The operating system prompts the user for authentication using the command line instead of a GUI. This flag is ignored unless bit 2 (interactive) is also set.
-                \`32\`|-|If this bit is set, and the operating system prompts for a credential, the credential is saved by the credential manager. If the credential manager is disabled for the caller's logon session, or if the network provider does not support saving credentials, this flag is ignored. This flag is also ignored unless you setbit 5 (command line instead of GUI).`,
-      },
+      iOptionsParam,
     ],
   },
   _WinNet_CancelConnection: {
@@ -427,8 +419,8 @@ const signatures = {
       {
         label: '$tResource',
         documentation: `a \`$tagNETRESOURCE\` structure that specifies the container to enumerate or a pointer to it.${br}
-                If \`$iScope\` is not \`1\`, this must be \`0\`.${br}
-                If \`0, the root of the network is assumed.`,
+                If \`$iScope\` is not \`1\`, this must be \`0\`. ${br}
+                If \`0\`, the root of the network is assumed.`,
       },
       {
         label: '$hEnum',
@@ -495,17 +487,7 @@ const signatures = {
                 \`1\`|-|Disk
                 \`2\`|-|Print`,
       },
-      {
-        label: '[$iOptions]',
-        documentation: `${opt} Connection options. Can be one or more of the following:
-                ${header}
-                \`1\`|-|The network resource connection should be remembered
-                \`2\`|-|The operating system may interact with the user for authentication purposes
-                \`4\`|-|The system does not use any default setting for user names or passwords without offering the user the opportunity to supply an alternative. This flag is ignored unless bit 2 (interactive) is also set.
-                \`8\`|-|Forces the redirection of a local device when making the connection
-                \`16\`|-|The operating system prompts the user for authentication using the command line instead of a GUI. This flag is ignored unless bit 2 (interactive) is also set.
-                \`32\`|-|If this bit is set, and the operating system prompts for a credential, the credential is saved by the credential manager. If the credential manager is disabled for the caller's logon session, or if the network provider does not support saving credentials, this flag is ignored. This flag is also ignored unless you set bit 5 (command line instead of GUI).`,
-      },
+      iOptionsParam,
     ],
   },
 };
