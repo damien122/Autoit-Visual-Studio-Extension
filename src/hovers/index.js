@@ -65,8 +65,8 @@ import udf_winAPIExShellEx from './udf_winAPIExShellEx';
 import udf_winAPIExShPath from './udf_winAPIExShPath';
 import udf_winAPIExSys from './udf_winAPIExSys';
 import udf_winAPIExTheme from './udf_winAPIExTheme';
-import udf_winNet from './udf_winNet';
-import udf_word from './udf_word';
+import { hovers as udfWinNet } from '../signatures/udf_winnet';
+import { hovers as udfWord } from '../signatures/udf_word';
 
 const hovers = {
   ...ai_functions,
@@ -136,8 +136,8 @@ const hovers = {
   ...udf_winAPIExShPath,
   ...udf_winAPIExSys,
   ...udf_winAPIExTheme,
-  ...udf_winNet,
-  ...udf_word,
+  ...udfWinNet,
+  ...udfWord,
 };
 
 export default hovers;
