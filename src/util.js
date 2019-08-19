@@ -5,7 +5,7 @@ const descriptionHeader = '|Description |Value |\n|:---|:---:|\n';
 const valueFirstHeader = '\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|';
 const trueFalseHeader = `\n|&nbsp;|&nbsp;&nbsp;&nbsp;|&nbsp;
     :---|:---:|:---`;
-const opt = '##### [optional]  \n';
+const opt = '**[optional]**';
 const br = '\u0020\u0020';
 const defaultZero = `${br + br}\`Default = 0\``;
 
@@ -72,12 +72,25 @@ const fillCompletions = (entries, kind, detail) => {
   return filledCompletion;
 };
 
+const signatureToHover = signatures => {
+  let hoverObjects = {};
+  const sigKeys = Object.keys(signatures);
+  sigKeys.forEach(item => {
+    hoverObjects = {
+      ...hoverObjects,
+      [item]: [signatures[item].documentation, `\`\`\`\r${signatures[item].label}\r\`\`\``],
+    };
+  });
+
+  return hoverObjects;
+};
+
 module.exports = {
   descriptionHeader,
   valueFirstHeader,
   setDetail: setDetailAndDocumentation,
   opt,
-  trueFalseHader: trueFalseHeader,
+  trueFalseHeader,
   br,
   AI_CONSTANTS,
   defaultZero,
@@ -86,4 +99,5 @@ module.exports = {
   getIncludeText,
   getIncludePath,
   fillCompletions,
+  signatureToHover,
 };
