@@ -3,7 +3,7 @@ import { fillCompletions } from '../util';
 
 const items = [
   {
-    label: '$_Word_Create',
+    label: '_Word_Create',
     documentation: 'Connects to an existing Word instance or creates a new Word application object',
   },
   {
