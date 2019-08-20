@@ -91,7 +91,7 @@ function getParams(paramText) {
 
 function getIncludeData(fileName, doc) {
   // console.log(fileName)
-  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)\))/g;
+  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/g;
   const functions = {};
   const filePath = getIncludePath(fileName, doc);
 
@@ -145,7 +145,7 @@ function getIncludes(doc) {
     includes = {};
     includesCheck.forEach(script => {
       const newIncludes = getIncludeData(script, doc);
-      includes = { ...includes, newIncludes };
+      includes = { ...includes, ...newIncludes };
     });
     currentIncludeFiles = includesCheck;
   }
