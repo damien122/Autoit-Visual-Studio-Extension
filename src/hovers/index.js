@@ -65,6 +65,7 @@ import udf_winAPIExShellEx from './udf_winAPIExShellEx';
 import udf_winAPIExShPath from './udf_winAPIExShPath';
 import udf_winAPIExSys from './udf_winAPIExSys';
 import udf_winAPIExTheme from './udf_winAPIExTheme';
+import { hovers as udfWinAPITheme } from '../signatures/WinAPIEx/WinAPITheme';
 import { hovers as udfWinNet } from '../signatures/udf_winnet';
 import { hovers as udfWord } from '../signatures/udf_word';
 
@@ -136,6 +137,7 @@ const hovers = {
   ...udf_winAPIExShPath,
   ...udf_winAPIExSys,
   ...udf_winAPIExTheme,
+  ...udfWinAPITheme,
   ...udfWinNet,
   ...udfWord,
 };

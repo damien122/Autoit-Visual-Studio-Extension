@@ -1,16 +1,4 @@
 {
-    "_WinAPI_BeginBufferedPaint": [
-        "Begins a buffered paint operation",
-        "```\r#include <WinAPITheme.au3>\r_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat = 0 [, $iFlags = 0 [, $tExclude = 0 [, $iAlpha = -1]]]] )\r```"
-    ],
-    "_WinAPI_BufferedPaintClear": [
-        "Clears a specified rectangle in the buffer to ARGB = {0,0,0,0}",
-        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintClear ( $hBP [, $tRECT = 0] )\r```"
-    ],
-    "_WinAPI_BufferedPaintInit": [
-        "Initialize buffered painting for the current thread",
-        "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintInit ( )\r```"
-    ],
     "_WinAPI_BufferedPaintSetAlpha": [
         "Sets the alpha to a specified value in a given rectangle",
         "```\r#include <WinAPITheme.au3>\r_WinAPI_BufferedPaintSetAlpha ( $hBP [, $iAlpha = 255 [, $tRECT = 0]] )\r```"
@@ -214,5 +202,5 @@
     "_WinAPI_SetWindowTheme": [
         "Causes a window to use a different set of visual style information than its class normally uses",
         "```\r#include <WinAPITheme.au3>\r_WinAPI_SetWindowTheme ( $hWnd [, $sName = 0 [, $sList = 0]] )\r```"
-    ]    
+    ]
 }

@@ -24514,32 +24514,6 @@
             "documentation": "**[optional]** The duration of the sound, in milliseconds. Windows Me/98/95: This parameter is ignored."
         }]
     },
-    "_WinAPI_BeginBufferedPaint": {
-        "documentation": "Begins a buffered paint operation",
-        "label": "_WinAPI_BeginBufferedPaint ( $hDC, $tTarget, ByRef $hNewDC [, $iFormat = 0 [, $iFlags = 0 [, $tExclude = 0 [, $iAlpha = -1]]]] )",
-        "params": [{
-            "label": "$hDC",
-            "documentation": "Handle of the target DC on which the buffer will be painted."
-        }, {
-            "label": "$tTarget",
-            "documentation": "$tagRECT structure that specifies the area of the target DC in which to paint."
-        }, {
-            "label": "$hNewDC",
-            "documentation": "Handle of the new device context."
-        }, {
-            "label": "$iFormat",
-            "documentation": "**[optional]** The format of the buffer. This parameter can be one of the following values.$BPBF_COMPATIBLEBITMAP (Default)$BPBF_DIB$BPBF_TOPDOWNDIB$BPBF_TOPDOWNMONODIB"
-        }, {
-            "label": "$iFlags",
-            "documentation": "**[optional]** The additional flags, one or more of the following values.$BPPF_ERASE$BPPF_NOCLIP$BPPF_NONCLIENT"
-        }, {
-            "label": "$tExclude",
-            "documentation": "**[optional]** $tagRECT structure that specifies the area which is excluded from the clipping region."
-        }, {
-            "label": "$iAlpha",
-            "documentation": "**[optional]** The alpha transparency value to be used on the entire source bitmap.If this parameter is not specified or (-1) (Default), the source buffer is copied to the destination with no blending."
-        }]
-    },
     "_WinAPI_BeginDeferWindowPos": {
         "documentation": "Allocates memory for a multiple-window-position structure",
         "label": "_WinAPI_BeginDeferWindowPos ( [$iAmount = 1] )",
@@ -24660,22 +24634,6 @@
             "label": "$hParent",
             "documentation": "**[optional]** Handle to the parent window for the dialog box."
         }]
-    },
-    "_WinAPI_BufferedPaintClear": {
-        "documentation": "Clears a specified rectangle in the buffer to ARGB = {0,0,0,0}",
-        "label": "_WinAPI_BufferedPaintClear ( $hBP [, $tRECT = 0] )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }, {
-            "label": "$tRECT",
-            "documentation": "**[optional]** $tagRECT structure that specifies the rectangle to clear. If this parameter is 0 (Default), the entire buffer is used."
-        }]
-    },
-    "_WinAPI_BufferedPaintInit": {
-        "documentation": "Initialize buffered painting for the current thread",
-        "label": "_WinAPI_BufferedPaintInit (  )",
-        "params": []
     },
     "_WinAPI_BufferedPaintSetAlpha": {
         "documentation": "Sets the alpha to a specified value in a given rectangle",
