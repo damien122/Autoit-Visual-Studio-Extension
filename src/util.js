@@ -72,6 +72,11 @@ const fillCompletions = (entries, kind, detail) => {
   return filledCompletion;
 };
 
+/**
+ * Generates an object of Hover objects for a set of signatures
+ * @param signatures An object containing Signature objects
+ * @returns Returns an empty object or with Hover objects
+ */
 const signatureToHover = signatures => {
   let hoverObjects = {};
   const sigKeys = Object.keys(signatures);
