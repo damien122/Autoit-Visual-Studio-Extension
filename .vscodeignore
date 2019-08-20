@@ -2,7 +2,8 @@
 .vscode-test/**
 test/**
 .gitignore
-out/
+src/
 node_modules
 .eslintrc.json
 .prettierrc.json
+.cache
