@@ -24635,25 +24635,6 @@
             "documentation": "**[optional]** Handle to the parent window for the dialog box."
         }]
     },
-    "_WinAPI_BufferedPaintSetAlpha": {
-        "documentation": "Sets the alpha to a specified value in a given rectangle",
-        "label": "_WinAPI_BufferedPaintSetAlpha ( $hBP [, $iAlpha = 255 [, $tRECT = 0]] )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }, {
-            "label": "$iAlpha",
-            "documentation": "**[optional]** The alpha value to set. The alpha value can range from zero (fully transparent) to 255 (Default)(fully opaque)."
-        }, {
-            "label": "$tRECT",
-            "documentation": "**[optional]** $tagRECT structure that specifies the rectangle in which to set the alpha.If this parameter is 0 (Default), the entire buffer is used."
-        }]
-    },
-    "_WinAPI_BufferedPaintUnInit": {
-        "documentation": "Closes down buffered painting for the current thread",
-        "label": "_WinAPI_BufferedPaintUnInit (  )",
-        "params": []
-    },
     "_WinAPI_CallNextHookEx": {
         "documentation": "Passes the hook information to the next hook procedure in the current hook chain",
         "label": "_WinAPI_CallNextHookEx ( $hHook, $iCode, $wParam, $lParam )",
@@ -24819,14 +24800,6 @@
         "params": [{
             "label": "$hObject",
             "documentation": "Handle of object to close"
-        }]
-    },
-    "_WinAPI_CloseThemeData": {
-        "documentation": "Closes the theme data handle",
-        "label": "_WinAPI_CloseThemeData ( $hTheme )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
         }]
     },
     "_WinAPI_CloseWindow": {
@@ -26793,153 +26766,7 @@
             "documentation": "Specifies the method of formatting the text:$DT_BOTTOM - Justifies the text to the bottom of the rectangle$DT_CALCRECT - Determines the width and height of the rectangle$DT_CENTER - Centers text horizontally in the rectangle$DT_EDITCONTROL - Duplicates the text-displaying characteristics of a multiline edit control$DT_END_ELLIPSIS - Replaces part of the given string with ellipses if necessary$DT_EXPANDTABS - Expands tab characters$DT_EXTERNALLEADING - Includes the font external leading in line height$DT_HIDEPREFIX - Ignores the ampersand (&) prefix character in the text.The letter that follows will not be underlined, but other mnemonic-prefix characters are still processed.$DT_INTERNAL - Uses the system font to calculate text metrics$DT_LEFT - Aligns text to the left$DT_MODIFYSTRING - Modifies the given string to match the displayed text$DT_NOCLIP - Draws without clipping$DT_NOFULLWIDTHCHARBREAK - Prevents a line break at a DBCS (double-wide character string), so that the line breaking rule is equivalent to SBCS strings.For example, this can be used in Korean windows, for more readability of icon labels.This value has no effect unless $DT_WORDBREAK is specified$DT_NOPREFIX - Turns off processing of prefix characters$DT_PATH_ELLIPSIS - For displayed text, replaces characters in the middle of the string with ellipses so that the result fits in the specified rectangle.If the string contains backslash (\\) characters, $DT_PATH_ELLIPSIS preserves as much as possible of the text after the last backslash.The string is not modified unless the $DT_MODIFYSTRING flag is specified$DT_PREFIXONLY - Draws only an underline at the position of the character following the ampersand (&) prefix character.Does not draw any other characters in the string$DT_RIGHT - Aligns text to the right$DT_RTLREADING - Layout in right to left reading order for bi-directional text$DT_SINGLELINE - Displays text on a single line only$DT_TABSTOP - Sets tab stops. Bits 15-8 of $iFlags specify the number of characters for each tab$DT_TOP - Top-justifies text (single line only)$DT_VCENTER - Centers text vertically (single line only)$DT_WORDBREAK - Breaks words$DT_WORD_ELLIPSIS - Truncates any word that does not fit in the rectangle and adds ellipses"
         }]
     },
-    "_WinAPI_DrawThemeBackground": {
-        "documentation": "Draws the border and fill defined by the visual style for the specified control part",
-        "label": "_WinAPI_DrawThemeBackground ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT [, $tCLIP = 0] )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
-        }, {
-            "label": "$iPartID",
-            "documentation": "The part to draw."
-        }, {
-            "label": "$iStateID",
-            "documentation": "The state of the part to draw."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the device context for drawing the theme-defined background image."
-        }, {
-            "label": "$tRECT",
-            "documentation": "$tagRECT structure that contains the rectangle in which the background image is drawn."
-        }, {
-            "label": "$tCLIP",
-            "documentation": "**[optional]** $tagRECT structure that contains a clipping rectangle."
-        }]
-    },
-    "_WinAPI_DrawThemeEdge": {
-        "documentation": "Draws one or more edges defined by the visual style of a rectangle",
-        "label": "_WinAPI_DrawThemeEdge ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT, $iEdge, $iFlags [, $tAREA = 0] )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
-        }, {
-            "label": "$iPartID",
-            "documentation": "The part that contains the rectangle."
-        }, {
-            "label": "$iStateID",
-            "documentation": "The state of the part."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the device context."
-        }, {
-            "label": "$tRECT",
-            "documentation": "$tagRECT structure that contains the rectangle."
-        }, {
-            "label": "$iEdge",
-            "documentation": "The type of inner and outer edges to draw.This parameter must be a combination of one inner-border flag and one outer-border flag ($BDR_*), or one of the combination flags ($EDGE_*)."
-        }, {
-            "label": "$iFlags",
-            "documentation": "The type of border to draw. It can be a combination of the $BF_* constants."
-        }, {
-            "label": "$tAREA",
-            "documentation": "**[optional]** $tagRECT structure that contains the rectangle that receives the interior rectangle, if $BF_ADJUST is used."
-        }]
-    },
-    "_WinAPI_DrawThemeIcon": {
-        "documentation": "Draws an image from an image list with the icon effect defined by the visual style",
-        "label": "_WinAPI_DrawThemeIcon ( $hTheme, $iPartID, $iStateID, $hDC, $tRECT, $hIL, $iIndex )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
-        }, {
-            "label": "$iPartID",
-            "documentation": "The part in which the image is drawn."
-        }, {
-            "label": "$iStateID",
-            "documentation": "The state of the part."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the device context."
-        }, {
-            "label": "$tRECT",
-            "documentation": "$tagRECT structure that contains the rectangle in which the image is drawn."
-        }, {
-            "label": "$hIL",
-            "documentation": "Handle to an image list that contains the image to draw."
-        }, {
-            "label": "$iIndex",
-            "documentation": "The index of the image to draw."
-        }]
-    },
-    "_WinAPI_DrawThemeParentBackground": {
-        "documentation": "Draws the part of a parent control that is covered by a partially-transparent or alpha-blended child control",
-        "label": "_WinAPI_DrawThemeParentBackground ( $hWnd, $hDC [, $tRECT = 0] )",
-        "params": [{
-            "label": "$hWnd",
-            "documentation": "Handle of the child control."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the child control's DC."
-        }, {
-            "label": "$tRECT",
-            "documentation": "**[optional]** $tagRECT structure that defines the area, in the child window's coordinates, to be drawn."
-        }]
-    },
-    "_WinAPI_DrawThemeText": {
-        "documentation": "Draws text using the color and font defined by the visual style",
-        "label": "_WinAPI_DrawThemeText ( $hTheme, $iPartID, $iStateID, $hDC, $sText, $tRECT, $iFlags )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
-        }, {
-            "label": "$iPartID",
-            "documentation": "The part that has the desired text appearance.If this value is 0, the text is drawn in the default font, or a font selected into the device context."
-        }, {
-            "label": "$iStateID",
-            "documentation": "The state of the part."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the device context to use for drawing."
-        }, {
-            "label": "$sText",
-            "documentation": "The string that contains the text to draw."
-        }, {
-            "label": "$tRECT",
-            "documentation": "$tagRECT structure that contains the rectangle in which the text is to be drawn."
-        }, {
-            "label": "$iFlags",
-            "documentation": "The string's formatting flags ($DT_*)."
-        }]
-    },
-    "_WinAPI_DrawThemeTextEx": {
-        "documentation": "Draws text using the color and font defined by the visual style",
-        "label": "_WinAPI_DrawThemeTextEx ( $hTheme, $iPartID, $iStateID, $hDC, $sText, $tRECT, $iFlags, $tDTTOPTS )",
-        "params": [{
-            "label": "$hTheme",
-            "documentation": "Handle to a window's specified theme data."
-        }, {
-            "label": "$iPartID",
-            "documentation": "The part that has the desired text appearance. If this value is 0, the text is drawn in the default font, or a font selected into the device context."
-        }, {
-            "label": "$iStateID",
-            "documentation": "The state of the part."
-        }, {
-            "label": "$hDC",
-            "documentation": "Handle to the device context to use for drawing."
-        }, {
-            "label": "$sText",
-            "documentation": "The string that contains the text to draw."
-        }, {
-            "label": "$tRECT",
-            "documentation": "$tagRECT structure that contains the rectangle in which the text is to be drawn."
-        }, {
-            "label": "$iFlags",
-            "documentation": "The string's formatting flags ($DT_*)."
-        }, {
-            "label": "$tDTTOPTS",
-            "documentation": "$tagDTTOPTS structure that defines additional formatting options."
-        }]
-    },
+
     "_WinAPI_DuplicateEncryptionInfoFile": {
         "documentation": "Copies the EFS metadata from one file or directory to another",
         "label": "_WinAPI_DuplicateEncryptionInfoFile ( $sSrcFilePath, $sDestFilePath [, $iCreation = 2 [, $iAttributes = 0 [, $tSecurity = 0]]] )",
@@ -27264,17 +27091,6 @@
         }, {
             "label": "$bDisable",
             "documentation": "Specifies whether to disable or enable encryption, valid values:    True - Disable.    False - Enable."
-        }]
-    },
-    "_WinAPI_EndBufferedPaint": {
-        "documentation": "Completes a buffered paint operation and frees the associated buffered paint handle",
-        "label": "_WinAPI_EndBufferedPaint ( $hBP [, $bUpdate = True] )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }, {
-            "label": "$bUpdate",
-            "documentation": "**[optional]** Specifies whether copy the buffer to the target DC, valid values:    True - The target DC will be updated from the buffer (Default).    False - The target DC remains unchanged."
         }]
     },
     "_WinAPI_EndDeferWindowPos": {
@@ -28353,38 +28169,6 @@
         "params": [{
             "label": "$hDC",
             "documentation": "Handle to the device context."
-        }]
-    },
-    "_WinAPI_GetBufferedPaintBits": {
-        "documentation": "Retrieves a pointer to the buffer bitmap if the buffer is a device-independent bitmap (DIB)",
-        "label": "_WinAPI_GetBufferedPaintBits ( $hBP )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }]
-    },
-    "_WinAPI_GetBufferedPaintDC": {
-        "documentation": "Gets the paint device context (DC)",
-        "label": "_WinAPI_GetBufferedPaintDC ( $hBP )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }]
-    },
-    "_WinAPI_GetBufferedPaintTargetDC": {
-        "documentation": "Retrieves the target device context (DC)",
-        "label": "_WinAPI_GetBufferedPaintTargetDC ( $hBP )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
-        }]
-    },
-    "_WinAPI_GetBufferedPaintTargetRect": {
-        "documentation": "Retrieves the target rectangle",
-        "label": "_WinAPI_GetBufferedPaintTargetRect ( $hBP )",
-        "params": [{
-            "label": "$hBP",
-            "documentation": "Handle of the buffered paint context."
         }]
     },
     "_WinAPI_GetBValue": {
