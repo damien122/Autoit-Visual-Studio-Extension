@@ -1,8 +1,8 @@
 # AutoIt-VSCode Changelog
 
 ## 0.2.4
-* Implemented ability for Go To Definition to search include files
-* Implemented parcel to bundle extension into single file
+* Improved Go To Definition to search include files (relative and UDFs)
+* Used Parcel.js to bundle extension into single file
 
 ## 0.2.3
 * Added indentation rules for automatic indents for keywords that indent/unindent on the next line (currently doesn't work when the keyword is input from Intellisense)
