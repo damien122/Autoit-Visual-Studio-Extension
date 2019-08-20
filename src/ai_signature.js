@@ -74,15 +74,17 @@ function arraysMatch(arr1, arr2) {
 function getParams(paramText) {
   let params = {};
 
-  paramText.split(',').forEach(param => {
-    params = {
-      ...params,
-      [param]: {
-        label: param.trim(),
-        documentation: '',
-      },
-    };
-  });
+  if (paramText) {
+    paramText.split(',').forEach(param => {
+      params = {
+        ...params,
+        [param]: {
+          label: param.trim(),
+          documentation: '',
+        },
+      };
+    });
+  }
 
   return params;
 }
@@ -171,7 +173,7 @@ function getIncludes(doc) {
 }
 
 function getLocalSigs(doc) {
-  const functionPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)\))/gm;
+  const functionPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)?\))/gm;
   const text = doc.getText();
   let functions = {};
 
@@ -222,9 +224,10 @@ module.exports = languages.registerSignatureHelpProvider(
         new MarkdownString(`##### ${foundSig.documentation}`),
       );
       // Enter parameter information into signature information
-      foundSig.params.forEach(element => {
-        thisSignature.parameters.push(
-          new ParameterInformation(element.label, new MarkdownString(element.documentation)),
+      thisSignature.parameters = Object.keys(foundSig.params).map(key => {
+        return new ParameterInformation(
+          foundSig.params[key].label,
+          new MarkdownString(foundSig.params[key].documentation),
         );
       });
 
