@@ -90,6 +90,8 @@ const signatureToHover = signatures => {
   return hoverObjects;
 };
 
+const includePattern = /^#include\s"(.+)"/gm;
+
 module.exports = {
   descriptionHeader,
   valueFirstHeader,
@@ -105,4 +107,5 @@ module.exports = {
   getIncludePath,
   fillCompletions,
   signatureToHover,
+  includePattern
 };

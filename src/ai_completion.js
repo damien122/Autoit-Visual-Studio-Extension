@@ -2,7 +2,7 @@ import { languages, CompletionItem, CompletionItemKind, workspace, Range } from 
 import fs from 'fs';
 import path from 'path';
 import completions from './completions';
-import { getIncludeText, getIncludePath } from './util';
+import { getIncludeText, getIncludePath, includePattern } from './util';
 import DEFAULT_UDFS from './constants';
 
 let currentIncludeFiles = [];
@@ -10,7 +10,7 @@ let includes = [];
 
 const functionPattern = /Func\s+(\w*)\s*\(/g;
 const variablePattern = /\$(\w*)/g;
-const includePattern = /^\s+#include\s"(.+)"/gm;
+
 const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
 const createNewCompletionItem = (kind, name, strDetail = 'Document Function') => {

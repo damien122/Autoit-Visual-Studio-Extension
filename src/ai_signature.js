@@ -8,7 +8,7 @@ import {
 } from 'vscode';
 import fs from 'fs';
 import path from 'path';
-import { getIncludeText, getIncludePath } from './util';
+import { getIncludeText, getIncludePath, includePattern } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
 
@@ -129,7 +129,6 @@ function getIncludes(doc) {
   // determines whether includes should be re-parsed or not.
   const text = doc.getText();
 
-  const includePattern = /^\s+#include\s"(.+)"/gm;
   const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
   let includesCheck = [];
