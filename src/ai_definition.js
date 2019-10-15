@@ -51,7 +51,7 @@ const AutoItDefinitionProvider = {
         if (found) {
           const line = scriptContent.slice(0, found.index).match(/\n/g).length;
 
-          return new Location(Uri.file(scriptPath), new Position(line, found.index));
+          return new Location(Uri.file(scriptPath), new Position(line, 0));
         }
       }
     }
