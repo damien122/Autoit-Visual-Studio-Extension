@@ -3,4 +3,4 @@ node_modules
 jspm_packages
 dist/
 .cache
-.vsix
+*.vsix
