@@ -3,7 +3,7 @@
   "displayName": "AutoIt",
   "description": "AutoIt language extension for Visual Studio Code",
   "icon": "img/ai_icon.png",
-  "version": "0.2.4",
+  "version": "1.0.0",
   "publisher": "Damien",
   "galleryBanner": {
     "color": "#254768",
@@ -44,22 +44,19 @@
   },
   "homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md",
   "contributes": {
-    "languages": [
-      {
-        "id": "autoit",
-        "aliases": [
-          "AutoIt",
-          "autoit"
-        ],
-        "extensions": [
-          ".au3"
-        ],
-        "configuration": "./syntaxes/autoit-language-configuration.json"
-      }
-    ],
+    "languages": [{
+      "id": "autoit",
+      "aliases": [
+        "AutoIt",
+        "autoit"
+      ],
+      "extensions": [
+        ".au3"
+      ],
+      "configuration": "./syntaxes/autoit-language-configuration.json"
+    }],
     "menus": {
-      "commandPalette": [
-        {
+      "commandPalette": [{
           "when": "editorLangId == autoit",
           "command": "extension.runScript"
         },
@@ -105,8 +102,7 @@
         }
       ]
     },
-    "commands": [
-      {
+    "commands": [{
         "command": "extension.runScript",
         "title": "AutoIt: Run Script"
       },
@@ -155,21 +151,16 @@
         "title": "AutoIt: Kill Running Script"
       }
     ],
-    "grammars": [
-      {
-        "language": "autoit",
-        "scopeName": "source.autoit",
-        "path": "./syntaxes/autoit.tmLanguage"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "autoit",
-        "path": "./snippets/autoit.json"
-      }
-    ],
-    "keybindings": [
-      {
+    "grammars": [{
+      "language": "autoit",
+      "scopeName": "source.autoit",
+      "path": "./syntaxes/autoit.tmLanguage"
+    }],
+    "snippets": [{
+      "language": "autoit",
+      "path": "./snippets/autoit.json"
+    }],
+    "keybindings": [{
         "command": "extension.runScript",
         "key": "f5",
         "when": "editorTextFocus && editorLangId == autoit"
