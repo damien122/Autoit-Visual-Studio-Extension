@@ -55,7 +55,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 * Set Command Line Parameters: `Shift+F8`
 * Kill Running Script: `Ctrl+Pause/Break`
 * Go To Definition (Jump to Variable or Function declaration): `F12`
-* Peek Definition (Show declarations in pop up):
+* Peek Definition (Show declarations in pop up): `Shift+F12`
 > **NOTE:**
 >
 > Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
