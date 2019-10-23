@@ -6,7 +6,6 @@ import udf_clipboard from './udf_clipboard';
 import udf_color from './udf_color';
 import udf_crypt from './udf_crypt';
 import udf_date from './udf_date';
-import udf_debug from './udf_debug';
 import udf_eventlog from './udf_eventlog';
 import udf_excel from './udf_excel';
 import udf_file from './udf_file';
@@ -67,6 +66,7 @@ import udf_winAPIExSys from './udf_winAPIExSys';
 import { hovers as udfWinAPITheme } from '../signatures/WinAPIEx/WinAPITheme';
 import { hovers as udfWinNet } from '../signatures/udf_winnet';
 import { hovers as udfWord } from '../signatures/udf_word';
+import { hovers as udfDebug } from '../signatures/udf_debug';
 
 const hovers = {
   ...ai_functions,
@@ -77,7 +77,6 @@ const hovers = {
   ...udf_color,
   ...udf_crypt,
   ...udf_date,
-  ...udf_debug,
   ...udf_eventlog,
   ...udf_excel,
   ...udf_file,
@@ -138,6 +137,7 @@ const hovers = {
   ...udfWinAPITheme,
   ...udfWinNet,
   ...udfWord,
+  ...udfDebug,
 };
 
 export default hovers;

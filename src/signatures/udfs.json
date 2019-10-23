@@ -498,23 +498,7 @@
             "documentation": "**[optional]** Flag to change function algorithm"
         }]
     },
-    "_Assert": {
-        "documentation": "Display a message if assertion fails",
-        "label": "_Assert ( $sCondition [, $bExit = True [, $iCode = 0x7FFFFFFF [, $sLine = @ScriptLineNumber]]] )",
-        "params": [{
-            "label": "$sCondition",
-            "documentation": "The condition (expression quoted) that must evaluate to true."
-        }, {
-            "label": "$bExit",
-            "documentation": "**[optional]** If true, the script is aborted."
-        }, {
-            "label": "$iCode",
-            "documentation": "**[optional]** The exit code to use if the script is aborted."
-        }, {
-            "label": "$sLine",
-            "documentation": "**[optional]** Displays the line number where the assertion failed. If this value is not changed, then the default value will show the correct line."
-        }]
-    },
+
     "_ChooseColor": {
         "documentation": "Creates a Color dialog box that enables the user to select a color",
         "label": "_ChooseColor ( [$iReturnType = 0 [, $iColorRef = 0 [, $iRefType = 0 [, $hWndOwnder = 0]]]] )",
@@ -1452,22 +1436,7 @@
             "documentation": "will return the day in format DD"
         }]
     },
-    "_DebugBugReportEnv": {
-        "documentation": "Outputs a string containing information for Bug report submission",
-        "label": "_DebugBugReportEnv (  )",
-        "params": []
-    },
-    "_DebugCOMError": {
-        "documentation": "Sets, resets or queries the debug level for COM errors",
-        "label": "_DebugCOMError ( [$iComDebug = 1 [, $bExit = False]] )",
-        "params": [{
-            "label": "$iComDebug",
-            "documentation": "**[optional]** Debug level. Possible values are:  \n-1 - Return the current settings  \n0 - Disable debugging  \n1 - Enable debugging. Output the debug info (default)"
-        }, {
-            "label": "$bExit",
-            "documentation": "**[optional]** True if the script must be terminated"
-        }]
-    },
+    
     "_DebugOut": {
         "documentation": "Displays output on a debugging session started by _DebugSetup()",
         "label": "_DebugOut ( $sOutput )",
