@@ -297,7 +297,7 @@
       <key>send-keys</key>
       <dict>
         <key>match</key>
-        <string>{\b(?i:appskey|backspace|browser_back|browser_favorites|browser_forward|browser_home|browser_refresh|browser_search|browser_stop|bs|capslock|del|delete|down|end|enter|esc|escape|f1|f10|f11|f12|f2|f3|f4|f5|f6|f7|f8|f9|home|ins|insert|launch_app1|launch_app2|launch_mail|launch_media|left|media_next|media_play_pause|media_prev|media_stop|numlock|numpad0|numpad1|numpad2|numpad3|numpad4|numpad5|numpad6|numpad7|numpad8|numpad9|numpadadd|numpaddiv|numpaddot|numpadenter|numpadmult|numpadsub|pause|pgdn|pgup|printscreen|right|scrolllock|sleep|space|tab|up|volume_down|volume_mute|volume_up)\b}</string>
+        <string>{(?i:(B(?:ROWSER_(?:F(?:AVORITES|ORWARD)|(?:REFRES|SEARC)H)|S)|(?:(?:MEDIA_PLAY_)?PAUS|BROWSER_HOM|VOLUME_MUT|DELET|ESCAP|HOM)E|L(?:AUNCH_(?:M(?:EDIA|AIL)|APP[12])|(?:SHI|E)FT|CTRL|ALT)|(?:BROWSER_STO|MEDIA_STO|(?:VOLUME_|PG)?U)P|BROWSER_BACK|NUMPADENTER|P(?:RINTSCREE|GD)N|(?:VOLUME_|[LR]WIN|ALT)DOWN|MEDIA_PREV|(?:MEDIA_NEX|NUMPADMUL|NUMPADDO|INSER|R(?:IGH|AL))T|S(?:CROLLLOCK|HIFTDOWN|LEEP|PACE)|NUMPAD(?:DIV|[0-9])|NUMPADSUB|NUMPADADD|BACKSPACE|A(?:SC (?:[0-9]{3,4})|PPSKEY)|CTRLDOWN|CAPSLOCK|OEM_102|NUMLOCK|RSHIFT|RCTRL|EN(?:TER|D)|BREAK|[LR]WIN|DOWN|INS|DEL|ALT|ESC|TAB|F(?:1[0-2]|[2-9])|F1|[!#\+\^\{\}]|[A-Z](?: DOWN| UP)?)( [0-9]{1,})?)}</string>
         <key>name</key>
         <string>constant.other.send-key.autoit</string>
       </dict>
