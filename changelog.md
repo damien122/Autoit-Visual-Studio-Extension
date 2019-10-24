@@ -1,5 +1,11 @@
 # AutoIt-VSCode Changelog
 
+## [1.0.1]
+### Added
+- Completion, Hover and Signature help for `_DebugArrayDisplay()`
+### Changed
+- Consolidated signature and hover for all Debug.au3 UDFs
+
 ## 1.0.0
 * Improved Go To Definition to search include files (relative and UDFs)
 * Used Parcel.js to bundle extension into single file
