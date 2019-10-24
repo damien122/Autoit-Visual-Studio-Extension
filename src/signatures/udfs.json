@@ -1436,7 +1436,6 @@
             "documentation": "will return the day in format DD"
         }]
     },
-   
     "_Degree": {
         "documentation": "Converts radians to degrees",
         "label": "_Degree ( $iRadians )",
