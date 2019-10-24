@@ -107,5 +107,5 @@ module.exports = {
   getIncludePath,
   fillCompletions,
   signatureToHover,
-  includePattern
+  includePattern,
 };
