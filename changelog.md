@@ -1,40 +1,44 @@
 # AutoIt-VSCode Changelog
+All notable changes to this project will be documented in this file.
 
-## [1.0.1]
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## Unreleased
 ### Added
 - Completion, Hover and Signature help for `_DebugArrayDisplay()`
 ### Changed
 - Consolidated signature and hover for all Debug.au3 UDFs
 
-## 1.0.0
+## [1.0.0] - 2019-10-15
 * Improved Go To Definition to search include files (relative and UDFs)
 * Used Parcel.js to bundle extension into single file
 * Started work on consolidating Signature and Hover files for smaller extension size
 * Switching to SemVer for versioning
 * Made code-style improvements for consistency
 
-## 0.2.3
+## [0.2.3] - 2019-05-29
 * Added indentation rules for automatic indents for keywords that indent/unindent on the next line (currently doesn't work when the keyword is input from Intellisense)
 * Implemented basic Go To Definition functionality for Functions and Variables
 * Added syntax highlighting rules to color user created functions differently from default AutoIt and standard UDFs (may be the same depending on theme)
 * Added syntax highlighting for '$' part of variables (depends on theme)
 * Implemented command to kill running scripts set to Ctrl+Pause/Break
 
-## 0.2.2
+## [0.2.2] - 2019-02-12
 * Improved Console parameter func tion to show previous input and preserve existing text if cancelled
 * Added completions for DirConstants.au3, EditConstants.au3, ExcelConstants.au3, FileConstants.au3, FontConstants.au3, FrameConstants.au3, GDIPlusConstants.au3, StaticConstants.au3, StatusBarConstants.au3, StringConstants.au3, TrayConstants.au3 and TreeViewConstants.au3
 
-## 0.2.1
+## [0.2.1] - 2019-01-30
 * Added "setupudf" snippet
 * Added MIT license to extension
 * Added functionality to set console parameters when runing a script, using the palette or `Shift+F8`
 
-## 0.2.0
+## [0.2.0] - 2018-05-30
 * Fixed the word pattern for the extension
 * Improved formatting for some parameter documentation in signature helpers
 * Made hovers case-insensitive
 
-## 0.1.9
+## [0.1.9] - 2018-05-30
 * Completions and Signature Helpers for files relative to include folders (e.g., `#include <Test.au3>`) are now provided
     * Defaults to searching in C:\Program Files (x86)\AutoIt3\Include, more can be added in User Settings
 * Output window now clears on each Run, Compile or Build
@@ -44,14 +48,14 @@
 * Added configuration option to hide variables when using Ctrl+Shift+O to view symbols
 * Fixed word definitions to clear up highlighting/selection inconsistencies
 
-## 0.1.8
+## [0.1.8] - 2017-12-20
 * Improved function signature helpers
     * Parameter position in function has much improved detection (no longer tripped up by commas in quotes)
     * Help for nested functions now work
     * Parameter descriptions have been upgraded with Markdown for better styling and layout
 * Upgraded many snippets to Completions
 
-## 0.1.7
+## [0.1.7] - 2017-09-26
 * Updated ReadMe with links and more information about shortcuts and configuration
 * Improved handling of functions from include scripts
 * Debug Console and MsgBox can now be inserted solely with the cursor on the variable
@@ -59,25 +63,25 @@
 * Added and optimized #include snippets for all default scripts
 * Converted some keyword snippets into IntelliSense completions
 
-## 0.1.6
+## [0.1.6] - 2017-07-31
 * The extension can now read in functions from user-specified include files and provide completion IntelliSense hints for them
 * Added internal function parameters to IntelliSense (they are not yet limited to appearing in the scope of the function)
 * Added configuration a path to launch Koda including an "Alt+M" shortcut
 * Adjusted snippet code to better follow VS Code syntax
 
-## 0.1.5
+## [0.1.5] - 2017-06-03
 More IntelliSense!
 * Added in function signature helpers (parameter info)
 * AutoIt commands and keybindings now only show/activate in AutoIt files
 * Debug MsgBoxes and Debug Consoles now match the indent of the line that they're generated from
 
-## 0.1.4
+## [0.1.4] - 2017-05-16
 * Added configuration for path to Au3Info
 
-## 0.1.3
+## [0.1.3] - 2017-05-04
 * Added AutoIt Configuration in Visual Studio Code Preferences.
 
-## 0.1.2
+## [0.1.2] - 2017-04-26
 The IntelliSense release!
 * Hovers have been added for all UDFs
 * Implementation of Completion Items has begun (Function, Macro and Variable suggestions will now have different icons)
@@ -110,3 +114,17 @@ The IntelliSense release!
 ## 0.0.6
 * Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 * Added icon, banner color and description for marketplace.
+
+[1.0.0]: https://github.com/loganch/AutoIt-VSCode/compare/v0.2.3...v1.0.0
+[0.2.3]: https://github.com/loganch/AutoIt-VSCode/compare/v0.2.2...v0.2.3
+[0.2.2]: https://github.com/loganch/AutoIt-VSCode/compare/v0.2.1...v0.2.2
+[0.2.1]: https://github.com/loganch/AutoIt-VSCode/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.9...v0.2.0
+[0.1.9]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.8...v0.1.9
+[0.1.8]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.7...v0.1.8
+[0.1.7]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.6...v0.1.7
+[0.1.6]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.5...v0.1.6
+[0.1.5]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.4...v0.1.5
+[0.1.4]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.3...v0.1.4
+[0.1.3]: https://github.com/loganch/AutoIt-VSCode/compare/v0.1.2...v0.1.3
+[0.1.2]: https://github.com/loganch/AutoIt-VSCode/releases/tag/v0.1.2
