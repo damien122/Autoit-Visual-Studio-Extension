@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Added
 - Completion, Hover and Signature help for `_DebugArrayDisplay()`
+- Missing Syntax Highlighting for SendKeys (including  for ASCII and UNICODE characters (`Send("{ASC 065}")` or `Send("{ASC 2709}")`), repetition for single keys (`Send("{DEL 4}")` or `Send("{S 30}")`) and holding a key up or down (`Send("{a down}")` or `Send("{a up}"`))
 ### Changed
 - Consolidated signature and hover for all Debug.au3 UDFs
 
