@@ -28,6 +28,52 @@ const arraysMatch = (arr1, arr2) => {
   return false;
 };
 
+/**
+ * Checks a filename with the include paths for a valid path
+ * @param {string} file - the filename to append to the paths
+ * @returns {(string|boolean)} Full path if found to exist or false
+ */
+const findFilepath = file => {
+  const { includePaths } = workspace.getConfiguration('autoit');
+
+  let newPath;
+  const pathFound = includePaths.some(iPath => {
+    newPath = path.normalize(`${iPath}\\`) + file;
+    if (fs.existsSync(newPath)) {
+      return true;
+    }
+    return false;
+  });
+
+  if (pathFound && newPath) {
+    return newPath;
+  }
+  return false;
+};
+
+/**
+ * Returns an array of AutoIt functions found within a VSCode Document
+ * @param {string} fileName
+ * @param {vscode.TextDocument} document
+ * @returns {Array} Array of functions in file
+ */
+function getIncludeData(fileName, document) {
+  const includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/gm;
+  const functions = [];
+  const filePath = getIncludePath(fileName, document);
+
+  let pattern = null;
+  const fileData = getIncludeText(filePath);
+
+  pattern = includeFuncPattern.exec(fileData);
+  do {
+    if (pattern) functions.push(pattern[1]);
+    pattern = includeFuncPattern.exec(fileData);
+  } while (pattern !== null);
+
+  return functions;
+}
+
 const provideCompletionItems = (document, position) => {
   // Gather the functions created by the user
   const added = {};
@@ -76,50 +122,47 @@ const provideCompletionItems = (document, position) => {
   if (!arraysMatch(includesCheck, currentIncludeFiles)) {
     includes = [];
     let includeFunctions = [];
-    for (const i in includesCheck) {
-      includeFunctions = getIncludeData(includesCheck[i], document);
+    includesCheck.forEach(include => {
+      includeFunctions = getIncludeData(include, document);
       if (includeFunctions) {
-        for (var newFunc in includeFunctions) {
+        includeFunctions.forEach(newFunc => {
           includes.push(
             createNewCompletionItem(
               CompletionItemKind.Function,
-              includeFunctions[newFunc],
-              `Function from ${includesCheck[i]}`,
+              newFunc,
+              `Function from ${include}`,
             ),
           );
-        }
+        });
       }
-    }
+    });
+
     currentIncludeFiles = includesCheck;
   }
 
   // Collect the library includes
-  while ((pattern = LIBRARY_INCLUDE_PATTERN.exec(text))) {
-    // Filter out the default UDFs
+  pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
+  while (pattern) {
     const filename = pattern[1].replace('.au3', '');
-    if (DEFAULT_UDFS.indexOf(filename) == -1) {
+    if (DEFAULT_UDFS.indexOf(filename) === -1) {
       libraryIncludes.push(pattern[1]);
     }
+
+    pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
   }
 
   const library = [];
-  for (const file of libraryIncludes) {
+  libraryIncludes.forEach(file => {
     const fullPath = findFilepath(file);
     if (fullPath) {
       const libraryResults = getIncludeData(fullPath, document);
-      if (libraryResults) {
-        for (var newFunc in libraryResults) {
-          library.push(
-            createNewCompletionItem(
-              CompletionItemKind.Function,
-              libraryResults[newFunc],
-              `Function from ${file}`,
-            ),
-          );
-        }
-      }
+      libraryResults.forEach(newFunc => {
+        library.push(
+          createNewCompletionItem(CompletionItemKind.Function, newFunc, `Function from ${file}`),
+        );
+      });
     }
-  }
+  });
 
   result = result.concat(includes, library); // Add either the existing include functions or the new ones to result
 
@@ -132,32 +175,3 @@ module.exports = languages.registerCompletionItemProvider(
   '.',
   '$',
 );
-
-function getIncludeData(fileName, document) {
-  const _includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/gm;
-  const functions = [];
-  const filePath = getIncludePath(fileName, document);
-
-  let pattern = null;
-  const fileData = getIncludeText(filePath);
-
-  while ((pattern = _includeFuncPattern.exec(fileData))) {
-    functions.push(pattern[1]);
-  }
-
-  return functions;
-}
-
-function findFilepath(file) {
-  const includePaths = workspace.getConfiguration('autoit').includePaths;
-
-  for (const iPath of includePaths) {
-    const newPath = path.normalize(`${iPath}\\`) + file;
-
-    if (fs.existsSync(newPath)) {
-      return newPath;
-    }
-  }
-
-  return 0;
-}
