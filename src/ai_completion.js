@@ -52,7 +52,7 @@ const findFilepath = file => {
 };
 
 /**
- * Returns an array of AutoIt functions found within a VSCode Document
+ * Returns an array of AutoIt functions found within a VSCode TextDocument
  * @param {string} fileName
  * @param {vscode.TextDocument} document
  * @returns {Array} Array of functions in file
@@ -73,6 +73,27 @@ function getIncludeData(fileName, document) {
 
   return functions;
 }
+
+/**
+ * Generates function completions from files included through library paths
+ * @param {Array} libraryIncludes Array containing filenames of library includes
+ * @param {vsCode.TextDocument} doc Originating text document
+ * @returns {Array} Array of completionItems
+ */
+const getLibraryFunctions = (libraryIncludes, doc) => {
+  const items = [];
+  libraryIncludes.forEach(file => {
+    const fullPath = findFilepath(file);
+    if (fullPath)
+      getIncludeData(fullPath, doc).forEach(newFunc => {
+        items.push(
+          createNewCompletionItem(CompletionItemKind.Function, newFunc, `Function from ${file}`),
+        );
+      });
+  });
+
+  return items;
+};
 
 const provideCompletionItems = (document, position) => {
   // Gather the functions created by the user
@@ -151,18 +172,7 @@ const provideCompletionItems = (document, position) => {
     pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
   }
 
-  const library = [];
-  libraryIncludes.forEach(file => {
-    const fullPath = findFilepath(file);
-    if (fullPath) {
-      const libraryResults = getIncludeData(fullPath, document);
-      libraryResults.forEach(newFunc => {
-        library.push(
-          createNewCompletionItem(CompletionItemKind.Function, newFunc, `Function from ${file}`),
-        );
-      });
-    }
-  });
+  const library = getLibraryFunctions(libraryIncludes, document);
 
   result = result.concat(includes, library); // Add either the existing include functions or the new ones to result
 
