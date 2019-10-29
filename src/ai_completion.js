@@ -76,9 +76,9 @@ function getIncludeData(fileName, document) {
 
 /**
  * Generates function completions from files included through library paths
- * @param {Array} libraryIncludes Array containing filenames of library includes
- * @param {vsCode.TextDocument} doc Originating text document
- * @returns {Array} Array of completionItems
+ * @param {Array<String>} libraryIncludes Array containing filenames of library includes
+ * @param {Object<TextDocument>} doc Originating text document
+ * @returns {CompletionItem[]} Array of completionItem objects
  */
 const getLibraryFunctions = (libraryIncludes, doc) => {
   const items = [];
@@ -95,6 +95,27 @@ const getLibraryFunctions = (libraryIncludes, doc) => {
   return items;
 };
 
+/**
+ * Collects the filenames of library includes, filtering out
+ * ones that are already default AutoIt UDFs
+ * @param {string} docText The contents of the document
+ * @returns {Array<string>} Array of library includes
+ */
+const getLibraryIncludes = docText => {
+  const items = [];
+  let pattern = LIBRARY_INCLUDE_PATTERN.exec(docText);
+  while (pattern) {
+    const filename = pattern[1].replace('.au3', '');
+    if (DEFAULT_UDFS.indexOf(filename) === -1) {
+      items.push(pattern[1]);
+    }
+
+    pattern = LIBRARY_INCLUDE_PATTERN.exec(docText);
+  }
+
+  return items;
+};
+
 const provideCompletionItems = (document, position) => {
   // Gather the functions created by the user
   const added = {};
@@ -103,7 +124,6 @@ const provideCompletionItems = (document, position) => {
   let range = document.getWordRangeAtPosition(position);
   const prefix = range ? document.getText(range) : '';
   const includesCheck = [];
-  const libraryIncludes = [];
 
   if (!range) {
     range = new Range(position, position);
@@ -161,16 +181,7 @@ const provideCompletionItems = (document, position) => {
     currentIncludeFiles = includesCheck;
   }
 
-  // Collect the library includes
-  pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
-  while (pattern) {
-    const filename = pattern[1].replace('.au3', '');
-    if (DEFAULT_UDFS.indexOf(filename) === -1) {
-      libraryIncludes.push(pattern[1]);
-    }
-
-    pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
-  }
+  const libraryIncludes = getLibraryIncludes(text);
 
   const library = getLibraryFunctions(libraryIncludes, document);
 
