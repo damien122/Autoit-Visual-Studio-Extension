@@ -9,7 +9,6 @@ let currentIncludeFiles = [];
 let includes = [];
 
 const functionPattern = /Func\s+(\w*)\s*\(/g;
-const variablePattern = /\$(\w*)/g;
 
 const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
@@ -116,31 +115,49 @@ const getLibraryIncludes = docText => {
   return items;
 };
 
+/**
+ * Creates an array of completion items for AutoIt variables from the document.
+ * @param {String} text Content of the document
+ * @param {String} firstChar The first character of the text considered for a completion
+ * @returns {Array<Object>} Array of CompletionItem objects
+ */
+const getVariableCompletions = (text, firstChar) => {
+  const variablePattern = /\$(\w*)/g;
+  const variables = [];
+  const foundVariables = {};
+  let variableName;
+
+  if (firstChar === '$') {
+    let pattern = variablePattern.exec(text);
+    while (pattern) {
+      [variableName] = pattern;
+      if (!(variableName in foundVariables)) {
+        foundVariables[variableName] = true;
+        variables.push(createNewCompletionItem(CompletionItemKind.Variable, variableName));
+      }
+      pattern = variablePattern.exec(text);
+    }
+  }
+
+  return variables;
+};
+
 const provideCompletionItems = (document, position) => {
   // Gather the functions created by the user
   const added = {};
   let result = [];
   const text = document.getText();
   let range = document.getWordRangeAtPosition(position);
-  const prefix = range ? document.getText(range) : '';
+  const prefix = range ? document.getText(range)[0] : '';
   const includesCheck = [];
 
   if (!range) {
     range = new Range(position, position);
   }
 
-  if (prefix[0] === '$') {
-    let pattern = variablePattern.exec(text);
-    while (pattern) {
-      const varName = pattern[0];
-      if (!added[varName]) {
-        added[varName] = true;
-        result.push(createNewCompletionItem(CompletionItemKind.Variable, varName));
-      }
+  const variableCompletions = getVariableCompletions(text, prefix);
 
-      pattern = variablePattern.exec(text);
-    }
-  }
+  result = [result, ...variableCompletions];
 
   let pattern = functionPattern.exec(text);
   while (pattern) {
