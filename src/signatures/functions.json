@@ -3045,7 +3045,7 @@
         "label": "MouseClick ( \"button\" [, x, y [, clicks = 1 [, speed = 10]]] )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_LEFT` (\"left\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "x, y",
             "documentation": "**[optional]** The x/y coordinates to move the mouse to. If no x and y coords are given, the current position is used (default)."
@@ -3062,7 +3062,7 @@
         "label": "MouseClickDrag ( \"button\", x1, y1, x2, y2 [, speed = 10] )",
         "params": [{
             "label": "button",
-            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
+            "documentation": "The button to click:    \n&emsp;`$MOUSE_CLICK_RIGHT` (\"right\")    \n&emsp;`$MOUSE_CLICK_LEFT` (\"left\")    \n&emsp;`$MOUSE_CLICK_MIDDLE` (\"middle\")    \n&emsp;`$MOUSE_CLICK_MAIN` (\"main\")    \n&emsp;`$MOUSE_CLICK_MENU` (\"menu\")    \n&emsp;`$MOUSE_CLICK_PRIMARY` (\"primary\")    \n&emsp;`$MOUSE_CLICK_SECONDARY` (\"secondary\")  \n\nConstants are defined in \"AutoItConstants.au3\"."
         }, {
             "label": "x1, y1",
             "documentation": "The x/y coords to start the drag operation from."
