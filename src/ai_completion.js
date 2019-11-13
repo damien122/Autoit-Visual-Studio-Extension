@@ -8,8 +8,6 @@ import DEFAULT_UDFS from './constants';
 let currentIncludeFiles = [];
 let includes = [];
 
-const functionPattern = /Func\s+(\w*)\s*\(/g;
-
 const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
 const createNewCompletionItem = (kind, name, strDetail = 'Document Function') => {
@@ -142,10 +140,33 @@ const getVariableCompletions = (text, firstChar) => {
   return variables;
 };
 
+/**
+ * Creates an array of CompletionItems for Functions declared in the document
+ * @param {String} text Content of the document
+ * @returns {Array<Object>} Array of CompletionItem objects
+ */
+const getLocalFunctionCompletions = text => {
+  const functionPattern = /Func\s+(\w*)\s*\(/g;
+  const functions = [];
+  const foundFunctions = {};
+  let functionName;
+
+  let pattern = functionPattern.exec(text);
+  while (pattern) {
+    [functionName] = pattern;
+    if (!(functionName in foundFunctions)) {
+      foundFunctions[functionName] = true;
+      functions.push(createNewCompletionItem(CompletionItemKind.Function, functionName));
+    }
+    pattern = functionPattern.exec(text);
+  }
+
+  return functions;
+};
+
 const provideCompletionItems = (document, position) => {
   // Gather the functions created by the user
-  const added = {};
-  let result = [];
+
   const text = document.getText();
   let range = document.getWordRangeAtPosition(position);
   const prefix = range ? document.getText(range)[0] : '';
@@ -156,21 +177,12 @@ const provideCompletionItems = (document, position) => {
   }
 
   const variableCompletions = getVariableCompletions(text, prefix);
+  const functionCompletions = getLocalFunctionCompletions(text);
 
-  result = [result, ...variableCompletions];
-
-  let pattern = functionPattern.exec(text);
-  while (pattern) {
-    const funcName = pattern[1];
-    if (!added[funcName]) {
-      added[funcName] = true;
-      result.push(createNewCompletionItem(CompletionItemKind.Function, funcName));
-    }
-    pattern = functionPattern.exec(text);
-  }
+  const localCompletions = [...variableCompletions, ...functionCompletions];
 
   // collect the includes of the document
-  pattern = includePattern.exec(text);
+  let pattern = includePattern.exec(text);
   while (pattern) {
     includesCheck.push(pattern[1]);
     pattern = includePattern.exec(text);
@@ -199,12 +211,9 @@ const provideCompletionItems = (document, position) => {
   }
 
   const libraryIncludes = getLibraryIncludes(text);
+  const libraryCompletions = getLibraryFunctions(libraryIncludes, document);
 
-  const library = getLibraryFunctions(libraryIncludes, document);
-
-  result = result.concat(includes, library); // Add either the existing include functions or the new ones to result
-
-  return completions.concat(result);
+  return [...completions, ...localCompletions, ...includes, ...libraryCompletions];
 };
 
 module.exports = languages.registerCompletionItemProvider(
