@@ -146,14 +146,13 @@ const getVariableCompletions = (text, firstChar) => {
  * @returns {Array<Object>} Array of CompletionItem objects
  */
 const getLocalFunctionCompletions = text => {
-  const functionPattern = /Func\s+(\w*)\s*\(/g;
+  const functionPattern = /\bFunc\s+(\w*)\s*\(/g;
   const functions = [];
   const foundFunctions = {};
-  let functionName;
 
   let pattern = functionPattern.exec(text);
   while (pattern) {
-    [functionName] = pattern;
+    const { 1: functionName } = pattern;
     if (!(functionName in foundFunctions)) {
       foundFunctions[functionName] = true;
       functions.push(createNewCompletionItem(CompletionItemKind.Function, functionName));
