@@ -17,8 +17,8 @@
   ],
   "folding": {
     "markers": {
-      "start": "^\\s*\\s*#?[Rr]egion\\b",
-      "end": "^\\s*\\s*#?[Ee]nd[Rr]egion\\b"
+      "start": "^\\s*\\s*(#?[Rr]egion\\b)|([Ff]unc\\b)",
+      "end": "^\\s*\\s*(#?[Ee]nd[Rr]egion\\b)|([Ee]nd[Ff]unc)"
     }
   }
 }
