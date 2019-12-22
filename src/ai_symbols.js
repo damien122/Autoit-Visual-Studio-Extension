@@ -1,7 +1,7 @@
 const { languages, SymbolInformation, SymbolKind, workspace } = require('vscode');
 const { AI_CONSTANTS, AUTOIT_MODE, isSkippableLine } = require('./util');
 
-const functionPattern = /Func\s(.+)\(/;
+const functionPattern = /^Func\s(.+)\(/;
 const variablePattern = /(\$\w+)/g;
 const config = workspace.getConfiguration('autoit');
 

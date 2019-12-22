@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-### Addeded
+### Added
 - Code folding for `#Region/#EndRegion` & `Func/EndFunc`
+
+### Changed
+- Improved symbol detection of Function declarations
 
 ## [1.0.3] - 2019-11-19
 

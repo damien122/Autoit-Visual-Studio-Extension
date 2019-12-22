@@ -1,7 +1,7 @@
 import { languages, SymbolInformation, SymbolKind, Location, Position, workspace } from 'vscode';
 import fs from 'fs';
 
-const functionPattern = /Func\s(.+)\(/;
+const functionPattern = /^Func\s(.+)\(/;
 const variablePattern = /(\$\w+)/g;
 const config = workspace.getConfiguration('autoit');
 
