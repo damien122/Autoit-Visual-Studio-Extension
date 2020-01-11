@@ -3,7 +3,7 @@
   "displayName": "AutoIt",
   "description": "AutoIt language extension for Visual Studio Code",
   "icon": "img/ai_icon.png",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "Damien",
   "galleryBanner": {
     "color": "#254768",
@@ -286,7 +286,7 @@
   "dependencies": {},
   "scripts": {
     "build": "parcel build src/extension.js --target node",
-    "dev": "parcel src/extension.js --target node",
+    "dev": "parcel build src/extension.js --target node --no-minify",
     "vscode:prepublish": "parcel build src/extension.js --target node"
   }
 }
