@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+
+## [1.0.4] - 2020-01-10
 ### Added
 - Code folding for `#Region/#EndRegion` & `Func/EndFunc`
 
 ### Changed
-- Improved symbol detection of Function declarations
+- Fixed symbol detection for Function declarations
 
 ## [1.0.3] - 2019-11-19
 
@@ -170,6 +172,7 @@ The IntelliSense release!
 - Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 - Added icon, banner color and description for marketplace.
 
+[1.0.4]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.3...v1.0.4
 [1.0.3]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.2...v1.0.3
 [1.0.2]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.0...1.0.1
