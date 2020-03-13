@@ -172,7 +172,7 @@ function getIncludes(doc) {
 }
 
 function getLocalSigs(doc) {
-  const functionPattern = /(?=\S)(?!;~\s)^Func\s+((\w+)\((.+)?\))/gm;
+  const functionPattern = /^[\t ]{0,}Func\s+((\w+)\((.+)?\))/gm;
   const text = doc.getText();
   let functions = {};
 
