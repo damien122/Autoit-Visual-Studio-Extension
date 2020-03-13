@@ -91,6 +91,7 @@ const signatureToHover = signatures => {
 };
 
 const includePattern = /^#include\s"(.+)"/gm;
+const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
 
 module.exports = {
   descriptionHeader,
@@ -108,4 +109,5 @@ module.exports = {
   fillCompletions,
   signatureToHover,
   includePattern,
+  functionPattern,
 };
