@@ -35,8 +35,8 @@
         "scope": "source.autoit",
         "description": "An Else block for an If statement"
     },
-    "For...In...Next": {
-        "prefix": "For...In...Next",
+    "For In Loop": {
+        "prefix": "For In Loop",
         "body": [
             "For \\$${1:vElement} In \\$${2:aArray}",
             "\t${3:ConsoleWrite(\\$${1:vElement})}",
@@ -45,8 +45,8 @@
         "scope": "source.autoit",
         "description": "Enumerates elements in an Object collection or an Array."
     },
-    "For...To...Step...Next": {
-        "prefix": "For...To...Step...Next",
+    "For Loop": {
+        "prefix": "For Loop",
         "body": [
             "For \\$${1:i} = ${2:0} To ${3:1} Step ${4:+${5:1}}",
             "\t${6:ConsoleWrite(\\$${1:i})}",
@@ -55,8 +55,8 @@
         "scope": "source.autoit",
         "description": "Loop based on an expression."
     },
-    "Func...EndFunc": {
-        "prefix": "Func...EndFunc",
+    "Function Block": {
+        "prefix": "Function Block",
         "body": [
             "Func ${1:FunctionName}(${2:\\$${3:Param}})",
             "\t${4}",
@@ -66,14 +66,14 @@
         "scope": "source.autoit",
         "description": "Function that takes zero or more arguments and optionally returns a result."
     },
+    "If Statement": {
+        "prefix": "If Statement",
+        "body": "If ${1:<expression>} Then\n\t${2:statement}",
+        "scope": "source.autoit",
+        "description": "Single-line If statement snippet"
+    },
     "If Block": {
         "prefix": "If Block",
-        "body": "If ${1:<expression>} Then\n\t${2:statement}\nEndIf",
-        "scope": "source.autoit",
-        "description": "Single-line If block snippet"
-    },
-    "If...EndIf": {
-        "prefix": "If...EndIf",
         "body": [
             "If (${1:<expression>}) Then",
             "\t${2:statement}",
@@ -82,8 +82,8 @@
         "scope": "source.autoit",
         "description": "Multi-line If block snippet"
     },
-    "Switch...EndSwitch": {
-        "prefix": "Switch...EndSwitch",
+    "Switch Block": {
+        "prefix": "Switch Block",
         "body": [
             "Switch (${1:\\$variable})",
             "\tCase ${2:6 To 11}",
@@ -103,7 +103,7 @@
         "scope": "source.autoit",
         "description": "Ternary Conditional Operator"
     },
-    "While...WEnd": {
+    "While Loop": {
         "prefix": "While",
         "body": [
             "While ( ${1:true} )",
@@ -179,8 +179,8 @@
         "body": "#Region ",
         "scope": "source.autoit"
     },
-    "Region...EndRegion": {
-        "prefix": "Region...EndRegion",
+    "Region Block": {
+        "prefix": "Region Block",
         "body": [
             "#Region",
             "\t${1}",
