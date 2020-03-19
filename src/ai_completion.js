@@ -175,6 +175,13 @@ const provideCompletionItems = (document, position) => {
     range = new Range(position, position);
   }
 
+  // Remove completion offerings from commented lines
+  const line = document.lineAt(position.line);
+  const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex);
+  if (firstChar === ';') {
+    return null;
+  }
+
   const variableCompletions = getVariableCompletions(text, prefix);
   const functionCompletions = getLocalFunctionCompletions(text);
 
