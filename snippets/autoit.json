@@ -68,7 +68,7 @@
     },
     "If Statement": {
         "prefix": "If Statement",
-        "body": "If ${1:<expression>} Then\n\t${2:statement}",
+        "body": "If ${1:<expression>} Then ${2:statement}",
         "scope": "source.autoit",
         "description": "Single-line If statement snippet"
     },
