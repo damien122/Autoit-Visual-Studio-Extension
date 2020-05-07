@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.0.5] - 2020-04-30
+### Changed
+- Stopped completion suggestions from showing in comments
+- Reworked some of the statement snippets for accuracy and to show up properly as suggestions
+- Indented function declarations will now be detected
 
 ## [1.0.4] - 2020-01-10
 ### Added
@@ -172,6 +177,7 @@ The IntelliSense release!
 - Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 - Added icon, banner color and description for marketplace.
 
+[1.0.5]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.4...v1.0.5
 [1.0.4]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.3...v1.0.4
 [1.0.3]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.2...v1.0.3
 [1.0.2]: https://github.com/loganch/AutoIt-VSCode/compare/1.0.1...1.0.2
