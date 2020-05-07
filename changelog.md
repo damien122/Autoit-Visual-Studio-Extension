@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## [1.0.5] - 2020-04-30
+## [1.0.5] - 2020-05-07
 ### Changed
 - Stopped completion suggestions from showing in comments
 - Reworked some of the statement snippets for accuracy and to show up properly as suggestions
