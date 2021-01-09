@@ -8,16 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ## [1.0.5] - 2020-05-07
+
 ### Changed
+
 - Stopped completion suggestions from showing in comments
 - Reworked some of the statement snippets for accuracy and to show up properly as suggestions
 - Indented function declarations will now be detected
 
 ## [1.0.4] - 2020-01-10
+
 ### Added
+
 - Code folding for `#Region/#EndRegion` & `Func/EndFunc`
 
 ### Changed
+
 - Fixed symbol detection for Function declarations
 
 ## [1.0.3] - 2019-11-19
