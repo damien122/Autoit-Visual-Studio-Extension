@@ -19,6 +19,7 @@ and developed from Damien122's release.
   ![SymbolSearch](img/docs/symbolsearch.gif)
 
 ## Configuration
+
 By default, this extension is set up for the default installation of AutoIt and SciTe4AutoIt on a 64-bit system. For alternate setups, you can access the user settings by navigating to `File-> Preferences-> Settings` or invoking the command palette (`Ctrl+Shift+P`) and searching for Preferences [(example)](img/docs/CtrlShiftP.png), and changing the following options:
 
 | Config                             | Description                                                                                            | Default                                                                       |
@@ -43,6 +44,7 @@ By default, this extension is set up for the default installation of AutoIt and 
   <!-- ![AutoItConfiguration](img/docs/AutoItConfiguration.png) -->
 
 ## Keyboard Shortcuts
+
 * Run Script: `F5`
 * AutoIt Check: `Ctrl+F5`
 * Compile Script: `Ctrl+F7`
@@ -56,11 +58,13 @@ By default, this extension is set up for the default installation of AutoIt and 
 * Kill Running Script: `Ctrl+Pause/Break`
 * Go To Definition (Jump to Variable or Function declaration): `F12`
 * Peek Definition (Show declarations in pop up): `Alt+F12`
+
 > **NOTE:**
 >
 > Run, Compile and Build Script functions require the full install of [SciTE4AutoIt3](https://www.autoitscript.com/site/autoit-script-editor/downloads/) alongside AutoIt.
 
 ## Contributing
+
 Check out the code, leave feedback and feature requests now on [GitHub/loganch](https://github.com/loganch/AutoIt-VSCode)
 
 Please fork the repository and contribute using pull requests.
