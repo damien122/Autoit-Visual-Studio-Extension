@@ -4,7 +4,6 @@ const languageConfiguration = {
     decreaseIndentPattern: /^\s*(Next|EndFunc|EndIf|ElseIf|Else|EndSelect|EndSwitch|WEnd|EndWith)\b/i,
     unIndentedLinePattern: /^\s*((;|#include).*)?$/,
   },
-  wordPattern: /([$@#]?[A-Za-z_]\w+)/,
 };
 
 export default languageConfiguration;
