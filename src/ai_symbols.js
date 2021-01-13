@@ -1,10 +1,10 @@
-import { languages, SymbolInformation, SymbolKind, workspace } from 'vscode';
+import { languages, Location, SymbolInformation, SymbolKind, workspace } from 'vscode';
 import { AI_CONSTANTS, AUTOIT_MODE, isSkippableLine, functionPattern } from './util';
 
 const variablePattern = /(\$\w+)/g;
 const config = workspace.getConfiguration('autoit');
 
-module.exports = languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
+export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
   provideDocumentSymbols(doc) {
     const result = [];
     const found = [];
@@ -23,7 +23,12 @@ module.exports = languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
 
       funcName = functionPattern.exec(text);
       if (funcName && !found.includes(funcName[1])) {
-        const functionSymbol = new SymbolInformation(funcName[1], SymbolKind.Function, line.range);
+        const functionSymbol = new SymbolInformation(
+          funcName[1],
+          SymbolKind.Function,
+          '',
+          new Location(doc.uri, line.range),
+        );
         result.push(functionSymbol);
         found.push(funcName[1]);
       }
@@ -41,7 +46,12 @@ module.exports = languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
             return;
           }
 
-          const variableSymbol = new SymbolInformation(variable, SymbolKind.Variable, line.range);
+          const variableSymbol = new SymbolInformation(
+            variable,
+            SymbolKind.Variable,
+            '',
+            new Location(doc.uri, line.range),
+          );
           result.push(variableSymbol);
           found.push(variable);
         });
