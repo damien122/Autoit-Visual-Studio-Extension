@@ -2,7 +2,7 @@ import { languages, Hover } from 'vscode';
 import hovers from './hovers';
 import { AUTOIT_MODE } from './util';
 
-module.exports = languages.registerHoverProvider(AUTOIT_MODE, {
+const hoverFeature = languages.registerHoverProvider(AUTOIT_MODE, {
   provideHover(document, position) {
     const wordRange = document.getWordRangeAtPosition(position);
 
@@ -13,3 +13,5 @@ module.exports = languages.registerHoverProvider(AUTOIT_MODE, {
     return new Hover(hover);
   },
 });
+
+export default hoverFeature;
