@@ -6,11 +6,13 @@ const hoverFeature = languages.registerHoverProvider(AUTOIT_MODE, {
   provideHover(document, position) {
     const wordRange = document.getWordRangeAtPosition(position);
 
-    const word = wordRange ? document.getText(wordRange) : '';
+    const word = wordRange ? document.getText(wordRange).toLowerCase() : '';
 
-    const hover = hovers[Object.keys(hovers).find(key => key.toLowerCase() === word.toLowerCase())];
+    if (word in hovers) {
+      return new Hover(hovers[word]);
+    }
 
-    return new Hover(hover);
+    return null;
   },
 });
 
