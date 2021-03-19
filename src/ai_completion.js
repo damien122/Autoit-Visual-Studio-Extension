@@ -222,9 +222,11 @@ const provideCompletionItems = (document, position) => {
   return [...completions, ...localCompletions, ...includes, ...libraryCompletions];
 };
 
-module.exports = languages.registerCompletionItemProvider(
+const completionFeature = languages.registerCompletionItemProvider(
   { language: 'autoit', scheme: 'file' },
   { provideCompletionItems },
   '.',
   '$',
 );
+
+export default completionFeature;

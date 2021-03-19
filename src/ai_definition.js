@@ -62,4 +62,4 @@ const AutoItDefinitionProvider = {
 
 const defProvider = languages.registerDefinitionProvider(AUTOIT_MODE, AutoItDefinitionProvider);
 
-module.exports = defProvider;
+export default defProvider;
