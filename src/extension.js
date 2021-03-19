@@ -1,14 +1,27 @@
-import { languages, commands } from 'vscode';
-import langConfig from './languageConfiguration';
-import * as AutoItCommands from './ai_commands';
-import hoverFeature from './ai_hover';
-import completionFeature from './ai_completion';
-import symbolsFeature from './ai_symbols';
-import signaturesFeature from './ai_signature';
-import workspaceSymbolsFeature from './ai_workspaceSymbols';
-import goToDefinitionFeature from './ai_definition';
+const vscode = require('vscode');
+const languageConfiguration = require('./languageConfiguration');
+const hoverFeature = require('./ai_hover');
+const completionFeature = require('./ai_completion');
+const symbolsFeature = require('./ai_symbols');
+const signaturesFeature = require('./ai_signature');
+const workspaceSymbolsFeature = require('./ai_workspaceSymbols');
+const goToDefinitionFeature = require('./ai_definition');
+const {
+  runScript,
+  launchHelp,
+  launchInfo,
+  debugMsgBox,
+  debugConsole,
+  compileScript,
+  tidyScript,
+  checkScript,
+  buildScript,
+  launchKoda,
+  changeConsoleParams,
+  killScript,
+} = require('./ai_commands');
 
-function activate(context) {
+const activate = ctx => {
   const features = [
     hoverFeature,
     completionFeature,
@@ -17,73 +30,76 @@ function activate(context) {
     workspaceSymbolsFeature,
     goToDefinitionFeature,
   ];
-  context.subscriptions.push(...features);
+  ctx.subscriptions.push(...features);
 
-  context.subscriptions.push(languages.setLanguageConfiguration('autoit', langConfig));
+  ctx.subscriptions.push(
+    vscode.languages.setLanguageConfiguration('autoit', languageConfiguration),
+  );
 
   // Run Script Command
-  commands.registerCommand('extension.runScript', () => {
-    AutoItCommands.runScript();
+  vscode.commands.registerCommand('extension.runScript', () => {
+    runScript();
   });
 
   // Launch Help Command
-  commands.registerCommand('extension.launchHelp', () => {
-    AutoItCommands.launchHelp();
+  vscode.commands.registerCommand('extension.launchHelp', () => {
+    launchHelp();
   });
 
   // Launch Au3Info
-  commands.registerCommand('extension.launchInfo', () => {
-    AutoItCommands.launchInfo();
+  vscode.commands.registerCommand('extension.launchInfo', () => {
+    launchInfo();
   });
 
   // Insert Debug MsgBox
-  commands.registerCommand('extension.debugMsgBox', () => {
-    AutoItCommands.debugMsgBox();
-  });
-
-  // Compile scripts
-  commands.registerCommand('extension.compile', () => {
-    AutoItCommands.compileScript();
-  });
-
-  // Tidy script
-  commands.registerCommand('extension.tidy', () => {
-    AutoItCommands.tidyScript();
-  });
-
-  // Check script
-  commands.registerCommand('extension.check', () => {
-    AutoItCommands.checkScript();
-  });
-
-  // Build scripts
-  commands.registerCommand('extension.build', () => {
-    AutoItCommands.buildScript();
+  vscode.commands.registerCommand('extension.debugMsgBox', () => {
+    debugMsgBox();
   });
 
   // Launch Debug-Console
-  commands.registerCommand('extension.debugConsole', () => {
-    AutoItCommands.debugConsole();
+  vscode.commands.registerCommand('extension.debugConsole', () => {
+    debugConsole();
+  });
+
+  // Compile scripts
+  vscode.commands.registerCommand('extension.compile', () => {
+    compileScript();
+  });
+
+  // Tidy script
+  vscode.commands.registerCommand('extension.tidy', () => {
+    tidyScript();
+  });
+
+  // Check script
+  vscode.commands.registerCommand('extension.check', () => {
+    checkScript();
+  });
+
+  // Build scripts
+  vscode.commands.registerCommand('extension.build', () => {
+    buildScript();
   });
 
   // Launch Koda Form Designer
-  commands.registerCommand('extension.launchKoda', () => {
-    AutoItCommands.launchKoda();
+  vscode.commands.registerCommand('extension.launchKoda', () => {
+    launchKoda();
   });
 
   // Update console parameters
-  commands.registerCommand('extension.changeParams', () => {
-    AutoItCommands.changeConsoleParams();
+  vscode.commands.registerCommand('extension.changeParams', () => {
+    changeConsoleParams();
   });
 
   // Kill running script command
-  commands.registerCommand('extension.killScript', () => {
-    AutoItCommands.killScript();
+  vscode.commands.registerCommand('extension.killScript', () => {
+    killScript();
   });
 
   // eslint-disable-next-line no-console
   console.log('AutoIt is now active!');
-}
+};
+
 exports.activate = activate;
 
 // this method is called when your extension is deactivated
