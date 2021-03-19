@@ -5,13 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "extensionHost",
-      "request": "launch",
-      "name": "Launch Extension",
-      "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
-      "outFiles": ["${workspaceFolder}/dist/*.js"],
-      "preLaunchTask": "devBundle"
+      "name": "Launch Extension",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "preLaunchTask": "npm: webpack",
+      "request": "launch",
+      "type": "pwa-extensionHost",
+      "smartStep": true
     }
   ]
 }
