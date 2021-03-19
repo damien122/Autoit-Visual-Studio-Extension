@@ -194,7 +194,7 @@ function getLocalSigs(doc) {
   return functions;
 }
 
-module.exports = languages.registerSignatureHelpProvider(
+export default languages.registerSignatureHelpProvider(
   { language: 'autoit', scheme: 'file' },
   {
     provideSignatureHelp(document, position) {
@@ -235,7 +235,6 @@ module.exports = languages.registerSignatureHelpProvider(
       result.signatures = [thisSignature];
       result.activeSignature = 0;
       result.activeParameter = caller.commas;
-
       return result;
     },
   },
