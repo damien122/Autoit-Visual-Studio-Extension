@@ -67,8 +67,9 @@ import { hovers as udfWinAPITheme } from '../signatures/WinAPIEx/WinAPITheme';
 import { hovers as udfWinNet } from '../signatures/udf_winnet';
 import { hovers as udfWord } from '../signatures/udf_word';
 import { hovers as udfDebug } from '../signatures/udf_debug';
+import { hovers as InetConstants } from '../completions/constantsInet';
 
-const hovers = {
+const hoverImports = {
   ...ai_functions,
   ...keywords,
   ...macros,
@@ -138,6 +139,11 @@ const hovers = {
   ...udfWinNet,
   ...udfWord,
   ...udfDebug,
+  ...InetConstants,
 };
+
+const hovers = Object.fromEntries(
+  Object.entries(hoverImports).map(([key, value]) => [key.toLowerCase(), value]),
+);
 
 export default hovers;
