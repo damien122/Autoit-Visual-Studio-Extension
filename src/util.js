@@ -90,6 +90,21 @@ const signatureToHover = signatures => {
   return hoverObjects;
 };
 
+/**
+ * Generates an object of Hover objects from completions
+ * @param completions An object containing Completions
+ * @returns Returns an empty object or Hover objects
+ */
+const completionToHover = completions => {
+  const hoverObjects = {};
+
+  completions.forEach(item => {
+    hoverObjects[item.label] = item.documentation;
+  });
+
+  return hoverObjects;
+};
+
 const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
 
@@ -110,4 +125,5 @@ module.exports = {
   signatureToHover,
   includePattern,
   functionPattern,
+  completionToHover,
 };
