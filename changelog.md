@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Implemented Diagnostics (Problems tab and red squiggles) for AutoIt scripts
+- Completions and Hovers for InetConstants
+
+### Changed
+
+- Switched from Parcel to Webpack for bundling
+- Reworked the wordPattern
+- Optimized HoverProvider
+
 ## [1.0.5] - 2020-05-07
 
 ### Changed
