@@ -44,7 +44,7 @@ const parseAu3CheckOutput = (document, output) => {
     );
     diagRange = new vscode.Range(diagPosition, diagPosition);
 
-    switch (matches.groups.diagSeverity) {
+    switch (matches.groups.severity) {
       case 'warning':
         diagSeverity = vscode.DiagnosticSeverity.Warning;
         break;
