@@ -8,10 +8,13 @@ const symbolsFeature = require('./ai_symbols');
 const signaturesFeature = require('./ai_signature');
 const workspaceSymbolsFeature = require('./ai_workspaceSymbols');
 const goToDefinitionFeature = require('./ai_definition');
-// const checkAutoItCode = require('./checkAutoItCode');
 
 const { registerCommands } = require('./registerCommands');
-const { getDiagnosticSeverity } = require('./checkAutoItCode');
+const {
+  getDiagnosticRange,
+  getDiagnosticSeverity,
+  updateDiagnostics,
+} = require('./checkAutoItCode');
 
 const { checkPath } = vscode.workspace.getConfiguration('autoit');
 
@@ -20,31 +23,22 @@ let diagnosticCollection;
 const parseAu3CheckOutput = (document, output) => {
   const OUTPUT_REGEXP = /"(?<scriptPath>.+)"\((?<line>\d{1,4}),(?<position>\d{1,4})\)\s:\s(?<severity>warning|error):\s(?<description>.+)\./gm;
   let matches = null;
-  let diagPosition;
-  let diagRange;
+  let diagnosticRange;
   let diagnosticSeverity;
-  const diagnostics = {};
+  let diagnostics = {};
 
   matches = OUTPUT_REGEXP.exec(output);
   while (matches !== null) {
-    diagPosition = new vscode.Position(
-      parseInt(matches.groups.line, 10) - 1,
-      parseInt(matches.groups.position, 10) - 1,
-    );
-    diagRange = new vscode.Range(diagPosition, diagPosition);
-
+    diagnosticRange = getDiagnosticRange(matches.groups.line, matches.groups.position);
     diagnosticSeverity = getDiagnosticSeverity(matches.groups.severity);
 
-    if (matches.groups.scriptPath in diagnostics) {
-      diagnostics[matches.groups.scriptPath].push(
-        new vscode.Diagnostic(diagRange, matches.groups.description, diagnosticSeverity),
-      );
-    } else {
-      diagnostics[matches.groups.scriptPath] = [];
-      diagnostics[matches.groups.scriptPath].push(
-        new vscode.Diagnostic(diagRange, matches.groups.description, diagnosticSeverity),
-      );
-    }
+    diagnostics = updateDiagnostics(
+      diagnostics,
+      matches.groups.scriptPath,
+      diagnosticRange,
+      matches.groups.description,
+      diagnosticSeverity,
+    );
 
     matches = OUTPUT_REGEXP.exec(output);
   }
