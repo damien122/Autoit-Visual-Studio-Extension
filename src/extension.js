@@ -9,20 +9,8 @@ const signaturesFeature = require('./ai_signature');
 const workspaceSymbolsFeature = require('./ai_workspaceSymbols');
 const goToDefinitionFeature = require('./ai_definition');
 // const checkAutoItCode = require('./checkAutoItCode');
-const {
-  runScript,
-  launchHelp,
-  launchInfo,
-  debugMsgBox,
-  debugConsole,
-  compileScript,
-  tidyScript,
-  checkScript,
-  buildScript,
-  launchKoda,
-  changeConsoleParams,
-  killScript,
-} = require('./ai_commands');
+
+const { registerCommands } = require('./registerCommands');
 
 const { checkPath } = vscode.workspace.getConfiguration('autoit');
 
@@ -113,65 +101,7 @@ const activate = ctx => {
   diagnosticCollection = vscode.languages.createDiagnosticCollection('autoit');
   ctx.subscriptions.push(diagnosticCollection);
 
-  // Run Script Command
-  vscode.commands.registerCommand('extension.runScript', () => {
-    runScript();
-  });
-
-  // Launch Help Command
-  vscode.commands.registerCommand('extension.launchHelp', () => {
-    launchHelp();
-  });
-
-  // Launch Au3Info
-  vscode.commands.registerCommand('extension.launchInfo', () => {
-    launchInfo();
-  });
-
-  // Insert Debug MsgBox
-  vscode.commands.registerCommand('extension.debugMsgBox', () => {
-    debugMsgBox();
-  });
-
-  // Launch Debug-Console
-  vscode.commands.registerCommand('extension.debugConsole', () => {
-    debugConsole();
-  });
-
-  // Compile scripts
-  vscode.commands.registerCommand('extension.compile', () => {
-    compileScript();
-  });
-
-  // Tidy script
-  vscode.commands.registerCommand('extension.tidy', () => {
-    tidyScript();
-  });
-
-  // Check script
-  vscode.commands.registerCommand('extension.check', () => {
-    checkScript();
-  });
-
-  // Build scripts
-  vscode.commands.registerCommand('extension.build', () => {
-    buildScript();
-  });
-
-  // Launch Koda Form Designer
-  vscode.commands.registerCommand('extension.launchKoda', () => {
-    launchKoda();
-  });
-
-  // Update console parameters
-  vscode.commands.registerCommand('extension.changeParams', () => {
-    changeConsoleParams();
-  });
-
-  // Kill running script command
-  vscode.commands.registerCommand('extension.killScript', () => {
-    killScript();
-  });
+  registerCommands();
 
   vscode.workspace.onDidSaveTextDocument(document => checkAutoItCode(document));
   vscode.workspace.onDidOpenTextDocument(document => checkAutoItCode(document));

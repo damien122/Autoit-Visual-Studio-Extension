@@ -1,0 +1,38 @@
+import { commands } from 'vscode';
+import {
+  buildScript,
+  changeConsoleParams,
+  checkScript,
+  compileScript,
+  debugConsole,
+  debugMsgBox,
+  killScript,
+  launchHelp,
+  launchInfo,
+  launchKoda,
+  runScript,
+  tidyScript,
+} from './ai_commands';
+
+const commandList = [
+  { id: 'extension.runScript', func: runScript },
+  { id: 'extension.launchHelp', func: launchHelp },
+  { id: 'extension.launchInfo', func: launchInfo },
+  { id: 'extension.debugMsgBox', func: debugMsgBox },
+  { id: 'extension.debugConsole', func: debugConsole },
+  { id: 'extension.compile', func: compileScript },
+  { id: 'extension.tidy', func: tidyScript },
+  { id: 'extension.check', func: checkScript },
+  { id: 'extension.build', func: buildScript },
+  { id: 'extension.launchKoda', func: launchKoda },
+  { id: 'extension.changeParams', func: changeConsoleParams },
+  { id: 'extension.killScript', func: killScript },
+];
+
+export const registerCommands = () => {
+  commandList.forEach(command => {
+    commands.registerCommand(command.id, command.func);
+  });
+};
+
+export default 'registerCommands';
