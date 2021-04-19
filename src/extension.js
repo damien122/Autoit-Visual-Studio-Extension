@@ -11,6 +11,7 @@ const goToDefinitionFeature = require('./ai_definition');
 // const checkAutoItCode = require('./checkAutoItCode');
 
 const { registerCommands } = require('./registerCommands');
+const { getDiagnosticSeverity } = require('./checkAutoItCode');
 
 const { checkPath } = vscode.workspace.getConfiguration('autoit');
 
@@ -21,7 +22,7 @@ const parseAu3CheckOutput = (document, output) => {
   let matches = null;
   let diagPosition;
   let diagRange;
-  let diagSeverity;
+  let diagnosticSeverity;
   const diagnostics = {};
 
   matches = OUTPUT_REGEXP.exec(output);
@@ -32,22 +33,16 @@ const parseAu3CheckOutput = (document, output) => {
     );
     diagRange = new vscode.Range(diagPosition, diagPosition);
 
-    switch (matches.groups.severity) {
-      case 'warning':
-        diagSeverity = vscode.DiagnosticSeverity.Warning;
-        break;
-      default:
-        diagSeverity = vscode.DiagnosticSeverity.Error;
-    }
+    diagnosticSeverity = getDiagnosticSeverity(matches.groups.severity);
 
     if (matches.groups.scriptPath in diagnostics) {
       diagnostics[matches.groups.scriptPath].push(
-        new vscode.Diagnostic(diagRange, matches.groups.description, diagSeverity),
+        new vscode.Diagnostic(diagRange, matches.groups.description, diagnosticSeverity),
       );
     } else {
       diagnostics[matches.groups.scriptPath] = [];
       diagnostics[matches.groups.scriptPath].push(
-        new vscode.Diagnostic(diagRange, matches.groups.description, diagSeverity),
+        new vscode.Diagnostic(diagRange, matches.groups.description, diagnosticSeverity),
       );
     }
 
