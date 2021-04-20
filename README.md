@@ -7,16 +7,18 @@ and developed from Damien122's release.
 
 ## Features
 
-* AutoIt Syntax highlighting
-* IntelliSense (code hints and completion)
+- AutoIt Syntax highlighting
+- IntelliSense (code hints and completion)
 
   ![Intellisense](img/docs/signaturehelp.gif)
 
-* Launch, compile and build scripts from VSCode
-* Launch AutoIt Help for highlighted text
-* Symbol search, press `Ctrl+Shift+O` to see where Functions and Variables have been declared in the current script
+- Launch, compile and build scripts from VSCode
+- Launch AutoIt Help for highlighted text
+- Symbol search, press `Ctrl+Shift+O` to see where Functions and Variables have been declared in the current script
 
   ![SymbolSearch](img/docs/symbolsearch.gif)
+
+- Diagnostics (Problems Tab) showing Warnings & Errors
 
 ## Configuration
 
@@ -34,6 +36,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 | `autoit.showVariablesInGoToSymbol` | Determines whether to show or hide variables when using Ctrl+Shift+O (added in v0.1.9)                 | true                                                                          |
 | `autoit.includePaths`              | Paths to look for include files from, in an array. (added in v0.1.9)                                   | ["C:\\Program Files (x86)\\AutoIt3\\Include"]                                 |
 | `autoit.consoleParams`             | A string of parameters passed to the console when the Run Script command is launched (added in v0.2.1) | ""                                                                            |
+| `autoit.enableDiagnostics`         | Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save              | true                                                                          |
 
 <!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 
@@ -45,19 +48,19 @@ By default, this extension is set up for the default installation of AutoIt and 
 
 ## Keyboard Shortcuts
 
-* Run Script: `F5`
-* AutoIt Check: `Ctrl+F5`
-* Compile Script: `Ctrl+F7`
-* Build Script: `F7`
-* Run AutoIt Help: `Ctrl+F1`
-* Run Au3Info: `Ctrl+F6`
-* Debug to MsgBox: `Ctrl+Shift+D`
-* Debug to Console: `Alt+D`
-* Run Koda: `Alt+M`
-* Set Command Line Parameters: `Shift+F8`
-* Kill Running Script: `Ctrl+Pause/Break`
-* Go To Definition (Jump to Variable or Function declaration): `F12`
-* Peek Definition (Show declarations in pop up): `Alt+F12`
+- Run Script: `F5`
+- AutoIt Check: `Ctrl+F5`
+- Compile Script: `Ctrl+F7`
+- Build Script: `F7`
+- Run AutoIt Help: `Ctrl+F1`
+- Run Au3Info: `Ctrl+F6`
+- Debug to MsgBox: `Ctrl+Shift+D`
+- Debug to Console: `Alt+D`
+- Run Koda: `Alt+M`
+- Set Command Line Parameters: `Shift+F8`
+- Kill Running Script: `Ctrl+Pause/Break`
+- Go To Definition (Jump to Variable or Function declaration): `F12`
+- Peek Definition (Show declarations in pop up): `Alt+F12`
 
 > **NOTE:**
 >

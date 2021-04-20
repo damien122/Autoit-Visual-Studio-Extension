@@ -49,16 +49,21 @@ const parseAu3CheckOutput = (document, output) => {
 };
 
 function checkAutoItCode(document) {
+  const { enableDiagnostics } = vscode.workspace.getConfiguration('autoit');
+
+  diagnosticCollection.clear();
+
+  if (!enableDiagnostics) {
+    return;
+  }
+
   if (document.languageId !== 'autoit') {
     return;
   }
-  diagnosticCollection.clear();
 
-  const options = {
+  const checkProcess = spawn(checkPath, [document.fileName], {
     cwd: path.dirname(document.fileName),
-  };
-
-  const checkProcess = spawn(checkPath, [document.fileName], options);
+  });
 
   checkProcess.stdout.on('data', data => {
     if (data.length === 0) {
@@ -87,10 +92,10 @@ const activate = ctx => {
     vscode.languages.setLanguageConfiguration('autoit', languageConfiguration),
   );
 
+  registerCommands();
+
   diagnosticCollection = vscode.languages.createDiagnosticCollection('autoit');
   ctx.subscriptions.push(diagnosticCollection);
-
-  registerCommands();
 
   vscode.workspace.onDidSaveTextDocument(document => checkAutoItCode(document));
   vscode.workspace.onDidOpenTextDocument(document => checkAutoItCode(document));
