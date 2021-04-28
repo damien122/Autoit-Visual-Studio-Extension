@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const path = require('path');
+const fs = require('fs');
 const { spawn } = require('child_process');
 const languageConfiguration = require('./languageConfiguration');
 const hoverFeature = require('./ai_hover');
@@ -15,8 +16,6 @@ const {
   getDiagnosticSeverity,
   updateDiagnostics,
 } = require('./checkAutoItCode');
-
-const { checkPath } = vscode.workspace.getConfiguration('autoit');
 
 let diagnosticCollection;
 
@@ -49,7 +48,7 @@ const parseAu3CheckOutput = (document, output) => {
 };
 
 function checkAutoItCode(document) {
-  const { enableDiagnostics } = vscode.workspace.getConfiguration('autoit');
+  const { checkPath, enableDiagnostics } = vscode.workspace.getConfiguration('autoit');
 
   diagnosticCollection.clear();
 
@@ -58,6 +57,13 @@ function checkAutoItCode(document) {
   }
 
   if (document.languageId !== 'autoit') {
+    return;
+  }
+
+  if (!fs.existsSync(checkPath)) {
+    vscode.window.showErrorMessage(
+      'Inavlid Check Path! Please review AutoIt settings (Check Path in UI, autoit.checkPath in JSON)',
+    );
     return;
   }
 
