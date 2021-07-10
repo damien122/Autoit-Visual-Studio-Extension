@@ -89,7 +89,7 @@ import WinAPIShellEx from './udf_WinAPIShellEx';
 import WinAPIShPath from './udf_WinAPIShPath';
 import WinAPITheme from './udf_WinAPITheme';
 import WinNet from './udf_winNet';
-import Word from './udf_word';
+import { completions as Word } from '../signatures/udf_word';
 import InetConstants from './constantsInet';
 
 const completions = [

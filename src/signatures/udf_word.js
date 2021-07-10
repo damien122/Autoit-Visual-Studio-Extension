@@ -1,7 +1,9 @@
+import { CompletionItemKind } from 'vscode';
 import {
   br,
   opt,
   signatureToHover,
+  signatureToCompletion,
   trueFalseHader as tfHeader,
   valueFirstHeader as header,
 } from '../util';
@@ -661,5 +663,6 @@ const signatures = {
 };
 
 const hovers = signatureToHover(signatures);
+const completions = signatureToCompletion(signatures, CompletionItemKind.Function, include);
 
-export { signatures as default, hovers };
+export { signatures as default, hovers, completions };

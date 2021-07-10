@@ -108,6 +108,21 @@ const completionToHover = completions => {
 const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
 
+/**
+ * Generates an array of Completions from a signature object
+ * @param signatures Signature object
+ * @param kind The CompletionItemKind
+ * @param detail A human-readable string with additional information about this item, like type or symbol information.
+ * @returns {Array} an array of completions
+ */
+const signatureToCompletion = (signatures, kind, detail) => {
+  const completionSet = Object.keys(signatures).map(key => {
+    return { label: key, documentation: signatures[key].documentation, kind, detail };
+  });
+
+  return completionSet;
+};
+
 module.exports = {
   descriptionHeader,
   valueFirstHeader,
@@ -126,4 +141,5 @@ module.exports = {
   includePattern,
   functionPattern,
   completionToHover,
+  signatureToCompletion,
 };
