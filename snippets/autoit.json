@@ -82,6 +82,21 @@
         "scope": "source.autoit",
         "description": "Multi-line If block snippet"
     },
+    "Select Block": {
+        "prefix": "Select Block",
+        "body": [
+            "Select",
+            "\tCase ${1:\\$iFirstNumber = 1}",
+            "\t\t${2:True}",
+            "\tCase ${3:\\$iSecondNumber = 2}",
+            "\t\t${4:True}",
+            "\tCase Else",
+            "\t\t${5:False}",
+            "EndSelect"
+        ],
+        "scope": "source.autoit",
+        "description": "Select block snippet"
+    },
     "Switch Block": {
         "prefix": "Switch Block",
         "body": [
