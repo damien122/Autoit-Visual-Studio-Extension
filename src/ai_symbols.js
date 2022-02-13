@@ -4,11 +4,16 @@ import { AI_CONSTANTS, AUTOIT_MODE, isSkippableLine, functionPattern } from './u
 const variablePattern = /(\$\w+)/g;
 const config = workspace.getConfiguration('autoit');
 
+const createVariableSymbol = (variable, variableKind, doc, line) => {
+  return new SymbolInformation(variable, variableKind, '', new Location(doc.uri, line.range));
+};
+
 export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
   provideDocumentSymbols(doc) {
     const result = [];
     const found = [];
     let funcName;
+    let variableKind;
 
     // Get the number of lines in the document to loop through
     const lineCount = Math.min(doc.lineCount, 10000);
@@ -41,18 +46,21 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
           continue;
         }
 
+        if (/^Const/.test(text)) {
+          variableKind = SymbolKind.Constant;
+        } else if (/^Enum/.test(text)) {
+          variableKind = SymbolKind.Enum;
+        } else {
+          variableKind = SymbolKind.Variable;
+        }
+
+        // eslint-disable-next-line no-loop-func
         variables.forEach(variable => {
           if (found.includes(variable) || AI_CONSTANTS.includes(variable)) {
             return;
           }
 
-          const variableSymbol = new SymbolInformation(
-            variable,
-            SymbolKind.Variable,
-            '',
-            new Location(doc.uri, line.range),
-          );
-          result.push(variableSymbol);
+          result.push(createVariableSymbol(variable, variableKind, doc, line));
           found.push(variable);
         });
       }
