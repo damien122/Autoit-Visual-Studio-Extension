@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Const and Enum variables now have appropriate icons
+- Const and Enum variables now have appropriate icons in the Outline tree
 - Snippet for Select Blocks
 
 ## [1.0.6] - 2021-06-14
