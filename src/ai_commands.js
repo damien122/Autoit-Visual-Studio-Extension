@@ -74,14 +74,20 @@ const runScript = () => {
 
 const launchHelp = () => {
   const editor = window.activeTextEditor;
+  const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty
+  const currLineText = editor.document.lineAt(editor.selection.active.line).text
 
-  // Get the selected text and launch it
-  const doc = editor.document;
-  const query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
+  if (noSelection && currLineText === '') {
+    launch(helpPath);
+  } else {
+    // Get the selected text and launch it
+    const doc = editor.document;
+    const query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
 
-  window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
+    window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
 
-  launch(helpPath, [query]);
+    launch(helpPath, [query]);
+  };
 };
 
 const launchInfo = () => {
