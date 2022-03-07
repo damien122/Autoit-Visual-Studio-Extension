@@ -1,7 +1,9 @@
-import { window, Position, workspace } from 'vscode';
+import { window, Position, workspace, Uri } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
+import fs from 'fs';
 
+const vscode = require('vscode');
 const configuration = workspace.getConfiguration('autoit');
 
 // Executable paths
@@ -240,15 +242,50 @@ const killScript = () => {
 };
 
 const openInclude = () => {
-  const includePaths = workspace.getConfiguration('autoit').get('includePaths');
   const editor = window.activeTextEditor;
-
   const doc = editor.document;
 
-  // Grab the whole line
   const currentLine = doc.lineAt(editor.selection.active.line).text;
+  const findInclude = /^(?:\s*)#include.+["'<](.*)["'>]/i;
+  const found = findInclude.exec(currentLine);
   
+  if (found === null) {
+    window.showErrorMessage(
+      `Not on #include line.`,
+    );
+    return;
+  }
+
+  let includeFile = found[1];
+  if (!fs.existsSync(includeFile)) {
+    includeFile = findFilepath(includeFile);
+  }
+  
+  if (!includeFile) {
+    window.showErrorMessage(
+      `Unable to locate #include file.`,
+    );
+    return;
+  }
+
+  const url = Uri.parse('file:///' + includeFile);
+  window.showTextDocument(url);
 };
+  
+  
+function findFilepath(file) {
+  const { includePaths } = workspace.getConfiguration('autoit');
+  let newPath;
+
+  for (let i = 0; i < includePaths.length; i += 1) {
+    newPath = path.normalize(`${includePaths[i]}\\`) + file;
+    if (fs.existsSync(newPath)) {
+      return newPath;
+    }
+  }
+
+  return 0;
+}
 
 export {
   buildScript,
