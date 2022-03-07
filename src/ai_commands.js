@@ -3,7 +3,6 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 
-const vscode = require('vscode');
 const configuration = workspace.getConfiguration('autoit');
 
 // Executable paths
