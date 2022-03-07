@@ -239,6 +239,17 @@ const killScript = () => {
   runner.kill();
 };
 
+const openInclude = () => {
+  const includePaths = workspace.getConfiguration('autoit').get('includePaths');
+  const editor = window.activeTextEditor;
+
+  const doc = editor.document;
+
+  // Grab the whole line
+  const currentLine = doc.lineAt(editor.selection.active.line).text;
+  
+};
+
 export {
   buildScript,
   changeConsoleParams,
@@ -252,4 +263,5 @@ export {
   launchKoda,
   runScript,
   tidyScript,
+  openInclude,
 };
