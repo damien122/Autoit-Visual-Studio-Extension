@@ -297,6 +297,6 @@
     "dev": "parcel build --target node src/extension.js",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
-    "vscode:prepublish": "parcel build src/extension.js --target node --no-source-maps"
+    "vscode:prepublish": "webpack --mode production"
   }
 }
