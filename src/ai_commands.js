@@ -74,8 +74,8 @@ const runScript = () => {
 
 const launchHelp = () => {
   const editor = window.activeTextEditor;
-  const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty
-  const currLineText = editor.document.lineAt(editor.selection.active.line).text
+  const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty;
+  const currLineText = editor.document.lineAt(editor.selection.active.line).text;
 
   if (noSelection && currLineText === '') {
     launch(helpPath);
@@ -87,7 +87,7 @@ const launchHelp = () => {
     window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
 
     launch(helpPath, [query]);
-  };
+  }
 };
 
 const launchInfo = () => {
