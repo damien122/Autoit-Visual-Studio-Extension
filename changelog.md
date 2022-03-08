@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+
+- The AutoIt Help comamnd will now open on blank lines (thanks Danp2)
+
 ## [1.0.7] - 2022-02-14
 
 ### Added
