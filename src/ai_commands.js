@@ -245,7 +245,7 @@ const openInclude = () => {
   const doc = editor.document;
 
   const currentLine = doc.lineAt(editor.selection.active.line).text;
-  const findInclude = /^(?:\s*)#include.+["'<](.*)["'>]/i;
+  const findInclude = /^(?:\s*)#include.+["'<](.*\.au3)["'>]/i;
   const found = findInclude.exec(currentLine);
   
   if (found === null) {
@@ -256,10 +256,21 @@ const openInclude = () => {
   }
 
   let includeFile = found[1];
+
   if (!fs.existsSync(includeFile)) {
-    includeFile = findFilepath(includeFile);
+    // check based on current document directory
+    const docPath = path.dirname(doc.fileName);
+    const currFile = path.normalize(`${docPath}\\`) + includeFile;
+
+    if (fs.existsSync(currFile)) {
+      includeFile = currFile;
+    } 
+    else {
+      includeFile = findFilepath(includeFile);
+    }
   }
   
+  // check for 
   if (!includeFile) {
     window.showErrorMessage(
       `Unable to locate #include file.`,
