@@ -12,6 +12,7 @@ import {
   launchKoda,
   runScript,
   tidyScript,
+  insertHeader
 } from './ai_commands';
 
 const commandList = [
@@ -27,6 +28,7 @@ const commandList = [
   { id: 'extension.launchKoda', func: launchKoda },
   { id: 'extension.changeParams', func: changeConsoleParams },
   { id: 'extension.killScript', func: killScript },
+  { id: 'extension.insertHeader', func: insertHeader },
 ];
 
 export const registerCommands = () => {

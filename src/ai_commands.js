@@ -239,6 +239,50 @@ const killScript = () => {
   runner.kill();
 };
 
+const insertHeader = () => {
+  const editor = window.activeTextEditor;
+  const doc = editor.document;
+  const currentLine = editor.selection.active.line
+  const lineText = doc.lineAt(currentLine).text;
+
+  const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
+  const found = findFunc.exec(lineText);
+  
+  if (found === null) {
+    window.showErrorMessage(
+      `Not on function definition.`,
+    );
+    return;
+  }
+
+  let paramsOut = 'None';
+  if (found[3]) {
+    const params = found[3].split(',');
+    const paramPrefix = '\n;                 '
+    paramsOut = params.join(paramPrefix);
+  }
+
+  const header = `; #FUNCTION# ====================================================================================================================
+; Name ..........: ${found[2]}
+; Description ...:
+; Syntax ........: ${found[1]}
+; Parameters ....: ${paramsOut}
+; Return values .: None
+; Author ........:
+; Modified ......:
+; Remarks .......:
+; Related .......:
+; Link ..........:
+; Example .......: No
+; ===============================================================================================================================
+`;
+
+ const newPosition = new Position(currentLine, 0);
+ editor.edit(editBuilder => {
+    editBuilder.insert(newPosition, header);
+  });
+};
+
 export {
   buildScript,
   changeConsoleParams,
@@ -252,4 +296,5 @@ export {
   launchKoda,
   runScript,
   tidyScript,
+  insertHeader,
 };

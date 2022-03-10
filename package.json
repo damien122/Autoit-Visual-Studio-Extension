@@ -106,6 +106,10 @@
         {
           "command": "extension.killScript",
           "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.insertHeader",
+          "when": "editorLangId == autoit"
         }
       ]
     },
@@ -157,7 +161,11 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
-      }
+      },
+      {
+        "command": "extension.insertHeader",
+        "title": "AutoIt: Insert Function Header"
+      }      
     ],
     "grammars": [
       {
@@ -226,6 +234,10 @@
       {
         "command": "extension.killScript",
         "key": "ctrl+pausebreak"
+      },
+      {
+        "command": "extension.insertHeader",
+        "key": "ctrl+alt+H"
       }
     ],
     "configuration": {
