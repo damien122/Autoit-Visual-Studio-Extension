@@ -258,7 +258,7 @@ const insertHeader = () => {
   let paramsOut = 'None';
   if (found[3]) {
     const params = found[3].split(',').map(element => {
-      return element.trim().split(' ')[0].padEnd(21).concat('- ');
+      return element.trim().split(' ')[0].padEnd(21).concat(element.search('=') != -1 ? ['- [optional] '] : ['- ']);
     });
     const paramPrefix = '\n;                  '
     paramsOut = params.join(paramPrefix);
