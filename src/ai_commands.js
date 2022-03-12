@@ -254,7 +254,7 @@ const insertHeader = () => {
     );
     return;
   }
-
+  let hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
   let paramsOut = 'None';
   if (found[3]) {
     const params = found[3].split(',').map(element => {
@@ -264,7 +264,7 @@ const insertHeader = () => {
     paramsOut = params.join(paramPrefix);
   }
 
-  const header = `; #FUNCTION# ====================================================================================================================
+  const header = `; ${hdrType}===========================================================================================================
 ; Name ..........: ${found[2]}
 ; Description ...:
 ; Syntax ........: ${found[1]}
