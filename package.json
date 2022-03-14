@@ -226,6 +226,10 @@
       {
         "command": "extension.killScript",
         "key": "ctrl+pausebreak"
+      },
+      {
+        "command": "extension.openInclude",
+        "key": "alt+i"
       }
     ],
     "configuration": {
