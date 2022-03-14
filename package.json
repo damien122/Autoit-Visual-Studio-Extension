@@ -106,6 +106,10 @@
         {
           "command": "extension.killScript",
           "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.openInclude",
+          "when": "editorLangId == autoit"
         }
       ]
     },
@@ -157,6 +161,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.openInclude",
+        "title": "AutoIt: Open Include File"
       }
     ],
     "grammars": [
