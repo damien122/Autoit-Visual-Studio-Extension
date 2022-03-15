@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Open include file from the current line with `Alt+i`/Command Palette (thanks Danp2)
+
 ### Changed
 
 - The AutoIt Help comamnd will now open on blank lines (thanks Danp2)
