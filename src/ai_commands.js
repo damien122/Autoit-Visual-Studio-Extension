@@ -246,6 +246,20 @@ const killScript = () => {
   runner.kill();
 };
 
+function findFilepath(file) {
+  const { includePaths } = workspace.getConfiguration('autoit');
+  let newPath;
+
+  for (let i = 0; i < includePaths.length; i += 1) {
+    newPath = path.normalize(`${includePaths[i]}\\${file}`);
+    if (fs.existsSync(newPath)) {
+      return newPath;
+    }
+  }
+
+  return 0;
+};
+
 const openInclude = () => {
   const editor = window.activeTextEditor;
   const doc = editor.document;
@@ -264,7 +278,7 @@ const openInclude = () => {
   if (!fs.existsSync(includeFile)) {
     // check based on current document directory
     const docPath = path.dirname(doc.fileName);
-    const currFile = path.normalize(`${docPath}\\`) + includeFile;
+    const currFile = path.normalize(`${docPath}\\${includeFile}`);
 
     if (fs.existsSync(currFile)) {
       includeFile = currFile;
@@ -291,14 +305,14 @@ const insertHeader = () => {
 
   const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
   const found = findFunc.exec(lineText);
-  
+
   if (found === null) {
     window.showErrorMessage(
       `Not on function definition.`,
     );
     return;
   }
-  let hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
+  const hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
   let paramsOut = 'None';
   if (found[3]) {
     const params = found[3].split(',').map(element => {
@@ -323,23 +337,11 @@ const insertHeader = () => {
 ; ===============================================================================================================================
 `;
 
- const newPosition = new Position(currentLine, 0);
- editor.edit(editBuilder => {
+  const newPosition = new Position(currentLine, 0);
+  editor.edit(editBuilder => {
     editBuilder.insert(newPosition, header);
   });
-function findFilepath(file) {
-  const { includePaths } = workspace.getConfiguration('autoit');
-  let newPath;
-
-  for (let i = 0; i < includePaths.length; i += 1) {
-    newPath = path.normalize(`${includePaths[i]}\\`) + file;
-    if (fs.existsSync(newPath)) {
-      return newPath;
-    }
-  }
-
-  return 0;
-}
+};
 
 export {
   buildScript,
@@ -354,6 +356,6 @@ export {
   launchKoda,
   runScript,
   tidyScript,
-  insertHeader,
   openInclude,
+  insertHeader,
 };
