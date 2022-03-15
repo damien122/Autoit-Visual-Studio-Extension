@@ -2984,6 +2984,14 @@
             "documentation": "The variable to check."
         }]
     },
+    "IsMap": {
+        "documentation": "Checks if a variables is a Map type.",
+        "label": "IsMap ( variable )",
+        "params": [{
+            "label": "variable",
+            "documentation": "The variable/expression to check."
+        }]
+    },
     "IsNumber": {
         "documentation": "Checks if a variable's base type is numeric.",
         "label": "IsNumber ( variable )",
@@ -3022,6 +3030,47 @@
         "params": [{
             "label": "expression",
             "documentation": "Any positive number."
+        }]
+    },
+    "MapAppend": {
+        "documentation": "Add an element to a Map variable.",
+        "label": "MapAppend ( map, value )",
+        "params": [{
+            "label": "map",
+            "documentation": "An existing Map."
+        }, {
+            "label": "value",
+            "documentation": "The value to add."
+        }]
+    },
+    "MapExists": {
+        "documentation": "Determine whether a key exists within a Map.",
+        "label": "MapExists ( map, key )",
+        "params": [{
+            "label": "map",
+            "documentation": "An existing Map."
+        }, {
+            "label": "key",
+            "documentation": "The key to check."
+        }]
+    },
+    "MapKeys": {
+        "documentation": "Returns an array holding the keys within a Map.",
+        "label": "MapKeys ( map )",
+        "params": [{
+            "label": "map",
+            "documentation": "An existing Map."
+        }]
+    },
+    "MapRemove": {
+        "documentation": "Remove a key and its associated value from a Map.",
+        "label": "MapRemove ( map, key )",
+        "params": [{
+            "label": "map",
+            "documentation": "An existing Map."
+        }, {
+            "label": "key",
+            "documentation": "The key to remove."
         }]
     },
     "MemGetStats": {

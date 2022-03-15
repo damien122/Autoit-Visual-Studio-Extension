@@ -917,6 +917,10 @@ var items = [{
         documentation: 'Checks if a variable is a keyword (for example, Default). '
     },
     {
+        label: 'IsMap',
+        documentation: 'Checks if a variables is a Map type. '
+    },
+    {
         label: 'IsNumber',
         documentation: 'Checks if a variable\'s base type is numeric. '
     },
@@ -939,6 +943,26 @@ var items = [{
     {
         label: 'MemGetStats',
         documentation: 'Retrieves memory related information. '
+    },
+    {
+        label: 'MapAppend',
+        documentation: 'Add an element to a Map variable. '
+    },
+    {
+        label: 'MapExists',
+        documentation: 'Determine whether a key exists within a Map. '
+    },
+    {
+        label: 'MapKeys',
+        documentation: 'Returns an array holding the keys within a Map. '
+    },
+    {
+        label: 'MapExists',
+        documentation: 'Determine whether a key exists within a Map. '
+    },
+    {
+        label: 'MapRemove',
+        documentation: 'Removes a key and its associated values from a Map. '
     },
     {
         label: 'Mod',

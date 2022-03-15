@@ -887,6 +887,10 @@
 		"Checks if a variable is a keyword (for example, Default).",
 		"```\rIsKeyword ( variable )\r```"
 	],
+		"IsMap": [
+		"Checks if a variables is a Map type.",
+		"```\rIsMap ( variable )\r```"
+	],
     "IsNumber": [
 		"Checks if a variable's base type is numeric.",
 		"```\rIsNumber ( variable )\r```"
@@ -907,7 +911,23 @@
 		"Calculates the natural logarithm of a number.",
 		"```\rLog ( expression )\r```"
 	],
-    "MemGetStats": [
+		"MapAppend": [
+		"Add an element to a Map variable.",
+		"```\rMapAppend ( map, value )\r```"
+	],
+		"MapExists": [
+		"Determine whether a key exists within a Map.",
+		"```\rMapExists ( map, key )\r```"
+	],
+		"MapKeys": [
+		"Returns an array holding the keys within a Map.",
+		"```\rMapKeys ( map )\r```"
+	],
+		"MapRemove": [
+		"Remove a key and its associated value from a Map.",
+		"```\rMapRemove ( map, key )\r```"
+	],
+		"MemGetStats": [
 		"Retrieves memory related information.",
 		"```\rMemGetStats ( )\r```"
 	],
