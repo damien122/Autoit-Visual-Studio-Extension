@@ -3,14 +3,14 @@
   "displayName": "AutoIt",
   "description": "AutoIt language extension for Visual Studio Code",
   "icon": "img/ai_icon.png",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "publisher": "Damien",
   "galleryBanner": {
     "color": "#254768",
     "theme": "dark"
   },
   "engines": {
-    "vscode": "^0.10.1"
+    "vscode": "^1.52.0"
   },
   "categories": [
     "Programming Languages",
@@ -106,6 +106,10 @@
         {
           "command": "extension.killScript",
           "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.openInclude",
+          "when": "editorLangId == autoit"
         }
       ]
     },
@@ -157,6 +161,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.openInclude",
+        "title": "AutoIt: Open Include File"
       }
     ],
     "grammars": [
@@ -226,6 +234,10 @@
       {
         "command": "extension.killScript",
         "key": "ctrl+pausebreak"
+      },
+      {
+        "command": "extension.openInclude",
+        "key": "alt+i"
       }
     ],
     "configuration": {
@@ -297,6 +309,6 @@
     "dev": "parcel build --target node src/extension.js",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
-    "vscode:prepublish": "parcel build src/extension.js --target node --no-source-maps"
+    "vscode:prepublish": "webpack --mode production"
   }
 }

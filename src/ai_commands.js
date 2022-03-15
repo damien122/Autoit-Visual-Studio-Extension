@@ -1,6 +1,7 @@
-import { window, Position, workspace } from 'vscode';
+import { window, Position, workspace, Uri } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
+import fs from 'fs';
 
 const configuration = workspace.getConfiguration('autoit');
 
@@ -74,14 +75,20 @@ const runScript = () => {
 
 const launchHelp = () => {
   const editor = window.activeTextEditor;
+  const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty;
+  const currLineText = editor.document.lineAt(editor.selection.active.line).text;
 
-  // Get the selected text and launch it
-  const doc = editor.document;
-  const query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
+  if (noSelection && currLineText === '') {
+    launch(helpPath);
+  } else {
+    // Get the selected text and launch it
+    const doc = editor.document;
+    const query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
 
-  window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
+    window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
 
-  launch(helpPath, [query]);
+    launch(helpPath, [query]);
+  }
 };
 
 const launchInfo = () => {
@@ -239,6 +246,57 @@ const killScript = () => {
   runner.kill();
 };
 
+function findFilepath(file) {
+  const { includePaths } = workspace.getConfiguration('autoit');
+  let newPath;
+
+  for (let i = 0; i < includePaths.length; i += 1) {
+    newPath = path.normalize(`${includePaths[i]}\\`) + file;
+    if (fs.existsSync(newPath)) {
+      return newPath;
+    }
+  }
+
+  return 0;
+}
+
+const openInclude = () => {
+  const editor = window.activeTextEditor;
+  const doc = editor.document;
+
+  const currentLine = doc.lineAt(editor.selection.active.line).text;
+  const findInclude = /^(?:\s*)#include.+["'<](.*\.au3)["'>]/i;
+  const found = findInclude.exec(currentLine);
+
+  if (found === null) {
+    window.showErrorMessage(`Not on #include line.`);
+    return;
+  }
+
+  let includeFile = found[1];
+
+  if (!fs.existsSync(includeFile)) {
+    // check based on current document directory
+    const docPath = path.dirname(doc.fileName);
+    const currFile = path.normalize(`${docPath}\\`) + includeFile;
+
+    if (fs.existsSync(currFile)) {
+      includeFile = currFile;
+    } else {
+      includeFile = findFilepath(includeFile);
+    }
+  }
+
+  // check for
+  if (!includeFile) {
+    window.showErrorMessage(`Unable to locate #include file.`);
+    return;
+  }
+
+  const url = Uri.parse(`file:///${includeFile}`);
+  window.showTextDocument(url);
+};
+
 export {
   buildScript,
   changeConsoleParams,
@@ -252,4 +310,5 @@ export {
   launchKoda,
   runScript,
   tidyScript,
+  openInclude,
 };

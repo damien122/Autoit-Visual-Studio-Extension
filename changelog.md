@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Open include file from the current line with `Alt+i`/Command Palette (thanks Danp2)
+
+### Changed
+
+- The AutoIt Help comamnd will now open on blank lines (thanks Danp2)
+
 ## [1.0.7] - 2022-02-14
 
 ### Added
 
-- Const and Enum variables now have appropriate icons
+- Const and Enum variables now have appropriate icons in the Outline tree
 - Snippet for Select Blocks
 
 ## [1.0.6] - 2021-06-14
