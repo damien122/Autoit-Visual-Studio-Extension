@@ -307,9 +307,7 @@ const insertHeader = () => {
   const found = findFunc.exec(lineText);
 
   if (found === null) {
-    window.showErrorMessage(
-      `Not on function definition.`,
-    );
+    window.showErrorMessage(`Not on function definition.`);
     return;
   }
   const hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
