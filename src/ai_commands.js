@@ -314,7 +314,15 @@ const insertHeader = () => {
   let paramsOut = 'None';
   if (found[3]) {
     const params = found[3].split(',').map(element => {
-      return element.trim().split(' ')[0].padEnd(21).concat(element.search('=') != -1 ? ['- [optional] '] : ['- ']);
+      let tag = '- ';
+      if (element.substring(0,5).toLowerCase() === 'byref') {
+        element = element.substring(6); // strip off byref keyword
+        tag +='[in/out] '
+      }
+      if (element.search('=') != -1) {
+        tag += '[optional] '
+      } 
+      return element.trim().split(' ')[0].padEnd(21).concat(tag);
     });
     const paramPrefix = '\n;                  '
     paramsOut = params.join(paramPrefix);
