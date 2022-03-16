@@ -297,6 +297,59 @@ const openInclude = () => {
   window.showTextDocument(url);
 };
 
+const insertHeader = () => {
+  const editor = window.activeTextEditor;
+  const doc = editor.document;
+  const currentLine = editor.selection.active.line
+  const lineText = doc.lineAt(currentLine).text;
+  const UDFCreator = workspace.getConfiguration('autoit').get('UDFCreator');
+
+  const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
+  const found = findFunc.exec(lineText);
+
+  if (found === null) {
+    window.showErrorMessage(`Not on function definition.`);
+    return;
+  }
+  const hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
+  let paramsOut = 'None';
+  if (found[3]) {
+    const params = found[3].split(',').map(element => {
+      let tag = '- ';
+      if (element.substring(0,5).toLowerCase() === 'byref') {
+        element = element.substring(6); // strip off byref keyword
+        tag +='[in/out] '
+      }
+      if (element.search('=') != -1) {
+        tag += '[optional] '
+      } 
+      return element.trim().split(' ')[0].padEnd(21).concat(tag);
+    });
+    const paramPrefix = '\n;                  '
+    paramsOut = params.join(paramPrefix);
+  }
+
+  const header = `; ${hdrType}===========================================================================================================
+; Name ..........: ${found[2]}
+; Description ...:
+; Syntax ........: ${found[1]}
+; Parameters ....: ${paramsOut}
+; Return values .: None
+; Author ........: ${UDFCreator}
+; Modified ......:
+; Remarks .......:
+; Related .......:
+; Link ..........:
+; Example .......: No
+; ===============================================================================================================================
+`;
+
+  const newPosition = new Position(currentLine, 0);
+  editor.edit(editBuilder => {
+    editBuilder.insert(newPosition, header);
+  });
+};
+
 export {
   buildScript,
   changeConsoleParams,
