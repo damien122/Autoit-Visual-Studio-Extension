@@ -312,6 +312,11 @@
           "type": "boolean",
           "default": true,
           "description": "Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save"
+        },
+        "autoit.UDFCreator": {
+          "type": "string",
+          "default": "Your Name",
+          "description": "The name that will be added as Author when Insert Function Header is used"
         }
       }
     }

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Open include file from the current line with `Alt+i`/Command Palette (thanks Danp2)
+- UDF Creator option in Settings to auto populate author when inserting a Function Header
 
 ### Changed
 
