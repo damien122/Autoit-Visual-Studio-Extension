@@ -265,7 +265,7 @@
         "autoit.checkPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe",
-          "markdownDescription": "Path to the AU3Check executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`",
+          "markdownDescription": "Path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`",
           "format": "uri"
         },
         "autoit.helpPath": {
