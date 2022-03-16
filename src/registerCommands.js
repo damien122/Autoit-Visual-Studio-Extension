@@ -12,7 +12,8 @@ import {
   launchKoda,
   runScript,
   tidyScript,
-  openInclude
+  openInclude,
+  insertHeader
 } from './ai_commands';
 
 const commandList = [
@@ -29,6 +30,7 @@ const commandList = [
   { id: 'extension.changeParams', func: changeConsoleParams },
   { id: 'extension.killScript', func: killScript },
   { id: 'extension.openInclude', func: openInclude },
+  { id: 'extension.insertHeader', func: insertHeader },
 ];
 
 export const registerCommands = () => {

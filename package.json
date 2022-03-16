@@ -108,6 +108,10 @@
           "when": "editorLangId == autoit"
         },
         {
+          "command": "extension.insertHeader",
+          "when": "editorLangId == autoit"
+        },
+        {
           "command": "extension.openInclude",
           "when": "editorLangId == autoit"
         }
@@ -161,6 +165,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.insertHeader",
+        "title": "AutoIt: Insert Function Header"
       },
       {
         "command": "extension.openInclude",
@@ -234,6 +242,10 @@
       {
         "command": "extension.killScript",
         "key": "ctrl+pausebreak"
+      },
+      {
+        "command": "extension.insertHeader",
+        "key": "ctrl+alt+H"
       },
       {
         "command": "extension.openInclude",
