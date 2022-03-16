@@ -957,10 +957,6 @@ var items = [{
         documentation: 'Returns an array holding the keys within a Map. '
     },
     {
-        label: 'MapExists',
-        documentation: 'Determine whether a key exists within a Map. '
-    },
-    {
         label: 'MapRemove',
         documentation: 'Removes a key and its associated values from a Map. '
     },
