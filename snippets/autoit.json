@@ -998,5 +998,6 @@
       "#AutoIt3Wrapper_Run_After=",
       "#EndRegion"
     ]
-  }
+  },
+  "/AutoIt3ExecuteLine": { "prefix": "ael", "body": "/AutoIt3ExecuteLine ${1}" }
 }
