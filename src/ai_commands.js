@@ -302,6 +302,7 @@ const insertHeader = () => {
   const doc = editor.document;
   const currentLine = editor.selection.active.line
   const lineText = doc.lineAt(currentLine).text;
+  const UDFCreator = workspace.getConfiguration('autoit').get('UDFCreator');
 
   const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
   const found = findFunc.exec(lineText);
@@ -334,7 +335,7 @@ const insertHeader = () => {
 ; Syntax ........: ${found[1]}
 ; Parameters ....: ${paramsOut}
 ; Return values .: None
-; Author ........:
+; Author ........: ${UDFCreator}
 ; Modified ......:
 ; Remarks .......:
 ; Related .......:
