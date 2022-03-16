@@ -258,7 +258,7 @@ function findFilepath(file) {
   }
 
   return 0;
-};
+}
 
 const openInclude = () => {
   const editor = window.activeTextEditor;
@@ -300,7 +300,7 @@ const openInclude = () => {
 const insertHeader = () => {
   const editor = window.activeTextEditor;
   const doc = editor.document;
-  const currentLine = editor.selection.active.line
+  const currentLine = editor.selection.active.line;
   const lineText = doc.lineAt(currentLine).text;
   const UDFCreator = workspace.getConfiguration('autoit').get('UDFCreator');
 
@@ -311,29 +311,35 @@ const insertHeader = () => {
     window.showErrorMessage(`Not on function definition.`);
     return;
   }
-  const hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
+  const hdrType =
+    found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========';
   let syntaxBegin = `${found[2]}(`;
   let syntaxEnd = ')';
   let paramsOut = 'None';
   if (found[3]) {
-    const params = found[3].split(',').map((element , index) => {
+    const params = found[3].split(',').map((element, index) => {
+      let parameter = element;
       let tag = '- ';
-      if (element.search('=') != -1) {
-        tag += '[optional] '
-        syntaxBegin += '['
-        syntaxEnd = `]${syntaxEnd}`
-      } 
-      syntaxBegin += ((index) ? ', ' : '') + element;
-      if (element.substring(0,5).toLowerCase() === 'byref') {
-        element = element.substring(6); // strip off byref keyword
-        tag +='[in/out] '
+      if (element.search('=') !== -1) {
+        tag += '[optional] ';
+        syntaxBegin += '[';
+        syntaxEnd = `]${syntaxEnd}`;
       }
-      return element.trim().split(' ')[0].padEnd(21).concat(tag);
+      syntaxBegin += (index ? ', ' : '') + element;
+      if (element.substring(0, 5).toLowerCase() === 'byref') {
+        parameter = element.substring(6); // strip off byref keyword
+        tag += '[in/out] ';
+      }
+      return parameter
+        .trim()
+        .split(' ')[0]
+        .padEnd(21)
+        .concat(tag);
     });
-    const paramPrefix = '\n;                  '
+    const paramPrefix = '\n;                  ';
     paramsOut = params.join(paramPrefix);
   }
-  const syntaxOut = `${syntaxBegin}${syntaxEnd}`
+  const syntaxOut = `${syntaxBegin}${syntaxEnd}`;
   const header = `; ${hdrType}===========================================================================================================
 ; Name ..........: ${found[2]}
 ; Description ...:
