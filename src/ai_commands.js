@@ -312,27 +312,32 @@ const insertHeader = () => {
     return;
   }
   const hdrType = (found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========')
+  let syntaxBegin = `${found[2]}(`;
+  let syntaxEnd = ')';
   let paramsOut = 'None';
   if (found[3]) {
-    const params = found[3].split(',').map(element => {
+    const params = found[3].split(',').map((element , index) => {
       let tag = '- ';
+      if (element.search('=') != -1) {
+        tag += '[optional] '
+        syntaxBegin += '['
+        syntaxEnd = `]${syntaxEnd}`
+      } 
+      syntaxBegin += ((index) ? ', ' : '') + element;
       if (element.substring(0,5).toLowerCase() === 'byref') {
         element = element.substring(6); // strip off byref keyword
         tag +='[in/out] '
       }
-      if (element.search('=') != -1) {
-        tag += '[optional] '
-      } 
       return element.trim().split(' ')[0].padEnd(21).concat(tag);
     });
     const paramPrefix = '\n;                  '
     paramsOut = params.join(paramPrefix);
   }
-
+  const syntaxOut = `${syntaxBegin}${syntaxEnd}`
   const header = `; ${hdrType}===========================================================================================================
 ; Name ..........: ${found[2]}
 ; Description ...:
-; Syntax ........: ${found[1]}
+; Syntax ........: ${syntaxOut}
 ; Parameters ....: ${paramsOut}
 ; Return values .: None
 ; Author ........: ${UDFCreator}
