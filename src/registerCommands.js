@@ -13,7 +13,7 @@ import {
   runScript,
   tidyScript,
   openInclude,
-  insertHeader
+  insertHeader,
 } from './ai_commands';
 
 const commandList = [
