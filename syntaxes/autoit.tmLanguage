@@ -275,7 +275,7 @@
       </dict>
       <dict>
         <key>match</key>
-        <string>\.|,</string>
+        <string>\.|,| _\s+</string>
         <key>name</key>
         <string>punctuation.commadot.autoit</string>
       </dict>
