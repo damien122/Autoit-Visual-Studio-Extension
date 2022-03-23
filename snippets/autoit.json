@@ -1001,5 +1001,5 @@
   },
   "/AutoIt3ExecuteLine": { "prefix": "ael", "body": "/AutoIt3ExecuteLine ${1}" },
   "/AutoIt3ExecuteScript": { "prefix": "aes", "body": "/AutoIt3ExecuteScript ${1}" },
-  "Array Result": { "prefix": "aretval", "body": "$$aResult = ${1}" }
+  "Array Result": { "prefix": "aretval", "body": "\\$aResult = ${1}" }
 }
