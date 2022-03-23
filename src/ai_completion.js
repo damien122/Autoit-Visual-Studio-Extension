@@ -15,6 +15,10 @@ const createNewCompletionItem = (kind, name, strDetail = 'Document Function') =>
 
   compItem.detail = kind === CompletionItemKind.Variable ? 'Variable' : strDetail;
 
+  if (kind === CompletionItemKind.Function) {
+    compItem.commitCharacters = ['('];
+  }
+
   return compItem;
 };
 
