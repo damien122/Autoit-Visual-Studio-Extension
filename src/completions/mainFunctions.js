@@ -1,4 +1,5 @@
 import { CompletionItemKind } from 'vscode';
+import { fillCompletions } from '../util';
 
 const items = [
   {
@@ -1619,14 +1620,6 @@ const items = [
   },
 ];
 
-// Add the function icon and detail to each entry
-const functions = items.map(item => {
-  return {
-    ...item,
-    kind: CompletionItemKind.Function,
-    detail: 'Function',
-    commitCharacters: ['('],
-  };
-});
+const functions = fillCompletions(items, CompletionItemKind.Function, 'AutoIt Function');
 
 export default functions;
