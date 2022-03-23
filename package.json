@@ -330,8 +330,6 @@
     }
   },
   "scripts": {
-    "build": "parcel build src/extension.js --target node",
-    "dev": "parcel build --target node src/extension.js",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
     "vscode:prepublish": "webpack --mode production"
