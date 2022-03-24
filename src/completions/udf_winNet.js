@@ -97,11 +97,10 @@ const items = [
   },
 ];
 
-// Add the function icon and detail to each entry
 const completions = fillCompletions(
   items,
   CompletionItemKind.Function,
-  'UDF - #include <WinNet.au3>',
+  'WinNet UDF - #include <WinNet.au3>',
 );
 
 export default completions;
