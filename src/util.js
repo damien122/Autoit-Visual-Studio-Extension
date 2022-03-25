@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { CompletionItemKind } = require('vscode');
+const { CompletionItemKind, workspace } = require('vscode');
 
 const descriptionHeader = '|Description |Value |\n|:---|:---:|\n';
 const valueFirstHeader = '\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|';
