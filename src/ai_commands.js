@@ -1,5 +1,6 @@
 import { window, Position, workspace, Uri } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
+import { findFilepath } from './util';
 import path from 'path';
 import fs from 'fs';
 
@@ -246,20 +247,6 @@ const killScript = () => {
   runner.kill();
 };
 
-function findFilepath(file) {
-  const { includePaths } = workspace.getConfiguration('autoit');
-  let newPath;
-
-  for (let i = 0; i < includePaths.length; i += 1) {
-    newPath = path.normalize(`${includePaths[i]}\\${file}`);
-    if (fs.existsSync(newPath)) {
-      return newPath;
-    }
-  }
-
-  return 0;
-}
-
 const openInclude = () => {
   const editor = window.activeTextEditor;
   const doc = editor.document;
@@ -283,7 +270,8 @@ const openInclude = () => {
     if (fs.existsSync(currFile)) {
       includeFile = currFile;
     } else {
-      includeFile = findFilepath(includeFile);
+      const library = found[0].includes("<")
+      includeFile = findFilepath(includeFile, library);
     }
   }
 
