@@ -8,7 +8,7 @@ import {
 } from 'vscode';
 import fs from 'fs';
 import path from 'path';
-import { getIncludeText, getIncludePath, includePattern } from './util';
+import { getIncludeText, getIncludePath, includePattern, AUTOIT_MODE } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
 
@@ -195,7 +195,7 @@ function getLocalSigs(doc) {
 }
 
 export default languages.registerSignatureHelpProvider(
-  { language: 'autoit', scheme: 'file' },
+  AUTOIT_MODE,
   {
     provideSignatureHelp(document, position) {
       // Find out what called for sig
