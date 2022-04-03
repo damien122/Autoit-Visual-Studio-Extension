@@ -59,6 +59,13 @@
           ".au3"
         ],
         "configuration": "./syntaxes/autoit-language-configuration.json"
+      },
+      {
+        "id": "vscode-autoit-output",
+        "aliases": [],
+        "mimetypes": [
+          "text/x-code-output"
+        ]
       }
     ],
     "menus": {
@@ -180,7 +187,12 @@
         "language": "autoit",
         "scopeName": "source.autoit",
         "path": "./syntaxes/autoit.tmLanguage"
-      }
+      },
+      {
+        "language": "vscode-autoit-output",
+        "scopeName": "source.vscode_autoit_output",
+        "path": "syntaxes/vscode-autoit-output.tmLanguage.json"
+      }      
     ],
     "snippets": [
       {

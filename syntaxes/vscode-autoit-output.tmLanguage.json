@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "vscode-autoit-output",
+  "scopeName": "source.vscode_autoit_output",
+  "patterns": [
+    {
+      "match": "^[>].*",
+      "name": "constant.language.autoit"
+    },
+    {
+      "match": "^[+].*",
+      "name": "comment.block.cs.autoit"
+    },
+    {
+      "match": "^[-].*",
+      "name": "string.quoted"
+    },
+    {
+      "match": "^[!].*",
+      "name": "invalid"
+    }
+  ]
+}

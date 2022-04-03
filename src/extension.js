@@ -30,7 +30,7 @@ const checkAutoItCode = document => {
 
   if (!fs.existsSync(checkPath)) {
     vscode.window.showErrorMessage(
-      'Inavlid Check Path! Please review AutoIt settings (Check Path in UI, autoit.checkPath in JSON)',
+      'Invalid Check Path! Please review AutoIt settings (Check Path in UI, autoit.checkPath in JSON)',
     );
     return;
   }
