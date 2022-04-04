@@ -339,6 +339,42 @@
           "description": "The name that will be added as Author when Insert Function Header is used"
         }
       }
+    },
+    "configurationDefaults": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "vscode-autoit-output-blue",
+            "settings": {
+              "foreground": "#3d85c6"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-red",
+            "settings": {
+              "foreground": "#f44336"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-green",
+            "settings": {
+              "foreground": "#6aa84f"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-orange",
+            "settings": {
+              "foreground": "#f6b26b"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-pink",
+            "settings": {
+              "foreground": "#f4cccc"
+            }
+          }
+        ]
+      }
     }
   },
   "scripts": {

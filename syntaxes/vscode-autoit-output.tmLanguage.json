@@ -5,19 +5,19 @@
   "patterns": [
     {
       "match": "^[>].*",
-      "name": "constant.language.autoit"
+      "name": "vscode-autoit-output-blue"
     },
     {
       "match": "^[+].*",
-      "name": "comment.block.cs.autoit"
+      "name": "vscode-autoit-output-green"
     },
     {
       "match": "^[-].*",
-      "name": "string.quoted"
+      "name": "vscode-autoit-output-orange"
     },
     {
       "match": "^[!].*",
-      "name": "invalid"
+      "name": "vscode-autoit-output-red"
     }
   ]
 }
