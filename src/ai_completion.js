@@ -2,7 +2,7 @@ import { languages, CompletionItem, CompletionItemKind, workspace, Range } from 
 import fs from 'fs';
 import path from 'path';
 import completions from './completions';
-import { getIncludeText, getIncludePath, includePattern, AUTOIT_MODE } from './util';
+import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
 import DEFAULT_UDFS from './constants';
 
 let currentIncludeFiles = [];
@@ -15,35 +15,16 @@ const createNewCompletionItem = (kind, name, strDetail = 'Document Function') =>
 
   compItem.detail = kind === CompletionItemKind.Variable ? 'Variable' : strDetail;
 
+  if (kind === CompletionItemKind.Function) {
+    compItem.commitCharacters = ['('];
+  }
+
   return compItem;
 };
 
 const arraysMatch = (arr1, arr2) => {
   if (arr1.length === arr2.length && arr1.some(v => arr2.indexOf(v) <= 0)) {
     return true;
-  }
-  return false;
-};
-
-/**
- * Checks a filename with the include paths for a valid path
- * @param {string} file - the filename to append to the paths
- * @returns {(string|boolean)} Full path if found to exist or false
- */
-const findFilepath = file => {
-  const { includePaths } = workspace.getConfiguration('autoit');
-
-  let newPath;
-  const pathFound = includePaths.some(iPath => {
-    newPath = path.normalize(`${iPath}\\`) + file;
-    if (fs.existsSync(newPath)) {
-      return true;
-    }
-    return false;
-  });
-
-  if (pathFound && newPath) {
-    return newPath;
   }
   return false;
 };
