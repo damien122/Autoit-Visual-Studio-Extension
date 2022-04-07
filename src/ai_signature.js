@@ -8,7 +8,7 @@ import {
 } from 'vscode';
 import fs from 'fs';
 import path from 'path';
-import { getIncludeText, getIncludePath, includePattern } from './util';
+import { getIncludeText, getIncludePath, includePattern, findFilepath } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
 
@@ -109,20 +109,6 @@ function getIncludeData(fileName, doc) {
   } while (pattern);
 
   return functions;
-}
-
-function findFilepath(file) {
-  const { includePaths } = workspace.getConfiguration('autoit');
-  let newPath;
-
-  for (let i = 0; i < includePaths.length; i += 1) {
-    newPath = path.normalize(`${includePaths[i]}\\`) + file;
-    if (fs.existsSync(newPath)) {
-      return newPath;
-    }
-  }
-
-  return 0;
 }
 
 function getIncludes(doc) {
