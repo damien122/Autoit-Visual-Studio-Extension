@@ -251,7 +251,7 @@ function findFilepath(file) {
   let newPath;
 
   for (let i = 0; i < includePaths.length; i += 1) {
-    newPath = path.normalize(`${includePaths[i]}\\`) + file;
+    newPath = path.normalize(`${includePaths[i]}\\${file}`);
     if (fs.existsSync(newPath)) {
       return newPath;
     }
@@ -278,7 +278,7 @@ const openInclude = () => {
   if (!fs.existsSync(includeFile)) {
     // check based on current document directory
     const docPath = path.dirname(doc.fileName);
-    const currFile = path.normalize(`${docPath}\\`) + includeFile;
+    const currFile = path.normalize(`${docPath}\\${includeFile}`);
 
     if (fs.existsSync(currFile)) {
       includeFile = currFile;
@@ -297,6 +297,70 @@ const openInclude = () => {
   window.showTextDocument(url);
 };
 
+const insertHeader = () => {
+  const editor = window.activeTextEditor;
+  const doc = editor.document;
+  const currentLine = editor.selection.active.line;
+  const lineText = doc.lineAt(currentLine).text;
+  const UDFCreator = workspace.getConfiguration('autoit').get('UDFCreator');
+
+  const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
+  const found = findFunc.exec(lineText);
+
+  if (found === null) {
+    window.showErrorMessage(`Not on function definition.`);
+    return;
+  }
+  const hdrType =
+    found[2].substring(0, 2) === '__' ? '#INTERNAL_USE_ONLY# ' : '#FUNCTION# =========';
+  let syntaxBegin = `${found[2]}(`;
+  let syntaxEnd = ')';
+  let paramsOut = 'None';
+  if (found[3]) {
+    const params = found[3].split(',').map((element, index) => {
+      let parameter = element;
+      let tag = '- ';
+      if (element.search('=') !== -1) {
+        tag += '[optional] ';
+        syntaxBegin += '[';
+        syntaxEnd = `]${syntaxEnd}`;
+      }
+      syntaxBegin += (index ? ', ' : '') + element;
+      if (element.substring(0, 5).toLowerCase() === 'byref') {
+        parameter = element.substring(6); // strip off byref keyword
+        tag += '[in/out] ';
+      }
+      return parameter
+        .trim()
+        .split(' ')[0]
+        .padEnd(21)
+        .concat(tag);
+    });
+    const paramPrefix = '\n;                  ';
+    paramsOut = params.join(paramPrefix);
+  }
+  const syntaxOut = `${syntaxBegin}${syntaxEnd}`;
+  const header = `; ${hdrType}===========================================================================================================
+; Name ..........: ${found[2]}
+; Description ...:
+; Syntax ........: ${syntaxOut}
+; Parameters ....: ${paramsOut}
+; Return values .: None
+; Author ........: ${UDFCreator}
+; Modified ......:
+; Remarks .......:
+; Related .......:
+; Link ..........:
+; Example .......: No
+; ===============================================================================================================================
+`;
+
+  const newPosition = new Position(currentLine, 0);
+  editor.edit(editBuilder => {
+    editBuilder.insert(newPosition, header);
+  });
+};
+
 export {
   buildScript,
   changeConsoleParams,
@@ -311,4 +375,5 @@ export {
   runScript,
   tidyScript,
   openInclude,
+  insertHeader,
 };

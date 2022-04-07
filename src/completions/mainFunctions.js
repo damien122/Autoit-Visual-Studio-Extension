@@ -1,10 +1,7 @@
-'use strict'
+import { CompletionItemKind } from 'vscode';
+import { fillCompletions } from '../util';
 
-var {
-    CompletionItemKind
-} = require('vscode')
-
-var items = [{
+const items = [{
         label: 'Abs',
         documentation: 'Calculates the absolute value of a number.'
     },
@@ -1620,13 +1617,9 @@ var items = [{
         label: 'WinWaitNotActive',
         documentation: 'Pauses execution of the script until the requested window is not active. '
     }
-]
+];
 
-// Add the function icon and detail to each entry
-for (var i of items) {
-    i.kind = CompletionItemKind.Function
-    i.detail = 'Function'
-    // i.insertText = new SnippetString(i.insertText)
-}
+const functions = fillCompletions(items, CompletionItemKind.Function, 'AutoIt Function');
 
-module.exports = items
+
+export default functions;

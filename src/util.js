@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { CompletionItemKind } = require('vscode');
 
 const descriptionHeader = '|Description |Value |\n|:---|:---:|\n';
 const valueFirstHeader = '\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|';
@@ -64,9 +65,21 @@ const getIncludePath = (fileOrPath, document) => {
   return includePath;
 };
 
+/**
+ * Generates a new array of Completions that include a common kind, detail and
+ * potentially commitCharacter(s)
+ * @param {*} entries The array of Completions to be modified
+ * @param {*} kind The enum value of CompletionItemKind to determine icon
+ * @param {*} detail Additional information about the entries
+ * @returns Returns an array of Completion objects
+ */
 const fillCompletions = (entries, kind, detail) => {
+  let commitCharacters;
+
   const filledCompletion = entries.map(entry => {
-    return { ...entry, kind, detail };
+    commitCharacters = kind === CompletionItemKind.Function ? ['('] : [];
+
+    return { ...entry, kind, detail, commitCharacters };
   });
 
   return filledCompletion;

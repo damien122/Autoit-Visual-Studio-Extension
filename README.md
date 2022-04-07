@@ -26,17 +26,18 @@ By default, this extension is set up for the default installation of AutoIt and 
 
 | Config                             | Description                                                                                            | Default                                                                       |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
-| `autoit.aiPath`                    | Path to AutoIt Executable                                                                              | "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"                               |
-| `autoit.wrapperPath`               | Path to AutoIt3Wrapper                                                                                 | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3" |
-| `autoit.tidyPath`                  | Path to Tidy                                                                                           | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe"                     |
-| `autoit.checkPath`                 | Path to AutoIt Syntax Checker (Au3Check)                                                               | "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe"                              |
-| `autoit.helpPath`                  | Path to AutoIt Help                                                                                    | "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"                           |
-| `autoit.infoPath`                  | Path to Au3Info Executable                                                                             | "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe"                               |
-| `autoit.kodaPath`                  | Path to Koda Form Designer                                                                             | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe"                       |
+| `autoit.aiPath`                    | Path to the AutoIt executable                                                                          | "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"                               |
+| `autoit.wrapperPath`               | Path to the AutoIt3Wrapper script                                                                      | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3" |
+| `autoit.tidyPath`                  | Path to the Tidy executable                                                                            | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe"                     |
+| `autoit.checkPath`                 | Path to the AutoIt syntax Checker (Au3Check) executable                                                | "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe"                              |
+| `autoit.helpPath`                  | Path to the AutoIt3Help executable                                                                     | "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe"                           |
+| `autoit.infoPath`                  | Path to the AutoIt Window Info executable                                                              | "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe"                               |
+| `autoit.kodaPath`                  | Path to the Koda FormDesigner executable                                                               | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe"                       |
 | `autoit.showVariablesInGoToSymbol` | Determines whether to show or hide variables when using Ctrl+Shift+O (added in v0.1.9)                 | true                                                                          |
 | `autoit.includePaths`              | Paths to look for include files from, in an array. (added in v0.1.9)                                   | ["C:\\Program Files (x86)\\AutoIt3\\Include"]                                 |
 | `autoit.consoleParams`             | A string of parameters passed to the console when the Run Script command is launched (added in v0.2.1) | ""                                                                            |
 | `autoit.enableDiagnostics`         | Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save              | true                                                                          |
+| `autoit.UDFCreator`                | The name that will be added as Author when Insert Function Header is used                              | "Your Name"                                                                   |
 
 <!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 
@@ -62,6 +63,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 - Go To Definition (Jump to Variable or Function declaration): `F12`
 - Peek Definition (Show declarations in pop up): `Alt+F12`
 - Open Include file (On the current line): `Alt+i`
+- Insert UDF Header: `Ctrl+Alt+h`
 
 > **NOTE:**
 >

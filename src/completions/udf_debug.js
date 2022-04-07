@@ -1,8 +1,7 @@
-'use strict';
+import { CompletionItemKind } from 'vscode';
+import { fillCompletions } from '../util';
 
-var { CompletionItemKind } = require('vscode');
-
-var items = [
+const items = [
   {
     label: '_Assert',
     documentation: 'Display a message if assertion fails',
@@ -41,10 +40,10 @@ var items = [
   },
 ];
 
-// Add the function icon and detail to each entry
-for (var i of items) {
-  i.kind = CompletionItemKind.Function;
-  i.detail = 'Debug UDF - #include <Debug.au3>';
-}
+const functions = fillCompletions(
+  items,
+  CompletionItemKind.Function,
+  'Debug UDF - #include <Debug.au3>',
+);
 
-module.exports = items;
+export default functions;

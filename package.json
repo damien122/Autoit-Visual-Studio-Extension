@@ -108,6 +108,10 @@
           "when": "editorLangId == autoit"
         },
         {
+          "command": "extension.insertHeader",
+          "when": "editorLangId == autoit"
+        },
+        {
           "command": "extension.openInclude",
           "when": "editorLangId == autoit"
         }
@@ -161,6 +165,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.insertHeader",
+        "title": "AutoIt: Insert Function Header"
       },
       {
         "command": "extension.openInclude",
@@ -236,48 +244,59 @@
         "key": "ctrl+pausebreak"
       },
       {
+        "command": "extension.insertHeader",
+        "key": "ctrl+alt+H"
+      },
+      {
         "command": "extension.openInclude",
         "key": "alt+i"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "AutoIt Configuration",
+      "title": "AutoIt",
       "properties": {
         "autoit.aiPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe",
-          "description": "Path AutoIt3.exe"
+          "markdownDescription": "Path to the AutoIt executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe`",
+          "format": "uri"
         },
         "autoit.wrapperPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3",
-          "description": "Path AutoIt3Wrapper.au3"
+          "markdownDescription": "Path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`",
+          "format": "uri"
         },
         "autoit.tidyPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe",
-          "description": "Path Tidy.exe"
+          "markdownDescription": "Path to the Tidy executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe`",
+          "format": "uri"
         },
         "autoit.checkPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe",
-          "description": "Path AU3Check.exe"
+          "markdownDescription": "Path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`",
+          "format": "uri"
         },
         "autoit.helpPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe",
-          "description": "Path AutoIt3Help.exe"
+          "description": "Path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`",
+          "format": "uri"
         },
         "autoit.infoPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe",
-          "description": "Path Au3Info.exe"
+          "markdownDescription": "Path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`",
+          "format": "uri"
         },
         "autoit.kodaPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe",
-          "description": "Path FD.exe"
+          "markdownDescription": "Path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`",
+          "format": "uri"
         },
         "autoit.showVariablesInGoToSymbol": {
           "type": "boolean",
@@ -289,7 +308,8 @@
           "default": [
             "C:\\Program Files (x86)\\AutoIt3\\Include"
           ],
-          "description": "File paths for additional include folders"
+          "description": "File paths for additional include folders",
+          "format": "uri"
         },
         "autoit.consoleParams": {
           "type": "string",
@@ -300,13 +320,16 @@
           "type": "boolean",
           "default": true,
           "description": "Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save"
+        },
+        "autoit.UDFCreator": {
+          "type": "string",
+          "default": "Your Name",
+          "description": "The name that will be added as Author when Insert Function Header is used"
         }
       }
     }
   },
   "scripts": {
-    "build": "parcel build src/extension.js --target node",
-    "dev": "parcel build --target node src/extension.js",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
     "vscode:prepublish": "webpack --mode production"

@@ -244,7 +244,7 @@ const items = [
 const completions = fillCompletions(
   items,
   CompletionItemKind.Function,
-  'UDF - #include <WinAPITheme.au3>',
+  'WinAPITheme UDF - #include <WinAPITheme.au3>',
 );
 
 export default completions;
