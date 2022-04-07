@@ -9,7 +9,7 @@ const configuration = workspace.getConfiguration('autoit');
 // Executable paths
 const { aiPath, wrapperPath, tidyPath, checkPath, helpPath, infoPath, kodaPath } = configuration;
 
-const aiOut = window.createOutputChannel('AutoIt');
+const aiOut = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
 let runner;
 

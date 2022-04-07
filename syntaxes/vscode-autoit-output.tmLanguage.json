@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "vscode-autoit-output",
+  "scopeName": "source.vscode_autoit_output",
+  "patterns": [
+    {
+      "match": "^[>].*",
+      "name": "vscode-autoit-output-blue"
+    },
+    {
+      "match": "^[+].*",
+      "name": "vscode-autoit-output-green"
+    },
+    {
+      "match": "^[-].*",
+      "name": "vscode-autoit-output-orange"
+    },
+    {
+      "match": "^[!].*",
+      "name": "vscode-autoit-output-red"
+    }
+  ]
+}
