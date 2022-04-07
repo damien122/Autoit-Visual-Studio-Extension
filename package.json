@@ -192,7 +192,7 @@
         "language": "vscode-autoit-output",
         "scopeName": "source.vscode_autoit_output",
         "path": "syntaxes/vscode-autoit-output.tmLanguage.json"
-      }      
+      }
     ],
     "snippets": [
       {
@@ -364,13 +364,19 @@
           {
             "scope": "vscode-autoit-output-orange",
             "settings": {
-              "foreground": "#f6b26b"
+              "foreground": "#ff8800"
             }
           },
           {
             "scope": "vscode-autoit-output-pink",
             "settings": {
               "foreground": "#f4cccc"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-debug",
+            "settings": {
+              "foreground": "#d6ae5d"
             }
           }
         ]

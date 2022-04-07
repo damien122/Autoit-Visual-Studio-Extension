@@ -18,6 +18,10 @@
     {
       "match": "^[!].*",
       "name": "vscode-autoit-output-red"
-    }
+    },
+    {
+      "match": "^@@ Debug\(\d+\) :"
+      "name": "vscode-autoit-output-debug",
+    },
   ]
 }
