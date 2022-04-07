@@ -2,7 +2,7 @@ import { languages, CompletionItem, CompletionItemKind, workspace, Range } from 
 import fs from 'fs';
 import path from 'path';
 import completions from './completions';
-import { getIncludeText, getIncludePath, includePattern, findFilepath } from './util';
+import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
 import DEFAULT_UDFS from './constants';
 
 let currentIncludeFiles = [];
@@ -204,7 +204,7 @@ const provideCompletionItems = (document, position) => {
 };
 
 const completionFeature = languages.registerCompletionItemProvider(
-  { language: 'autoit', scheme: 'file' },
+  AUTOIT_MODE,
   { provideCompletionItems },
   '.',
   '$',
