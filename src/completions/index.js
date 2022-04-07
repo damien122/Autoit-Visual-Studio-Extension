@@ -28,7 +28,7 @@ import MACROS from './macros';
 import MAIN_FUNCTIONS from './mainFunctions';
 import SendKeys from './send_keys';
 import ArrayUDF from './udf_array';
-import WinAPISys from './udf_clipboard';
+import Clipboard from './udf_clipboard';
 import ColorUDF from './udf_color';
 import Crypt from './udf_crypt';
 import DateUDF from './udf_date';
@@ -87,6 +87,7 @@ import WinAPIReg from './udf_WinAPIReg';
 import WinAPIRes from './udf_WinAPIRes';
 import WinAPIShellEx from './udf_WinAPIShellEx';
 import WinAPIShPath from './udf_WinAPIShPath';
+import WinAPISys from './udf_winAPISys';
 import WinAPITheme from './udf_WinAPITheme';
 import WinNet from './udf_winNet';
 import { completions as Word } from '../signatures/udf_word';
@@ -95,6 +96,7 @@ import InetConstants from './constantsInet';
 const completions = [
   ...AVI,
   ...ButtonConstants,
+  ...Clipboard,
   ...ComboConstants,
   ...DateTimeConstants,
   ...DirConstants,
@@ -123,7 +125,6 @@ const completions = [
   ...MAIN_FUNCTIONS,
   ...SendKeys,
   ...ArrayUDF,
-  ...WinAPISys,
   ...ColorUDF,
   ...Crypt,
   ...DateUDF,
@@ -182,6 +183,7 @@ const completions = [
   ...WinAPIRes,
   ...WinAPIShellEx,
   ...WinAPIShPath,
+  ...WinAPISys,
   ...WinAPITheme,
   ...WinNet,
   ...Word,

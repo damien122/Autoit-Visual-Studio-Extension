@@ -107,7 +107,7 @@ const items = [
 const functions = fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Clipboard UDF - #include <WinAPISys.au3>',
+  'Clipboard UDF - #include <Clipboard.au3>',
 );
 
 export default functions;
