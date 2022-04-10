@@ -38,6 +38,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 | `autoit.consoleParams`             | A string of parameters passed to the console when the Run Script command is launched (added in v0.2.1) | ""                                                                            |
 | `autoit.enableDiagnostics`         | Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save              | true                                                                          |
 | `autoit.UDFCreator`                | The name that will be added as Author when Insert Function Header is used                              | "Your Name"                                                                   |
+| `autoit.smartHelp`                 | Defines prefixes, paths & sources for additional help files                                            | [ [ "", "", "" ] ]                                                                |
 
 <!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 

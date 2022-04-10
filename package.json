@@ -298,6 +298,12 @@
           "description": "Path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`",
           "format": "uri"
         },
+        "autoit.smartHelp": {
+          "type": "array",
+          "description": "Defines prefixes, paths & sources for additional help files",
+          "default": [ "", "", "" ],
+          "format": "uri"
+        },
         "autoit.infoPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe",
