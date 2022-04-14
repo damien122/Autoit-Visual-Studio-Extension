@@ -12,11 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Open include file from the current line with `Alt+i`/Command Palette (thanks Danp2)
 - Insert UDF Header function (thanks Danp2)
 - UDF Creator option in Settings to auto populate author when inserting a Function Header
+- AutoIt Map functions (thanks steipal)
+- Colorized output when running scripts (thanks Danp2)
 
 ### Changed
 
 - The AutoIt Help comamnd will now open on blank lines (thanks Danp2)
 - Updated the descriptions of the path settings
+- Refactored filepath finding code (thanks Danp2)
 
 ## [1.0.7] - 2022-02-14
 
