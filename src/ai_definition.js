@@ -1,4 +1,4 @@
-import { languages, Location, Position, Uri, workspace, commands } from 'vscode';
+import { languages, Location, Position, Uri, workspace } from 'vscode';
 import { AUTOIT_MODE, getIncludePath, getIncludeText } from './util';
 
 const AutoItDefinitionProvider = {
@@ -13,7 +13,7 @@ const AutoItDefinitionProvider = {
     const config = workspace.getConfiguration('autoit');
     const { includePaths } = config;
 
-     if (lookup.charAt(0) === '$') {
+    if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
     }
 
@@ -21,16 +21,6 @@ const AutoItDefinitionProvider = {
 
     if (found) {
       return new Location(document.uri, document.positionAt(found.index));
-    }
-
-    // open include file?
-    const currentLine = document.lineAt(position.line).text;
-    const findInclude = /^(?:\s*)#include.+["'<](.*\.au3)["'>]/i;
-    found = findInclude.exec(currentLine);
-
-    if (found) {
-      commands.executeCommand('extension.openInclude');
-      return;
     }
 
     // If nothing was found, search include files
