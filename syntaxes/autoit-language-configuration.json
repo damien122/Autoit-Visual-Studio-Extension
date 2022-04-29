@@ -27,8 +27,8 @@
   ],
   "folding": {
     "markers": {
-      "start": "^\\s*\\s*(#?[Rr]egion\\b)|([Ff]unc\\b)",
-      "end": "^\\s*\\s*(#?[Ee]nd[Rr]egion\\b)|([Ee]nd[Ff]unc)"
+      "start": "^\\s*\\s*(#?[Rr]egion\\b)|([Ff]unc\\b)|([iI]f\\b)|([sS]witch\\b)|([fF]or\\b)|([wW]hile\\b)",
+      "end": "^\\s*\\s*(#?[Ee]nd[Rr]egion\\b)|([Ee]nd[Ff]unc)|([eE]nd[iI]f)|([eE]nd[sS]witch)|([nN]ext)|([wW][eE]nd)"
     }
   },
   "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
