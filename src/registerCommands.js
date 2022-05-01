@@ -14,6 +14,7 @@ import {
   tidyScript,
   openInclude,
   insertHeader,
+  restartScript,
 } from './ai_commands';
 
 const commandList = [
@@ -31,6 +32,7 @@ const commandList = [
   { id: 'extension.killScript', func: killScript },
   { id: 'extension.openInclude', func: openInclude },
   { id: 'extension.insertHeader', func: insertHeader },
+  { id: 'extension.restartScript', func: restartScript },
 ];
 
 export const registerCommands = () => {

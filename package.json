@@ -121,6 +121,10 @@
         {
           "command": "extension.openInclude",
           "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.restartScript",
+          "when": "editorLangId == autoit"
         }
       ]
     },
@@ -180,6 +184,10 @@
       {
         "command": "extension.openInclude",
         "title": "AutoIt: Open Include File"
+      },
+      {
+        "command": "extension.restartScript",
+        "title": "AutoIt: Restart script"
       }
     ],
     "grammars": [
