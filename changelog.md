@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the descriptions of the path settings
 - Refactored filepath finding code (thanks Danp2)
 
+### Fixed
+
+- Code folding for `If`, `Switch`, `For`, `While`, `With`, `#comments-start`, `#cs`, `#comments-end` and `#ce`
+
 ## [1.0.7] - 2022-02-14
 
 ### Added
