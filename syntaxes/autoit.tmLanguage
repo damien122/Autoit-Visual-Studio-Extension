@@ -113,19 +113,11 @@
       </dict>
       <dict>
         <key>begin</key>
-        <string>(?i:#cs)</string>
+        <string>(?i:#c(?:omments\-start|s))</string>
         <key>end</key>
-        <string>(?i:#ce).*$</string>
+        <string>(?i:#c(?:omments\-end|e))</string>
         <key>name</key>
-        <string>comment.block.cs.autoit</string>
-      </dict>
-      <dict>
-        <key>begin</key>
-        <string>(?i:#comments-start)</string>
-        <key>end</key>
-        <string>(?i:#comments-end).*$</string>
-        <key>name</key>
-        <string>comment.block.comments-start.autoit</string>
+        <string>comment.block.autoit</string>
       </dict>
       <dict>
         <key>captures</key>
