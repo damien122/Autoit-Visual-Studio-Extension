@@ -387,6 +387,12 @@ const insertHeader = () => {
   });
 };
 
+const restartScript = () => {
+  killScript();
+  runScript();
+};
+
+
 export {
   buildScript,
   changeConsoleParams,
@@ -402,4 +408,5 @@ export {
   tidyScript,
   openInclude,
   insertHeader,
+  restartScript,
 };
