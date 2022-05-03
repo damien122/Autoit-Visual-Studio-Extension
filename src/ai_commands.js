@@ -1,6 +1,6 @@
 import { window, Position, workspace, Uri } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
-import { findFilepath } from './util';
+import { findFilepath, getIncludeText } from './util';
 import path from 'path';
 import fs from 'fs';
 
@@ -11,7 +11,11 @@ const { aiPath, wrapperPath, tidyPath, checkPath, helpPath, infoPath, kodaPath }
 
 const aiOut = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
+// Additional help files
+const { smartHelp } = configuration;
+
 let runner;
+let hhproc;
 
 function procRunner(cmdPath, args) {
   aiOut.clear();
@@ -85,8 +89,43 @@ const launchHelp = () => {
     // Get the selected text and launch it
     const doc = editor.document;
     const query = doc.getText(doc.getWordRangeAtPosition(editor.selection.active));
+    const findPrefix = /^[_]+[a-zA-Z0-9]+_/;
+    const prefix = findPrefix.exec(query);
 
     window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
+
+    if (prefix) {
+      for (let i = 0; i < smartHelp.length; i += 1) {
+        if (smartHelp[i][0] === prefix[0]) {
+            // Make sure help file exists
+            if (!fs.existsSync(smartHelp[i][1])) {
+              window.showErrorMessage(`Unable to locate ${smartHelp[i][1]}`);
+              return;
+            }
+
+            const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
+            const sources = smartHelp[i][2].split("|")
+
+            for (let j = 0; j < sources.length; j += 1) {
+
+              let filePath = sources[j];
+              if (!fs.existsSync(filePath)) {
+                filePath = findFilepath(filePath, true)
+                if (!filePath) { continue };
+              }
+              let text = getIncludeText(filePath);
+              let found = text.match(regex);
+
+              if (found) {
+                if (hhproc) { hhproc.kill() };
+                hhproc = spawn("hh", [`mk:@MSITStore:${smartHelp[i][1]}::/funcs/${query}.htm`]);
+                return;
+              }
+            }
+            break;
+        }
+      }
+    }
 
     launch(helpPath, [query]);
   }
