@@ -10,19 +10,20 @@ const makeSymbol = (name, type, filePath, docLine) => {
   return new SymbolInformation(name, type, '', new Location(filePath, new Position(docLine, 0)));
 };
 
-async function provideWorkspaceSymbols(search) {
+function provideWorkspaceSymbols(query) {
   const symbols = [];
+  let search = query;
 
   // Don't start searching when it's empty
   if (!search) {
-    return [];
+    search = '.*';
   }
 
   // Enable searching for leading $
   const searchFilter = new RegExp(search.replace('$', '\\$'), 'i');
 
   // Get list of AutoIt files in workspace
-  await workspace.findFiles('**/*.{au3,a3x}').then(data => {
+  return workspace.findFiles('**/*.{au3,a3x}').then(data => {
     data.forEach(file => {
       const foundVars = [];
 
@@ -63,8 +64,9 @@ async function provideWorkspaceSymbols(search) {
           return false;
         });
     });
+
+    return symbols;
   });
-  return symbols;
 }
 
 const workspaceSymbolProvider = languages.registerWorkspaceSymbolProvider({
