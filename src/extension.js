@@ -75,10 +75,10 @@ const activate = ctx => {
   vscode.workspace.onDidOpenTextDocument(document => checkAutoItCode(document));
   vscode.window.onDidChangeActiveTextEditor(editor => {
     if (editor) {
-      checkAutoItCode(editor.document)
+      checkAutoItCode(editor.document);
     }
   });
-  
+
   // eslint-disable-next-line no-console
   console.log('AutoIt is now active!');
 };
@@ -86,5 +86,5 @@ const activate = ctx => {
 exports.activate = activate;
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 exports.deactivate = deactivate;
