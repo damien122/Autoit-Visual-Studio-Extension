@@ -309,7 +309,11 @@
         "autoit.smartHelp": {
           "type": "array",
           "description": "Defines prefixes, paths & sources for additional help files",
-          "default": [ "", "", "" ],
+          "default": [
+            "",
+            "",
+            ""
+          ],
           "format": "uri"
         },
         "autoit.infoPath": {
