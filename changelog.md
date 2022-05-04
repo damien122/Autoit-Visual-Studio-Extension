@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - UDF Creator option in Settings to auto populate author when inserting a Function Header
 - AutoIt Map functions (thanks steipal)
 - Colorized output when running scripts (thanks Danp2)
+- Restart script (thanks vanown)
 
 ### Changed
 
@@ -23,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Code folding for `If`, `Switch`, `For`, `While`, `With`, `#comments-start`, `#cs`, `#comments-end` and `#ce`
+- Code folding for `If`, `Switch`, `For`, `While`, `With`, `#comments-start`, `#cs`, `#comments-end` and `#ce` (thanks Danp2)
+- Go to Workspace Symbol functionality restored
 
 ## [1.0.7] - 2022-02-14
 
