@@ -1,5 +1,6 @@
 import { languages, Location, Position, Uri, workspace } from 'vscode';
 import { AUTOIT_MODE, getIncludePath, getIncludeText } from './util';
+import fs from 'fs';
 
 const AutoItDefinitionProvider = {
   provideDefinition(document, position) {
@@ -34,7 +35,10 @@ const AutoItDefinitionProvider = {
     found = libraryInclude.exec(docText);
     while (found) {
       for (let i = 0; i < includePaths.length; i += 1) {
-        scriptsToSearch.push(`${includePaths[i]}\\${found[1]}`);
+        let currFile = `${includePaths[i]}\\${found[1]}`
+        if (fs.existsSync(currFile)) {
+          scriptsToSearch.push(currFile);
+        } 
       }
 
       found = libraryInclude.exec(docText);
