@@ -1,4 +1,4 @@
-7import { languages, Location, Position, Uri, workspace } from 'vscode';
+import { languages, Location, Position, Uri, workspace } from 'vscode';
 import { AUTOIT_MODE, getIncludePath, getIncludeText, findFilepath } from './util';
 import fs from 'fs';
 
