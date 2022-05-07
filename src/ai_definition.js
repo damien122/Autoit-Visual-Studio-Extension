@@ -12,7 +12,6 @@ const AutoItDefinitionProvider = {
     const libraryInclude = /^\s*#include\s<(.+)>/gm;
 
     const config = workspace.getConfiguration('autoit');
-    const { includePaths } = config;
 
     if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
