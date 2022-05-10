@@ -27,14 +27,13 @@ const AutoItDefinitionProvider = {
     found = relativeInclude.exec(docText);
     while (found) {
       // Check if file exists in document directory
-      const includeFile = getIncludePath(found[1], document);
+      let includeFile = getIncludePath(found[1], document);
       if (fs.existsSync(includeFile)) {
         scriptsToSearch.push(includeFile);
       } else {
         // Find first instance using include paths
         includeFile = findFilepath(found[1], false);
-        if (includeFile)
-          scriptsToSearch.push(includeFile);
+        if (includeFile) scriptsToSearch.push(includeFile);
       }
       found = relativeInclude.exec(docText);
     }
@@ -43,8 +42,7 @@ const AutoItDefinitionProvider = {
     while (found) {
       // Find first instance using include paths
       const includeFile = findFilepath(found[1], false);
-      if (includeFile)
-        scriptsToSearch.push(includeFile);
+      if (includeFile) scriptsToSearch.push(includeFile);
 
       found = libraryInclude.exec(docText);
     }
