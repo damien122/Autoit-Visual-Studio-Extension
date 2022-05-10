@@ -1,4 +1,4 @@
-import { languages, Location, Position, Uri, workspace } from 'vscode';
+import { languages, Location, Position, Uri } from 'vscode';
 import fs from 'fs';
 import { AUTOIT_MODE, getIncludePath, getIncludeText, findFilepath } from './util';
 
@@ -10,8 +10,6 @@ const AutoItDefinitionProvider = {
     let defRegex = new RegExp(`Func\\s${lookup}\\(`);
     const relativeInclude = /^\s*#include\s"(.+)"/gm;
     const libraryInclude = /^\s*#include\s<(.+)>/gm;
-
-    const config = workspace.getConfiguration('autoit');
 
     if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
