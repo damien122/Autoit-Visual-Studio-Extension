@@ -1,5 +1,5 @@
 import { languages, Location, Position, Uri, workspace } from 'vscode';
-import { AUTOIT_MODE, getIncludePath, getIncludeText } from './util';
+import { AUTOIT_MODE, getIncludePath, getIncludeText, findFilepath } from './util';
 import fs from 'fs';
 
 const AutoItDefinitionProvider = {
@@ -12,7 +12,6 @@ const AutoItDefinitionProvider = {
     const libraryInclude = /^\s*#include\s<(.+)>/gm;
 
     const config = workspace.getConfiguration('autoit');
-    const { includePaths } = config;
 
     if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
@@ -26,20 +25,28 @@ const AutoItDefinitionProvider = {
 
     // If nothing was found, search include files
     const scriptsToSearch = [];
+
     found = relativeInclude.exec(docText);
     while (found) {
-      scriptsToSearch.push(found[1]);
+      // Check if file exists in document directory
+      const includeFile = getIncludePath(found[1], document);
+      if (fs.existsSync(includeFile)) {
+        scriptsToSearch.push(includeFile);
+      } else {
+        // Find first instance using include paths
+        includeFile = findFilepath(found[1], false);
+        if (includeFile)
+          scriptsToSearch.push(includeFile);
+      }
       found = relativeInclude.exec(docText);
     }
 
     found = libraryInclude.exec(docText);
     while (found) {
-      for (let i = 0; i < includePaths.length; i += 1) {
-        let currFile = `${includePaths[i]}\\${found[1]}`
-        if (fs.existsSync(currFile)) {
-          scriptsToSearch.push(currFile);
-        } 
-      }
+      // Find first instance using include paths
+      const includeFile = findFilepath(found[1], false);
+      if (includeFile)
+        scriptsToSearch.push(includeFile);
 
       found = libraryInclude.exec(docText);
     }
