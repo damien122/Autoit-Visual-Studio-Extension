@@ -1,6 +1,6 @@
 import { languages, Location, Position, Uri, workspace } from 'vscode';
-import { AUTOIT_MODE, getIncludePath, getIncludeText, findFilepath } from './util';
 import fs from 'fs';
+import { AUTOIT_MODE, getIncludePath, getIncludeText, findFilepath } from './util';
 
 const AutoItDefinitionProvider = {
   provideDefinition(document, position) {
