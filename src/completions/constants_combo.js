@@ -56,5 +56,6 @@ const items = [
 export default fillCompletions(
   items,
   CompletionItemKind.Constant,
-  'Combo Style Constant - #include <ComboConstants.au3>',
+  'Combo Style Constant',
+  'ComboConstants.au3',
 );

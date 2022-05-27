@@ -99,5 +99,6 @@ const items = [
 export default fillCompletions(
   items,
   CompletionItemKind.Constant,
-  'Button Constant - #include <ButtonConstant.au3>',
+  'Button Constant',
+  'ButtonConstant.au3',
 );

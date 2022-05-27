@@ -24,5 +24,6 @@ const items = [
 export default fillCompletions(
   items,
   CompletionItemKind.Constant,
-  'AVI Clip Style Constant - #include <AVIConstants.au3>',
+  'AVI Clip Style Constant',
+  'AVIConstants.au3',
 );

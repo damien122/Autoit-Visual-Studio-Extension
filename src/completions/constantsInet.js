@@ -1,5 +1,5 @@
-import { CompletionItemKind, MarkdownString } from 'vscode';
-import { completionToHover } from '../util';
+import { CompletionItemKind } from 'vscode';
+import { completionToHover, fillCompletions } from '../util';
 
 const InetConstants = [
   {
@@ -62,18 +62,12 @@ const InetConstants = [
   },
 ];
 
-const items = [];
-InetConstants.forEach(item => {
-  items.push({
-    kind: CompletionItemKind.Constant,
-    label: item.label,
-    documentation: new MarkdownString(
-      `${item.documentation}\n\nRequires #include <InetConstants.au3>`,
-    ),
-    detail: 'InetGet Constant',
-  });
-});
-
+const items = fillCompletions(
+  InetConstants,
+  CompletionItemKind.Constant,
+  'InetGet Constant',
+  'InetConstants.au3',
+);
 const hovers = completionToHover(items);
 
 export { items as default, hovers };

@@ -1,56 +1,44 @@
-var {
-    CompletionItemKind,
-    MarkdownString
-} = require('vscode')
+import { CompletionItemKind } from 'vscode';
+import { fillCompletions } from '../util';
 
-var items = [{
-        label: '$DDL_ARCHIVE',
-        documentation: '`= 0x00000020`',
-        detail: ''
-    },
-    {
-        label: '$DDL_DIRECTORY',
-        documentation: '`= 0x00000010`',
-        detail: ''
-    },
-    {
-        label: '$DDL_DRIVES',
-        documentation: '`= 0x00004000`',
-        detail: ''
-    },
-    {
-        label: '$DDL_EXCLUSIVE',
-        documentation: '`= 0x00008000`',
-        detail: ''
-    },
-    {
-        label: '$DDL_HIDDEN',
-        documentation: '`= 0x00000002`',
-        detail: ''
-    },
-    {
-        label: '$DDL_READONLY',
-        documentation: '`= 0x00000001`',
-        detail: ''
-    },
-    {
-        label: '$DDL_READWRITE',
-        documentation: '`= 0x00000000`',
-        detail: ''
-    },
-    {
-        label: '$DDL_SYSTEM',
-        documentation: '`= 0x00000004`',
-        detail: ''
-    },
-]
+const items = [
+  {
+    label: '$DDL_ARCHIVE',
+    documentation: 'Includes archived files\n\n`= 0x00000020`',
+  },
+  {
+    label: '$DDL_DIRECTORY',
+    documentation: 'Includes directories\n\n`= 0x00000010`',
+  },
+  {
+    label: '$DDL_DRIVES',
+    documentation: 'All mapped drives are added to the list\n\n`= 0x00004000`',
+  },
+  {
+    label: '$DDL_EXCLUSIVE',
+    documentation: 'Includes only files with the specified attributes\n\n`= 0x00008000`',
+  },
+  {
+    label: '$DDL_HIDDEN',
+    documentation: 'Includes hidden files\n\n`= 0x00000002`',
+  },
+  {
+    label: '$DDL_READONLY',
+    documentation: 'Includes read-only files\n\n`= 0x00000001`',
+  },
+  {
+    label: '$DDL_READWRITE',
+    documentation: 'Includes read-write files with no additional attributes\n\n`= 0x00000000`',
+  },
+  {
+    label: '$DDL_SYSTEM',
+    documentation: 'Includes system files\n\n`= 0x00000004`',
+  },
+];
 
-
-// Add the icon and detail to each entry
-for (var i of items) {
-    i.kind = CompletionItemKind.Constant
-    i.documentation = new MarkdownString(i.documentation)
-    i.detail += 'Dir Constant\nRequires #include <StatusBarConstants.au3>'
-}
-
-module.exports = items
+export default fillCompletions(
+  items,
+  CompletionItemKind.Constant,
+  'Dir Constant',
+  'DirConstants.au3',
+);
