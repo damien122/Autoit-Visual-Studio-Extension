@@ -38,10 +38,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Screen Capture UDF - #include <ScreenCapture.au3>',
+  'Screen Capture UDF',
+  'ScreenCapture.au3',
 );
-
-export default functions;

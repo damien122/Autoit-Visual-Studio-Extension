@@ -144,10 +144,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'SQLite UDF - #include <SQLite.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'SQLite UDF', 'SQLite.au3');

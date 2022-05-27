@@ -426,10 +426,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiRichEdit UDF - #include <GuiRichEdit.au3>',
+  'GuiRichEdit UDF',
+  'GuiRichEdit.au3',
 );
-
-export default functions;

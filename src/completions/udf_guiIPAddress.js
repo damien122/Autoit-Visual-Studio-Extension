@@ -60,10 +60,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiIPAddress UDF - #include <GuiIPAddress.au3>',
+  'GuiIPAddress UDF',
+  'GuiIPAddress.au3',
 );
-
-export default functions;

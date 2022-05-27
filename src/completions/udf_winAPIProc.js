@@ -243,10 +243,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIProc UDF - #include <WinAPIProc.au3>',
+  'WinAPIProc UD',
+  'WinAPIProc.au3',
 );
-
-export default functions;

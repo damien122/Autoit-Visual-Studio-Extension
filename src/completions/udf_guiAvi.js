@@ -44,10 +44,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GuiAVI UDF - #include <GuiAVI.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GuiAVI UDF', 'GuiAVI.au3');

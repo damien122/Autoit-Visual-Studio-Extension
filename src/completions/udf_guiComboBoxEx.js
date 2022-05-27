@@ -277,10 +277,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiComboBoxEx UDF - #include <GuiComboBoxEx.au3>',
+  'GuiComboBoxEx UDF',
+  'GuiComboBoxEx.au3',
 );
-
-export default functions;

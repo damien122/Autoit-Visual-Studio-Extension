@@ -97,10 +97,4 @@ const items = [
   },
 ];
 
-const completions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'WinNet UDF - #include <WinNet.au3>',
-);
-
-export default completions;
+export default fillCompletions(items, CompletionItemKind.Function, 'WinNet UDF', 'WinNet.au3');

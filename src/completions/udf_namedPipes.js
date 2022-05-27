@@ -58,10 +58,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Named Pipes UDF - #include <NamedPipes.au3>',
+  'Named Pipes UDF',
+  'NamedPipes.au3',
 );
-
-export default functions;

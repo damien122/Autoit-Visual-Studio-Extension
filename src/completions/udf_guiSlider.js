@@ -171,10 +171,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiSlider UDF - #include <GuiSlider.au3>',
+  'GuiSlider UDF',
+  'GuiSlider.au3',
 );
-
-export default functions;

@@ -204,10 +204,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiMonthCal UDF - #include <GuiMonthCal.au3>',
+  'GuiMonthCal UDF',
+  'GuiMonthCal.au3',
 );
-
-export default functions;

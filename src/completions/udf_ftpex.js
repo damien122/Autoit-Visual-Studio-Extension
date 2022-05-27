@@ -125,10 +125,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'FTPEx UDF - #include <FTPEx.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'FTPEx UDF', 'FTPEx.au3');

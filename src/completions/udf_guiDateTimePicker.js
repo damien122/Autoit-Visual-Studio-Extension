@@ -68,10 +68,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GuiDTP UDF - #include <GuiDTP.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GuiDTP UDF', 'GuiDTP.au3');

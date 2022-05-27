@@ -13,10 +13,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Send Message UDF - #include <SendMessage.au3>',
+  'Send Message UDF',
+  'SendMessage.au3',
 );
-
-export default functions;

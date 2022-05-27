@@ -433,7 +433,8 @@ const items = [
 const functions = fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIFiles UDF - #include <WinAPIFiles.au3>',
+  'WinAPIFiles UDF',
+  'WinAPIFiles.au3',
 );
 
 export default functions;

@@ -193,10 +193,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiHeader UDF - #include <GuiHeader.au3>',
+  'GuiHeader UDF',
+  'GuiHeader.au3',
 );
-
-export default functions;

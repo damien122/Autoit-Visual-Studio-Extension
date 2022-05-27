@@ -106,10 +106,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiScrollBars UDF - #include <GuiScrollBars.au3>',
+  'GuiScrollBars UDF',
+  'GuiScrollBars.au3',
 );
-
-export default functions;
