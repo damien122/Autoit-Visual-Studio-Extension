@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { CompletionItemKind, workspace } = require('vscode');
+const { CompletionItemKind, workspace, MarkdownString } = require('vscode');
 
 const descriptionHeader = '|Description |Value |\n|:---|:---:|\n';
 const valueFirstHeader = '\n|&nbsp;|&nbsp;&nbsp;&nbsp; |&nbsp;\n|---:|:---:|:---|';
@@ -71,15 +71,28 @@ const getIncludePath = (fileOrPath, document) => {
  * @param {*} entries The array of Completions to be modified
  * @param {*} kind The enum value of CompletionItemKind to determine icon
  * @param {*} detail Additional information about the entries
+ * @param {*} requiredScript Script where completion is defined
  * @returns Returns an array of Completion objects
  */
-const fillCompletions = (entries, kind, detail) => {
+const fillCompletions = (entries, kind, detail = '', requiredScript = '') => {
   let commitCharacters;
+  let newDoc;
+  let newDetail;
 
   const filledCompletion = entries.map(entry => {
     commitCharacters = kind === CompletionItemKind.Function ? ['('] : [];
+    newDoc = new MarkdownString(entry.documentation);
+    if (requiredScript) newDoc.appendCodeblock(`#include <${requiredScript}>`, 'autoit');
 
-    return { ...entry, kind, detail, commitCharacters };
+    newDetail = entry.detail ? entry.detail + detail : detail;
+
+    return {
+      ...entry,
+      kind,
+      detail: newDetail,
+      commitCharacters,
+      documentation: newDoc,
+    };
   });
 
   return filledCompletion;
@@ -142,13 +155,13 @@ const signatureToCompletion = (signatures, kind, detail) => {
  * @param {boolean} library - Search Autoit library first?
  * @returns {(string|boolean)} Full path if found to exist or false
  */
- const findFilepath = (file, library = true) => {
+const findFilepath = (file, library = true) => {
   // work with copy to avoid changing main config
   const includePaths = [...workspace.getConfiguration('autoit').get('includePaths')];
   if (!library) {
-	// move main library entry to the bottom so that it is searched last
+    // move main library entry to the bottom so that it is searched last
     includePaths.push(includePaths.shift());
-  } 
+  }
 
   let newPath;
   const pathFound = includePaths.some(iPath => {
