@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AutoIt Map functions (thanks steipal)
 - Colorized output when running scripts (thanks Danp2)
 - Restart script (thanks vanown)
+- Abbreviations from SciTe4AutoIt as Snippets
 
 ### Changed
 
