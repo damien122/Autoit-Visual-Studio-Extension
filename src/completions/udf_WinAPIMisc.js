@@ -155,10 +155,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIMisc UDF - #include <WinAPIMisc.au3>',
+  'WinAPIMisc UDF',
+  'WinAPIMisc.au3',
 );
-
-export default functions;

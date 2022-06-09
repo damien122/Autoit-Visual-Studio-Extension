@@ -206,6 +206,10 @@
       {
         "language": "autoit",
         "path": "./snippets/autoit.json"
+      },
+      {
+        "language": "autoit",
+        "path": "./snippets/abbreviations.json"
       }
     ],
     "keybindings": [

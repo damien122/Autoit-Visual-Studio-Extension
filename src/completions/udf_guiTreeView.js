@@ -464,10 +464,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiTreeView UDF - #include <GuiTreeView.au3>',
+  'GuiTreeView UDF',
+  'GuiTreeView.au3',
 );
-
-export default functions;

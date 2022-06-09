@@ -445,10 +445,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiToolbar UDF - #include <GuiToolbar.au3>',
+  'GuiToolbar UDF',
+  'GuiToolbar.au3',
 );
-
-export default functions;

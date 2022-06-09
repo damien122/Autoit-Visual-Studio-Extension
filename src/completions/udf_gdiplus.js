@@ -1273,10 +1273,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GDIPlus UDF - #include <GDIPlus.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GDIPlus UDF', 'GDIPlus.au3');

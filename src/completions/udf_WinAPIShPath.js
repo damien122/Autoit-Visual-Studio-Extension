@@ -250,10 +250,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIShPath UDF - #include <WinAPIShPath.au3>',
+  'WinAPIShPath UDF',
+  'WinAPIShPath.au3',
 );
-
-export default functions;

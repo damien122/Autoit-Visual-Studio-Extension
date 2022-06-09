@@ -124,10 +124,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiButton UDF - #include <GuiButton.au3>',
+  'GuiButton UDF',
+  'GuiButton.au3',
 );
-
-export default functions;

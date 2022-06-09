@@ -240,11 +240,9 @@ const items = [
   },
 ];
 
-// Add the function icon and detail to each entry
-const completions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPITheme UDF - #include <WinAPITheme.au3>',
+  'WinAPITheme UDF',
+  'WinAPITheme.au3',
 );
-
-export default completions;

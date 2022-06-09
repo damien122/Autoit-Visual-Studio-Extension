@@ -48,10 +48,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Crypt UDF - #include <Crypt.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'Crypt UDF', 'Crypt.au3');

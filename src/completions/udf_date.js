@@ -245,10 +245,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Date UDF - #include <Date.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'Date UDF', 'Date.au3');

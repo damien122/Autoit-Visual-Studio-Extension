@@ -176,10 +176,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GuiTab UDF - #include <GuiTab.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GuiTab UDF', 'GuiTab.au3');

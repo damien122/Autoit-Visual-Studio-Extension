@@ -127,10 +127,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiImageList UDF - #include <GuiImageList.au3>',
+  'GuiImageList UDF',
+  'GuiImageList.au3',
 );
-
-export default functions;

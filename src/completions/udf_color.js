@@ -48,10 +48,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Color UDF - #include <WinAPIGdi.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'Color UDF', 'WinAPIGdi.au3');

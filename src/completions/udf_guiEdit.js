@@ -198,10 +198,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GuiEdit UDF - #include <GuiEdit.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GuiEdit UDF', 'GuiEdit.au3');

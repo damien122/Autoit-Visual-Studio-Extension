@@ -114,10 +114,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPILocale UDF - #include <WinAPILocale.au3>',
+  'WinAPILocale UDF',
+  'WinAPILocale.au3',
 );
-
-export default functions;

@@ -59,7 +59,8 @@ const items = [
 const functions = fillCompletions(
   items,
   CompletionItemKind.Function,
-  'EventLog UDF - #include <EventLog.au3>',
+  'EventLog UDF',
+  'EventLog.au3',
 );
 
 export default functions;

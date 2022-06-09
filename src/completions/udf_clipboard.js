@@ -104,10 +104,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Clipboard UDF - #include <Clipboard.au3>',
+  'Clipboard UDF',
+  'Clipboard.au3',
 );
-
-export default functions;

@@ -642,10 +642,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiListView UDF - #include <GuiListView.au3>',
+  'GuiListView UDF',
+  'GuiListView.au3',
 );
-
-export default functions;

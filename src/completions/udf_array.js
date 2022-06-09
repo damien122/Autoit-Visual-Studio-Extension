@@ -131,10 +131,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Array UDF - #include <Array.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'Array UDF', 'Array.au3');

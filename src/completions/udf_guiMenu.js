@@ -311,10 +311,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
   'GuiMenu UDF - #include <GuiMenu.au3>',
+  'GuiMenu.au3',
 );
-
-export default functions;

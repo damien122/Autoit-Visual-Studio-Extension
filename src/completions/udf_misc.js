@@ -39,10 +39,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Misc UDF - #include <Misc.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'Misc UDF', 'Misc.au3');

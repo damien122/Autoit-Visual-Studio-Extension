@@ -172,10 +172,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiToolTip UDF - #include <GuiToolTip.au3>',
+  'GuiToolTip UDF',
+  'GuiToolTip.au3',
 );
-
-export default functions;

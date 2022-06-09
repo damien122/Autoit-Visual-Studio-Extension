@@ -113,10 +113,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIDlg UDF - #include <WinAPIDlg.au3>',
+  'WinAPIDlg UDF',
+  'WinAPIDlg.au3',
 );
-
-export default functions;

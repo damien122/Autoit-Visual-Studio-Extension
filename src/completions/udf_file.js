@@ -68,10 +68,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'File UDF - #include <File.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'File UDF', 'File.au3');

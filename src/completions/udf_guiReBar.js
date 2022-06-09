@@ -322,10 +322,4 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'GuiReBar UDF - #include <GuiReBar.au3>',
-);
-
-export default functions;
+export default fillCompletions(items, CompletionItemKind.Function, 'GuiReBar UDF', 'GuiReBar.au3');

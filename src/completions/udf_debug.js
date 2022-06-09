@@ -40,10 +40,6 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
-  items,
-  CompletionItemKind.Function,
-  'Debug UDF - #include <Debug.au3>',
-);
+const functions = fillCompletions(items, CompletionItemKind.Function, 'Debug UDF', 'Debug.au3');
 
 export default functions;

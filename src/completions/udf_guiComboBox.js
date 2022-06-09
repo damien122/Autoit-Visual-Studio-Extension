@@ -215,10 +215,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiComboBox UDF - #include <GuiComboBox.au3>',
+  'GuiComboBox UDF',
+  'GuiComboBox.au3',
 );
-
-export default functions;

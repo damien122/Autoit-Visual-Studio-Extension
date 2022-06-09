@@ -216,10 +216,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'Internet Explorer UDF - #include <IE.au3>',
+  'Internet Explorer UDF',
+  'IE.au3',
 );
-
-export default functions;

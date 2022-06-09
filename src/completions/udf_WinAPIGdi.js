@@ -993,10 +993,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPIGdi UDF - #include <WinAPIGdi.au3>',
+  'WinAPIGdi UDF',
+  'WinAPIGdi.au3',
 );
-
-export default functions;

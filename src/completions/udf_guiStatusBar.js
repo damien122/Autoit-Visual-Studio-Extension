@@ -129,10 +129,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'GuiStatusBar UDF - #include <GuiStatusBar.au3>',
+  'GuiStatusBar UDF',
+  'GuiStatusBar.au3',
 );
-
-export default functions;

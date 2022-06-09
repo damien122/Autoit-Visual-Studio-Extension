@@ -48,10 +48,9 @@ const items = [
   },
 ];
 
-const functions = fillCompletions(
+export default fillCompletions(
   items,
   CompletionItemKind.Function,
-  'WinAPICom UDF - #include <WinAPICom.au3>',
+  'WinAPICom UDF',
+  'WinAPICom.au3',
 );
-
-export default functions;
