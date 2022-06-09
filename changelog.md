@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.0.8] - 2022-06-09
+
 ### Added
 
 - Open include file from the current line with `Alt+i`/Command Palette (thanks Danp2)
@@ -224,6 +226,7 @@ The IntelliSense release!
 - Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 - Added icon, banner color and description for marketplace.
 
+[1.0.8]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.4...v1.0.5
