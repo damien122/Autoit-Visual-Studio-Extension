@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The AutoIt Help comamnd will now open on blank lines (thanks Danp2)
+- The AutoIt Help command will now open on blank lines (thanks Danp2)
 - Updated the descriptions of the path settings
 - Refactored filepath finding code (thanks Danp2)
 
