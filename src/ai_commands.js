@@ -216,7 +216,7 @@ const checkScript = () => {
   window.setStatusBarMessage(`Checking script...${thisFile}`, 1500);
 
   // Launch the AutoIt Wrapper executable with the script's path
-  procRunner(checkPath, [thisFile]);
+  procRunner(aiPath, [wrapperPath, '/AU3check', '/prod', '/in', thisFile]);
 };
 
 const buildScript = () => {
