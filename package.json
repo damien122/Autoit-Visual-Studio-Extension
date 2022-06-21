@@ -363,6 +363,9 @@
       }
     },
     "configurationDefaults": {
+      "editor.detectIndentation": false,
+      "editor.tabSize": 4,
+      "editor.insertSpaces": false,
       "editor.tokenColorCustomizations": {
         "textMateRules": [
           {

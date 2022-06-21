@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Set VS Code to default to 4-space tabs for indentation like SciTe
+
 ## [1.0.8] - 2022-06-09
 
 ### Added
