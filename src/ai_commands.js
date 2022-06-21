@@ -281,6 +281,9 @@ const changeConsoleParams = () => {
 };
 
 const killScript = () => {
+  if (!runner)
+    return;
+
   runner.stdin.pause();
   runner.kill();
 };
