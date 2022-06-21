@@ -1,6 +1,4 @@
-import { languages, CompletionItem, CompletionItemKind, workspace, Range } from 'vscode';
-import fs from 'fs';
-import path from 'path';
+import { languages, CompletionItem, CompletionItemKind, Range } from 'vscode';
 import completions from './completions';
 import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
 import DEFAULT_UDFS from './constants';
