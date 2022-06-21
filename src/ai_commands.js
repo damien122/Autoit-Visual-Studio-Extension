@@ -1,8 +1,8 @@
 import { window, Position, workspace, Uri } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
-import { findFilepath, getIncludeText } from './util';
 import path from 'path';
 import fs from 'fs';
+import { findFilepath, getIncludeText } from './util';
 
 const configuration = workspace.getConfiguration('autoit');
 
