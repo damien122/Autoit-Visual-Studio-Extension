@@ -81,7 +81,7 @@ const runScript = () => {
 const launchHelp = () => {
   const editor = window.activeTextEditor;
   const wordRange = editor.document.getWordRangeAtPosition(editor.selection.start);
-     
+
   if (!wordRange) {
     launch(helpPath);
   } else {
@@ -96,32 +96,32 @@ const launchHelp = () => {
     if (prefix) {
       for (let i = 0; i < smartHelp.length; i += 1) {
         if (smartHelp[i][0] === prefix[0]) {
-            // Make sure help file exists
-            if (!fs.existsSync(smartHelp[i][1])) {
-              window.showErrorMessage(`Unable to locate ${smartHelp[i][1]}`);
+          // Make sure help file exists
+          if (!fs.existsSync(smartHelp[i][1])) {
+            window.showErrorMessage(`Unable to locate ${smartHelp[i][1]}`);
+            return;
+          }
+
+          const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
+          const sources = smartHelp[i][2].split("|")
+
+          for (let j = 0; j < sources.length; j += 1) {
+
+            let filePath = sources[j];
+            if (!fs.existsSync(filePath)) {
+              filePath = findFilepath(filePath, true)
+              if (!filePath) { continue };
+            }
+            let text = getIncludeText(filePath);
+            let found = text.match(regex);
+
+            if (found) {
+              if (hhproc) { hhproc.kill() };
+              hhproc = spawn("hh", [`mk:@MSITStore:${smartHelp[i][1]}::/funcs/${query}.htm`]);
               return;
             }
-
-            const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
-            const sources = smartHelp[i][2].split("|")
-
-            for (let j = 0; j < sources.length; j += 1) {
-
-              let filePath = sources[j];
-              if (!fs.existsSync(filePath)) {
-                filePath = findFilepath(filePath, true)
-                if (!filePath) { continue };
-              }
-              let text = getIncludeText(filePath);
-              let found = text.match(regex);
-
-              if (found) {
-                if (hhproc) { hhproc.kill() };
-                hhproc = spawn("hh", [`mk:@MSITStore:${smartHelp[i][1]}::/funcs/${query}.htm`]);
-                return;
-              }
-            }
-            break;
+          }
+          break;
         }
       }
     }
@@ -281,8 +281,10 @@ const changeConsoleParams = () => {
 };
 
 const killScript = () => {
-  if (!runner)
+  if (!runner) {
+    window.showErrorMessage('No script is currently running.');
     return;
+  }
 
   runner.stdin.pause();
   runner.kill();
