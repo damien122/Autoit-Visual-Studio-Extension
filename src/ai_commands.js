@@ -17,13 +17,31 @@ const { smartHelp } = configuration;
 const runners = {
   current: null,
   list: new Map(),
+  isNewLine: true,
+  lastId: 0,
   id: 1
 };
+
+const getLastRunningScript = () =>
+{
+  const thisFile = window.activeTextEditor.document.fileName;
+  for(let list = [...runners.list.entries()], i = list.length-1, runner, info; i >= 0; i--)
+  {
+    [runner, info] = list[i];
+    if (info.thisFile == thisFile)
+    {
+      return {runner, info};
+    }
+  }
+  return null;
+};
+
 let hhproc;
 
 function procRunner(cmdPath, args) {
   const id = runners.id++,
-        aiOutProcess = window.createOutputChannel(`AutoIt #${id} (${window.activeTextEditor.document.fileName})`, 'vscode-autoit-output'),
+        thisFile = window.activeTextEditor.document.fileName,
+        aiOutProcess = window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output'),
         //using proxy to "forward" all property calls to original aiOut
         aiOut = new Proxy(aiOutAll, {
           get(aiOut, prop, proxy)
@@ -34,7 +52,20 @@ function procRunner(cmdPath, args) {
               {
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
                 if (["append", "appendLine"].includes(prop))
-                  args[0] = "#" + id + ":" + args[0];
+                {
+                  const isNewLine = runners.isNewLine;
+                  runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
+                  if (runners.lastId != id || isNewLine)
+                  {
+                    // if (runners.lastId != id) //uncomment this to show ID once per batch of output strings in global output
+                      args[0] = "#" + id + ":" + args[0];
+
+                    if (!isNewLine)
+                      args[0] = "\r\n" + args[0];
+                  }
+
+                  runners.lastId = id;
+                }
 
                 aiOut[prop].apply(aiOut[prop], args); //global output
               };
@@ -50,14 +81,14 @@ function procRunner(cmdPath, args) {
 
   // Set working directory to AutoIt script dir so that compile and build
   // commands work right
-  const workDir = path.dirname(window.activeTextEditor.document.fileName);
+  const workDir = path.dirname(thisFile);
 
   const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
   runners.current = runner;
   aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
-  runners.list.set(runner, {id, aiOut: aiOutProcess});
+  runners.list.set(runner, {id, aiOut: aiOutProcess, thisFile});
 
   runner.stdout.on('data', data => {
     const output = data.toString();
@@ -314,15 +345,33 @@ const changeConsoleParams = () => {
     });
 };
 
-const killScript = (isRestart = false) => {
-  if (!runners.current) {
-    !isRestart && window.showInformationMessage('No script is currently running.');
+const showInformationMessage = (text, timeout = 10000) =>
+{
+  clearTimeout(showInformationMessage.timer[text]);
+
+  const callback = () =>
+        {
+          clearTimeout(timer);
+          for(let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
+            window.showInformationMessage(text);
+        },
+        timer = setTimeout(callback, timeout);
+
+  showInformationMessage.timer[text] = timer;
+  return window.showInformationMessage(text).finally(() => clearTimeout(timer));
+};
+showInformationMessage.timer = {};
+
+const killScript = (data = getLastRunningScript()) => {
+  if (!data) {
+    const file = window.activeTextEditor.document.fileName.split("\\").splice(-2, 2).join("\\");
+    showInformationMessage(`No script (${file}) is currently running.`);
     return;
   }
 
   window.setStatusBarMessage('Stopping the script...', 1500);
-  runners.current.stdin.pause();
-  runners.current.kill();
+  data.runner.stdin.pause();
+  data.runner.kill();
 };
 
 const openInclude = () => {
@@ -428,15 +477,14 @@ const insertHeader = () => {
 };
 
 const restartScript = () => {
-  if (runners.current)
+  const data = getLastRunningScript();
+  if (data)
   {
-    runners.current.on("exit", runScript);
-    killScript(true);
+    data.runner.on("exit", runScript);
+    return killScript(data);
   }
-  else
-    runScript();
+  runScript();
 };
-
 
 export {
   buildScript,
