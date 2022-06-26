@@ -6,10 +6,7 @@
   "configurations": [
   
     {
-      "args": [
-        "--disable-extensions",
-        "--extensionDevelopmentPath=${workspaceFolder}",
-      ],
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "name": "Launch Extension",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
       "preLaunchTask": "npm: webpack",

@@ -76,7 +76,6 @@ function procRunner(cmdPath, args) {
     runners.current = Array.from(runners.list.keys()).pop();
     aiOutAll.show(true); //switch to main output
   });
-  return;
 }
 
 const runScript = () => {
@@ -321,9 +320,9 @@ const killScript = (isRestart = false) => {
     return;
   }
 
-  runners.current.stdin.pause();
   window.setStatusBarMessage('Stopping the script...', 1500);
-  return runners.current.kill();
+  runners.current.stdin.pause();
+  runners.current.kill();
 };
 
 const openInclude = () => {
