@@ -4,23 +4,23 @@
   "scopeName": "source.vscode_autoit_output",
   "patterns": [
     {
-      "match": "^[>].*",
+      "match": "^(#[0-9]+:)?[>].*",
       "name": "vscode-autoit-output-blue"
     },
     {
-      "match": "^[+].*",
+      "match": "^(#[0-9]+:)?[+].*",
       "name": "vscode-autoit-output-green"
     },
     {
-      "match": "^[-].*",
+      "match": "^(#[0-9]+:)?[-].*",
       "name": "vscode-autoit-output-orange"
     },
     {
-      "match": "^[!].*",
+      "match": "^(#[0-9]+:)?[!].*",
       "name": "vscode-autoit-output-red"
     },
     {
-      "match": "^@@ Debug\\(\\d+\\) :",
+      "match": "^(#[0-9]+:)?@@ Debug\\(\\d+\\) :",
       "name": "vscode-autoit-output-debug"
     }
   ]

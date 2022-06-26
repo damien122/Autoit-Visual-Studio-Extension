@@ -9,25 +9,55 @@ const configuration = workspace.getConfiguration('autoit');
 // Executable paths
 const { aiPath, wrapperPath, tidyPath, checkPath, helpPath, infoPath, kodaPath } = configuration;
 
-const aiOut = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
+const aiOutAll = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
 // Additional help files
 const { smartHelp } = configuration;
 
-let runner;
+const runners = {
+  current: null,
+  list: new Map(),
+  id: 1
+};
 let hhproc;
 
 function procRunner(cmdPath, args) {
-  aiOut.clear();
-  aiOut.show(true);
+  const id = runners.id++,
+        aiOutProcess = window.createOutputChannel(`AutoIt #${id} (${window.activeTextEditor.document.fileName})`, 'vscode-autoit-output'),
+        //using proxy to "forward" all property calls to original aiOut
+        aiOut = new Proxy(aiOutAll, {
+          get(aiOut, prop, proxy)
+          {
+            if (aiOut[prop] instanceof Function)
+            {
+              return (...args) =>
+              {
+                aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
+                if (["append", "appendLine"].includes(prop))
+                  args[0] = "#" + id + ":" + args[0];
+
+                aiOut[prop].apply(aiOut[prop], args); //global output
+              };
+            }
+            else
+            {
+              return aiOut[prop];
+            }
+          }
+        });
+
+  aiOutProcess.show(true);
 
   // Set working directory to AutoIt script dir so that compile and build
   // commands work right
   const workDir = path.dirname(window.activeTextEditor.document.fileName);
 
-  runner = spawn(cmdPath, args, {
+  const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
+  runners.current = runner;
+  aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
+  runners.list.set(runner, {id, aiOut: aiOutProcess});
 
   runner.stdout.on('data', data => {
     const output = data.toString();
@@ -41,7 +71,12 @@ function procRunner(cmdPath, args) {
 
   runner.on('exit', code => {
     aiOut.appendLine(`Process exited with code ${code}`);
+    aiOutProcess.dispose();
+    runners.list.delete(runner);
+    runners.current = Array.from(runners.list.keys()).pop();
+    aiOutAll.show(true); //switch to main output
   });
+  return;
 }
 
 const runScript = () => {
@@ -280,14 +315,15 @@ const changeConsoleParams = () => {
     });
 };
 
-const killScript = () => {
-  if (!runner) {
-    window.showErrorMessage('No script is currently running.');
+const killScript = (isRestart = false) => {
+  if (!runners.current) {
+    !isRestart && window.showInformationMessage('No script is currently running.');
     return;
   }
 
-  runner.stdin.pause();
-  runner.kill();
+  runners.current.stdin.pause();
+  window.setStatusBarMessage('Stopping the script...', 1500);
+  return runners.current.kill();
 };
 
 const openInclude = () => {
@@ -393,8 +429,13 @@ const insertHeader = () => {
 };
 
 const restartScript = () => {
-  killScript();
-  runScript();
+  if (runners.current)
+  {
+    runners.current.on("exit", runScript);
+    killScript(true);
+  }
+  else
+    runScript();
 };
 
 
