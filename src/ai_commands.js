@@ -45,8 +45,7 @@ const aWrapperHotkey = (()=>
     ret = ini.parse(fileData);
   }
   catch(er){console.log(er);}
-  //by adding [] we ultimately disabling the hotkey (unless of course you able press all these buttons at once)
-  Object.assign(ret, {Other: {SciTE_STOPEXECUTE:"[^Break]", SciTE_RESTART:"[^!Break]"}});
+  Object.assign(ret, {Other: {SciTE_STOPEXECUTE:"", SciTE_RESTART:""}});
   return {
     disable: () =>
     {
