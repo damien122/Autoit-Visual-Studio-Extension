@@ -79,7 +79,7 @@
           </dict>
         </dict>
         <key>match</key>
-        <string>#(?i:include)\s+((["'&lt;]).*(["'&gt;]))$</string>
+        <string>#(?i:include)\s+((["'&lt;]).*(["'&gt;]))</string>
         <key>name</key>
         <string>keyword.control.import.autoit</string>
       </dict>
