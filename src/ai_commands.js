@@ -103,6 +103,15 @@ const runners = {
     return null;
   },
 
+  isAiOutVisible()
+  {
+    for(let i = 0; i < window.visibleTextEditors.length; i++)
+    {
+      if (window.visibleTextEditors[i].document.fileName.match(/^extension-output-Damien\.autoit-#[0-9]+-/))
+        return true;
+    }
+    return;
+  },
   cleanup(runner)
   {
     const info = this.list.get(runner);
@@ -110,12 +119,9 @@ const runners = {
     info.callback = () =>
     {
       info.aiOut.dispose();
-      //help needed to detect if output panel was switched by user
-      //this doesn't work if another script was started while this one was still running
-      //for now forcing showing common output
-//      if (this.id == info.id)
+      if (this.isAiOutVisible())
         aiOutCommon.show(true); //switch to main output
-      
+
       this.list.delete(runner);
     };
     info.timer = this.aiOutTimeout ? setTimeout(info.callback.bind(this), this.aiOutTimeout) : null;
@@ -194,6 +200,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     runners.lastId = 0; //force displaying ID
   }
 
+//  if (id == 1 || runners.isAiOutVisible()) //only switch output channel if autoit channel is opened now
   aiOutProcess.show(true);
   // Set working directory to AutoIt script dir so that compile and build
   // commands work right
