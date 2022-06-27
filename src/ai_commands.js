@@ -45,7 +45,10 @@ const aWrapperHotkey = (()=>
     ret = ini.parse(fileData);
   }
   catch(er){console.log(er);}
-  Object.assign(ret, {Other: {SciTE_STOPEXECUTE:"", SciTE_RESTART:""}});
+  if (!ret.Other)
+    ret.Other = {};
+
+  Object.assign(ret.Other, {SciTE_STOPEXECUTE:"", SciTE_RESTART:""});
   return {
     disable: () =>
     {
