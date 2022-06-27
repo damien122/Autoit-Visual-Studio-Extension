@@ -442,5 +442,8 @@
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
     "vscode:prepublish": "webpack --mode production"
+  },
+  "dependencies": {
+    "ini": "^3.0.0"
   }
 }

@@ -4,106 +4,158 @@ import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
 
-const config = Object.assign({}, workspace.getConfiguration('autoit'));
+import ini from "ini";
 
-workspace.onDidChangeConfiguration(({affectsConfiguration}) => {
-  if (!affectsConfiguration("autoit"))
-    return;
+const config = (() =>
+{
+  let conf = {
+    data: workspace.getConfiguration('autoit')
+  };
+  workspace.onDidChangeConfiguration(({affectsConfiguration}) => {
+    if (!affectsConfiguration("autoit"))
+      return;
 
-  Object.assign(config, workspace.getConfiguration('autoit'));
-});
+    conf.data = workspace.getConfiguration('autoit');
+  });
+  return new Proxy(conf,
+  {
+    get(target, prop) { return target.data[prop]; },
+    set(target, prop, val) { target.data.update(prop, val); }
+  });
+})();
 
+//AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
+//they interfere  with this extension (unless user change hotkeys)
+//this will disable hotkeys via AutoIt3Wrapper.ini while script is running
+//and restore original when it's finished (or if no .ini existed it will be deleted)
+const aWrapperHotkey = (()=>
+{
+  let fileData, ret = {}, autoIt3WrapperIni;
 
-const aiOutAll = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
+  if (process.env.SCITE_USERHOME && fs.existsSync(process.env.SCITE_USERHOME + "/AutoIt3Wrapper"))
+    autoIt3WrapperIni = process.env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+  else if (process.env.SCITE_HOME && fs.existsSync(process.env.SCITE_HOME + "/AutoIt3Wrapper"))
+    autoIt3WrapperIni = process.env.SCITE_HOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+  else
+    autoIt3WrapperIni = path.dirname(config.wrapperPath) + "/AutoIt3Wrapper.ini";
+
+  try
+  {
+    fileData = fs.readFileSync(autoIt3WrapperIni, 'utf-8');
+    ret = ini.parse(fileData);
+  }
+  catch(er){console.log(er);}
+  //by adding [] we ultimately disabling the hotkey (unless of course you able press all these buttons at once)
+  Object.assign(ret, {Other: {SciTE_STOPEXECUTE:"[^Break]", SciTE_RESTART:"[^!Break]"}});
+  return {
+    disable: () =>
+    {
+      fs.writeFileSync(autoIt3WrapperIni, ini.encode(ret), "utf-8");
+    },
+    reset: () =>
+    {
+      if (fileData === undefined)
+        fs.rmSync(autoIt3WrapperIni);
+      else
+        fs.writeFileSync(autoIt3WrapperIni, fileData, "utf-8");
+    }
+  };
+})();
+const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
 const runners = {
   list: new Map(), //list of running scripts
-  aiOut: new Map(), //list of existed script outputs
-  isNewLine: true, //was previous message ended with a newline?
-  aiOutMaxCount: 2, //max number of aiOutProcess outputs to keep after script exited
-  aiOutTimeout: 60000, //timeout in msec to automatically close output after script exited
-  lastId: 0, //last output id printed text (used to show ID or not)
-  id: 0,
+  isNewLine: true, //track if previous message ended with a newline
+  aiOutMaxCount: 2, //max number of process outputs of existed scripts
+  aiOutTimeout: 60000, //timeout in msec to automatically close process output after script exited
+  lastId: 0, //last id used in output
+  id: 0, //last launched process id
   get lastRunning()
   {
-    return this.lastRunningScript();
+    return this.findRunner({status: true, thisFile: null});
   },
+
   get lastRunningOpened()
   {
-    return this.lastRunningScript(getActiveDocumentFile());
+    return this.findRunner({status: true, thisFile: getActiveDocumentFile()});
   },
 
-  findLastAiOut(thisFile, processCommand)
+  findRunner(filter = {status: true, thisFile: null})
   {
-    for(let list = [...this.aiOut.entries()], i = list.length-1, runner, info; i >= 0; i--)
+    for(let list = [...this.list.entries()], i = list.length-1; i >= 0; i--)
     {
-      [runner, info] = list[i];
-      if (info.thisFile == thisFile && info.processCommand == processCommand)
+      const [runner, info] = list[i];
+      let good = true;
+      for(let f in filter)
       {
-        return {runner, info};
+        if (filter[f] !== null && filter[f] !== info[f])
+        {
+          good = false;
+          break;
+        }
       }
+      if (good)
+        return {runner, info};
+
     }
     return null;
   },
-  lastRunningScript(thisFile = null)
-  {
-    for(let list = [...this.list.entries()], i = list.length-1, runner, info; i >= 0; i--)
-    {
-      [runner, info] = list[i];
-      if (!thisFile || info.thisFile == thisFile)
-      {
-        return {runner, info};
-      }
-    }
-    return null;
-  },
-  aiOutCleanup({id, thisFile, runner, aiOutProcess, processCommand} = {})
-  {
-    const that = this;
-    const callback = () =>
-    {
-      aiOutProcess.dispose();
-      if (that.id == id)
-        aiOutAll.show(true); //switch to main output
 
-      that.aiOut.delete(runner);
+  cleanup(runner)
+  {
+    const info = this.list.get(runner);
+    clearTimeout(info.timer);
+    info.callback = () =>
+    {
+      info.aiOut.dispose();
+      //help needed to detect if output panel was switched by user
+      //this doesn't work if another script was started while this one was still running
+      //for now forcing showing common output
+//      if (this.id == info.id)
+        aiOutCommon.show(true); //switch to main output
+      
+      this.list.delete(runner);
     };
-    if (runner)
-      this.aiOut.set(runner, {timer: this.aiOutTimeout ? setTimeout(callback, this.aiOutTimeout) : null, callback, thisFile, processCommand, aiOutProcess, id});
+    info.timer = this.aiOutTimeout ? setTimeout(info.callback.bind(this), this.aiOutTimeout) : null;
 
-    while (this.aiOut.size > this.aiOutMaxCount)
+    const values = [...this.list.values()].filter(a => !a.status).sort((a,b) => b.endTime - a.endTime);
+    for(let i = Math.max(this.aiOutMaxCount, 0); i < values.length; i++)
     {
-      const {timer, callback} = this.aiOut.values().next().value;
-      clearTimeout(timer);
-      callback();
+      const data = values[i];
+      clearTimeout(data.timer);
+      data.callback();
     }
   }
 };
-
+/*
+window.activeTextEditor.document.fileName is not available in some situations
+(like when runScript() executed in settings tab)
+*/
 function getActiveDocumentFile() {
   return window.activeTextEditor && window.activeTextEditor.document.fileName || "";
 }
 
 let hhproc;
 
-function procRunner(cmdPath, args, bAiOutNew = true) {
+function procRunner(cmdPath, args, bAiOutReuse = true) {
   const thisFile = getActiveDocumentFile(),
         processCommand = cmdPath + " " + args,
-        aiOutPrev = bAiOutNew && runners.findLastAiOut(thisFile, processCommand),
-        id = aiOutPrev ? aiOutPrev.info.id : ++runners.id,
+        runnerPrev = bAiOutReuse && runners.findRunner({status: false, thisFile, processCommand}),
+        id = runnerPrev ? runnerPrev.info.id : ++runners.id,
         prefix = "#" + id + ":⠀",
         prefixEmpty = "".padStart(prefix.length, "⠀"),
-         aiOutProcess = aiOutPrev ? aiOutPrev.info.aiOutProcess : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output'),
-        //using proxy to "forward" all property calls to aiOutAll and aiOutProcess
-        aiOut = new Proxy(aiOutAll, {
-          get(aiOut, prop, proxy)
+        aiOutProcess = runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output'),
+        //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
+        aiOut = new Proxy(aiOutCommon, {
+          get(aiOut, prop)
           {
-            if (aiOut[prop] instanceof Function)
+            let ret = aiOut[prop];
+            if (ret instanceof Function)
             {
-              return (...args) =>
+              ret = (...args) =>
               {
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
-                if (["append", "appendLine"].includes(prop))
+                if (prop == "append" || prop == "appendLine")
                 {
                   const isNewLine = runners.isNewLine;
                   runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
@@ -123,22 +175,21 @@ function procRunner(cmdPath, args, bAiOutNew = true) {
                   runners.lastId = id;
                 }
 
-                aiOut[prop].apply(aiOut[prop], args); //global output
+                aiOut[prop].apply(aiOut[prop], args); //common output
               };
             }
-            else
-            {
-              return aiOut[prop];
-            }
+            
+            return ret;
           }
         });
 
-  if (aiOutPrev)
+  if (runnerPrev)
   {
-    clearTimeout(aiOutPrev.info.timer);
-    runners.aiOut.delete(aiOutPrev.runner);
-    aiOutProcess.clear();
-    runners.lastId = 0;
+    clearTimeout(runnerPrev.info.timer);
+    runnerPrev.startTime = new Date().getTime();
+    runnerPrev.info.status = true;
+    aiOutProcess.clear(); //clear only process output
+    runners.lastId = 0; //force displaying ID
   }
 
   aiOutProcess.show(true);
@@ -146,13 +197,22 @@ function procRunner(cmdPath, args, bAiOutNew = true) {
   // commands work right
   const workDir = path.dirname(thisFile);
 
+  aWrapperHotkey.disable();
   const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
   aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
+  //display process command line, adding quotes to file paths as it does in SciTE
   aiOut.appendLine(`>"${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}`);
-  if (!aiOutPrev)
-    runners.list.set(runner, {id, aiOut: aiOutProcess, thisFile, processCommand});
+  if (runnerPrev)
+  {
+    runners.list.set(runner, runnerPrev.info);
+    runners.list.delete(runnerPrev.runner);
+  }
+  else
+  {
+    runners.list.set(runner, {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true});
+  }
 
   runner.stdout.on('data', data => {
     const output = data.toString();
@@ -167,8 +227,11 @@ function procRunner(cmdPath, args, bAiOutNew = true) {
   runner.on('exit', code => {
     code = ~~code;
     aiOut.appendLine(`${"+-!"[code>1||code<-1?2:code<1?0:1]}>Process exited with code ${code}`);
-    runners.aiOutCleanup({id, runner, aiOutProcess, thisFile, processCommand});
-    runners.list.delete(runner);
+    const info = runners.list.get(runner);
+    info.endTime = new Date().getTime();
+    info.status = false;
+    runners.cleanup(runner);
+    aWrapperHotkey.reset();
   });
 }
 
@@ -179,7 +242,7 @@ const runScript = () => {
   // Save the file
   thisDoc.save();
 
-  const params = workspace.getConfiguration('autoit').get('consoleParams');
+  const params = config.consoleParams;
 
   window.setStatusBarMessage('Running the script...', 1500);
 
@@ -356,7 +419,7 @@ const buildScript = () => {
   window.setStatusBarMessage('Building script...', 1500);
 
   // Launch the AutoIt Wrapper executable with the script's path
-  procRunner(config.aiPath, [config.wrapperPath, '/NoStatus', '/prod', '/in', thisFile], true);
+  procRunner(config.aiPath, [config.wrapperPath, '/NoStatus', '/prod', '/in', thisFile]);
 };
 
 const debugConsole = () => {
@@ -380,7 +443,7 @@ const launchKoda = () => {
 };
 
 const changeConsoleParams = () => {
-  const currentParameters = workspace.getConfiguration('autoit').get('consoleParams');
+  const currentParameters = config.consoleParams;
 
   window
     .showInputBox({
@@ -397,7 +460,7 @@ const changeConsoleParams = () => {
       }
 
       config.update('consoleParams', newParams, false).then(() => {
-        const params = workspace.getConfiguration('autoit').get('consoleParams');
+        const params = config.consoleParams;
 
         const message = params
           ? `Current console parameter(s): ${params}`
@@ -426,7 +489,7 @@ const showInformationMessage = (text, timeout = 10000) =>
 showInformationMessage.timer = {};
 
 const killScript = (thisFile = null) => {
-  const data = runners.lastRunningScript(thisFile);
+  const data = runners.findRunner({status: true, thisFile});
   if (!data) {
     const file = thisFile ? " (" +thisFile.split("\\").splice(-2, 2).join("\\") + ") " : " ";
     showInformationMessage(`No script${file}is currently running.`);
@@ -486,7 +549,7 @@ const insertHeader = () => {
   const doc = editor.document;
   const currentLine = editor.selection.active.line;
   const lineText = doc.lineAt(currentLine).text;
-  const UDFCreator = workspace.getConfiguration('autoit').get('UDFCreator');
+  const UDFCreator = config.UDFCreator;
 
   const findFunc = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/i;
   const found = findFunc.exec(lineText);
@@ -546,22 +609,24 @@ const insertHeader = () => {
 };
 
 const restartScript = () => {
-  const data = runners.lastRunningOpened;
-  if (data)
+  try
   {
-    data.runner.on("exit", () =>
+  const {runner, info} = runners.lastRunningOpened||{};
+  if (runner)
+  {
+    runner.on("exit", () =>
     {
-      const {callback, timer} = runners.aiOut.get(data.runner);
-      if (callback)
+      if (info.callback)
       {
-        clearTimeout(timer);
-        callback();
+        clearTimeout(info.timer);
+        info.callback();
       }
       runScript();
     });
-    return killScript(data.info.thisFile);
+    return killScript(info.thisFile);
   }
   runScript();
+}catch(er){console.log(er)}
 };
 
 export {
