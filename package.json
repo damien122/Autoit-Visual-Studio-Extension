@@ -115,6 +115,10 @@
           "when": "editorLangId == autoit"
         },
         {
+          "command": "extension.killScriptOpened",
+          "when": "editorLangId == autoit"
+        },
+        {
           "command": "extension.insertHeader",
           "when": "editorLangId == autoit"
         },
@@ -176,6 +180,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.killScriptOpened",
+        "title": "AutoIt: Kill Running Opened Script"
       },
       {
         "command": "extension.insertHeader",
@@ -268,12 +276,22 @@
         "key": "ctrl+pausebreak"
       },
       {
+        "command": "extension.killScriptOpened",
+        "key": "shift+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
         "command": "extension.insertHeader",
         "key": "ctrl+alt+H"
       },
       {
         "command": "extension.openInclude",
         "key": "alt+i"
+      },
+      {
+        "command": "extension.restartScript",
+        "key": "ctrl+alt+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
       }
     ],
     "configuration": {
@@ -359,6 +377,11 @@
           "type": "string",
           "default": "Your Name",
           "description": "The name that will be added as Author when Insert Function Header is used"
+        },
+        "autoit.idOnEachLine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show process ID on each line in the common output"
         }
       }
     },
@@ -402,6 +425,13 @@
             "scope": "vscode-autoit-output-debug",
             "settings": {
               "foreground": "#d6ae5d"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process",
+            "settings": {
+              "foreground": "#d65d81",
+              "fontStyle": "italic"
             }
           }
         ]
