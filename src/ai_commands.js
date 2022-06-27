@@ -173,7 +173,7 @@ const debugMsgBox = () => {
 
   const indent = getIndent();
 
-  if (debugText) {
+  if (Object.keys(debugText).length) {
     const debugCode = `${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
 
     // Insert the code for the MsgBox into the script
@@ -236,7 +236,7 @@ const debugConsole = () => {
   const debugText = getDebugText();
   const indent = getIndent();
 
-  if (debugText) {
+  if (Object.keys(debugText).length) {
     const debugCode = `${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
 
     // Insert the code for the MsgBox into the script
