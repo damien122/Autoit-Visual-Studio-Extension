@@ -4,3 +4,4 @@ jspm_packages
 dist/
 .cache
 *.vsix
+src/ai_commands.js
