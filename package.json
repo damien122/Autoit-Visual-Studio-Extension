@@ -378,10 +378,30 @@
           "default": "Your Name",
           "description": "The name that will be added as Author when Insert Function Header is used"
         },
-        "autoit.idOnEachLine": {
+        "autoit.multiOutput": {
           "type": "boolean",
-          "default": false,
-          "description": "Show process ID on each line in the common output"
+          "default": true,
+          "description": "Enable separate output window for each running script"
+        },
+        "autoit.multiOutputStaleMax": {
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "description": "How many output windows to keep after script finished"
+        },
+        "autoit.multiOutputStaleTimeout": {
+          "type": "number",
+          "default": 180,
+          "min": 0,
+          "description": "How long (in seconds) to wait until output windows of finished scripts deleted"
+        },
+
+        "autoit.processIdInOutput": {
+          "type": "string",
+          "default": "Single",
+          "enum": ["None", "Single", "Multi"],
+          "enumDescriptions": ["No process ID will be shown", "Only on first line until another process's output", "On each line"],
+          "description": "Show process ID in the Autoit (common) output"
         }
       }
     },

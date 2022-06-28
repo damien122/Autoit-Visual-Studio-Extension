@@ -68,8 +68,6 @@ const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output')
 const runners = {
   list: new Map(), //list of running scripts
   isNewLine: true, //track if previous message ended with a newline
-  aiOutMaxCount: 2, //max number of process outputs of existed scripts
-  aiOutTimeout: 60000, //timeout in msec to automatically close process output after script exited
   lastId: 0, //last id used in output
   id: 0, //last launched process id
   get lastRunning()
@@ -120,16 +118,18 @@ const runners = {
     clearTimeout(info.timer);
     info.callback = () =>
     {
-      info.aiOut.dispose();
+      if (info.aiOut !== aiOutCommon)
+        info.aiOut.dispose();
+
       if (this.isAiOutVisible())
         aiOutCommon.show(true); //switch to main output
 
       this.list.delete(runner);
     };
-    info.timer = this.aiOutTimeout ? setTimeout(info.callback.bind(this), this.aiOutTimeout) : null;
+    info.timer = this.multiOutputStaleTimeout ? setTimeout(info.callback.bind(this), this.multiOutputStaleTimeout * 1000) : null;
 
     const values = [...this.list.values()].filter(a => !a.status).sort((a,b) => b.endTime - a.endTime);
-    for(let i = Math.max(this.aiOutMaxCount, 0); i < values.length; i++)
+    for(let i = Math.max(config.multiOutputStaleMax, 0); i < values.length; i++)
     {
       const data = values[i];
       clearTimeout(data.timer);
@@ -154,7 +154,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
         id = runnerPrev ? runnerPrev.info.id : ++runners.id,
         prefix = "#" + id + ":⠀",
         prefixEmpty = "".padStart(prefix.length, "⠀"),
-        aiOutProcess = runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output'),
+        aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
         //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
         aiOut = new Proxy(aiOutCommon, {
           get(aiOut, prop)
@@ -165,7 +165,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
               ret = (...args) =>
               {
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
-                if (prop == "append" || prop == "appendLine")
+                if ((prop == "append" || prop == "appendLine") &&  config.processIdInOutput != "None")
                 {
                   const isNewLine = runners.isNewLine;
                   runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
@@ -173,7 +173,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
                   args[0] = args[0].replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
                   if (runners.lastId != id || isNewLine)
                   {
-                    if (config.idOnEachLine)
+                    if (config.processIdInOutput == "Multi")
                       args[0] = prefix + args[0]; //display ID on each line
                     else
                       args[0] = (runners.lastId == id ? prefixEmpty : prefix) + args[0];
@@ -198,12 +198,14 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     clearTimeout(runnerPrev.info.timer);
     runnerPrev.startTime = new Date().getTime();
     runnerPrev.info.status = true;
-    aiOutProcess.clear(); //clear only process output
+    aiOutProcess.clear(); //clear process output
     runners.lastId = 0; //force displaying ID
   }
+  if (!config.multiOutput)
+    aiOutCommon.clear();
 
 //  if (id == 1 || runners.isAiOutVisible()) //only switch output channel if autoit channel is opened now
-  aiOutProcess.show(true);
+  (config.multiOutput ? aiOutProcess : aiOutCommon).show(true);
   // Set working directory to AutoIt script dir so that compile and build
   // commands work right
   const workDir = path.dirname(thisFile);
@@ -212,7 +214,9 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
+
   aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
+
   //display process command line, adding quotes to file paths as it does in SciTE
   aiOut.appendLine(`>"${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}`);
   if (runnerPrev)
