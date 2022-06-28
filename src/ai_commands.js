@@ -215,6 +215,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     cwd: workDir,
   });
 
+  const aWrapperHotkeyTimer = setTimeout(aWrapperHotkey.reset, 5000);
   aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
 
   //display process command line, adding quotes to file paths as it does in SciTE
@@ -245,6 +246,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     const info = runners.list.get(runner);
     info.endTime = new Date().getTime();
     info.status = false;
+    clearTimeout(aWrapperHotkeyTimer);
     runners.cleanup(runner);
     aWrapperHotkey.reset();
   });
@@ -624,8 +626,6 @@ const insertHeader = () => {
 };
 
 const restartScript = () => {
-  try
-  {
   const {runner, info} = runners.lastRunningOpened||{};
   if (runner)
   {
@@ -641,7 +641,6 @@ const restartScript = () => {
     return killScript(info.thisFile);
   }
   runScript();
-}catch(er){console.log(er)}
 };
 
 export {
