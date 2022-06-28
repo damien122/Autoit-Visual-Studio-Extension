@@ -20,12 +20,12 @@ const config = (() =>
   return new Proxy(conf,
   {
     get(target, prop) { return target.data[prop]; },
-    set(target, prop, val) { target.data.update(prop, val); }
+    set(target, prop, val) { return target.data.update(prop, val); }
   });
 })();
 
 //AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
-//they interfere  with this extension (unless user change hotkeys)
+//they interfere with this extension (unless user changed hotkeys)
 //this will disable hotkeys via AutoIt3Wrapper.ini while script is running
 //and restore original when it's finished (or if no .ini existed it will be deleted)
 const aWrapperHotkey = (()=>
@@ -103,12 +103,14 @@ const runners = {
     return null;
   },
 
+  outputRegex: new RegExp(`^extension-output-${require("../package.json").publisher}\.${require("../package.json").name}-#([0-9]+)-(.*)`),
   isAiOutVisible()
   {
-    for(let i = 0; i < window.visibleTextEditors.length; i++)
+    for(let i = 0, found; i < window.visibleTextEditors.length; i++)
     {
-      if (window.visibleTextEditors[i].document.fileName.match(/^extension-output-Damien\.autoit-#[0-9]+-/))
-        return true;
+      found = window.visibleTextEditors[i].document.fileName.match(this.outputRegex);
+      if (found)
+        return {id: found[1], name: found[2]};
     }
     return;
   },
@@ -186,7 +188,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
                 aiOut[prop].apply(aiOut[prop], args); //common output
               };
             }
-            
+
             return ret;
           }
         });
