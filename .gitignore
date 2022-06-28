@@ -4,4 +4,3 @@ jspm_packages
 dist/
 .cache
 *.vsix
-package-lock.json
