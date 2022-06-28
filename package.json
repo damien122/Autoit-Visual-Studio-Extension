@@ -391,9 +391,9 @@
         },
         "autoit.multiOutputStaleTimeout": {
           "type": "number",
-          "default": 180,
+          "default": 0,
           "min": 0,
-          "description": "How long (in seconds) to wait until output windows of finished scripts deleted"
+          "description": "How long (in seconds) to wait until output windows of finished scripts deleted\n0 = indefinitely"
         },
 
         "autoit.processIdInOutput": {

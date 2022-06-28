@@ -113,35 +113,32 @@ const runners = {
     }
     return;
   },
-  cleanup(runner)
+  cleanup()
   {
     const now = new Date().getTime();
     const timeout = config.multiOutputStaleTimeout * 1000;
     const endTime = now - timeout;
     //get list of finished processes, ordered by endTime descent
-    const values = [...this.list.values()].filter(a => !a.status).sort((a,b) => b.endTime - a.endTime);
+    const values = [...this.list.entries()].filter(a => !a[1].status).sort((a,b) => b[1].endTime - a[1].endTime);
     for(let i = 0; i < values.length; i++)
     {
-      const info = values[i];
+      const [runner, info] = values[i];
       clearTimeout(info.timer);
-      if (!info.callback)
+      info.callback = () =>
       {
-        info.callback = () =>
-        {
-          if (info.aiOut !== aiOutCommon)
-            info.aiOut.dispose();
+        if (info.aiOut !== aiOutCommon)
+          info.aiOut.dispose();
 
-          const isAiOutVisible = this.isAiOutVisible();
-          if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
-            aiOutCommon.show(true); //switch to main output
-  
-          this.list.delete(runner);
-        };
-      }
-      if (i >= config.multiOutputStaleMax || info.endTime < endTime)
+        const isAiOutVisible = this.isAiOutVisible();
+        if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
+          aiOutCommon.show(true); //switch to main output
+
+        this.list.delete(runner);
+      };
+      if (i >= config.multiOutputStaleMax || (config.multiOutputStaleTimeout && info.endTime < endTime))
         info.callback();
       else
-       info.timer = setTimeout(info.callback.bind(this), info.endTime - endTime);
+       info.timer = config.multiOutputStaleTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
     }
   }
 };
@@ -274,7 +271,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     info.endTime = new Date().getTime();
     info.status = false;
     clearTimeout(aWrapperHotkeyTimer);
-    runners.cleanup(runner);
+    runners.cleanup();
     aWrapperHotkey.reset();
   });
 }
