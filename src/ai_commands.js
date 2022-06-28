@@ -16,6 +16,7 @@ const config = (() =>
       return;
 
     conf.data = workspace.getConfiguration('autoit');
+    runners.cleanup();
   });
   return new Proxy(conf,
   {
@@ -114,29 +115,55 @@ const runners = {
   },
   cleanup(runner)
   {
-    const info = this.list.get(runner);
-    clearTimeout(info.timer);
-    info.callback = () =>
-    {
-      if (info.aiOut !== aiOutCommon)
-        info.aiOut.dispose();
-
-      if (this.isAiOutVisible())
-        aiOutCommon.show(true); //switch to main output
-
-      this.list.delete(runner);
-    };
-    info.timer = this.multiOutputStaleTimeout ? setTimeout(info.callback.bind(this), this.multiOutputStaleTimeout * 1000) : null;
-
+    const now = new Date().getTime();
+    const timeout = config.multiOutputStaleTimeout * 1000;
+    const endTime = now - timeout;
+    //get list of finished processes, ordered by endTime descent
     const values = [...this.list.values()].filter(a => !a.status).sort((a,b) => b.endTime - a.endTime);
-    for(let i = Math.max(config.multiOutputStaleMax, 0); i < values.length; i++)
+    for(let i = 0; i < values.length; i++)
     {
-      const data = values[i];
-      clearTimeout(data.timer);
-      data.callback();
+      const info = values[i];
+      clearTimeout(info.timer);
+      if (!info.callback)
+      {
+        info.callback = () =>
+        {
+          if (info.aiOut !== aiOutCommon)
+            info.aiOut.dispose();
+
+          const isAiOutVisible = this.isAiOutVisible();
+          if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
+            aiOutCommon.show(true); //switch to main output
+  
+          this.list.delete(runner);
+        };
+      }
+      if (i >= config.multiOutputStaleMax || info.endTime < endTime)
+        info.callback();
+      else
+       info.timer = setTimeout(info.callback.bind(this), info.endTime - endTime);
     }
   }
 };
+
+const showInformationMessage = (text, timeout = 10000) =>
+{
+  clearTimeout(showInformationMessage.timer[text]);
+
+  const callback = () =>
+  {
+    clearTimeout(timer);
+    for(let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
+      window.showInformationMessage(text);
+  };
+  const timer = setTimeout(callback, timeout);
+
+  showInformationMessage.timer[text] = timer;
+  return window.showInformationMessage(text).finally(() => clearTimeout(timer));
+};
+showInformationMessage.timer = {};
+
+
 /*
 window.activeTextEditor.document.fileName is not available in some situations
 (like when runScript() executed in settings tab)
@@ -165,7 +192,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
               ret = (...args) =>
               {
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
-                if ((prop == "append" || prop == "appendLine") &&  config.processIdInOutput != "None")
+                if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None")
                 {
                   const isNewLine = runners.isNewLine;
                   runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
@@ -487,23 +514,6 @@ const changeConsoleParams = () => {
       });
     });
 };
-
-const showInformationMessage = (text, timeout = 10000) =>
-{
-  clearTimeout(showInformationMessage.timer[text]);
-
-  const callback = () =>
-  {
-    clearTimeout(timer);
-    for(let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
-      window.showInformationMessage(text);
-  };
-  const timer = setTimeout(callback, timeout);
-
-  showInformationMessage.timer[text] = timer;
-  return window.showInformationMessage(text).finally(() => clearTimeout(timer));
-};
-showInformationMessage.timer = {};
 
 const killScript = (thisFile = null) => {
   const data = runners.findRunner({status: true, thisFile});
