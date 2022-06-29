@@ -395,12 +395,19 @@
           "min": 0,
           "description": "How long (in seconds) to wait until output windows of finished scripts deleted\n0 = indefinitely"
         },
-
         "autoit.processIdInOutput": {
           "type": "string",
           "default": "Single",
-          "enum": ["None", "Single", "Multi"],
-          "enumDescriptions": ["No process ID will be shown", "Only on first line until another process's output", "On each line"],
+          "enum": [
+            "None",
+            "Single",
+            "Multi"
+          ],
+          "enumDescriptions": [
+            "No process ID will be shown",
+            "Only on first line until another process's output",
+            "On each line"
+          ],
           "description": "Show process ID in the Autoit (common) output"
         }
       }
@@ -462,8 +469,5 @@
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
     "vscode:prepublish": "webpack --mode production"
-  },
-  "dependencies": {
-    "ini": "^3.0.0"
   }
 }

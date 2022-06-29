@@ -4,8 +4,6 @@ import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
 
-import ini from "ini";
-
 const config = (() =>
 {
   let conf = {
@@ -31,39 +29,70 @@ const config = (() =>
 //and restore original when it's finished (or if no .ini existed it will be deleted)
 const aWrapperHotkey = (()=>
 {
-  let fileData, ret = {}, autoIt3WrapperIni;
-
-  if (process.env.SCITE_USERHOME && fs.existsSync(process.env.SCITE_USERHOME + "/AutoIt3Wrapper"))
-    autoIt3WrapperIni = process.env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
-  else if (process.env.SCITE_HOME && fs.existsSync(process.env.SCITE_HOME + "/AutoIt3Wrapper"))
-    autoIt3WrapperIni = process.env.SCITE_HOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
-  else
-    autoIt3WrapperIni = path.dirname(config.wrapperPath) + "/AutoIt3Wrapper.ini";
-
-  try
+  let dataOrig, ini, timer;
+  const fileData = ()=>
   {
-    fileData = fs.readFileSync(autoIt3WrapperIni, 'utf-8');
-    ret = ini.parse(fileData);
-  }
-  catch(er){console.log(er);}
-  if (!ret.Other)
-    ret.Other = {};
+    let data;
+    //we should not cache this
+    if (process.env.SCITE_USERHOME && fs.existsSync(process.env.SCITE_USERHOME + "/AutoIt3Wrapper"))
+      ini = process.env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+    else if (process.env.SCITE_HOME && fs.existsSync(process.env.SCITE_HOME + "/AutoIt3Wrapper"))
+      ini = process.env.SCITE_HOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+    else
+      ini = path.dirname(config.wrapperPath) + "/AutoIt3Wrapper.ini";
 
-  Object.assign(ret.Other, {SciTE_STOPEXECUTE:"", SciTE_RESTART:""});
-  return {
-    disable: () =>
+    try
     {
-      fs.writeFileSync(autoIt3WrapperIni, ini.encode(ret), "utf-8");
+      dataOrig = data = fs.readFileSync(ini, 'utf-8');
+      const other = data.match(/\[Other\]/i);
+      if (other)
+      {
+        const regex = /(SciTE_(?:STOPEXECUTE|RESTART)\s*=).*/gi;
+        regex.lastIndex = other.index;
+        let res;
+        while((res = regex.exec(data)))
+        {
+          data = data.substring(0, res.index) + res[1] + data.substring(res.index + res[0].length);
+          regex.lastIndex -= res[0].length - res[1].length;
+        }
+      }
+      else
+      {
+        data += `\r\n[Other]`;
+      }
+      data += `\r\nSciTE_STOPEXECUTE=\r\nSciTE_RESTART=`;
+    }
+    catch(er){console.log(er);}
+    return {ini, data, dataOrig};
+  };
+
+  return {
+    disable: function ()
+    {
+      clearTimeout(timer);
+      const {ini, data} = fileData();
+      fs.writeFileSync(ini, data, "utf-8");
+      timer = setTimeout(this.reset, 5000);
     },
     reset: () =>
     {
-      if (fileData === undefined)
-        fs.rmSync(autoIt3WrapperIni);
-      else
-        fs.writeFileSync(autoIt3WrapperIni, fileData, "utf-8");
+      clearTimeout(timer);
+      if (!ini)
+        return;
+
+      try
+      {
+        if (dataOrig === undefined)
+          fs.rmSync(ini);
+        else
+          fs.writeFileSync(ini, dataOrig, "utf-8");
+      }
+      catch(er){console.log(er);}
+      ini = undefined;
     }
   };
 })();
+
 const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
 const runners = {
@@ -131,7 +160,7 @@ const runners = {
 
         const isAiOutVisible = this.isAiOutVisible();
         if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
-          aiOutCommon.show(true); //switch to main output
+          aiOutCommon.show(true); //switch to common output
 
         this.list.delete(runner);
       };
@@ -170,7 +199,11 @@ function getActiveDocumentFile() {
 }
 
 let hhproc;
-
+const keybindings = {};
+for(let i = 0, list = require("../package.json").contributes.keybindings; i < list.length; i++)
+{
+  keybindings[list[i].command.substring(10)] = list[i].key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+}
 function procRunner(cmdPath, args, bAiOutReuse = true) {
   const thisFile = getActiveDocumentFile(),
         processCommand = cmdPath + " " + args,
@@ -179,6 +212,8 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
         prefix = "#" + id + ":⠀",
         prefixEmpty = "".padStart(prefix.length, "⠀"),
         aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
+        hotkeyFailedMsg = "!>Failed Setting Hotkey(s)...--> SetHotKey Restart failed, SetHotKey Stop failed.",
+        hotkeyFailedMsgReplace = `+>Setting Hotkeys...--> Press ${keybindings.restartScript} to Restart or ${keybindings.killScript} to Stop.`,
         //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
         aiOut = new Proxy(aiOutCommon, {
           get(aiOut, prop)
@@ -188,6 +223,12 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
             {
               ret = (...args) =>
               {
+                const index = args[0].indexOf(hotkeyFailedMsg);
+                if (index > -1)
+                {
+                  args[0] = args[0].substring(0, index) + hotkeyFailedMsgReplace + args[0].substring(index + hotkeyFailedMsg.length);
+                  aWrapperHotkey.reset();
+                }
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
                 if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None")
                 {
@@ -239,7 +280,6 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     cwd: workDir,
   });
 
-  const aWrapperHotkeyTimer = setTimeout(aWrapperHotkey.reset, 5000);
   aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
 
   //display process command line, adding quotes to file paths as it does in SciTE
@@ -270,7 +310,6 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     const info = runners.list.get(runner);
     info.endTime = new Date().getTime();
     info.status = false;
-    clearTimeout(aWrapperHotkeyTimer);
     runners.cleanup();
     aWrapperHotkey.reset();
   });
