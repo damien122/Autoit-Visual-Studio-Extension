@@ -383,13 +383,13 @@
           "default": true,
           "description": "Enable separate output window for each running script"
         },
-        "autoit.multiOutputStaleMax": {
+        "autoit.multiOutputMaxFinished": {
           "type": "number",
           "default": 2,
           "min": 0,
           "description": "How many output windows to keep after script finished"
         },
-        "autoit.multiOutputStaleTimeout": {
+        "autoit.multiOutputFinishedTimeout": {
           "type": "number",
           "default": 0,
           "min": 0,

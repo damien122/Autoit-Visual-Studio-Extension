@@ -30,6 +30,7 @@ const config = (() =>
 const aWrapperHotkey = (()=>
 {
   let dataOrig, ini, timer;
+  const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi;
   const fileData = ()=>
   {
     let data;
@@ -44,23 +45,27 @@ const aWrapperHotkey = (()=>
     try
     {
       dataOrig = data = fs.readFileSync(ini, 'utf-8');
-      const other = data.match(/\[Other\]/i);
+      const other = data.match(/^\s*\[Other\]\s*$/im);
+      const hotkeys = {STOPEXECUTE:0,RESTART:0};
       if (other)
       {
-        const regex = /(SciTE_(?:STOPEXECUTE|RESTART)\s*=).*/gi;
         regex.lastIndex = other.index;
         let res;
         while((res = regex.exec(data)))
         {
           data = data.substring(0, res.index) + res[1] + data.substring(res.index + res[0].length);
           regex.lastIndex -= res[0].length - res[1].length;
+          hotkeys[res[2].toUpperCase()]++;
         }
       }
       else
       {
         data += `\r\n[Other]`;
       }
-      data += `\r\nSciTE_STOPEXECUTE=\r\nSciTE_RESTART=`;
+      if (!hotkeys.STOPEXECUTE)
+        data += `\r\nSciTE_STOPEXECUTE=`;
+      if (!hotkeys.RESTART)
+        data += `\r\nSciTE_RESTART=`;
     }
     catch(er){console.log(er);}
     return {ini, data, dataOrig};
@@ -145,7 +150,7 @@ const runners = {
   cleanup()
   {
     const now = new Date().getTime();
-    const timeout = config.multiOutputStaleTimeout * 1000;
+    const timeout = config.multiOutputFinishedTimeout * 1000;
     const endTime = now - timeout;
     //get list of finished processes, ordered by endTime descent
     const values = [...this.list.entries()].filter(a => !a[1].status).sort((a,b) => b[1].endTime - a[1].endTime);
@@ -164,10 +169,10 @@ const runners = {
 
         this.list.delete(runner);
       };
-      if (i >= config.multiOutputStaleMax || (config.multiOutputStaleTimeout && info.endTime < endTime))
+      if (i >= config.multiOutputMaxFinished || (config.multiOutputFinishedTimeout && info.endTime < endTime))
         info.callback();
       else
-       info.timer = config.multiOutputStaleTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
+       info.timer = config.multiOutputFinishedTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
     }
   }
 };
@@ -199,21 +204,22 @@ function getActiveDocumentFile() {
 }
 
 let hhproc;
-const keybindings = {};
-for(let i = 0, list = require("../package.json").contributes.keybindings; i < list.length; i++)
-{
-  keybindings[list[i].command.substring(10)] = list[i].key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
-}
+// maybe it's not a good idea show default hotkeys, it will confuse user if they changed them.
+// const keybindings = {};
+// for(let i = 0, list = require("../package.json").contributes.keybindings; i < list.length; i++)
+// {
+//   keybindings[list[i].command.substring(10)] = list[i].key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+// }
 function procRunner(cmdPath, args, bAiOutReuse = true) {
   const thisFile = getActiveDocumentFile(),
         processCommand = cmdPath + " " + args,
         runnerPrev = bAiOutReuse && runners.findRunner({status: false, thisFile, processCommand}),
         id = runnerPrev ? runnerPrev.info.id : ++runners.id,
-        prefix = "#" + id + ":⠀",
-        prefixEmpty = "".padStart(prefix.length, "⠀"),
+        prefix = "#" + id + ": ",
+        prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
         aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
-        hotkeyFailedMsg = "!>Failed Setting Hotkey(s)...--> SetHotKey Restart failed, SetHotKey Stop failed.",
-        hotkeyFailedMsgReplace = `+>Setting Hotkeys...--> Press ${keybindings.restartScript} to Restart or ${keybindings.killScript} to Stop.`,
+        hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
+        // hotkeyFailedMsgReplace = `+>Setting Hotkeys...--> Press ${keybindings.restartScript} to Restart or ${keybindings.killScript} to Stop.`,
         //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
         aiOut = new Proxy(aiOutCommon, {
           get(aiOut, prop)
@@ -223,12 +229,14 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
             {
               ret = (...args) =>
               {
-                const index = args[0].indexOf(hotkeyFailedMsg);
-                if (index > -1)
+                const text = args[0].replace(hotkeyFailedMsg, "");
+                if (text != args[0] && !text.length)
                 {
-                  args[0] = args[0].substring(0, index) + hotkeyFailedMsgReplace + args[0].substring(index + hotkeyFailedMsg.length);
                   aWrapperHotkey.reset();
+                  // in the future maybe we could find a way get current hotkeys registered for our commands...
+                  return;
                 }
+                args[0] = text;
                 aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
                 if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None")
                 {
