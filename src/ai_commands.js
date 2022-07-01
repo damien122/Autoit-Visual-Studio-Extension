@@ -26,14 +26,16 @@ const config = (() =>
 //AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
 //they interfere with this extension (unless user changed hotkeys)
 //this will disable hotkeys via AutoIt3Wrapper.ini while script is running
-//and restore original when it's finished (or if no .ini existed it will be deleted)
+//and restore original (or if no .ini existed it will be deleted)
+//when AutoIt3Wrapper detected running, or after 5 seconds
 const aWrapperHotkey = (()=>
 {
-  let dataOrig, ini, timer;
+  let dataOrig, data, ini, timer;
   const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi;
   const fileData = ()=>
   {
-    let data;
+    ini = dataOrig = null;
+    data = "";
     //we should not cache this
     if (process.env.SCITE_USERHOME && fs.existsSync(process.env.SCITE_USERHOME + "/AutoIt3Wrapper"))
       ini = process.env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
@@ -45,29 +47,29 @@ const aWrapperHotkey = (()=>
     try
     {
       dataOrig = data = fs.readFileSync(ini, 'utf-8');
-      const other = data.match(/^\s*\[Other\]\s*$/im);
-      const hotkeys = {STOPEXECUTE:0,RESTART:0};
-      if (other)
+    } catch(er){}
+    const other = data.match(/^\s*\[Other\]\s*$/im);
+    const hotkeys = {STOPEXECUTE:0,RESTART:0};
+    if (other)
+    {
+      regex.lastIndex = other.index;
+      let res;
+      while((res = regex.exec(data)))
       {
-        regex.lastIndex = other.index;
-        let res;
-        while((res = regex.exec(data)))
-        {
-          data = data.substring(0, res.index) + res[1] + data.substring(res.index + res[0].length);
-          regex.lastIndex -= res[0].length - res[1].length;
-          hotkeys[res[2].toUpperCase()]++;
-        }
+        data = data.substring(0, res.index) + res[1] + data.substring(res.index + res[0].length);
+        regex.lastIndex -= res[0].length - res[1].length;
+        hotkeys[res[2].toUpperCase()]++;
       }
-      else
-      {
-        data += `\r\n[Other]`;
-      }
-      if (!hotkeys.STOPEXECUTE)
-        data += `\r\nSciTE_STOPEXECUTE=`;
-      if (!hotkeys.RESTART)
-        data += `\r\nSciTE_RESTART=`;
     }
-    catch(er){console.log(er);}
+    else
+    {
+      data += `\r\n[Other]`;
+    }
+    if (!hotkeys.STOPEXECUTE)
+      data += `\r\nSciTE_STOPEXECUTE=`;
+    if (!hotkeys.RESTART)
+      data += `\r\nSciTE_RESTART=`;
+
     return {ini, data, dataOrig};
   };
 
@@ -76,7 +78,10 @@ const aWrapperHotkey = (()=>
     {
       clearTimeout(timer);
       const {ini, data} = fileData();
-      fs.writeFileSync(ini, data, "utf-8");
+      try
+      {
+        fs.writeFileSync(ini, data, "utf-8");
+      }catch(er){}
       timer = setTimeout(this.reset, 5000);
     },
     reset: () =>
@@ -87,13 +92,12 @@ const aWrapperHotkey = (()=>
 
       try
       {
-        if (dataOrig === undefined)
+        if (dataOrig === null)
           fs.rmSync(ini);
         else
           fs.writeFileSync(ini, dataOrig, "utf-8");
-      }
-      catch(er){console.log(er);}
-      ini = undefined;
+      }catch(er){}
+      ini = dataOrig = null;
     }
   };
 })();
@@ -314,7 +318,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
 
   runner.on('exit', code => {
     code = ~~code;
-    aiOut.appendLine(`${"+-!"[code>1||code<-1?2:code<1?0:1]}>Process exited with code ${code}`);
+    aiOut.appendLine((code>1||code<-1?"!":code<1?"+":"-")+`+>Process exited with code ${code}`);
     const info = runners.list.get(runner);
     info.endTime = new Date().getTime();
     info.status = false;
