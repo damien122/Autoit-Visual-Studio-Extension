@@ -31,16 +31,18 @@ const config = (() =>
 const aWrapperHotkey = (()=>
 {
   let dataOrig, data, ini, timer;
-  const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi;
+  const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi,
+        env = process.env;
+
   const fileData = ()=>
   {
     ini = dataOrig = null;
     data = "";
     //we should not cache this
-    if (process.env.SCITE_USERHOME && fs.existsSync(process.env.SCITE_USERHOME + "/AutoIt3Wrapper"))
-      ini = process.env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
-    else if (process.env.SCITE_HOME && fs.existsSync(process.env.SCITE_HOME + "/AutoIt3Wrapper"))
-      ini = process.env.SCITE_HOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+    if (env.SCITE_USERHOME && fs.existsSync(env.SCITE_USERHOME + "/AutoIt3Wrapper"))
+      ini = env.SCITE_USERHOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
+    else if (env.SCITE_HOME && fs.existsSync(env.SCITE_HOME + "/AutoIt3Wrapper"))
+      ini = env.SCITE_HOME + "/AutoIt3Wrapper/AutoIt3Wrapper.ini";
     else
       ini = path.dirname(config.wrapperPath) + "/AutoIt3Wrapper.ini";
 
@@ -97,7 +99,7 @@ const aWrapperHotkey = (()=>
         else
           fs.writeFileSync(ini, dataOrig, "utf-8");
       }catch(er){}
-      ini = dataOrig = null;
+      ini = dataOrig = data = null;
     }
   };
 })();
@@ -109,6 +111,7 @@ const runners = {
   isNewLine: true, //track if previous message ended with a newline
   lastId: 0, //last id used in output
   id: 0, //last launched process id
+  outputName: `extension-output-${require("../package.json").publisher}.${require("../package.json").name}-#`,
   get lastRunning()
   {
     return this.findRunner({status: true, thisFile: null});
@@ -140,17 +143,21 @@ const runners = {
     return null;
   },
 
-  outputRegex: new RegExp(`^extension-output-${require("../package.json").publisher}\.${require("../package.json").name}-#([0-9]+)-(.*)`),
   isAiOutVisible()
   {
-    for(let i = 0, found; i < window.visibleTextEditors.length; i++)
+    for(let i = 0, index, filename; i < window.visibleTextEditors.length; i++)
     {
-      found = window.visibleTextEditors[i].document.fileName.match(this.outputRegex);
-      if (found)
-        return {id: found[1], name: found[2]};
+      filename = window.visibleTextEditors[i].document.fileName;
+      if (this.outputName === filename.substring(0,this. outputName.length))
+      {
+        filename = filename.substring(this.outputName.length);
+        index = filename.indexOf("-");
+        return {id: filename.substring(0, index), name: filename.substring(index + 1)};
+      }
     }
     return;
   },
+
   cleanup()
   {
     const now = new Date().getTime();
@@ -181,23 +188,85 @@ const runners = {
   }
 };
 
-const showInformationMessage = (text, timeout = 10000) =>
+//accepts new option parameter in second argument: timeout
+const showInformationMessage = (...args) =>
 {
-  clearTimeout(showInformationMessage.timer[text]);
+  let timeout;
+  const [message, options] = args;
+  if (options && options instanceof Object && !(options instanceof Array))
+    {
+      timeout = options.timeout;
+      //not sure if we need to bother sanitize options object or not, seems to work as is
+      // delete options.timeout;
+      // if (!options.keys().length)
+      //   args.splice(1,1);
+    }
+  clearTimeout(showInformationMessage.timer[message]);
 
   const callback = () =>
   {
     clearTimeout(timer);
+    // https://github.com/microsoft/vscode/issues/153693
     for(let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
-      window.showInformationMessage(text);
+      window.showInformationMessage.apply(window, args);
   };
-  const timer = setTimeout(callback, timeout);
-
-  showInformationMessage.timer[text] = timer;
-  return window.showInformationMessage(text).finally(() => clearTimeout(timer));
+  const timer = timeout && setTimeout(callback, timeout);
+  showInformationMessage.timer[message] = timer;
+  return window.showInformationMessage.apply(window, args).finally(() => clearTimeout(timer));
 };
 showInformationMessage.timer = {};
 
+const AiOut = ({id, aiOutProcess}) =>
+{
+  const prefix = "#" + id + ": ",
+        prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
+        hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi;
+
+  //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
+  return new Proxy(aiOutCommon, {
+    get(aiOut, prop)
+    {
+      let ret = aiOut[prop];
+      if (ret instanceof Function)
+      {
+        ret = (...args) =>
+        {
+          const text = args[0].replace(hotkeyFailedMsg, "");
+          if (text != args[0] && !text.length)
+          {
+            aWrapperHotkey.reset();
+            // in the future maybe we could find a way get current hotkeys registered for our commands...
+            return;
+          }
+          args[0] = text;
+          aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
+          if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None")
+          {
+            const isNewLine = runners.isNewLine;
+            runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
+            //make sure process ID displays at the beginning of the line
+            args[0] = args[0].replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
+            if (runners.lastId != id || isNewLine)
+            {
+              if (config.processIdInOutput == "Multi")
+                args[0] = prefix + args[0]; //display ID on each line
+              else
+                args[0] = (runners.lastId == id ? prefixEmpty : prefix) + args[0];
+
+              if (!isNewLine)
+                args[0] = "\r\n" + args[0];
+            }
+
+            runners.lastId = id;
+          }
+
+          aiOut[prop].apply(aiOut[prop], args); //common output
+        };
+      }
+      return ret;
+    }
+  });
+};
 
 /*
 window.activeTextEditor.document.fileName is not available in some situations
@@ -214,61 +283,15 @@ let hhproc;
 // {
 //   keybindings[list[i].command.substring(10)] = list[i].key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
 // }
+
 function procRunner(cmdPath, args, bAiOutReuse = true) {
   const thisFile = getActiveDocumentFile(),
         processCommand = cmdPath + " " + args,
         runnerPrev = bAiOutReuse && runners.findRunner({status: false, thisFile, processCommand}),
         id = runnerPrev ? runnerPrev.info.id : ++runners.id,
-        prefix = "#" + id + ": ",
-        prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
         aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
-        hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
-        // hotkeyFailedMsgReplace = `+>Setting Hotkeys...--> Press ${keybindings.restartScript} to Restart or ${keybindings.killScript} to Stop.`,
-        //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
-        aiOut = new Proxy(aiOutCommon, {
-          get(aiOut, prop)
-          {
-            let ret = aiOut[prop];
-            if (ret instanceof Function)
-            {
-              ret = (...args) =>
-              {
-                const text = args[0].replace(hotkeyFailedMsg, "");
-                if (text != args[0] && !text.length)
-                {
-                  aWrapperHotkey.reset();
-                  // in the future maybe we could find a way get current hotkeys registered for our commands...
-                  return;
-                }
-                args[0] = text;
-                aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
-                if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None")
-                {
-                  const isNewLine = runners.isNewLine;
-                  runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
-                  //make sure process ID displays at the beginning of the line
-                  args[0] = args[0].replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
-                  if (runners.lastId != id || isNewLine)
-                  {
-                    if (config.processIdInOutput == "Multi")
-                      args[0] = prefix + args[0]; //display ID on each line
-                    else
-                      args[0] = (runners.lastId == id ? prefixEmpty : prefix) + args[0];
-
-                    if (!isNewLine)
-                      args[0] = "\r\n" + args[0];
-                  }
-
-                  runners.lastId = id;
-                }
-
-                aiOut[prop].apply(aiOut[prop], args); //common output
-              };
-            }
-
-            return ret;
-          }
-        });
+        aiOut = new AiOut({id, aiOutProcess}),
+        info = {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true};
 
   if (runnerPrev)
   {
@@ -296,14 +319,18 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
 
   //display process command line, adding quotes to file paths as it does in SciTE
   aiOut.appendLine(`>"${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}`);
+
   if (runnerPrev)
   {
+    //since we are reusing output panel
+    //we need update our list
+    //Map() doesn't allow update/replace keys, we'll have to add new one and delete old.
     runners.list.set(runner, runnerPrev.info);
     runners.list.delete(runnerPrev.runner);
   }
   else
   {
-    runners.list.set(runner, {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true});
+    runners.list.set(runner, info);
   }
 
   runner.stdout.on('data', data => {
@@ -317,13 +344,12 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   });
 
   runner.on('exit', code => {
-    code = ~~code;
+    aWrapperHotkey.reset();
+    code = ~~code; //convert possible null into 0
     aiOut.appendLine((code>1||code<-1?"!":code<1?"+":"-")+`+>Process exited with code ${code}`);
-    const info = runners.list.get(runner);
     info.endTime = new Date().getTime();
     info.status = false;
     runners.cleanup();
-    aWrapperHotkey.reset();
   });
 }
 
@@ -567,7 +593,7 @@ const killScript = (thisFile = null) => {
   const data = runners.findRunner({status: true, thisFile});
   if (!data) {
     const file = thisFile ? " (" +thisFile.split("\\").splice(-2, 2).join("\\") + ") " : " ";
-    showInformationMessage(`No script${file}is currently running.`);
+    showInformationMessage(`No script${file}is currently running.`, {timeout: 10000});
     return;
   }
 

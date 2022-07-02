@@ -4,43 +4,39 @@
   "scopeName": "source.vscode_autoit_output",
   "patterns": [
     {
-      "match": "^(#[0-9]+: | +)?([>].*)",
+      "match": "^(#[0-9]+: | {4,})?([>].*)",
       "captures":{
         "1": {"name": "vscode-autoit-output-process"},
         "2": {"name": "vscode-autoit-output-blue"}
       }
     },
     {
-      "match": "^(#[0-9]+: | +)?([+].*)",
+      "match": "^(#[0-9]+: | {4,})?([+].*)",
       "captures":{
         "1": {"name": "vscode-autoit-output-process"},
         "2": {"name": "vscode-autoit-output-green"}
       }
     },
     {
-      "match": "^(#[0-9]+: | +)?([-].*)",
+      "match": "^(#[0-9]+: | {4,})?([-].*)",
       "captures":{
         "1": {"name": "vscode-autoit-output-process"},
         "2": {"name": "vscode-autoit-output-orange"}
       }
     },
     {
-      "match": "^(#[0-9]+: | +)?([!].*)",
+      "match": "^(#[0-9]+: | {4,})?([!].*)",
       "captures":{
         "1": {"name": "vscode-autoit-output-process"},
         "2": {"name": "vscode-autoit-output-red"}
       }
     },
     {
-      "match": "^(#[0-9]+: | +)?(@@ Debug\\(\\d+\\) :)",
+      "match": "^(#[0-9]+: | {4,})?(@@ Debug\\(\\d+\\) :)",
       "captures":{
         "1": {"name": "vscode-autoit-output-process"},
         "2": {"name": "vscode-autoit-output-debug"}
       }
-    },
-    {
-      "match": "^#[0-9]+: | +",
-      "name": "vscode-autoit-output-process"
     }
   ]
 }
