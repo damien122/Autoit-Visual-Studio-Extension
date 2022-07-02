@@ -381,19 +381,19 @@
         "autoit.multiOutput": {
           "type": "boolean",
           "default": true,
-          "description": "Enable separate output panel for each running script"
+          "description": "Enable separate output window for each running script"
         },
         "autoit.multiOutputMaxFinished": {
           "type": "number",
           "default": 2,
           "min": 0,
-          "description": "How many output panels to keep after script finished"
+          "description": "How many output windows to keep after script finished"
         },
         "autoit.multiOutputFinishedTimeout": {
           "type": "number",
           "default": 0,
           "min": 0,
-          "description": "How long (in seconds) to wait until output panels of finished scripts deleted\n0 = indefinitely"
+          "description": "How long (in seconds) to wait until output windows of finished scripts deleted\n0 = indefinitely"
         },
         "autoit.processIdInOutput": {
           "type": "string",

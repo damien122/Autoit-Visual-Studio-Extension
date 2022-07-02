@@ -33,7 +33,6 @@ const aWrapperHotkey = (()=>
   let dataOrig, data, ini, timer;
   const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi,
         env = process.env;
-
   const fileData = ()=>
   {
     ini = dataOrig = null;
