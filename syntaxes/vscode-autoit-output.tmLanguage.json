@@ -6,37 +6,52 @@
     {
       "match": "^(#[0-9]+: | {4,})?([>].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process"},
+        "1": {"name": "vscode-autoit-output-process-id"},
         "2": {"name": "vscode-autoit-output-blue"}
       }
     },
     {
       "match": "^(#[0-9]+: | {4,})?([+].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process"},
+        "1": {"name": "vscode-autoit-output-process-id"},
         "2": {"name": "vscode-autoit-output-green"}
       }
     },
     {
       "match": "^(#[0-9]+: | {4,})?([-].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process"},
+        "1": {"name": "vscode-autoit-output-process-id"},
         "2": {"name": "vscode-autoit-output-orange"}
       }
     },
     {
       "match": "^(#[0-9]+: | {4,})?([!].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process"},
+        "1": {"name": "vscode-autoit-output-process-id"},
         "2": {"name": "vscode-autoit-output-red"}
       }
     },
     {
       "match": "^(#[0-9]+: | {4,})?(@@ Debug\\(\\d+\\) :)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process"},
+        "1": {"name": "vscode-autoit-output-process-id"},
         "2": {"name": "vscode-autoit-output-debug"}
       }
+    },
+    {
+      "match": "^(#[0-9]+: | {4,})?(Starting process (#[0-9]+) \\((.+)\\) \\[PID ([0-9]+|n/a)\\])",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-process-id"},
+        "2": {"name": "vscode-autoit-output-process"},
+        "3": {"name": "vscode-autoit-output-process-id"},
+        "4": {"name": "vscode-autoit-output-process-file"},
+        "5": {"name": "vscode-autoit-output-process-pid"}
+      }
+    },
+    {
+      "match": "^#[0-9]+: | {4,}",
+      "name": "vscode-autoit-output-process-id"
     }
+
   ]
 }

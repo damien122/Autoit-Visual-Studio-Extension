@@ -290,7 +290,15 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
         id = runnerPrev ? runnerPrev.info.id : ++runners.id,
         aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
         aiOut = new AiOut({id, aiOutProcess}),
-        info = {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true};
+        info = {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true},
+        exit =  (code, text) => {
+          aWrapperHotkey.reset();
+          code = ~~code; //convert possible null into 0
+          aiOut.appendLine((code>1||code<-1?"!":code<1?"+":"-")+`+>Process exited with code ${code}${text ? " (" + text + ")": ""}`);
+          info.endTime = new Date().getTime();
+          info.status = false;
+          runners.cleanup();
+        };
 
   if (runnerPrev)
   {
@@ -313,11 +321,8 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
-
-  aiOutProcess.appendLine(`Starting process #${id} (PID ${runner.pid})`);
-
   //display process command line, adding quotes to file paths as it does in SciTE
-  aiOut.appendLine(`>"${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}`);
+  aiOut.appendLine(`Starting process #${id} ("${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}) [PID ${runner.pid||"n/a"}]`);
 
   if (runnerPrev)
   {
@@ -331,6 +336,12 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   {
     runners.list.set(runner, info);
   }
+  // process failed to start
+  if (!runner.pid)
+  {
+    exit(-2, "wrong path?");
+    return runner;
+  }
 
   runner.stdout.on('data', data => {
     const output = data.toString();
@@ -342,14 +353,8 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     aiOut.append(output);
   });
 
-  runner.on('exit', code => {
-    aWrapperHotkey.reset();
-    code = ~~code; //convert possible null into 0
-    aiOut.appendLine((code>1||code<-1?"!":code<1?"+":"-")+`+>Process exited with code ${code}`);
-    info.endTime = new Date().getTime();
-    info.status = false;
-    runners.cleanup();
-  });
+  runner.on('exit', exit);
+  return runner;
 }
 
 const runScript = () => {
