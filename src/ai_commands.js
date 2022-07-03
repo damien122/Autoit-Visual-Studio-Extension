@@ -7,7 +7,7 @@ import { findFilepath, getIncludeText } from './util';
 const configuration = workspace.getConfiguration('autoit');
 
 // Executable paths
-const { aiPath, wrapperPath, tidyPath, checkPath, helpPath, infoPath, kodaPath } = configuration;
+const { aiPath, wrapperPath, checkPath, helpPath, infoPath, kodaPath } = configuration;
 
 const aiOut = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
@@ -204,7 +204,7 @@ const tidyScript = () => {
   window.setStatusBarMessage(`Tidying script...${thisFile}`, 1500);
 
   // Launch the AutoIt Wrapper executable with the script's path
-  procRunner(tidyPath, [thisFile]);
+  procRunner(aiPath, [ wrapperPath, '/Tidy', '/in', thisFile]);
 };
 
 const checkScript = () => {
