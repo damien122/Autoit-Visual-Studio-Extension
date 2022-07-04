@@ -431,6 +431,13 @@
             }
           },
           {
+            "scope": "vscode-autoit-output-bold-red",
+            "settings": {
+              "foreground": "#f44336",
+              "fontStyle": "bold"
+            }
+          },
+          {
             "scope": "vscode-autoit-output-green",
             "settings": {
               "foreground": "#6aa84f"
@@ -469,17 +476,45 @@
             }
           },
           {
-            "scope": "vscode-autoit-output-process-pid",
+            "scope": "vscode-autoit-output-process-file",
             "settings": {
-              "foreground": "#56bf00",
-              "fontStyle": "none"
+              "foreground": "#81b2c7"
             }
           },
           {
-            "scope": "vscode-autoit-output-process-file",
+            "scope": "vscode-autoit-output-process-pid",
             "settings": {
-              "foreground": "#81b2c7",
-              "fontStyle": "none"
+              "foreground": "#56bf00"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-brown",
+            "settings": {
+              "foreground": "#7F0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-chocolate",
+            "settings": {
+              "foreground": "#B06000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-purple",
+            "settings": {
+              "foreground": "#800080"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-pink",
+            "settings": {
+              "foreground": "#FF00FF"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-olive",
+            "settings": {
+              "foreground": "#808000"
             }
           }
 

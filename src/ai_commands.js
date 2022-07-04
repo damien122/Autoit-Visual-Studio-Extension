@@ -294,10 +294,10 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
         exit =  (code, text) => {
           aWrapperHotkey.reset();
           code = ~~code; //convert possible null into 0
-          aiOut.appendLine((code>1||code<-1?"!":code<1?"+":"-")+`+>Process exited with code ${code}${text ? " (" + text + ")": ""}`);
           info.endTime = new Date().getTime();
           info.status = false;
           runners.cleanup();
+          aiOut.appendLine((code>1||code<-1?"!":code<1?">":"-")+`>Exit code ${code}${text ? " (" + text + ")": ""} Time: ${(info.endTime - info.startTime) / 1000}`);
         };
 
   if (runnerPrev)
@@ -322,7 +322,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     cwd: workDir,
   });
   //display process command line, adding quotes to file paths as it does in SciTE
-  aiOut.appendLine(`Starting process #${id} ("${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")}) [PID ${runner.pid||"n/a"}]`);
+  aiOut.appendLine(`Starting process #${id}\r\n"${cmdPath}" ${args.map((a,i,ar) => !i || ar[i-1] == "/in" ? '"' + a + '"' : a).join(" ")} [PID ${runner.pid||"n/a"}]`);
 
   if (runnerPrev)
   {
