@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Set VS Code to default to 4-space tabs for indentation like SciTe
 
+### Fixed
+
+- Syntax coloring for #include lines followed by comments (thanks Danp2)
+
 ## [1.0.8] - 2022-06-09
 
 ### Added
