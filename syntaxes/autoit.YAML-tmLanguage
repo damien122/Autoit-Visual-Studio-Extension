@@ -35,7 +35,7 @@ patterns:
                 name: punctuation.definition.string.begin.import.autoit
             '3':
                 name: punctuation.definition.string.end.import.autoit
-        match: '#(?i:include)\s+((["''<]).*(["''>]))$'
+        match: '#(?i:include)\s+((["''<]).*(["''>]))'
         name: keyword.control.import.autoit
     -
         captures:
