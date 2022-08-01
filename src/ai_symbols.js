@@ -1,7 +1,6 @@
 import { languages, Location, SymbolInformation, SymbolKind, workspace } from 'vscode';
-import { AI_CONSTANTS, AUTOIT_MODE, isSkippableLine, functionPattern } from './util';
+import { AI_CONSTANTS, AUTOIT_MODE, isSkippableLine, functionPattern, variablePattern } from './util';
 
-const variablePattern = /(\$\w+)/g;
 const config = workspace.getConfiguration('autoit');
 
 const createVariableSymbol = (variable, variableKind, doc, line) => {

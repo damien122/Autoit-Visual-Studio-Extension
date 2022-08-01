@@ -133,6 +133,7 @@ const completionToHover = completions => {
 
 const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
+const variablePattern = /(\$\w+)/g;
 
 /**
  * Generates an array of Completions from a signature object
@@ -195,6 +196,7 @@ module.exports = {
   signatureToHover,
   includePattern,
   functionPattern,
+	variablePattern,
   completionToHover,
   signatureToCompletion,
   findFilepath,
