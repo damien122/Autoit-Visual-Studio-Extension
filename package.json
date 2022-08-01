@@ -337,6 +337,11 @@
           "default": true,
           "description": "Determines whether variables show up when you use Ctrl+Shift+O to find symbols within a script"
         },
+        "autoit.showRegionsInGoToSymbol": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determines whether regions show up when you use Ctrl+Shift+O to find symbols within a script"
+        },
         "autoit.includePaths": {
           "type": "array",
           "default": [
