@@ -137,7 +137,9 @@ const launchInfo = () => {
 function getDebugText() {
   const editor = window.activeTextEditor;
   const thisDoc = editor.document;
-  const varToDebug = thisDoc.getText(thisDoc.getWordRangeAtPosition(editor.selection.active));
+	const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty
+  const currLineText = editor.document.lineAt(editor.selection.active.line).text
+  const varToDebug = (noSelection && currLineText === '') ? '' : thisDoc.getText(thisDoc.getWordRangeAtPosition(editor.selection.active));
 
   // Make sure that a variable or macro is selected
   if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
