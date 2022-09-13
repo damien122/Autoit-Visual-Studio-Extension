@@ -137,14 +137,29 @@ const launchInfo = () => {
 function getDebugText() {
   const editor = window.activeTextEditor;
   const thisDoc = editor.document;
+	let lineNbr = editor.selection.active.line;
+	let currentLine = thisDoc.lineAt(lineNbr);
 	const noSelection = editor.selections.length === 1 && editor.selections[0].isEmpty
-  const currLineText = editor.document.lineAt(editor.selection.active.line).text
+  const currLineText = currentLine.text
   const varToDebug = (noSelection && currLineText === '') ? '' : thisDoc.getText(thisDoc.getWordRangeAtPosition(editor.selection.active));
 
   // Make sure that a variable or macro is selected
   if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
-    const nextLine = editor.selection.active.line + 1;
-    const newPosition = new Position(nextLine, 0);
+		const lineCount = thisDoc.lineCount - 2;
+		const isContinue = /\s_\b\s*(;.*)?\s*/;
+		
+		if (!currentLine._isLastLine) {
+			// Find first line without continuation character
+			while (lineNbr <= lineCount) {
+				let noContinue = (isContinue.exec(currentLine.text) === null);
+				if (noContinue) { break; }
+				
+				lineNbr += 1;
+				currentLine = thisDoc.lineAt(lineNbr);
+			}
+		}
+		let endPos = currentLine.range.end.character;
+    const newPosition = new Position(lineNbr, endPos);
 
     return {
       text: varToDebug,
@@ -178,7 +193,7 @@ const debugMsgBox = () => {
 
   if (Object.keys(debugText).length) {
 		const indent = getIndent();
-    const debugCode = `${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
+    const debugCode = `\n${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})`;
 
     // Insert the code for the MsgBox into the script
     editor.edit(edit => {
@@ -241,7 +256,7 @@ const debugConsole = () => {
 	
   if (Object.keys(debugText).length) {
 		const indent = getIndent();
-    const debugCode = `${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
+    const debugCode = `\n${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)`;
 
     // Insert the code for the MsgBox into the script
     editor.edit(edit => {
