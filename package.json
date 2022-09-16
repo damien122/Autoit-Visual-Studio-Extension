@@ -405,6 +405,12 @@
           "default": true,
           "markdownDescription": "Clear output panel before each run. (only applicable when `#autoit.multiOutput#` is `disabled` or `#autoit.multiOutputReuseOutput#` is `enabled`)"
         },
+        "autoit.terminateRunningOnClose": {
+          "type": "boolean",
+          "default": true,
+          "description": "Terminate running script when script file is closed"
+      
+        },
         "autoit.processIdInOutput": {
           "type": "string",
           "default": "Single",

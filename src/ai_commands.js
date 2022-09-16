@@ -291,7 +291,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
                           ? runnerPrev && !runnerPrev.info.aiOut.void && runnerPrev.info.aiOut || window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output')
                           : new Proxy({},{get(){return()=>{};},void:true}),
         aiOut = new AiOut({id, aiOutProcess}),
-        info = {
+        info = runnerPrev && runnerPrev.info || {
           id,
           startTime: new Date().getTime(),
           endTime: 0,
@@ -311,7 +311,6 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
 
   if (runnerPrev)
   {
-    Object.assign(info, runnerPrev.info);
     clearTimeout(runnerPrev.info.timer);
     runnerPrev.startTime = new Date().getTime();
     info.status = true;
@@ -368,6 +367,18 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   runner.on('exit', exit);
   return runner;
 }
+workspace.onDidCloseTextDocument(doc =>
+{
+  if (!config.terminateRunningOnClose)
+    return;
+
+  console.log(doc.fileName);
+  console.log("true:", runners.findRunner({status: true, thisFile: doc.fileName}));
+  console.log("false:", runners.findRunner({status: false, thisFile: doc.fileName}));
+  console.log("none:", runners.findRunner({thisFile: doc.fileName}));
+  if (runners.findRunner({status: true, thisFile: doc.fileName}))
+    killScript(doc.fileName);
+});
 
 const runScript = () => {
   const thisDoc = window.activeTextEditor.document; // Get the object of the text editor
