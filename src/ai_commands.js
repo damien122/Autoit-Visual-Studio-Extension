@@ -372,10 +372,6 @@ workspace.onDidCloseTextDocument(doc =>
   if (!config.terminateRunningOnClose)
     return;
 
-  console.log(doc.fileName);
-  console.log("true:", runners.findRunner({status: true, thisFile: doc.fileName}));
-  console.log("false:", runners.findRunner({status: false, thisFile: doc.fileName}));
-  console.log("none:", runners.findRunner({thisFile: doc.fileName}));
   if (runners.findRunner({status: true, thisFile: doc.fileName}))
     killScript(doc.fileName);
 });
