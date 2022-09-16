@@ -393,7 +393,17 @@
           "type": "number",
           "default": 0,
           "min": 0,
-          "description": "How long (in seconds) to wait until output panels of finished scripts deleted\n0 = indefinitely"
+          "description": "How long (in seconds) to wait until output panels of finished scripts discarded\n0 = indefinitely"
+        },
+        "autoit.multiOutputReuseOutput": {
+          "type": "boolean",
+          "default": false,
+          "description": "Reuse output for the same file"
+        },
+        "autoit.clearOutput": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Clear output panel before each run. (only applicable when `#autoit.multiOutput#` is `disabled` or `#autoit.multiOutputReuseOutput#` is `enabled`)"
         },
         "autoit.processIdInOutput": {
           "type": "string",

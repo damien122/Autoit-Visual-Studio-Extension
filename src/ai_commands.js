@@ -172,7 +172,6 @@ const runners = {
       {
         if (info.aiOut !== aiOutCommon)
           info.aiOut.dispose();
-
         const isAiOutVisible = this.isAiOutVisible();
         if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
           aiOutCommon.show(true); //switch to common output
@@ -288,9 +287,19 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
         processCommand = cmdPath + " " + args,
         runnerPrev = bAiOutReuse && runners.findRunner({status: false, thisFile, processCommand}),
         id = runnerPrev ? runnerPrev.info.id : ++runners.id,
-        aiOutProcess = config.multiOutput ? runnerPrev ? runnerPrev.info.aiOut : window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output') : new Proxy({},{get(){return()=>{};}}),
+        aiOutProcess = config.multiOutput
+                          ? runnerPrev && !runnerPrev.info.aiOut.void && runnerPrev.info.aiOut || window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output')
+                          : new Proxy({},{get(){return()=>{};},void:true}),
         aiOut = new AiOut({id, aiOutProcess}),
-        info = {id, startTime: new Date().getTime(), endTime: 0, aiOut: aiOutProcess, thisFile, processCommand, status: true},
+        info = {
+          id,
+          startTime: new Date().getTime(),
+          endTime: 0,
+          aiOut: aiOutProcess,
+          thisFile,
+          processCommand,
+          status: true
+        },
         exit =  (code, text) => {
           aWrapperHotkey.reset();
           code = ~~code; //convert possible null into 0
@@ -302,13 +311,16 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
 
   if (runnerPrev)
   {
+    Object.assign(info, runnerPrev.info);
     clearTimeout(runnerPrev.info.timer);
     runnerPrev.startTime = new Date().getTime();
-    runnerPrev.info.status = true;
-    aiOutProcess.clear(); //clear process output
+    info.status = true;
+    if (config.clearOutput)
+      aiOutProcess.clear(); //clear process output
+
     runners.lastId = 0; //force displaying ID
   }
-  if (!config.multiOutput)
+  if (!config.multiOutput && config.clearOutput)
     aiOutCommon.clear();
 
 //  if (id == 1 || runners.isAiOutVisible()) //only switch output channel if autoit channel is opened now
@@ -385,9 +397,9 @@ const runScript = () => {
       thisFile,
       '/UserParams',
       ...cleanParams,
-    ], false);
+    ], config.multiOutput && config.multiOutputReuseOutput);
   } else {
-    procRunner(config.aiPath, [config.wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile], false);
+    procRunner(config.aiPath, [config.wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile], config.multiOutput && config.multiOutputReuseOutput);
   }
 };
 
@@ -726,7 +738,8 @@ const restartScript = () => {
       }
       runScript();
     });
-    return killScript(info.thisFile);
+    if (info.status)
+      return killScript(info.thisFile);
   }
   runScript();
 };
