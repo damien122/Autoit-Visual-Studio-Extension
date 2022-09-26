@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Set VS Code to default to 4-space tabs for indentation like SciTe
 - Each running script will have its own output (thanks to [@vanowm](https://github.com/vanowm))
 
+### Changed
+
+- Tidy now runs through AutoItWrapper (thanks to [@vanowm](https://github.com/vanowm))
+
 ### Fixed
 
 - Syntax coloring for #include lines followed by comments (thanks to [@Danp2](https://github.com/Danp2))
