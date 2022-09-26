@@ -115,6 +115,10 @@
           "when": "editorLangId == autoit"
         },
         {
+          "command": "extension.killScriptOpened",
+          "when": "editorLangId == autoit"
+        },
+        {
           "command": "extension.insertHeader",
           "when": "editorLangId == autoit"
         },
@@ -176,6 +180,10 @@
       {
         "command": "extension.killScript",
         "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.killScriptOpened",
+        "title": "AutoIt: Kill Running Opened Script"
       },
       {
         "command": "extension.insertHeader",
@@ -268,12 +276,22 @@
         "key": "ctrl+pausebreak"
       },
       {
+        "command": "extension.killScriptOpened",
+        "key": "shift+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
         "command": "extension.insertHeader",
         "key": "ctrl+alt+H"
       },
       {
         "command": "extension.openInclude",
         "key": "alt+i"
+      },
+      {
+        "command": "extension.restartScript",
+        "key": "ctrl+alt+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
       }
     ],
     "configuration": {
@@ -353,6 +371,54 @@
           "type": "string",
           "default": "Your Name",
           "description": "The name that will be added as Author when Insert Function Header is used"
+        },
+        "autoit.multiOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable separate output panel for each running script"
+        },
+        "autoit.multiOutputMaxFinished": {
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "description": "How many output panels to keep after script finished"
+        },
+        "autoit.multiOutputFinishedTimeout": {
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "description": "How long (in seconds) to wait until output panels of finished scripts discarded\n0 = indefinitely"
+        },
+        "autoit.multiOutputReuseOutput": {
+          "type": "boolean",
+          "default": false,
+          "description": "Reuse output for the same file"
+        },
+        "autoit.clearOutput": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Clear output panel before each run. (only applicable when `#autoit.multiOutput#` is `disabled` or `#autoit.multiOutputReuseOutput#` is `enabled`)"
+        },
+        "autoit.terminateRunningOnClose": {
+          "type": "boolean",
+          "default": true,
+          "description": "Terminate running script when script file is closed"
+      
+        },
+        "autoit.processIdInOutput": {
+          "type": "string",
+          "default": "Single",
+          "enum": [
+            "None",
+            "Single",
+            "Multi"
+          ],
+          "enumDescriptions": [
+            "No process ID will be shown",
+            "Only on first line until another process's output",
+            "On each line"
+          ],
+          "description": "Show process ID in the Autoit (common) output"
         }
       }
     },
@@ -372,6 +438,13 @@
             "scope": "vscode-autoit-output-red",
             "settings": {
               "foreground": "#f44336"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-bold-red",
+            "settings": {
+              "foreground": "#f44336",
+              "fontStyle": "bold"
             }
           },
           {
@@ -397,7 +470,64 @@
             "settings": {
               "foreground": "#d6ae5d"
             }
+          },
+          {
+            "scope": "vscode-autoit-output-process",
+            "settings": {
+              "foreground": "#a7a061",
+              "fontStyle": "italic"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-id",
+            "settings": {
+              "foreground": "#d65d81",
+              "fontStyle": "italic"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-file",
+            "settings": {
+              "foreground": "#81b2c7"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-pid",
+            "settings": {
+              "foreground": "#56bf00"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-brown",
+            "settings": {
+              "foreground": "#7F0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-chocolate",
+            "settings": {
+              "foreground": "#B06000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-purple",
+            "settings": {
+              "foreground": "#800080"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-pink",
+            "settings": {
+              "foreground": "#FF00FF"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-olive",
+            "settings": {
+              "foreground": "#808000"
+            }
           }
+
         ]
       }
     }

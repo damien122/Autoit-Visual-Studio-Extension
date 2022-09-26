@@ -79,7 +79,7 @@
           </dict>
         </dict>
         <key>match</key>
-        <string>#(?i:include)\s+((["'&lt;]).*(["'&gt;]))$</string>
+        <string>#(?i:include)\s+((["'&lt;]).*(["'&gt;]))</string>
         <key>name</key>
         <string>keyword.control.import.autoit</string>
       </dict>
@@ -115,7 +115,7 @@
         <key>begin</key>
         <string>(?i:#c(?:omments\-start|s))</string>
         <key>end</key>
-        <string>(?i:#c(?:omments\-end|e))</string>
+        <string>(?i:#c(?:omments\-end|e))\b.*$</string>
         <key>name</key>
         <string>comment.block.autoit</string>
       </dict>

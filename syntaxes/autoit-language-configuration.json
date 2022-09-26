@@ -28,8 +28,8 @@
   "folding": {
     "offSide": true,
     "markers": {
-      "start": "^\\s*\\s*(#?[Rr]egion\\b)|([Ff]unc\\b)|([iI]f\\b)|([sS]witch\\b)|([fF]or\\b)|([wW]hile\\b)|([wW]ith\\b)|(#c(?:omments\\-start|s))",
-      "end": "^\\s*\\s*(#?[Ee]nd[Rr]egion\\b)|([Ee]nd[Ff]unc)|([eE]nd[iI]f)|([eE]nd[sS]witch)|([nN]ext)|([wW][eE]nd)|([eE]nd[wW]ith)|(#c(?:omments\\-end|e))"
+      "start": "^\\s*\\s*((#?[Rr]egion\\b)|([Ff]unc\\b)|([iI]f\\b)|([sS]witch\\b)|([fF]or\\b)|([wW]hile\\b)|([wW]ith\\b)|(#c(?:omments\\-start|s)))\\b",
+      "end": "^\\s*\\s*((#?[Ee]nd[Rr]egion\\b)|([Ee]nd[Ff]unc)|([eE]nd[iI]f)|([eE]nd[sS]witch)|([nN]ext)|([wW][eE]nd)|([eE]nd[wW]ith)|(#c(?:omments\\-end|e)))\\b"
     }
   },
   "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"

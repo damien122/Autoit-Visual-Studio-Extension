@@ -4,10 +4,7 @@ import {
   SignatureInformation,
   ParameterInformation,
   MarkdownString,
-  workspace,
 } from 'vscode';
-import fs from 'fs';
-import path from 'path';
 import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
