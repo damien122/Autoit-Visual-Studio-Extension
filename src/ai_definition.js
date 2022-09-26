@@ -7,18 +7,21 @@ const AutoItDefinitionProvider = {
     const lookupRange = document.getWordRangeAtPosition(position);
     const lookup = document.getText(lookupRange);
     const docText = document.getText();
-    let defRegex = new RegExp(`Func\\s${lookup}\\(`);
+    let defRegex;
     const relativeInclude = /^\s*#include\s"(.+)"/gm;
     const libraryInclude = /^\s*#include\s<(.+)>/gm;
 
     if (lookup.charAt(0) === '$') {
-      defRegex = new RegExp(`(?:(?:Local|Global|Const) )?\\${lookup}\\s?=?`, 'i');
+      defRegex = new RegExp(`((?:Local|Global|Const)\\s*)?\\${lookup}\\s+?=?`, 'i');
+    }
+    else {
+      defRegex = new RegExp(`(Func\\s+)${lookup}\\s*\\(`);
     }
 
     let found = docText.match(defRegex);
 
     if (found) {
-      return new Location(document.uri, document.positionAt(found.index));
+      return new Location(document.uri, document.positionAt(found.index + (found[1]||"").length));
     }
 
     // If nothing was found, search include files
@@ -47,7 +50,7 @@ const AutoItDefinitionProvider = {
       found = libraryInclude.exec(docText);
     }
 
-    if (Array.isArray(scriptsToSearch) && scriptsToSearch.length) {
+    if (scriptsToSearch.length) {
       found = null;
       for (let i = 0; i < scriptsToSearch.length; i += 1) {
         const scriptPath = getIncludePath(scriptsToSearch[i], document);
@@ -56,9 +59,11 @@ const AutoItDefinitionProvider = {
         found = scriptContent.match(defRegex);
 
         if (found) {
-          const line = scriptContent.slice(0, found.index).match(/\n/g).length;
+          const arr = scriptContent.slice(0, found.index + ((found[1]||"").length)).split("\n"),
+                line = arr.length-1,
+                char = arr[arr.length-1].length;
 
-          return new Location(Uri.file(scriptPath), new Position(line, 0));
+          return new Location(Uri.file(scriptPath), new Position(line, char));
         }
       }
     }
