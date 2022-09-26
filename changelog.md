@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Syntax coloring for #include lines followed by comments (thanks to [@Danp2](https://github.com/Danp2))
+- Makes regex for #include non-greedy (thanks to [@Danp2](https://github.com/Danp2))
 
 ## [1.0.8] - 2022-06-09
 
