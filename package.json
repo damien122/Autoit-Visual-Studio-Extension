@@ -310,12 +310,6 @@
           "markdownDescription": "Path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`",
           "format": "uri"
         },
-        "autoit.tidyPath": {
-          "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe",
-          "markdownDescription": "Path to the Tidy executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Tidy\\Tidy.exe`",
-          "format": "uri"
-        },
         "autoit.checkPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe",

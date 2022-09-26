@@ -138,6 +138,7 @@ const runners = {
       if (good)
         return {runner, info};
 
+
     }
     return null;
   },
@@ -536,7 +537,8 @@ const tidyScript = () => {
   window.setStatusBarMessage(`Tidying script...${thisFile}`, 1500);
 
   // Launch the AutoIt Wrapper executable with the script's path
-  procRunner(config.tidyPath, [thisFile]);
+  procRunner(config.aiPath, [ config.wrapperPath, '/Tidy', '/in', thisFile]);
+
 };
 
 const checkScript = () => {
