@@ -1,9 +1,7 @@
 import { languages, SymbolInformation, SymbolKind, Location, Position, workspace } from 'vscode';
 import fs from 'fs';
 
-import { functionPattern } from './util';
-
-const variablePattern = /(\$\w+)/g;
+import { functionPattern, variablePattern, regionPattern } from './util';
 const config = workspace.getConfiguration('autoit');
 
 const makeSymbol = (name, type, filePath, docLine) => {
@@ -34,6 +32,7 @@ function provideWorkspaceSymbols(query) {
           let symbolKind;
           const variableFound = variablePattern.exec(line);
           const functionFound = functionPattern.exec(line);
+          const regionFound = regionPattern.exec(line);
 
           if (line.charAt(0) === ';') return false; // Skip commented lines
 
@@ -61,6 +60,16 @@ function provideWorkspaceSymbols(query) {
             symbolKind = SymbolKind.Function;
             return symbols.push(makeSymbol(newName, symbolKind, file, index));
           }
+
+          if (regionFound) {
+            const { 1: newName } = regionFound;
+            if (!searchFilter.exec(newName)) {
+              return false;
+            }
+            symbolKind = SymbolKind.Namespace;
+            return symbols.push(makeSymbol(newName, symbolKind, file, index));
+          }
+
           return false;
         });
     });
