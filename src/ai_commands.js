@@ -4,13 +4,82 @@ import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
 
+const runners = {
+  list: new Map(), //list of running scripts
+  isNewLine: true, //track if previous message ended with a newline
+  lastId: 0, //last id used in output
+  id: 0, //last launched process id
+  outputName: `extension-output-${require("../package.json").publisher}.${require("../package.json").name}-#`,
+  get lastRunning() {
+    return this.findRunner({ status: true, thisFile: null });
+  },
+
+  get lastRunningOpened() {
+    return this.findRunner({ status: true, thisFile: getActiveDocumentFile() });
+  },
+
+  findRunner(filter = { status: true, thisFile: null }) {
+    for (let list = [...this.list.entries()], i = list.length - 1; i >= 0; i--) {
+      const [runner, info] = list[i];
+      let good = true;
+      for (let f in filter) {
+        if (filter[f] !== null && filter[f] !== info[f]) {
+          good = false;
+          break;
+        }
+      }
+      if (good)
+        return { runner, info };
+
+
+    }
+    return null;
+  },
+
+  isAiOutVisible() {
+    for (let i = 0, index, filename; i < window.visibleTextEditors.length; i++) {
+      filename = window.visibleTextEditors[i].document.fileName;
+      if (this.outputName === filename.substring(0, this.outputName.length)) {
+        filename = filename.substring(this.outputName.length);
+        index = filename.indexOf("-");
+        return { id: filename.substring(0, index), name: filename.substring(index + 1) };
+      }
+    }
+    return;
+  },
+
+  cleanup() {
+    const now = new Date().getTime();
+    const timeout = config.multiOutputFinishedTimeout * 1000;
+    const endTime = now - timeout;
+    //get list of finished processes, ordered by endTime descent
+    const values = [...this.list.entries()].filter(a => !a[1].status).sort((a, b) => b[1].endTime - a[1].endTime);
+    for (let i = 0; i < values.length; i++) {
+      const [runner, info] = values[i];
+      clearTimeout(info.timer);
+      info.callback = () => {
+        if (info.aiOut !== aiOutCommon)
+          info.aiOut.dispose();
+        const isAiOutVisible = this.isAiOutVisible();
+        if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
+          aiOutCommon.show(true); //switch to common output
+
+        this.list.delete(runner);
+      };
+      if (i >= config.multiOutputMaxFinished || (config.multiOutputFinishedTimeout && info.endTime < endTime))
+        info.callback();
+      else
+        info.timer = config.multiOutputFinishedTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
+    }
+  }
+};
+
 const config = (() => {
-  let conf = {
-    data: workspace.getConfiguration('autoit')
+  const conf = {
+    data: workspace.getConfiguration('autoit'),
   };
   workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
-    if (!affectsConfiguration("autoit"))
-      return;
+    if (!affectsConfiguration('autoit')) return;
 
     conf.data = workspace.getConfiguration('autoit');
     runners.cleanup();
@@ -94,75 +163,7 @@ const aWrapperHotkey = (() => {
 
 const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
-const runners = {
-  list: new Map(), //list of running scripts
-  isNewLine: true, //track if previous message ended with a newline
-  lastId: 0, //last id used in output
-  id: 0, //last launched process id
-  outputName: `extension-output-${require("../package.json").publisher}.${require("../package.json").name}-#`,
-  get lastRunning() {
-    return this.findRunner({ status: true, thisFile: null });
-  },
 
-  get lastRunningOpened() {
-    return this.findRunner({ status: true, thisFile: getActiveDocumentFile() });
-  },
-
-  findRunner(filter = { status: true, thisFile: null }) {
-    for (let list = [...this.list.entries()], i = list.length - 1; i >= 0; i--) {
-      const [runner, info] = list[i];
-      let good = true;
-      for (let f in filter) {
-        if (filter[f] !== null && filter[f] !== info[f]) {
-          good = false;
-          break;
-        }
-      }
-      if (good)
-        return { runner, info };
-
-
-    }
-    return null;
-  },
-
-  isAiOutVisible() {
-    for (let i = 0, index, filename; i < window.visibleTextEditors.length; i++) {
-      filename = window.visibleTextEditors[i].document.fileName;
-      if (this.outputName === filename.substring(0, this.outputName.length)) {
-        filename = filename.substring(this.outputName.length);
-        index = filename.indexOf("-");
-        return { id: filename.substring(0, index), name: filename.substring(index + 1) };
-      }
-    }
-    return;
-  },
-
-  cleanup() {
-    const now = new Date().getTime();
-    const timeout = config.multiOutputFinishedTimeout * 1000;
-    const endTime = now - timeout;
-    //get list of finished processes, ordered by endTime descent
-    const values = [...this.list.entries()].filter(a => !a[1].status).sort((a, b) => b[1].endTime - a[1].endTime);
-    for (let i = 0; i < values.length; i++) {
-      const [runner, info] = values[i];
-      clearTimeout(info.timer);
-      info.callback = () => {
-        if (info.aiOut !== aiOutCommon)
-          info.aiOut.dispose();
-        const isAiOutVisible = this.isAiOutVisible();
-        if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
-          aiOutCommon.show(true); //switch to common output
-
-        this.list.delete(runner);
-      };
-      if (i >= config.multiOutputMaxFinished || (config.multiOutputFinishedTimeout && info.endTime < endTime))
-        info.callback();
-      else
-        info.timer = config.multiOutputFinishedTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
-    }
-  }
-};
 
 //accepts new option parameter in second argument: timeout
 const showInformationMessage = (...args) => {
