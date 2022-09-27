@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Each running script will have its own output (thanks to [@vanowm](https://github.com/vanowm))
 - Option to show #regions as symbols in Outline and symbol search (thanks to [@Danp2](https://github.com/Danp2))
 - Syntax highlighting for Au3Stripper directives (thanks to [rcmaehl](https://github.com/rcmaehl))
+- Adds a wait for file save to finish before running certain commands (thanks to [@vanowm](https://github.com/vanowm))
 
 ### Changed
 
