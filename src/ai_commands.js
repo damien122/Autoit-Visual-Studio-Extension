@@ -470,12 +470,28 @@ const launchInfo = () => {
 function getDebugText() {
   const editor = window.activeTextEditor;
   const thisDoc = editor.document;
-  const varToDebug = thisDoc.getText(thisDoc.getWordRangeAtPosition(editor.selection.active));
+	let lineNbr = editor.selection.active.line;
+	let currentLine = thisDoc.lineAt(lineNbr);
+	const wordRange = editor.document.getWordRangeAtPosition(editor.selection.start);
+  const varToDebug = (!wordRange) ? '' : thisDoc.getText(thisDoc.getWordRangeAtPosition(editor.selection.active));
 
   // Make sure that a variable or macro is selected
   if (varToDebug.charAt(0) === '$' || varToDebug.charAt(0) === '@') {
-    const nextLine = editor.selection.active.line + 1;
-    const newPosition = new Position(nextLine, 0);
+		const lineCount = thisDoc.lineCount - 2;
+		const isContinue = /\s_\b\s*(;.*)?\s*/;
+		
+		if (!currentLine._isLastLine) {
+			// Find first line without continuation character
+			while (lineNbr <= lineCount) {
+				let noContinue = (isContinue.exec(currentLine.text) === null);
+				if (noContinue) { break; }
+				
+				lineNbr += 1;
+				currentLine = thisDoc.lineAt(lineNbr);
+			}
+		}
+		let endPos = currentLine.range.end.character;
+    const newPosition = new Position(lineNbr, endPos);
 
     return {
       text: varToDebug,
@@ -491,12 +507,15 @@ function getDebugText() {
 function getIndent() {
   const editor = window.activeTextEditor;
   const doc = editor.document;
+	const line = doc.lineAt(editor.selection.active.line)
+
+	if (line.isEmptyOrWhitespace) { return ''; }
 
   // Grab the whole line
-  const currentLine = doc.lineAt(editor.selection.active.line).text;
+  const text = line.text;
   // Get the indent of the current line
   const findIndent = /(\s*).+/;
-  return findIndent.exec(currentLine)[1];
+  return findIndent.exec(text)[1];
 }
 
 const debugMsgBox = () => {
@@ -504,10 +523,9 @@ const debugMsgBox = () => {
 
   const debugText = getDebugText();
 
-  const indent = getIndent();
-
   if (Object.keys(debugText).length) {
-    const debugCode = `${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})\n`;
+		const indent = getIndent();
+    const debugCode = `\n${indent};### Debug MSGBOX ↓↓↓\n${indent}MsgBox(262144, 'Debug line ~' & @ScriptLineNumber, 'Selection:' & @CRLF & '${debugText.text}' & @CRLF & @CRLF & 'Return:' & @CRLF & ${debugText.text})`;
 
     // Insert the code for the MsgBox into the script
     editor.edit(edit => {
@@ -568,10 +586,10 @@ const buildScript = () => {
 const debugConsole = () => {
   const editor = window.activeTextEditor;
   const debugText = getDebugText();
-  const indent = getIndent();
-
+	
   if (Object.keys(debugText).length) {
-    const debugCode = `${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)\n`;
+		const indent = getIndent();
+    const debugCode = `\n${indent};### Debug CONSOLE ↓↓↓\n${indent}ConsoleWrite('@@ Debug(' & @ScriptLineNumber & ') : ${debugText.text} = ' & ${debugText.text} & @CRLF & '>Error code: ' & @error & @CRLF)`;
 
     // Insert the code for the MsgBox into the script
     editor.edit(edit => {
