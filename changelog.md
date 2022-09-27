@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Tidy now runs through AutoItWrapper (thanks to [@vanowm](https://github.com/vanowm))
+- MsgBox/Console debugging line generation imporved (thanks to [@Danp2](https://github.com/Danp2))
 
 ### Fixed
 
