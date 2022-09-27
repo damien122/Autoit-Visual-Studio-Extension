@@ -101,7 +101,7 @@
         <key>name</key>
         <string>keyword.control.directives.autoit</string>
         <key>match</key>
-        <string>^\s*(#)(AutoIt3Wrapper_\w+|Au3Stripper_parameters|Tidy_Parameters)\b</string>
+        <string>^\s*(#)(AutoIt3Wrapper_\w+|Au3Stripper_\w+|Tidy_Parameters)\b</string>
         <key>captures</key>
         <dict>
           <key>1</key>
