@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "..",
+			"name": "extension"
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2,
+		"jshint.options":
+		{
+			"-W014": true //Misleading line break before '?'; readers may interpret this as an expression boundary.
+		}
+	},
+}
