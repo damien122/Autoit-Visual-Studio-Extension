@@ -193,41 +193,60 @@ showInformationMessage.timer = {};
 const AiOut = ({ id, aiOutProcess }) => {
   const prefix = "#" + id + ": ",
     prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
-    hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi;
+    hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
+    outputText = (aiOut, prop, text) => {
+      aiOutProcess[prop].call(aiOutProcess[prop], text); //process output
+      if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None") {
+        const isNewLine = runners.isNewLine;
+        runners.isNewLine = prop == "appendLine" || text.match(/[\r\n]$/);
+        //make sure process ID displays at the beginning of the line
+        text = text.replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
+        if (runners.lastId != id || isNewLine) {
+          if (config.processIdInOutput == "Multi")
+            text = prefix + text; //display ID on each line
+          else
+            text = (runners.lastId == id ? prefixEmpty : prefix) + text;
+
+          if (!isNewLine)
+            text = "\r\n" + text;
+        }
+        runners.lastId = id;
+      }
+
+      aiOut[prop].call(aiOut[prop], text); //common output
+    };
+
+  let prevLine = "",
+      prevLineTimer;
 
   //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
   return new Proxy(aiOutCommon, {
     get(aiOut, prop) {
       let ret = aiOut[prop];
       if (ret instanceof Function) {
-        ret = (...args) => {
-          const text = args[0].replace(hotkeyFailedMsg, "");
-          if (text != args[0] && !text.length) {
-            aWrapperHotkey.reset();
-            // in the future maybe we could find a way get current hotkeys registered for our commands...
-            return;
-          }
-          args[0] = text;
-          aiOutProcess[prop].apply(aiOutProcess[prop], args); //process output
-          if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None") {
-            const isNewLine = runners.isNewLine;
-            runners.isNewLine = prop == "appendLine" || args[0].match(/[\r\n]$/);
-            //make sure process ID displays at the beginning of the line
-            args[0] = args[0].replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
-            if (runners.lastId != id || isNewLine) {
-              if (config.processIdInOutput == "Multi")
-                args[0] = prefix + args[0]; //display ID on each line
-              else
-                args[0] = (runners.lastId == id ? prefixEmpty : prefix) + args[0];
-
-              if (!isNewLine)
-                args[0] = "\r\n" + args[0];
+        ret = text => {
+          //incoming text maybe split in chunks
+          //to detect message about failed hotkeys we need a complete line
+          //therefore we split text into lines and show only complete ones
+          clearTimeout(prevLineTimer);
+          const lines = prop == "append" ? text.split(/\r?\n/) : [text];
+          lines[0] = prevLine + lines[0];
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].replace(hotkeyFailedMsg, "");
+            if (line != lines[i]) {
+              aWrapperHotkey.reset();
+              // lines.splice(i--, 1);
+              lines[i] = `+>Setting Hotkeys...--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
             }
-
-            runners.lastId = id;
           }
-
-          aiOut[prop].apply(aiOut[prop], args); //common output
+          prevLine = prop == "append" ? lines[lines.length - 1] : "";
+          if (prevLine) {
+            //last line is not complete, remove it from current text and delay showing it
+            const line = lines.splice(lines.length-1, 1);
+            prevLineTimer = setTimeout(() => outputText(aiOut, prop, line), 100);
+          }
+          text = lines.join("\r\n");
+          outputText(aiOut, prop, text);
         };
       }
       return ret;
@@ -235,6 +254,58 @@ const AiOut = ({ id, aiOutProcess }) => {
   });
 };
 
+//get keybindings
+const keybindings = new Promise(resolve => {
+  //default keybindings
+  const data = require("../package.json").contributes.keybindings.reduce((a,b)=>(a[b.command]=b.key,a),{});
+  const parse = list => {
+    for(let i = 0; i < list.length; i++) {
+      if (list[i].command in data)
+        data[list[i].command] = list[i].key;
+    }
+    for(let i in data) {
+      //capitalize first letter
+      data[i] = data[i].replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+      //add spaces around "+"
+      // data[i] = data[i].replace(/\+/g, " $& ");
+      keybindings[i] = data[i];
+    }
+
+    resolve(data);
+  };
+
+  // // in case we need support multiple platforms
+  // const path = {
+  //   windows: process.env.APPDATA + "/Code",
+  //   macos: process.env.HOME + "/Library/Application Support/Code",
+  //   linux: process.env.HOME + "/config/Code"
+  // }[{
+  //   aix: "linux",
+  //   darwin: "macos",
+  //   freebsd: "linux",
+  //   linux: "linux",
+  //   openbsd: "linux",
+  //   sunos: "linux",
+  //   win32: "windows"
+  // }[process.platform]||"windows"];
+  // const file = ((process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "/user-data/User/" : path) + "/User/keybindings.json")
+  //   .replace(/\//g, process.platform == "win32" ? "\\" : "/");
+
+  const path = process.env.APPDATA + "\\Code";
+  const file = (process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "\\user-data" : path) + "\\User\\keybindings.json";
+  
+  //read file
+  workspace.openTextDocument(file).then(doc => {
+    //we can't use JSON.parse() because file may contain comments
+    const JSON5 = require("json5").default;
+    parse(JSON5.parse(doc.getText()));
+  }).catch(er => {
+    parse([]);
+  });
+});
+
+let hhproc;
+  
 /*
 window.activeTextEditor.document.fileName is not available in some situations
 (like when runScript() executed in settings tab)
@@ -242,14 +313,6 @@ window.activeTextEditor.document.fileName is not available in some situations
 function getActiveDocumentFile() {
   return window.activeTextEditor && window.activeTextEditor.document.fileName || "";
 }
-
-let hhproc;
-// maybe it's not a good idea show default hotkeys, it will confuse user if they changed them.
-// const keybindings = {};
-// for(let i = 0, list = require("../package.json").contributes.keybindings; i < list.length; i++)
-// {
-//   keybindings[list[i].command.substring(10)] = list[i].key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
-// }
 
 function procRunner(cmdPath, args, bAiOutReuse = true) {
   const thisFile = getActiveDocumentFile(),
@@ -342,11 +405,16 @@ workspace.onDidCloseTextDocument(doc => {
 
 const runScript = () => {
   const thisDoc = window.activeTextEditor.document; // Get the object of the text editor
-  const thisFile = thisDoc.fileName; // Get the current file name
-
+  const thisFile = getActiveDocumentFile(); // Get the current file name
+  if (!keybindings["extension.killScript"] && !keybindings["extension.killScriptOpened"])
+    return window.showErrorMessage(`Please set "AutoIt: Kill Running Script" keyboard shortcut.`);
   // Save the file
-  thisDoc.save().then(() => {
+  thisDoc.save().then(isSaved => {
+    if (thisDoc.isUntitled)
+      return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
 
+    if (thisDoc.isDirty)
+      showInformationMessage(`File failed to save, running saved file instead ("${thisFile}")`, { timeout: 30000 });
 
     const params = config.consoleParams;
 
@@ -374,7 +442,7 @@ const runScript = () => {
     } else {
       procRunner(config.aiPath, [config.wrapperPath, '/run', '/prod', '/ErrorStdOut', '/in', thisFile], config.multiOutput && config.multiOutputReuseOutput);
     }
-  })
+  });
 };
 
 const launchHelp = () => {
@@ -465,7 +533,7 @@ function getDebugText() {
     };
   }
   window.showErrorMessage(
-    `"${varToDebug}" is not a variable or macro, debug line can't be generated`,
+    `"${varToDebug}" is not a variable or macro, debug line can't be generated`
   );
   return {};
 }
@@ -501,60 +569,74 @@ const debugMsgBox = () => {
 };
 
 const compileScript = () => {
+  const thisDoc = window.activeTextEditor.document;
+  const thisFile = getActiveDocumentFile();// Get the current file name
+
   // Save the file
-  window.activeTextEditor.document.save().then(() => {
+  thisDoc.save().then(isSaved => {
+    if (thisDoc.isUntitled)
+      return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
 
-    // Get the current file name
-    const thisFile = getActiveDocumentFile();
-
+    if (thisDoc.isDirty)
+     showInformationMessage(`File failed to save, using saved file instead ("${thisFile}")`, { timeout: 30000 });
 
     window.setStatusBarMessage('Compiling script...', 1500);
 
     // Launch the AutoIt Wrapper executable with the script's path
     procRunner(config.aiPath, [config.wrapperPath, '/ShowGui', '/prod', '/in', thisFile]);
-  })
+  });
 };
 
 const tidyScript = () => {
+  const thisDoc = window.activeTextEditor.document;
+  const thisFile = getActiveDocumentFile();// Get the current file name
+
   // Save the file
+  thisDoc.save().then(isSaved => {
+    if (thisDoc.isUntitled)
+      return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
 
-  window.activeTextEditor.document.save().then(() => {
-
-    // Get the current file name
-    const thisFile = getActiveDocumentFile();
-
+    if (thisDoc.isDirty)
+      return window.showErrorMessage(`File failed to save ("${thisFile}")`);
 
     window.setStatusBarMessage(`Tidying script...${thisFile}`, 1500);
-
 
     // Launch the AutoIt Wrapper executable with the script's path
     procRunner(config.aiPath, [config.wrapperPath, '/Tidy', '/in', thisFile]);
 
-  })
+  });
 };
 
 const checkScript = () => {
+  const thisDoc = window.activeTextEditor.document;
+  const thisFile = getActiveDocumentFile();// Get the current file name
+
   // Save the file
+  thisDoc.save().then(isSaved => {
+    if (thisDoc.isUntitled)
+      return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
 
-  window.activeTextEditor.document.save().then(() => {
-
-    // Get the current file name
-    const thisFile = getActiveDocumentFile();
-
+    if (thisDoc.isDirty)
+      return window.showErrorMessage(`File failed to save ("${thisFile}")`);
 
     window.setStatusBarMessage(`Checking script...${thisFile}`, 1500);
 
-
     // Launch the AutoIt Wrapper executable with the script's path
     procRunner(config.aiPath, [config.wrapperPath, '/AU3check', '/prod', '/in', thisFile]);
-  })
+  });
 };
 
 const buildScript = () => {
+  const thisDoc = window.activeTextEditor.document;
+  const thisFile = getActiveDocumentFile();// Get the current file name
+
   // Save the file
-  window.activeTextEditor.document.save().then(() => {
-    // Get the current file name
-    const thisFile = getActiveDocumentFile();
+  thisDoc.save().then(isSaved => {
+    if (thisDoc.isUntitled)
+      return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
+
+    if (thisDoc.isDirty)
+      showInformationMessage(`File failed to save, using saved file instead ("${thisFile}")`, { timeout: 30000 });
 
     window.setStatusBarMessage('Building script...', 1500);
 
@@ -616,7 +698,7 @@ const killScript = (thisFile = null) => {
   const data = runners.findRunner({ status: true, thisFile });
   if (!data) {
     const file = thisFile ? " (" + thisFile.split("\\").splice(-2, 2).join("\\") + ") " : " ";
-    showInformationMessage(`No script${file}is currently running.`, { timeout: 10000 });
+    showInformationMessage(`No script${file}currently is running.`, { timeout: 10000 });
     return;
   }
 
