@@ -282,11 +282,13 @@
       },
       {
         "command": "extension.insertHeader",
-        "key": "ctrl+alt+H"
+        "key": "ctrl+alt+H",
+        "when": "editorTextFocus && editorLangId == autoit"
       },
       {
         "command": "extension.openInclude",
-        "key": "alt+i"
+        "key": "alt+i",
+        "when": "editorTextFocus && editorLangId == autoit"
       },
       {
         "command": "extension.restartScript",
