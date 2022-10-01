@@ -1,8 +1,9 @@
-import { window, Position, workspace, Uri } from 'vscode';
+import { window, Position, workspace, Uri , RelativePattern} from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
+import {parse} from "jsonc-parser";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -253,56 +254,59 @@ const AiOut = ({ id, aiOutProcess }) => {
     }
   });
 };
-
 //get keybindings
-const keybindings = new Promise(resolve => {
-  //default keybindings
-  const data = require("../package.json").contributes.keybindings.reduce((a,b)=>(a[b.command]=b.key,a),{});
-  const parse = list => {
-    for(let i = 0; i < list.length; i++) {
-      if (list[i].command in data)
-        data[list[i].command] = list[i].key;
-    }
-    for(let i in data) {
-      //capitalize first letter
-      data[i] = data[i].replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
-      //add spaces around "+"
-      // data[i] = data[i].replace(/\+/g, " $& ");
-      keybindings[i] = data[i];
-    }
+let keybindings;
+{
+  const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
+  const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
+  const fs = require("fs");
+  const promise = {resolve: ()=>{},isResolved:false};
+  let readFileLast = 0, //prevent multiple calls
+    keybindingsLast = Object.assign({}, keybindingsDefault);
 
-    resolve(data);
+  const readFile = uri =>
+  {
+    
+    const now = performance.now();
+    if (uri && (uri.scheme != "file" || uri.fsPath != file || /*!promise.isResolved || */readFileLast + 200 > now))
+      return;
+
+    keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
+    Object.assign(keybindings, keybindingsLast);
+    readFileLast = now;
+    //read file
+    fs.readFile(file, (err, data) =>
+    {
+      //we can't use JSON.parse() because file may contain comments
+      keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
+    });
   };
+  const dir = (process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "/user-data" : process.env.APPDATA + "/Code") + "/User/";
+  const fileName = "keybindings.json";
+  const file = Uri.file(dir + fileName).fsPath;
+  const watcher = workspace.createFileSystemWatcher(new RelativePattern(dir, "*.json"));
+  watcher.onDidChange(readFile);
+  watcher.onDidCreate(readFile);
+  watcher.onDidDelete(readFile);
 
-  // // in case we need support multiple platforms
-  // const path = {
-  //   windows: process.env.APPDATA + "/Code",
-  //   macos: process.env.HOME + "/Library/Application Support/Code",
-  //   linux: process.env.HOME + "/config/Code"
-  // }[{
-  //   aix: "linux",
-  //   darwin: "macos",
-  //   freebsd: "linux",
-  //   linux: "linux",
-  //   openbsd: "linux",
-  //   sunos: "linux",
-  //   win32: "windows"
-  // }[process.platform]||"windows"];
-  // const file = ((process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "/user-data/User/" : path) + "/User/keybindings.json")
-  //   .replace(/\//g, process.platform == "win32" ? "\\" : "/");
+  const keybindingsUpdate = list => {
+    for(let i = 0; i < list.length; i++) {
+      if (list[i].command in keybindingsDefault)
+        keybindingsLast[list[i].command] = list[i].key;
+    }
+    for(let i in keybindingsLast) {
+      //capitalize first letter
+      keybindingsLast[i] = keybindingsLast[i].replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+      //add spaces around "+"
+      // keybindingsLast[i] = keybindingsLast[i].replace(/\+/g, " $& ");
+      keybindings[i] = keybindingsLast[i];
+    }
 
-  const path = process.env.APPDATA + "\\Code";
-  const file = (process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "\\user-data" : path) + "\\User\\keybindings.json";
-  
-  //read file
-  workspace.openTextDocument(file).then(doc => {
-    //we can't use JSON.parse() because file may contain comments
-    const JSON5 = require("json5").default;
-    parse(JSON5.parse(doc.getText()));
-  }).catch(er => {
-    parse([]);
-  });
-});
+    promise.resolve(keybindingsLast);
+    promise.isResolved = true;
+  };
+  readFile();
+}
 
 let hhproc;
   
