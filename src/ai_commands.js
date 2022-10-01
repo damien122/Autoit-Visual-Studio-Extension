@@ -57,13 +57,14 @@ const runners = {
     const values = [...this.list.entries()].filter(a => !a[1].status).sort((a, b) => b[1].endTime - a[1].endTime);
     for (let i = 0; i < values.length; i++) {
       const [runner, info] = values[i];
+      const _aiOutCommon = aiOutCommon;
       clearTimeout(info.timer);
       info.callback = () => {
-        if (info.aiOut !== aiOutCommon)
+        if (info.aiOut !== _aiOutCommon)
           info.aiOut.dispose();
         const isAiOutVisible = this.isAiOutVisible();
         if (isAiOutVisible && isAiOutVisible.name == info.aiOut.name)
-          aiOutCommon.show(true); //switch to common output
+          _aiOutCommon.show(true); //switch to common output
 
         this.list.delete(runner);
       };
@@ -164,8 +165,6 @@ const aWrapperHotkey = (() => {
 
 const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
 
-
-
 //accepts new option parameter in second argument: timeout
 const showInformationMessage = (...args) => {
   let timeout;
@@ -255,8 +254,8 @@ const AiOut = ({ id, aiOutProcess }) => {
   });
 };
 //get keybindings
-let keybindings;
-{
+let keybindings; //note, we are defining this variable without value!
+{//anonymous scope
   const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
   const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
   const fs = require("fs");
@@ -264,19 +263,17 @@ let keybindings;
   let readFileLast = 0, //prevent multiple calls
     keybindingsLast = Object.assign({}, keybindingsDefault);
 
-  const readFile = uri =>
-  {
-    
+  const readFile = uri => {
+
     const now = performance.now();
-    if (uri && (uri.scheme != "file" || uri.fsPath != file || /*!promise.isResolved || */readFileLast + 200 > now))
+    if (uri && (uri.scheme != "file" || uri.fsPath != file || !promise.isResolved || readFileLast + 200 > now))
       return;
 
     keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
     Object.assign(keybindings, keybindingsLast);
     readFileLast = now;
     //read file
-    fs.readFile(file, (err, data) =>
-    {
+    fs.readFile(file, (err, data) => {
       //we can't use JSON.parse() because file may contain comments
       keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
     });
@@ -325,7 +322,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
     id = runnerPrev ? runnerPrev.info.id : ++runners.id,
     aiOutProcess = config.multiOutput
       ? runnerPrev && !runnerPrev.info.aiOut.void && runnerPrev.info.aiOut || window.createOutputChannel(`AutoIt #${id} (${thisFile})`, 'vscode-autoit-output')
-      : new Proxy({}, { get() { return () => { }; }, void: true }),
+      : new Proxy({}, { get() { return () => { }; } }),
     aiOut = new AiOut({ id, aiOutProcess }),
     info = runnerPrev && runnerPrev.info || {
       id,
@@ -344,8 +341,10 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
       runners.cleanup();
       aiOut.appendLine((code > 1 || code < -1 ? "!" : code < 1 ? ">" : "-") + `>Exit code ${code}${text ? " (" + text + ")" : ""} Time: ${(info.endTime - info.startTime) / 1000}`);
     };
-
   if (runnerPrev) {
+    if (runnerPrev.info.aiOut.void) //void won't be undefined when used proxy object
+      runnerPrev.info.aiOut = aiOutProcess;
+
     clearTimeout(runnerPrev.info.timer);
     runnerPrev.startTime = new Date().getTime();
     info.status = true;
@@ -474,20 +473,20 @@ const launchHelp = () => {
           }
 
           const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
-          const sources = config.smartHelp[i][2].split("|")
+          const sources = config.smartHelp[i][2].split("|");
 
           for (let j = 0; j < sources.length; j += 1) {
 
             let filePath = sources[j];
             if (!fs.existsSync(filePath)) {
-              filePath = findFilepath(filePath, true)
-              if (!filePath) { continue };
+              filePath = findFilepath(filePath, true);
+              if (!filePath) { continue; }
             }
             let text = getIncludeText(filePath);
             let found = text.match(regex);
 
             if (found) {
-              if (hhproc) { hhproc.kill() };
+              if (hhproc) { hhproc.kill(); }
               hhproc = spawn("hh", [`mk:@MSITStore:${config.smartHelp[i][1]}::/funcs/${query}.htm`]);
               return;
             }
@@ -545,7 +544,7 @@ function getDebugText() {
 function getIndent() {
   const editor = window.activeTextEditor;
   const doc = editor.document;
-  const line = doc.lineAt(editor.selection.active.line)
+  const line = doc.lineAt(editor.selection.active.line);
 
   if (line.isEmptyOrWhitespace) { return ''; }
 
@@ -738,7 +737,7 @@ const openInclude = () => {
     if (fs.existsSync(currFile)) {
       includeFile = currFile;
     } else {
-      const library = found[0].includes("<")
+      const library = found[0].includes("<");
       includeFile = findFilepath(includeFile, library);
     }
   }
