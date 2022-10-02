@@ -424,7 +424,30 @@
             "On each line"
           ],
           "description": "Show process ID in the Autoit (common) output"
+        },
+        "autoit.outputShowTime": {
+          "type": "string",
+          "default": "None",
+          "enum": [
+            "None",
+            "Global",
+            "Process",
+            "All"
+          ],
+          "enumDescriptions": [
+            "Don't time for each message",
+            "Show time in global output",
+            "Show time in process output",
+            "Show time in all outputs"
+          ],
+          "description": "Show time when each output line was received"
+        },
+        "autoit.outputMaxHistoryLines": {
+          "type": "number",
+          "default": 5000,
+          "description": "Number of output lines to keep"
         }
+
       }
     },
     "configurationDefaults": {
@@ -530,6 +553,12 @@
             "scope": "vscode-autoit-output-olive",
             "settings": {
               "foreground": "#808000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-date",
+            "settings": {
+              "foreground": "#83817a"
             }
           }
         ]

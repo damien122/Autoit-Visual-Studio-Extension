@@ -4,26 +4,37 @@
   "scopeName": "source.vscode_autoit_output",
   "patterns": [
     {
-      "match": "^(#[0-9]+: | {4,})?((?:---|\\+\\+\\+).*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?((?:---|\\+\\+\\+).*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-brown"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-date"},
+        "3": {"name": "vscode-autoit-output-brown"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?((?:Warning|Error).*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?((?:---|\\+\\+\\+).*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-chocolate"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-brown"}
       }
     },
     {
-      "begin": "^(#[0-9]+: | {4,})?(Starting process (#[0-9]+))",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?((?:Warning|Error).*)",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-chocolate"}
+      }
+    },
+    {
+      "begin": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(Starting process (#\\d+))",
       "end": "((.+) \\[PID ([0-9]+|n\/a)\\])",
       "beginCaptures": {
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-process"},
-        "3": {"name": "vscode-autoit-output-process-id"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-process"},
+        "4": {"name": "vscode-autoit-output-process-id"}
       },
       "endCaptures": {
         "1": {"name": "vscode-autoit-output-process"},
@@ -32,86 +43,100 @@
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?([>].*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?([>].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-blue"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-blue"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?([+].*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?([+].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-green"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-green"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?([-<].*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?([-<].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-orange"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-orange"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?([!].*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?([!].*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-bold-red"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-bold-red"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?(.*:([0-9]+):)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(.*:([0-9]+):)?",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-purple"},
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-purple"},
+        "4": {"name": "vscode-autoit-output-purple"}
+      }
+    },
+    {
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(.*\\son line\\s([0-9]*).*)",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-red"}
+      }
+    },
+    {
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(@@ Debug\\(\\d+\\) :)",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-debug"}
+      }
+    },
+    {
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(.*\\(\\d+\\).*)",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-olive"}
+      }
+    },
+    {
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(In file included from\\s.*)",
+      "captures":{
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
         "3": {"name": "vscode-autoit-output-purple"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?(.*\\son line\\s([0-9]*).*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(line(?:\\s|.)*\\scolumn(?:\\s|.)*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-red"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-red"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?(@@ Debug\\(\\d+\\) :)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,} )?(#\\d+: | {4,})?)?(.*\\t([0-9]+)\\s.*)",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-debug"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"},
+        "3": {"name": "vscode-autoit-output-pink"}
       }
     },
     {
-      "match": "^(#[0-9]+: | {4,})?(.*\\(\\d+\\).*)",
+      "match": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3,})|(#\\d+: | {4,}))",
       "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-olive"}
+        "1": {"name": "vscode-autoit-output-date"},
+        "2": {"name": "vscode-autoit-output-process-id"}
       }
-    },
-    {
-      "match": "^(#[0-9]+: | {4,})?(In file included from\\s.*)",
-      "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-purple"}
-      }
-    },
-    {
-      "match": "^(#[0-9]+: | {4,})?(line(?:\\s|.)*\\scolumn(?:\\s|.)*)",
-      "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-red"}
-      }
-    },
-    {
-      "match": "^(#[0-9]+: | {4,})?(.*\\t([0-9]+)\\s.*)",
-      "captures":{
-        "1": {"name": "vscode-autoit-output-process-id"},
-        "2": {"name": "vscode-autoit-output-pink"}
-      }
-    },
-    {
-      "match": "^#[0-9]+: | {4,}",
-      "name": "vscode-autoit-output-process-id"
     }
 
   ]

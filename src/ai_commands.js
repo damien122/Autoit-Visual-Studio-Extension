@@ -8,7 +8,7 @@ import {parse} from "jsonc-parser";
 const runners = {
   list: new Map(), //list of running scripts
   isNewLine: true, //track if previous message ended with a newline
-  lastId: 0, //last id used in output
+  lastId: 0, //last id used in global output
   id: 0, //last launched process id
   outputName: `extension-output-${require("../package.json").publisher}.${require("../package.json").name}-#`,
   get lastRunning() {
@@ -43,7 +43,7 @@ const runners = {
       if (this.outputName === filename.substring(0, this.outputName.length)) {
         filename = filename.substring(this.outputName.length);
         index = filename.indexOf("-");
-        return { id: filename.substring(0, index), name: filename.substring(index + 1) };
+        return { id: filename.substring(0, index), name: filename.substring(index + 1), output: window.visibleTextEditors[i]};
       }
     }
     return;
@@ -74,7 +74,7 @@ const runners = {
         info.timer = config.multiOutputFinishedTimeout ? setTimeout(info.callback.bind(this), info.endTime - endTime) : null;
     }
   }
-};
+};//runners
 
 const config = (() => {
   const conf = {
@@ -99,7 +99,7 @@ const config = (() => {
 //and restore original (or if no .ini existed it will be deleted)
 //when AutoIt3Wrapper detected running, or after 5 seconds
 const aWrapperHotkey = (() => {
-  let dataOrig, data, ini, timer;
+  let dataOrig, data, ini, timer, count = new Map();
   const regex = /(SciTE_(STOPEXECUTE|RESTART)\s*=).*/gi,
     env = process.env;
   const fileData = () => {
@@ -139,17 +139,22 @@ const aWrapperHotkey = (() => {
   };
 
   return {
-    disable: function () {
+    disable: function (id) {
       clearTimeout(timer);
-      const { ini, data } = fileData();
-      try {
-        fs.writeFileSync(ini, data, "utf-8");
-      } catch (er) { }
-      timer = setTimeout(this.reset, 5000);
+      count.set(id, id);
+      if (count.size == 1) {
+        const { ini, data } = fileData();
+        try {
+          fs.writeFileSync(ini, data, "utf-8");
+        } catch (er) { }
+      }
+      timer = setTimeout(() => this.reset(id), 5000);
+      return id;
     },
-    reset: () => {
+    reset: (id) => {
       clearTimeout(timer);
-      if (!ini)
+      count.delete(id);
+      if (!ini || count.size)
         return;
 
       try {
@@ -163,7 +168,7 @@ const aWrapperHotkey = (() => {
   };
 })();
 
-const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
+const aiOutCommon = window.createOutputChannel('AutoIt (global)', 'vscode-autoit-output');
 
 //accepts new option parameter in second argument: timeout
 const showInformationMessage = (...args) => {
@@ -191,68 +196,107 @@ const showInformationMessage = (...args) => {
 showInformationMessage.timer = {};
 
 const AiOut = ({ id, aiOutProcess }) => {
+  let isNewLineProcess = true;
+
   const prefix = "#" + id + ": ",
     prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
     hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
-    outputText = (aiOut, prop, text) => {
-      aiOutProcess[prop].call(aiOutProcess[prop], text); //process output
-      if ((prop == "append" || prop == "appendLine") && config.processIdInOutput != "None") {
-        const isNewLine = runners.isNewLine;
-        runners.isNewLine = prop == "appendLine" || text.match(/[\r\n]$/);
-        //make sure process ID displays at the beginning of the line
-        text = text.replace(/([\r\n]+)(.+)/g, "$1" + prefixEmpty + "$2");
-        if (runners.lastId != id || isNewLine) {
-          if (config.processIdInOutput == "Multi")
-            text = prefix + text; //display ID on each line
-          else
-            text = (runners.lastId == id ? prefixEmpty : prefix) + text;
+    outputText = (aiOut, prop, lines) => {
+      const time = getTime();
 
-          if (!isNewLine)
-            text = "\r\n" + text;
+      let linesProcess = Object.assign([], lines);
+      // console.log(prop, isNewLineProcess, runners.isNewLine);
+      if (prop == "appendLine" && lines.length && (lines.length > 1 || (lines.length == 1 && lines[0] !== ""))) {
+        if (!isNewLineProcess) {
+          isNewLineProcess = true;
+          aiOutProcess.append("\r\n");
         }
-        runners.lastId = id;
+        if (!runners.isNewLine) {
+          runners.isNewLine = true;
+          aiOut.append("\r\n");
+        }
+      }
+      if (isNewLineProcess && (config.outputShowTime == "Process" || config.outputShowTime == "All") && (prop == "append" || prop == "appendLine")) {
+        for(let i = 0; i < linesProcess.length; i++) {
+          if (i == linesProcess.length-1 && linesProcess[i] === "")
+            break;
+
+          linesProcess[i] = time + " " + linesProcess[i];
+        }
+      }
+      let textProcess = linesProcess.join("\r\n");
+      if (textProcess)
+        aiOutProcess[prop].call(aiOutProcess[prop], textProcess); //process output
+
+      if (runners.lastId != id && !runners.isNewLine) {
+        runners.isNewLine = true;
+        aiOut[prop].call(aiOut[prop], prop == "appendLine" ? "" : "\r\n");
       }
 
-      aiOut[prop].call(aiOut[prop], text); //common output
+      if (runners.isNewLine && (prop == "append" || prop == "appendLine")) {
+
+        for(let i = 0; i < lines.length; i++) {
+          if (i == lines.length-1 && lines[i] === "")
+            break;
+
+          if (config.processIdInOutput == "Multi")
+            lines[i] = prefix + lines[i];
+          else if (config.processIdInOutput != "None")
+            lines[i] = (runners.lastId == id ? prefixEmpty : prefix) + lines[i];
+
+          if (config.outputShowTime == "Global" || config.outputShowTime == "All")
+            lines[i] = time + " " + lines[i];
+        }
+      }
+      const text = lines.join("\r\n");
+      if (text) {
+// console.log(text.replace(/\r\n/g, "\\r\\n"))
+        aiOut[prop].call(aiOut[prop], text); //common output
+
+      // console.log(prop, id, runners.lastId, runners.isNewLine, prop == "appendLine" || text.substring(text.length - 2) == "\r\n", text.replace(/\r?\n/g, "\\r\\n"));
+        isNewLineProcess = prop == "appendLine" || textProcess.substring(textProcess.length - 2) == "\r\n";
+        runners.isNewLine = prop == "appendLine" || text.substring(text.length - 2) == "\r\n";
+        runners.lastId = id;
+      }
     };
 
-  let prevLine = "",
-      prevLineTimer;
-
+  let hotkeyFailedMsgFound = false;
   //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
   return new Proxy(aiOutCommon, {
-    get(aiOut, prop) {
+    get(aiOut, prop, proxy) {
+      
       let ret = aiOut[prop];
       if (ret instanceof Function) {
         ret = text => {
+          if (text === undefined)
+            return;
           //incoming text maybe split in chunks
           //to detect message about failed hotkeys we need a complete line
-          //therefore we split text into lines and show only complete ones
-          clearTimeout(prevLineTimer);
+          //therefore we split text into lines and show right the way only the complete ones
+          //if after 100 milliseconds nothing else received we show the incomplete line
+          // clearTimeout(prevLineTimer);
           const lines = prop == "append" ? text.split(/\r?\n/) : [text];
-          lines[0] = prevLine + lines[0];
+          lines[0] = lines[0];
           for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].replace(hotkeyFailedMsg, "");
-            if (line != lines[i]) {
-              aWrapperHotkey.reset();
-              // lines.splice(i--, 1);
-              lines[i] = `+>Setting Hotkeys...--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
+            if (!hotkeyFailedMsgFound) {
+              const line = lines[i].replace(hotkeyFailedMsg, "");
+              if (line != lines[i]) {
+                aWrapperHotkey.reset(id);
+                lines[i] = `+>Setting Hotkeys...<--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
+                hotkeyFailedMsgFound = true;
+              }
             }
           }
-          prevLine = prop == "append" ? lines[lines.length - 1] : "";
-          if (prevLine) {
-            //last line is not complete, remove it from current text and delay showing it
-            const line = lines.splice(lines.length-1, 1);
-            prevLineTimer = setTimeout(() => outputText(aiOut, prop, line), 100);
-          }
-          text = lines.join("\r\n");
-          outputText(aiOut, prop, text);
+          // if (lines.length)
+            outputText(aiOut, prop, lines);
+
         };
       }
       return ret;
     }
   });
-};
+}; //AiOut
+
 //get keybindings
 let keybindings; //note, we are defining this variable without value!
 {//anonymous scope
@@ -306,7 +350,12 @@ let keybindings; //note, we are defining this variable without value!
 }
 
 let hhproc;
-  
+
+function getTime()
+{
+  return new Date().toLocaleString('sv', {hour:'numeric', minute:'numeric', second:'numeric', fractionalSecondDigits: 3}).replace(',', '.');
+}
+
 /*
 window.activeTextEditor.document.fileName is not available in some situations
 (like when runScript() executed in settings tab)
@@ -334,19 +383,23 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
       status: true
     },
     exit = (code, text) => {
-      aWrapperHotkey.reset();
+      aWrapperHotkey.reset(id);
       code = ~~code; //convert possible null into 0
       info.endTime = new Date().getTime();
       info.status = false;
-      runners.cleanup();
       aiOut.appendLine((code > 1 || code < -1 ? "!" : code < 1 ? ">" : "-") + `>Exit code ${code}${text ? " (" + text + ")" : ""} Time: ${(info.endTime - info.startTime) / 1000}`);
+      runners.cleanup();
+//      runners.lastId = null;
     };
+    if (!info._aiOut)
+      info._aiOut = aiOut;
+
   if (runnerPrev) {
     if (runnerPrev.info.aiOut.void) //void won't be undefined when used proxy object
       runnerPrev.info.aiOut = aiOutProcess;
 
     clearTimeout(runnerPrev.info.timer);
-    runnerPrev.startTime = new Date().getTime();
+    runnerPrev.info.startTime = new Date().getTime();
     info.status = true;
     if (config.clearOutput)
       aiOutProcess.clear(); //clear process output
@@ -362,7 +415,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   // commands work right
   const workDir = path.dirname(thisFile);
 
-  aWrapperHotkey.disable();
+  aWrapperHotkey.disable(id);
   const runner = spawn(cmdPath, args, {
     cwd: workDir,
   });
