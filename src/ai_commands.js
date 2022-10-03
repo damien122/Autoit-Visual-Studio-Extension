@@ -60,6 +60,7 @@ const runners = {
       const _aiOutCommon = aiOutCommon;
       clearTimeout(info.timer);
       info.callback = () => {
+        info._aiOut.flush();
         if (info.aiOut !== _aiOutCommon)
           info.aiOut.dispose();
         const isAiOutVisible = this.isAiOutVisible();
@@ -75,6 +76,25 @@ const runners = {
     }
   }
 };//runners
+
+window.onDidChangeVisibleTextEditors(list =>
+{
+  const out = runners.isAiOutVisible();
+  if (!out || !config.outputMaxHistoryLines)
+    return;
+
+  if (out.output.document.lineCount > config.outputMaxHistoryLines)
+  {
+    const text = out.output.document.getText();
+    const lines = text.split(/\r?\n/);
+    let ret = "";
+    for(let i = lines.length - config.outputMaxHistoryLines - 2; i < lines.length; i++)
+      ret += lines[i] + (i < lines.length - 1 ? "\r\n" : "");
+
+    aiOutCommon.replace(ret);
+  }
+  
+});
 
 const config = (() => {
   const conf = {
@@ -196,17 +216,18 @@ const showInformationMessage = (...args) => {
 showInformationMessage.timer = {};
 
 const AiOut = ({ id, aiOutProcess }) => {
-  let isNewLineProcess = true;
+  let prevLine = "",
+      prevLineTimer,
+      isNewLineProcess = true;
 
-  const prefix = "#" + id + ": ",
-    prefixEmpty = "".padStart(prefix.length, " "), //using U+00A0 NO-BREAK SPACE character
+  const prefixId = "#" + id + ": ",
+    prefixEmpty = "".padStart(prefixId.length, " "), //using U+00A0 NO-BREAK SPACE character
     hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
-    outputText = (aiOut, prop, lines) => {
+    outputText = (aiOut, prop, lines) => { //using separate function, for performance, so it doesn't have to be created for each message
       const time = getTime();
 
       let linesProcess = Object.assign([], lines);
-      // console.log(prop, isNewLineProcess, runners.isNewLine);
-      if (prop == "appendLine" && lines.length && (lines.length > 1 || (lines.length == 1 && lines[0] !== ""))) {
+      if (prop == "appendLine") {
         if (!isNewLineProcess) {
           isNewLineProcess = true;
           aiOutProcess.append("\r\n");
@@ -216,47 +237,51 @@ const AiOut = ({ id, aiOutProcess }) => {
           aiOut.append("\r\n");
         }
       }
-      if (isNewLineProcess && (config.outputShowTime == "Process" || config.outputShowTime == "All") && (prop == "append" || prop == "appendLine")) {
+      if (config.outputShowTime == "Process" || config.outputShowTime == "All") {
         for(let i = 0; i < linesProcess.length; i++) {
           if (i == linesProcess.length-1 && linesProcess[i] === "")
             break;
 
-          linesProcess[i] = time + " " + linesProcess[i];
+          if (isNewLineProcess)
+            linesProcess[i] = time + " " + linesProcess[i];
+
+          isNewLineProcess = true;
         }
       }
       let textProcess = linesProcess.join("\r\n");
-      if (textProcess)
-        aiOutProcess[prop].call(aiOutProcess[prop], textProcess); //process output
+      if (textProcess) {
+        aiOutProcess[prop](textProcess); //process output
+        isNewLineProcess = prop == "appendLine" || textProcess.substring(textProcess.length - 2) == "\r\n";
+      }
 
       if (runners.lastId != id && !runners.isNewLine) {
+        aiOut.append(prop == "appendLine" ? "" : "\r\n");
         runners.isNewLine = true;
-        aiOut[prop].call(aiOut[prop], prop == "appendLine" ? "" : "\r\n");
       }
 
-      if (runners.isNewLine && (prop == "append" || prop == "appendLine")) {
+      const prefixTime = (config.outputShowTime == "Global" || config.outputShowTime == "All") ? time + " " : "";
+      for(let i = 0; i < lines.length; i++) {
+        if (i == lines.length-1 && lines[i] === "")
+          break;
 
-        for(let i = 0; i < lines.length; i++) {
-          if (i == lines.length-1 && lines[i] === "")
-            break;
-
+        if (runners.isNewLine) {
           if (config.processIdInOutput == "Multi")
-            lines[i] = prefix + lines[i];
+            lines[i] = prefixId + lines[i];
           else if (config.processIdInOutput != "None")
-            lines[i] = (runners.lastId == id ? prefixEmpty : prefix) + lines[i];
+            lines[i] = (runners.lastId == id ? prefixEmpty : prefixId) + lines[i];
 
-          if (config.outputShowTime == "Global" || config.outputShowTime == "All")
-            lines[i] = time + " " + lines[i];
+          if (prefixTime)
+            lines[i] = prefixTime + lines[i];
+          
+            runners.lastId = id;
         }
+        runners.isNewLine = true;
       }
-      const text = lines.join("\r\n");
-      if (text) {
-// console.log(text.replace(/\r\n/g, "\\r\\n"))
-        aiOut[prop].call(aiOut[prop], text); //common output
+      const textGlobal = lines.join("\r\n");
+      if (textGlobal) {
+        aiOut[prop](textGlobal); //common output
 
-      // console.log(prop, id, runners.lastId, runners.isNewLine, prop == "appendLine" || text.substring(text.length - 2) == "\r\n", text.replace(/\r?\n/g, "\\r\\n"));
-        isNewLineProcess = prop == "appendLine" || textProcess.substring(textProcess.length - 2) == "\r\n";
-        runners.isNewLine = prop == "appendLine" || text.substring(text.length - 2) == "\r\n";
-        runners.lastId = id;
+        runners.isNewLine = prop == "appendLine" || textGlobal.substring(textGlobal.length - 2) == "\r\n";
       }
     };
 
@@ -264,34 +289,55 @@ const AiOut = ({ id, aiOutProcess }) => {
   //using proxy to "forward" all property calls to aiOutCommon and aiOutProcess
   return new Proxy(aiOutCommon, {
     get(aiOut, prop, proxy) {
-      
+      const isFlush = prop == "flush",
+            isError = prop == "error";
+
+      if (isFlush)
+        prop = "append";
+      else if (isError)
+        prop = "appendLine";
+
       let ret = aiOut[prop];
       if (ret instanceof Function) {
-        ret = text => {
+        ret = (text) => {
           if (text === undefined)
             return;
           //incoming text maybe split in chunks
           //to detect message about failed hotkeys we need a complete line
           //therefore we split text into lines and show right the way only the complete ones
           //if after 100 milliseconds nothing else received we show the incomplete line
-          // clearTimeout(prevLineTimer);
+          clearTimeout(prevLineTimer);
           const lines = prop == "append" ? text.split(/\r?\n/) : [text];
-          lines[0] = lines[0];
+          lines[0] = prevLine + lines[0];
           for (let i = 0; i < lines.length; i++) {
             if (!hotkeyFailedMsgFound) {
               const line = lines[i].replace(hotkeyFailedMsg, "");
               if (line != lines[i]) {
                 aWrapperHotkey.reset(id);
-                lines[i] = `+>Setting Hotkeys...<--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
+                // lines.splice(i--, 1);
+                lines[i] = `+>Setting Hotkeys...--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
                 hotkeyFailedMsgFound = true;
               }
             }
           }
-          // if (lines.length)
+          prevLine = !isFlush && prop == "append" ? lines[lines.length - 1] : "";
+          if (prevLine) {
+            //last line is not complete, remove it from current text and delay showing it
+            if (lines.length > 1)
+              lines[lines.length - 1] = "";
+            else
+              lines.pop();
+
+            prevLineTimer = setTimeout(() => proxy.flush(), 100);
+          }
+          if (lines.length)
             outputText(aiOut, prop, lines);
 
         };
       }
+      if (isFlush)
+        ret("");
+
       return ret;
     }
   });
@@ -387,6 +433,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
       code = ~~code; //convert possible null into 0
       info.endTime = new Date().getTime();
       info.status = false;
+      aiOut.flush();
       aiOut.appendLine((code > 1 || code < -1 ? "!" : code < 1 ? ">" : "-") + `>Exit code ${code}${text ? " (" + text + ")" : ""} Time: ${(info.endTime - info.startTime) / 1000}`);
       runners.cleanup();
 //      runners.lastId = null;
@@ -445,7 +492,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
 
   runner.stderr.on('data', data => {
     const output = data.toString();
-    aiOut.append(output);
+    aiOut.error(output);
   });
 
   runner.on('exit', exit);
