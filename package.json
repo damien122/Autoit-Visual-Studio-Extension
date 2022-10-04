@@ -408,7 +408,6 @@
           "type": "boolean",
           "default": true,
           "description": "Terminate running script when script file is closed"
-      
         },
         "autoit.processIdInOutput": {
           "type": "string",
@@ -473,7 +472,7 @@
           {
             "scope": "vscode-autoit-output-date",
             "settings": {
-              "foreground": "#83817a"
+              "foreground": "#7a837f"
             }
           },
           {
@@ -610,14 +609,12 @@
               "foreground": "#FF00FF"
             }
           },
-
           {
             "scope": "vscode-autoit-output-EXIT",
             "settings": {
               "foreground": "#3d85c6"
             }
           },
-
           {
             "scope": "vscode-autoit-output-EXIT_ERROR",
             "settings": {
@@ -637,7 +634,6 @@
               "foreground": "#FF0000"
             }
           }
-
         ]
       }
     }

@@ -8,149 +8,145 @@
   "repository": {
     "header": {
       "patterns": [
-    {
+        {
           "begin": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3})?( ?#\\d+:| {3,})? )?",
           "end": "$",
-          "beginCaptures":{
-            "1": {"name": "vscode-autoit-output-date"},
-            "2": {"name": "vscode-autoit-output-process-id"}
-    },
-          "patterns":[
-            {"include": "#general"}
-          ]
-      }
+          "beginCaptures": {
+            "1": { "name": "vscode-autoit-output-date" },
+            "2": { "name": "vscode-autoit-output-process-id" }
+          },
+          "patterns": [ { "include": "#general" } ]
+        }
       ]
     },
     "general": {
       "patterns": [
-    {
-          "begin": "(Starting process (#\\d+))",
-      "end": "((.+) \\[PID ([0-9]+|n\/a)\\])",
-      "beginCaptures": {
-            "1": {"name": "vscode-autoit-output-process"},
-            "2": {"name": "vscode-autoit-output-process-id"}
-      },
-      "endCaptures": {
-        "1": {"name": "vscode-autoit-output-process"},
-        "2": {"name": "vscode-autoit-output-process-file"},
-        "3": {"name": "vscode-autoit-output-process-pid"}
-      }
-    },
-    {
-          "match": ">Exit code (?:0|-1) .*",
+        {
+          "begin": "\\G(Starting process (#\\d+))",
+          "end": "((.+) \\[PID (\\d+|n\/a)\\])",
+          "beginCaptures": {
+            "1": { "name": "vscode-autoit-output-process" },
+            "2": { "name": "vscode-autoit-output-process-id" }
+          },
+          "endCaptures": {
+            "1": { "name": "vscode-autoit-output-process" },
+            "2": { "name": "vscode-autoit-output-process-file" },
+            "3": { "name": "vscode-autoit-output-process-pid" }
+          }
+        },
+        {
+          "match": "\\G>Exit code (?:0|-1) .*",
           "name": "vscode-autoit-output-EXIT"
-    },
-    {
-          "match": ">Exit code 1 .*",
+        },
+        {
+          "match": "\\G>Exit code 1 .*",
           "name": "vscode-autoit-output-EXIT_WARNING"
-    },
-    {
-          "match": ">Exit code \\-?\\d+.*",
+        },
+        {
+          "match": "\\G>Exit code \\-?\\d+.*",
           "name": "vscode-autoit-output-EXIT_ERROR"
-    },
-    {
-          "match": ">.*",
+        },
+        {
+          "match": "\\G>.*",
           "name": "vscode-autoit-output-SCE_ERR_CMD"
-    },
-    {
-          "match": "(?:---|[+]{3}).*",
+        },
+        {
+          "match": "\\G(?:---|[+]{3}).*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_MESSAGE"
-    },
-    {
-          "match": "[-<].*",
+        },
+        {
+          "match": "\\G[-<].*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_DELETION"
-    },
-    {
-          "match": "[!].*",
+        },
+        {
+          "match": "\\G!.*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_CHANGED"
-    },
-    {
-          "match": "[+].*",
+        },
+        {
+          "match": "\\G[+].*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_ADDITION"
-    },
-    {
-          "match": "cf90-.*",
+        },
+        {
+          "match": "\\Gcf90-.*",
           "name": "vscode-autoit-output-SCE_ERR_ABSF"
-    },
-    {
-          "match": "fortcom:.*",
+        },
+        {
+          "match": "\\Gfortcom:.*",
           "name": "vscode-autoit-output-SCE_ERR_IFORT"
-    },
-    {
-          "match": ".*(?:File \".*, line|, line.*File).*",
+        },
+        {
+          "match": "\\G.*(?:File \".*, line|, line.*File).*",
           "name": "vscode-autoit-output-SCE_ERR_PYTHON"
-    },
-    {
-          "match": ".* (?:in .* on line|on line .* in) .*",
+        },
+        {
+          "match": "\\G.* (?:in .* on line|on line .* in) .*",
           "name": "vscode-autoit-output-SCE_ERR_PHP"
         },
         {
-          "match": "(?:Warning|Error) at \\(.*\\) : .*",
+          "match": "\\G(?:Warning|Error) at \\(.*\\) : .*",
           "name": "vscode-autoit-output-SCE_ERR_IFC"
         },
         {
-          "match": "(?:Warning|Error) .*",
+          "match": "\\G(?:Warning|Error) .*",
           "name": "vscode-autoit-output-SCE_ERR_BORLAND"
         },
         {
-          "match": "(?:.*at line .*file |.*file .*at line ).*",
+          "match": "\\G(?:.*at line .*file |.*file .*at line ).*",
           "name": "vscode-autoit-output-SCE_ERR_LUA"
         },
         {
-          "match": ".* at .* line .*",
+          "match": "\\G.* at .* line .*",
           "name": "vscode-autoit-output-SCE_ERR_PERL"
         },
         {
-          "match": ".*   at .*:line.*",
+          "match": "\\G.*   at .*:line.*",
           "name": "vscode-autoit-output-SCE_ERR_NET"
         },
         {
-          "match": "Line .*, file .*",
+          "match": "\\GLine .*, file .*",
           "name": "vscode-autoit-output-SCE_ERR_ELF"
         },
         {
-          "match": "line .* column .*",
+          "match": "\\Gline .* column .*",
           "name": "vscode-autoit-output-SCE_ERR_TIDY"
         },
         {
-          "match": "\tat .*\\(.*\\.java.*",
+          "match": "\\G\tat .*\\(.*\\.java.*",
           "name": "vscode-autoit-output-SCE_ERR_JAVA_STACK"
         },
         {
-          "match": "(?:                 from |In file included from ).*",
+          "match": "\\G(?:                 from |In file included from ).*",
           "name": "vscode-autoit-output-SCE_ERR_GCC_INCLUDED_FROM"
         },
         {
-          "match": "NMAKE : fatal error.*",
+          "match": "\\GNMAKE : fatal error.*",
           "name": "vscode-autoit-output-SCE_ERR_MS"
         },
         {
-          "match": ".*warning LNK.*",
+          "match": "\\G.*warning LNK.*",
           "name": "vscode-autoit-output-SCE_ERR_MS"
         },
         {
-          "match": " [|][ +].*",
+          "match": "\\G [|][ +].*",
           "name": "vscode-autoit-output-SCE_ERR_GCC_EXCERPT"
         },
         {
-          "match": "\\S+\\t.*\\t\\d+.*",
+          "match": "\\G\\S+\\t.*\\t\\d+.*",
           "name": "vscode-autoit-output-SCE_ERR_CTAG"
         },
         {
-          "match": ".*:\\d+:",
+          "match": "\\G.*:\\d+:",
           "name": "vscode-autoit-output-SCE_ERR_GCC"
         },
         {
-          "match": ".*\\(\\d+\\).*",
+          "match": "\\G.*\\(\\d+\\).*",
           "name": "vscode-autoit-output-olive"
         },
         {
-          "match": "@@ Debug\\(\\d+\\) :",
+          "match": "\\G@@ Debug\\(\\d+\\) :",
           "name": "vscode-autoit-output-debug"
         }
-
       ]
     }
   }
-
 }
