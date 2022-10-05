@@ -10,7 +10,7 @@
       "patterns": [
         {
           "begin": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3})?( ?#\\d+:| {3,})? )?",
-          "end": "$",
+          "end": "(\\r?\\n)",
           "beginCaptures": {
             "1": { "name": "vscode-autoit-output-date" },
             "2": { "name": "vscode-autoit-output-process-id" }
