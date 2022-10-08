@@ -3,7 +3,7 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
-import { convert } from "encoding";
+import { decode, encodingExists } from "iconv-lite";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -75,20 +75,86 @@ const runners = {
   }
 };
 
+//accepts new option parameter in second argument: timeout
+const {showInformationMessage, showErrorMessage} = (() => {
+  const ret = (type) => {
+    const timers = {};
+    const func = (...args) => {
+      let timeout;
+      const [message, options] = args;
+      if (options && options instanceof Object && !(options instanceof Array)) {
+        timeout = options.timeout;
+        //not sure if we need to bother sanitize options object or not, seems to work as is
+        // delete options.timeout;
+        // if (!options.keys().length)
+        //   args.splice(1,1);
+      }
+      const _clearTimeout = () =>{
+        clearTimeout(timers[message]);
+        delete(timers[message]);
+      };
+      _clearTimeout();
+      const callback = () => {
+        _clearTimeout();
+        // https://github.com/microsoft/vscode/issues/153693
+        for (let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
+          window[type].apply(window, args);
+
+      };
+      timers[message] = timeout !== undefined && setTimeout(callback, timeout);
+      return window[type].apply(window, args).finally(_clearTimeout);
+    };
+    return func;
+  };
+  return {
+    showInformationMessage: ret("showInformationMessage"),
+    showErrorMessage: ret("showErrorMessage")
+  };
+})();
+
 const config = (() => {
   const conf = {
     data: workspace.getConfiguration('autoit'),
+    isCodePage: false
   };
+  const checkEncoding = () =>
+  {
+    const value = conf.data.outputCodePage.trim();
+    
+    conf.isCodePage = !value || encodingExists(value);
+
+    if (checkEncoding._msg) {
+      showErrorMessage(checkEncoding._msg, {timeout: 0});
+      checkEncoding._msg = "";
+    }
+
+    if (!conf.isCodePage) {
+      checkEncoding._msg = `"${value}" code page is not supported`;
+      showErrorMessage(checkEncoding._msg, { timeout: 30000 });
+    }
+    return conf.isCodePage;
+  };
+  checkEncoding();
   workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
     if (!affectsConfiguration('autoit')) return;
 
     conf.data = workspace.getConfiguration('autoit');
     runners.cleanup();
+    clearTimeout(checkEncoding._timer);
+    checkEncoding._timer = setTimeout(checkEncoding, 1000);
   });
   return new Proxy(conf,
     {
-      get(target, prop) { return target.data[prop]; },
-      set(target, prop, val) { return target.data.update(prop, val); }
+      get(target, prop) {
+        if (prop == "isCodePage")
+          return conf.isCodePage;
+
+        return target.data[prop];
+      },
+      set(target, prop, val) {
+        if (prop !== "isCodePage")
+          return target.data.update(prop, val);
+      }
     });
 })();
 
@@ -163,33 +229,6 @@ const aWrapperHotkey = (() => {
 })();
 
 const aiOutCommon = window.createOutputChannel('AutoIt', 'vscode-autoit-output');
-
-
-
-//accepts new option parameter in second argument: timeout
-const showInformationMessage = (...args) => {
-  let timeout;
-  const [message, options] = args;
-  if (options && options instanceof Object && !(options instanceof Array)) {
-    timeout = options.timeout;
-    //not sure if we need to bother sanitize options object or not, seems to work as is
-    // delete options.timeout;
-    // if (!options.keys().length)
-    //   args.splice(1,1);
-  }
-  clearTimeout(showInformationMessage.timer[message]);
-
-  const callback = () => {
-    clearTimeout(timer);
-    // https://github.com/microsoft/vscode/issues/153693
-    for (let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
-      window.showInformationMessage.apply(window, args);
-  };
-  const timer = timeout && setTimeout(callback, timeout);
-  showInformationMessage.timer[message] = timer;
-  return window.showInformationMessage.apply(window, args).finally(() => clearTimeout(timer));
-};
-showInformationMessage.timer = {};
 
 const AiOut = ({ id, aiOutProcess }) => {
   const prefix = "#" + id + ": ",
@@ -321,12 +360,12 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   }
 
   runner.stdout.on('data', data => {
-    const output = (config.outputCodePage ? convert(data, "utf-8", config.outputCodePage) : data).toString();
+    const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
     aiOut.append(output);
   });
 
   runner.stderr.on('data', data => {
-    const output = (config.outputCodePage ? convert(data, "utf-8", config.outputCodePage) : data).toString();
+    const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
     aiOut.append(output);
   });
 
