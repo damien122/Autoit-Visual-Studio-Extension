@@ -156,7 +156,7 @@
           "name": "vscode-autoit-output-SCE_ERR_GCC"
         },
         {
-          "match": "\\G.*\\(\\d+\\).*",
+          "match": "\\G.*\\(\\d+(:?,\\d+)?\\).*",
           "name": "vscode-autoit-output-olive"
         },
         {
