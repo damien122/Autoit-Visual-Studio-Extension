@@ -220,8 +220,9 @@ const AiOut = ({ id, aiOutProcess }) => {
       prevLineTimer,
       isNewLineProcess = true;
 
-  const prefixId = "#" + id + ": ",
-    prefixEmpty = "".padStart(prefixId.length, " "), //using U+00A0 NO-BREAK SPACE character
+  const spacer = " ", //using U+00A0 NO-BREAK SPACE character to avoid white-space character highlight.
+    prefixId = "#" + id + ":" + spacer,
+    prefixEmpty = "".padStart(prefixId.length, spacer),
     hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
     outputText = (aiOut, prop, lines) => { //using separate function, for performance, so it doesn't have to be created for each message
       const time = getTime();
@@ -243,7 +244,7 @@ const AiOut = ({ id, aiOutProcess }) => {
             break;
 
           if (isNewLineProcess)
-            linesProcess[i] = time + " " + linesProcess[i];
+            linesProcess[i] = time + spacer + linesProcess[i];
 
           isNewLineProcess = true;
         }
@@ -259,7 +260,7 @@ const AiOut = ({ id, aiOutProcess }) => {
         runners.isNewLine = true;
       }
 
-      const prefixTime = (config.outputShowTime == "Global" || config.outputShowTime == "All") ? time + " " : "";
+      const prefixTime = (config.outputShowTime == "Global" || config.outputShowTime == "All") ? time + spacer : "";
       for(let i = 0; i < lines.length; i++) {
         if (i == lines.length-1 && lines[i] === "")
           break;
