@@ -3,6 +3,7 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
+import { convert } from "encoding";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -320,12 +321,12 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   }
 
   runner.stdout.on('data', data => {
-    const output = data.toString();
+    const output = (config.outputCodePage ? convert(data, "utf-8", config.outputCodePage) : data).toString();
     aiOut.append(output);
   });
 
   runner.stderr.on('data', data => {
-    const output = data.toString();
+    const output = (config.outputCodePage ? convert(data, "utf-8", config.outputCodePage) : data).toString();
     aiOut.append(output);
   });
 

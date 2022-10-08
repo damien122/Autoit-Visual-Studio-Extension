@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.12.11",
     "@types/vscode": "^1.52.0",
     "babel-loader": "^8.2.2",
+    "encoding": "^0.1.13",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.15.0",
@@ -408,7 +409,10 @@
           "type": "boolean",
           "default": true,
           "description": "Terminate running script when script file is closed"
-      
+        },
+        "autoit.outputCodePage": {
+          "type": "string",
+          "description": "If you see incorrect text encoding in the output, set this option to match your system code page"
         },
         "autoit.processIdInOutput": {
           "type": "string",
@@ -532,7 +536,6 @@
               "foreground": "#808000"
             }
           }
-
         ]
       }
     }
