@@ -121,8 +121,7 @@ const config = (() => {
   {
     const value = conf.data.outputCodePage.trim();
     
-    conf.isCodePage = !value || encodingExists(value);
-
+    conf.isCodePage = value && encodingExists(value);
     if (checkEncoding._msg) {
       showErrorMessage(checkEncoding._msg, {timeout: 0});
       checkEncoding._msg = "";
@@ -360,13 +359,23 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   }
 
   runner.stdout.on('data', data => {
-    const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
-    aiOut.append(output);
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
+      aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.stderr.on('data', data => {
-    const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
-    aiOut.append(output);
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
+      aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.on('exit', exit);
