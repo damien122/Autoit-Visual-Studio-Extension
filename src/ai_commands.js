@@ -127,7 +127,7 @@ const config = (() => {
       checkEncoding._msg = "";
     }
 
-    if (!conf.isCodePage) {
+    if (value && !conf.isCodePage) {
       checkEncoding._msg = `"${value}" code page is not supported`;
       showErrorMessage(checkEncoding._msg, { timeout: 30000 });
     }
