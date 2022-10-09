@@ -1,12 +1,12 @@
 import { commands } from 'vscode';
 import * as aiCommands from './ai_commands';
-import { commandsList, commandPrefix } from "./commandsList";
+import { commandsList, commandsPrefix } from "./commandsList";
 
 export const registerCommands = () => {
   for(let i = 0; i < commandsList.length; i++) {
     const command = commandsList[i];
     if (aiCommands[command])
-      commands.registerCommand(commandPrefix + command, aiCommands[command]);
+      commands.registerCommand(commandsPrefix + command, aiCommands[command]);
   }
 };
 
