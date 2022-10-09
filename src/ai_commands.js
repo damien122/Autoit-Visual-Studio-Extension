@@ -348,7 +348,7 @@ const AiOut = ({ id, aiOutProcess }) => {
                   lines[i] += `${keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]} to Stop.`;
                 }
                 hotkeyFailedMsgFound = true;
-          }
+              }
             }
           }
           prevLine = !isFlush && prop == "append" ? lines[lines.length - 1] : "";
@@ -377,74 +377,111 @@ const AiOut = ({ id, aiOutProcess }) => {
 //get keybindings
 let keybindings; //note, we are defining this variable without value!
 {//anonymous scope
-  const commandsList = {};
-  for(let i = 0; i < _commandsList.length; i++)
-    commandsList[commandsPrefix + _commandsList[i]] = "";
+  let profileDir;
+  const prefs = workspace.getConfiguration('autoit'),
+    prefName = "consoleParams",
+    pref = prefs.inspect(prefName),
+    prefValue = pref.globalValue !== undefined ? pref.globalValue.replace(/ ?-profileDirID[\d.]+$/, "") : pref.globalValue,
+    //generate ID, in some rare circumstances previous ID could still be present, try remove it
+    id = (prefValue ? prefValue + " " : "") + "-profileDirID." + new Date().getTime() + performance.now(),
+    dir = (process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "/user-data" : process.env.APPDATA + "/Code") + "/User/",
+    settingsJsonWatcher = workspace.createFileSystemWatcher(new RelativePattern(dir, "**/settings.json")),
+    settingsJsonWatcherEventHandler = uri => {
+      if (profileDir)
+        return;
 
-  const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
-  const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
-  const fs = require("fs");
-  const promise = {resolve: ()=>{},isResolved:false};
-  let readFileLast = 0; //prevent multiple calls
+      fs.readFile(uri.fsPath, (err, data) => {
+        if (profileDir)
+          return;
 
-  const readFile = uri => {
+        const json = parse(data.toString());
+        if (json[pref.key] !== id )
+          return;
 
-    const now = performance.now();
-    if (uri && (uri.scheme != "file" || uri.fsPath != file || !promise.isResolved || readFileLast + 200 > now))
-      return;
+        profileDir = uri.fsPath.replace(/[^\\/]+$/, "");
+        settingsJsonWatcher.dispose();
+        reset();
+      });
+    },
+    reset = () => {
+      clearTimeout(settingsTimer);
+      prefs.update(prefName, prefValue, true);
+      initKeybindings(profileDir || dir);
+    };
 
-    keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
-    Object.assign(keybindings, Object.assign({}, keybindingsDefault));
-    readFileLast = now;
-    //read file
-    fs.readFile(file, (err, data) => {
-      //we can't use JSON.parse() because file may contain comments
-      keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
-    });
-  };
-  const dir = (process.env.VSCODE_PORTABLE ? process.env.VSCODE_PORTABLE + "/user-data" : process.env.APPDATA + "/Code") + "/User/";
-  const fileName = "keybindings.json";
-  const file = Uri.file(dir + fileName).fsPath;
-  const watcher = workspace.createFileSystemWatcher(new RelativePattern(dir, "*.json"));
-  watcher.onDidChange(readFile);
-  watcher.onDidCreate(readFile);
-  watcher.onDidDelete(readFile);
+  settingsJsonWatcher.onDidChange(settingsJsonWatcherEventHandler);
+  settingsJsonWatcher.onDidCreate(settingsJsonWatcherEventHandler);
+  prefs.update(prefName, id, true);
+  const settingsTimer = setTimeout(reset, 2000);
+  const initKeybindings = dir => {
+    let readFileLast = 0; //prevent multiple calls
+    const commandsList = {};
+    for(let i = 0; i < _commandsList.length; i++)
+      commandsList[commandsPrefix + _commandsList[i]] = "";
+  
+    const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
+    const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
+    const fs = require("fs");
+    const promise = {resolve: ()=>{},isResolved:false};
+  
+    const readFile = uri => {
+  
+      const now = performance.now();
+      if (uri && (uri.scheme != "file" || uri.fsPath != file || !promise.isResolved || readFileLast + 200 > now))
+        return;
+  
+      keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
+      Object.assign(keybindings, Object.assign({}, keybindingsDefault));
+      readFileLast = now;
+      //read file
+      fs.readFile(file, (err, data) => {
+        //we can't use JSON.parse() because file may contain comments
+        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
+      });
+    };
+    const fileName = "keybindings.json";
+    const file = Uri.file(dir + fileName).fsPath;
+    const watcher = workspace.createFileSystemWatcher(new RelativePattern(dir, "*.json"));
+    watcher.onDidChange(readFile);
+    watcher.onDidCreate(readFile);
+    watcher.onDidDelete(readFile);
 
-  const keybindingsUpdate = list => {
-    const keybindingsNew = {},
-      keybindingsFallback = Object.assign({}, keybindingsDefault);
+    const keybindingsUpdate = list => {
+      const keybindingsNew = {},
+        keybindingsFallback = Object.assign({}, keybindingsDefault);
 
-    for(let i = 0; i < list.length; i++) {
-      const isRemove = list[i].command.substring(0, 1) == "-";
-      const command = isRemove ? list[i].command.substring(1, list[i].command.length) : list[i].command;
-      if (command in commandsList) {
-        if (isRemove) {
-          delete keybindings[command];
-          delete keybindingsFallback[command];
-          continue;
-    }
-        keybindingsNew[command] = list[i].key;
+      for(let i = 0; i < list.length; i++) {
+        const isRemove = list[i].command.substring(0, 1) == "-";
+        const command = isRemove ? list[i].command.substring(1, list[i].command.length) : list[i].command;
+        if (command in commandsList) {
+          if (isRemove) {
+            delete keybindings[command];
+            delete keybindingsFallback[command];
+            continue;
+          }
+          keybindingsNew[command] = list[i].key;
+        }
       }
-    }
-    for(let command in commandsList) {
-      const key = keybindingsNew[command] || keybindingsFallback[command];
-      if (!key)
-        continue;
-      //capitalize first letter
-      keybindingsFallback[command] = key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
-      //add spaces around "+"
-      // keybindingsFallback[i] = keybindingsFallback[i].replace(/\+/g, " $& ");
-      keybindings[command] = keybindingsFallback[command];
-    }
+      for(let command in commandsList) {
+        const key = keybindingsNew[command] || keybindingsFallback[command];
+        if (!key)
+          continue;
+        //capitalize first letter
+        keybindingsFallback[command] = key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+        //add spaces around "+"
+        // keybindingsFallback[i] = keybindingsFallback[i].replace(/\+/g, " $& ");
+        keybindings[command] = keybindingsFallback[command];
+      }
 
-    if (messages.error.killScript && (keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"])) {
-      messages.error.killScript.hide();
-      delete messages.error.killScript;
-    }
-    promise.resolve(keybindingsFallback);
-    promise.isResolved = true;
+      if (messages.error.killScript && (keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"])) {
+        messages.error.killScript.hide();
+        delete messages.error.killScript;
+      }
+      promise.resolve(keybindingsFallback);
+      promise.isResolved = true;
+    };
+    readFile();
   };
-  readFile();
 }
 
 let hhproc;
