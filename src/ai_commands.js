@@ -3,7 +3,8 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
-import {parse} from "jsonc-parser";
+import { parse } from "jsonc-parser";
+import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -77,14 +78,12 @@ const runners = {
   }
 };//runners
 
-window.onDidChangeVisibleTextEditors(list =>
-{
+window.onDidChangeVisibleTextEditors(list => {
   const out = runners.isAiOutVisible();
   if (!out || !config.outputMaxHistoryLines)
     return;
 
-  if (out.output.document.lineCount > config.outputMaxHistoryLines)
-  {
+  if (out.output.document.lineCount > config.outputMaxHistoryLines) {
     const text = out.output.document.getText();
     const lines = text.split(/\r?\n/);
     let ret = "";
@@ -95,6 +94,53 @@ window.onDidChangeVisibleTextEditors(list =>
   }
   
 });
+
+//accepts new option parameter in second argument: timeout
+const {showInformationMessage, showErrorMessage, messages} = (() => {
+  const messages = { info:{}, error:{} };
+  const ret = (type) => {
+    const timers = {};
+    const func = (...args) => {
+      let timeout;
+      const [message, options] = args;
+      if (options && options instanceof Object && !(options instanceof Array)) {
+        timeout = options.timeout;
+        //not sure if we need to bother sanitize options object or not, seems to work as is
+        // delete options.timeout;
+        // if (!options.keys().length)
+        //   args.splice(1,1);
+      }
+      const _clearTimeout = () =>{
+        clearTimeout(timers[message]);
+        delete(timers[message]);
+      };
+      _clearTimeout();
+      let isHidden = false;
+      const callback = () => {
+        _clearTimeout();
+        // https://github.com/microsoft/vscode/issues/153693
+        for (let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
+          window[type].apply(window, args);
+
+        isHidden = true;
+      };
+      timers[message] = timeout !== undefined && setTimeout(callback, timeout);
+      return {
+        get isHidden() {
+          return isHidden;
+        },
+        hide: callback,
+        message: window[type].apply(window, args).finally(_clearTimeout)
+      };
+    };
+    return func;
+  };
+  return {
+    showInformationMessage: ret("showInformationMessage"),
+    showErrorMessage: ret("showErrorMessage"),
+    messages,
+  };
+})();
 
 const config = (() => {
   const conf = {
@@ -189,31 +235,6 @@ const aWrapperHotkey = (() => {
 })();
 
 const aiOutCommon = window.createOutputChannel('AutoIt (global)', 'vscode-autoit-output');
-
-//accepts new option parameter in second argument: timeout
-const showInformationMessage = (...args) => {
-  let timeout;
-  const [message, options] = args;
-  if (options && options instanceof Object && !(options instanceof Array)) {
-    timeout = options.timeout;
-    //not sure if we need to bother sanitize options object or not, seems to work as is
-    // delete options.timeout;
-    // if (!options.keys().length)
-    //   args.splice(1,1);
-  }
-  clearTimeout(showInformationMessage.timer[message]);
-
-  const callback = () => {
-    clearTimeout(timer);
-    // https://github.com/microsoft/vscode/issues/153693
-    for (let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
-      window.showInformationMessage.apply(window, args);
-  };
-  const timer = timeout && setTimeout(callback, timeout);
-  showInformationMessage.timer[message] = timer;
-  return window.showInformationMessage.apply(window, args).finally(() => clearTimeout(timer));
-};
-showInformationMessage.timer = {};
 
 const AiOut = ({ id, aiOutProcess }) => {
   let prevLine = "",
@@ -316,9 +337,18 @@ const AiOut = ({ id, aiOutProcess }) => {
               if (line != lines[i]) {
                 aWrapperHotkey.reset(id);
                 // lines.splice(i--, 1);
-                lines[i] = `+>Setting Hotkeys...--> Press ${keybindings["extension.restartScript"]} to Restart or ${keybindings["extension.killScript"] || keybindings["extension.killScriptOpened"]} to Stop.`;
+                lines[i] = `+>Setting Hotkeys...--> Press `;
+                if (keybindings[commandsPrefix + "restartScript"])
+                  lines[i] += `${keybindings[commandsPrefix + "restartScript"]} to Restart`;
+                
+                if (keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]) {
+                  if (keybindings[commandsPrefix + "restartScript"])
+                    lines[i] += ` or `;
+
+                  lines[i] += `${keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]} to Stop.`;
+                }
                 hotkeyFailedMsgFound = true;
-              }
+          }
             }
           }
           prevLine = !isFlush && prop == "append" ? lines[lines.length - 1] : "";
@@ -347,12 +377,15 @@ const AiOut = ({ id, aiOutProcess }) => {
 //get keybindings
 let keybindings; //note, we are defining this variable without value!
 {//anonymous scope
+  const commandsList = {};
+  for(let i = 0; i < _commandsList.length; i++)
+    commandsList[commandsPrefix + _commandsList[i]] = "";
+
   const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
   const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
   const fs = require("fs");
   const promise = {resolve: ()=>{},isResolved:false};
-  let readFileLast = 0, //prevent multiple calls
-    keybindingsLast = Object.assign({}, keybindingsDefault);
+  let readFileLast = 0; //prevent multiple calls
 
   const readFile = uri => {
 
@@ -361,7 +394,7 @@ let keybindings; //note, we are defining this variable without value!
       return;
 
     keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
-    Object.assign(keybindings, keybindingsLast);
+    Object.assign(keybindings, Object.assign({}, keybindingsDefault));
     readFileLast = now;
     //read file
     fs.readFile(file, (err, data) => {
@@ -378,19 +411,37 @@ let keybindings; //note, we are defining this variable without value!
   watcher.onDidDelete(readFile);
 
   const keybindingsUpdate = list => {
+    const keybindingsNew = {},
+      keybindingsFallback = Object.assign({}, keybindingsDefault);
+
     for(let i = 0; i < list.length; i++) {
-      if (list[i].command in keybindingsDefault)
-        keybindingsLast[list[i].command] = list[i].key;
+      const isRemove = list[i].command.substring(0, 1) == "-";
+      const command = isRemove ? list[i].command.substring(1, list[i].command.length) : list[i].command;
+      if (command in commandsList) {
+        if (isRemove) {
+          delete keybindings[command];
+          delete keybindingsFallback[command];
+          continue;
     }
-    for(let i in keybindingsLast) {
+        keybindingsNew[command] = list[i].key;
+      }
+    }
+    for(let command in commandsList) {
+      const key = keybindingsNew[command] || keybindingsFallback[command];
+      if (!key)
+        continue;
       //capitalize first letter
-      keybindingsLast[i] = keybindingsLast[i].replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+      keybindingsFallback[command] = key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
       //add spaces around "+"
-      // keybindingsLast[i] = keybindingsLast[i].replace(/\+/g, " $& ");
-      keybindings[i] = keybindingsLast[i];
+      // keybindingsFallback[i] = keybindingsFallback[i].replace(/\+/g, " $& ");
+      keybindings[command] = keybindingsFallback[command];
     }
 
-    promise.resolve(keybindingsLast);
+    if (messages.error.killScript && (keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"])) {
+      messages.error.killScript.hide();
+      delete messages.error.killScript;
+    }
+    promise.resolve(keybindingsFallback);
     promise.isResolved = true;
   };
   readFile();
@@ -398,8 +449,7 @@ let keybindings; //note, we are defining this variable without value!
 
 let hhproc;
 
-function getTime()
-{
+function getTime() {
   return new Date().toLocaleString('sv', {hour:'numeric', minute:'numeric', second:'numeric', fractionalSecondDigits: 3}).replace(',', '.');
 }
 
@@ -510,8 +560,10 @@ workspace.onDidCloseTextDocument(doc => {
 const runScript = () => {
   const thisDoc = window.activeTextEditor.document; // Get the object of the text editor
   const thisFile = getActiveDocumentFile(); // Get the current file name
-  if (!keybindings["extension.killScript"] && !keybindings["extension.killScriptOpened"])
-    return window.showErrorMessage(`Please set "AutoIt: Kill Running Script" keyboard shortcut.`);
+  if (!keybindings[commandsPrefix + "killScript"] && !keybindings[commandsPrefix + "killScriptOpened"]) {
+    messages.error.killScript = showErrorMessage(`Please set "AutoIt: Kill Running Script" keyboard shortcut.`, { timeout: 30000 });
+    return messages.error.killScript;
+  }
   // Save the file
   thisDoc.save().then(isSaved => {
     if (thisDoc.isUntitled)
@@ -933,10 +985,10 @@ const restartScript = () => {
 };
 
 export {
-  buildScript,
-  changeConsoleParams,
-  checkScript,
-  compileScript,
+  buildScript as build,
+  changeConsoleParams as changeParams,
+  checkScript as check,
+  compileScript as compile,
   debugConsole,
   debugMsgBox,
   killScript,
@@ -945,7 +997,7 @@ export {
   launchInfo,
   launchKoda,
   runScript,
-  tidyScript,
+  tidyScript as tidy,
   openInclude,
   insertHeader,
   restartScript,
