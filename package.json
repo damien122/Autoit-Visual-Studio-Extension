@@ -32,6 +32,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
+    "jsonc-parser": "^3.2.0",
     "prettier": "^1.19.1",
     "typescript": "^3.5.3",
     "webpack": "^5.12.2",
@@ -408,7 +409,6 @@
           "type": "boolean",
           "default": true,
           "description": "Terminate running script when script file is closed"
-      
         },
         "autoit.processIdInOutput": {
           "type": "string",
@@ -424,7 +424,30 @@
             "On each line"
           ],
           "description": "Show process ID in the Autoit (common) output"
+        },
+        "autoit.outputShowTime": {
+          "type": "string",
+          "default": "None",
+          "enum": [
+            "None",
+            "Global",
+            "Process",
+            "All"
+          ],
+          "enumDescriptions": [
+            "Don't time for each message",
+            "Show time in global output",
+            "Show time in process output",
+            "Show time in all outputs"
+          ],
+          "description": "Show time when each output line was received"
+        },
+        "autoit.outputMaxHistoryLines": {
+          "type": "number",
+          "default": 5000,
+          "description": "Number of output lines to keep"
         }
+
       }
     },
     "configurationDefaults": {
@@ -531,8 +554,13 @@
             "settings": {
               "foreground": "#808000"
             }
+          },
+          {
+            "scope": "vscode-autoit-output-date",
+            "settings": {
+              "foreground": "#83817a"
+            }
           }
-
         ]
       }
     }
