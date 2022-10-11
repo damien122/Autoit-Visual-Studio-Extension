@@ -307,27 +307,27 @@
         "autoit.wrapperPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Full or relative path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`\n\nLeave blank to use default, relative to `autoit.aiPath` path."
+          "markdownDescription": "Full or relative path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.checkPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Full or relative path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`\n\nLeave blank to use default, relative to `autoit.aiPath` path."
+          "markdownDescription": "Full or relative path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.helpPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Full or relative path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`\n\nLeave blank to use default, relative to `autoit.aiPath` path."
+          "markdownDescription": "Full or relative path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.infoPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Full or relative path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`\n\nLeave blank to use default, relative to `autoit.aiPath` path."
+          "markdownDescription": "Full or relative path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.kodaPath": {
           "type": "string",
           "default": "",
-          "markdownDescription": "Full or relative path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`\n\nLeave blank to use default, relative to `autoit.aiPath` path."
+          "markdownDescription": "Full or relative path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.smartHelp": {
           "type": "array",
