@@ -12,15 +12,14 @@ const goToDefinitionFeature = require('./ai_definition');
 
 const { registerCommands } = require('./registerCommands');
 const { parseAu3CheckOutput } = require('./diagnosticUtils');
-
+const config = require("./ai_config").default.config;
 let diagnosticCollection;
 
 const checkAutoItCode = document => {
-  const { checkPath, enableDiagnostics } = vscode.workspace.getConfiguration('autoit');
 
   diagnosticCollection.clear();
 
-  if (!enableDiagnostics) {
+  if (!config.enableDiagnostics) {
     return;
   }
 
@@ -28,14 +27,13 @@ const checkAutoItCode = document => {
     return;
   }
 
-  if (!fs.existsSync(checkPath)) {
+  if (!fs.existsSync(config.checkPath)) {
     vscode.window.showErrorMessage(
       'Invalid Check Path! Please review AutoIt settings (Check Path in UI, autoit.checkPath in JSON)',
     );
     return;
   }
-
-  const checkProcess = spawn(checkPath, [document.fileName], {
+  const checkProcess = spawn(config.checkPath, [document.fileName], {
     cwd: path.dirname(document.fileName),
   });
 
@@ -47,7 +45,7 @@ const checkAutoItCode = document => {
   });
 
   checkProcess.stderr.on('error', error => {
-    vscode.window.showErrorMessage(`${checkPath} error: ${error}`);
+    vscode.window.showErrorMessage(`${config.checkPath} error: ${error}`);
   });
 };
 

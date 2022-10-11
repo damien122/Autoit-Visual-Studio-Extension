@@ -3,6 +3,9 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
+import conf from './ai_config';
+const config = conf.config;
+conf.addListener(() => runners.cleanup());
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -74,22 +77,6 @@ const runners = {
   }
 };
 
-const config = (() => {
-  const conf = {
-    data: workspace.getConfiguration('autoit'),
-  };
-  workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
-    if (!affectsConfiguration('autoit')) return;
-
-    conf.data = workspace.getConfiguration('autoit');
-    runners.cleanup();
-  });
-  return new Proxy(conf,
-    {
-      get(target, prop) { return target.data[prop]; },
-      set(target, prop, val) { return target.data.update(prop, val); }
-    });
-})();
 
 //AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
 //they interfere with this extension (unless user changed hotkeys)
