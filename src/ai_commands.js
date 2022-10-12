@@ -436,7 +436,7 @@ let keybindings; //note, we are defining this variable without value!
       //read file
       fs.readFile(file, (err, data) => {
         //we can't use JSON.parse() because file may contain comments
-        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
+        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()) || keybindingsDefaultRaw);
       });
     };
     const fileName = "keybindings.json";
