@@ -8,81 +8,81 @@
   "repository": {
     "header": {
       "patterns": [
-        {
+    {
           "comment": "Timestamp and/or process ID (12:34:56.789 #123: )",
           "begin": "^(?:(\\d{2}:\\d{2}:\\d{2}\\.\\d{3})?( ?#\\d+:| {3,})? )?",
           "end": "\\r?\\n|$",
           "beginCaptures": {
             "1": { "name": "vscode-autoit-output-date" },
             "2": { "name": "vscode-autoit-output-process-id" }
-          },
+    },
           "patterns": [ { "include": "#general" } ]
-        }
+      }
       ]
     },
     "general": {
       "patterns": [
-        {
+    {
           "begin": "\\G(Starting process (#\\d+))",
           "end": "((.+) \\[PID (\\d+|n\/a)\\])",
-          "beginCaptures": {
+      "beginCaptures": {
             "1": { "name": "vscode-autoit-output-process" },
             "2": { "name": "vscode-autoit-output-process-id" }
-          },
-          "endCaptures": {
+      },
+      "endCaptures": {
             "1": { "name": "vscode-autoit-output-process" },
             "2": { "name": "vscode-autoit-output-process-file" },
             "3": { "name": "vscode-autoit-output-process-pid" }
-          }
-        },
-        {
+      }
+    },
+    {
           "comment": "exit with no error code (0 or -1)",
           "match": "\\G>Exit code (?:0|-1) .*",
           "name": "vscode-autoit-output-EXIT"
-        },
-        {
+    },
+    {
           "match": "\\G>Exit code 1 .*",
           "name": "vscode-autoit-output-EXIT_WARNING"
-        },
-        {
+    },
+    {
           "match": "\\G>Exit code \\-?\\d+.*",
           "name": "vscode-autoit-output-EXIT_ERROR"
-        },
-        {
+    },
+    {
           "match": "\\G>.*",
           "name": "vscode-autoit-output-SCE_ERR_CMD"
-        },
-        {
+    },
+    {
           "match": "\\G(?:---|[+]{3}).*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_MESSAGE"
-        },
-        {
+    },
+    {
           "match": "\\G[-<].*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_DELETION"
-        },
-        {
+    },
+    {
           "match": "\\G!.*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_CHANGED"
-        },
-        {
+    },
+    {
           "match": "\\G[+].*",
           "name": "vscode-autoit-output-SCE_ERR_DIFF_ADDITION"
-        },
-        {
+    },
+    {
           "comment": "Absoft Pro Fortran 90/95 v8.2 error and/or warning message",
           "match": "\\Gcf90-.*",
           "name": "vscode-autoit-output-SCE_ERR_ABSF"
-        },
-        {
+    },
+    {
           "comment": "Intel Fortran Compiler v8.0 error/warning message",
           "match": "\\Gfortcom:.*",
           "name": "vscode-autoit-output-SCE_ERR_IFORT"
-        },
-        {
+    },
+    {
           "match": "\\G.*(?:File \".*, line|, line.*File).*",
           "name": "vscode-autoit-output-SCE_ERR_PYTHON"
-        },
-        {
+    },
+    {
           "match": "\\G.* (?:in .* on line|on line .* in) .*",
           "name": "vscode-autoit-output-SCE_ERR_PHP"
         },
