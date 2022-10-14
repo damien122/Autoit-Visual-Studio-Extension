@@ -32,6 +32,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
+    "iconv-lite": "^0.6.3",
     "jsonc-parser": "^3.2.0",
     "prettier": "^1.19.1",
     "typescript": "^3.5.3",
@@ -411,6 +412,10 @@
           "type": "boolean",
           "default": true,
           "description": "Terminate running script when script file is closed"
+        },
+        "autoit.outputCodePage": {
+          "type": "string",
+          "description": "If you see incorrect text encoding in the output, set this option to match your system code page"
         },
         "autoit.processIdInOutput": {
           "type": "string",
