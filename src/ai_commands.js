@@ -5,6 +5,7 @@ import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
 import { parse } from "jsonc-parser";
 import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
+import { decode, encodingExists } from "iconv-lite";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -145,17 +146,45 @@ const {showInformationMessage, showErrorMessage, messages} = (() => {
 const config = (() => {
   const conf = {
     data: workspace.getConfiguration('autoit'),
+    isCodePage: false
   };
+  const checkEncoding = () =>
+  {
+    const value = conf.data.outputCodePage.trim();
+    
+    conf.isCodePage = value && encodingExists(value);
+    if (checkEncoding._msg) {
+      showErrorMessage(checkEncoding._msg, {timeout: 0});
+      checkEncoding._msg = "";
+    }
+
+    if (value && !conf.isCodePage) {
+      checkEncoding._msg = `"${value}" code page is not supported`;
+      showErrorMessage(checkEncoding._msg, { timeout: 30000 });
+    }
+    return conf.isCodePage;
+  };
+  checkEncoding();
   workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
     if (!affectsConfiguration('autoit')) return;
 
     conf.data = workspace.getConfiguration('autoit');
     runners.cleanup();
+    clearTimeout(checkEncoding._timer);
+    checkEncoding._timer = setTimeout(checkEncoding, 1000);
   });
   return new Proxy(conf,
     {
-      get(target, prop) { return target.data[prop]; },
-      set(target, prop, val) { return target.data.update(prop, val); }
+      get(target, prop) {
+        if (prop == "isCodePage")
+          return conf.isCodePage;
+
+        return target.data[prop];
+      },
+      set(target, prop, val) {
+        if (prop !== "isCodePage")
+          return target.data.update(prop, val);
+      }
     });
 })();
 
@@ -209,10 +238,10 @@ const aWrapperHotkey = (() => {
       clearTimeout(timer);
       count.set(id, id);
       if (count.size == 1) {
-        const { ini, data } = fileData();
-        try {
-          fs.writeFileSync(ini, data, "utf-8");
-        } catch (er) { }
+      const { ini, data } = fileData();
+      try {
+        fs.writeFileSync(ini, data, "utf-8");
+      } catch (er) { }
       }
       timer = setTimeout(() => this.reset(id), 5000);
       return id;
@@ -407,7 +436,7 @@ let keybindings; //note, we are defining this variable without value!
       clearTimeout(settingsTimer);
       prefs.update(prefName, prefValue, true);
       initKeybindings(profileDir || dir);
-    };
+};
 
   settingsJsonWatcher.onDidChange(settingsJsonWatcherEventHandler);
   settingsJsonWatcher.onDidCreate(settingsJsonWatcherEventHandler);
@@ -436,7 +465,7 @@ let keybindings; //note, we are defining this variable without value!
       //read file
       fs.readFile(file, (err, data) => {
         //we can't use JSON.parse() because file may contain comments
-        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
+        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()) || keybindingsDefaultRaw);
       });
     };
     const fileName = "keybindings.json";
@@ -574,13 +603,23 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   }
 
   runner.stdout.on('data', data => {
-    const output = data.toString();
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
     aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.stderr.on('data', data => {
-    const output = data.toString();
-    aiOut.error(output);
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
+      aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.on('exit', exit);
