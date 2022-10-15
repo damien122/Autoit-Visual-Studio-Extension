@@ -8,6 +8,7 @@ const config = conf.config;
 conf.addListener(() => runners.cleanup());
 import { parse } from "jsonc-parser";
 import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
+import { decode, encodingExists } from "iconv-lite";
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -148,10 +149,10 @@ const aWrapperHotkey = (() => {
       clearTimeout(timer);
       count.set(id, id);
       if (count.size == 1) {
-      const { ini, data } = fileData();
-      try {
-        fs.writeFileSync(ini, data, "utf-8");
-      } catch (er) { }
+        const { ini, data } = fileData();
+        try {
+          fs.writeFileSync(ini, data, "utf-8");
+        } catch (er) { }
       }
       timer = setTimeout(() => this.reset(id), 5000);
       return id;
@@ -192,7 +193,7 @@ const AiOut = ({ id, aiOutProcess }) => {
         if (!isNewLineProcess) {
           isNewLineProcess = true;
           aiOutProcess.append("\r\n");
-  }
+        }
         if (!runners.isNewLine) {
           runners.isNewLine = true;
           aiOut.append("\r\n");
@@ -285,7 +286,7 @@ const AiOut = ({ id, aiOutProcess }) => {
                     lines[i] += ` or `;
 
                   lines[i] += `${keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]} to Stop.`;
-          }
+                }
                 hotkeyFailedMsgFound = true;
               }
             }
@@ -295,11 +296,11 @@ const AiOut = ({ id, aiOutProcess }) => {
             //last line is not complete, remove it from current text and delay showing it
             if (lines.length > 1)
               lines[lines.length - 1] = "";
-              else
+            else
               lines.pop();
 
             prevLineTimer = setTimeout(() => proxy.flush(), 100);
-            }
+          }
           if (lines.length)
             outputText(aiOut, prop, lines);
 
@@ -346,7 +347,7 @@ let keybindings; //note, we are defining this variable without value!
       clearTimeout(settingsTimer);
       prefs.update(prefName, prefValue, true);
       initKeybindings(profileDir || dir);
-};
+    };
 
   settingsJsonWatcher.onDidChange(settingsJsonWatcherEventHandler);
   settingsJsonWatcher.onDidCreate(settingsJsonWatcherEventHandler);
@@ -375,7 +376,7 @@ let keybindings; //note, we are defining this variable without value!
       //read file
       fs.readFile(file, (err, data) => {
         //we can't use JSON.parse() because file may contain comments
-        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()));
+        keybindingsUpdate(err ? keybindingsDefaultRaw : parse(data.toString()) || keybindingsDefaultRaw);
       });
     };
     const fileName = "keybindings.json";
@@ -513,13 +514,23 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   }
 
   runner.stdout.on('data', data => {
-    const output = data.toString();
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
     aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.stderr.on('data', data => {
-    const output = data.toString();
-    aiOut.error(output);
+    try {
+      const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
+      aiOut.append(output);
+    }
+    catch(er) {
+      console.error(er);
+    }
   });
 
   runner.on('exit', exit);
