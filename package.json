@@ -345,6 +345,9 @@
           "default": [
             ""
           ],
+          "description": "File paths for additional include folders",
+          "format": "uri"
+        },
         "autoit.showVariablesInGoToSymbol": {
           "type": "boolean",
           "default": true,
@@ -354,9 +357,6 @@
           "type": "boolean",
           "default": true,
           "description": "Determines whether regions show up when you use Ctrl+Shift+O to find symbols within a script"
-        },
-          "description": "File paths for additional include folders",
-          "format": "uri"
         },
         "autoit.consoleParams": {
           "type": "string",
