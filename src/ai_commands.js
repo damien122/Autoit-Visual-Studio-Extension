@@ -9,6 +9,7 @@ conf.addListener(() => runners.cleanup());
 import { parse } from "jsonc-parser";
 import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
 import { decode, encodingExists } from "iconv-lite";
+import { showInformationMessage, showErrorMessage, messages } from './ai_showMessage';
 
 const runners = {
   list: new Map(), //list of running scripts

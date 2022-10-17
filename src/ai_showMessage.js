@@ -43,3 +43,4 @@ const initMessage = (type) => {
 };
 export const showInformationMessage = initMessage("showInformationMessage");
 export const showErrorMessage = initMessage("showErrorMessage");
+export const messages = {error:{},info:{}};
