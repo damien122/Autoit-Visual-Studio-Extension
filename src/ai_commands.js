@@ -185,7 +185,12 @@ const AiOut = ({ id, aiOutProcess }) => {
   const spacer = " ", //using U+00A0 NO-BREAK SPACE character to avoid white-space character highlight.
     prefixId = "#" + id + ":" + spacer,
     prefixEmpty = "".padStart(prefixId.length, spacer),
-    hotkeyFailedMsg = /!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*|(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi,
+    hotkeyFailedMsg = [
+      [/!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*/gi,
+        /(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi],
+
+      [/(!!?>Failed Setting Hotkey\(s\)(?::|...)[\r\n]*)?(?:false)?--> SetHotKey (?:\(\) )?Restart failed(?:,|. -->) SetHotKey (?:\(\) )?Stop failed\.[\r\n]*/gi],
+    ],
     outputText = (aiOut, prop, lines) => { //using separate function, for performance, so it doesn't have to be created for each message
       const time = getTime();
 
@@ -274,8 +279,17 @@ const AiOut = ({ id, aiOutProcess }) => {
           lines[0] = prevLine + lines[0];
           for (let i = 0; i < lines.length; i++) {
             if (!hotkeyFailedMsgFound) {
-              const line = lines[i].replace(hotkeyFailedMsg, "");
-              if (line != lines[i]) {
+              for(let r = 0; r < hotkeyFailedMsg.length; r++) {
+                const line = lines[i].replace(hotkeyFailedMsg[r][0], "");
+                if (line == lines[i]) 
+                  continue;
+
+                hotkeyFailedMsg[r].shift();
+                if (hotkeyFailedMsg[r].length) {
+                  lines.splice(i--, 1);
+                  break;
+                }
+
                 aWrapperHotkey.reset(id);
                 // lines.splice(i--, 1);
                 lines[i] = `+>Setting Hotkeys...--> Press `;
@@ -289,6 +303,7 @@ const AiOut = ({ id, aiOutProcess }) => {
                   lines[i] += `${keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]} to Stop.`;
                 }
                 hotkeyFailedMsgFound = true;
+                break;
               }
             }
           }
