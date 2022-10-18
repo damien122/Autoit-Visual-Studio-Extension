@@ -24,7 +24,6 @@ and developed from Damien122's release.
 
 By default, this extension is set up for the default installation of AutoIt and SciTe4AutoIt on a 64-bit system. For alternate setups, you can access the user settings by navigating to `File-> Preferences-> Settings` or invoking the command palette (`Ctrl+Shift+P`) and searching for Preferences [(example)](img/docs/CtrlShiftP.png), and changing the following options:
 
-
 | Config                              | Description                                                                                                                                   | Default                                                                       |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `autoit.aiPath`                     | Path to the AutoIt executable                                                                                                                 | "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe"                               |
@@ -35,7 +34,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 | `autoit.infoPath`                   | Path to the AutoIt Window Info executable                                                                                                     | "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe"                               |
 | `autoit.kodaPath`                   | Path to the Koda FormDesigner executable                                                                                                      | "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe"                       |
 | `autoit.showVariablesInGoToSymbol`  | Determines whether to show or hide variables when using Ctrl+Shift+O (added in v0.1.9)                                                        | `true`                                                                        |
-| `autoit.showRegionsInGoToSymbol`   | Determines whether to show or hide regions when using Ctrl+Shift+O (added in v1.0.9)                   | true                                                                          |
+| `autoit.showRegionsInGoToSymbol`    | Determines whether to show or hide regions when using Ctrl+Shift+O (added in v1.0.9)                                                          | true                                                                          |
 | `autoit.includePaths`               | Paths to look for include files from, in an array. (added in v0.1.9)                                                                          | ["C:\\Program Files (x86)\\AutoIt3\\Include"]                                 |
 | `autoit.consoleParams`              | A string of parameters passed to the console when the Run Script command is launched (added in v0.2.1)                                        | ""                                                                            |
 | `autoit.enableDiagnostics`          | Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save                                                     | `true`                                                                        |
@@ -48,6 +47,7 @@ By default, this extension is set up for the default installation of AutoIt and 
 | `autoit.clearOutput`                | Clear output panel before each run. (only applicable when `autoit.multiOutput` is `disabled` or `autoit.multiOutputReuseOutput` is `enabled`) | `true`                                                                        |
 | `autoit.terminateRunningOnClose`    | Terminate running script when script file is closed                                                                                           | `true`                                                                        |
 | `autoit.processIdInOutput`          | Show process ID in the Autoit (common) output                                                                                                 | "Single"                                                                      |
+| `autoit.outputCodePage`             | If you see incorrect text encoding in the output, set this option to match your system code page                                              | ""                                                                            |
 
 <!-- * Access the command palette `Ctrl+Shift+P`, type Preferences: Open User Settings or Preferences: Open Workspace Settings. -->
 
