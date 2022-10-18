@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Option to show #regions as symbols in Outline and symbol search (thanks to [@Danp2](https://github.com/Danp2))
 - Syntax highlighting for Au3Stripper directives (thanks to [rcmaehl](https://github.com/rcmaehl))
 - Adds a wait for file save to finish before running certain commands (thanks to [@vanowm](https://github.com/vanowm))
+- Option to change code page for output to fix text encoding (thanks to [@vanowm](https://github.com/vanowm))
+- Support for Sticky Scroll
+- Symbols nest in the Outline
 
 ### Changed
 
@@ -24,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Syntax highlighting for #include lines followed by comments (thanks to [@Danp2](https://github.com/Danp2))
 - Makes regex for #include non-greedy (thanks to [@Danp2](https://github.com/Danp2))
+- Limits header insertion and include opening to be limited to AutoIt scripts (thanks to [@vanowm](https://github.com/vanowm))
 
 ## [1.0.8] - 2022-06-09
 
