@@ -55,7 +55,7 @@
         "id": "autoit",
         "aliases": [
           "AutoIt",
-          "autoit"
+          "Autoit"
         ],
         "extensions": [
           ".au3"
@@ -305,47 +305,47 @@
         "autoit.aiPath": {
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe",
-          "markdownDescription": "Path to the AutoIt executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe`",
+          "markdownDescription": "Full path to the AutoIt executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\` or `C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe`",
           "format": "uri"
         },
         "autoit.wrapperPath": {
           "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3",
-          "markdownDescription": "Path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`",
-          "format": "uri"
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.checkPath": {
           "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe",
-          "markdownDescription": "Path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`",
-          "format": "uri"
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.helpPath": {
           "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe",
-          "description": "Path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`",
-          "format": "uri"
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.infoPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.kodaPath": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.smartHelp": {
           "type": "array",
           "description": "Defines prefixes, paths & sources for additional help files",
           "default": [
-            "",
-            "",
+            ""
+          ]
+        },
+        "autoit.includePaths": {
+          "type": "array",
+          "default": [
             ""
           ],
-          "format": "uri"
-        },
-        "autoit.infoPath": {
-          "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe",
-          "markdownDescription": "Path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`",
-          "format": "uri"
-        },
-        "autoit.kodaPath": {
-          "type": "string",
-          "default": "C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe",
-          "markdownDescription": "Path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`",
+          "description": "File paths for additional include folders",
           "format": "uri"
         },
         "autoit.showVariablesInGoToSymbol": {
@@ -357,14 +357,6 @@
           "type": "boolean",
           "default": true,
           "description": "Determines whether regions show up when you use Ctrl+Shift+O to find symbols within a script"
-        },
-        "autoit.includePaths": {
-          "type": "array",
-          "default": [
-            "C:\\Program Files (x86)\\AutoIt3\\Include"
-          ],
-          "description": "File paths for additional include folders",
-          "format": "uri"
         },
         "autoit.consoleParams": {
           "type": "string",

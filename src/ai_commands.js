@@ -3,9 +3,13 @@ import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { findFilepath, getIncludeText } from './util';
+import conf from './ai_config';
+const config = conf.config;
+conf.addListener(() => runners.cleanup());
 import { parse } from "jsonc-parser";
 import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
 import { decode, encodingExists } from "iconv-lite";
+import { showInformationMessage, showErrorMessage, messages } from './ai_showMessage';
 
 const runners = {
   list: new Map(), //list of running scripts
@@ -96,98 +100,6 @@ window.onDidChangeVisibleTextEditors(list => {
   
 });
 
-//accepts new option parameter in second argument: timeout
-const {showInformationMessage, showErrorMessage, messages} = (() => {
-  const messages = { info:{}, error:{} };
-  const ret = (type) => {
-    const timers = {};
-    const func = (...args) => {
-      let timeout;
-      const [message, options] = args;
-      if (options && options instanceof Object && !(options instanceof Array)) {
-        timeout = options.timeout;
-        //not sure if we need to bother sanitize options object or not, seems to work as is
-        // delete options.timeout;
-        // if (!options.keys().length)
-        //   args.splice(1,1);
-      }
-      const _clearTimeout = () =>{
-        clearTimeout(timers[message]);
-        delete(timers[message]);
-      };
-      _clearTimeout();
-      let isHidden = false;
-      const callback = () => {
-        _clearTimeout();
-        // https://github.com/microsoft/vscode/issues/153693
-        for (let i = 0; i < 4; i++) // showing rapidly 4 messages hides the message...an exploit?
-          window[type].apply(window, args);
-
-        isHidden = true;
-      };
-      timers[message] = timeout !== undefined && setTimeout(callback, timeout);
-      return {
-        get isHidden() {
-          return isHidden;
-        },
-        hide: callback,
-        message: window[type].apply(window, args).finally(_clearTimeout)
-      };
-    };
-    return func;
-  };
-  return {
-    showInformationMessage: ret("showInformationMessage"),
-    showErrorMessage: ret("showErrorMessage"),
-    messages,
-  };
-})();
-
-const config = (() => {
-  const conf = {
-    data: workspace.getConfiguration('autoit'),
-    isCodePage: false
-  };
-  const checkEncoding = () =>
-  {
-    const value = conf.data.outputCodePage.trim();
-    
-    conf.isCodePage = value && encodingExists(value);
-    if (checkEncoding._msg) {
-      showErrorMessage(checkEncoding._msg, {timeout: 0});
-      checkEncoding._msg = "";
-    }
-
-    if (value && !conf.isCodePage) {
-      checkEncoding._msg = `"${value}" code page is not supported`;
-      showErrorMessage(checkEncoding._msg, { timeout: 30000 });
-    }
-    return conf.isCodePage;
-  };
-  checkEncoding();
-  workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
-    if (!affectsConfiguration('autoit')) return;
-
-    conf.data = workspace.getConfiguration('autoit');
-    runners.cleanup();
-    clearTimeout(checkEncoding._timer);
-    checkEncoding._timer = setTimeout(checkEncoding, 1000);
-  });
-  return new Proxy(conf,
-    {
-      get(target, prop) {
-        if (prop == "isCodePage")
-          return conf.isCodePage;
-
-        return target.data[prop];
-      },
-      set(target, prop, val) {
-        if (prop !== "isCodePage")
-          return target.data.update(prop, val);
-      }
-    });
-})();
-
 //AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
 //they interfere with this extension (unless user changed hotkeys)
 //this will disable hotkeys via AutoIt3Wrapper.ini while script is running
@@ -238,10 +150,10 @@ const aWrapperHotkey = (() => {
       clearTimeout(timer);
       count.set(id, id);
       if (count.size == 1) {
-      const { ini, data } = fileData();
-      try {
-        fs.writeFileSync(ini, data, "utf-8");
-      } catch (er) { }
+        const { ini, data } = fileData();
+        try {
+          fs.writeFileSync(ini, data, "utf-8");
+        } catch (er) { }
       }
       timer = setTimeout(() => this.reset(id), 5000);
       return id;
@@ -436,7 +348,7 @@ let keybindings; //note, we are defining this variable without value!
       clearTimeout(settingsTimer);
       prefs.update(prefName, prefValue, true);
       initKeybindings(profileDir || dir);
-};
+    };
 
   settingsJsonWatcher.onDidChange(settingsJsonWatcherEventHandler);
   settingsJsonWatcher.onDidCreate(settingsJsonWatcherEventHandler);
