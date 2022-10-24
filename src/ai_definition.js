@@ -13,15 +13,14 @@ const AutoItDefinitionProvider = {
 
     if (lookup.charAt(0) === '$') {
       defRegex = new RegExp(`((?:Local|Global|Const)\\s*)?\\${lookup}\\s+?=?`, 'i');
-    }
-    else {
+    } else {
       defRegex = new RegExp(`(Func\\s+)${lookup}\\s*\\(`);
     }
 
     let found = docText.match(defRegex);
 
     if (found) {
-      return new Location(document.uri, document.positionAt(found.index + (found[1]||"").length));
+      return new Location(document.uri, document.positionAt(found.index + (found[1] || '').length));
     }
 
     // If nothing was found, search include files
@@ -59,9 +58,9 @@ const AutoItDefinitionProvider = {
         found = scriptContent.match(defRegex);
 
         if (found) {
-          const arr = scriptContent.slice(0, found.index + ((found[1]||"").length)).split("\n"),
-                line = arr.length-1,
-                char = arr[arr.length-1].length;
+          const arr = scriptContent.slice(0, found.index + (found[1] || '').length).split('\n');
+          const line = arr.length - 1;
+          const char = arr[arr.length - 1].length;
 
           return new Location(Uri.file(scriptPath), new Position(line, char));
         }
