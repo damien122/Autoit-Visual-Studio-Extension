@@ -1,6 +1,6 @@
-
 import { workspace, Uri, FileType } from 'vscode';
 import { showInformationMessage, showErrorMessage } from './ai_showMessage';
+
 const conf = {
   data: workspace.getConfiguration('autoit'),
   paths: {
