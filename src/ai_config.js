@@ -1,17 +1,17 @@
 
-import { workspace, Uri, FileType} from 'vscode';
+import { workspace, Uri, FileType } from 'vscode';
 import { showInformationMessage, showErrorMessage } from './ai_showMessage';
 const conf = {
   data: workspace.getConfiguration('autoit'),
-  paths:{
-    aiPath: {file: "AutoIt3.exe"},
-    wrapperPath: {dir: "SciTE\\AutoIt3Wrapper\\", file: "AutoIt3Wrapper.au3"},
-    checkPath: {file: "AU3Check.exe"},
-    helpPath: {file: "AutoIt3Help.exe"},
-    infoPath: {file: "Au3Info.exe"},
-    kodaPath: {dir: "SciTE\\Koda\\", file: "FD.exe"},
-    includePaths: [{dir: ""}],
-    smartHelp: [{dir: "", file: ""}]
+  paths: {
+    aiPath: { file: "AutoIt3.exe" },
+    wrapperPath: { dir: "SciTE\\AutoIt3Wrapper\\", file: "AutoIt3Wrapper.au3" },
+    checkPath: { file: "AU3Check.exe" },
+    helpPath: { file: "AutoIt3Help.exe" },
+    infoPath: { file: "Au3Info.exe" },
+    kodaPath: { dir: "SciTE\\Koda\\", file: "FD.exe" },
+    includePaths: [{ dir: "" }],
+    smartHelp: [{ dir: "", file: "" }]
   }
 };
 
@@ -22,7 +22,7 @@ workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
 
   conf.data = workspace.getConfiguration('autoit');
   listeners.forEach(listener => {
-    try{listener();}catch(er){console.error(er);}
+    try { listener(); } catch (er) { console.error(er); }
   });
   getPaths();
 });
@@ -38,8 +38,7 @@ function removeListener(id) {
   listeners.remove(id);
 }
 
-function splitPath(path)
-{
+function splitPath(path) {
   path = path.trim().match(/^(.*[\\/])?([^\\/]+)?$/).map(a => a || "");
 
   return {
@@ -50,8 +49,7 @@ function splitPath(path)
   };
 }
 
-function fixPath (key, value, index)
-{
+function fixPath(key, value, index) {
   const path = splitPath(value || "");
   const file = (conf.paths[key][index] || conf.paths[key]).file;
   const dir = (conf.paths[key][index] || conf.paths[key]).dir;
@@ -60,25 +58,22 @@ function fixPath (key, value, index)
 
   if (path.dir === "" || path.isRelative)
     path.dir = aiPath.dir + path.dir + (!path.isRelative ? (dir || "") : "");
-  
+
   if (file === undefined)
     path.file += "/";
 
   return (path.dir + "/" + path.file).replace(/[\\/]+/g, "\\");
 }
 
-function verifyPath (val, obj, key, index)
-{
-  const showError = () =>
-  {
+function verifyPath(val, obj, key, index) {
+  const showError = () => {
     const timeout = obj.message && !obj.message.isHidden ? 1000 : 0;
     if (timeout) {
       obj.message.hide();
       delete obj.message;
     }
 
-    if (obj.prevCheck !== val)
-    {
+    if (obj.prevCheck !== val) {
       const type = (conf.paths[key][index] || conf.paths[key]).file !== undefined ? "File" : "Directory";
       setTimeout(() => obj.message = showErrorMessage(`${type} "${obj.fullPath}" not found (autoit.${key}${index === undefined ? '' : ` [${index}]`})`), timeout);
     }
@@ -91,34 +86,29 @@ function verifyPath (val, obj, key, index)
     if (!(data.type & type))
       return showError();
 
-    if (obj.message)
-    {
+    if (obj.message) {
       obj.message.hide();
       delete obj.message;
     }
     obj.prevCheck = val;
 
-  }).catch(() =>
-  {
+  }).catch(() => {
     showError();
   });
 }
 
-function getPaths()
-{
-  aiPath = splitPath(conf.data.aiPath||"");
+function getPaths() {
+  aiPath = splitPath(conf.data.aiPath || "");
 
-  for(let i in conf.paths)
-  {
+  for (let i in conf.paths) {
     const value = conf.data[i];
     if (Array.isArray(value)) {
-      for(let j = 0; j < value.length; j++ )
-      {
-        const val = value[j].trim();
+      for (let j = 0; j < value.length; j++) {
+        const val = typeof value[j] === 'string' ? value[j].trim() : '';
         if (conf.paths[i][j] === undefined)
-          conf.paths[i][j] = Object.assign({fullPath: ""}, conf.paths[i][0]);
+          conf.paths[i][j] = Object.assign({ fullPath: "" }, conf.paths[i][0]);
 
-          const obj = conf.paths[i][j];
+        const obj = conf.paths[i][j];
 
         if (val !== "")
           obj.fullPath = fixPath(i, val, j);
@@ -138,18 +128,17 @@ function getPaths()
   }
 }
 const config = new Proxy(conf,
-{
-  get(target, prop) {
-    if (target.paths[prop]) {
-      if (Array.isArray(target.paths[prop]))
-        return target.paths[prop].map(a => a.fullPath);
+  {
+    get(target, prop) {
+      if (target.paths[prop]) {
+        if (Array.isArray(target.paths[prop])) return target.paths[prop].map(a => a.fullPath);
 
-      return target.paths[prop].fullPath;
-    }
-    return target.data[prop];
-  },
-  set(target, prop, val) { return target.data.update(prop, val); }
-});
+        return target.paths[prop].fullPath;
+      }
+      return target.data[prop];
+    },
+    set(target, prop, val) { return target.data.update(prop, val); }
+  });
 
 export default {
   config,
