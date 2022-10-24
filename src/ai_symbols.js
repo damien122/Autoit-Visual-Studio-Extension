@@ -10,8 +10,13 @@ import {
 
 const config = workspace.getConfiguration('autoit');
 
-const createVariableSymbol = (variable, variableKind, doc, line) => {
-  return new SymbolInformation(variable, variableKind, '', new Location(doc.uri, line.range));
+const createVariableSymbol = (variable, variableKind, doc, line, container) => {
+  return new SymbolInformation(
+    variable,
+    variableKind,
+    container,
+    new Location(doc.uri, line.range),
+  );
 };
 
 /**
@@ -53,6 +58,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       const line = doc.lineAt(lineNum);
       const { text } = line;
       const regionName = text.match(regionPattern);
+      let container;
 
       if (isSkippableLine(line) && !regionName) {
         // eslint-disable-next-line no-continue
@@ -70,9 +76,9 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
         const variables = text.match(variablePattern);
 
         if (variables) {
-          if (/^Const/.test(text)) {
+          if (/^\s*?(Local|Global)?\sConst/.test(text)) {
             variableKind = SymbolKind.Constant;
-          } else if (/^Enum/.test(text)) {
+          } else if (/^\s*?(Local|Global)?\sEnum/.test(text)) {
             variableKind = SymbolKind.Enum;
           } else {
             variableKind = SymbolKind.Variable;
@@ -80,11 +86,31 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
 
           // eslint-disable-next-line no-loop-func
           variables.forEach(variable => {
-            if (found.includes(variable) || AI_CONSTANTS.includes(variable)) {
+            if (AI_CONSTANTS.includes(variable)) {
               return;
             }
 
-            result.push(createVariableSymbol(variable, variableKind, doc, line));
+            // Go through symbols for function container and symbols that match name and container
+            container = result.find(testSymbol => {
+              return (
+                testSymbol.location.range.contains(line.range) &&
+                testSymbol.kind === SymbolKind.Function
+              );
+            });
+
+            if (container === undefined) {
+              container = '';
+            }
+
+            if (
+              result.some(testSymbol => {
+                return testSymbol.name === variable && testSymbol.containerName === container.name;
+              })
+            ) {
+              return;
+            }
+
+            result.push(createVariableSymbol(variable, variableKind, doc, line, container.name));
             found.push(variable);
           });
         }
