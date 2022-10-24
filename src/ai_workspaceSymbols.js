@@ -1,7 +1,7 @@
 import { languages, SymbolInformation, SymbolKind, Location, Position, workspace } from 'vscode';
 import fs from 'fs';
-
 import { functionPattern, variablePattern, regionPattern } from './util';
+
 const config = workspace.getConfiguration('autoit');
 
 const makeSymbol = (name, type, filePath, docLine) => {

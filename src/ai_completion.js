@@ -1,6 +1,13 @@
 import { languages, CompletionItem, CompletionItemKind, Range } from 'vscode';
 import completions from './completions';
-import { getIncludeText, getIncludePath, includePattern, variablePattern, findFilepath, AUTOIT_MODE } from './util';
+import {
+  getIncludeText,
+  getIncludePath,
+  includePattern,
+  variablePattern,
+  findFilepath,
+  AUTOIT_MODE,
+} from './util';
 import DEFAULT_UDFS from './constants';
 
 let currentIncludeFiles = [];
