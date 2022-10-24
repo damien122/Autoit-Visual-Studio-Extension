@@ -133,7 +133,7 @@ const completionToHover = completions => {
 
 const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
-const variablePattern = /(\$\w+)/g;
+const variablePattern = /(\$\w+)(?=(?:[^'"]|["'][^'"]*["'])*$)/g;
 const regionPattern = /^#region\s[- ]{0,}(.+)/i;
 
 /**
@@ -197,8 +197,8 @@ module.exports = {
   signatureToHover,
   includePattern,
   functionPattern,
-	variablePattern,
-	regionPattern,
+  variablePattern,
+  regionPattern,
   completionToHover,
   signatureToCompletion,
   findFilepath,
