@@ -1,4 +1,4 @@
-import { window, Position, workspace, Uri , RelativePattern} from 'vscode';
+import { window, Position, workspace, Uri, RelativePattern } from 'vscode';
 import { execFile as launch, spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
@@ -7,7 +7,7 @@ import conf from './ai_config';
 const config = conf.config;
 conf.addListener(() => runners.cleanup());
 import { parse } from "jsonc-parser";
-import { commandsList as _commandsList, commandsPrefix} from "./commandsList";
+import { commandsList as _commandsList, commandsPrefix } from "./commandsList";
 import { decode, encodingExists } from "iconv-lite";
 import { showInformationMessage, showErrorMessage, messages } from './ai_showMessage';
 
@@ -49,7 +49,7 @@ const runners = {
       if (this.outputName === filename.substring(0, this.outputName.length)) {
         filename = filename.substring(this.outputName.length);
         index = filename.indexOf("-");
-        return { id: filename.substring(0, index), name: filename.substring(index + 1), output: window.visibleTextEditors[i]};
+        return { id: filename.substring(0, index), name: filename.substring(index + 1), output: window.visibleTextEditors[i] };
       }
     }
     return;
@@ -92,12 +92,12 @@ window.onDidChangeVisibleTextEditors(list => {
     const text = out.output.document.getText();
     const lines = text.split(/\r?\n/);
     let ret = "";
-    for(let i = lines.length - config.outputMaxHistoryLines - 2; i < lines.length; i++)
+    for (let i = lines.length - config.outputMaxHistoryLines - 2; i < lines.length; i++)
       ret += lines[i] + (i < lines.length - 1 ? "\r\n" : "");
 
     aiOutCommon.replace(ret);
   }
-  
+
 });
 
 //AutoIt3Wrapper.au3 sets CTRL+Break and CTRL+ALT+Break hotkeys
@@ -179,8 +179,8 @@ const aiOutCommon = window.createOutputChannel('AutoIt (global)', 'vscode-autoit
 
 const AiOut = ({ id, aiOutProcess }) => {
   let prevLine = "",
-      prevLineTimer,
-      isNewLineProcess = true;
+    prevLineTimer,
+    isNewLineProcess = true;
 
   const spacer = " ", //using U+00A0 NO-BREAK SPACE character to avoid white-space character highlight.
     prefixId = "#" + id + ":" + spacer,
@@ -206,8 +206,8 @@ const AiOut = ({ id, aiOutProcess }) => {
         }
       }
       if (config.outputShowTime == "Process" || config.outputShowTime == "All") {
-        for(let i = 0; i < linesProcess.length; i++) {
-          if (i == linesProcess.length-1 && linesProcess[i] === "")
+        for (let i = 0; i < linesProcess.length; i++) {
+          if (i == linesProcess.length - 1 && linesProcess[i] === "")
             break;
 
           if (isNewLineProcess)
@@ -228,8 +228,8 @@ const AiOut = ({ id, aiOutProcess }) => {
       }
 
       const prefixTime = (config.outputShowTime == "Global" || config.outputShowTime == "All") ? time + spacer : "";
-      for(let i = 0; i < lines.length; i++) {
-        if (i == lines.length-1 && lines[i] === "")
+      for (let i = 0; i < lines.length; i++) {
+        if (i == lines.length - 1 && lines[i] === "")
           break;
 
         if (runners.isNewLine) {
@@ -240,8 +240,8 @@ const AiOut = ({ id, aiOutProcess }) => {
 
           if (prefixTime)
             lines[i] = prefixTime + lines[i];
-          
-            runners.lastId = id;
+
+          runners.lastId = id;
         }
         runners.isNewLine = true;
       }
@@ -258,7 +258,7 @@ const AiOut = ({ id, aiOutProcess }) => {
   return new Proxy(aiOutCommon, {
     get(aiOut, prop, proxy) {
       const isFlush = prop == "flush",
-            isError = prop == "error";
+        isError = prop == "error";
 
       if (isFlush)
         prop = "append";
@@ -279,9 +279,9 @@ const AiOut = ({ id, aiOutProcess }) => {
           lines[0] = prevLine + lines[0];
           for (let i = 0; i < lines.length; i++) {
             if (!hotkeyFailedMsgFound) {
-              for(let r = 0; r < hotkeyFailedMsg.length; r++) {
+              for (let r = 0; r < hotkeyFailedMsg.length; r++) {
                 const line = lines[i].replace(hotkeyFailedMsg[r][0], "");
-                if (line == lines[i]) 
+                if (line == lines[i])
                   continue;
 
                 hotkeyFailedMsg[r].shift();
@@ -295,7 +295,7 @@ const AiOut = ({ id, aiOutProcess }) => {
                 lines[i] = `+>Setting Hotkeys...--> Press `;
                 if (keybindings[commandsPrefix + "restartScript"])
                   lines[i] += `${keybindings[commandsPrefix + "restartScript"]} to Restart`;
-                
+
                 if (keybindings[commandsPrefix + "killScript"] || keybindings[commandsPrefix + "killScriptOpened"]) {
                   if (keybindings[commandsPrefix + "restartScript"])
                     lines[i] += ` or `;
@@ -351,7 +351,7 @@ let keybindings; //note, we are defining this variable without value!
           return;
 
         const json = parse(data.toString());
-        if (json[pref.key] !== id )
+        if (json[pref.key] !== id)
           return;
 
         profileDir = uri.fsPath.replace(/[^\\/]+$/, "");
@@ -372,20 +372,20 @@ let keybindings; //note, we are defining this variable without value!
   const initKeybindings = dir => {
     let readFileLast = 0; //prevent multiple calls
     const commandsList = {};
-    for(let i = 0; i < _commandsList.length; i++)
+    for (let i = 0; i < _commandsList.length; i++)
       commandsList[commandsPrefix + _commandsList[i]] = "";
-  
+
     const keybindingsDefaultRaw = require("../package.json").contributes.keybindings;
-    const keybindingsDefault = keybindingsDefaultRaw.reduce((a,b)=>(a[b.command]=b.key,a),{});
+    const keybindingsDefault = keybindingsDefaultRaw.reduce((a, b) => (a[b.command] = b.key, a), {});
     const fs = require("fs");
-    const promise = {resolve: ()=>{},isResolved:false};
-  
+    const promise = { resolve: () => { }, isResolved: false };
+
     const readFile = uri => {
-  
+
       const now = performance.now();
       if (uri && (uri.scheme != "file" || uri.fsPath != file || !promise.isResolved || readFileLast + 200 > now))
         return;
-  
+
       keybindings = new Promise(resolve => (promise.resolve = resolve, promise.isResolved = false));
       Object.assign(keybindings, Object.assign({}, keybindingsDefault));
       readFileLast = now;
@@ -406,7 +406,7 @@ let keybindings; //note, we are defining this variable without value!
       const keybindingsNew = {},
         keybindingsFallback = Object.assign({}, keybindingsDefault);
 
-      for(let i = 0; i < list.length; i++) {
+      for (let i = 0; i < list.length; i++) {
         const isRemove = list[i].command.substring(0, 1) == "-";
         const command = isRemove ? list[i].command.substring(1, list[i].command.length) : list[i].command;
         if (command in commandsList) {
@@ -418,12 +418,12 @@ let keybindings; //note, we are defining this variable without value!
           keybindingsNew[command] = list[i].key;
         }
       }
-      for(let command in commandsList) {
+      for (let command in commandsList) {
         const key = keybindingsNew[command] || keybindingsFallback[command];
         if (!key)
           continue;
         //capitalize first letter
-        keybindingsFallback[command] = key.replace(/\w+/g, w => (w.substring(0,1).toUpperCase()) + w.substring(1));
+        keybindingsFallback[command] = key.replace(/\w+/g, w => (w.substring(0, 1).toUpperCase()) + w.substring(1));
         //add spaces around "+"
         // keybindingsFallback[i] = keybindingsFallback[i].replace(/\+/g, " $& ");
         keybindings[command] = keybindingsFallback[command];
@@ -443,7 +443,7 @@ let keybindings; //note, we are defining this variable without value!
 let hhproc;
 
 function getTime() {
-  return new Date().toLocaleString('sv', {hour:'numeric', minute:'numeric', second:'numeric', fractionalSecondDigits: 3}).replace(',', '.');
+  return new Date().toLocaleString('sv', { hour: 'numeric', minute: 'numeric', second: 'numeric', fractionalSecondDigits: 3 }).replace(',', '.');
 }
 
 /*
@@ -480,10 +480,10 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
       aiOut.flush();
       aiOut.appendLine((code > 1 || code < -1 ? "!" : code < 1 ? ">" : "-") + `>Exit code ${code}${text ? " (" + text + ")" : ""} Time: ${(info.endTime - info.startTime) / 1000}`);
       runners.cleanup();
-//      runners.lastId = null;
+      //      runners.lastId = null;
     };
-    if (!info._aiOut)
-      info._aiOut = aiOut;
+  if (!info._aiOut)
+    info._aiOut = aiOut;
 
   if (runnerPrev) {
     if (runnerPrev.info.aiOut.void) //void won't be undefined when used proxy object
@@ -532,9 +532,9 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
   runner.stdout.on('data', data => {
     try {
       const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
-    aiOut.append(output);
+      aiOut.append(output);
     }
-    catch(er) {
+    catch (er) {
       console.error(er);
     }
   });
@@ -544,7 +544,7 @@ function procRunner(cmdPath, args, bAiOutReuse = true) {
       const output = (config.isCodePage ? decode(data, config.outputCodePage) : data).toString();
       aiOut.append(output);
     }
-    catch(er) {
+    catch (er) {
       console.error(er);
     }
   });
@@ -737,7 +737,7 @@ const compileScript = () => {
       return window.showErrorMessage(`"${thisFile}" file must be saved first!`);
 
     if (thisDoc.isDirty)
-     showInformationMessage(`File failed to save, using saved file instead ("${thisFile}")`, { timeout: 30000 });
+      showInformationMessage(`File failed to save, using saved file instead ("${thisFile}")`, { timeout: 30000 });
 
     window.setStatusBarMessage('Compiling script...', 1500);
 
