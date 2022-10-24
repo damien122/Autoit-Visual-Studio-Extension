@@ -1,5 +1,5 @@
-export const commandsPrefix = "extension.";
-//key = command, value = function name
+export const commandsPrefix = 'extension.';
+// key = command, value = function name
 export const commandsList = [
   'runScript',
   'launchHelp',
