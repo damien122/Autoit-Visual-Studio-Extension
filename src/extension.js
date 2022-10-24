@@ -12,11 +12,11 @@ const goToDefinitionFeature = require('./ai_definition');
 
 const { registerCommands } = require('./registerCommands');
 const { parseAu3CheckOutput } = require('./diagnosticUtils');
-const config = require("./ai_config").default.config;
+const { config } = require('./ai_config').default;
+
 let diagnosticCollection;
 
 const checkAutoItCode = document => {
-
   diagnosticCollection.clear();
 
   if (!config.enableDiagnostics) {
@@ -84,5 +84,6 @@ const activate = ctx => {
 exports.activate = activate;
 
 // this method is called when your extension is deactivated
+// eslint-disable-next-line prettier/prettier
 function deactivate() { }
 exports.deactivate = deactivate;
