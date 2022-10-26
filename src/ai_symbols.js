@@ -45,6 +45,28 @@ const createFunctionSymbol = (functionName, doc, docText) => {
   return newFunctionSymbol;
 };
 
+/**
+ * Generates a SymbolInformation object for a Region from a given TextDocument
+ * that includes the full range of the region's body
+ * @param {String} regionName The name of the region from the AutoIt script
+ * @param {TextDocument} doc The current document to search
+ * @param {String} docText The text from the document (usually generated through `TextDocument.getText()`)
+ * @returns SymbolInformation
+ */
+const createRegionSymbol = (regionName, doc, docText) => {
+  const pattern = new RegExp(`#Region\\s(?<regionName>\\${regionName}).*?#EndRegion`, 's');
+  const result = pattern.exec(docText);
+  const endPoint = result.index + result[0].length;
+  const newRegionSymbol = new SymbolInformation(
+    result[1],
+    SymbolKind.Namespace,
+    '',
+    new Location(doc.uri, new Range(doc.positionAt(result.index), doc.positionAt(endPoint))),
+  );
+
+  return newRegionSymbol;
+};
+
 export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
   provideDocumentSymbols(doc) {
     const result = [];
@@ -134,12 +156,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
 
       if (config.showRegionsInGoToSymbol) {
         if (regionName && !found.includes(regionName[0])) {
-          const regionSymbol = new SymbolInformation(
-            regionName[1],
-            SymbolKind.Namespace,
-            '',
-            new Location(doc.uri, line.range),
-          );
+          const regionSymbol = createRegionSymbol(regionName[1], doc, doc.getText());
           result.push(regionSymbol);
           found.push(regionName[1]);
         }
