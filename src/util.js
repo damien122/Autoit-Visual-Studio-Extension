@@ -29,8 +29,6 @@ const AI_CONSTANTS = [
 const AUTOIT_MODE = { language: 'autoit', scheme: 'file' };
 
 const isSkippableLine = line => {
-  const skipChars = [';', '#'];
-
   if (line.isEmptyOrWhitespace) {
     return true;
   }
@@ -40,7 +38,7 @@ const isSkippableLine = line => {
     return true;
   }
 
-  if (firstChar === "#") {
+  if (firstChar === '#') {
     if (/^#(cs|ce|comments-start|comments-end)/.test(line.text)) {
       return false;
     }
