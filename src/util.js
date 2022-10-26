@@ -36,7 +36,14 @@ const isSkippableLine = line => {
   }
 
   const firstChar = line.text.charAt(line.firstNonWhitespaceCharacterIndex);
-  if (skipChars.includes(firstChar)) {
+  if (firstChar === ';') {
+    return true;
+  }
+
+  if (firstChar === "#") {
+    if (/^#(cs|ce|comments-start|comments-end)/.test(line.text)) {
+      return false;
+    }
     return true;
   }
 

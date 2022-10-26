@@ -51,6 +51,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
     const found = [];
     let funcName;
     let variableKind;
+    let inComment = false;
 
     // Get the number of lines in the document to loop through
     const lineCount = Math.min(doc.lineCount, 10000);
@@ -61,6 +62,21 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       let container;
 
       if (isSkippableLine(line) && !regionName) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (/^#(?:ce|comments-end)/.test(text)) {
+        inComment = false;
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (/^#(?:cs|comments-start)/.test(text)) {
+        inComment = true;
+      }
+
+      if (inComment) {
         // eslint-disable-next-line no-continue
         continue;
       }
