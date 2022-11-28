@@ -303,50 +303,72 @@
       "title": "AutoIt",
       "properties": {
         "autoit.aiPath": {
+          "order": 1,
           "type": "string",
           "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe",
           "markdownDescription": "Full path to the AutoIt executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\` or `C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe`",
           "format": "uri"
         },
         "autoit.wrapperPath": {
+          "order": 1,
           "type": "string",
           "default": "",
           "markdownDescription": "Full or relative path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.checkPath": {
+          "order": 1,
           "type": "string",
           "default": "",
           "markdownDescription": "Full or relative path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.helpPath": {
+          "order": 1,
           "type": "string",
           "default": "",
           "markdownDescription": "Full or relative path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.infoPath": {
+          "order": 1,
           "type": "string",
           "default": "",
           "markdownDescription": "Full or relative path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.kodaPath": {
+          "order": 1,
           "type": "string",
           "default": "",
           "markdownDescription": "Full or relative path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
         },
         "autoit.smartHelp": {
-          "type": "array",
-          "description": "Defines prefixes, paths & sources for additional help files",
-          "default": [
-            ""
-          ]
+          "order": 1,
+          "type": "object",
+          "description": "Defines prefixes, paths & udf sources for additional help files",
+          "patternProperties":{
+            "^(_[^_]+_|[^_]+)$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "chmPath": {"type": "string"},
+                "udfPath": {"type": ["array", "string"], "items": {"type": "string"}},
+                "required": ["chmPath", "udfPath"]
+              }
+            }
+          },
+          "additionalProperties": false,
+          "default": {
+            "_yourUdfFuncPrefix_": {
+              "chmPath": "",
+              "udfPath": [""]
+            }
+          }
         },
         "autoit.includePaths": {
+          "order": 1,
           "type": "array",
           "default": [
             ""
           ],
-          "description": "File paths for additional include folders",
-          "format": "uri"
+          "description": "File paths for additional include folders"
         },
         "autoit.showVariablesInGoToSymbol": {
           "type": "boolean",
@@ -409,7 +431,7 @@
           "type": "string",
           "description": "If you see incorrect text encoding in the output, set this option to match your system code page"
         },
-        "autoit.processIdInOutput": {
+        "autoit.multiOutputShowProcessId": {
           "type": "string",
           "default": "Single",
           "enum": [

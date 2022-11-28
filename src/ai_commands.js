@@ -233,9 +233,9 @@ const AiOut = ({ id, aiOutProcess }) => {
           break;
 
         if (runners.isNewLine) {
-          if (config.processIdInOutput == "Multi")
+          if (config.multiOutputShowProcessId == "Multi")
             lines[i] = prefixId + lines[i];
-          else if (config.processIdInOutput != "None")
+          else if (config.multiOutputShowProcessId != "None")
             lines[i] = (runners.lastId == id ? prefixEmpty : prefixId) + lines[i];
 
           if (prefixTime)
@@ -333,6 +333,7 @@ const AiOut = ({ id, aiOutProcess }) => {
 //get keybindings
 let keybindings; //note, we are defining this variable without value!
 {//anonymous scope
+  conf.noEvents(true);
   let profileDir;
   const prefs = workspace.getConfiguration('autoit'),
     prefName = "consoleParams",
@@ -361,7 +362,7 @@ let keybindings; //note, we are defining this variable without value!
     },
     reset = () => {
       clearTimeout(settingsTimer);
-      prefs.update(prefName, prefValue, true);
+      prefs.update(prefName, prefValue, true).then(() => conf.noEvents(false));
       initKeybindings(profileDir || dir);
     };
 
@@ -619,35 +620,31 @@ const launchHelp = () => {
 
     window.setStatusBarMessage(`Searching documentation for ${query}`, 1500);
 
-    if (prefix) {
-      for (let i = 0; i < config.smartHelp.length; i += 1) {
-        if (config.smartHelp[i][0] === prefix[0]) {
-          // Make sure help file exists
-          if (!fs.existsSync(config.smartHelp[i][1])) {
-            window.showErrorMessage(`Unable to locate ${config.smartHelp[i][1]}`);
-            return;
-          }
+    let paths;
+    if (prefix && (paths = config.smartHelp[prefix])) {
+      // Make sure help file exists
+      if (!fs.existsSync(paths.chmPath)) {
+        window.showErrorMessage(`Unable to locate ${paths.chmPath}`);
+        return;
+      }
 
-          const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
-          const sources = config.smartHelp[i][2].split("|");
+      const regex = new RegExp(`\\bFunc\\s+${query}\\s*\\(`, "g");
+      const udfPaths = paths.udfPath;
 
-          for (let j = 0; j < sources.length; j += 1) {
+      for (let j = 0; j < udfPaths.length; j += 1) {
 
-            let filePath = sources[j];
-            if (!fs.existsSync(filePath)) {
-              filePath = findFilepath(filePath, true);
-              if (!filePath) { continue; }
-            }
-            let text = getIncludeText(filePath);
-            let found = text.match(regex);
+        let filePath = udfPaths[j];
+        if (!fs.existsSync(filePath)) {
+          filePath = findFilepath(filePath, true);
+          if (!filePath) { continue; }
+        }
+        let text = getIncludeText(filePath);
+        let found = text.match(regex);
 
-            if (found) {
-              if (hhproc) { hhproc.kill(); }
-              hhproc = spawn("hh", [`mk:@MSITStore:${config.smartHelp[i][1]}::/funcs/${query}.htm`]);
-              return;
-            }
-          }
-          break;
+        if (found) {
+          if (hhproc) { hhproc.kill(); }
+          hhproc = spawn("hh", [`mk:@MSITStore:${paths.chmPath}::/funcs/${query}.htm`]);
+          return;
         }
       }
     }

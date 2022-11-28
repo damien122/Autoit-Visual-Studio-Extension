@@ -1,142 +1,28 @@
-import { workspace, Uri, FileType } from 'vscode';
-import { showErrorMessage } from './ai_showMessage';
 
+import { workspace, Uri, FileType} from 'vscode';
+import { showInformationMessage, showErrorMessage } from './ai_showMessage';
 const conf = {
   data: workspace.getConfiguration('autoit'),
-  paths: {
-    aiPath: { file: 'AutoIt3.exe' },
-    wrapperPath: { dir: 'SciTE\\AutoIt3Wrapper\\', file: 'AutoIt3Wrapper.au3' },
-    checkPath: { file: 'AU3Check.exe' },
-    helpPath: { file: 'AutoIt3Help.exe' },
-    infoPath: { file: 'Au3Info.exe' },
-    kodaPath: { dir: 'SciTE\\Koda\\', file: 'FD.exe' },
-    includePaths: [{ dir: '' }],
-    smartHelp: [{ dir: '', file: '' }],
-  },
+  defaultPaths:{
+    aiPath: {file: "AutoIt3.exe"},
+    wrapperPath: {dir: "SciTE\\AutoIt3Wrapper\\", file: "AutoIt3Wrapper.au3"},
+    checkPath: {file: "AU3Check.exe"},
+    helpPath: {file: "AutoIt3Help.exe"},
+    infoPath: {file: "Au3Info.exe"},
+    kodaPath: {dir: "SciTE\\Koda\\", file: "FD.exe"},
+    includePaths: [{dir: ""}],
+    smartHelp: {check: {dir: "Advanced.Help\\HelpFiles\\", file: ""}}
+  }
 };
 
 const listeners = new Map();
-let listenerId = 0;
-let aiPath = '';
-
-function splitPath(pathToSplit) {
-  const path = pathToSplit
-    .trim()
-    .match(/^(.*[\\/])?([^\\/]+)?$/)
-    .map(a => a || '');
-
-  return {
-    path: path[0],
-    dir: path[1] + (path[1] === '' ? '' : '\\'),
-    file: path[2],
-    isRelative: !!(path[1] && !path[1].match(/^[a-zA-Z]:[\\/]/)),
-  };
-}
-
-function fixPath(key, value, index) {
-  const path = splitPath(value || '');
-  const { file, dir } = conf.paths[key][index] || conf.paths[key];
-  if (path.file === '') path.file = file || '';
-
-  if (path.dir === '' || path.isRelative)
-    path.dir = aiPath.dir + path.dir + (!path.isRelative ? dir || '' : '');
-
-  if (file === undefined) path.file += '/';
-
-  return `${path.dir}/${path.file}`.replace(/[\\/]+/g, '\\');
-}
-
-function verifyPath(val, obj, key, index) {
-  const showError = () => {
-    const timeout = obj.message && !obj.message.isHidden ? 1000 : 0;
-    if (timeout) {
-      obj.message.hide();
-      // eslint-disable-next-line no-param-reassign
-      delete obj.message;
-    }
-
-    if (obj.prevCheck !== val) {
-      const type =
-        (conf.paths[key][index] || conf.paths[key]).file !== undefined ? 'File' : 'Directory';
-      setTimeout(
-        // eslint-disable-next-line no-return-assign
-        () =>
-          // eslint-disable-next-line no-param-reassign
-          (obj.message = showErrorMessage(
-            `${type} "${obj.fullPath}" not found (autoit.${key}${
-              index === undefined ? '' : ` [${index}]`
-            })`,
-          )),
-        timeout,
-      );
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    obj.prevCheck = val;
-  };
-
-  workspace.fs
-    .stat(Uri.parse(`file:///${obj.fullPath}`))
-    // eslint-disable-next-line consistent-return
-    .then(data => {
-      const type =
-        ((conf.paths[key][index] || conf.paths[key]).file !== undefined
-          ? FileType.File
-          : FileType.Directory) || FileType.SymbolicLink;
-      if (!(data.type && type)) return showError();
-
-      if (obj.message) {
-        obj.message.hide();
-        // eslint-disable-next-line no-param-reassign
-        delete obj.message;
-      }
-      // eslint-disable-next-line no-param-reassign
-      obj.prevCheck = val;
-    })
-    .catch(() => {
-      showError();
-    });
-}
-
-function getPaths() {
-  aiPath = splitPath(conf.data.aiPath || '');
-
-  // eslint-disable-next-line guard-for-in, no-restricted-syntax
-  for (const i in conf.paths) {
-    const value = conf.data[i];
-    if (Array.isArray(value)) {
-      for (let j = 0; j < value.length; j += 1) {
-        const val = typeof value[j] === 'string' ? value[j].trim() : '';
-        if (conf.paths[i][j] === undefined)
-          conf.paths[i][j] = Object.assign({ fullPath: '' }, conf.paths[i][0]);
-
-        const obj = conf.paths[i][j];
-
-        if (val !== '') obj.fullPath = fixPath(i, val, j);
-
-        if (obj.fullPath === undefined) obj.fullPath = '';
-
-        verifyPath(val, obj, i, j);
-      }
-    } else {
-      const obj = conf.paths[i];
-      obj.fullPath = fixPath(i, value);
-      verifyPath(value, obj, i);
-    }
-  }
-}
-
+let listenerId = 0, aiPath = "", _noEvents;
 workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
-  if (!affectsConfiguration('autoit')) return;
+  if (_noEvents || !affectsConfiguration('autoit')) return;
 
   conf.data = workspace.getConfiguration('autoit');
   listeners.forEach(listener => {
-    try {
-      listener();
-    } catch (er) {
-      // eslint-disable-next-line no-console
-      console.error(er);
-    }
+    try{listener();}catch(er){console.error(er);}
   });
   getPaths();
 });
@@ -144,7 +30,6 @@ workspace.onDidChangeConfiguration(({ affectsConfiguration }) => {
 getPaths();
 
 function addListener(listener) {
-  // eslint-disable-next-line no-plusplus
   listeners.set(++listenerId, listener);
   return listenerId;
 }
@@ -153,22 +38,187 @@ function removeListener(id) {
   listeners.remove(id);
 }
 
+function splitPath(path) {
+  path = path.trim().match(/^(.*[\\/])?([^\\/]+)?$/).map(a => a || "");
+
+  return {
+    path: path[0],
+    dir: path[1] + (path[1] === "" ? "" : "\\"),
+    file: path[2],
+    isRelative: !!(path[1] && !path[1].match(/^[a-zA-Z]:[\\/]/))
+  };
+}
+
+function fixPath (value, data) {
+  const path = splitPath(value || "");
+  const file = data.file;
+  const dir = data.dir;
+  if (path.file === "")
+    path.file = file || "";
+
+  if (path.dir === "" || path.isRelative)
+    path.dir = aiPath.dir + path.dir + (!path.isRelative ? (dir || "") : "");
+  
+  if (file === undefined)
+    path.file += "/";
+
+  return (path.dir + "/" + path.file).replace(/[\\/]+/g, "\\");
+}
+
+function verifyPath (path, data, msgSuffix) {
+  const showError = () => {
+    const timeout = data.message && !data.message.isHidden ? 1000 : 0;
+    if (timeout) {
+      data.message.hide();
+      delete data.message;
+    }
+    if (data.prevCheck !== path) {
+      const type = data.file !== undefined ? "File" : "Directory";
+      setTimeout(() => data.message = showErrorMessage(`${type} "${data.fullPath}" not found (autoit.${msgSuffix})`), timeout);
+    }
+
+    data.prevCheck = path;
+  };
+
+  workspace.fs.stat(Uri.parse(`file:///${data.fullPath}`)).then(stats => {
+    const type = (data.file !== undefined ? FileType.File : FileType.Directory) | FileType.SymbolicLink;
+    if (!(stats.type & type))
+      return showError();
+
+    if (data.message) {
+      data.message.hide();
+      delete data.message;
+    }
+    data.prevCheck = path;
+
+  }).catch(() => {
+    showError();
+  });
+}
+
+function updateFullPath(path, data, msgSuffix)
+{
+  if (path !== "")
+    data.fullPath = fixPath(path, data);
+
+  if (data.fullPath === undefined)
+    data.fullPath = "";
+
+  verifyPath(path, data, msgSuffix);
+}
+
+function getPaths() {
+  aiPath = splitPath(conf.data.aiPath||"");
+
+  for(let i in conf.defaultPaths) {
+    const defaultPath = conf.defaultPaths[i],
+      confValue = conf.data[i];
+
+    if (i == "smartHelp") {
+      if (Array.isArray(confValue))//convert array-based old config into new object-based
+        return upgradeSmartHelpConfig();
+
+      defaultPath.fullPath = {};
+      for (let prefix in confValue) {
+
+        const val = confValue[prefix];
+        if (prefix == "_yourUdfFuncPrefix_" || typeof val.chmPath !== "string" || (typeof val.udfPath !== "string" && !Array.isArray(val.udfPath)))
+          continue;
+
+        const chmPath = val.chmPath.trim(),
+          data = Object.assign({fullPath: ""}, defaultPath.check),
+          udfPath = Array.isArray(val.udfPath) ? [...val.udfPath] : val.udfPath.split("|"),
+          msgSuffix = `${i}.${prefix}`;
+
+        updateFullPath(chmPath, data, `${msgSuffix}.chmPath`);
+
+        for(let k = 0; k < udfPath.length; k++)
+        {
+          const data = Object.assign({fullPath: ""}, defaultPath.check);
+          updateFullPath(udfPath[k], data, `${msgSuffix}.udfPath[${k}]`);
+          udfPath[k] = data.fullPath;
+        }
+        defaultPath.fullPath[prefix] = {
+          chmPath: data.fullPath,
+          udfPath: udfPath
+        };
+      }
+    }
+    else if (Array.isArray(confValue)) {
+      for (let j = 0; j < confValue.length; j++ ) {
+        const path = (typeof confValue[j] == 'string' ? confValue[j] : '').trim();
+
+        if (defaultPath[j] === undefined)
+          defaultPath[j] = Object.assign({fullPath: ""}, defaultPath[0].check);
+  
+        updateFullPath(path, defaultPath[j], `${i}[${j}]`);
+      }
+    }
+    else {
+      defaultPath.fullPath = fixPath(confValue, defaultPath);
+      verifyPath(confValue, defaultPath, i);
+    }
+  }
+}
+
+function upgradeSmartHelpConfig() {
+  const data = conf.data.smartHelp,
+    inspect = conf.data.inspect("smartHelp"),
+    props = {
+      workspaceFolderLanguageValue: [null, true],
+      workspaceLanguageValue: [false, true],
+      globalLanguageValue: [true, true],
+      defaultLanguageValue: [null, true],
+      workspaceFolderValue: [],
+      workspaceValue: [false],
+      globalValue: [true],
+      defaultValue: []
+    };
+
+  let ret = {}, ConfigurationTarget, overrideInLanguage;
+  for(let i in props) {
+    if (inspect[i] !== undefined) {
+      [ConfigurationTarget, overrideInLanguage] = props[i];
+      break;
+    }
+  }
+  if (Array.isArray(data)) {
+    for(let i = 0; i < data.length; i++) {
+      ret[data[i][0]] = {
+        chmPath: data[i][1],
+        udfPath: data[i][2].split("|")
+      };
+    }
+  }
+  if (!Object.keys(ret).length || typeof data == "string")
+    ret = undefined;
+
+  conf.data.update("smartHelp", ret, ConfigurationTarget, overrideInLanguage);
+}
+
+function noEvents(value)
+{
+  _noEvents = value;
+}
+
 const config = new Proxy(conf, {
   get(target, prop) {
-    if (target.paths[prop]) {
-      if (Array.isArray(target.paths[prop])) return target.paths[prop].map(a => a.fullPath);
+    const val = target.defaultPaths[prop];
+    if (val) {
+      const isArray = Array.isArray(val);
+      if (isArray || (val !== null && typeof val == "object"))
+        return isArray ? val.map(a => a.fullPath) : val.fullPath;
 
-      return target.paths[prop].fullPath;
+      return val.fullPath;
     }
-    return target.data[prop];
+    return val;
   },
-  set(target, prop, val) {
-    return target.data.update(prop, val);
-  },
+  set(target, prop, val) { return target.data.update(prop, val); }
 });
 
 export default {
   config,
   addListener,
   removeListener,
+  noEvents
 };
