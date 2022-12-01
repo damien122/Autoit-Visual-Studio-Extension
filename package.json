@@ -22,6 +22,10 @@
     "au3",
     "AutoIt3"
   ],
+  "dependencies": {
+    "iconv-lite": "^0.6.3",
+    "jsonc-parser": "^3.2.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -32,8 +36,6 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "iconv-lite": "^0.6.3",
-    "jsonc-parser": "^3.2.0",
     "prettier": "^1.19.1",
     "typescript": "^3.5.3",
     "webpack": "^5.12.2",
@@ -343,14 +345,27 @@
           "order": 1,
           "type": "object",
           "description": "Defines prefixes, paths & udf sources for additional help files",
-          "patternProperties":{
+          "patternProperties": {
             "^(_[^_]+_|[^_]+)$": {
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "chmPath": {"type": "string"},
-                "udfPath": {"type": ["array", "string"], "items": {"type": "string"}},
-                "required": ["chmPath", "udfPath"]
+                "chmPath": {
+                  "type": "string"
+                },
+                "udfPath": {
+                  "type": [
+                    "array",
+                    "string"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "chmPath",
+                  "udfPath"
+                ]
               }
             }
           },
@@ -358,7 +373,9 @@
           "default": {
             "_yourUdfFuncPrefix_": {
               "chmPath": "",
-              "udfPath": [""]
+              "udfPath": [
+                ""
+              ]
             }
           }
         },
@@ -468,7 +485,6 @@
           "default": 5000,
           "description": "Number of output lines to keep"
         }
-
       }
     },
     "configurationDefaults": {
