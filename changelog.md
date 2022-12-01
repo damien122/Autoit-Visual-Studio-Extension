@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Fixed
+
+## [1.0.9] - 2022-12-01
+
+### Added
+
 - Set VS Code to default to 4-space tabs for indentation like SciTe
 - Output window overhaul (thanks to [@vanowm](https://github.com/vanowm)), including:
   - Additional colors
@@ -21,11 +29,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adds a wait for file save to finish before running certain commands (thanks to [@vanowm](https://github.com/vanowm))
 - Support for Sticky Scroll
 - Symbols nest in the Outline
+- SmartHelp options that allow launching of help files (e.g., CHM) for UDFs (thanks to [@Danp2](https://github.com/Danp2))
 
 ### Changed
 
 - Tidy now runs through AutoItWrapper (thanks to [@vanowm](https://github.com/vanowm))
-- MsgBox/Console debugging line generation imporved (thanks to [@Danp2](https://github.com/Danp2))
+- MsgBox/Console debugging line generation improved (thanks to [@Danp2](https://github.com/Danp2))
 - Paths to AutoIt execuables can now be relative to the AutoIt executable in settings (Thanks to [@Danp2](https://github.com/Danp2))
 
 ### Fixed
@@ -253,6 +262,7 @@ The IntelliSense release!
 - Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 - Added icon, banner color and description for marketplace.
 
+[1.0.9]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.5...v1.0.6
