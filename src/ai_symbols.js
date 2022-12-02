@@ -54,7 +54,9 @@ const createFunctionSymbol = (functionName, doc, docText) => {
  * @returns SymbolInformation
  */
 const createRegionSymbol = (regionName, doc, docText) => {
-  const pattern = new RegExp(`#Region\\s(?<regionName>\\${regionName}).*?#EndRegion`, 's');
+  const cleanRegionName = regionName.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+  const pattern = new RegExp(`#Region\\s(${cleanRegionName}).*?#EndRegion`, 's');
+
   const result = pattern.exec(docText);
   const endPoint = result.index + result[0].length;
   const newRegionSymbol = new SymbolInformation(
@@ -157,8 +159,10 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       if (config.showRegionsInGoToSymbol) {
         if (regionName && !found.includes(regionName[0])) {
           const regionSymbol = createRegionSymbol(regionName[1], doc, doc.getText());
-          result.push(regionSymbol);
-          found.push(regionName[1]);
+          if (regionSymbol) {
+            result.push(regionSymbol);
+            found.push(regionName[1]);
+          }
         }
       }
     }
