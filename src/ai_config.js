@@ -1,6 +1,7 @@
 
 import { workspace, Uri, FileType} from 'vscode';
 import { showInformationMessage, showErrorMessage } from './ai_showMessage';
+import { findFilepath } from './util';
 const conf = {
   data: workspace.getConfiguration('autoit'),
   defaultPaths:{
@@ -66,34 +67,40 @@ function fixPath (value, data) {
 }
 
 function verifyPath (path, data, msgSuffix) {
-  const showError = () => {
-    const timeout = data.message && !data.message.isHidden ? 1000 : 0;
-    if (timeout) {
-      data.message.hide();
-      delete data.message;
-    }
-    if (data.prevCheck !== path) {
-      const type = data.file !== undefined ? "File" : "Directory";
-      setTimeout(() => data.message = showErrorMessage(`${type} "${data.fullPath}" not found (autoit.${msgSuffix})`), timeout);
-    }
 
-    data.prevCheck = path;
-  };
-
-  workspace.fs.stat(Uri.parse(`file:///${data.fullPath}`)).then(stats => {
+  return workspace.fs.stat(Uri.parse(`file:///${data.fullPath}`)).then(stats => {
     const type = (data.file !== undefined ? FileType.File : FileType.Directory) | FileType.SymbolicLink;
     if (!(stats.type & type))
-      return showError();
+      return showError(path, data, msgSuffix);
 
     if (data.message) {
       data.message.hide();
       delete data.message;
     }
     data.prevCheck = path;
+    return path;
 
   }).catch(() => {
-    showError();
+    showError(path, data, msgSuffix);
   });
+}
+
+function showError(path, data, msgSuffix)
+{
+  if (!msgSuffix)
+    return;
+
+  const timeout = data.message && !data.message.isHidden ? 1000 : 0;
+  if (timeout) {
+    data.message.hide();
+    delete data.message;
+  }
+  if (data.prevCheck !== path) {
+    const type = data.file !== undefined ? "File" : "Directory";
+    setTimeout(() => data.message = showErrorMessage(`${type} "${path}" not found (autoit.${msgSuffix})`), timeout);
+  }
+
+  data.prevCheck = path;
 }
 
 function updateFullPath(path, data, msgSuffix)
@@ -104,7 +111,7 @@ function updateFullPath(path, data, msgSuffix)
   if (data.fullPath === undefined)
     data.fullPath = "";
 
-  verifyPath(path, data, msgSuffix);
+  return verifyPath(path, data, msgSuffix);
 }
 
 function getPaths() {
@@ -132,11 +139,15 @@ function getPaths() {
 
         updateFullPath(chmPath, data, `${msgSuffix}.chmPath`);
 
-        for(let k = 0; k < udfPath.length; k++)
-        {
+        for(let k = 0; k < udfPath.length; k++){
           const data = Object.assign({fullPath: ""}, defaultPath.check);
-          updateFullPath(udfPath[k], data, `${msgSuffix}.udfPath[${k}]`);
-          udfPath[k] = data.fullPath;
+          updateFullPath(udfPath[k], data).then(filePath => {
+            if (!filePath && !(filePath = findFilepath(udfPath[k], true))) {
+              showError(udfPath[k], data, `${msgSuffix}.udfPath[${k}]`);
+            }
+            else
+              udfPath[k] = filePath;
+          });
         }
         defaultPath.fullPath[prefix] = {
           chmPath: data.fullPath,
