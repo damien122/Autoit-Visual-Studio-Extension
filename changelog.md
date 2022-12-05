@@ -269,6 +269,7 @@ The IntelliSense release!
 - Added the ability to generate a debug MsgBox for a highlighted variable or macro with Ctrl+Shift+D.
 - Added icon, banner color and description for marketplace.
 
+[1.0.10]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.8...v1.0.9
 [1.0.8]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/loganch/AutoIt-VSCode/compare/v1.0.6...v1.0.7
