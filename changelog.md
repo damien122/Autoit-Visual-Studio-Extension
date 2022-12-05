@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.0.10] - 2022-12-05
+
+### Fixed
+
+- Regex characters (e.g., `*` and `\`) in that come after `#Region` will no longer stop all symbols from being found
+- smartHelp checks includePaths with relative paths (thanks to [@vanowm](https://github.com/vanowm))
+
 ## [1.0.9] - 2022-12-01
 
 ### Added
@@ -35,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Tidy now runs through AutoItWrapper (thanks to [@vanowm](https://github.com/vanowm))
 - MsgBox/Console debugging line generation improved (thanks to [@Danp2](https://github.com/Danp2))
-- Paths to AutoIt execuables can now be relative to the AutoIt executable in settings (Thanks to [@Danp2](https://github.com/Danp2))
+- Paths to AutoIt executables can now be relative to the AutoIt executable in settings (thanks to [@vanowm](https://github.com/vanowm))
 
 ### Fixed
 
