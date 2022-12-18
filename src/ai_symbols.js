@@ -31,7 +31,7 @@ const createFunctionSymbol = (functionName, doc, docText) => {
   const pattern = new RegExp(
     // `^Func\\s+\\b(?<funcName>${functionName}\\b).*\\n(?:(?!EndFunc\\b).*\\n)*EndFunc.*\\n?`
     `Func\\s+\\b(?<funcName>${functionName}+\\b).*?(EndFunc)`,
-    's',
+    'si',
   );
   const result = pattern.exec(docText);
   const endPoint = result.index + result[0].length;
@@ -55,7 +55,7 @@ const createFunctionSymbol = (functionName, doc, docText) => {
  */
 const createRegionSymbol = (regionName, doc, docText) => {
   const cleanRegionName = regionName.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-  const pattern = new RegExp(`#Region\\s(${cleanRegionName}).*?#EndRegion`, 's');
+  const pattern = new RegExp(`#Region\\s(${cleanRegionName}).*?#EndRegion`, 'si');
 
   const result = pattern.exec(docText);
   const endPoint = result.index + result[0].length;
