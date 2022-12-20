@@ -113,9 +113,9 @@
       </dict>
       <dict>
         <key>begin</key>
-        <string>(?i:#c(?:omments\-start|s))</string>
+        <string>(?i:^\s*#c(?:omments\-start|s))</string>
         <key>end</key>
-        <string>(?i:#c(?:omments\-end|e))\b.*$</string>
+        <string>(?i:^\s*#c(?:omments\-end|e))\b.*$</string>
         <key>name</key>
         <string>comment.block.autoit</string>
       </dict>
