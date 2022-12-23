@@ -5,6 +5,7 @@ import {
   getIncludePath,
   includePattern,
   variablePattern,
+  libraryIncludePattern,
   findFilepath,
   AUTOIT_MODE,
 } from './util';
@@ -12,8 +13,6 @@ import DEFAULT_UDFS from './constants';
 
 let currentIncludeFiles = [];
 let includes = [];
-
-const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
 const createNewCompletionItem = (kind, name, strDetail = 'Document Function') => {
   const compItem = new CompletionItem(name, kind);
@@ -86,14 +85,14 @@ const getLibraryFunctions = (libraryIncludes, doc) => {
  */
 const getLibraryIncludes = docText => {
   const items = [];
-  let pattern = LIBRARY_INCLUDE_PATTERN.exec(docText);
+  let pattern = libraryIncludePattern.exec(docText);
   while (pattern) {
     const filename = pattern[1].replace('.au3', '');
     if (DEFAULT_UDFS.indexOf(filename) === -1) {
       items.push(pattern[1]);
     }
 
-    pattern = LIBRARY_INCLUDE_PATTERN.exec(docText);
+    pattern = libraryIncludePattern.exec(docText);
   }
 
   return items;

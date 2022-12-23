@@ -140,6 +140,7 @@ const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
 const variablePattern = /(\$\w+)(?=(?:[^'"]|["'][^'"]*["'])*$)/g;
 const regionPattern = /^[\t ]{0,}#region\s[- ]{0,}(.+)/i;
+const libraryIncludePattern = /^#include\s+<([\w.]+\.au3)>/gm;
 
 /**
  * Generates an array of Completions from a signature object
@@ -204,6 +205,7 @@ module.exports = {
   functionPattern,
   variablePattern,
   regionPattern,
+  libraryIncludePattern,
   completionToHover,
   signatureToCompletion,
   findFilepath,
