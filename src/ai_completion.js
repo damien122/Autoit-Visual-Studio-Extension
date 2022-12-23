@@ -10,6 +10,7 @@ import {
   AUTOIT_MODE,
 } from './util';
 import DEFAULT_UDFS from './constants';
+import fs from 'fs';
 
 let currentIncludeFiles = [];
 let includes = [];
@@ -42,8 +43,12 @@ const arraysMatch = (arr1, arr2) => {
 function getIncludeData(fileName, document) {
   const includeFuncPattern = /^(?=\S)(?!;~\s)Func\s+(\w+)\s*\(/gm;
   const functions = [];
-  const filePath = getIncludePath(fileName, document);
-
+  // Check if file exists in document directory
+  let filePath = getIncludePath(fileName, document);
+  if (!fs.existsSync(filePath)) {
+	// Find first instance using include paths
+	filePath = findFilepath(fileName, false);  
+  }
   let pattern = null;
   const fileData = getIncludeText(filePath);
 
