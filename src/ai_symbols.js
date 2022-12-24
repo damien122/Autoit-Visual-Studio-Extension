@@ -130,6 +130,11 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
               return;
             }
 
+			// ignore quoted strings
+			if (variable.charAt(0) === '"' || variable.charAt(0) === "'") {
+				return;
+			}
+
             // Go through symbols for function container and symbols that match name and container
             container = result.find(testSymbol => {
               return (
