@@ -138,7 +138,7 @@ const completionToHover = completions => {
 
 const includePattern = /^#include\s"(.+)"/gm;
 const functionPattern = /^[\t ]{0,}Func\s(.+)\(/;
-const variablePattern = /(?:["'].*?["'])|(\$\w+)/g;
+const variablePattern = /(?:["'].*?["'])|(?:;.*)|(\$\w+)/g;
 const regionPattern = /^[\t ]{0,}#region\s[- ]{0,}(.+)/i;
 
 /**
