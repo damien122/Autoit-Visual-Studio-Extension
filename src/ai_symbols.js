@@ -73,9 +73,11 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
   provideDocumentSymbols(doc) {
     const result = [];
     const found = [];
+    const delims = ["'", '"', ';'];
     let funcName;
     let variableKind;
     let inComment = false;
+    let inContinue = false;
 
     // Get the number of lines in the document to loop through
     const lineCount = Math.min(doc.lineCount, 10000);
@@ -113,9 +115,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       }
 
       if (config.showVariablesInGoToSymbol) {
-        const variables = text.match(variablePattern);
-
-        if (variables) {
+        if (!inContinue) {
           if (/^\s*?(Local|Global)?\sConst/.test(text)) {
             variableKind = SymbolKind.Constant;
           } else if (/^\s*?(Local|Global)?\sEnum/.test(text)) {
@@ -123,17 +123,22 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
           } else {
             variableKind = SymbolKind.Variable;
           }
+        }
 
+        inContinue = /\s_\b\s*(;.*)?\s*/.test(text);
+
+        const variables = text.match(variablePattern);
+        if (variables) {
           // eslint-disable-next-line no-loop-func
           variables.forEach(variable => {
             if (AI_CONSTANTS.includes(variable)) {
               return;
             }
 
-			// ignore quoted strings
-			if (variable.charAt(0) === '"' || variable.charAt(0) === "'") {
-				return;
-			}
+            // ignore strings beginning with preset delimiters
+            if (delims.includes(variable.charAt(0))) {
+              return;
+            }
 
             // Go through symbols for function container and symbols that match name and container
             container = result.find(testSymbol => {
