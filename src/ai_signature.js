@@ -88,7 +88,7 @@ function getParams(paramText) {
 
 function getIncludeData(fileName, doc) {
   // console.log(fileName)
-  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/g;
+  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/gi;
   const functions = {};
   const filePath = getIncludePath(fileName, doc);
 
@@ -155,7 +155,7 @@ function getIncludes(doc) {
 }
 
 function getLocalSigs(doc) {
-  const functionPattern = /^[\t ]{0,}Func\s+((\w+)\((.+)?\))/gm;
+  const functionPattern = /^[\t ]{0,}Func\s+((\w+)\((.+)?\))/gmi;
   const text = doc.getText();
   let functions = {};
 
