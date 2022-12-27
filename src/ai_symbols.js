@@ -108,10 +108,10 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       }
 
       funcName = functionPattern.exec(text);
-      if (funcName && !found.includes(funcName[1])) {
+      if (funcName && !found.includes(funcName[0])) {
         const functionSymbol = createFunctionSymbol(funcName[1], doc, doc.getText());
         result.push(functionSymbol);
-        found.push(funcName[1]);
+        found.push(funcName[0]);
       }
 
       if (config.showVariablesInGoToSymbol) {
@@ -171,7 +171,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
           const regionSymbol = createRegionSymbol(regionName[1], doc, doc.getText());
           if (regionSymbol) {
             result.push(regionSymbol);
-            found.push(regionName[1]);
+            found.push(regionName[0]);
           }
         }
       }
