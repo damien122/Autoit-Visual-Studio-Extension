@@ -34,6 +34,9 @@ const createFunctionSymbol = (functionName, doc, docText) => {
     's',
   );
   const result = pattern.exec(docText);
+  if (result === null) {
+    return null;
+  }    
   const endPoint = result.index + result[0].length;
   const newFunctionSymbol = new SymbolInformation(
     result[1],
@@ -55,9 +58,12 @@ const createFunctionSymbol = (functionName, doc, docText) => {
  */
 const createRegionSymbol = (regionName, doc, docText) => {
   const cleanRegionName = regionName.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-  const pattern = new RegExp(`#Region\\s(${cleanRegionName}).*?#EndRegion`, 's');
+  const pattern = new RegExp(`#Region\\s[- ]{0,}(${cleanRegionName}).*?#EndRegion`, 's');
 
   const result = pattern.exec(docText);
+  if (result === null) {
+    return null;
+  }  
   const endPoint = result.index + result[0].length;
   const newRegionSymbol = new SymbolInformation(
     result[1],
@@ -108,8 +114,10 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       funcName = functionPattern.exec(text);
       if (funcName && !found.includes(funcName[1])) {
         const functionSymbol = createFunctionSymbol(funcName[1], doc, doc.getText());
-        result.push(functionSymbol);
-        found.push(funcName[1]);
+		if (functionSymbol) {
+			result.push(functionSymbol);
+			found.push(funcName[1]);
+		}
       }
 
       if (config.showVariablesInGoToSymbol) {
