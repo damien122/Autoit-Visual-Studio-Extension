@@ -31,7 +31,7 @@ const createFunctionSymbol = (functionName, doc, docText) => {
   const pattern = new RegExp(
     // `^Func\\s+\\b(?<funcName>${functionName}\\b).*\\n(?:(?!EndFunc\\b).*\\n)*EndFunc.*\\n?`
     `Func\\s+\\b(?<funcName>${functionName}+\\b).*?(EndFunc)`,
-    's',
+    'si',
   );
   const result = pattern.exec(docText);
   if (result === null) {
@@ -79,9 +79,11 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
   provideDocumentSymbols(doc) {
     const result = [];
     const found = [];
+    const delims = ["'", '"', ';'];
     let funcName;
     let variableKind;
     let inComment = false;
+    let inContinue = false;
 
     // Get the number of lines in the document to loop through
     const lineCount = Math.min(doc.lineCount, 10000);
@@ -112,18 +114,18 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
       }
 
       funcName = functionPattern.exec(text);
-      if (funcName && !found.includes(funcName[1])) {
+      if (funcName && !found.includes(funcName[0])) {
         const functionSymbol = createFunctionSymbol(funcName[1], doc, doc.getText());
+
 		if (functionSymbol) {
 			result.push(functionSymbol);
 			found.push(funcName[1]);
 		}
+
       }
 
       if (config.showVariablesInGoToSymbol) {
-        const variables = text.match(variablePattern);
-
-        if (variables) {
+        if (!inContinue) {
           if (/^\s*?(Local|Global)?\sConst/.test(text)) {
             variableKind = SymbolKind.Constant;
           } else if (/^\s*?(Local|Global)?\sEnum/.test(text)) {
@@ -131,10 +133,20 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
           } else {
             variableKind = SymbolKind.Variable;
           }
+        }
 
+        inContinue = /\s_\b\s*(;.*)?\s*/.test(text);
+
+        const variables = text.match(variablePattern);
+        if (variables) {
           // eslint-disable-next-line no-loop-func
           variables.forEach(variable => {
             if (AI_CONSTANTS.includes(variable)) {
+              return;
+            }
+
+            // ignore strings beginning with preset delimiters
+            if (delims.includes(variable.charAt(0))) {
               return;
             }
 
@@ -169,7 +181,7 @@ export default languages.registerDocumentSymbolProvider(AUTOIT_MODE, {
           const regionSymbol = createRegionSymbol(regionName[1], doc, doc.getText());
           if (regionSymbol) {
             result.push(regionSymbol);
-            found.push(regionName[1]);
+            found.push(regionName[0]);
           }
         }
       }

@@ -5,7 +5,7 @@ import {
   ParameterInformation,
   MarkdownString,
 } from 'vscode';
-import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
+import { getIncludeText, getIncludePath, includePattern, findFilepath, libraryIncludePattern, AUTOIT_MODE } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
 
@@ -88,7 +88,7 @@ function getParams(paramText) {
 
 function getIncludeData(fileName, doc) {
   // console.log(fileName)
-  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/g;
+  const functionPattern = /(?=\S)(?!;~\s)Func\s+((\w+)\((.+)?\))/gi;
   const functions = {};
   const filePath = getIncludePath(fileName, doc);
 
@@ -111,8 +111,6 @@ function getIncludeData(fileName, doc) {
 function getIncludes(doc) {
   // determines whether includes should be re-parsed or not.
   const text = doc.getText();
-
-  const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
 
   let includesCheck = [];
   let pattern;
@@ -138,7 +136,7 @@ function getIncludes(doc) {
   let fullPath = '';
   let newData = '';
   do {
-    pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
+    pattern = libraryIncludePattern.exec(text);
     if (pattern) {
       filename = pattern[1].replace('.au3', '');
       if (DEFAULT_UDFS.indexOf(filename) === -1) {
@@ -155,7 +153,7 @@ function getIncludes(doc) {
 }
 
 function getLocalSigs(doc) {
-  const functionPattern = /^[\t ]{0,}Func\s+((\w+)\((.+)?\))/gm;
+  const functionPattern = /^[\t ]{0,}Func\s+((\w+)\((.+)?\))/gmi;
   const text = doc.getText();
   let functions = {};
 
