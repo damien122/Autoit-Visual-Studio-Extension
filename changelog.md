@@ -11,7 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Ignore case when identifying functions and regions (thanks to [@Danp2](https://github.com/Danp2))
+
 ### Fixed
+
+- Slow autocompletion suggestions (thanks to [@Danp2](https://github.com/Danp2))
+- Runtime errors when failing with symbol creation (thanks to [@Danp2](https://github.com/Danp2))
+- Can now capture regions with hyphens (thanks to [@Danp2](https://github.com/Danp2))
+- Syntax highlighting for nested comment blocks (thanks to [@Danp2](https://github.com/Danp2))
+- Include paths checked when gathering include data (thanks to [@Danp2](https://github.com/Danp2))
 
 ## [1.0.10] - 2022-12-05
 
