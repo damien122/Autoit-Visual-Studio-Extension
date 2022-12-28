@@ -5,7 +5,7 @@ import {
   ParameterInformation,
   MarkdownString,
 } from 'vscode';
-import { getIncludeText, getIncludePath, includePattern, findFilepath, AUTOIT_MODE } from './util';
+import { getIncludeText, getIncludePath, includePattern, findFilepath, libraryIncludePattern, AUTOIT_MODE } from './util';
 import defaultSigs from './signatures';
 import DEFAULT_UDFS from './constants';
 
@@ -112,8 +112,6 @@ function getIncludes(doc) {
   // determines whether includes should be re-parsed or not.
   const text = doc.getText();
 
-  const LIBRARY_INCLUDE_PATTERN = /^#include\s+<([\w.]+\.au3)>/gm;
-
   let includesCheck = [];
   let pattern;
   do {
@@ -138,7 +136,7 @@ function getIncludes(doc) {
   let fullPath = '';
   let newData = '';
   do {
-    pattern = LIBRARY_INCLUDE_PATTERN.exec(text);
+    pattern = libraryIncludePattern.exec(text);
     if (pattern) {
       filename = pattern[1].replace('.au3', '');
       if (DEFAULT_UDFS.indexOf(filename) === -1) {
