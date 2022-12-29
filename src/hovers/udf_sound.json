@@ -1,0 +1,42 @@
+{
+    "_SoundClose": [
+        "Closes a sound previously opened with _SoundOpen",
+        "```\r#include <Sound.au3>\r_SoundClose ( $aSndID )\r```"
+    ],
+    "_SoundLength": [
+        "Returns the length of the soundfile",
+        "```\r#include <Sound.au3>\r_SoundLength ( $aSndID [, $iMode = 1] )\r```"
+    ],
+    "_SoundOpen": [
+        "Opens a sound file for use with other _Sound functions",
+        "```\r#include <Sound.au3>\r_SoundOpen ( $sFilePath )\r```"
+    ],
+    "_SoundPause": [
+        "Pause a playing sound",
+        "```\r#include <Sound.au3>\r_SoundPause ( $aSndID )\r```"
+    ],
+    "_SoundPlay": [
+        "Play a sound file",
+        "```\r#include <Sound.au3>\r_SoundPlay ( $aSndID [, $iWait = 0] )\r```"
+    ],
+    "_SoundPos": [
+        "Returns the current position of the sound",
+        "```\r#include <Sound.au3>\r_SoundPos ( $aSndID [, $iMode = 1] )\r```"
+    ],
+    "_SoundResume": [
+        "Resume a paused sound",
+        "```\r#include <Sound.au3>\r_SoundResume ( $aSndID )\r```"
+    ],
+    "_SoundSeek": [
+        "Seeks the sound to the specified position",
+        "```\r#include <Sound.au3>\r_SoundSeek ( ByRef $aSndID, $iHour, $iMin, $iSec )\r```"
+    ],
+    "_SoundStatus": [
+        "Returns the status of the sound",
+        "```\r#include <Sound.au3>\r_SoundStatus ( $aSndID )\r```"
+    ],
+    "_SoundStop": [
+        "Stop a playing sound",
+        "```\r#include <Sound.au3>\r_SoundStop ( ByRef $aSndID )\r```"
+    ]
+}

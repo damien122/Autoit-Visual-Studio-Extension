@@ -1,0 +1,58 @@
+{
+    "_GUICtrlIpAddress_ClearAddress": [
+        "Clears the contents of the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_ClearAddress ( $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_Create": [
+        "Create a GUI IP Address Control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_Create ( $hWnd, $iX, $iY [, $iWidth = 125 [, $iHeight = 25 [, $iStyles = 0x00000000 [, $iExstyles = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlIpAddress_Destroy": [
+        "Delete the IP Address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_Get": [
+        "Retrieves the address from the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_Get ( $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_GetArray": [
+        "Retrieves the address from the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_GetArray ( $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_GetEx": [
+        "Retrieves the address from the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_GetEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_IsBlank": [
+        "Determines if all fields in the IP address control are blank",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_IsBlank ( $hWnd )\r```"
+    ],
+    "_GUICtrlIpAddress_Set": [
+        "Sets the address in the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_Set ( $hWnd, $sAddress )\r```"
+    ],
+    "_GUICtrlIpAddress_SetArray": [
+        "Sets the address in the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_SetArray ( $hWnd, $aAddress )\r```"
+    ],
+    "_GUICtrlIpAddress_SetEx": [
+        "Sets the address in the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_SetEx ( $hWnd, $tIP )\r```"
+    ],
+    "_GUICtrlIpAddress_SetFocus": [
+        "Sets the keyboard focus to the specified field in the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_SetFocus ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlIpAddress_SetFont": [
+        "Set font of the control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_SetFont ( $hWnd [, $sFaceName = \"Arial\" [, $iFontSize = 12 [, $iFontWeight = 400 [, $bFontItalic = False]]]] )\r```"
+    ],
+    "_GUICtrlIpAddress_SetRange": [
+        "Sets the valid range for the specified field in the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_SetRange ( $hWnd, $iIndex [, $iLowRange = 0 [, $iHighRange = 255]] )\r```"
+    ],
+    "_GUICtrlIpAddress_ShowHide": [
+        "Shows/Hides the IP address control",
+        "```\r#include <GuiIPAddress.au3>\r_GUICtrlIpAddress_ShowHide ( $hWnd, $iState )\r```"
+    ]
+}

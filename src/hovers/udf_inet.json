@@ -1,0 +1,26 @@
+{
+  "_GetIP": [
+    "Get public IP address of a network\/computer",
+    "```\r#include <Inet.au3>\r_GetIP ( )\r```"
+  ],
+  "_INetExplorerCapable": [
+    "Converts a string to IE(Internet Explorer) capable line",
+    "```\r#include <Inet.au3>\r_INetExplorerCapable ( $sIEString )\r```"
+  ],
+  "_INetGetSource": [
+    "Gets the source from an URL without writing a temp file",
+    "```\r#include <Inet.au3>\r_INetGetSource ( $sURL [, $bString = True] )\r```"
+  ],
+  "_INetMail": [
+    "Opens default user's mail client with given address, subject, and body",
+    "```\r#include <Inet.au3>\r_INetMail ( $sMailTo, $sMailSubject, $sMailBody )\r```"
+  ],
+  "_INetSmtpMail": [
+    "Sends an email without using an external email program",
+    "```\r#include <Inet.au3>\r_INetSmtpMail ( $sSMTPServer, $sFromName, $sFromAddress, $sToAddress [, $sSubject = \"\" [, $aBody = \"\" [, $sEHLO = \"\" [, $sFirst = \"\" [, $bTrace = 0]]]]] )\r```"
+  ],
+  "_TCPIpToName": [
+    "Resolves IP address to Hostname(s)",
+    "```\r#include <Inet.au3>\r_TCPIpToName ( $sIp [, $iOption = 0 [, $hDll = \"Ws2_32.dll\"]] )\r```"
+  ]
+}

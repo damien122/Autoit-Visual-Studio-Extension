@@ -1,0 +1,314 @@
+{
+    "_GUICtrlRebar_AddBand": [
+        "Adds a new band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_AddBand ( $hWndRebar, $hWndChild [, $iMinWidth = 100 [, $iDefaultWidth = 100 [, $sText = \"\" [, $iIndex = -1 [, $iStyle = -1]]]]] )\r```"
+    ],
+    "_GUICtrlRebar_AddToolBarBand": [
+        "Adds a new band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_AddToolBarBand ( $hWndRebar, $hWndToolbar [, $sText = \"\" [, $iIndex = -1 [, $iStyle = -1]]] )\r```"
+    ],
+    "_GUICtrlRebar_BeginDrag": [
+        "Adds a new band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_BeginDrag ( $hWnd, $iIndex [, $iPos = -1] )\r```"
+    ],
+    "_GUICtrlRebar_Create": [
+        "Create a Rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_Create ( $hWnd [, $iStyles = 0x513] )\r```"
+    ],
+    "_GUICtrlRebar_DeleteBand": [
+        "Deletes a band from a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_DeleteBand ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_DragMove": [
+        "Updates the drag position in the rebar control after a previous _GUICtrlRebar_BeginDrag message",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_DragMove ( $hWnd [, $iPos = -1] )\r```"
+    ],
+    "_GUICtrlRebar_EndDrag": [
+        "Terminates the rebar control's drag-and-drop operation",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_EndDrag ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBandBackColor": [
+        "Retrieves the Band background color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandBackColor ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandBorders": [
+        "Retrieves the borders of a band",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandBorders ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandBordersEx": [
+        "Retrieves the borders of a band",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandBordersEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandChildHandle": [
+        "Retrieves the Handle to the child window contained in the band, if any",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandChildHandle ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandChildSize": [
+        "Retrieves the Child size settings",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandChildSize ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandCount": [
+        "Retrieves the count of bands currently in the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBandForeColor": [
+        "Retrieves the Band foreground color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandForeColor ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandHeaderSize": [
+        "Retrieves the size of the band's header, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandHeaderSize ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandID": [
+        "Get the value that the control uses to identify this band for custom draw notification messages",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandID ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandIdealSize": [
+        "Get Ideal width of the band, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandIdealSize ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandLength": [
+        "Get Length of the band, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandLength ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandLParam": [
+        "Get Application-defined value",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandLParam ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandMargins": [
+        "Get Length of the band, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandMargins ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBandMarginsEx": [
+        "Get Length of the band, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandMarginsEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBandRect": [
+        "Retrieves the bounding rectangle for a given band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandRect ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandRectEx": [
+        "Retrieves the bounding rectangle for a given band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandRectEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyle": [
+        "Get the band style Flags",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyle ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleBreak": [
+        "Determine if band break flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleBreak ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleChildEdge": [
+        "Determine if band child edge flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleChildEdge ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleFixedBMP": [
+        "Determine if band fixed BMP flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleFixedBMP ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleFixedSize": [
+        "Determine if band fixed size flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleFixedSize ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleGripperAlways": [
+        "Determine if band gripper flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleGripperAlways ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleHidden": [
+        "Determine if band hidden flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleHidden ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleHideTitle": [
+        "Determine if band hide title flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleHideTitle ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleNoGripper": [
+        "Determine if band noGripper flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleNoGripper ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleTopAlign": [
+        "Determine if band top align flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleTopAlign ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleUseChevron": [
+        "Determine if band use chevron flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleUseChevron ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandStyleVariableHeight": [
+        "Determine if band variable height flag is set",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandStyleVariableHeight ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBandText": [
+        "Retrieves the display text for the band",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBandText ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetBarHeight": [
+        "Retrieves the height of the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBarHeight ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBarInfo": [
+        "Retrieves information about the rebar control and the image list it uses",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBarInfo ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetBKColor": [
+        "Retrieves a rebar control's default background color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetBKColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetColorScheme": [
+        "Retrieves the color scheme information from the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetColorScheme ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetRowCount": [
+        "Retrieves the number of rows of bands in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetRowCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetRowHeight": [
+        "Retrieves the height of a specified row in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetRowHeight ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_GetTextColor": [
+        "Retrieves a rebar control's default text color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetTextColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetToolTips": [
+        "Retrieves the handle to any ToolTip control associated with the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlRebar_HitTest": [
+        "Determines which band is at a specified position",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_HitTest ( $hWnd [, $iX = -1 [, $iY = -1]] )\r```"
+    ],
+    "_GUICtrlRebar_IDToIndex": [
+        "Converts a band identifier to a band index in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_IDToIndex ( $hWnd, $iID )\r```"
+    ],
+    "_GUICtrlRebar_MaximizeBand": [
+        "Resizes a band in a rebar control to either its ideal or largest size",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_MaximizeBand ( $hWnd, $iIndex [, $bIdeal = True] )\r```"
+    ],
+    "_GUICtrlRebar_MinimizeBand": [
+        "Resizes a band in a rebar control to its smallest size",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_MinimizeBand ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlRebar_MoveBand": [
+        "Moves a band from one index to another",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_MoveBand ( $hWnd, $iIndexFrom, $iIndexTo )\r```"
+    ],
+    "_GUICtrlRebar_SetBandBackColor": [
+        "Set the Band background color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandBackColor ( $hWnd, $iIndex, $iColor )\r```"
+    ],
+    "_GUICtrlRebar_SetBandForeColor": [
+        "Set the Band foreground color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandForeColor ( $hWnd, $iIndex, $iColor )\r```"
+    ],
+    "_GUICtrlRebar_SetBandHeaderSize": [
+        "Set the size of the band's header, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandHeaderSize ( $hWnd, $iIndex, $iNewSize )\r```"
+    ],
+    "_GUICtrlRebar_SetBandID": [
+        "Set the value that the control uses to identify this band for custom draw notification messages",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandID ( $hWnd, $iIndex, $iID )\r```"
+    ],
+    "_GUICtrlRebar_SetBandIdealSize": [
+        "Set Ideal width of the band, in pixels",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandIdealSize ( $hWnd, $iIndex, $iNewSize )\r```"
+    ],
+    "_GUICtrlRebar_SetBandLength": [
+        "Set the size length of the band",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandLength ( $hWnd, $iIndex, $iLength )\r```"
+    ],
+    "_GUICtrlRebar_SetBandLParam": [
+        "Set Application-defined value",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandLParam ( $hWnd, $iIndex, $lParam )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyle": [
+        "Set the band style Flags",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyle ( $hWnd, $iIndex, $iStyle )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleBreak": [
+        "Set whether the band is on a new line",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleBreak ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleChildEdge": [
+        "Set whether the band has an edge at the top and bottom of the child window",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleChildEdge ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleFixedBMP": [
+        "Set whether the band background bitmap does not move when the band is resized",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleFixedBMP ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleFixedSize": [
+        "Set whether the band can't be sized. With this style, the sizing grip is not displayed on the band",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleFixedSize ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleGripperAlways": [
+        "Set whether the band will always have a sizing grip, even if it is the only band in the rebar",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleGripperAlways ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleHidden": [
+        "Set whether the band will not be visible",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleHidden ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleHideTitle": [
+        "Set whether to keep band title hidden",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleHideTitle ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleNoGripper": [
+        "Set whether the band will never have a sizing grip, even if there is more than one band in the rebar",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleNoGripper ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleTopAlign": [
+        "Set whether to keep band in top row",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleTopAlign ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleUseChevron": [
+        "Set whether to display drop-down button",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleUseChevron ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandStyleVariableHeight": [
+        "Set whether the band can be resized by the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandStyleVariableHeight ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlRebar_SetBandText": [
+        "Sets the display text for the band of a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBandText ( $hWnd, $iIndex, $sText )\r```"
+    ],
+    "_GUICtrlRebar_SetBarInfo": [
+        "Sets the characteristics of a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBarInfo ( $hWnd, $hIml )\r```"
+    ],
+    "_GUICtrlRebar_SetBKColor": [
+        "Sets the default background color of a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetBKColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlRebar_SetColorScheme": [
+        "Sets the color scheme of a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetColorScheme ( $hWnd, $iBtnHighlight, $iBtnShadow )\r```"
+    ],
+    "_GUICtrlRebar_SetTextColor": [
+        "Sets a rebar control's default text color",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetTextColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlRebar_SetToolTips": [
+        "Associates a ToolTip control with the rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetToolTips ( $hWnd, $hToolTip )\r```"
+    ],
+    "_GUICtrlRebar_SetUnicodeFormat": [
+        "Sets the Unicode character format flag for the control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_SetUnicodeFormat ( $hWnd [, $bUnicode = True] )\r```"
+    ],
+    "_GUICtrlRebar_ShowBand": [
+        "Shows or hides a given band in a rebar control",
+        "```\r#include <GuiReBar.au3>\r_GUICtrlRebar_ShowBand ( $hWnd, $iIndex [, $bShow = True] )\r```"
+    ]
+}

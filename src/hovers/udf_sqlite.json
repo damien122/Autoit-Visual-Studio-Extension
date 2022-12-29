@@ -1,0 +1,110 @@
+{
+    "_SQLite_Changes": [
+        "Returns the number of database rows that were changed by the most recently completed statement with this connection",
+        "```\r#include <SQLite.au3>\r_SQLite_Changes ( [$hDB = -1] )\r```"
+    ],
+    "_SQLite_Close": [
+        "Close an open database",
+        "```\r#include <SQLite.au3>\r_SQLite_Close ( [$hDB = -1] )\r```"
+    ],
+    "_SQLite_Display2DResult": [
+        "Returns or prints to Console a formated display of a 2Dimensional array",
+        "```\r#include <SQLite.au3>\r_SQLite_Display2DResult ( $aResult [, $iCellWidth = 0 [, $bReturn = False]] )\r```"
+    ],
+    "_SQLite_Encode": [
+        "Binary encodes a string, number or binary data for use as BLOB in SQLite statements",
+        "```\r#include <SQLite.au3>\r_SQLite_Encode ( $vData )\r```"
+    ],
+    "_SQLite_ErrCode": [
+        "Returns last error code (numeric)",
+        "```\r#include <SQLite.au3>\r_SQLite_ErrCode ( [$hDB = -1] )\r```"
+    ],
+    "_SQLite_ErrMsg": [
+        "Returns a string describing in english the error condition for the most recent sqlite3_* API call",
+        "```\r#include <SQLite.au3>\r_SQLite_ErrMsg ( [$hDB = -1] )\r```"
+    ],
+    "_SQLite_Escape": [
+        "Escapes a string or number for use as TEXT in SQLite statements",
+        "```\r#include <SQLite.au3>\r_SQLite_Escape ( $sString [, $iBuffSize = Default] )\r```"
+    ],
+    "_SQLite_Exec": [
+        "Executes a SQLite query, does not handle results",
+        "```\r#include <SQLite.au3>\r_SQLite_Exec ( $hDB, $sSQL [, $sCallBack = \"\"] )\r```"
+    ],
+    "_SQLite_FastEncode": [
+        "Fast encodes binary data (exclusively) for use in SQLite statements",
+        "```\r#include <SQLite.au3>\r_SQLite_FastEncode ( $vData )\r```"
+    ],
+    "_SQLite_FastEscape": [
+        "Fast escapes a string or number for use as TEXT in SQLite statements",
+        "```\r#include <SQLite.au3>\r_SQLite_FastEscape ( $sString )\r```"
+    ],
+    "_SQLite_FetchData": [
+        "Fetches 1 row of data from a _SQLite_Query() based query",
+        "```\r#include <SQLite.au3>\r_SQLite_FetchData ( $hQuery, ByRef $aRow [, $bBinary = False [, $bDoNotFinalize = False [, $iColumns = 0]]] )\r```"
+    ],
+    "_SQLite_FetchNames": [
+        "Read out the Column names of a _SQLite_Query() based query",
+        "```\r#include <SQLite.au3>\r_SQLite_FetchNames ( $hQuery, ByRef $aNames )\r```"
+    ],
+    "_SQLite_GetTable": [
+        "Passes Out a 1Dimensional Array Containing Tablenames and Data of Executed Query",
+        "```\r#include <SQLite.au3>\r_SQLite_GetTable ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1] )\r```"
+    ],
+    "_SQLite_GetTable2d": [
+        "Passes out a 2Dimensional array containing column names and data of executed query",
+        "```\r#include <SQLite.au3>\r_SQLite_GetTable2d ( $hDB, $sSQL, ByRef $aResult, ByRef $iRows, ByRef $iColumns [, $iCharSize = -1 [, $bSwichDimensions = False]] )\r```"
+    ],
+    "_SQLite_LastInsertRowID": [
+        "Returns the ROWID of the most recent insert in the database by this connection",
+        "```\r#include <SQLite.au3>\r_SQLite_LastInsertRowID ( [$hDB = -1] )\r```"
+    ],
+    "_SQLite_LibVersion": [
+        "Returns the version number of the library",
+        "```\r#include <SQLite.au3>\r_SQLite_LibVersion ( )\r```"
+    ],
+    "_SQLite_Open": [
+        "Opens/creates a SQLite database",
+        "```\r#include <SQLite.au3>\r_SQLite_Open ( [$sDatabase_Filename = \":memory:\" [, $iAccessMode = Default [, $iEncoding = $SQLITE_ENCODING_UTF8]]] )\r```"
+    ],
+    "_SQLite_Query": [
+        "Prepares a SQLite Query",
+        "```\r#include <SQLite.au3>\r_SQLite_Query ( $hDB, $sSQL, ByRef $hQuery )\r```"
+    ],
+    "_SQLite_QueryFinalize": [
+        "Finalizes an _SQLite_Query() based query. The query is interrupted",
+        "```\r#include <SQLite.au3>\r_SQLite_QueryFinalize ( $hQuery )\r```"
+    ],
+    "_SQLite_QueryReset": [
+        "Reset a _SQLite_Query() based query",
+        "```\r#include <SQLite.au3>\r_SQLite_QueryReset ( $hQuery )\r```"
+    ],
+    "_SQLite_QuerySingleRow": [
+        "Read out the first row of the result from the specified query",
+        "```\r#include <SQLite.au3>\r_SQLite_QuerySingleRow ( $hDB, $sSQL, ByRef $aRow )\r```"
+    ],
+    "_SQLite_SafeMode": [
+        "Disable or Enable Safe mode",
+        "```\r#include <SQLite.au3>\r_SQLite_SafeMode ( $bSafeModeState )\r```"
+    ],
+    "_SQLite_SetTimeout": [
+        "Sets timeout for busy handler",
+        "```\r#include <SQLite.au3>\r_SQLite_SetTimeout ( [$hDB = -1 [, $iTimeout = 1000]] )\r```"
+    ],
+    "_SQLite_Shutdown": [
+        "Unloads SQLite.dll",
+        "```\r#include <SQLite.au3>\r_SQLite_Shutdown ( )\r```"
+    ],
+    "_SQLite_SQLiteExe": [
+        "Executes commands in sqlite3.exe",
+        "```\r#include <SQLite.au3>\r_SQLite_SQLiteExe ( $sDatabaseFile, $sInput, ByRef $sOutput [, $sSQLiteExeFilename = \"sqlite3.exe\" [, $bDebug = False]] )\r```"
+    ],
+    "_SQLite_Startup": [
+        "Loads SQLite3.dll",
+        "```\r#include <SQLite.au3>\r_SQLite_Startup ( [$sDll_Filename = \"\" [, $bUTF8ErrorMsg = False [, $iForceLocal = 0 [, $hPrintCallback = $__g_hPrintCallback_SQLite]]]] )\r```"
+    ],
+    "_SQLite_TotalChanges": [
+        "Returns number of all changes (including via triggers and foreign keys) from start of connection",
+        "```\r#include <SQLite.au3>\r_SQLite_TotalChanges ( [$hDB = -1] )\r```"
+    ]
+}

@@ -1,0 +1,394 @@
+{
+    "_GUICtrlRichEdit_AppendText": [
+        "Appends text at the end of the client area",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_AppendText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlRichEdit_AutoDetectURL": [
+        "Enables or disables automatic detection of URLS",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_AutoDetectURL ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlRichEdit_CanPaste": [
+        "Can the contents of the clipboard be pasted into the control?",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_CanPaste ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_CanPasteSpecial": [
+        "Can the contents of the clipboard be pasted into the control in both formats?",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_CanPasteSpecial ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_CanRedo": [
+        "Can an undone action be redone?",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_CanRedo ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_CanUndo": [
+        "Can an action be undone?",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_CanUndo ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_ChangeFontSize": [
+        "Increment or decrement font size(s) of selected text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ChangeFontSize ( $hWnd, $iIncrement )\r```"
+    ],
+    "_GUICtrlRichEdit_Copy": [
+        "Copy text to clipboard",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Copy ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_Create": [
+        "Create an Edit control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Create ( $hWnd, $sText, $iLeft, $iTop [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = -1 [, $iExStyle = -1]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_Cut": [
+        "Cut text to clipboard",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Cut ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_Deselect": [
+        "Deselects text, leaving none selected",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Deselect ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_Destroy": [
+        "Delete the Rich Edit control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_EmptyUndoBuffer": [
+        "Resets the undo flag of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_EmptyUndoBuffer ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_FindText": [
+        "Search for a text starting at insertion point or at anchor point of selection",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_FindText ( $hWnd, $sText [, $bForward = True [, $bMatchCase = False [, $bWholeWord = False [, $iBehavior = 0]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_FindTextInRange": [
+        "Search for a text in a range of inter-character positions",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_FindTextInRange ( $hWnd, $sText [, $iStart = 0 [, $iEnd = -1 [, $bMatchCase = False [, $bWholeWord = False [, $iBehavior = 0]]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetBkColor": [
+        "Gets the background color of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetBkColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharAttributes": [
+        "Returns attributes of selected text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharAttributes ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharBkColor": [
+        "Retrieves the background color of the selected text or, if none selected, of the character to the right of the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharBkColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharColor": [
+        "Retrieves the color of the selected text or, if none selected, of the character to the right of the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharPosFromXY": [
+        "Gets inter-character position closest to a specified point in the client area",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharPosFromXY ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharPosOfNextWord": [
+        "Gets inter-character position before the next word",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharPosOfNextWord ( $hWnd, $iCpStart )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharPosOfPreviousWord": [
+        "Gets inter-character position before the Previous word",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharPosOfPreviousWord ( $hWnd, $iCpStart )\r```"
+    ],
+    "_GUICtrlRichEdit_GetCharWordBreakInfo": [
+        "Gets inter-character position before the Previous word",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetCharWordBreakInfo ( $hWnd, $iCp )\r```"
+    ],
+    "_GUICtrlRichEdit_GetFirstCharPosOnLine": [
+        "Retrieves the inter-character position preceding the first character of a line",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetFirstCharPosOnLine ( $hWnd [, $iLine = -1] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetFont": [
+        "Gets the font attributes of a selection or, if no selection, at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetFont ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetLineCount": [
+        "Retrieves the number of lines in a multi-line edit control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetLineCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetLineLength": [
+        "Retrieves the length of a line",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetLineLength ( $hWnd, $iLine )\r```"
+    ],
+    "_GUICtrlRichEdit_GetLineNumberFromCharPos": [
+        "Retrieves the line number on which an inter-character position is found",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetLineNumberFromCharPos ( $hWnd, $iCharPos )\r```"
+    ],
+    "_GUICtrlRichEdit_GetNextRedo": [
+        "Retrieves the name or type ID of the next possible redo action",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetNextRedo ( $hWnd [, $bName = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetNextUndo": [
+        "Retrieves the name or type ID of the next possible Undo action",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetNextUndo ( $hWnd [, $bName = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetNumberOfFirstVisibleLine": [
+        "Gets number of the first line which is visible in the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetNumberOfFirstVisibleLine ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaAlignment": [
+        "Gets the alignment of selected paragraph(s), or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaAlignment ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaAttributes": [
+        "Gets the attributes of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaAttributes ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaBorder": [
+        "Gets the border settings of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaBorder ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaIndents": [
+        "Gets the border indent settings of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaIndents ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaNumbering": [
+        "Gets the numbering style of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaNumbering ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaShading": [
+        "Gets the shading settings of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaShading ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaSpacing": [
+        "Gets the spacing settings of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaSpacing ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetParaTabStops": [
+        "Gets the tabstops of (first) selected paragraph or (if no selection) of the current paragraph",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetParaTabStops ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetPasswordChar": [
+        "Gets the password character that a rich edit control displays when the user enters text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetPasswordChar ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetRECT": [
+        "Retrieves the formatting rectangle of a control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetRECT ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetScrollPos": [
+        "Gets the Scrolling position of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetScrollPos ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetSel": [
+        "Gets the low and high inter-character positions of a selection",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetSelAA": [
+        "Gets the anchor and active inter-character positions of a selection, in that order",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetSelAA ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetSelText": [
+        "Retrieves the currently selected text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetSelText ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetSpaceUnit": [
+        "Gets the unit of measure of horizontal and vertical space used in parameters of various _GUICtrlRichEdit functions",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetSpaceUnit ( )\r```"
+    ],
+    "_GUICtrlRichEdit_GetText": [
+        "Get all of the text in the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetText ( $hWnd [, $bCrToCrLf = False [, $iCodePage = 0 [, $sReplChar = \"\"]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetTextInLine": [
+        "Gets a line of text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetTextInLine ( $hWnd, $iLine )\r```"
+    ],
+    "_GUICtrlRichEdit_GetTextInRange": [
+        "Gets the text from from one inter-character position to another",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetTextInRange ( $hWnd, $iStart, $iEnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GetTextLength": [
+        "Get the length of the whole text in the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetTextLength ( $hWnd [, $bExact = True [, $bChars = False]] )\r```"
+    ],
+    "_GUICtrlRichEdit_GetVersion": [
+        "Retrieves the version of Rich Edit",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetVersion ( )\r```"
+    ],
+    "_GUICtrlRichEdit_GetXYFromCharPos": [
+        "Retrieves the XY coordinates of an inter-character position",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetXYFromCharPos ( $hWnd, $iCharPos )\r```"
+    ],
+    "_GUICtrlRichEdit_GetZoom": [
+        "Gets the zoom level of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GetZoom ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_GotoCharPos": [
+        "Moves the insertion point to an inter-character position",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_GotoCharPos ( $hWnd, $iCharPos )\r```"
+    ],
+    "_GUICtrlRichEdit_HideSelection": [
+        "Hides (or shows) a selection",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_HideSelection ( $hWnd [, $bHide = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_InsertText": [
+        "Inserts text at insertion point or anchor point of selection",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_InsertText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlRichEdit_IsModified": [
+        "Retrieves the state of a rich edit control's modification flag",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_IsModified ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_IsTextSelected": [
+        "Is text selected?",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_IsTextSelected ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_Paste": [
+        "Paste RTF or RTF with Objects from clipboard",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Paste ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_PasteSpecial": [
+        "Paste RTF or RTF and Objects from clipboard",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_PasteSpecial ( $hWnd [, $bAndObjects = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_PauseRedraw": [
+        "Pauses redrawing of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_PauseRedraw ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_Redo": [
+        "Redoes last undone action",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Redo ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_ReplaceText": [
+        "Replaces selected text",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ReplaceText ( $hWnd, $sText [, $bCanUndo = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_ResumeRedraw": [
+        "Resumes redrawing of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ResumeRedraw ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_ScrollLineOrPage": [
+        "Scrolls the text down or up a line or a page",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ScrollLineOrPage ( $hWnd, $sAction )\r```"
+    ],
+    "_GUICtrlRichEdit_ScrollLines": [
+        "Scrolls the text down or up a number of lines",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ScrollLines ( $hWnd, $iQlines )\r```"
+    ],
+    "_GUICtrlRichEdit_ScrollToCaret": [
+        "Scrolls to show line on which caret (insertion point) is",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_ScrollToCaret ( $hWnd )\r```"
+    ],
+    "_GUICtrlRichEdit_SetBkColor": [
+        "Sets the background color of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetBkColor ( $hWnd [, $iBngColor = Default] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetCharAttributes": [
+        "Turns an attribute on or off for selected text or, if none selected, for text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetCharAttributes ( $hWnd, $sStatesAndEffects [, $bWord = False] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetCharBkColor": [
+        "Sets the background color of selected text or, if none selected, sets the background color of text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetCharBkColor ( $hWnd [, $iBkColor = Default] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetCharColor": [
+        "Sets the color of selected text or, if none selected, sets the background color of text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetCharColor ( $hWnd [, $iColor = Default] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetEventMask": [
+        "Specifies which notification messages are sent to the parent window",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetEventMask ( $hWnd, $iEventMask )\r```"
+    ],
+    "_GUICtrlRichEdit_SetFont": [
+        "Sets the font attributes of selected text or, if none selected, sets those of text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetFont ( $hWnd [, $iPoints = Default [, $sName = Default [, $iCharset = Default [, $iLcid = Default]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetLimitOnText": [
+        "Change number of characters that can be typed, pasted or streamed in as Rich Text Format",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetLimitOnText ( $hWnd, $iNewLimit )\r```"
+    ],
+    "_GUICtrlRichEdit_SetModified": [
+        "Sets or clears the modification flag",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetModified ( $hWnd [, $bState = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaAlignment": [
+        "Sets alignment of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaAlignment ( $hWnd, $sAlignment )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaAttributes": [
+        "Sets attributes of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaAttributes ( $hWnd, $sStatesAndAtts )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaBorder": [
+        "Sets the border of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaBorder ( $hWnd [, $sLocation = Default [, $vLineStyle = Default [, $sColor = Default [, $iSpace = Default]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaIndents": [
+        "Sets indents of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaIndents ( $hWnd [, $vLeft = Default [, $iRight = Default [, $iFirstLine = Default]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaNumbering": [
+        "Sets numbering of paragraph(s) in the current selection or, if no selection, of paragraph(s) inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaNumbering ( $hWnd, $sStyle [, $iTextToNbrSpace = Default [, $bForceRoman = False]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaShading": [
+        "Sets the shading of paragraph(s) in the current selection or, if no selection, of paragraphs inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaShading ( $hWnd [, $iWeight = Default [, $sStyle = Default [, $sForeColor = Default [, $sBackColor = Default]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaSpacing": [
+        "Sets paragraph spacing of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaSpacing ( $hWnd [, $vInter = Default [, $iBefore = Default [, $iAfter = Default]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetParaTabStops": [
+        "Sets tab stops of paragraphs having selected text or, if none selected, sets it for text inserted at the insertion point",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetParaTabStops ( $hWnd, $sTabStops )\r```"
+    ],
+    "_GUICtrlRichEdit_SetPasswordChar": [
+        "Sets the characters to be displayed instead of those typed, or causes typed characters to show",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetPasswordChar ( $hWnd [, $sDisplayChar = \"*\"] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetReadOnly": [
+        "Sets or removes the read-only state",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetReadOnly ( $hWnd [, $bState = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetRECT": [
+        "Sets the formatting rectangle of a Rich Edit control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetRECT ( $hWnd [, $iLeft = Default [, $iTop = Default [, $iRight = Default [, $iBottom = Default [, $bRedraw = True]]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetScrollPos": [
+        "Scrolls the display such that ($ix,$iY) is in the upper left corner of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetScrollPos ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlRichEdit_SetSel": [
+        "Sets the low and high character position of a selection",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetSel ( $hWnd, $iAnchor, $iActive [, $bHideSel = False] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetSpaceUnit": [
+        "Sets the unit of measure of horizontal and vertical space used in parameters of various _GUICtrlRichEdit functions",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetSpaceUnit ( $sUnit )\r```"
+    ],
+    "_GUICtrlRichEdit_SetTabStops": [
+        "Sets tab stops for the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetTabStops ( $hWnd, $vTabStops [, $bRedraw = True] )\r```"
+    ],
+    "_GUICtrlRichEdit_SetText": [
+        "Sets the text of a control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlRichEdit_SetUndoLimit": [
+        "Sets the maximum number of actions that can stored in the undo queue",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetUndoLimit ( $hWnd, $iLimit )\r```"
+    ],
+    "_GUICtrlRichEdit_SetZoom": [
+        "Sets zoom level of the control",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_SetZoom ( $hWnd, $iPercent )\r```"
+    ],
+    "_GUICtrlRichEdit_StreamFromFile": [
+        "Sets text in a control from a file",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_StreamFromFile ( $hWnd, $sFileSpec )\r```"
+    ],
+    "_GUICtrlRichEdit_StreamFromVar": [
+        "Sets text in a control from a variable",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_StreamFromVar ( $hWnd, $sVar )\r```"
+    ],
+    "_GUICtrlRichEdit_StreamToFile": [
+        "Writes contents of a control to a file",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_StreamToFile ( $hWnd, $sFileSpec [, $bIncludeCOM = True [, $iOpts = 0 [, $iCodePage = 0]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_StreamToVar": [
+        "Writes contents of a control to a variable",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_StreamToVar ( $hWnd [, $bRtf = True [, $bIncludeCOM = True [, $iOpts = 0 [, $iCodePage = 0]]]] )\r```"
+    ],
+    "_GUICtrlRichEdit_Undo": [
+        "Undoes the last edit control operation in the control's undo queue",
+        "```\r#include <GuiRichEdit.au3>\r_GUICtrlRichEdit_Undo ( $hWnd )\r```"
+    ]
+}

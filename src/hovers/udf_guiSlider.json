@@ -1,0 +1,166 @@
+{
+    "_GUICtrlSlider_ClearSel": [
+        "Clears the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_ClearSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_ClearTics": [
+        "Removes the current tick marks from a slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_ClearTics ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_Create": [
+        "Create a Slider control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_Create ( $hWnd, $iX, $iY [, $iWidth = 100 [, $iHeight = 20 [, $iStyle = $TBS_AUTOTICKS [, $iExStyle = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlSlider_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetBuddy": [
+        "Retrieves the handle to a slider control buddy window at a given location",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetBuddy ( $hWnd, $bLocation )\r```"
+    ],
+    "_GUICtrlSlider_GetChannelRect": [
+        "Retrieves the size and position of the bounding rectangle for a sliders's channel",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetChannelRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetChannelRectEx": [
+        "Retrieves the size and position of the bounding rectangle for a sliders's channel",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetChannelRectEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetLineSize": [
+        "Retrieves the number of logical positions the slider moves",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetLineSize ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetLogicalTics": [
+        "Retrieves an array that contains the logical positions of the tick marks for a slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetLogicalTics ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetNumTics": [
+        "Retrieves the number of tick marks from a slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetNumTics ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetPageSize": [
+        "Retrieves the number of logical positions the slider moves",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetPageSize ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetPos": [
+        "Retrieves the logical position the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetPos ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetRange": [
+        "Retrieves the maximum and minimum position for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetRange ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetRangeMax": [
+        "Retrieves the maximum position for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetRangeMax ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetRangeMin": [
+        "Retrieves the minimum position for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetRangeMin ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetSel": [
+        "Retrieves the ending and starting position of the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetSelEnd": [
+        "Retrieves the ending position of the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetSelEnd ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetSelStart": [
+        "Retrieves the starting position of the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetSelStart ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetThumbLength": [
+        "Retrieves the length of the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetThumbLength ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetThumbRect": [
+        "Retrieves the size and position of the bounding rectangle for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetThumbRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetThumbRectEx": [
+        "Retrieves the size and position of the bounding rectangle for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetThumbRectEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetTic": [
+        "Retrieves the logical position of a tick mark",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetTic ( $hWnd, $iTic )\r```"
+    ],
+    "_GUICtrlSlider_GetTicPos": [
+        "Retrieves the current physical position of a tick mark",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetTicPos ( $hWnd, $iTic )\r```"
+    ],
+    "_GUICtrlSlider_GetToolTips": [
+        "Retrieves the handle to the ToolTip control assigned to the slider, if any",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlSlider_SetBuddy": [
+        "Assigns a window as the buddy window for a slider control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetBuddy ( $hWnd, $bLocation, $hBuddy )\r```"
+    ],
+    "_GUICtrlSlider_SetLineSize": [
+        "Sets the number of logical positions the slider moves",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetLineSize ( $hWnd, $iLineSize )\r```"
+    ],
+    "_GUICtrlSlider_SetPageSize": [
+        "Sets the number of logical positions the slider moves",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetPageSize ( $hWnd, $iPageSize )\r```"
+    ],
+    "_GUICtrlSlider_SetPos": [
+        "Sets the current logical position of the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetPos ( $hWnd, $iPosition )\r```"
+    ],
+    "_GUICtrlSlider_SetRange": [
+        "Sets the range of minimum and maximum logical positions for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetRange ( $hWnd, $iMinimum, $iMaximum )\r```"
+    ],
+    "_GUICtrlSlider_SetRangeMax": [
+        "Sets the maximum logical position for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetRangeMax ( $hWnd, $iMaximum )\r```"
+    ],
+    "_GUICtrlSlider_SetRangeMin": [
+        "Sets the minimum logical position for the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetRangeMin ( $hWnd, $iMinimum )\r```"
+    ],
+    "_GUICtrlSlider_SetSel": [
+        "Sets the starting and ending positions for the available selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetSel ( $hWnd, $iMinimum, $iMaximum )\r```"
+    ],
+    "_GUICtrlSlider_SetSelEnd": [
+        "Sets the ending logical position of the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetSelEnd ( $hWnd, $iMaximum )\r```"
+    ],
+    "_GUICtrlSlider_SetSelStart": [
+        "Sets the starting logical position of the current selection range",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetSelStart ( $hWnd, $iMinimum )\r```"
+    ],
+    "_GUICtrlSlider_SetThumbLength": [
+        "Sets the length of the slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetThumbLength ( $hWnd, $iLength )\r```"
+    ],
+    "_GUICtrlSlider_SetTic": [
+        "Sets a tick mark in a slider at the specified logical position",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetTic ( $hWnd, $iPosition )\r```"
+    ],
+    "_GUICtrlSlider_SetTicFreq": [
+        "Sets the interval frequency for tick marks in a slider",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetTicFreq ( $hWnd, $iFreg )\r```"
+    ],
+    "_GUICtrlSlider_SetTipSide": [
+        "Positions a ToolTip control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetTipSide ( $hWnd, $iLocation )\r```"
+    ],
+    "_GUICtrlSlider_SetToolTips": [
+        "Assigns a ToolTip control to a slider control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetToolTips ( $hWnd, $hWndTT )\r```"
+    ],
+    "_GUICtrlSlider_SetUnicodeFormat": [
+        "Sets the Unicode character format flag for the control",
+        "```\r#include <GuiSlider.au3>\r_GUICtrlSlider_SetUnicodeFormat ( $hWnd, $bUnicode )\r```"
+    ]
+}

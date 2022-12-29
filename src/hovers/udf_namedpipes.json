@@ -1,0 +1,46 @@
+{
+    "_NamedPipes_CallNamedPipe": [
+        "Performs a read/write operation on a named pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_CallNamedPipe ( $sPipeName, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize, ByRef $iRead [, $iTimeOut = 0] )\r```"
+    ],
+    "_NamedPipes_ConnectNamedPipe": [
+        "Enables a named pipe server process to wait for a client process to connect",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_ConnectNamedPipe ( $hNamedPipe [, $tOverlapped = 0] )\r```"
+    ],
+    "_NamedPipes_CreateNamedPipe": [
+        "Creates an instance of a named pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_CreateNamedPipe ( $sName [, $iAccess = 2 [, $iFlags = 2 [, $iACL = 0 [, $iType = 1 [, $iRead = 1 [, $iWait = 0 [, $iMaxInst = 25 [, $iOutBufSize = 4096 [, $iInpBufSize = 4096 [, $iDefaultTimeout = 5000 [, $tSecurity = 0]]]]]]]]]]] )\r```"
+    ],
+    "_NamedPipes_CreatePipe": [
+        "Creates an anonymous pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_CreatePipe ( ByRef $hReadPipe, ByRef $hWritePipe [, $tSecurity = 0 [, $iSize = 0]] )\r```"
+    ],
+    "_NamedPipes_DisconnectNamedPipe": [
+        "Disconnects the server end of a named pipe instance from a client process",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_DisconnectNamedPipe ( $hNamedPipe )\r```"
+    ],
+    "_NamedPipes_GetNamedPipeHandleState": [
+        "Retrieves information about a specified named pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_GetNamedPipeHandleState ( $hNamedPipe )\r```"
+    ],
+    "_NamedPipes_GetNamedPipeInfo": [
+        "Retrieves information about the specified named pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_GetNamedPipeInfo ( $hNamedPipe )\r```"
+    ],
+    "_NamedPipes_PeekNamedPipe": [
+        "Copies data from a pipe into a buffer without removing it from the pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_PeekNamedPipe ( $hNamedPipe )\r```"
+    ],
+    "_NamedPipes_SetNamedPipeHandleState": [
+        "Sets the read mode and the blocking mode of the specified named pipe",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_SetNamedPipeHandleState ( $hNamedPipe, $iRead, $iWait [, $iBytes = 0 [, $iTimeOut = 0]] )\r```"
+    ],
+    "_NamedPipes_TransactNamedPipe": [
+        "Reads and writes to a named pipe in one network operation",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_TransactNamedPipe ( $hNamedPipe, $pInpBuf, $iInpSize, $pOutBuf, $iOutSize [, $tOverlapped = 0] )\r```"
+    ],
+    "_NamedPipes_WaitNamedPipe": [
+        "Waits for an instance of a named pipe to become available",
+        "```\r#include <NamedPipes.au3>\r_NamedPipes_WaitNamedPipe ( $sPipeName [, $iTimeOut = 0] )\r```"
+    ]
+}

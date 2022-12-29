@@ -1,0 +1,22 @@
+{
+    "_Degree": [
+        "Converts radians to degrees",
+        "```\r#include <Math.au3>\r_Degree ( $iRadians )\r```"
+    ],
+    "_MathCheckDiv": [
+        "Checks if first number is divisible by the second number",
+        "```\r#include <Math.au3>\r_MathCheckDiv ( $iNum1 [, $iNum2 = 2] )\r```"
+    ],
+    "_Max": [
+        "Evaluates which of the two numbers is higher",
+        "```\r#include <Math.au3>\r_Max ( $iNum1, $iNum2 )\r```"
+    ],
+    "_Min": [
+        "Evaluates which of the two numbers is lower",
+        "```\r#include <Math.au3>\r_Min ( $iNum1, $iNum2 )\r```"
+    ],
+    "_Radian": [
+        "Converts degrees to radians",
+        "```\r#include <Math.au3>\r_Radian ( $iDegrees )\r```"
+    ]
+}

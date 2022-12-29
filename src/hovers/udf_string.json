@@ -1,0 +1,34 @@
+{
+    "_HexToString": [
+        "Convert a hex string to a string",
+        "```\r#include <String.au3>\r_HexToString ( $sHex )\r```"
+    ],
+    "_StringBetween": [
+        "Find strings between two string delimiters",
+        "```\r#include <String.au3>\r_StringBetween ( $sString, $sStart, $sEnd [, $iMode = $STR_ENDISSTART [, $bCase = False]] )\r```"
+    ],
+    "_StringExplode": [
+        "Splits up a string into substrings depending on the given delimiters as PHP Explode v5",
+        "```\r#include <String.au3>\r_StringExplode ( $sString, $sDelimiter [, $iLimit = 0] )\r```"
+    ],
+    "_StringInsert": [
+        "Inserts a string within another string",
+        "```\r#include <String.au3>\r_StringInsert ( $sString, $sInsertString, $iPosition )\r```"
+    ],
+    "_StringProper": [
+        "Changes a string to proper case, same as the =Proper function in Excel",
+        "```\r#include <String.au3>\r_StringProper ( $sString )\r```"
+    ],
+    "_StringRepeat": [
+        "Repeats a string a specified number of times",
+        "```\r#include <String.au3>\r_StringRepeat ( $sString, $iRepeatCount )\r```"
+    ],
+    "_StringTitleCase": [
+        "Changes a string to a title case string",
+        "```\r#include <String.au3>\r_StringTitleCase ( $sString )\r```"
+    ],
+    "_StringToHex": [
+        "Convert a string to a hex string",
+        "```\r#include <String.au3>\r_StringToHex ( $sString )\r```"
+    ]   
+}

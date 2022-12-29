@@ -1,0 +1,42 @@
+{
+    "_MemGlobalAlloc": [
+		"Allocates the specified number of bytes from the heap",
+		"```\r#include <Memory.au3>\r_MemGlobalAlloc ( $iBytes [, $iFlags = 0] )\r```"
+	],
+    "_MemGlobalFree": [
+		"Frees the specified global memory object and invalidates its handle",
+		"```\r#include <Memory.au3>\r_MemGlobalFree ( $hMemory )\r```"
+	],
+    "_MemGlobalLock": [
+		"Locks a global memory object and returns a pointer to the first byte of the object's memory block",
+		"```\r#include <Memory.au3>\r_MemGlobalLock ( $hMemory )\r```"
+	],
+    "_MemGlobalSize": [
+		"Retrieves the current size of the specified global memory object",
+		"```\r#include <Memory.au3>\r_MemGlobalSize ( $hMemory )\r```"
+	],
+    "_MemGlobalUnlock": [
+		"Decrements the lock count associated with a memory object that was allocated with GMEM_MOVEABLE",
+		"```\r#include <Memory.au3>\r_MemGlobalUnlock ( $hMemory )\r```"
+	],
+    "_MemMoveMemory": [
+		"Moves memory either forward or backward, aligned or unaligned",
+		"```\r#include <Memory.au3>\r_MemMoveMemory ( $pSource, $pDest, $iLength )\r```"
+	],
+    "_MemVirtualAlloc": [
+		"Reserves or commits a region of pages in the virtual address space of the calling process",
+		"```\r#include <Memory.au3>\r_MemVirtualAlloc ( $pAddress, $iSize, $iAllocation, $iProtect )\r```"
+	],
+    "_MemVirtualAllocEx": [
+		"Reserves a region of memory within the virtual address space of a specified process",
+		"```\r#include <Memory.au3>\r_MemVirtualAllocEx ( $hProcess, $pAddress, $iSize, $iAllocation, $iProtect )\r```"
+	],
+    "_MemVirtualFree": [
+		"Releases a region of pages within the virtual address space of a process",
+		"```\r#include <Memory.au3>\r_MemVirtualFree ( $pAddress, $iSize, $iFreeType )\r```"
+	],
+    "_MemVirtualFreeEx": [
+		"Releases a region of pages within the virtual address space of a process",
+		"```\r#include <Memory.au3>\r_MemVirtualFreeEx ( $hProcess, $pAddress, $iSize, $iFreeType )\r```"
+	]
+}

@@ -1,0 +1,118 @@
+{
+    "_FTP_Close": [
+		"Closes the _FTP_Open or _FTP_Connect session",
+		"```\r#include <FTPEx.au3>\r_FTP_Close ( $hSession )\r```"
+	],
+    "_FTP_Command": [
+		"Sends a command to an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_Command ( $hFTPSession, $sFTPCommand [, $iFlags = $FTP_TRANSFER_TYPE_ASCII [, $iExpectResponse = 0 [, $iContext = 0]]] )\r```"
+	],
+    "_FTP_Connect": [
+		"Connects to an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_Connect ( $hInternetSession, $sServerName, $sUsername, $sPassword [, $iPassive = 0 [, $iServerPort = 0 [, $iService = $INTERNET_SERVICE_FTP [, $iFlags = 0 [, $fuContext = 0]]]]] )\r```"
+	],
+    "_FTP_DecodeInternetStatus": [
+		"Decode a received Internet Status",
+		"```\r#include <FTPEx.au3>\r_FTP_DecodeInternetStatus ( $iInternetStatus )\r```"
+	],
+    "_FTP_DirCreate": [
+		"Makes an Directory on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_DirCreate ( $hFTPSession, $sRemote )\r```"
+	],
+    "_FTP_DirDelete": [
+		"Delete's an Directory on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_DirDelete ( $hFTPSession, $sRemote )\r```"
+	],
+    "_FTP_DirGetCurrent": [
+		"Get Current Directory on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_DirGetCurrent ( $hFTPSession )\r```"
+	],
+    "_FTP_DirPutContents": [
+		"Puts an folder on an FTP server. Recursivley if selected",
+		"```\r#include <FTPEx.au3>\r_FTP_DirPutContents ( $hFTPSession, $sLocalFolder, $sRemoteFolder, $bRecursivePut [, $iContext = 0] )\r```"
+	],
+    "_FTP_DirSetCurrent": [
+		"Set Current Directory on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_DirSetCurrent ( $hFTPSession, $sRemote )\r```"
+	],
+    "_FTP_FileClose": [
+		"Closes the Handle returned by _FTP_FileOpen",
+		"```\r#include <FTPEx.au3>\r_FTP_FileClose ( $hFTPFile )\r```"
+	],
+    "_FTP_FileDelete": [
+		"Delete an file from an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FileDelete ( $hFTPSession, $sRemoteFile )\r```"
+	],
+    "_FTP_FileGet": [
+		"Get file from a FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FileGet ( $hFTPSession, $sRemoteFile, $sLocalFile [, $bFailIfExists = False [, $iFlagsAndAttributes = 0 [, $iFlags = $FTP_TRANSFER_TYPE_UNKNOWN [, $iContext = 0]]]] )\r```"
+	],
+    "_FTP_FileGetSize": [
+		"Gets filesize of a file on the FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FileGetSize ( $hFTPSession, $sFileName )\r```"
+	],
+    "_FTP_FileOpen": [
+		"Initiates access to a remote file on an FTP server for reading or writing",
+		"```\r#include <FTPEx.au3>\r_FTP_FileOpen ( $hConnect, $sFileName [, $iAccess = $GENERIC_READ [, $iFlags = $INTERNET_FLAG_TRANSFER_BINARY [, $iContext = 0]]] )\r```"
+	],
+    "_FTP_FilePut": [
+		"Puts an file on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FilePut ( $hFTPSession, $sLocalFile, $sRemoteFile [, $iFlags = 0 [, $iContext = 0]] )\r```"
+	],
+    "_FTP_FileRead": [
+		"Reads data from a handle opened by _FTP_FileOpen()",
+		"```\r#include <FTPEx.au3>\r_FTP_FileRead ( $hFTPFile, $iNumberOfBytesToRead )\r```"
+	],
+    "_FTP_FileRename": [
+		"Renames an file on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FileRename ( $hFTPSession, $sExisting, $sNew )\r```"
+	],
+    "_FTP_FileTimeLoHiToStr": [
+		"Converts filetime Loword and Hiword to a string",
+		"```\r#include <FTPEx.au3>\r_FTP_FileTimeLoHiToStr ( $iLoDWORD, $iHiDWORD [, $bFmt = 0] )\r```"
+	],
+    "_FTP_FindFileClose": [
+		"Delete FindFile Handle",
+		"```\r#include <FTPEx.au3>\r_FTP_FindFileClose ( $hFTPFind )\r```"
+	],
+    "_FTP_FindFileFirst": [
+		"Find First File on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FindFileFirst ( $hFTPSession, $sRemotePath, ByRef $hFTPFind [, $iFlags = 0 [, $iContext = 0]] )\r```"
+	],
+    "_FTP_FindFileNext": [
+		"Find Next File on an FTP server",
+		"```\r#include <FTPEx.au3>\r_FTP_FindFileNext ( $hFTPFind )\r```"
+	],
+    "_FTP_GetLastResponseInfo": [
+		"Retrieves the last error description or server response on the thread calling this function",
+		"```\r#include <FTPEx.au3>\r_FTP_GetLastResponseInfo ( ByRef $iError, ByRef $sMessage )\r```"
+	],
+    "_FTP_ListToArray": [
+		"Get Filenames, Directories or Both of current remote directory",
+		"```\r#include <FTPEx.au3>\r_FTP_ListToArray ( $hFTPSession [, $iReturnType = 0 [, $iFlags = $INTERNET_FLAG_NO_CACHE_WRITE [, $iContext = 0]]] )\r```"
+	],
+    "_FTP_ListToArray2D": [
+		"Get Filenames and filesizes of current remote directory",
+		"```\r#include <FTPEx.au3>\r_FTP_ListToArray2D ( $hFTPSession [, $iReturnType = 0 [, $iFlags = $INTERNET_FLAG_NO_CACHE_WRITE [, $iContext = 0]]] )\r```"
+	],
+    "_FTP_ListToArrayEx": [
+		"Get names, sizes, attributes and times of files/dir of current remote directory",
+		"```\r#include <FTPEx.au3>\r_FTP_ListToArrayEx ( $hFTPSession [, $iReturnType = 0 [, $iFlags = $INTERNET_FLAG_NO_CACHE_WRITE [, $iFmt = 1 [, $iContext = 0]]]] )\r```"
+	],
+    "_FTP_Open": [
+		"Opens an FTP session",
+		"```\r#include <FTPEx.au3>\r_FTP_Open ( $sAgent [, $iAccessType = $INTERNET_OPEN_TYPE_DIRECT [, $sProxyName = '' [, $sProxyBypass = '' [, $iFlags = 0]]]] )\r```"
+	],
+    "_FTP_ProgressDownload": [
+		"Downloads a file in Binary Mode and shows a Progress window or by Calling a User defined Function",
+		"```\r#include <FTPEx.au3>\r_FTP_ProgressDownload ( $hFTPSession, $sLocalFile, $sRemoteFile [, $hFunctionToCall = 0] )\r```"
+	],
+    "_FTP_ProgressUpload": [
+		"Uploads a file in Binary Mode and shows a Progress window or by Calling a User defined Function",
+		"```\r#include <FTPEx.au3>\r_FTP_ProgressUpload ( $hFTPSession, $sLocalFile, $sRemoteFile [, $hFunctionToCall = 0] )\r```"
+	],
+    "_FTP_SetStatusCallback": [
+		"Registers callback function that WinINet functions can call as progress is made during an operation",
+		"```\r#include <FTPEx.au3>\r_FTP_SetStatusCallback ( $hInternetSession, $sFunctionName )\r```"
+	]
+}

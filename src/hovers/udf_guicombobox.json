@@ -1,0 +1,206 @@
+{
+    "_GUICtrlComboBox_AddDir": [
+        "Adds the names of directories and files",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_AddDir ( $hWnd, $sFilePath [, $iAttributes = 0 [, $bBrackets = True]] )\r```"
+    ],
+    "_GUICtrlComboBox_AddString": [
+        "Add a string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_AddString ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlComboBox_AutoComplete": [
+        "AutoComplete a ComboBox edit control",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_AutoComplete ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_BeginUpdate": [
+        "Prevents updating of the control until the EndUpdate function is called",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_BeginUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_Create": [
+        "Create a ComboBox control",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_Create ( $hWnd, $sText, $iX, $iY [, $iWidth = 100 [, $iHeight = 120 [, $iStyle = 0x00200042 [, $iExStyle = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlComboBox_DeleteString": [
+        "Delete a string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_DeleteString ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlComboBox_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_EndUpdate": [
+        "Enables screen repainting that was turned off with the BeginUpdate function",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_EndUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_FindString": [
+        "Search for a string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_FindString ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_FindStringExact": [
+        "Search for a string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_FindStringExact ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_GetComboBoxInfo": [
+        "Gets information about the specified ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetComboBoxInfo ( $hWnd, ByRef $tInfo )\r```"
+    ],
+    "_GUICtrlComboBox_GetCount": [
+        "Retrieve the number of items",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetCueBanner": [
+        "Gets the cue banner text displayed in the edit control of a combo box",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetCueBanner ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetCurSel": [
+        "Retrieve the index of the currently selected item",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetCurSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetDroppedControlRect": [
+        "Retrieve the screen coordinates of a combo box in its dropped-down state",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetDroppedControlRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetDroppedControlRectEx": [
+        "Retrieve the screen coordinates of a combo box in its dropped-down state",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetDroppedControlRectEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetDroppedState": [
+        "Determines whether the ListBox of a ComboBox is dropped down",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetDroppedState ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetDroppedWidth": [
+        "Retrieve the minimum allowable width, of the ListBox of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetDroppedWidth ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetEditSel": [
+        "Gets the starting and ending character positions of the current selection in the edit control of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetEditSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetEditText": [
+        "Get the text from the edit control of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetEditText ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetExtendedUI": [
+        "Determines whether a ComboBox has the default user interface or the extended user interface",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetExtendedUI ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetHorizontalExtent": [
+        "Gets the width, in pixels, that the ListBox of a ComboBox control can be scrolled horizontally",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetHorizontalExtent ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetItemHeight": [
+        "Determines the height of list items or the selection field in a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetItemHeight ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_GetLBText": [
+        "Retrieve a string from the list of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLBText ( $hWnd, $iIndex, ByRef $sText )\r```"
+    ],
+    "_GUICtrlComboBox_GetLBTextLen": [
+        "Gets the length, in characters, of a string in the list of a combo box",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLBTextLen ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlComboBox_GetList": [
+        "Retrieves all items from the list portion of a ComboBox control",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetList ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetListArray": [
+        "Retrieves all items from the list portion of a ComboBox control",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetListArray ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetLocale": [
+        "Retrieves the current locale",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLocale ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetLocaleCountry": [
+        "Retrieves the current country code",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLocaleCountry ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetLocaleLang": [
+        "Retrieves the current language identifier",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLocaleLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetLocalePrimLang": [
+        "Extract primary language id from a language id",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLocalePrimLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetLocaleSubLang": [
+        "Extract sublanguage id from a language id",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetLocaleSubLang ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetMinVisible": [
+        "Retrieve the minimum number of visible items in the drop-down list of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetMinVisible ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_GetTopIndex": [
+        "Retrieve the 0-based index of the first visible item in the ListBox portion of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_GetTopIndex ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_InitStorage": [
+        "Allocates memory for storing ListBox items",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_InitStorage ( $hWnd, $iNum, $iBytes )\r```"
+    ],
+    "_GUICtrlComboBox_InsertString": [
+        "Insert a string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_InsertString ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_LimitText": [
+        "Limits the length of the text the user may type into the edit control of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_LimitText ( $hWnd [, $iLimit = 0] )\r```"
+    ],
+    "_GUICtrlComboBox_ReplaceEditSel": [
+        "Replace text selected in edit box",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_ReplaceEditSel ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlComboBox_ResetContent": [
+        "Remove all items from the ListBox and edit control of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_ResetContent ( $hWnd )\r```"
+    ],
+    "_GUICtrlComboBox_SelectString": [
+        "Searches the ListBox of a ComboBox for an item that begins with the characters in a specified string",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SelectString ( $hWnd, $sText [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_SetCueBanner": [
+        "Sets the cue banner text that is displayed for the edit control of a combo box",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetCueBanner ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlComboBox_SetCurSel": [
+        "Select a string in the list of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetCurSel ( $hWnd [, $iIndex = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_SetDroppedWidth": [
+        "Set the maximum allowable width, in pixels, of the ListBox of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetDroppedWidth ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUICtrlComboBox_SetEditSel": [
+        "Select characters in the edit control of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetEditSel ( $hWnd, $iStart, $iStop )\r```"
+    ],
+    "_GUICtrlComboBox_SetEditText": [
+        "Set the text of the edit control of the ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetEditText ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlComboBox_SetExtendedUI": [
+        "Select either the default user interface or the extended user interface",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetExtendedUI ( $hWnd [, $bExtended = False] )\r```"
+    ],
+    "_GUICtrlComboBox_SetHorizontalExtent": [
+        "Set the width, in pixels, by which a list box can be scrolled horizontally",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetHorizontalExtent ( $hWnd, $iWidth )\r```"
+    ],
+    "_GUICtrlComboBox_SetItemHeight": [
+        "Set the height of list items or the selection field in a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetItemHeight ( $hWnd, $iHeight [, $iComponent = -1] )\r```"
+    ],
+    "_GUICtrlComboBox_SetMinVisible": [
+        "Set the minimum number of visible items in the drop-down list of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetMinVisible ( $hWnd, $iMinimum )\r```"
+    ],
+    "_GUICtrlComboBox_SetTopIndex": [
+        "Ensure that a particular item is visible in the ListBox of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_SetTopIndex ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlComboBox_ShowDropDown": [
+        "Show or hide the ListBox of a ComboBox",
+        "```\r#include <GuiComboBox.au3>\r_GUICtrlComboBox_ShowDropDown ( $hWnd [, $bShow = False] )\r```"
+    ]
+}

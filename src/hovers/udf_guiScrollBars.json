@@ -1,0 +1,102 @@
+{
+    "_GUIScrollBars_EnableScrollBar": [
+        "Enable/Disable scrollbar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_EnableScrollBar ( $hWnd [, $iSBflags = $SB_BOTH [, $iArrows = $ESB_ENABLE_BOTH]] )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarInfoEx": [
+        "Retrieves information about the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarInfoEx ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarRect": [
+        "Retrieves coordinates of the scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarRect ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarRGState": [
+        "Retrieves the state of a scroll bar component",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarRGState ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarXYLineButton": [
+        "Retrieves the Height or width of the thumb",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarXYLineButton ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarXYThumbBottom": [
+        "Retrieves the Position of the bottom or right of the thumb",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarXYThumbBottom ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollBarXYThumbTop": [
+        "Retrieves the Position of the top or left of the thumb",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollBarXYThumbTop ( $hWnd, $iObject )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfo": [
+        "Retrieves the parameters of a scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfo ( $hWnd, $iBar, ByRef $tSCROLLINFO )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoEx": [
+        "Retrieves the parameters of a scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoEx ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoMax": [
+        "Retrieves the maximum scrolling position",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoMax ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoMin": [
+        "Retrieves the minimum scrolling position",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoMin ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoPage": [
+        "Retrieves the page size",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoPage ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoPos": [
+        "Retrieves the position of the scroll box",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoPos ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollInfoTrackPos": [
+        "Retrieves the immediate position of a scroll box that the user is dragging",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollInfoTrackPos ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollPos": [
+        "Retrieves the current position of the scroll box (thumb) in the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollPos ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_GetScrollRange": [
+        "Retrieves the current minimum and maximum scroll box (thumb) positions for the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_GetScrollRange ( $hWnd, $iBar )\r```"
+    ],
+    "_GUIScrollBars_Init": [
+        "Initialize the scrollbars for the window",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_Init ( $hWnd [, $iMaxH = -1 [, $iMaxV = -1]] )\r```"
+    ],
+    "_GUIScrollBars_ScrollWindow": [
+        "Scrolls the contents of the specified window's client area",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_ScrollWindow ( $hWnd, $iXAmount, $iYAmount )\r```"
+    ],
+    "_GUIScrollBars_SetScrollInfo": [
+        "Sets the parameters of a scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollInfo ( $hWnd, $iBar, $tSCROLLINFO [, $bRedraw = True] )\r```"
+    ],
+    "_GUIScrollBars_SetScrollInfoMax": [
+        "Sets the maximum scrolling position",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollInfoMax ( $hWnd, $iBar, $iMax )\r```"
+    ],
+    "_GUIScrollBars_SetScrollInfoMin": [
+        "Sets the minimum scrolling position",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollInfoMin ( $hWnd, $iBar, $iMin )\r```"
+    ],
+    "_GUIScrollBars_SetScrollInfoPage": [
+        "Sets the page size",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollInfoPage ( $hWnd, $iBar, $iPage )\r```"
+    ],
+    "_GUIScrollBars_SetScrollInfoPos": [
+        "Sets the position of the scroll box (thumb) in the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollInfoPos ( $hWnd, $iBar, $iPos )\r```"
+    ],
+    "_GUIScrollBars_SetScrollRange": [
+        "Sets the minimum and maximum scroll box positions for the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_SetScrollRange ( $hWnd, $iBar, $iMinPos, $iMaxPos )\r```"
+    ],
+    "_GUIScrollBars_ShowScrollBar": [
+        "Shows or hides the specified scroll bar",
+        "```\r#include <GuiScrollBars.au3>\r_GUIScrollBars_ShowScrollBar ( $hWnd, $iBar [, $bShow = True] )\r```"
+    ]
+}

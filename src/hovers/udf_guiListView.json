@@ -1,0 +1,634 @@
+{
+    "_GUICtrlListView_AddArray": [
+        "Adds items from an array to the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_AddArray ( $hWnd, ByRef $aItems )\r```"
+    ],
+    "_GUICtrlListView_AddColumn": [
+        "Adds a new column in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_AddColumn ( $hWnd, $sText [, $iWidth = 50 [, $iAlign = -1 [, $iImage = -1 [, $bOnRight = False]]]] )\r```"
+    ],
+    "_GUICtrlListView_AddItem": [
+        "Adds a new item to the end of the list",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_AddItem ( $hWnd, $sText [, $iImage = -1 [, $iParam = 0]] )\r```"
+    ],
+    "_GUICtrlListView_AddSubItem": [
+        "Adds a new subitem to the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_AddSubItem ( $hWnd, $iIndex, $sText, $iSubItem [, $iImage = -1] )\r```"
+    ],
+    "_GUICtrlListView_ApproximateViewHeight": [
+        "Calculates the approximate height required to display a given number of items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_ApproximateViewHeight ( $hWnd [, $iCount = -1 [, $iCX = -1 [, $iCY = -1]]] )\r```"
+    ],
+    "_GUICtrlListView_ApproximateViewRect": [
+        "Calculates the approximate size required to display a given number of items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_ApproximateViewRect ( $hWnd [, $iCount = -1 [, $iCX = -1 [, $iCY = -1]]] )\r```"
+    ],
+    "_GUICtrlListView_ApproximateViewWidth": [
+        "Calculates the approximate width required to display a given number of items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_ApproximateViewWidth ( $hWnd [, $iCount = -1 [, $iCX = -1 [, $iCY = -1]]] )\r```"
+    ],
+    "_GUICtrlListView_Arrange": [
+        "Arranges items in icon view",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_Arrange ( $hWnd [, $iArrange = 0] )\r```"
+    ],
+    "_GUICtrlListView_BeginUpdate": [
+        "Prevents updating of the control until the _GUICtrlListView_EndUpdate() function is called",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_BeginUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_CancelEditLabel": [
+        "Cancels an item text editing operation",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_CancelEditLabel ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_ClickItem": [
+        "Clicks an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_ClickItem ( $hWnd, $iIndex [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 1]]]] )\r```"
+    ],
+    "_GUICtrlListView_CopyItems": [
+        "Copy Items between 2 list-view controls",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_CopyItems ( $hWnd_Source, $hWnd_Destination [, $bDelFlag = False] )\r```"
+    ],
+    "_GUICtrlListView_Create": [
+        "Create a ListView control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_Create ( $hWnd, $sHeaderText, $iX, $iY [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = 0x0000000D [, $iExStyle = 0x00000000 [, $bCoInit = False]]]]] )\r```"
+    ],
+    "_GUICtrlListView_CreateDragImage": [
+        "Creates a drag image list for the specified item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_CreateDragImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_CreateSolidBitMap": [
+        "Creates a solid color bitmap",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_CreateSolidBitMap ( $hWnd, $iColor, $iWidth, $iHeight )\r```"
+    ],
+    "_GUICtrlListView_DeleteAllItems": [
+        "Removes all items from a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_DeleteAllItems ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_DeleteColumn": [
+        "Removes a column from a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_DeleteColumn ( $hWnd, $iCol )\r```"
+    ],
+    "_GUICtrlListView_DeleteItem": [
+        "Removes an item from a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_DeleteItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_DeleteItemsSelected": [
+        "Deletes item(s) selected",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_DeleteItemsSelected ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_Destroy": [
+        "Delete the listview control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlListView_DrawDragImage": [
+        "Draw the Drag Image",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_DrawDragImage ( ByRef $hWnd, ByRef $aDrag )\r```"
+    ],
+    "_GUICtrlListView_EditLabel": [
+        "Begins in place editing of the specified item text",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_EditLabel ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_EnableGroupView": [
+        "Enables or disables whether the items in the control display as a group",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_EnableGroupView ( $hWnd [, $bEnable = True] )\r```"
+    ],
+    "_GUICtrlListView_EndUpdate": [
+        "Enables screen repainting that was turned off with the _GUICtrlListView_BeginUpdate() function",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_EndUpdate ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_EnsureVisible": [
+        "Ensures that a list-view item is either entirely or partially visible",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_EnsureVisible ( $hWnd, $iIndex [, $bPartialOK = False] )\r```"
+    ],
+    "_GUICtrlListView_FindInText": [
+        "Searches for an item that contains the specified text anywhere in its text",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_FindInText ( $hWnd, $sText [, $iStart = -1 [, $bWrapOK = True [, $bReverse = False]]] )\r```"
+    ],
+    "_GUICtrlListView_FindItem": [
+        "Searches for an item with the specified characteristics",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_FindItem ( $hWnd, $iStart, ByRef $tFindInfo [, $sText = \"\"] )\r```"
+    ],
+    "_GUICtrlListView_FindNearest": [
+        "Finds the item nearest to the position specified",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_FindNearest ( $hWnd, $iX, $iY [, $iDir = 0 [, $iStart = -1 [, $bWrapOK = True]]] )\r```"
+    ],
+    "_GUICtrlListView_FindParam": [
+        "Searches for an item with the specified lParam",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_FindParam ( $hWnd, $iParam [, $iStart = -1] )\r```"
+    ],
+    "_GUICtrlListView_FindText": [
+        "Searches for an item with the specified text",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_FindText ( $hWnd, $sText [, $iStart = -1 [, $bPartialOK = True [, $bWrapOK = True]]] )\r```"
+    ],
+    "_GUICtrlListView_GetBkColor": [
+        "Retrieves the background color of a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetBkColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetBkImage": [
+        "Retrieves the background image in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetBkImage ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetCallbackMask": [
+        "Retrieves the callback mask for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetCallbackMask ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetColumn": [
+        "Retrieves the attributes of a column",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetColumn ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetColumnCount": [
+        "Retrieve the number of columns",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetColumnCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetColumnOrder": [
+        "Retrieves the current left-to-right order of columns",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetColumnOrder ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetColumnOrderArray": [
+        "Retrieves the current left-to-right order of columns in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetColumnOrderArray ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetColumnWidth": [
+        "Retrieves the width of a column in report or list view",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetColumnWidth ( $hWnd, $iCol )\r```"
+    ],
+    "_GUICtrlListView_GetCounterPage": [
+        "Calculates the number of items that can fit vertically in the visible area",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetCounterPage ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetEditControl": [
+        "Retrieves the handle to the edit control being used to edit an item's text",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetEditControl ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetExtendedListViewStyle": [
+        "Retrieves the extended styles that are currently in use",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetExtendedListViewStyle ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetFocusedGroup": [
+        "Gets the group that has the focus",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetFocusedGroup ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetGroupCount": [
+        "Gets the number of groups",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetGroupCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetGroupInfo": [
+        "Retrieves group information",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetGroupInfo ( $hWnd, $iGroupID )\r```"
+    ],
+    "_GUICtrlListView_GetGroupInfoByIndex": [
+        "Retrieves group information",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetGroupInfoByIndex ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetGroupRect": [
+        "Gets the rectangle for a specified group",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetGroupRect ( $hWnd, $iGroupID [, $iGet = $LVGGR_GROUP] )\r```"
+    ],
+    "_GUICtrlListView_GetGroupViewEnabled": [
+        "Checks whether the control has group view enabled",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetGroupViewEnabled ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetHeader": [
+        "Retrieves the handle to the header control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetHeader ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetHotCursor": [
+        "Retrieves the HCURSOR value used when the pointer is over an item while hot tracking is enabled",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetHotCursor ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetHotItem": [
+        "Retrieves the index of the hot item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetHotItem ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetHoverTime": [
+        "Retrieves the amount of time that the mouse cursor must hover over an item before it is selected",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetHoverTime ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetImageList": [
+        "Retrieves the handle to an image list used for drawing listview items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetImageList ( $hWnd, $iImageList )\r```"
+    ],
+    "_GUICtrlListView_GetISearchString": [
+        "Retrieves the incremental search string of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetISearchString ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetItem": [
+        "Retrieves an item's attributes",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItem ( $hWnd, $iIndex [, $iSubItem = 0] )\r```"
+    ],
+    "_GUICtrlListView_GetItemChecked": [
+        "Returns the check state for a list-view control item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemChecked ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemCount": [
+        "Retrieves the number of items in a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetItemCut": [
+        "Determines whether the item is marked for a cut and paste operation",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemCut ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemDropHilited": [
+        "Determines whether the item is highlighted as a drag-and-drop target",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemDropHilited ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemEx": [
+        "Retrieves some or all of an item's attributes",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemEx ( $hWnd, ByRef $tItem )\r```"
+    ],
+    "_GUICtrlListView_GetItemFocused": [
+        "Determines whether the item is highlighted as a drag-and-drop target",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemFocused ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemGroupID": [
+        "Gets the item group ID",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemGroupID ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemImage": [
+        "Retrieves the index of the item's icon",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemImage ( $hWnd, $iIndex [, $iSubItem = 0] )\r```"
+    ],
+    "_GUICtrlListView_GetItemIndent": [
+        "Retrieves the number of image widths the item is indented",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemIndent ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemParam": [
+        "Retrieves the application specific value of the item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemParam ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemPosition": [
+        "Retrieves the position of an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemPosition ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemPositionX": [
+        "Retrieves the X position of an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemPositionX ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemPositionY": [
+        "Retrieves the Y position of an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemPositionY ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemRect": [
+        "Retrieves the bounding rectangle for all or part of an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemRect ( $hWnd, $iIndex [, $iPart = 3] )\r```"
+    ],
+    "_GUICtrlListView_GetItemRectEx": [
+        "Retrieves the bounding rectangle for all or part of an item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemRectEx ( $hWnd, $iIndex [, $iPart = 3] )\r```"
+    ],
+    "_GUICtrlListView_GetItemSelected": [
+        "Determines whether the item is selected",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemSelected ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemSpacing": [
+        "Determines the spacing between items in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemSpacing ( $hWnd [, $bSmall = False] )\r```"
+    ],
+    "_GUICtrlListView_GetItemSpacingX": [
+        "Determines the horizontal spacing between items in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemSpacingX ( $hWnd [, $bSmall = False] )\r```"
+    ],
+    "_GUICtrlListView_GetItemSpacingY": [
+        "Determines the vertical spacing between items in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemSpacingY ( $hWnd [, $bSmall = False] )\r```"
+    ],
+    "_GUICtrlListView_GetItemState": [
+        "Retrieves the state of a listview item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemState ( $hWnd, $iIndex, $iMask )\r```"
+    ],
+    "_GUICtrlListView_GetItemStateImage": [
+        "Gets the state image that is displayed",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemStateImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_GetItemText": [
+        "Retrieves the text of an item or subitem",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemText ( $hWnd, $iIndex [, $iSubItem = 0] )\r```"
+    ],
+    "_GUICtrlListView_GetItemTextArray": [
+        "Retrieves all of a list-view item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemTextArray ( $hWnd [, $iItem = -1] )\r```"
+    ],
+    "_GUICtrlListView_GetItemTextString": [
+        "Retrieves all of a list-view item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetItemTextString ( $hWnd [, $iItem = -1] )\r```"
+    ],
+    "_GUICtrlListView_GetNextItem": [
+        "Searches for an item that has the specified properties",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetNextItem ( $hWnd [, $iStart = -1 [, $iSearch = 0 [, $iState = 8]]] )\r```"
+    ],
+    "_GUICtrlListView_GetNumberOfWorkAreas": [
+        "Retrieves the number of working areas in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetNumberOfWorkAreas ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetOrigin": [
+        "Retrieves the current view origin for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetOrigin ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetOriginX": [
+        "Retrieves the current horizontal view origin for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetOriginX ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetOriginY": [
+        "Retrieves the current vertical view origin for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetOriginY ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetOutlineColor": [
+        "Retrieves the color of the border of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetOutlineColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetSelectedColumn": [
+        "Retrieves the index of the selected column",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetSelectedColumn ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetSelectedCount": [
+        "Determines the number of selected items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetSelectedCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetSelectedIndices": [
+        "Retrieve indices of selected item(s)",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetSelectedIndices ( $hWnd [, $bArray = False] )\r```"
+    ],
+    "_GUICtrlListView_GetSelectionMark": [
+        "Retrieves the selection mark from the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetSelectionMark ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetStringWidth": [
+        "Determines the width of a specified string",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetStringWidth ( $hWnd, $sString )\r```"
+    ],
+    "_GUICtrlListView_GetSubItemRect": [
+        "Retrieves information about an item bounding rectangle",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetSubItemRect ( $hWnd, $iIndex, $iSubItem [, $iPart = 0] )\r```"
+    ],
+    "_GUICtrlListView_GetTextBkColor": [
+        "Retrieves the text background color of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetTextBkColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetTextColor": [
+        "Retrieves the text color of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetTextColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetToolTips": [
+        "Retrieves the ToolTip control handle",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetTopIndex": [
+        "Retrieves the index of the topmost visible item when in list or report view",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetTopIndex ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetView": [
+        "Retrieves the current view of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetView ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewDetails": [
+        "Determines whether the view mode is in detail mode",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewDetails ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewLarge": [
+        "Determines whether the view mode is in large icon mode",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewLarge ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewList": [
+        "Determines whether the view mode is in list mode",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewList ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewRect": [
+        "Retrieves the bounding rectangle of all items in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewSmall": [
+        "Determines whether the view mode is in small icon mode",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewSmall ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_GetViewTile": [
+        "Determines whether the view mode is in tile mode",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_GetViewTile ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_HideColumn": [
+        "Hides the column \"sets column width to zero\"",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_HideColumn ( $hWnd, $iCol )\r```"
+    ],
+    "_GUICtrlListView_HitTest": [
+        "Determines which item is at a specified position",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_HitTest ( $hWnd [, $iX = -1 [, $iY = -1]] )\r```"
+    ],
+    "_GUICtrlListView_InsertColumn": [
+        "Inserts a new column in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_InsertColumn ( $hWnd, $iIndex, $sText [, $iWidth = 50 [, $iAlign = -1 [, $iImage = -1 [, $bOnRight = False]]]] )\r```"
+    ],
+    "_GUICtrlListView_InsertGroup": [
+        "Inserts a group",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_InsertGroup ( $hWnd, $iIndex, $iGroupID, $sHeader [, $iAlign = 0] )\r```"
+    ],
+    "_GUICtrlListView_InsertItem": [
+        "Inserts a new item in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_InsertItem ( $hWnd, $sText [, $iIndex = -1 [, $iImage = -1 [, $iParam = 0]]] )\r```"
+    ],
+    "_GUICtrlListView_JustifyColumn": [
+        "Set Justification of a column for a list-view control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_JustifyColumn ( $hWnd, $iIndex [, $iAlign = -1] )\r```"
+    ],
+    "_GUICtrlListView_MapIDToIndex": [
+        "Maps the ID of an item to an index",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_MapIDToIndex ( $hWnd, $iID )\r```"
+    ],
+    "_GUICtrlListView_MapIndexToID": [
+        "Maps an index to an item ID",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_MapIndexToID ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_RedrawItems": [
+        "Forces the control to redraw a range of items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_RedrawItems ( $hWnd, $iFirst, $iLast )\r```"
+    ],
+    "_GUICtrlListView_RegisterSortCallBack": [
+        "Register the Simple Sort callback function",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_RegisterSortCallBack ( $hWnd [, $bNumbers = True [, $bArrows = True]] )\r```"
+    ],
+    "_GUICtrlListView_RemoveAllGroups": [
+        "Removes all groups from the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_RemoveAllGroups ( $hWnd )\r```"
+    ],
+    "_GUICtrlListView_RemoveGroup": [
+        "Removes a group from the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_RemoveGroup ( $hWnd, $iGroupID )\r```"
+    ],
+    "_GUICtrlListView_Scroll": [
+        "Scrolls the content of a list-view",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_Scroll ( $hWnd, $iDX, $iDY )\r```"
+    ],
+    "_GUICtrlListView_SetBkColor": [
+        "Sets the background color of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetBkColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlListView_SetBkImage": [
+        "Sets the background image in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetBkImage ( $hWnd [, $sURL = \"\" [, $iStyle = 0 [, $iXOffset = 0 [, $iYOffset = 0]]]] )\r```"
+    ],
+    "_GUICtrlListView_SetCallBackMask": [
+        "Changes the callback mask for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetCallBackMask ( $hWnd, $iMask )\r```"
+    ],
+    "_GUICtrlListView_SetColumn": [
+        "Sets the attributes of a column",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetColumn ( $hWnd, $iIndex, $sText [, $iWidth = -1 [, $iAlign = -1 [, $iImage = -1 [, $bOnRight = False]]]] )\r```"
+    ],
+    "_GUICtrlListView_SetColumnOrder": [
+        "Sets the left-to-right order of columns",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetColumnOrder ( $hWnd, $sOrder )\r```"
+    ],
+    "_GUICtrlListView_SetColumnOrderArray": [
+        "Sets the left-to-right order of columns in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetColumnOrderArray ( $hWnd, $aOrder )\r```"
+    ],
+    "_GUICtrlListView_SetColumnWidth": [
+        "Changes the width of a column",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetColumnWidth ( $hWnd, $iCol, $iWidth )\r```"
+    ],
+    "_GUICtrlListView_SetExtendedListViewStyle": [
+        "Sets extended styles",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetExtendedListViewStyle ( $hWnd, $iExStyle [, $iExMask = 0] )\r```"
+    ],
+    "_GUICtrlListView_SetGroupInfo": [
+        "Sets group information",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetGroupInfo ( $hWnd, $iGroupID, $sHeader [, $iAlign = 0 [, $iState = $LVGS_NORMAL]] )\r```"
+    ],
+    "_GUICtrlListView_SetHotItem": [
+        "Sets the hot item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetHotItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_SetHoverTime": [
+        "Sets the amount of time which the mouse cursor must hover over an item before it is selected",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetHoverTime ( $hWnd, $iTime )\r```"
+    ],
+    "_GUICtrlListView_SetIconSpacing": [
+        "Sets the spacing between icons where the style is large icon",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetIconSpacing ( $hWnd, $iCX, $iCY )\r```"
+    ],
+    "_GUICtrlListView_SetImageList": [
+        "Assigns an image list to the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetImageList ( $hWnd, $hHandle [, $iType = 0] )\r```"
+    ],
+    "_GUICtrlListView_SetItem": [
+        "Sets some or all of a item's attributes",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItem ( $hWnd, $sText [, $iIndex = 0 [, $iSubItem = 0 [, $iImage = -1 [, $iParam = -1 [, $iIndent = -1]]]]] )\r```"
+    ],
+    "_GUICtrlListView_SetItemChecked": [
+        "Sets the checked state",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemChecked ( $hWnd, $iIndex [, $bCheck = True] )\r```"
+    ],
+    "_GUICtrlListView_SetItemCount": [
+        "Causes the list-view control to allocate memory for the specified number of items",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemCount ( $hWnd, $iItems )\r```"
+    ],
+    "_GUICtrlListView_SetItemCut": [
+        "Sets whether the item is marked for a cut-and-paste operation",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemCut ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlListView_SetItemDropHilited": [
+        "Sets whether the item is highlighted as a drag-and-drop target",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemDropHilited ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlListView_SetItemEx": [
+        "Sets some or all of a item's attributes",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemEx ( $hWnd, ByRef $tItem )\r```"
+    ],
+    "_GUICtrlListView_SetItemFocused": [
+        "Sets whether the item has the focus",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemFocused ( $hWnd, $iIndex [, $bEnabled = True] )\r```"
+    ],
+    "_GUICtrlListView_SetItemGroupID": [
+        "Sets the item group ID",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemGroupID ( $hWnd, $iIndex, $iGroupID )\r```"
+    ],
+    "_GUICtrlListView_SetItemImage": [
+        "Sets the index of the item's icon in the control's image list",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemImage ( $hWnd, $iIndex, $iImage [, $iSubItem = 0] )\r```"
+    ],
+    "_GUICtrlListView_SetItemIndent": [
+        "Sets the number of image widths to indent the item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemIndent ( $hWnd, $iIndex, $iIndent )\r```"
+    ],
+    "_GUICtrlListView_SetItemParam": [
+        "Sets the value specific to the item",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemParam ( $hWnd, $iIndex, $iParam )\r```"
+    ],
+    "_GUICtrlListView_SetItemPosition": [
+        "Moves an item to a specified position in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemPosition ( $hWnd, $iIndex, $iCX, $iCY )\r```"
+    ],
+    "_GUICtrlListView_SetItemPosition32": [
+        "Moves an item to a specified position in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemPosition32 ( $hWnd, $iIndex, $iCX, $iCY )\r```"
+    ],
+    "_GUICtrlListView_SetItemSelected": [
+        "Sets whether the item is selected",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemSelected ( $hWnd, $iIndex [, $bSelected = True [, $bFocused = False]] )\r```"
+    ],
+    "_GUICtrlListView_SetItemState": [
+        "Changes the state of an item in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemState ( $hWnd, $iIndex, $iState, $iStateMask )\r```"
+    ],
+    "_GUICtrlListView_SetItemStateImage": [
+        "Sets the state image that is displayed",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemStateImage ( $hWnd, $iIndex, $iImage )\r```"
+    ],
+    "_GUICtrlListView_SetItemText": [
+        "Changes the text of an item or subitem",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetItemText ( $hWnd, $iIndex, $sText [, $iSubItem = 0] )\r```"
+    ],
+    "_GUICtrlListView_SetOutlineColor": [
+        "Sets the color of the border",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetOutlineColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlListView_SetSelectedColumn": [
+        "Sets the index of the selected column",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetSelectedColumn ( $hWnd, $iCol )\r```"
+    ],
+    "_GUICtrlListView_SetSelectionMark": [
+        "Sets the selection mark in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetSelectionMark ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlListView_SetTextBkColor": [
+        "Sets the background color of text in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetTextBkColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlListView_SetTextColor": [
+        "Sets the color of text in the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetTextColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlListView_SetToolTips": [
+        "Sets the ToolTip control that the control will use to display ToolTips",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetToolTips ( $hWnd, $hToolTip )\r```"
+    ],
+    "_GUICtrlListView_SetUnicodeFormat": [
+        "Sets the UNICODE character format flag for the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetUnicodeFormat ( $hWnd, $bUnicode )\r```"
+    ],
+    "_GUICtrlListView_SetView": [
+        "Sets the view of the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetView ( $hWnd, $iView )\r```"
+    ],
+    "_GUICtrlListView_SetWorkAreas": [
+        "Creates a work area within the control",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SetWorkAreas ( $hWnd, $iLeft, $iTop, $iRight, $iBottom )\r```"
+    ],
+    "_GUICtrlListView_SimpleSort": [
+        "Sorts a list-view control (limited)",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SimpleSort ( $hWnd, ByRef $vSortSense, $iCol [, $bToggleSense = True] )\r```"
+    ],
+    "_GUICtrlListView_SortItems": [
+        "Starts the sort call back, also sets the Arrow in the Header",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SortItems ( $hWnd, $iCol )\r```"
+    ],
+    "_GUICtrlListView_SubItemHitTest": [
+        "Determines which listview item or subitem is at a given position",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_SubItemHitTest ( $hWnd [, $iX = -1 [, $iY = -1]] )\r```"
+    ],
+    "_GUICtrlListView_UnRegisterSortCallBack": [
+        "UnRegister the Sort callback function",
+        "```\r#include <GuiListView.au3>\r_GUICtrlListView_UnRegisterSortCallBack ( $hWnd )\r```"
+    ]
+}

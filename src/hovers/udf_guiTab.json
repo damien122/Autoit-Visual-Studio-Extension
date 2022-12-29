@@ -1,0 +1,174 @@
+{
+    "_GUICtrlTab_ActivateTab": [
+        "Activates a tab by its index",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_ActivateTab ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_ClickTab": [
+        "Clicks a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_ClickTab ( $hWnd, $iIndex [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 1]]]] )\r```"
+    ],
+    "_GUICtrlTab_Create": [
+        "Create a TabControl control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_Create ( $hWnd, $iX, $iY [, $iWidth = 150 [, $iHeight = 150 [, $iStyle = 0x00000040 [, $iExStyle = 0x00000000]]]] )\r```"
+    ],
+    "_GUICtrlTab_DeleteAllItems": [
+        "Deletes all tabs",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_DeleteAllItems ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_DeleteItem": [
+        "Deletes a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_DeleteItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_DeselectAll": [
+        "Resets tabs, clearing any that were set to the pressed state",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_DeselectAll ( $hWnd [, $bExclude = True] )\r```"
+    ],
+    "_GUICtrlTab_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlTab_FindTab": [
+        "Searches for a tab with the specific text",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_FindTab ( $hWnd, $sText [, $bInStr = False [, $iStart = 0]] )\r```"
+    ],
+    "_GUICtrlTab_GetCurFocus": [
+        "Returns the index of the item that has the focus in a tab control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetCurFocus ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetCurSel": [
+        "Determines the currently selected tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetCurSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetDisplayRect": [
+        "Retrieves the display rectangle of the client area",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetDisplayRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetDisplayRectEx": [
+        "Retrieves the display rectangle of the client area",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetDisplayRectEx ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetExtendedStyle": [
+        "Retrieves the extended styles that are currently in use",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetExtendedStyle ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetImageList": [
+        "Retrieves the tab control image list",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetItem": [
+        "Retrieves information about a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemCount": [
+        "Retrieves the number of tabs",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetItemImage": [
+        "Retrieves the image index for a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemParam": [
+        "Retrieves the param data for a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemParam ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemRect": [
+        "Retrieves the bounding rectangle for a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemRect ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemRectEx": [
+        "Retrieves the bounding rectangle for a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemRectEx ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemState": [
+        "Retrieves the state of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemState ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetItemText": [
+        "Retrieves the text of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetItemText ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_GetRowCount": [
+        "Retrieves the current number of rows of tabs",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetRowCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetToolTips": [
+        "Retrieves the handle to the ToolTip control associated with the control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlTab_HighlightItem": [
+        "Sets the highlight state of a tab item",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_HighlightItem ( $hWnd, $iIndex [, $bHighlight = True] )\r```"
+    ],
+    "_GUICtrlTab_HitTest": [
+        "Determines where a point lies control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_HitTest ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlTab_InsertItem": [
+        "Inserts a new tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_InsertItem ( $hWnd, $iIndex, $sText [, $iImage = -1 [, $iParam = 0]] )\r```"
+    ],
+    "_GUICtrlTab_RemoveImage": [
+        "Removes an image from the control's image list",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_RemoveImage ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_SetCurFocus": [
+        "Sets the focus to a specified tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetCurFocus ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_SetCurSel": [
+        "Selects a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetCurSel ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlTab_SetExtendedStyle": [
+        "Sets the extended styles that are currently in use",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetExtendedStyle ( $hWnd, $iStyle )\r```"
+    ],
+    "_GUICtrlTab_SetImageList": [
+        "Sets the image list associated with a tab control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetImageList ( $hWnd, $hImage )\r```"
+    ],
+    "_GUICtrlTab_SetItem": [
+        "Sets information about a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItem ( $hWnd, $iIndex [, $sText = -1 [, $iState = -1 [, $iImage = -1 [, $iParam = -1]]]] )\r```"
+    ],
+    "_GUICtrlTab_SetItemImage": [
+        "Sets the image of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItemImage ( $hWnd, $iIndex, $iImage )\r```"
+    ],
+    "_GUICtrlTab_SetItemParam": [
+        "Sets the param data of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItemParam ( $hWnd, $iIndex, $iParam )\r```"
+    ],
+    "_GUICtrlTab_SetItemSize": [
+        "Sets the width and height of tabs in a fixed width or owner drawn control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItemSize ( $hWnd, $iWidth, $iHeight )\r```"
+    ],
+    "_GUICtrlTab_SetItemState": [
+        "Sets the state of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItemState ( $hWnd, $iIndex, $iState )\r```"
+    ],
+    "_GUICtrlTab_SetItemText": [
+        "Sets the text of a tab",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetItemText ( $hWnd, $iIndex, $sText )\r```"
+    ],
+    "_GUICtrlTab_SetMinTabWidth": [
+        "Sets the minimum width of items in a tab control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetMinTabWidth ( $hWnd, $iMinWidth )\r```"
+    ],
+    "_GUICtrlTab_SetPadding": [
+        "Sets the amount of space around each tab's icon and label",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetPadding ( $hWnd, $iHorz, $iVert )\r```"
+    ],
+    "_GUICtrlTab_SetToolTips": [
+        "Sets the handle to the ToolTip control associated with the control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetToolTips ( $hWnd, $hToolTip )\r```"
+    ],
+    "_GUICtrlTab_SetUnicodeFormat": [
+        "Sets the Unicode character format flag for the control",
+        "```\r#include <GuiTab.au3>\r_GUICtrlTab_SetUnicodeFormat ( $hWnd, $bUnicode )\r```"
+    ]
+}

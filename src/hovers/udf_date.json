@@ -1,0 +1,238 @@
+{
+    "_Date_Time_CompareFileTime": [
+		"Compares two file times",
+		"```\r#include <Date.au3>\r_Date_Time_CompareFileTime ( $tFileTime1, $tFileTime2 )\r```"
+	],
+    "_Date_Time_DOSDateTimeToArray": [
+		"Decode a DOS date/time to an array",
+		"```\r#include <Date.au3>\r_Date_Time_DOSDateTimeToArray ( $iDosDate, $iDosTime )\r```"
+	],
+    "_Date_Time_DOSDateTimeToFileTime": [
+		"Converts MS-DOS date and time values to a file time",
+		"```\r#include <Date.au3>\r_Date_Time_DOSDateTimeToFileTime ( $iFatDate, $iFatTime )\r```"
+	],
+    "_Date_Time_DOSDateTimeToStr": [
+		"Decode a DOS date to a string",
+		"```\r#include <Date.au3>\r_Date_Time_DOSDateTimeToStr ( $iDosDate, $iDosTime )\r```"
+	],
+    "_Date_Time_DOSDateToArray": [
+		"Decode a DOS date to an array",
+		"```\r#include <Date.au3>\r_Date_Time_DOSDateToArray ( $iDosDate )\r```"
+	],
+    "_Date_Time_DOSDateToStr": [
+		"Decode a DOS date to a string",
+		"```\r#include <Date.au3>\r_Date_Time_DOSDateToStr ( $iDosDate )\r```"
+	],
+    "_Date_Time_DOSTimeToArray": [
+		"Decode a DOS time to an array",
+		"```\r#include <Date.au3>\r_Date_Time_DOSTimeToArray ( $iDosTime )\r```"
+	],
+    "_Date_Time_DOSTimeToStr": [
+		"Decode a DOS time to a string",
+		"```\r#include <Date.au3>\r_Date_Time_DOSTimeToStr ( $iDosTime )\r```"
+	],
+    "_Date_Time_EncodeFileTime": [
+		"Encodes and returns a $tagFILETIME structure",
+		"```\r#include <Date.au3>\r_Date_Time_EncodeFileTime ( $iMonth, $iDay, $iYear [, $iHour = 0 [, $iMinute = 0 [, $iSecond = 0 [, $iMSeconds = 0]]]] )\r```"
+	],
+    "_Date_Time_EncodeSystemTime": [
+		"Encodes and returns a $tagSYSTEMTIME structure",
+		"```\r#include <Date.au3>\r_Date_Time_EncodeSystemTime ( $iMonth, $iDay, $iYear [, $iHour = 0 [, $iMinute = 0 [, $iSecond = 0 [, $iMSeconds = 0]]]] )\r```"
+	],
+    "_Date_Time_FileTimeToArray": [
+		"Decode a file time to an array",
+		"```\r#include <Date.au3>\r_Date_Time_FileTimeToArray ( ByRef $tFileTime )\r```"
+	],
+    "_Date_Time_FileTimeToDOSDateTime": [
+		"Converts MS-DOS date and time values to a file time",
+		"```\r#include <Date.au3>\r_Date_Time_FileTimeToDOSDateTime ( $tFileTime )\r```"
+	],
+    "_Date_Time_FileTimeToLocalFileTime": [
+		"Converts a file time based on the Coordinated Universal Time to a local file time",
+		"```\r#include <Date.au3>\r_Date_Time_FileTimeToLocalFileTime ( $tFileTime )\r```"
+	],
+    "_Date_Time_FileTimeToStr": [
+		"Decode a file time to a date/time string",
+		"```\r#include <Date.au3>\r_Date_Time_FileTimeToStr ( ByRef $tFileTime [, $iFmt = 0] )\r```"
+	],
+    "_Date_Time_FileTimeToSystemTime": [
+		"Converts a file time to system time format",
+		"```\r#include <Date.au3>\r_Date_Time_FileTimeToSystemTime ( $tFileTime )\r```"
+	],
+    "_Date_Time_GetFileTime": [
+		"Retrieves the date and time that a file was created, accessed and modified",
+		"```\r#include <Date.au3>\r_Date_Time_GetFileTime ( $hFile )\r```"
+	],
+    "_Date_Time_GetLocalTime": [
+		"Retrieves the current local date and time",
+		"```\r#include <Date.au3>\r_Date_Time_GetLocalTime ( )\r```"
+	],
+    "_Date_Time_GetSystemTime": [
+		"Retrieves the current system date and time expressed in UTC",
+		"```\r#include <Date.au3>\r_Date_Time_GetSystemTime ( )\r```"
+	],
+    "_Date_Time_GetSystemTimeAdjustment": [
+		"Determines whether the system is applying periodic time adjustments",
+		"```\r#include <Date.au3>\r_Date_Time_GetSystemTimeAdjustment ( )\r```"
+	],
+    "_Date_Time_GetSystemTimeAsFileTime": [
+		"Retrieves the current system date and time expressed in UTC",
+		"```\r#include <Date.au3>\r_Date_Time_GetSystemTimeAsFileTime ( )\r```"
+	],
+    "_Date_Time_GetSystemTimes": [
+		"Retrieves system timing information",
+		"```\r#include <Date.au3>\r_Date_Time_GetSystemTimes ( )\r```"
+	],
+    "_Date_Time_GetTickCount": [
+		"Retrieves the number of milliseconds that have elapsed since Windows was started",
+		"```\r#include <Date.au3>\r_Date_Time_GetTickCount ( )\r```"
+	],
+    "_Date_Time_GetTimeZoneInformation": [
+		"Retrieves the current time zone settings",
+		"```\r#include <Date.au3>\r_Date_Time_GetTimeZoneInformation ( )\r```"
+	],
+    "_Date_Time_LocalFileTimeToFileTime": [
+		"Converts a local file time to a file time based on UTC",
+		"```\r#include <Date.au3>\r_Date_Time_LocalFileTimeToFileTime ( $tLocalTime )\r```"
+	],
+    "_Date_Time_SetFileTime": [
+		"Sets the date and time that a file was created, accessed and modified",
+		"```\r#include <Date.au3>\r_Date_Time_SetFileTime ( $hFile, $tCreateTime, $tLastAccess, $tLastWrite )\r```"
+	],
+    "_Date_Time_SetLocalTime": [
+		"Sets the current local date and time",
+		"```\r#include <Date.au3>\r_Date_Time_SetLocalTime ( $tSYSTEMTIME )\r```"
+	],
+    "_Date_Time_SetSystemTime": [
+		"Sets the current system time and date, expressed in UTC",
+		"```\r#include <Date.au3>\r_Date_Time_SetSystemTime ( $tSYSTEMTIME )\r```"
+	],
+    "_Date_Time_SetSystemTimeAdjustment": [
+		"Enables or disables periodic time adjustments to the system's time of day clock",
+		"```\r#include <Date.au3>\r_Date_Time_SetSystemTimeAdjustment ( $iAdjustment, $bDisabled )\r```"
+	],
+    "_Date_Time_SetTimeZoneInformation": [
+		"Sets the current time zone settings",
+		"```\r#include <Date.au3>\r_Date_Time_SetTimeZoneInformation ( $iBias, $sStdName, $tStdDate, $iStdBias, $sDayName, $tDayDate, $iDayBias )\r```"
+	],
+    "_Date_Time_SystemTimeToArray": [
+		"Decode a system time to an array",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToArray ( ByRef $tSYSTEMTIME )\r```"
+	],
+    "_Date_Time_SystemTimeToDateStr": [
+		"Decode a system time to a date string",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToDateStr ( ByRef $tSYSTEMTIME [, $iFmt = 0] )\r```"
+	],
+    "_Date_Time_SystemTimeToDateTimeStr": [
+		"Decode a system time to a date/time string",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToDateTimeStr ( ByRef $tSYSTEMTIME [, $iFmt = 0] )\r```"
+	],
+    "_Date_Time_SystemTimeToFileTime": [
+		"Converts a system time to file time format",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToFileTime ( $tSYSTEMTIME )\r```"
+	],
+    "_Date_Time_SystemTimeToTimeStr": [
+		"Decode a system time to a time string",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToTimeStr ( ByRef $tSYSTEMTIME )\r```"
+	],
+    "_Date_Time_SystemTimeToTzSpecificLocalTime": [
+		"Converts a UTC time to a specified time zone's corresponding local time",
+		"```\r#include <Date.au3>\r_Date_Time_SystemTimeToTzSpecificLocalTime ( $tUTC [, $tTimeZone = 0] )\r```"
+	],
+    "_Date_Time_TzSpecificLocalTimeToSystemTime": [
+		"Converts a local time to a time in UTC",
+		"```\r#include <Date.au3>\r_Date_Time_TzSpecificLocalTimeToSystemTime ( $tLocalTime [, $tTimeZone = 0] )\r```"
+	],
+    "_DateAdd": [
+		"Calculates a new date/time by adding/subtracting a specified number of time intervals from an initial date/time",
+		"```\r#include <Date.au3>\r_DateAdd ( $sType, $iNumber, $sDate )\r```"
+	],
+    "_DateDayOfWeek": [
+		"Returns the name of the weekday, based on the specified day",
+		"```\r#include <Date.au3>\r_DateDayOfWeek ( $iDayNum [, $iFormat = 0] )\r```"
+	],
+    "_DateDaysInMonth": [
+		"Returns the number of days in a month, based on the specified month and year",
+		"```\r#include <Date.au3>\r_DateDaysInMonth ( $iYear, $iMonthNum )\r```"
+	],
+    "_DateDiff": [
+		"Returns the difference between 2 dates, expressed in the type requested",
+		"```\r#include <Date.au3>\r_DateDiff ( $sType, $sStartDate, $sEndDate )\r```"
+	],
+    "_DateIsLeapYear": [
+		"Checks a given year to see if it is a leap year",
+		"```\r#include <Date.au3>\r_DateIsLeapYear ( $iYear )\r```"
+	],
+    "_DateIsValid": [
+		"Checks the given date to determine if it is a valid date",
+		"```\r#include <Date.au3>\r_DateIsValid ( $sDate )\r```"
+	],
+    "_DateTimeFormat": [
+		"Returns the date in the PC's regional settings format",
+		"```\r#include <Date.au3>\r_DateTimeFormat ( $sDate, $sType )\r```"
+	],
+    "_DateTimeSplit": [
+		"Split a string containing Date and Time into two separate Arrays",
+		"```\r#include <Date.au3>\r_DateTimeSplit ( $sDate, ByRef $aDatePart, ByRef $iTimePart )\r```"
+	],
+    "_DateToDayOfWeek": [
+		"Returns the weekday number for a given date",
+		"```\r#include <Date.au3>\r_DateToDayOfWeek ( $iYear, $iMonth, $iDay )\r```"
+	],
+    "_DateToDayOfWeekISO": [
+		"Returns the ISO weekday number for a given date",
+		"```\r#include <Date.au3>\r_DateToDayOfWeekISO ( $iYear, $iMonth, $iDay )\r```"
+	],
+    "_DateToDayValue": [
+		"Returns the day number since noon 4713 BC January 1 for a given Gregorian date",
+		"```\r#include <Date.au3>\r_DateToDayValue ( $iYear, $iMonth, $iDay )\r```"
+	],
+    "_DateToMonth": [
+		"Returns the name of the month, based on the specified month",
+		"```\r#include <Date.au3>\r_DateToMonth ( $iMonNum [, $iFormat = 0] )\r```"
+	],
+    "_DayValueToDate": [
+		"Add the given days since noon 4713 BC January 1 and returns the Gregorian date",
+		"```\r#include <Date.au3>\r_DayValueToDate ( $iJulianDate, ByRef $iYear, ByRef $iMonth, ByRef $iDay )\r```"
+	],
+    "_Now": [
+		"Returns the current Date and Time in PC's format",
+		"```\r#include <Date.au3>\r_Now ( )\r```"
+	],
+    "_NowCalc": [
+		"Returns the current Date and Time in format YYYY/MM/DD HH:MM:SS for use in date calculations",
+		"```\r#include <Date.au3>\r_NowCalc ( )\r```"
+	],
+    "_NowCalcDate": [
+		"Returns the current Date in format YYYY/MM/DD",
+		"```\r#include <Date.au3>\r_NowCalcDate ( )\r```"
+	],
+    "_NowDate": [
+		"Returns the current Date in the Pc's format",
+		"```\r#include <Date.au3>\r_NowDate ( )\r```"
+	],
+    "_NowTime": [
+		"Returns the current Time in the requested format",
+		"```\r#include <Date.au3>\r_NowTime ( [$sType = 3] )\r```"
+	],
+    "_SetDate": [
+		"Sets the current date of the system",
+		"```\r#include <Date.au3>\r_SetDate ( $iDay [, $iMonth = 0 [, $iYear = 0]] )\r```"
+	],
+    "_SetTime": [
+		"Sets the current time of the system",
+		"```\r#include <Date.au3>\r_SetTime ( $iHour, $iMinute [, $iSecond = 0 [, $iMSeconds = 0]] )\r```"
+	],
+    "_TicksToTime": [
+		"Converts the specified tick amount to hours, minutes and seconds",
+		"```\r#include <Date.au3>\r_TicksToTime ( $iTicks, ByRef $iHours, ByRef $iMins, ByRef $iSecs )\r```"
+	],
+    "_TimeToTicks": [
+		"Converts the specified hours, minutes, and seconds to ticks",
+		"```\r#include <Date.au3>\r_TimeToTicks ( [$iHours = @HOUR [, $iMins = @MIN [, $iSecs = @SEC]]] )\r```"
+	],
+    "_WeekNumberISO": [
+		"Calculate the weeknumber of a given date",
+		"```\r#include <Date.au3>\r_WeekNumberISO ( [$iYear = @YEAR [, $iMonth = @MON [, $iDay = @MDAY]]] )\r```"
+	]
+}

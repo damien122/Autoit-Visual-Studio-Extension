@@ -1,0 +1,1270 @@
+{
+  "_GDIPlus_RectFCreate": [
+    "Create a $tagGDIPRECTF structure",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RectFCreate ( [$nX = 0 [, $nY = 0 [, $nWidth = 0 [, $nHeight = 0]]]] )\r```"
+  ],
+  "_GDIPlus_Shutdown": [
+    "Clean up resources used by Microsoft Windows GDI+",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_Shutdown ( )\r```"
+  ],
+  "_GDIPlus_Startup": [
+    "Initialize Microsoft Windows GDI+",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_Startup ( [$sGDIPDLL = Default [, $bRetDllHandle = False]] )\r```"
+  ],
+  "_GDIPlus_ArrowCapCreate": [
+    "Creates an adjustable arrow line cap with the specified height and width",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapCreate ( $fHeight, $fWidth [, $bFilled = True] )\r```"
+  ],
+  "_GDIPlus_ArrowCapDispose": [
+    "Release an adjustable arrow line cap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapDispose ( $hCap )\r```"
+  ],
+  "_GDIPlus_ArrowCapGetFillState": [
+    "Determines whether the arrow cap is filled",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapGetFillState ( $hArrowCap )\r```"
+  ],
+  "_GDIPlus_ArrowCapGetHeight": [
+    "Gets the height of the arrow cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapGetHeight ( $hArrowCap )\r```"
+  ],
+  "_GDIPlus_ArrowCapGetMiddleInset": [
+    "Gets the value of the inset",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapGetMiddleInset ( $hArrowCap )\r```"
+  ],
+  "_GDIPlus_ArrowCapGetWidth": [
+    "Gets the width of the arrow cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapGetWidth ( $hArrowCap )\r```"
+  ],
+  "_GDIPlus_ArrowCapSetFillState": [
+    "Sets whether the arrow cap is filled",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapSetFillState ( $hArrowCap [, $bFilled = True] )\r```"
+  ],
+  "_GDIPlus_ArrowCapSetHeight": [
+    "Sets the height of the arrow cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapSetHeight ( $hArrowCap, $fHeight )\r```"
+  ],
+  "_GDIPlus_ArrowCapSetMiddleInset": [
+    "Gets the value of the inset",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapSetMiddleInset ( $hArrowCap, $fInset )\r```"
+  ],
+  "_GDIPlus_ArrowCapSetWidth": [
+    "Sets the width of the arrow cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ArrowCapSetWidth ( $hArrowCap, $fWidth )\r```"
+  ],
+  "_GDIPlus_CustomLineCapClone": [
+    "Clones a CustomLineCap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_CustomLineCapClone ( $hCustomLineCap )\r```"
+  ],
+  "_GDIPlus_CustomLineCapCreate": [
+    "Creates a CustomLineCap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_CustomLineCapCreate ( $hPathFill, $hPathStroke [, $iLineCap = 0 [, $nBaseInset = 0]] )\r```"
+  ],
+  "_GDIPlus_CustomLineCapDispose": [
+    "Release a custom line cap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_CustomLineCapDispose ( $hCap )\r```"
+  ],
+  "_GDIPlus_CustomLineCapGetStrokeCaps": [
+    "Gets the end cap styles for both the start line cap and the end line cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_CustomLineCapGetStrokeCaps ( $hCustomLineCap )\r```"
+  ],
+  "_GDIPlus_CustomLineCapSetStrokeCaps": [
+    "Sets the distance between the base cap to the start of the line",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_CustomLineCapSetStrokeCaps ( $hCustomLineCap, $iStartCap, $iEndCap )\r```"
+  ],
+  "_GDIPlus_BitmapApplyEffect": [
+    "Alters a Bitmap by applying a specified effect",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapApplyEffect ( $hBitmap, $hEffect [, $tRECT = Null] )\r```"
+  ],
+  "_GDIPlus_BitmapApplyEffectEx": [
+    "Alters a Bitmap by applying a specified effect",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapApplyEffectEx ( $hBitmap, $hEffect [, $iX = 0 [, $iY = 0 [, $iW = 0 [, $iH = 0]]]] )\r```"
+  ],
+  "_GDIPlus_BitmapCloneArea": [
+    "Create a clone of a Bitmap object from the coordinates and format specified",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCloneArea ( $hBitmap, $nLeft, $nTop, $nWidth, $nHeight [, $iFormat = 0x00021808] )\r```"
+  ],
+  "_GDIPlus_BitmapConvertFormat": [
+    "Converts a bitmap to a specified pixel format",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapConvertFormat ( $hBitmap, $iPixelFormat, $iDitherType, $iPaletteType, $tPalette [, $fAlphaThresholdPercent = 0.0] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateApplyEffect": [
+    "Creates a new Bitmap by applying a specified effect to an existing Bitmap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateApplyEffect ( $hBitmap, $hEffect [, $tRECT = Null [, $tOutRECT = Null]] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateApplyEffectEx": [
+    "Creates a new Bitmap by applying a specified effect to an existing Bitmap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateApplyEffectEx ( $hBitmap, $hEffect [, $iX = 0 [, $iY = 0 [, $iW = 0 [, $iH = 0]]]] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateDIBFromBitmap": [
+    "Creates a DIB Section",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateDIBFromBitmap ( $hBitmap )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromFile": [
+    "Create a Bitmap object from file",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromFile ( $sFileName )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromGraphics": [
+    "Creates a Bitmap object based on a Graphics object, a width, and a height",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromGraphics ( $iWidth, $iHeight, $hGraphics )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromHBITMAP": [
+    "Create a Bitmap object from a bitmap handle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromHBITMAP ( $hBitmap [, $hPal = 0] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromHICON": [
+    "Creates a Bitmap object based on an icon",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromHICON ( $hIcon )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromHICON32": [
+    "Creates a Bitmap object based on a 32bit icon",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromHICON32 ( $hIcon )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromMemory": [
+    "Loads an image (JPG, BMP, PNG, etc.) which is saved as a binary string and converts it to a bitmap (GDI+) or hbitmap (GDI)",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromMemory ( $dImage [, $bHBITMAP = False] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromResource": [
+    "Creates a Bitmap object based on an icon",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromResource ( $hInst, $vResourceName )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromScan0": [
+    "Creates a Bitmap object based on an array of bytes along with size and format information",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromScan0 ( $iWidth, $iHeight [, $iPixelFormat = $GDIP_PXF32ARGB [, $iStride = 0 [, $pScan0 = 0]]] )\r```"
+  ],
+  "_GDIPlus_BitmapCreateFromStream": [
+    "Creates a Bitmap object based on an IStream COM interface",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateFromStream ( $pStream )\r```"
+  ],
+  "_GDIPlus_BitmapCreateHBITMAPFromBitmap": [
+    "Create a handle to a bitmap from a bitmap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapCreateHBITMAPFromBitmap ( $hBitmap [, $iARGB = 0xFF000000] )\r```"
+  ],
+  "_GDIPlus_BitmapDispose": [
+    "Release a bitmap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapDispose ( $hBitmap )\r```"
+  ],
+  "_GDIPlus_BitmapGetHistogram": [
+    "Returns one or more histograms for specified color channels of the specified Bitmap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapGetHistogram ( $hBitmap, $iHistogramFormat, $iHistogramSize, $tChannel_0 [, $tChannel_1 = 0 [, $tChannel_2 = 0 [, $tChannel_3 = 0]]] )\r```"
+  ],
+  "_GDIPlus_BitmapGetHistogramEx": [
+    "Returns histograms for the Bitmap\u00b4s color channels: Red, Green, Blue, Alpha and Grey",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapGetHistogramEx ( $hBitmap )\r```"
+  ],
+  "_GDIPlus_BitmapGetHistogramSize": [
+    "Returns the number of elements for allocation by _GDIPlus_BitmapGetHistogramEx()",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapGetHistogramSize ( $iFormat )\r```"
+  ],
+  "_GDIPlus_BitmapGetPixel": [
+    "Gets the color of a specified pixel in this bitmap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapGetPixel ( $hBitmap, $iX, $iY )\r```"
+  ],
+  "_GDIPlus_BitmapLockBits": [
+    "Locks a portion of a bitmap for reading or writing",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapLockBits ( $hBitmap, $iLeft, $iTop, $iWidth, $iHeight [, $iFlags = $GDIP_ILMREAD [, $iFormat = $GDIP_PXF32RGB]] )\r```"
+  ],
+  "_GDIPlus_BitmapSetPixel": [
+    "Sets the color of a specified pixel in this bitmap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapSetPixel ( $hBitmap, $iX, $iY, $iARGB )\r```"
+  ],
+  "_GDIPlus_BitmapUnlockBits": [
+    "Unlocks a portion of a bitmap that was locked by _GDIPlus_BitmapLockBits",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BitmapUnlockBits ( $hBitmap, $tBitmapData )\r```"
+  ],
+  "_GDIPlus_HICONCreateFromBitmap": [
+    "Creates an icon handle from a bitmap object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_HICONCreateFromBitmap ( $hBitmap )\r```"
+  ],
+  "_GDIPlus_PaletteInitialize": [
+    "Initializes a standard, optimal, or custom color palette",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PaletteInitialize ( $iEntries [, $iPaletteType = $GDIP_PaletteTypeOptimal [, $iOptimalColors = 0 [, $bUseTransparentColor = True [, $hBitmap = Null]]]] )\r```"
+  ],
+  "_GDIPlus_BrushClone": [
+    "Clone a Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushClone ( $hBrush )\r```"
+  ],
+  "_GDIPlus_BrushDispose": [
+    "Release a Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushDispose ( $hBrush )\r```"
+  ],
+  "_GDIPlus_BrushGetType": [
+    "Retrieve the type of Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushGetType ( $hBrush )\r```"
+  ],
+  "_GDIPlus_HatchBrushCreate": [
+    "Creates a HatchBrush object based on a hatch style, a foreground color, and a background color",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_HatchBrushCreate ( [$iHatchStyle = 0 [, $iARGBForeground = 0xFFFFFFFF [, $iARGBBackground = 0xFFFFFFFF]]] )\r```"
+  ],
+  "_GDIPlus_LineBrushCreate": [
+    "Creates a LinearGradientBrush object from a set of boundary points and boundary colors",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushCreate ( $nX1, $nY1, $nX2, $nY2, $iARGBClr1, $iARGBClr2 [, $iWrapMode = 0] )\r```"
+  ],
+  "_GDIPlus_LineBrushCreateFromRect": [
+    "Creates a LinearGradientBrush object from a rectangle and boundary colors",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushCreateFromRect ( $tRECTF, $iARGBClr1, $iARGBClr2 [, $iGradientMode = 0 [, $iWrapMode = 0]] )\r```"
+  ],
+  "_GDIPlus_LineBrushCreateFromRectWithAngle": [
+    "Creates a LinearGradientBrush object from a rectangle, boundary colors and angle of direction",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushCreateFromRectWithAngle ( $tRECTF, $iARGBClr1, $iARGBClr2, $fAngle [, $bIsAngleScalable = True [, $iWrapMode = 0]] )\r```"
+  ],
+  "_GDIPlus_LineBrushGetColors": [
+    "Gets the starting color and ending color of a linear gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushGetColors ( $hLineGradientBrush )\r```"
+  ],
+  "_GDIPlus_LineBrushGetRect": [
+    "Gets the rectangle that defines the boundaries of a linear gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushGetRect ( $hLineGradientBrush )\r```"
+  ],
+  "_GDIPlus_LineBrushMultiplyTransform": [
+    "Updates a brush's transformation matrix with the product of itself and another matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushMultiplyTransform ( $hLineGradientBrush, $hMatrix [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_LineBrushResetTransform": [
+    "Resets the transformation matrix of a linear gradient brush to the identity matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushResetTransform ( $hLineGradientBrush )\r```"
+  ],
+  "_GDIPlus_LineBrushSetBlend": [
+    "Sets the blend factors and the blend positions of a linear gradient brush to create a custom blend",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetBlend ( $hLineGradientBrush, $aBlends )\r```"
+  ],
+  "_GDIPlus_LineBrushSetColors": [
+    "Sets the starting color and ending color of a linear gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetColors ( $hLineGradientBrush, $iARGBStart, $iARGBEnd )\r```"
+  ],
+  "_GDIPlus_LineBrushSetGammaCorrection": [
+    "Specifies whether gamma correction is enabled for a linear gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetGammaCorrection ( $hLineGradientBrush [, $bUseGammaCorrection = True] )\r```"
+  ],
+  "_GDIPlus_LineBrushSetLinearBlend": [
+    "Sets the blend shape of a linear gradient brush to create a custom blend based on a triangular shape",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetLinearBlend ( $hLineGradientBrush, $fFocus [, $fScale = 1] )\r```"
+  ],
+  "_GDIPlus_LineBrushSetPresetBlend": [
+    "Sets the colors to be interpolated for a linear gradient brush and their corresponding blend positions",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetPresetBlend ( $hLineGradientBrush, $aInterpolations )\r```"
+  ],
+  "_GDIPlus_LineBrushSetSigmaBlend": [
+    "Sets the blend shape of a linear gradient brush to create a custom blend based on a bell-shaped curve",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetSigmaBlend ( $hLineGradientBrush, $fFocus [, $fScale = 1] )\r```"
+  ],
+  "_GDIPlus_LineBrushSetTransform": [
+    "Sets the transformation matrix of a linear gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_LineBrushSetTransform ( $hLineGradientBrush, $hMatrix )\r```"
+  ],
+  "_GDIPlus_BrushCreateSolid": [
+    "Create a solid Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushCreateSolid ( [$iARGB = 0xFF000000] )\r```"
+  ],
+  "_GDIPlus_BrushGetSolidColor": [
+    "Get the color of a Solid Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushGetSolidColor ( $hBrush )\r```"
+  ],
+  "_GDIPlus_BrushSetSolidColor": [
+    "Set the color of a Solid Brush object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_BrushSetSolidColor ( $hBrush [, $iARGB = 0xFF000000] )\r```"
+  ],
+  "_GDIPlus_TextureCreate": [
+    "Creates a TextureBrush object based on an image and a wrap mode",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_TextureCreate ( $hImage [, $iWrapMode = 0] )\r```"
+  ],
+  "_GDIPlus_TextureCreate2": [
+    "Creates a TextureBrush object based on an image, a wrap mode and a defining rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_TextureCreate2 ( $hImage, $nX, $nY, $nWidth, $nHeight [, $iWrapMode = 0] )\r```"
+  ],
+  "_GDIPlus_TextureCreateIA": [
+    "Creates a TextureBrush object based on an image, a defining rectangle, and a set of image properties",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_TextureCreateIA ( $hImage, $nX, $nY, $nWidth, $nHeight [, $pImageAttributes = 0] )\r```"
+  ],
+  "_GDIPlus_EffectCreate": [
+    "Creates an Effect object of the type specified by the guid parameter",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreate ( $sEffectGUID )\r```"
+  ],
+  "_GDIPlus_EffectCreateBlur": [
+    "Creates a Blur class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateBlur ( [$fRadius = 10.0 [, $bExpandEdge = False]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateBrightnessContrast": [
+    "Creates a BrightnessContrast class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateBrightnessContrast ( [$iBrightnessLevel = 0 [, $iContrastLevel = 0]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateColorBalance": [
+    "Creates a ColorBalance class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateColorBalance ( [$iCyanRed = 0 [, $iMagentaGreen = 0 [, $iYellowBlue = 0]]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateColorCurve": [
+    "Creates a ColorBalance class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateColorCurve ( $iAdjustment, $iChannel, $iAdjustValue )\r```"
+  ],
+  "_GDIPlus_EffectCreateColorLUT": [
+    "Creates a ColorLUT class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateColorLUT ( $aColorLUT )\r```"
+  ],
+  "_GDIPlus_EffectCreateColorMatrix": [
+    "Creates a ColorMatrixEffect class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateColorMatrix ( $tColorMatrix )\r```"
+  ],
+  "_GDIPlus_EffectCreateHueSaturationLightness": [
+    "Creates a HueSaturationLightness class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateHueSaturationLightness ( [$iHueLevel = 0 [, $iSaturationLevel = 0 [, $iLightnessLevel = 0]]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateLevels": [
+    "Creates a Levels class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateLevels ( [$iHighlight = 100 [, $iMidtone = 0 [, $iShadow = 0]]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateRedEyeCorrection": [
+    "Creates a RedEyeCorrection class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateRedEyeCorrection ( $aAreas )\r```"
+  ],
+  "_GDIPlus_EffectCreateSharpen": [
+    "Creates a Sharpen class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateSharpen ( [$fRadius = 10.0 [, $fAmount = 50.0]] )\r```"
+  ],
+  "_GDIPlus_EffectCreateTint": [
+    "Creates a Tint class effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectCreateTint ( [$iHue = 0 [, $iAmount = 0]] )\r```"
+  ],
+  "_GDIPlus_EffectDispose": [
+    "Deletes the specified Effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectDispose ( $hEffect )\r```"
+  ],
+  "_GDIPlus_EffectGetParameters": [
+    "Returns the parameters for the specified Effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectGetParameters ( $hEffect, $tEffectParameters )\r```"
+  ],
+  "_GDIPlus_EffectSetParameters": [
+    "Sets the parameters for the specified Effect object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EffectSetParameters ( $hEffect, $tEffectParameters [, $iSizeAdjust = 1] )\r```"
+  ],
+  "_GDIPlus_FontCreate": [
+    "Create a Font object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontCreate ( $hFamily, $fSize [, $iStyle = 0 [, $iUnit = 3]] )\r```"
+  ],
+  "_GDIPlus_FontDispose": [
+    "Release a Font object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontDispose ( $hFont )\r```"
+  ],
+  "_GDIPlus_FontGetHeight": [
+    "Gets the line spacing of a font in the current unit of a specified Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontGetHeight ( $hFont, $hGraphics )\r```"
+  ],
+  "_GDIPlus_FontPrivateAddFont": [
+    "Adds a font file to the private font collection",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontPrivateAddFont ( $hFontCollection, $sFontFile )\r```"
+  ],
+  "_GDIPlus_FontPrivateAddMemoryFont": [
+    "Adds a font that is contained in system memory to a Microsoft\u00ae Windows\u00ae GDI+ font collection",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontPrivateAddMemoryFont ( $hFontCollection, $tFont )\r```"
+  ],
+  "_GDIPlus_FontPrivateCollectionDispose": [
+    "Deletes the specified PrivateFontCollection object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontPrivateCollectionDispose ( $hFontCollection )\r```"
+  ],
+  "_GDIPlus_FontPrivateCreateCollection": [
+    "Creates a PrivateFont Collection object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontPrivateCreateCollection ( )\r```"
+  ],
+  "_GDIPlus_FontFamilyCreate": [
+    "Create a Font Family object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyCreate ( $sFamily [, $pCollection = 0] )\r```"
+  ],
+  "_GDIPlus_FontFamilyCreateFromCollection": [
+    "Creates a FontFamily object based on a specified font family",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyCreateFromCollection ( $sFontName, $hFontCollection )\r```"
+  ],
+  "_GDIPlus_FontFamilyDispose": [
+    "Release a Font Family object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyDispose ( $hFamily )\r```"
+  ],
+  "_GDIPlus_FontFamilyGetCellAscent": [
+    "Gets the cell ascent, in design units, of a font family for the specified style or style combination",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyGetCellAscent ( $hFontFamily [, $iStyle = 0] )\r```"
+  ],
+  "_GDIPlus_FontFamilyGetCellDescent": [
+    "Gets the cell descent, in design units, of a font family for the specified style or style combination",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyGetCellDescent ( $hFontFamily [, $iStyle = 0] )\r```"
+  ],
+  "_GDIPlus_FontFamilyGetEmHeight": [
+    "Gets the size (commonly called em size or em height), in design units, of a font family",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyGetEmHeight ( $hFontFamily [, $iStyle = 0] )\r```"
+  ],
+  "_GDIPlus_FontFamilyGetLineSpacing": [
+    "Gets the line spacing, in design units, of this font family for the specified style or style combination",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_FontFamilyGetLineSpacing ( $hFontFamily [, $iStyle = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsClear": [
+    "Clears a Graphics object to a specified color",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsClear ( $hGraphics [, $iARGB = 0xFF000000] )\r```"
+  ],
+  "_GDIPlus_GraphicsCreateFromHDC": [
+    "Create a Graphics object from a device context (DC)",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsCreateFromHDC ( $hDC )\r```"
+  ],
+  "_GDIPlus_GraphicsCreateFromHWND": [
+    "Create a Graphics object from a window handle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsCreateFromHWND ( $hWnd )\r```"
+  ],
+  "_GDIPlus_GraphicsDispose": [
+    "Release a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDispose ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawArc": [
+    "Draw an arc",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawArc ( $hGraphics, $nX, $nY, $nWidth, $nHeight, $fStartAngle, $fSweepAngle [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawBezier": [
+    "Draw a bezier spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawBezier ( $hGraphics, $nX1, $nY1, $nX2, $nY2, $nX3, $nY3, $nX4, $nY4 [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawClosedCurve": [
+    "Draw a closed cardinal spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawClosedCurve ( $hGraphics, $aPoints [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawClosedCurve2": [
+    "Draws a closed cardinal spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawClosedCurve2 ( $hGraphics, $aPoints, $nTension [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawCurve": [
+    "Draw a cardinal spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawCurve ( $hGraphics, $aPoints [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawCurve2": [
+    "Draws a cardinal spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawCurve2 ( $hGraphics, $aPoints, $nTension [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawEllipse": [
+    "Draw an ellipse",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawEllipse ( $hGraphics, $nX, $nY, $nWidth, $nHeight [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawImage": [
+    "Draw an Image object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawImage ( $hGraphics, $hImage, $nX, $nY )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawImagePointsRect": [
+    "Draws an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawImagePointsRect ( $hGraphics, $hImage, $nULX, $nULY, $nURX, $nURY, $nLLX, $nLLY, $nSrcX, $nSrcY, $nSrcWidth, $nSrcHeight [, $hImageAttributes = 0 [, $iUnit = 2]] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawImageRect": [
+    "Draws an image at a specified location",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawImageRect ( $hGraphics, $hImage, $nX, $nY, $nW, $nH )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawImageRectRect": [
+    "Draw an Image object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawImageRectRect ( $hGraphics, $hImage, $nSrcX, $nSrcY, $nSrcWidth, $nSrcHeight, $nDstX, $nDstY, $nDstWidth, $nDstHeight [, $pAttributes = 0 [, $iUnit = 2]] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawLine": [
+    "Draw a line",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawLine ( $hGraphics, $nX1, $nY1, $nX2, $nY2 [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawPath": [
+    "Draws a sequence of lines and curves defined by a GraphicsPath object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawPath ( $hGraphics, $hPath [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawPie": [
+    "Draw a pie",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawPie ( $hGraphics, $nX, $nY, $nWidth, $nHeight, $fStartAngle, $fSweepAngle [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawPolygon": [
+    "Draw a polygon",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawPolygon ( $hGraphics, $aPoints [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawRect": [
+    "Draw a rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawRect ( $hGraphics, $nX, $nY, $nWidth, $nHeight [, $hPen = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillClosedCurve": [
+    "Fill a closed cardinal spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillClosedCurve ( $hGraphics, $aPoints [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillClosedCurve2": [
+    "Creates a closed cardinal spline from an array of points and uses a brush to fill the interior of the spline",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillClosedCurve2 ( $hGraphics, $aPoints, $nTension [, $hBrush = 0 [, $iFillMode = 0]] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillEllipse": [
+    "Fill an ellipse",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillEllipse ( $hGraphics, $nX, $nY, $nWidth, $nHeight [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillPath": [
+    "Uses a brush to fill the interior of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillPath ( $hGraphics, $hPath [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillPie": [
+    "Fill a pie",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillPie ( $hGraphics, $nX, $nY, $nWidth, $nHeight, $fStartAngle, $fSweepAngle [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillPolygon": [
+    "Fill a polygon",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillPolygon ( $hGraphics, $aPoints [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillRect": [
+    "Fill a rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillRect ( $hGraphics, $nX, $nY, $nWidth, $nHeight [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsFillRegion": [
+    "Uses a brush to fill a specified region",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsFillRegion ( $hGraphics, $hRegion [, $hBrush = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsGetCompositingMode": [
+    "Gets the compositing mode currently set for a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetCompositingMode ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsGetCompositingQuality": [
+    "Gets the compositing quality currently set for a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetCompositingQuality ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsGetDC": [
+    "Gets a handle to the device context of the Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetDC ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsGetInterpolationMode": [
+    "Gets the interpolation mode currently set for a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetInterpolationMode ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsGetSmoothingMode": [
+    "Gets the graphics object rendering quality",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetSmoothingMode ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsGetTransform": [
+    "Gets the world transformation matrix of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsGetTransform ( $hGraphics, $hMatrix )\r```"
+  ],
+  "_GDIPlus_GraphicsReleaseDC": [
+    "Releases the device context of the Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsReleaseDC ( $hGraphics, $hDC )\r```"
+  ],
+  "_GDIPlus_GraphicsResetClip": [
+    "Sets the clipping region of a Graphics object to an infinite region",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsResetClip ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsResetTransform": [
+    "Sets the world transformation matrix of a Graphics object to the identity matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsResetTransform ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsRestore": [
+    "Restores the state of a Graphics object to the state stored by a previous call to the _GDIPlus_GraphicsSave method of the Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsRestore ( $hGraphics, $iState )\r```"
+  ],
+  "_GDIPlus_GraphicsRotateTransform": [
+    "Updates the world transformation matrix of a Graphics object with the product of itself and a rotation matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsRotateTransform ( $hGraphics, $fAngle [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsSave": [
+    "Saves the current state (transformations, clipping region, and quality settings) of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSave ( $hGraphics )\r```"
+  ],
+  "_GDIPlus_GraphicsScaleTransform": [
+    "Updates a Graphics object's world transformation matrix with the product of itself and a scaling matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsScaleTransform ( $hGraphics, $fScaleX, $fScaleY [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsSetClipPath": [
+    "Updates the clipping region of this Graphics object to a region that is the combination of itself and the region specified by a graphics path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetClipPath ( $hGraphics, $hPath [, $iCombineMode = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsSetClipRect": [
+    "Updates the clipping region of a Graphics object to a region that is the combination of itself and a rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetClipRect ( $hGraphics, $nX, $nY, $nWidth, $nHeight [, $iCombineMode = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsSetClipRegion": [
+    "Updates the clipping region of a Graphics object to a region that is the combination of itself and the region specified by a Region object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetClipRegion ( $hGraphics, $hRegion [, $iCombineMode = 0] )\r```"
+  ],
+  "_GDIPlus_GraphicsSetCompositingMode": [
+    "Sets the compositing mode of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetCompositingMode ( $hGraphics, $iCompositionMode )\r```"
+  ],
+  "_GDIPlus_GraphicsSetCompositingQuality": [
+    "Sets the compositing quality of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetCompositingQuality ( $hGraphics, $iCompositionQuality )\r```"
+  ],
+  "_GDIPlus_GraphicsSetInterpolationMode": [
+    "Sets the interpolation mode of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetInterpolationMode ( $hGraphics, $iInterpolationMode )\r```"
+  ],
+  "_GDIPlus_GraphicsSetPixelOffsetMode": [
+    "Sets the pixel offset mode of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetPixelOffsetMode ( $hGraphics, $iPixelOffsetMode )\r```"
+  ],
+  "_GDIPlus_GraphicsSetSmoothingMode": [
+    "Sets the graphics object rendering quality",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetSmoothingMode ( $hGraphics, $iSmooth )\r```"
+  ],
+  "_GDIPlus_GraphicsSetTextRenderingHint": [
+    "Sets the contrast value of a Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetTextRenderingHint ( $hGraphics, $iTextRenderingHint )\r```"
+  ],
+  "_GDIPlus_GraphicsSetTransform": [
+    "Sets the world transformation for a graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsSetTransform ( $hGraphics, $hMatrix )\r```"
+  ],
+  "_GDIPlus_GraphicsTransformPoints": [
+    "Converts an array of points from one coordinate space to another",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsTransformPoints ( $hGraphics, ByRef $aPoints [, $iCoordSpaceTo = 0 [, $iCoordSpaceFrom = 1]] )\r```"
+  ],
+  "_GDIPlus_GraphicsTranslateTransform": [
+    "Updates a Graphics object's world transformation matrix with the product of itself and a translation matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsTranslateTransform ( $hGraphics, $nDX, $nDY [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_Decoders": [
+    "Get an array of information about the available image decoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_Decoders ( )\r```"
+  ],
+  "_GDIPlus_DecodersGetCount": [
+    "Get the number of available image decoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_DecodersGetCount ( )\r```"
+  ],
+  "_GDIPlus_DecodersGetSize": [
+    "Get the total size of the structure that is returned by _GDIPlus_GetImageDecoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_DecodersGetSize ( )\r```"
+  ],
+  "_GDIPlus_Encoders": [
+    "Get an array of information about the available image encoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_Encoders ( )\r```"
+  ],
+  "_GDIPlus_EncodersGetCLSID": [
+    "Return the encoder CLSID for a specific image file type",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EncodersGetCLSID ( $sFileExtension )\r```"
+  ],
+  "_GDIPlus_EncodersGetCount": [
+    "Get the number of available image encoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EncodersGetCount ( )\r```"
+  ],
+  "_GDIPlus_EncodersGetParamList": [
+    "Get the parameter list for a specified image encoder",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EncodersGetParamList ( $hImage, $sEncoder )\r```"
+  ],
+  "_GDIPlus_EncodersGetParamListSize": [
+    "Get the size of the parameter list for a specified image encoder",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EncodersGetParamListSize ( $hImage, $sEncoder )\r```"
+  ],
+  "_GDIPlus_EncodersGetSize": [
+    "Get the total size of the structure that is returned by _GDIPlus_GetImageEncoders",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_EncodersGetSize ( )\r```"
+  ],
+  "_GDIPlus_ParamAdd": [
+    "Add a value to an encoder parameter list",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ParamAdd ( ByRef $tParams, $sGUID, $iNbOfValues, $iType, $pValues )\r```"
+  ],
+  "_GDIPlus_ParamInit": [
+    "Allocate an empty encoder parameter list",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ParamInit ( $iCount )\r```"
+  ],
+  "_GDIPlus_ParamSize": [
+    "Get an encoder parameter size",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ParamSize ( )\r```"
+  ],
+  "_GDIPlus_PathAddArc": [
+    "Adds an elliptical arc to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddArc ( $hPath, $nX, $nY, $nWidth, $nHeight, $fStartAngle, $fSweepAngle )\r```"
+  ],
+  "_GDIPlus_PathAddBezier": [
+    "Adds a bezier spline to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddBezier ( $hPath, $nX1, $nY1, $nX2, $nY2, $nX3, $nY3, $nX4, $nY4 )\r```"
+  ],
+  "_GDIPlus_PathAddClosedCurve": [
+    "Adds a closed cardinal spline to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddClosedCurve ( $hPath, $aPoints )\r```"
+  ],
+  "_GDIPlus_PathAddClosedCurve2": [
+    "Adds a closed cardinal spline to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddClosedCurve2 ( $hPath, $aPoints [, $nTension = 0.5] )\r```"
+  ],
+  "_GDIPlus_PathAddCurve": [
+    "Adds a cardinal spline to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddCurve ( $hPath, $aPoints )\r```"
+  ],
+  "_GDIPlus_PathAddCurve2": [
+    "Adds a cardinal spline to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddCurve2 ( $hPath, $aPoints [, $nTension = 0.5] )\r```"
+  ],
+  "_GDIPlus_PathAddCurve3": [
+    "Adds a cardinal spline to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddCurve3 ( $hPath, $aPoints, $iOffset, $iNumOfSegments [, $nTension = 0.5] )\r```"
+  ],
+  "_GDIPlus_PathAddEllipse": [
+    "Adds an ellipse to the current figure a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddEllipse ( $hPath, $nX, $nY, $nWidth, $nHeight )\r```"
+  ],
+  "_GDIPlus_PathAddLine": [
+    "Adds a line to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddLine ( $hPath, $nX1, $nY1, $nX2, $nY2 )\r```"
+  ],
+  "_GDIPlus_PathAddLine2": [
+    "Adds a sequence of lines to the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddLine2 ( $hPath, $aPoints )\r```"
+  ],
+  "_GDIPlus_PathAddPath": [
+    "Adds a path to another path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddPath ( $hPath1, $hPath2 [, $bConnect = True] )\r```"
+  ],
+  "_GDIPlus_PathAddPie": [
+    "Adds a pie to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddPie ( $hPath, $nX, $nY, $nWidth, $nHeight, $fStartAngle, $fSweepAngle )\r```"
+  ],
+  "_GDIPlus_PathAddPolygon": [
+    "Adds a polygon to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddPolygon ( $hPath, $aPoints )\r```"
+  ],
+  "_GDIPlus_PathAddRectangle": [
+    "Adds a rectangle to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddRectangle ( $hPath, $nX, $nY, $nWidth, $nHeight )\r```"
+  ],
+  "_GDIPlus_PathAddString": [
+    "Adds the outline of a string to a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathAddString ( $hPath, $sString, $tLayout, $hFamily [, $iStyle = 0 [, $fSize = 8.5 [, $hFormat = 0]]] )\r```"
+  ],
+  "_GDIPlus_PathClone": [
+    "Clones a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathClone ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathCloseFigure": [
+    "Closes the current figure of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathCloseFigure ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathCreate": [
+    "Creates a GraphicsPath object and initializes the fill mode",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathCreate ( [$iFillMode = 0] )\r```"
+  ],
+  "_GDIPlus_PathCreate2": [
+    "Creates a GraphicsPath object based on an array of points, an array of types, and a fill mode",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathCreate2 ( $aPathData [, $iFillMode = 0] )\r```"
+  ],
+  "_GDIPlus_PathDispose": [
+    "Releases a GraphicsPath object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathDispose ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathFlatten": [
+    "Applies a transformation to a path and converts each curve in the path to a sequence of connected lines",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathFlatten ( $hPath [, $fFlatness = 0.25 [, $hMatrix = 0]] )\r```"
+  ],
+  "_GDIPlus_PathGetData": [
+    "Gets an array of points and types from a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetData ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathGetFillMode": [
+    "Gets the fill mode of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetFillMode ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathGetLastPoint": [
+    "Gets the ending point of the last figure in a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetLastPoint ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathGetPointCount": [
+    "Gets the number of points in a path's array of data points",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetPointCount ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathGetPoints": [
+    "Gets an array of points from a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetPoints ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathGetWorldBounds": [
+    "Gets the bounding rectangle for a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathGetWorldBounds ( $hPath [, $hMatrix = 0 [, $hPen = 0]] )\r```"
+  ],
+  "_GDIPlus_PathIsOutlineVisiblePoint": [
+    "Determines whether a specified point touches the outline of a path with the specified Graphics and Pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIsOutlineVisiblePoint ( $hPath, $nX, $nY [, $hPen = 0 [, $hGraphics = 0]] )\r```"
+  ],
+  "_GDIPlus_PathIsVisiblePoint": [
+    "Determines whether a specified point lies in the area that is filled when a path is filled by a specified Graphics object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIsVisiblePoint ( $hPath, $nX, $nY [, $hGraphics = 0] )\r```"
+  ],
+  "_GDIPlus_PathReset": [
+    "Empties a path and sets the fill mode to alternate (0)",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathReset ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathReverse": [
+    "Reverses the order of the points that define a path's lines and curves",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathReverse ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathSetFillMode": [
+    "Sets the fill mode of a path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathSetFillMode ( $hPath, $iFillMode )\r```"
+  ],
+  "_GDIPlus_PathSetMarker": [
+    "Designates the last point in a path as a marker point",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathSetMarker ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathStartFigure": [
+    "Starts a new figure without closing the current figure. Subsequent points added to a path are added to the new figure",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathStartFigure ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathTransform": [
+    "Multiplies each of a path's data points by a specified matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathTransform ( $hPath, $hMatrix )\r```"
+  ],
+  "_GDIPlus_PathWarp": [
+    "Applies a warp transformation to a path. The function also flattens (converts to a sequence of straight lines) the path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathWarp ( $hPath, $hMatrix, $aPoints, $nX, $nY, $nWidth, $nHeight [, $iWarpMode = 0 [, $fFlatness = 0.25]] )\r```"
+  ],
+  "_GDIPlus_PathWiden": [
+    "Replaces a path with curves that enclose the area that is filled when the path is drawn by a specified pen. The function also flattens the path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathWiden ( $hPath, $hPen [, $hMatrix = 0 [, $fFlatness = 0.25]] )\r```"
+  ],
+  "_GDIPlus_PathWindingModeOutline": [
+    "Transforms and flattens a path, and then converts the path's data points so that they represent only the outline of the path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathWindingModeOutline ( $hPath [, $hMatrix = 0 [, $fFlatness = 0.25]] )\r```"
+  ],
+  "_GDIPlus_DrawImageFX": [
+    "Draws a portion of an image after applying a specified effect",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_DrawImageFX ( $hGraphics, $hImage, $hEffect [, $tRECTF = 0 [, $hMatrix = 0 [, $hImgAttributes = 0 [, $iUnit = 2]]]] )\r```"
+  ],
+  "_GDIPlus_DrawImageFXEx": [
+    "Draws a portion of an image after applying a specified effect",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_DrawImageFXEx ( $hGraphics, $hImage, $hEffect [, $nX = 0 [, $nY = 0 [, $nW = 0 [, $nH = 0 [, $hMatrix = 0 [, $hImgAttributes = 0 [, $iUnit = 2]]]]]]] )\r```"
+  ],
+  "_GDIPlus_DrawImagePoints": [
+    "Draws an image at a specified location",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_DrawImagePoints ( $hGraphic, $hImage, $nULX, $nULY, $nURX, $nURY, $nLLX, $nLLY [, $iCount = 3] )\r```"
+  ],
+  "_GDIPlus_ImageDispose": [
+    "Release an image object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageDispose ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetDimension": [
+    "Gets the width and height of an image which is supported by GDIPlus",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetDimension ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetFlags": [
+    "Returns enumeration of pixel data attributes contained in an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetFlags ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetGraphicsContext": [
+    "Get the graphics context of the image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetGraphicsContext ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetHeight": [
+    "Get the image height",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetHeight ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetHorizontalResolution": [
+    "Returns horizontal resolution in DPI (pixels per inch) of an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetHorizontalResolution ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetPixelFormat": [
+    "Returns pixel format of an image: Bits per pixel, Alpha channels, RGB, Grayscale, Indexed etc",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetPixelFormat ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetRawFormat": [
+    "Returns file format GUID and image format name of an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetRawFormat ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetThumbnail": [
+    "Gets a thumbnail image from this Image object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetThumbnail ( $hImage [, $iWidth = 0 [, $iHeight = 0 [, $bKeepRatio = True [, $hCallback = Null [, $hCallbackData = Null]]]]] )\r```"
+  ],
+  "_GDIPlus_ImageGetType": [
+    "Returns type (bitmap or metafile) of an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetType ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetVerticalResolution": [
+    "Returns vertical resolution in DPI (pixels per inch) of an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetVerticalResolution ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageGetWidth": [
+    "Get the image width",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageGetWidth ( $hImage )\r```"
+  ],
+  "_GDIPlus_ImageLoadFromFile": [
+    "Create an image object based on a file",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageLoadFromFile ( $sFileName )\r```"
+  ],
+  "_GDIPlus_ImageLoadFromStream": [
+    "Creates an Image object based on a stream",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageLoadFromStream ( $pStream )\r```"
+  ],
+  "_GDIPlus_ImageResize": [
+    "Resize an image to a new given size",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageResize ( $hImage, $iNewWidth, $iNewHeight [, $iInterpolationMode = $GDIP_INTERPOLATIONMODE_HIGHQUALITYBICUBIC] )\r```"
+  ],
+  "_GDIPlus_ImageRotateFlip": [
+    "Rotates and flips an image",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageRotateFlip ( $hImage, $iRotateFlipType )\r```"
+  ],
+  "_GDIPlus_ImageSaveToFile": [
+    "Save an image to file",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageSaveToFile ( $hImage, $sFileName )\r```"
+  ],
+  "_GDIPlus_ImageSaveToFileEx": [
+    "Save an image to file",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageSaveToFileEx ( $hImage, $sFileName, $sEncoder [, $tParams = 0] )\r```"
+  ],
+  "_GDIPlus_ImageSaveToStream": [
+    "Saves an Image object to a stream",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageSaveToStream ( $hImage, $pStream, $tEncoder [, $tParams = 0] )\r```"
+  ],
+  "_GDIPlus_ImageScale": [
+    "Scales an image by a given factor",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageScale ( $hImage, $iScaleW, $iScaleH [, $iInterpolationMode = $GDIP_INTERPOLATIONMODE_HIGHQUALITYBICUBIC] )\r```"
+  ],
+  "_GDIPlus_ImageAttributesCreate": [
+    "Creates an ImageAttributes object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageAttributesCreate ( )\r```"
+  ],
+  "_GDIPlus_ImageAttributesDispose": [
+    "Releases an ImageAttributes object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageAttributesDispose ( $hImageAttributes )\r```"
+  ],
+  "_GDIPlus_ImageAttributesSetColorKeys": [
+    "Sets or clears the color key (transparency range) for a specified category",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageAttributesSetColorKeys ( $hImageAttributes [, $iColorAdjustType = 0 [, $bEnable = False [, $iARGBLow = 0 [, $iARGBHigh = 0]]]] )\r```"
+  ],
+  "_GDIPlus_ImageAttributesSetColorMatrix": [
+    "Sets or clears the color- and grayscale-adjustment matrices for a specified category",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ImageAttributesSetColorMatrix ( $hImageAttributes [, $iColorAdjustType = 0 [, $bEnable = False [, $tClrMatrix = 0 [, $tGrayMatrix = 0 [, $iColorMatrixFlags = 0]]]]] )\r```"
+  ],
+  "_GDIPlus_MatrixClone": [
+    "Clones a Matrix object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixClone ( $hMatrix )\r```"
+  ],
+  "_GDIPlus_MatrixCreate": [
+    "Creates and initializes a Matrix object that represents the identity matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixCreate ( )\r```"
+  ],
+  "_GDIPlus_MatrixDispose": [
+    "Release a matrix object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixDispose ( $hMatrix )\r```"
+  ],
+  "_GDIPlus_MatrixGetElements": [
+    "Gets the elements of a matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixGetElements ( $hMatrix )\r```"
+  ],
+  "_GDIPlus_MatrixInvert": [
+    "Replaces the elements of a matrix with the elements of its inverse",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixInvert ( $hMatrix )\r```"
+  ],
+  "_GDIPlus_MatrixMultiply": [
+    "Updates a matrix with the product of itself and another matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixMultiply ( $hMatrix1, $hMatrix2 [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_MatrixRotate": [
+    "Updates a matrix with the product of itself and a rotation matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixRotate ( $hMatrix, $fAngle [, $bAppend = False] )\r```"
+  ],
+  "_GDIPlus_MatrixScale": [
+    "Updates a matrix with the product of itself and a scaling matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixScale ( $hMatrix, $fScaleX, $fScaleY [, $bOrder = False] )\r```"
+  ],
+  "_GDIPlus_MatrixSetElements": [
+    "Sets the elements of a matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixSetElements ( $hMatrix [, $nM11 = 1 [, $nM12 = 0 [, $nM21 = 0 [, $nM22 = 1 [, $nDX = 0 [, $nDY = 0]]]]]] )\r```"
+  ],
+  "_GDIPlus_MatrixShear": [
+    "Updates a matrix with the product of itself and another matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixShear ( $hMatrix, $fShearX, $fShearY [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_MatrixTransformPoints": [
+    "Multiplies each point in an array by a matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixTransformPoints ( $hMatrix, ByRef $aPoints )\r```"
+  ],
+  "_GDIPlus_MatrixTranslate": [
+    "Updates a matrix with the product of itself and a translation matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_MatrixTranslate ( $hMatrix, $fOffsetX, $fOffsetY [, $bAppend = False] )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreate": [
+    "Creates and initializes an identity color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreate ( )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreateGrayScale": [
+    "Creates and initializes a gray-scaling color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreateGrayScale ( )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreateNegative": [
+    "Creates and initializes a negative color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreateNegative ( )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreateSaturation": [
+    "Creates and initializes a saturation color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreateSaturation ( $fSat )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreateScale": [
+    "Creates and initializes a scaling color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreateScale ( $fRed, $fGreen, $fBlue [, $fAlpha = 1] )\r```"
+  ],
+  "_GDIPlus_ColorMatrixCreateTranslate": [
+    "Creates and initializes a translation color matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_ColorMatrixCreateTranslate ( $fRed, $fGreen, $fBlue [, $fAlpha = 0] )\r```"
+  ],
+  "_GDIPlus_PathBrushCreate": [
+    "Creates a PathGradientBrush object based on an array of points and initializes the wrap mode of the brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushCreate ( $aPoints [, $iWrapMode = 0] )\r```"
+  ],
+  "_GDIPlus_PathBrushCreateFromPath": [
+    "Creates a PathGradientBrush object based on a GraphicsPath object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushCreateFromPath ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathBrushGetCenterPoint": [
+    "Gets the center point of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushGetCenterPoint ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushGetFocusScales": [
+    "Gets the focus scales of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushGetFocusScales ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushGetPointCount": [
+    "Gets the number of points in the array of points that defines a brush's boundary path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushGetPointCount ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushGetRect": [
+    "Gets the smallest rectangle that encloses the boundary path of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushGetRect ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushGetWrapMode": [
+    "Gets the wrap mode currently set for a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushGetWrapMode ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushMultiplyTransform": [
+    "Updates a brush's transformation matrix with the product of itself and another matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushMultiplyTransform ( $hPathGradientBrush, $hMatrix [, $iOrder = 0] )\r```"
+  ],
+  "_GDIPlus_PathBrushResetTransform": [
+    "Resets the transformation matrix of a path gradient brush to the identity matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushResetTransform ( $hPathGradientBrush )\r```"
+  ],
+  "_GDIPlus_PathBrushSetBlend": [
+    "Sets the blend factors and the blend positions of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetBlend ( $hPathGradientBrush, $aBlends )\r```"
+  ],
+  "_GDIPlus_PathBrushSetCenterColor": [
+    "Sets the color of the center point of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetCenterColor ( $hPathGradientBrush, $iARGB )\r```"
+  ],
+  "_GDIPlus_PathBrushSetCenterPoint": [
+    "Sets the center point of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetCenterPoint ( $hPathGradientBrush, $nX, $nY )\r```"
+  ],
+  "_GDIPlus_PathBrushSetFocusScales": [
+    "Sets the focus scales of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetFocusScales ( $hPathGradientBrush, $fScaleX, $fScaleY )\r```"
+  ],
+  "_GDIPlus_PathBrushSetGammaCorrection": [
+    "Specifies whether gamma correction is enabled for a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetGammaCorrection ( $hPathGradientBrush, $bUseGammaCorrection )\r```"
+  ],
+  "_GDIPlus_PathBrushSetLinearBlend": [
+    "Sets the blend shape of a path gradient brush to create a custom blend based on a triangular shape",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetLinearBlend ( $hPathGradientBrush, $fFocus [, $fScale = 1] )\r```"
+  ],
+  "_GDIPlus_PathBrushSetPresetBlend": [
+    "Sets the preset colors and the blend positions of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetPresetBlend ( $hPathGradientBrush, $aInterpolations )\r```"
+  ],
+  "_GDIPlus_PathBrushSetSigmaBlend": [
+    "Sets the blend shape of a path gradient brush to create a custom blend based on a bell-shaped curve",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetSigmaBlend ( $hPathGradientBrush, $fFocus [, $fScale = 1] )\r```"
+  ],
+  "_GDIPlus_PathBrushSetSurroundColor": [
+    "Sets the surround color for a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetSurroundColor ( $hPathGradientBrush, $iARGB )\r```"
+  ],
+  "_GDIPlus_PathBrushSetSurroundColorsWithCount": [
+    "Sets the surround colors currently specified for a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetSurroundColorsWithCount ( $hPathGradientBrush, $aColors )\r```"
+  ],
+  "_GDIPlus_PathBrushSetTransform": [
+    "Sets the transformation matrix of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetTransform ( $hPathGradientBrush, $hMatrix )\r```"
+  ],
+  "_GDIPlus_PathBrushSetWrapMode": [
+    "Sets the wrap mode of a path gradient brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathBrushSetWrapMode ( $hPathGradientBrush, $iWrapMode )\r```"
+  ],
+  "_GDIPlus_PathIterCreate": [
+    "Creates a new GraphicsPathIterator object and associates it with a GraphicsPath object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterCreate ( $hPath )\r```"
+  ],
+  "_GDIPlus_PathIterDispose": [
+    "Releases a GraphicsPathIterator object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterDispose ( $hPathIter )\r```"
+  ],
+  "_GDIPlus_PathIterGetSubpathCount": [
+    "Gets the number of subpaths (also called figures) in the path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterGetSubpathCount ( $hPathIter )\r```"
+  ],
+  "_GDIPlus_PathIterNextMarkerPath": [
+    "Gets the next marker-delimited section of an iterator's associated path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterNextMarkerPath ( $hPathIter, $hPath )\r```"
+  ],
+  "_GDIPlus_PathIterNextSubpathPath": [
+    "Gets the next figure (subpath) from an iterator's associated path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterNextSubpathPath ( $hPathIter, $hPath )\r```"
+  ],
+  "_GDIPlus_PathIterRewind": [
+    "Rewinds an iterator to the beginning of its associated path",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PathIterRewind ( $hPathIter )\r```"
+  ],
+  "_GDIPlus_PenCreate": [
+    "Create a pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenCreate ( [$iARGB = 0xFF000000 [, $nWidth = 1 [, $iUnit = 2]]] )\r```"
+  ],
+  "_GDIPlus_PenCreate2": [
+    "Creates a Pen object that uses the attributes of a brush",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenCreate2 ( $hBrush [, $nWidth = 1 [, $iUnit = 2]] )\r```"
+  ],
+  "_GDIPlus_PenDispose": [
+    "Release a pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenDispose ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetAlignment": [
+    "Gets the pen alignment",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetAlignment ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetColor": [
+    "Gets the pen color",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetColor ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetCustomEndCap": [
+    "Gets the custom end cap for the pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetCustomEndCap ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetDashCap": [
+    "Gets the pen dash cap style",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetDashCap ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetDashStyle": [
+    "Gets the pen dash style",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetDashStyle ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetEndCap": [
+    "Gets the pen end cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetEndCap ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetMiterLimit": [
+    "Gets the miter length currently set for a Pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetMiterLimit ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenGetWidth": [
+    "Retrieve the width of a pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenGetWidth ( $hPen )\r```"
+  ],
+  "_GDIPlus_PenSetAlignment": [
+    "Sets the pen alignment",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetAlignment ( $hPen [, $iAlignment = 0] )\r```"
+  ],
+  "_GDIPlus_PenSetColor": [
+    "Sets the pen color",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetColor ( $hPen, $iARGB )\r```"
+  ],
+  "_GDIPlus_PenSetCustomEndCap": [
+    "Sets the custom end cap for the pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetCustomEndCap ( $hPen, $hEndCap )\r```"
+  ],
+  "_GDIPlus_PenSetDashCap": [
+    "Sets the pen dash cap style",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetDashCap ( $hPen [, $iDash = 0] )\r```"
+  ],
+  "_GDIPlus_PenSetDashStyle": [
+    "Sets the pen dash style",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetDashStyle ( $hPen [, $iStyle = 0] )\r```"
+  ],
+  "_GDIPlus_PenSetEndCap": [
+    "Sets the pen end cap",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetEndCap ( $hPen, $iEndCap )\r```"
+  ],
+  "_GDIPlus_PenSetLineCap": [
+    "Sets the cap styles for the start, end, and dashes in a line drawn with the pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetLineCap ( $hPen, $iStartCap, $iEndCap, $iDashCap )\r```"
+  ],
+  "_GDIPlus_PenSetLineJoin": [
+    "Sets the line join for a Pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetLineJoin ( $hPen, $iLineJoin )\r```"
+  ],
+  "_GDIPlus_PenSetMiterLimit": [
+    "Sets the miter limit of a Pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetMiterLimit ( $hPen, $fMiterLimit )\r```"
+  ],
+  "_GDIPlus_PenSetStartCap": [
+    "Sets the start cap for a Pen object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetStartCap ( $hPen, $iLineCap )\r```"
+  ],
+  "_GDIPlus_PenSetWidth": [
+    "Sets the width of a pen",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_PenSetWidth ( $hPen, $fWidth )\r```"
+  ],
+  "_GDIPlus_RegionClone": [
+    "Clones a Region object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionClone ( $hRegion )\r```"
+  ],
+  "_GDIPlus_RegionCombinePath": [
+    "Updates a region to the portion of itself that intersects the specified path's interior",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCombinePath ( $hRegion, $hPath [, $iCombineMode = 2] )\r```"
+  ],
+  "_GDIPlus_RegionCombineRect": [
+    "Updates a region to the portion of itself that intersects the specified rectangle's interior",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCombineRect ( $hRegion, $nX, $nY, $nWidth, $nHeight [, $iCombineMode = 2] )\r```"
+  ],
+  "_GDIPlus_RegionCombineRegion": [
+    "Updates a region to the portion of itself that intersects another region",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCombineRegion ( $hRegionDst, $hRegionSrc [, $iCombineMode = 2] )\r```"
+  ],
+  "_GDIPlus_RegionCreate": [
+    "Creates a region that is infinite",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCreate ( )\r```"
+  ],
+  "_GDIPlus_RegionCreateFromPath": [
+    "Creates a region that is defined by a path object and has a fill mode that is contained in the path object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCreateFromPath ( $hPath )\r```"
+  ],
+  "_GDIPlus_RegionCreateFromRect": [
+    "Creates a region that is defined by a rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionCreateFromRect ( $nX, $nY, $nWidth, $nHeight )\r```"
+  ],
+  "_GDIPlus_RegionDispose": [
+    "Releases a Region object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionDispose ( $hRegion )\r```"
+  ],
+  "_GDIPlus_RegionGetBounds": [
+    "Gets a rectangle that encloses a region",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionGetBounds ( $hRegion, $hGraphics )\r```"
+  ],
+  "_GDIPlus_RegionGetHRgn": [
+    "Creates a GDI region from a GDI+ Region object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionGetHRgn ( $hRegion [, $hGraphics = 0] )\r```"
+  ],
+  "_GDIPlus_RegionTransform": [
+    "Tansforms a region by multiplying each of its data points by a specified matrix",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionTransform ( $hRegion, $hMatrix )\r```"
+  ],
+  "_GDIPlus_RegionTranslate": [
+    "Offsets a region by specified amounts in the horizontal and vertical directions",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_RegionTranslate ( $hRegion, $nDX, $nDY )\r```"
+  ],
+  "_GDIPlus_StringFormatCreate": [
+    "Create a String Format object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatCreate ( [$iFormat = 0 [, $iLangID = 0]] )\r```"
+  ],
+  "_GDIPlus_StringFormatDispose": [
+    "Release a String Format object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatDispose ( $hFormat )\r```"
+  ],
+  "_GDIPlus_StringFormatGetMeasurableCharacterRangeCount": [
+    "Gets the number of measurable character ranges that are currently set for a StringFormat object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatGetMeasurableCharacterRangeCount ( $hStringFormat )\r```"
+  ],
+  "_GDIPlus_StringFormatSetAlign": [
+    "Sets the text alignment of a string format object",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatSetAlign ( $hStringFormat, $iFlag )\r```"
+  ],
+  "_GDIPlus_StringFormatSetLineAlign": [
+    "Sets the line alignment of a StringFormat object in relation to the origin of a layout rectangle",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatSetLineAlign ( $hStringFormat, $iStringAlign )\r```"
+  ],
+  "_GDIPlus_StringFormatSetMeasurableCharacterRanges": [
+    "Sets a series of character ranges for a StringFormat object that, when in a string, can be measured",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_StringFormatSetMeasurableCharacterRanges ( $hStringFormat, $aRanges )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawString": [
+    "Draw a string",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawString ( $hGraphics, $sString, $nX, $nY [, $sFont = \"Arial\" [, $fSize = 10 [, $iFormat = 0]]] )\r```"
+  ],
+  "_GDIPlus_GraphicsDrawStringEx": [
+    "Draw a string",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsDrawStringEx ( $hGraphics, $sString, $hFont, $tLayout, $hFormat, $hBrush )\r```"
+  ],
+  "_GDIPlus_GraphicsMeasureCharacterRanges": [
+    "Gets a set of region objects each of which bounds a range of character positions within a string",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsMeasureCharacterRanges ( $hGraphics, $sString, $hFont, $tLayout, $hStringFormat )\r```"
+  ],
+  "_GDIPlus_GraphicsMeasureString": [
+    "Measures the size of a string",
+    "```\r#include <GDIPlus.au3>\r_GDIPlus_GraphicsMeasureString ( $hGraphics, $sString, $hFont, $tLayout, $hFormat )\r```"
+  ]
+}

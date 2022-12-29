@@ -1,0 +1,30 @@
+{
+    "_ChooseColor": [
+        "Creates a Color dialog box that enables the user to select a color",
+        "```\r#include <Misc.au3>\r_ChooseColor ( [$iReturnType = 0 [, $iColorRef = 0 [, $iRefType = 0 [, $hWndOwnder = 0]]]] )\r```"
+    ],
+    "_ChooseFont": [
+        "Creates a Font dialog box that enables the user to choose attributes for a logical font",
+        "```\r#include <Misc.au3>\r_ChooseFont ( [$sFontName = \"Courier New\" [, $iPointSize = 10 [, $iFontColorRef = 0 [, $iFontWeight = 0 [, $bItalic = False [, $bUnderline = False [, $bStrikethru = False [, $hWndOwner = 0]]]]]]]] )\r```"
+    ],
+    "_ClipPutFile": [
+        "Copy Files to Clipboard Like Explorer does",
+        "```\r#include <Misc.au3>\r_ClipPutFile ( $sFilePath [, $sDelimiter = \"|\"] )\r```"
+    ],
+    "_IsPressed": [
+        "Check if key has been pressed",
+        "```\r#include <Misc.au3>\r_IsPressed ( $sHexKey [, $vDLL = 'user32.dll'] )\r```"
+    ],
+    "_MouseTrap": [
+        "Confine the Mouse Cursor to specified coords",
+        "```\r#include <Misc.au3>\r_MouseTrap ( [$iLeft = 0 [, $iTop = 0 [, $iRight = 0 [, $iBottom = 0]]]] )\r```"
+    ],
+    "_Singleton": [
+        "Enforce a design paradigm where only one instance of the script may be running",
+        "```\r#include <Misc.au3>\r_Singleton ( $sOccurrenceName [, $iFlag = 0] \r```"
+    ],
+    "_VersionCompare": [
+        "Compares two file versions for equality",
+        "```\r#include <Misc.au3>\r_VersionCompare ( $sVersion1, $sVersion2 )\r```"
+    ]
+}

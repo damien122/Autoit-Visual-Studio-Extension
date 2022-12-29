@@ -1,0 +1,442 @@
+{
+    "_GUICtrlToolbar_AddBitmap": [
+        "Adds images to the image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_AddBitmap ( $hWnd, $iButtons, $hInst, $iID )\r```"
+    ],
+    "_GUICtrlToolbar_AddButton": [
+        "Adds a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_AddButton ( $hWnd, $iID, $iImage [, $iString = 0 [, $iStyle = 0 [, $iState = 4 [, $iParam = 0]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_AddButtonSep": [
+        "Adds a separator",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_AddButtonSep ( $hWnd [, $iWidth = 6] )\r```"
+    ],
+    "_GUICtrlToolbar_AddString": [
+        "Adds a new string to the toolbar's string pool",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_AddString ( $hWnd, $sString )\r```"
+    ],
+    "_GUICtrlToolbar_ButtonCount": [
+        "Retrieves a count of the buttons",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_ButtonCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_CheckButton": [
+        "Checks or unchecks a given button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_CheckButton ( $hWnd, $iCommandID [, $bCheck = True] )\r```"
+    ],
+    "_GUICtrlToolbar_ClickAccel": [
+        "Clicks a specific button using it's accelerator",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_ClickAccel ( $hWnd, $sAccelKey [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 1]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_ClickButton": [
+        "Clicks a specific button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_ClickButton ( $hWnd, $iCommandID [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 1]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_ClickIndex": [
+        "Clicks a specific button using it's index",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_ClickIndex ( $hWnd, $iIndex [, $sButton = \"left\" [, $bMove = False [, $iClicks = 1 [, $iSpeed = 1]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_CommandToIndex": [
+        "Retrieves the index for the button associated with the specified command identifier",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_CommandToIndex ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_Create": [
+        "Create a Toolbar control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_Create ( $hWnd [, $iStyle = 0x00000800 [, $iExStyle = 0x00000000]] )\r```"
+    ],
+    "_GUICtrlToolbar_Customize": [
+        "Displays the Customize Toolbar dialog box",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_Customize ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_DeleteButton": [
+        "Deletes a button from the toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_DeleteButton ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_EnableButton": [
+        "Enables or disables the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_EnableButton ( $hWnd, $iCommandID [, $bEnable = True] )\r```"
+    ],
+    "_GUICtrlToolbar_FindToolbar": [
+        "Finds a specific toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_FindToolbar ( $hWnd, $sText )\r```"
+    ],
+    "_GUICtrlToolbar_GetAnchorHighlight": [
+        "Retrieves the anchor highlight setting",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetAnchorHighlight ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetBitmapFlags": [
+        "Retrieves the flags that describe the type of bitmap to be used",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetBitmapFlags ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonBitmap": [
+        "Retrieves the index of the bitmap associated with a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonBitmap ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonInfo": [
+        "Retrieves information for a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonInfo ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonInfoEx": [
+        "Retrieves extended information for a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonInfoEx ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonParam": [
+        "Retrieves the button param value",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonParam ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonRect": [
+        "Retrieves the bounding rectangle for a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonRect ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonRectEx": [
+        "Retrieves the bounding rectangle for a specified toolbar button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonRectEx ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonSize": [
+        "Retrieves the current button width and height, in pixels",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonSize ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonState": [
+        "Retrieves information about the state of the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonState ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonStyle": [
+        "Retrieves the style flags of a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonStyle ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetButtonText": [
+        "Retrieves the display text of a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetButtonText ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_GetColorScheme": [
+        "Retrieves the color scheme information",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetColorScheme ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetDisabledImageList": [
+        "Retrieves the disabled button image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetDisabledImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetExtendedStyle": [
+        "Retrieves the extended styles",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetExtendedStyle ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetHotImageList": [
+        "Retrieves the hot button image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetHotImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetHotItem": [
+        "Retrieves the index of the hot item",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetHotItem ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetImageList": [
+        "Retrieves the default state image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetImageList ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetInsertMark": [
+        "Retrieves the current insertion mark",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetInsertMark ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetInsertMarkColor": [
+        "Retrieves the color used to draw the insertion mark",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetInsertMarkColor ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetMaxSize": [
+        "Retrieves the total size of all of the visible buttons and separators",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetMaxSize ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetMetrics": [
+        "Retrieves the metrics of a toolbar control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetMetrics ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetPadding": [
+        "Retrieves the horizontal and vertical padding",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetPadding ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetRows": [
+        "Retrieves the number of rows of buttons",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetRows ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetString": [
+        "Retrieves a string from the string pool",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetString ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyle": [
+        "Retrieves the styles currently in use for a toolbar control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyle ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleAltDrag": [
+        "Indicates that the control allows buttons to be dragged",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleAltDrag ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleCustomErase": [
+        "Indicates that the control generates NM_CUSTOMDRAW notification messages",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleCustomErase ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleFlat": [
+        "Indicates that the control is flat",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleFlat ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleList": [
+        "Indicates that the control has button text to the right of the bitmap",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleList ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleRegisterDrop": [
+        "Indicates that the control generates TBN_GETOBJECT notification messages",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleRegisterDrop ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleToolTips": [
+        "Indicates that the control has tooltips",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleTransparent": [
+        "Indicates that the control is transparent",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleTransparent ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetStyleWrapable": [
+        "Indicates that the control is wrapable",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetStyleWrapable ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetTextRows": [
+        "Retrieves the maximum number of text rows that can be displayed on a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetTextRows ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetToolTips": [
+        "Retrieves the handle to the ToolTip control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetToolTips ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlToolbar_HideButton": [
+        "Hides or shows the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_HideButton ( $hWnd, $iCommandID [, $bHide = True] )\r```"
+    ],
+    "_GUICtrlToolbar_HighlightButton": [
+        "Sets the highlight state of a given button control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_HighlightButton ( $hWnd, $iCommandID [, $bHighlight = True] )\r```"
+    ],
+    "_GUICtrlToolbar_HitTest": [
+        "Determines where a point lies within the control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_HitTest ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlToolbar_IndexToCommand": [
+        "Retrieves the command identifier associated with the button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IndexToCommand ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlToolbar_InsertButton": [
+        "Inserts a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_InsertButton ( $hWnd, $iIndex, $iID, $iImage [, $sText = \"\" [, $iStyle = 0 [, $iState = 4 [, $iParam = 0]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_InsertMarkHitTest": [
+        "Retrieves the insertion mark information for a point",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_InsertMarkHitTest ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonChecked": [
+        "Indicates whether the specified button is checked",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonChecked ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonEnabled": [
+        "Indicates whether the specified button is enabled",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonEnabled ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonHidden": [
+        "Indicates whether the specified button is hidden",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonHidden ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonHighlighted": [
+        "Indicates whether the specified button is hilighted",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonHighlighted ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonIndeterminate": [
+        "Indicates whether the specified button is indeterminate",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonIndeterminate ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_IsButtonPressed": [
+        "Indicates that the button is being clicked",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_IsButtonPressed ( $hWnd, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_LoadBitmap": [
+        "Adds a bitmap to the image list from a file",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_LoadBitmap ( $hWnd, $sFileName )\r```"
+    ],
+    "_GUICtrlToolbar_LoadImages": [
+        "Loads system defined button images into a toolbar control's image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_LoadImages ( $hWnd, $iBitMapID )\r```"
+    ],
+    "_GUICtrlToolbar_MapAccelerator": [
+        "Determines the ID of the button that corresponds to the specified accelerator",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_MapAccelerator ( $hWnd, $sAccelKey )\r```"
+    ],
+    "_GUICtrlToolbar_MoveButton": [
+        "Moves a button from one index to another",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_MoveButton ( $hWnd, $iOldPos, $iNewPos )\r```"
+    ],
+    "_GUICtrlToolbar_PressButton": [
+        "Presses or releases the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_PressButton ( $hWnd, $iCommandID [, $bPress = True] )\r```"
+    ],
+    "_GUICtrlToolbar_SetAnchorHighlight": [
+        "Sets the anchor highlight setting",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetAnchorHighlight ( $hWnd, $bAnchor )\r```"
+    ],
+    "_GUICtrlToolbar_SetBitmapSize": [
+        "Sets the size of the bitmapped images to be added to a toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetBitmapSize ( $hWnd, $iWidth, $iHeight )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonBitMap": [
+        "Sets the index of the bitmap associated with a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonBitMap ( $hWnd, $iCommandID, $iIndex )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonInfo": [
+        "Sets information for a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonInfo ( $hWnd, $iCommandID [, $iImage = -3 [, $iState = -1 [, $iStyle = -1 [, $iWidth = -1 [, $iParam = -1]]]]] )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonInfoEx": [
+        "Sets extended information for a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonInfoEx ( $hWnd, $iCommandID, $tButton )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonParam": [
+        "Sets the button param value",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonParam ( $hWnd, $iCommandID, $iParam )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonSize": [
+        "Sets the size of the buttons to be added to a toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonSize ( $hWnd, $iHeight, $iWidth )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonState": [
+        "Sets information about the state of the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonState ( $hWnd, $iCommandID, $iState )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonStyle": [
+        "Sets the style flags of a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonStyle ( $hWnd, $iCommandID, $iStyle )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonText": [
+        "Sets the display text of a button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonText ( $hWnd, $iCommandID, $sText )\r```"
+    ],
+    "_GUICtrlToolbar_SetButtonWidth": [
+        "Sets the minimum and maximum button widths in the toolbar control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetButtonWidth ( $hWnd, $iMin, $iMax )\r```"
+    ],
+    "_GUICtrlToolbar_SetCmdID": [
+        "Sets the command identifier of a toolbar button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetCmdID ( $hWnd, $iIndex, $iCommandID )\r```"
+    ],
+    "_GUICtrlToolbar_SetColorScheme": [
+        "Sets the color scheme information",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetColorScheme ( $hWnd, $iHighlight, $iShadow )\r```"
+    ],
+    "_GUICtrlToolbar_SetDisabledImageList": [
+        "Sets the disabled image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetDisabledImageList ( $hWnd, $hImageList )\r```"
+    ],
+    "_GUICtrlToolbar_SetDrawTextFlags": [
+        "Sets the text drawing flags for the toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetDrawTextFlags ( $hWnd, $iMask, $iDTFlags )\r```"
+    ],
+    "_GUICtrlToolbar_SetExtendedStyle": [
+        "Sets the extended styles control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetExtendedStyle ( $hWnd, $iStyle )\r```"
+    ],
+    "_GUICtrlToolbar_SetHotImageList": [
+        "Sets the hot button image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetHotImageList ( $hWnd, $hImageList )\r```"
+    ],
+    "_GUICtrlToolbar_SetHotItem": [
+        "Sets the hot item",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetHotItem ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlToolbar_SetImageList": [
+        "Sets the default button image list",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetImageList ( $hWnd, $hImageList )\r```"
+    ],
+    "_GUICtrlToolbar_SetIndent": [
+        "Sets the indentation for the first button control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetIndent ( $hWnd, $iIndent )\r```"
+    ],
+    "_GUICtrlToolbar_SetIndeterminate": [
+        "Sets or clears the indeterminate state of the specified button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetIndeterminate ( $hWnd, $iCommandID [, $bState = True] )\r```"
+    ],
+    "_GUICtrlToolbar_SetInsertMark": [
+        "Sets the current insertion mark for the toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetInsertMark ( $hWnd, $iButton [, $iFlags = 0] )\r```"
+    ],
+    "_GUICtrlToolbar_SetInsertMarkColor": [
+        "Sets the color used to draw the insertion mark",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetInsertMarkColor ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlToolbar_SetMaxTextRows": [
+        "Sets the maximum number of text rows displayed button",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetMaxTextRows ( $hWnd, $iMaxRows )\r```"
+    ],
+    "_GUICtrlToolbar_SetMetrics": [
+        "Sets the metrics of a toolbar control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetMetrics ( $hWnd, $iXPad, $iYPad, $iXSpacing, $iYSpacing )\r```"
+    ],
+    "_GUICtrlToolbar_SetPadding": [
+        "Sets the padding control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetPadding ( $hWnd, $iCX, $iCY )\r```"
+    ],
+    "_GUICtrlToolbar_SetParent": [
+        "Sets the window to which the control sends notification messages",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetParent ( $hWnd, $hParent )\r```"
+    ],
+    "_GUICtrlToolbar_SetRows": [
+        "Sets the number of rows of buttons",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetRows ( $hWnd, $iRows [, $bLarger = True] )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyle": [
+        "Sets the style control",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyle ( $hWnd, $iStyle )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleAltDrag": [
+        "Sets whether that the control allows buttons to be dragged",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleAltDrag ( $hWnd [, $bState = True] )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleCustomErase": [
+        "Sets whether the control generates NM_CUSTOMDRAW notification messages",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleCustomErase ( $hWnd [, $bState = True] )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleFlat": [
+        "Sets whether the control is flat",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleFlat ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleList": [
+        "Sets whether the control has button text to the right of the bitmap",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleList ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleRegisterDrop": [
+        "Sets whether the control generates TBN_GETOBJECT notification messages",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleRegisterDrop ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleToolTips": [
+        "Sets whether the control has tooltips",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleToolTips ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleTransparent": [
+        "Sets whether the control is transparent",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleTransparent ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetStyleWrapable": [
+        "Sets whether the control is wrapable",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetStyleWrapable ( $hWnd, $bState )\r```"
+    ],
+    "_GUICtrlToolbar_SetToolTips": [
+        "Associates a ToolTip control with a toolbar",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetToolTips ( $hWnd, $hToolTip )\r```"
+    ],
+    "_GUICtrlToolbar_SetUnicodeFormat": [
+        "Sets the Unicode character format flag",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetUnicodeFormat ( $hWnd [, $bUnicode = False] )\r```"
+    ],
+    "_GUICtrlToolbar_SetWindowTheme": [
+        "Sets the visual style",
+        "```\r#include <GuiToolbar.au3>\r_GUICtrlToolbar_SetWindowTheme ( $hWnd, $sTheme )\r```"
+    ]
+}

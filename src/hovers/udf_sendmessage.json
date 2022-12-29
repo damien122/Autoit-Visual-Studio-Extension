@@ -1,0 +1,10 @@
+{
+    "_SendMessage": [
+        "Wrapper for commonly used DLL Call",
+        "```\r#include <SendMessage.au3>\r_SendMessage ( $hWnd, $iMsg [, $wParam = 0 [, $lParam = 0 [, $iReturn = 0 [, $wParamType = \"wparam\" [, $lParamType = \"lparam\" [, $sReturnType = \"lresult\"]]]]]] )\r```"
+    ],
+    "_SendMessageA": [
+        "Send a Message to a Window/Control (Force Ansi Call)",
+        "```\r#include <SendMessage.au3>\r_SendMessageA ( $hWnd, $iMsg [, $wParam = 0 [, $lParam = 0 [, $iReturn = 0 [, $wParamType = \"wparam\" [, $lParamType = \"lparam\" [, $sReturnType = \"lresult\"]]]]]] )\r```"
+    ]   
+}

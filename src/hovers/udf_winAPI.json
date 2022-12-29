@@ -1,0 +1,810 @@
+{
+    "_WinAPI_AttachConsole": [
+        "Attaches the calling process to the console of the specified process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_AttachConsole ( [$iPID = -1] )\r```"
+    ],
+    "_WinAPI_AttachThreadInput": [
+        "Attaches the input processing mechanism of one thread to that of another thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_AttachThreadInput ( $iAttach, $iAttachTo, $bAttach )\r```"
+    ],
+    "_WinAPI_Beep": [
+        "Generates simple tones on the speaker",
+        "```\r#include <WinAPI.au3>\r_WinAPI_Beep ( [$iFreq = 500 [, $iDuration = 1000]] )\r```"
+    ],
+    "_WinAPI_BitBlt": [
+        "Performs a bit-block transfer of color data",
+        "```\r#include <WinAPI.au3>\r_WinAPI_BitBlt ( $hDestDC, $iXDest, $iYDest, $iWidth, $iHeight, $hSrcDC, $iXSrc, $iYSrc, $iROP )\r```"
+    ],
+    "_WinAPI_CallNextHookEx": [
+        "Passes the hook information to the next hook procedure in the current hook chain",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CallNextHookEx ( $hHook, $iCode, $wParam, $lParam )\r```"
+    ],
+    "_WinAPI_CallWindowProc": [
+        "Passes the hook information to the next hook procedure in the current hook chain",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CallWindowProc ( $pPrevWndFunc, $hWnd, $iMsg, $wParam, $lParam )\r```"
+    ],
+    "_WinAPI_ClientToScreen": [
+        "Converts the client coordinates of a specified point to screen coordinates",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ClientToScreen ( $hWnd, ByRef $tPoint )\r```"
+    ],
+    "_WinAPI_CloseHandle": [
+        "Closes an open object handle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CloseHandle ( $hObject )\r```"
+    ],
+    "_WinAPI_CombineRgn": [
+        "Combines two regions and stores the result in a third region",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CombineRgn ( $hRgnDest, $hRgnSrc1, $hRgnSrc2, $iCombineMode )\r```"
+    ],
+    "_WinAPI_CommDlgExtendedError": [
+        "Returns a common dialog box error string. This string indicates the most recent error to occur during the execution of one of the common dialog box functions",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CommDlgExtendedError ( )\r```"
+    ],
+    "_WinAPI_CopyIcon": [
+        "Copies the specified icon from another module",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CopyIcon ( $hIcon )\r```"
+    ],
+    "_WinAPI_CreateBitmap": [
+        "Creates a bitmap with the specified width, height, and color format",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateBitmap ( $iWidth, $iHeight [, $iPlanes = 1 [, $iBitsPerPel = 1 [, $pBits = 0]]] )\r```"
+    ],
+    "_WinAPI_CreateCompatibleBitmap": [
+        "Creates a bitmap compatible with the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateCompatibleBitmap ( $hDC, $iWidth, $iHeight )\r```"
+    ],
+    "_WinAPI_CreateCompatibleDC": [
+        "Creates a memory device context compatible with the specified device",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateCompatibleDC ( $hDC )\r```"
+    ],
+    "_WinAPI_CreateEvent": [
+        "Creates or opens a named or unnamed event object",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateEvent ( [$tAttributes = 0 [, $bManualReset = True [, $bInitialState = True [, $sName = \"\"]]]] )\r```"
+    ],
+    "_WinAPI_CreateFile": [
+        "Creates or opens a file or other device",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateFile ( $sFileName, $iCreation [, $iAccess = 4 [, $iShare = 0 [, $iAttributes = 0 [, $tSecurity = 0]]]] )\r```"
+    ],
+    "_WinAPI_CreateFont": [
+        "Creates a logical font with the specified characteristics",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateFont ( $iHeight, $iWidth [, $iEscape = 0 [, $iOrientn = 0 [, $iWeight = $FW_NORMAL [, $bItalic = False [, $bUnderline = False [, $bStrikeout = False [, $iCharset = $DEFAULT_CHARSET [, $iOutputPrec = $OUT_DEFAULT_PRECIS [, $iClipPrec = $CLIP_DEFAULT_PRECIS [, $iQuality = $DEFAULT_QUALITY [, $iPitch = 0 [, $sFace = 'Arial']]]]]]]]]]]] )\r```"
+    ],
+    "_WinAPI_CreateFontIndirect": [
+        "Creates a logical font that has specific characteristics",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateFontIndirect ( $tLogFont )\r```"
+    ],
+    "_WinAPI_CreatePen": [
+        "Creates a logical pen that has the specified style, width, and color",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreatePen ( $iPenStyle, $iWidth, $iColor )\r```"
+    ],
+    "_WinAPI_CreateProcess": [
+        "Creates a new process and its primary thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateProcess ( $sAppName, $sCommand, $tSecurity, $tThread, $bInherit, $iFlags, $pEnviron, $sDir, $tStartupInfo, $tProcess )\r```"
+    ],
+    "_WinAPI_CreateRectRgn": [
+        "Creates a rectangular region",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateRectRgn ( $iLeftRect, $iTopRect, $iRightRect, $iBottomRect )\r```"
+    ],
+    "_WinAPI_CreateRoundRectRgn": [
+        "Creates a rectangular region with rounded corners",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateRoundRectRgn ( $iLeftRect, $iTopRect, $iRightRect, $iBottomRect, $iWidthEllipse, $iHeightEllipse )\r```"
+    ],
+    "_WinAPI_CreateSolidBitmap": [
+        "Creates a solid color bitmap",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateSolidBitmap ( $hWnd, $iColor, $iWidth, $iHeight [, $bRGB = 1] )\r```"
+    ],
+    "_WinAPI_CreateSolidBrush": [
+        "Creates a logical brush that has the specified solid color",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateSolidBrush ( $iColor )\r```"
+    ],
+    "_WinAPI_CreateWindowEx": [
+        "Creates an overlapped, pop-up, or child window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_CreateWindowEx ( $iExStyle, $sClass, $sName, $iStyle, $iX, $iY, $iWidth, $iHeight, $hParent [, $hMenu = 0 [, $hInstance = 0 [, $pParam = 0]]] )\r```"
+    ],
+    "_WinAPI_DefWindowProc": [
+        "Call the default window procedure to provide default processing",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DefWindowProc ( $hWnd, $iMsg, $wParam, $lParam )\r```"
+    ],
+    "_WinAPI_DeleteDC": [
+        "Deletes the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DeleteDC ( $hDC )\r```"
+    ],
+    "_WinAPI_DeleteObject": [
+        "Deletes a logical pen, brush, font, bitmap, region, or palette",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DeleteObject ( $hObject )\r```"
+    ],
+    "_WinAPI_DestroyIcon": [
+        "Destroys an icon and frees any memory the icon occupied",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DestroyIcon ( $hIcon )\r```"
+    ],
+    "_WinAPI_DestroyWindow": [
+        "Destroys the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DestroyWindow ( $hWnd )\r```"
+    ],
+    "_WinAPI_DrawEdge": [
+        "Draws one or more edges of rectangle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawEdge ( $hDC, $tRECT, $iEdgeType, $iFlags )\r```"
+    ],
+    "_WinAPI_DrawFrameControl": [
+        "Draws a frame control of the specified type and style",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawFrameControl ( $hDC, $tRECT, $iType, $iState )\r```"
+    ],
+    "_WinAPI_DrawIcon": [
+        "Draws an icon or cursor into the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawIcon ( $hDC, $iX, $iY, $hIcon )\r```"
+    ],
+    "_WinAPI_DrawIconEx": [
+        "Draws an icon or cursor into the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawIconEx ( $hDC, $iX, $iY, $hIcon [, $iWidth = 0 [, $iHeight = 0 [, $iStep = 0 [, $hBrush = 0 [, $iFlags = 3]]]]] )\r```"
+    ],
+    "_WinAPI_DrawLine": [
+        "Draws a line",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawLine ( $hDC, $iX1, $iY1, $iX2, $iY2 )\r```"
+    ],
+    "_WinAPI_DrawText": [
+        "Draws formatted text in the specified rectangle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DrawText ( $hDC, $sText, ByRef $tRECT, $iFlags )\r```"
+    ],
+    "_WinAPI_DuplicateHandle": [
+        "Duplicates an object handle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_DuplicateHandle ( $hSourceProcessHandle, $hSourceHandle, $hTargetProcessHandle, $iDesiredAccess, $iInheritHandle, $iOptions )\r```"
+    ],
+    "_WinAPI_EnableWindow": [
+        "Enables or disables mouse and keyboard input to the specified window or control",
+        "```\r#include <WinAPI.au3>\r_WinAPI_EnableWindow ( $hWnd [, $bEnable = True] )\r```"
+    ],
+    "_WinAPI_EnumDisplayDevices": [
+        "Obtains information about the display devices in a system",
+        "```\r#include <WinAPI.au3>\r_WinAPI_EnumDisplayDevices ( $sDevice, $iDevNum )\r```"
+    ],
+    "_WinAPI_EnumWindows": [
+        "Enumerates all windows",
+        "```\r#include <WinAPI.au3>\r_WinAPI_EnumWindows ( [$bVisible = True [, $hWnd = Default]] )\r```"
+    ],
+    "_WinAPI_EnumWindowsPopup": [
+        "Enumerates popup windows",
+        "```\r#include <WinAPI.au3>\r_WinAPI_EnumWindowsPopup ( )\r```"
+    ],
+    "_WinAPI_EnumWindowsTop": [
+        "Enumerates all top level windows",
+        "```\r#include <WinAPI.au3>\r_WinAPI_EnumWindowsTop ( )\r```"
+    ],
+    "_WinAPI_ExpandEnvironmentStrings": [
+        "Expands environment variable strings and replaces them with their defined values",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ExpandEnvironmentStrings ( $sString )\r```"
+    ],
+    "_WinAPI_ExtractIconEx": [
+        "Creates an array of handles to large or small icons extracted from a file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ExtractIconEx ( $sFilePath, $iIndex, $paLarge, $paSmall, $iIcons )\r```"
+    ],
+    "_WinAPI_FatalAppExit": [
+        "Displays a message box and terminates the application",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FatalAppExit ( $sMessage )\r```"
+    ],
+    "_WinAPI_FillRect": [
+        "Fills a rectangle by using the specified brush",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FillRect ( $hDC, $tRECT, $hBrush )\r```"
+    ],
+    "_WinAPI_FindExecutable": [
+        "Retrieves the name of the executable file associated with the specified file name",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FindExecutable ( $sFileName [, $sDirectory = \"\"] )\r```"
+    ],
+    "_WinAPI_FindWindow": [
+        "Retrieves the handle to the top-level window whose class name and window name match",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FindWindow ( $sClassName, $sWindowName )\r```"
+    ],
+    "_WinAPI_FlashWindow": [
+        "Flashes the specified window one time",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FlashWindow ( $hWnd [, $bInvert = True] )\r```"
+    ],
+    "_WinAPI_FlashWindowEx": [
+        "Flashes the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FlashWindowEx ( $hWnd [, $iFlags = 3 [, $iCount = 3 [, $iTimeout = 0]]] )\r```"
+    ],
+    "_WinAPI_FloatToInt": [
+        "Returns a 4 byte float as an integer value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FloatToInt ( $nFloat )\r```"
+    ],
+    "_WinAPI_FlushFileBuffers": [
+        "Flushes the buffers of a specified file and causes all buffered data to be written",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FlushFileBuffers ( $hFile )\r```"
+    ],
+    "_WinAPI_FormatMessage": [
+        "Formats a message string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FormatMessage ( $iFlags, $pSource, $iMessageID, $iLanguageID, ByRef $pBuffer, $iSize, $vArguments )\r```"
+    ],
+    "_WinAPI_FrameRect": [
+        "Draws a border around the specified rectangle by using the specified brush",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FrameRect ( $hDC, $tRECT, $hBrush )\r```"
+    ],
+    "_WinAPI_FreeLibrary": [
+        "Decrements the reference count of the loaded dynamic-link library (DLL) module",
+        "```\r#include <WinAPI.au3>\r_WinAPI_FreeLibrary ( $hModule )\r```"
+    ],
+    "_WinAPI_GetAncestor": [
+        "Retrieves the handle to the ancestor of the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetAncestor ( $hWnd [, $iFlags = 1] )\r```"
+    ],
+    "_WinAPI_GetAsyncKeyState": [
+        "Determines whether a key is up or down at the time the function is called",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetAsyncKeyState ( $iKey )\r```"
+    ],
+    "_WinAPI_GetBkMode": [
+        "Returns the current background mix mode for a specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetBkMode ( $hDC )\r```"
+    ],
+    "_WinAPI_GetClassName": [
+        "Retrieves the name of the class to which the specified window belongs",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetClassName ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetClientHeight": [
+        "Retrieves the height of a window's client area",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetClientHeight ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetClientRect": [
+        "Retrieves the coordinates of a window's client area",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetClientRect ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetClientWidth": [
+        "Retrieves the width of a window's client area",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetClientWidth ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetCurrentProcess": [
+        "Returns the process handle of the calling process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetCurrentProcess ( )\r```"
+    ],
+    "_WinAPI_GetCurrentProcessID": [
+        "Returns the process identifier of the calling process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetCurrentProcessID ( )\r```"
+    ],
+    "_WinAPI_GetCurrentThread": [
+        "Retrieves a pseudo handle for the calling thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetCurrentThread ( )\r```"
+    ],
+    "_WinAPI_GetCurrentThreadId": [
+        "Returns the thread identifier of the calling thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetCurrentThreadId ( )\r```"
+    ],
+    "_WinAPI_GetCursorInfo": [
+        "Retrieves information about the global cursor",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetCursorInfo ( )\r```"
+    ],
+    "_WinAPI_GetDC": [
+        "Retrieves a handle of a display device context for the client area a window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDC ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetDesktopWindow": [
+        "Returns the handle of the Windows desktop window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDesktopWindow ( )\r```"
+    ],
+    "_WinAPI_GetDeviceCaps": [
+        "Retrieves device specific information about a specified device",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDeviceCaps ( $hDC, $iIndex )\r```"
+    ],
+    "_WinAPI_GetDIBits": [
+        "Retrieves the bits of the specified bitmap and copies them into a buffer as a DIB",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDIBits ( $hDC, $hBitmap, $iStartScan, $iScanLines, $pBits, $tBI, $iUsage )\r```"
+    ],
+    "_WinAPI_GetDlgCtrlID": [
+        "Returns the identifier of the specified control",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDlgCtrlID ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetDlgItem": [
+        "Retrieves the handle of a control in the specified dialog box",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetDlgItem ( $hWnd, $iItemID )\r```"
+    ],
+    "_WinAPI_GetFileSizeEx": [
+        "Retrieves the size of the specified file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetFileSizeEx ( $hFile )\r```"
+    ],
+    "_WinAPI_GetFocus": [
+        "Retrieves the handle of the window that has the keyboard focus",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetFocus ( )\r```"
+    ],
+    "_WinAPI_GetForegroundWindow": [
+        "Returns the handle of the foreground window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetForegroundWindow ( )\r```"
+    ],
+    "_WinAPI_GetGuiResources": [
+        "Retrieves the count of handles to graphical user interface (GUI) objects in use by the specified process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetGuiResources ( [$iFlag = 0 [, $hProcess = -1]] )\r```"
+    ],
+    "_WinAPI_GetIconInfo": [
+        "Retrieves information about the specified icon or cursor",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetIconInfo ( $hIcon )\r```"
+    ],
+    "_WinAPI_GetLastError": [
+        "Returns the calling thread's lasterror code value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetLastError ( )\r```"
+    ],
+    "_WinAPI_GetLastErrorMessage": [
+        "Returns the calling threads last error message",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetLastErrorMessage ( )\r```"
+    ],
+    "_WinAPI_GetLayeredWindowAttributes": [
+        "Gets Layered Window Attributes",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetLayeredWindowAttributes ( $hWnd, ByRef $iTransColor, ByRef $iTransGUI [, $bColorRef = False] )\r```"
+    ],
+    "_WinAPI_GetModuleHandle": [
+        "Returns a module handle for the specified module",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetModuleHandle ( $sModuleName )\r```"
+    ],
+    "_WinAPI_GetMousePos": [
+        "Returns the current mouse position",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetMousePos ( [$bToClient = False [, $hWnd = 0]] )\r```"
+    ],
+    "_WinAPI_GetMousePosX": [
+        "Returns the current mouse X position",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetMousePosX ( [$bToClient = False [, $hWnd = 0]] )\r```"
+    ],
+    "_WinAPI_GetMousePosY": [
+        "Returns the current mouse Y position",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetMousePosY ( [$bToClient = False [, $hWnd = 0]] )\r```"
+    ],
+    "_WinAPI_GetObject": [
+        "Retrieves information for the specified graphics object",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetObject ( $hObject, $iSize, $pObject )\r```"
+    ],
+    "_WinAPI_GetOpenFileName": [
+        "Creates an Open dialog box that lets the user specify the drive, directory, and the name of a file or set of files to open",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetOpenFileName ( [$sTitle = \"\" [, $sFilter = \"All files (*.*)\" [, $sInitalDir = \".\" [, $sDefaultFile = \"\" [, $sDefaultExt = \"\" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hWndOwner = 0]]]]]]]]] )\r```"
+    ],
+    "_WinAPI_GetOverlappedResult": [
+        "Retrieves the results of an overlapped operation",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetOverlappedResult ( $hFile, $tOverlapped, ByRef $iBytes [, $bWait = False] )\r```"
+    ],
+    "_WinAPI_GetParent": [
+        "Retrieves the handle of the specified child window's parent window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetParent ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetProcAddress": [
+        "Retrieves the address of an exported function or variable from the specified module",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetProcAddress ( $hModule, $vName )\r```"
+    ],
+    "_WinAPI_GetProcessAffinityMask": [
+        "Obtains the affinity masks for the process and the system",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetProcessAffinityMask ( $hProcess )\r```"
+    ],
+    "_WinAPI_GetSaveFileName": [
+        "Creates a Save dialog box that lets the user specify the drive, directory, and name of a file to save",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetSaveFileName ( [$sTitle = \"\" [, $sFilter = \"All files (*.*)\" [, $sInitalDir = \".\" [, $sDefaultFile = \"\" [, $sDefaultExt = \"\" [, $iFilterIndex = 1 [, $iFlags = 0 [, $iFlagsEx = 0 [, $hWndOwner = 0]]]]]]]]] )\r```"
+    ],
+    "_WinAPI_GetStdHandle": [
+        "Retrieves a handle for the standard input, standard output, or standard error device",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetStdHandle ( $iStdHandle )\r```"
+    ],
+    "_WinAPI_GetStockObject": [
+        "Retrieves a handle to one of the predefined stock pens, brushes, fonts, or palettes",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetStockObject ( $iObject )\r```"
+    ],
+    "_WinAPI_GetSysColor": [
+        "Retrieves the current color of the specified display element",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetSysColor ( $iIndex )\r```"
+    ],
+    "_WinAPI_GetSysColorBrush": [
+        "Retrieves a handle identifying a logical brush that corresponds to the specified color index",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetSysColorBrush ( $iIndex )\r```"
+    ],
+    "_WinAPI_GetSystemMetrics": [
+        "Retrieves the specified system metric or system configuration setting",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetSystemMetrics ( $iIndex )\r```"
+    ],
+    "_WinAPI_GetTextExtentPoint32": [
+        "Computes the width and height of the specified string of text",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetTextExtentPoint32 ( $hDC, $sText )\r```"
+    ],
+    "_WinAPI_GetTextMetrics": [
+        "Retrieves basic information for the currently selected font",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetTextMetrics ( $hDC )\r```"
+    ],
+    "_WinAPI_GetWindow": [
+        "Retrieves the handle of a window that has a specified relationship to the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindow ( $hWnd, $iCmd )\r```"
+    ],
+    "_WinAPI_GetWindowDC": [
+        "Retrieves the device context (DC) for the entire window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowDC ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetWindowHeight": [
+        "Returns the height of the window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowHeight ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetWindowLong": [
+        "Retrieves information about the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowLong ( $hWnd, $iIndex )\r```"
+    ],
+    "_WinAPI_GetWindowPlacement": [
+        "Retrieves the placement of the window for Min, Max, and normal positions",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowPlacement ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetWindowRect": [
+        "Retrieves the dimensions of the bounding rectangle of the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowRect ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetWindowRgn": [
+        "Obtains a copy of the window region of a window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowRgn ( $hWnd, $hRgn )\r```"
+    ],
+    "_WinAPI_GetWindowText": [
+        "Retrieves the text of the specified window's title bar",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowText ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetWindowThreadProcessId": [
+        "Retrieves the identifier of the thread that created the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowThreadProcessId ( $hWnd, ByRef $iPID )\r```"
+    ],
+    "_WinAPI_GetWindowWidth": [
+        "Returns the width of the window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetWindowWidth ( $hWnd )\r```"
+    ],
+    "_WinAPI_GetXYFromPoint": [
+        "Returns the X/Y values from a $tagPOINT structure",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GetXYFromPoint ( ByRef $tPoint, ByRef $iX, ByRef $iY )\r```"
+    ],
+    "_WinAPI_GlobalMemoryStatus": [
+        "Retrieves information about current available memory",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GlobalMemoryStatus ( )\r```"
+    ],
+    "_WinAPI_GUIDFromString": [
+        "Converts a string GUID to binary form",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GUIDFromString ( $sGUID )\r```"
+    ],
+    "_WinAPI_GUIDFromStringEx": [
+        "Converts a string GUID to binary form",
+        "```\r#include <WinAPI.au3>\r_WinAPI_GUIDFromStringEx ( $sGUID, $tGUID )\r```"
+    ],
+    "_WinAPI_HiWord": [
+        "Returns the high word of a longword value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_HiWord ( $iLong )\r```"
+    ],
+    "_WinAPI_InProcess": [
+        "Determines whether a window belongs to the current process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_InProcess ( $hWnd, ByRef $hLastWnd )\r```"
+    ],
+    "_WinAPI_IntToFloat": [
+        "Returns a 4 byte integer as a float value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_IntToFloat ( $iInt )\r```"
+    ],
+    "_WinAPI_InvalidateRect": [
+        "Adds a rectangle to the specified window's update region",
+        "```\r#include <WinAPI.au3>\r_WinAPI_InvalidateRect ( $hWnd [, $tRECT = 0 [, $bErase = True]] )\r```"
+    ],
+    "_WinAPI_IsClassName": [
+        "Wrapper to check ClassName of the control",
+        "```\r#include <WinAPI.au3>\r_WinAPI_IsClassName ( $hWnd, $sClassName )\r```"
+    ],
+    "_WinAPI_IsWindow": [
+        "Determines whether the specified window handle identifies an existing window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_IsWindow ( $hWnd )\r```"
+    ],
+    "_WinAPI_IsWindowVisible": [
+        "Retrieves the visibility state of the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_IsWindowVisible ( $hWnd )\r```"
+    ],
+    "_WinAPI_LineTo": [
+        "Draws a line from the current position up to, but not including, the specified point",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LineTo ( $hDC, $iX, $iY )\r```"
+    ],
+    "_WinAPI_LoadBitmap": [
+        "Loads the specified bitmap resource from a module's executable file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadBitmap ( $hInstance, $sBitmap )\r```"
+    ],
+    "_WinAPI_LoadImage": [
+        "Loads an icon, cursor, or bitmap",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadImage ( $hInstance, $sImage, $iType, $iXDesired, $iYDesired, $iLoad )\r```"
+    ],
+    "_WinAPI_LoadLibrary": [
+        "Maps a specified executable module into the address space of the calling process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadLibrary ( $sFileName )\r```"
+    ],
+    "_WinAPI_LoadLibraryEx": [
+        "Maps a specified executable module into the address space of the calling process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadLibraryEx ( $sFileName [, $iFlags = 0] )\r```"
+    ],
+    "_WinAPI_LoadShell32Icon": [
+        "Extracts an icon from the shell32.dll file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadShell32Icon ( $iIconID )\r```"
+    ],
+    "_WinAPI_LoadString": [
+        "loads a string resource from the executable file associated with a specified module",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoadString ( $hInstance, $iStringID )\r```"
+    ],
+    "_WinAPI_LocalFree": [
+        "Frees the specified local memory object and invalidates its handle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LocalFree ( $hMemory )\r```"
+    ],
+    "_WinAPI_LoWord": [
+        "Returns the low word of a longword",
+        "```\r#include <WinAPI.au3>\r_WinAPI_LoWord ( $iLong )\r```"
+    ],
+    "_WinAPI_MAKELANGID": [
+        "Construct language id from a primary language id and a sublanguage id",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MAKELANGID ( $iLngIDPrimary, $iLngIDSub )\r```"
+    ],
+    "_WinAPI_MAKELCID": [
+        "Construct locale id from a language id and a sort id",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MAKELCID ( $iLngID, $iSortID )\r```"
+    ],
+    "_WinAPI_MakeLong": [
+        "Returns a long int value from two int values",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MakeLong ( $iLo, $iHi )\r```"
+    ],
+    "_WinAPI_MakeQWord": [
+        "Returns a QWORD value from two int values",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MakeQWord ( $iLoDWORD, $iHiDWORD )\r```"
+    ],
+    "_WinAPI_MessageBeep": [
+        "Plays a waveform sound",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MessageBeep ( [$iType = 1] )\r```"
+    ],
+    "_WinAPI_Mouse_Event": [
+        "Synthesizes mouse motion and button clicks",
+        "```\r#include <WinAPI.au3>\r_WinAPI_Mouse_Event ( $iFlags [, $iX = 0 [, $iY = 0 [, $iData = 0 [, $iExtraInfo = 0]]]] )\r```"
+    ],
+    "_WinAPI_MoveTo": [
+        "Updates the current position to the specified point",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MoveTo ( $hDC, $iX, $iY )\r```"
+    ],
+    "_WinAPI_MoveWindow": [
+        "Changes the position and dimensions of the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MoveWindow ( $hWnd, $iX, $iY, $iWidth, $iHeight [, $bRepaint = True] )\r```"
+    ],
+    "_WinAPI_MsgBox": [
+        "Displays a message box with wider margin than original",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MsgBox ( $iFlags, $sTitle, $sText )\r```"
+    ],
+    "_WinAPI_MulDiv": [
+        "Multiplies two 32-bit values and then divides the 64-bit result by a third 32-bit value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MulDiv ( $iNumber, $iNumerator, $iDenominator )\r```"
+    ],
+    "_WinAPI_MultiByteToWideChar": [
+        "Maps a character string to a wide-character (Unicode) string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MultiByteToWideChar ( $vText [, $iCodePage = 0 [, $iFlags = 0 [, $bRetString = False]]] )\r```"
+    ],
+    "_WinAPI_MultiByteToWideCharEx": [
+        "Maps a character string to a wide-character (Unicode) string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_MultiByteToWideCharEx ( $sText, $pText [, $iCodePage = 0 [, $iFlags = 0]] )\r```"
+    ],
+    "_WinAPI_OpenProcess": [
+        "Returns a handle of an existing process object",
+        "```\r#include <WinAPI.au3>\r_WinAPI_OpenProcess ( $iAccess, $bInherit, $iPID [, $bDebugPriv = False] )\r```"
+    ],
+    "_WinAPI_PathFindOnPath": [
+        "Searchs for a file in the default system paths",
+        "```\r#include <WinAPI.au3>\r_WinAPI_PathFindOnPath ( $sFilePath [, $aExtraPaths = \"\" [, $sPathDelimiter = @LF]] )\r```"
+    ],
+    "_WinAPI_PointFromRect": [
+        "Returns the top/left coordinates of a $tagRECT as a $tagPOINT structure",
+        "```\r#include <WinAPI.au3>\r_WinAPI_PointFromRect ( ByRef $tRECT [, $bCenter = True] )\r```"
+    ],
+    "_WinAPI_PostMessage": [
+        "Places a message in the message queue and then returns",
+        "```\r#include <WinAPI.au3>\r_WinAPI_PostMessage ( $hWnd, $iMsg, $wParam, $lParam )\r```"
+    ],
+    "_WinAPI_PrimaryLangId": [
+        "Extract primary language id from a language id",
+        "```\r#include <WinAPI.au3>\r_WinAPI_PrimaryLangId ( $iLngID )\r```"
+    ],
+    "_WinAPI_PtInRect": [
+        "Determines whether the specified point lies within the specified rectangle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_PtInRect ( ByRef $tRECT, ByRef $tPoint )\r```"
+    ],
+    "_WinAPI_ReadFile": [
+        "Reads data from a file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ReadFile ( $hFile, $pBuffer, $iToRead, ByRef $iRead [, $tOverlapped = 0] )\r```"
+    ],
+    "_WinAPI_ReadProcessMemory": [
+        "Reads memory in a specified process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ReadProcessMemory ( $hProcess, $pBaseAddress, $pBuffer, $iSize, ByRef $iRead )\r```"
+    ],
+    "_WinAPI_RectIsEmpty": [
+        "Determins whether a rectangle is empty",
+        "```\r#include <WinAPI.au3>\r_WinAPI_RectIsEmpty ( ByRef $tRECT )\r```"
+    ],
+    "_WinAPI_RedrawWindow": [
+        "Updates the specified rectangle or region in a window's client area",
+        "```\r#include <WinAPI.au3>\r_WinAPI_RedrawWindow ( $hWnd [, $tRECT = 0 [, $hRegion = 0 [, $iFlags = 5]]] )\r```"
+    ],
+    "_WinAPI_RegisterWindowMessage": [
+        "Defines a new window message that is guaranteed to be unique throughout the system",
+        "```\r#include <WinAPI.au3>\r_WinAPI_RegisterWindowMessage ( $sMessage )\r```"
+    ],
+    "_WinAPI_ReleaseCapture": [
+        "Releases the mouse capture from a window in the current thread and restores normal mouse input processing",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ReleaseCapture ( )\r```"
+    ],
+    "_WinAPI_ReleaseDC": [
+        "Releases a device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ReleaseDC ( $hWnd, $hDC )\r```"
+    ],
+    "_WinAPI_ScreenToClient": [
+        "Converts screen coordinates of a specified point on the screen to client coordinates",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ScreenToClient ( $hWnd, ByRef $tPoint )\r```"
+    ],
+    "_WinAPI_SelectObject": [
+        "Selects an object into the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SelectObject ( $hDC, $hGDIObj )\r```"
+    ],
+    "_WinAPI_SetBkColor": [
+        "Sets the current background color to the specified color value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetBkColor ( $hDC, $iColor )\r```"
+    ],
+    "_WinAPI_SetBkMode": [
+        "Sets the background mix mode of the specified device context",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetBkMode ( $hDC, $iBkMode )\r```"
+    ],
+    "_WinAPI_SetCapture": [
+        "Sets the mouse capture to the specified window belonging to the current thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetCapture ( $hWnd )\r```"
+    ],
+    "_WinAPI_SetCursor": [
+        "Establishes the cursor shape",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetCursor ( $hCursor )\r```"
+    ],
+    "_WinAPI_SetDefaultPrinter": [
+        "Sets the default printer for the current user on the local computer",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetDefaultPrinter ( $sPrinter )\r```"
+    ],
+    "_WinAPI_SetDIBits": [
+        "Sets the pixels in a compatible bitmap using the color data found in a DIB",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetDIBits ( $hDC, $hBitmap, $iStartScan, $iScanLines, $pBits, $tBMI [, $iColorUse = 0] )\r```"
+    ],
+    "_WinAPI_SetEndOfFile": [
+        "Sets the physical file size for the specified file to the current position of the file pointer",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetEndOfFile ( $hFile )\r```"
+    ],
+    "_WinAPI_SetEvent": [
+        "Sets the specified event object to the signaled state",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetEvent ( $hEvent )\r```"
+    ],
+    "_WinAPI_SetFilePointer": [
+        "Moves the file pointer of the specified file",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetFilePointer ( $hFile, $iPos [, $iMethod = 0] )\r```"
+    ],
+    "_WinAPI_SetFocus": [
+        "Sets the keyboard focus to the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetFocus ( $hWnd )\r```"
+    ],
+    "_WinAPI_SetFont": [
+        "Sets a window font",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetFont ( $hWnd, $hFont [, $bRedraw = True] )\r```"
+    ],
+    "_WinAPI_SetHandleInformation": [
+        "Sets certain properties of an object handle",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetHandleInformation ( $hObject, $iMask, $iFlags )\r```"
+    ],
+    "_WinAPI_SetLastError": [
+        "Sets the last-error code for the calling thread",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetLastError ( $iErrorCode )\r```"
+    ],
+    "_WinAPI_SetLayeredWindowAttributes": [
+        "Sets Layered Window Attributes",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetLayeredWindowAttributes ( $hWnd, $iTransColor [, $iTransGUI = 255 [, $iFlags = 0x03 [, $bColorRef = False]]] )\r```"
+    ],
+    "_WinAPI_SetParent": [
+        "Changes the parent window of the specified child window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetParent ( $hWndChild, $hWndParent )\r```"
+    ],
+    "_WinAPI_SetProcessAffinityMask": [
+        "Sets a processor affinity mask for the threads of a specified process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetProcessAffinityMask ( $hProcess, $iMask )\r```"
+    ],
+    "_WinAPI_SetSysColors": [
+        "Obtains information about the display devices in a system",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetSysColors ( $vElements, $vColors )\r```"
+    ],
+    "_WinAPI_SetTextColor": [
+        "Sets the current text color to the specified color value",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetTextColor ( $hDC, $iColor )\r```"
+    ],
+    "_WinAPI_SetWindowLong": [
+        "Sets information about the specified window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowLong ( $hWnd, $iIndex, $iValue )\r```"
+    ],
+    "_WinAPI_SetWindowPlacement": [
+        "Sets the placement of the window for Min, Max, and normal positions",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowPlacement ( $hWnd, $tWindowPlacement )\r```"
+    ],
+    "_WinAPI_SetWindowPos": [
+        "Changes the size, position, and Z order of a child, pop-up, or top-level window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowPos ( $hWnd, $hAfter, $iX, $iY, $iCX, $iCY, $iFlags )\r```"
+    ],
+    "_WinAPI_SetWindowRgn": [
+        "Sets the window region of a window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowRgn ( $hWnd, $hRgn [, $bRedraw = True] )\r```"
+    ],
+    "_WinAPI_SetWindowsHookEx": [
+        "Installs an application-defined hook procedure into a hook chain",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowsHookEx ( $iHook, $pProc, $hDll [, $iThreadId = 0] )\r```"
+    ],
+    "_WinAPI_SetWindowText": [
+        "Changes the text of the specified window's title bar",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SetWindowText ( $hWnd, $sText )\r```"
+    ],
+    "_WinAPI_ShowCursor": [
+        "Displays or hides the cursor",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ShowCursor ( $bShow )\r```"
+    ],
+    "_WinAPI_ShowError": [
+        "Displays an error message box with an optional exit",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ShowError ( $sText [, $bExit = True] )\r```"
+    ],
+    "_WinAPI_ShowMsg": [
+        "Displays an \"Information\" message box",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ShowMsg ( $sText )\r```"
+    ],
+    "_WinAPI_ShowWindow": [
+        "Sets the specified window's show state",
+        "```\r#include <WinAPI.au3>\r_WinAPI_ShowWindow ( $hWnd [, $iCmdShow = 5] )\r```"
+    ],
+    "_WinAPI_StringFromGUID": [
+        "Converts a binary GUID to string form",
+        "```\r#include <WinAPI.au3>\r_WinAPI_StringFromGUID ( $tGUID )\r```"
+    ],
+    "_WinAPI_StringLenA": [
+        "Calculates the size of ANSI string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_StringLenA ( Const ByRef $tString )\r```"
+    ],
+    "_WinAPI_StringLenW": [
+        "Calculates the size of wide string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_StringLenW ( Const ByRef $tString )\r```"
+    ],
+    "_WinAPI_SubLangId": [
+        "Extract sublanguage id from a language id",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SubLangId ( $iLngID )\r```"
+    ],
+    "_WinAPI_SystemParametersInfo": [
+        "Retrieves or sets the value of one of the system-wide parameters",
+        "```\r#include <WinAPI.au3>\r_WinAPI_SystemParametersInfo ( $iAction [, $iParam = 0 [, $vParam = 0 [, $iWinIni = 0]]] )\r```"
+    ],
+    "_WinAPI_TwipsPerPixelX": [
+        "Returns the width of a pixel, in twips",
+        "```\r#include <WinAPI.au3>\r_WinAPI_TwipsPerPixelX ( )\r```"
+    ],
+    "_WinAPI_TwipsPerPixelY": [
+        "Returns the height of a pixel, in twips",
+        "```\r#include <WinAPI.au3>\r_WinAPI_TwipsPerPixelY ( )\r```"
+    ],
+    "_WinAPI_UnhookWindowsHookEx": [
+        "Removes a hook procedure installed in a hook chain by the _WinAPI_SetWindowsHookEx function",
+        "```\r#include <WinAPI.au3>\r_WinAPI_UnhookWindowsHookEx ( $hHook )\r```"
+    ],
+    "_WinAPI_UpdateLayeredWindow": [
+        "Updates the position, size, shape, content, and translucency of a layered window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_UpdateLayeredWindow ( $hWnd, $hDestDC, $tPTDest, $tSize, $hSrcDC, $tPTSrce, $iRGB, $tBlend, $iFlags )\r```"
+    ],
+    "_WinAPI_UpdateWindow": [
+        "Updates the client area of a window by sending a WM_PAINT message to the window",
+        "```\r#include <WinAPI.au3>\r_WinAPI_UpdateWindow ( $hWnd )\r```"
+    ],
+    "_WinAPI_WaitForInputIdle": [
+        "Waits until a process is waiting for user input with no input pending, or a time out",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WaitForInputIdle ( $hProcess [, $iTimeout = -1] )\r```"
+    ],
+    "_WinAPI_WaitForMultipleObjects": [
+        "Waits until one or all of the specified objects are in the signaled state",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WaitForMultipleObjects ( $iCount, $paHandles [, $bWaitAll = False [, $iTimeout = -1]] )\r```"
+    ],
+    "_WinAPI_WaitForSingleObject": [
+        "Waits until the specified object is in the signaled state",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WaitForSingleObject ( $hHandle [, $iTimeout = -1] )\r```"
+    ],
+    "_WinAPI_WideCharToMultiByte": [
+        "Converts a Unicode string to a multibyte string",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WideCharToMultiByte ( $vUnicode [, $iCodePage = 0 [, $bRetString = True]] )\r```"
+    ],
+    "_WinAPI_WindowFromPoint": [
+        "Retrieves the handle of the window that contains the specified point",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WindowFromPoint ( ByRef $tPoint )\r```"
+    ],
+    "_WinAPI_WriteConsole": [
+        "Writes a character string to a console screen buffer",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WriteConsole ( $hConsole, $sText )\r```"
+    ],
+    "_WinAPI_WriteFile": [
+        "Writes data to a file at the position specified by the file pointer",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WriteFile ( $hFile, $pBuffer, $iToWrite, ByRef $iWritten [, $tOverlapped = 0] )\r```"
+    ],
+    "_WinAPI_WriteProcessMemory": [
+        "Writes memory in a specified process",
+        "```\r#include <WinAPI.au3>\r_WinAPI_WriteProcessMemory ( $hProcess, $pBaseAddress, $pBuffer, $iSize, ByRef $iWritten [, $sBuffer = \"ptr\"] )\r```"
+    ]
+}

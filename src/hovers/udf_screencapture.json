@@ -1,0 +1,30 @@
+{
+    "_ScreenCapture_Capture": [
+        "Captures a region of the screen",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_Capture ( [$sFileName = \"\" [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $bCursor = True]]]]]] )\r```"
+    ],
+    "_ScreenCapture_CaptureWnd": [
+        "Captures a screen shot of a specified window or controlID",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_CaptureWnd ( $sFileName, $hWnd [, $iLeft = 0 [, $iTop = 0 [, $iRight = -1 [, $iBottom = -1 [, $bCursor = True]]]]] )\r```"
+    ],
+    "_ScreenCapture_SaveImage": [
+        "Saves an image to file",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_SaveImage ( $sFileName, $hBitmap [, $bFreeBmp = True] )\r```"
+    ],
+    "_ScreenCapture_SetBMPFormat": [
+        "Sets the bit format that will be used for BMP screen captures",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_SetBMPFormat ( $iFormat )\r```"
+    ],
+    "_ScreenCapture_SetJPGQuality": [
+        "Sets the quality level that will be used for JPEG screen captures",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_SetJPGQuality ( $iQuality )\r```"
+    ],
+    "_ScreenCapture_SetTIFColorDepth": [
+        "Sets the color depth used for TIFF screen captures",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_SetTIFColorDepth ( $iDepth )\r```"
+    ],
+    "_ScreenCapture_SetTIFCompression": [
+        "Sets the compression used for TIFF screen captures",
+        "```\r#include <ScreenCapture.au3>\r_ScreenCapture_SetTIFCompression ( $iCompress )\r```"
+    ]
+}

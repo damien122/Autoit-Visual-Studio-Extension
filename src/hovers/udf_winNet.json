@@ -1,0 +1,94 @@
+{
+    "_WinNet_AddConnection": [
+        "Connects a local device to a network resource",
+        "```\r#include <WinNet.au3>\r_WinNet_AddConnection ( $sLocalName, $sRemoteName [, $sPassword = 0] )\r```"
+    ],
+    "_WinNet_AddConnection2": [
+        "Connects a local device to a network resource",
+        "```\r#include <WinNet.au3>\r_WinNet_AddConnection2 ( $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]] )\r```"
+    ],
+    "_WinNet_AddConnection3": [
+        "Connects a local device to a network resource",
+        "```\r#include <WinNet.au3>\r_WinNet_AddConnection3 ( $hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]] )\r```"
+    ],
+    "_WinNet_CancelConnection": [
+        "Cancels an existing network connection",
+        "```\r#include <WinNet.au3>\r_WinNet_CancelConnection ( $sName [, $bForce = True] )\r```"
+    ],
+    "_WinNet_CancelConnection2": [
+        "Cancels an existing network connection",
+        "```\r#include <WinNet.au3>\r_WinNet_CancelConnection2 ( $sName [, $bUpdate = True [, $bForce = True]] )\r```"
+    ],
+    "_WinNet_CloseEnum": [
+        "Ends a network resource enumeration started by a call to _WinNet_OpenEnum()",
+        "```\r#include <WinNet.au3>\r_WinNet_CloseEnum ( $hEnum )\r```"
+    ],
+    "_WinNet_ConnectionDialog": [
+        "Starts a general browsing dialog box for connecting to network resources",
+        "```\r#include <WinNet.au3>\r_WinNet_ConnectionDialog ( $hWnd )\r```"
+    ],
+    "_WinNet_ConnectionDialog1": [
+        "Starts a general browsing dialog box for connecting to network resources",
+        "```\r#include <WinNet.au3>\r_WinNet_ConnectionDialog1 ( $hWnd [, $sRemoteName = \"\" [, $iFlags = 2]] )\r```"
+    ],
+    "_WinNet_DisconnectDialog": [
+        "Starts a general browsing dialog box for disconnecting from network resources",
+        "```\r#include <WinNet.au3>\r_WinNet_DisconnectDialog ( $hWnd )\r```"
+    ],
+    "_WinNet_DisconnectDialog1": [
+        "Starts a general browsing dialog box for disconnecting from network resources",
+        "```\r#include <WinNet.au3>\r_WinNet_DisconnectDialog1 ( $hWnd, $sLocalName [, $sRemoteName = \"\" [, $iFlags = 1]] )\r```"
+    ],
+    "_WinNet_EnumResource": [
+        "Continues an enumeration of network resources",
+        "```\r#include <WinNet.au3>\r_WinNet_EnumResource ( $hEnum, ByRef $iCount, $pBuffer, ByRef $iBufSize )\r```"
+    ],
+    "_WinNet_GetConnection": [
+        "Retrieves the name of the network resource associated with a local device",
+        "```\r#include <WinNet.au3>\r_WinNet_GetConnection ( $sLocalName )\r```"
+    ],
+    "_WinNet_GetConnectionPerformance": [
+        "Returns information about the performance of a network connection resource",
+        "```\r#include <WinNet.au3>\r_WinNet_GetConnectionPerformance ( $sLocalName, $sRemoteName )\r```"
+    ],
+    "_WinNet_GetLastError": [
+        "Retrieves the most recent extended error",
+        "```\r#include <WinNet.au3>\r_WinNet_GetLastError ( ByRef $iError, ByRef $sError, ByRef $sName )\r```"
+    ],
+    "_WinNet_GetNetworkInformation": [
+        "Returns extended information about a specific network provider",
+        "```\r#include <WinNet.au3>\r_WinNet_GetNetworkInformation ( $sName )\r```"
+    ],
+    "_WinNet_GetProviderName": [
+        "Obtains the provider name for a specific type of network",
+        "```\r#include <WinNet.au3>\r_WinNet_GetProviderName ( $iType )\r```"
+    ],
+    "_WinNet_GetResourceInformation": [
+        "Identifies the network provider that owns the resource",
+        "```\r#include <WinNet.au3>\r_WinNet_GetResourceInformation ( $sRemoteName [, $sProvider = \"\" [, $iType = 0]] )\r```"
+    ],
+    "_WinNet_GetResourceParent": [
+        "Returns the parent of a network resource in the network browse hierarchy",
+        "```\r#include <WinNet.au3>\r_WinNet_GetResourceParent ( $sRemoteName, $sProvider [, $iType = 0] )\r```"
+    ],
+    "_WinNet_GetUniversalName": [
+        "Converts drived based path to universal form",
+        "```\r#include <WinNet.au3>\r_WinNet_GetUniversalName ( $sLocalPath )\r```"
+    ],
+    "_WinNet_GetUser": [
+        "Retrieves the default user name, or the user name used to establish a connection",
+        "```\r#include <WinNet.au3>\r_WinNet_GetUser ( $sName )\r```"
+    ],
+    "_WinNet_OpenEnum": [
+        "Starts an enumeration of network resources or existing connections",
+        "```\r#include <WinNet.au3>\r_WinNet_OpenEnum ( $iScope, $iType, $iUsage, $tResource, ByRef $hEnum )\r```"
+    ],
+    "_WinNet_RestoreConnection": [
+        "Restores the connection to a network resource",
+        "```\r#include <WinNet.au3>\r_WinNet_RestoreConnection ( [$sDevice = \"\" [, $hWnd = 0 [, $bUseUI = True]]] )\r```"
+    ],
+    "_WinNet_UseConnection": [
+        "Connects a local device to a network resource",
+        "```\r#include <WinNet.au3>\r_WinNet_UseConnection ( $hWnd, $sLocalName, $sRemoteName [, $sUserName = 0 [, $sPassword = 0 [, $iType = 1 [, $iOptions = 1]]]] )\r```"
+    ]
+}

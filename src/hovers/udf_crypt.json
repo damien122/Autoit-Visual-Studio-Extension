@@ -1,0 +1,46 @@
+{
+    "_Crypt_DecryptData": [
+        "Decrypts data using the supplied key",
+        "```\r#include <Crypt.au3>\r_Crypt_DecryptData ( $vData, $vCryptKey, $iAlgID [, $bFinal = True] )\r```"
+    ],
+    "_Crypt_DecryptFile": [
+        "Decrypts a file with specified key and algorithm",
+        "```\r#include <Crypt.au3>\r_Crypt_DecryptFile ( $sSourceFile, $sDestinationFile, $vCryptKey, $iAlgID )\r```"
+    ],
+    "_Crypt_DeriveKey": [
+        "Creates a key from algorithm and password",
+        "```\r#include <Crypt.au3>\r_Crypt_DeriveKey ( $vPassword, $iAlgID [, $iHashAlgID = $CALG_MD5] )\r```"
+    ],
+    "_Crypt_DestroyKey": [
+        "Frees the resources used by a key",
+        "```\r#include <Crypt.au3>\r_Crypt_DestroyKey ( $hCryptKey )\r```"
+    ],
+    "_Crypt_EncryptData": [
+        "Encrypts data using the supplied key",
+        "```\r#include <Crypt.au3>\r_Crypt_EncryptData ( $vData, $vCryptKey, $iAlgID [, $bFinal = True] )\r```"
+    ],
+    "_Crypt_EncryptFile": [
+        "Encrypts a file with specified key and algorithm",
+        "```\r#include <Crypt.au3>\r_Crypt_EncryptFile ( $sSourceFile, $sDestinationFile, $vCryptKey, $iAlgID )\r```"
+    ],
+    "_Crypt_GenRandom": [
+        "Fill a buffer with cryptographically random data",
+        "```\r#include <Crypt.au3>\r_Crypt_GenRandom ( $pBuffer, $iSize )\r```"
+    ],
+    "_Crypt_HashData": [
+        "Hash data with specified algorithm",
+        "```\r#include <Crypt.au3>\r_Crypt_HashData ( $vData, $iAlgID [, $bFinal = True [, $hCryptHash = 0]] )\r```"
+    ],
+    "_Crypt_HashFile": [
+        "Hash a string with specified algorithm",
+        "```\r#include <Crypt.au3>\r_Crypt_HashFile ( $sFilePath, $iAlgID )\r```"
+    ],
+    "_Crypt_Shutdown": [
+        "Uninitialize the Crypt library",
+        "```\r#include <Crypt.au3>\r_Crypt_Shutdown ( )\r```"
+    ],
+    "_Crypt_Startup": [
+        "Initialize the Crypt library",
+        "```\r#include <Crypt.au3>\r_Crypt_Startup ( )\r```"
+    ]
+}

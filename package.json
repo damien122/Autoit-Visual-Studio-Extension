@@ -1,41 +1,707 @@
 {
-	"name": "autoit",
-	"displayName": "AutoIt Script",
-	"description": "AutoIt Script",
-	"version": "0.0.4",
-	"publisher": "Damien",
-	"engines": {
-		"vscode": "^0.10.1"
-	},
-	"categories": [
-		"Languages",
-		"Snippets"
-	],
-	"scripts": {
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
-		"run": "C:\\rogram Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.exe /run /prod /ErrorStdOut /in 'C:\\temp\\test.au3' /UserParams "
-	},
-	"contributes": {
-		"languages": [{
-			"id": "autoit",
-			"aliases": ["AutoIt Script", "autoit"],
-			"extensions": [".au3"],
-			"configuration": "./autoit.configuration.json"
-		}],
-		"grammars": [{
-			"language": "autoit",
-			"scopeName": "source.autoit",
-			"path": "./syntaxes/autoit.tmLanguage"
-		}],
-		"snippets": [
-			{
-				"language": "autoit",
-				"path": "./syntaxes/snippets.json"
-			}
-		],
-		"keybindings": [
-			{ "key": "F7", "when": "editorTextFocus", "command": "compile" },
-			{ "key": "F5", "when": "editorTextFocus", "command": "run" }
-		]
-	}
+  "name": "autoit",
+  "displayName": "AutoIt",
+  "description": "AutoIt language extension for Visual Studio Code",
+  "icon": "img/ai_icon.png",
+  "version": "1.0.10",
+  "publisher": "Damien",
+  "galleryBanner": {
+    "color": "#254768",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "AutoIt",
+    "scripting",
+    "au3",
+    "AutoIt3"
+  ],
+  "dependencies": {
+    "iconv-lite": "^0.6.3",
+    "jsonc-parser": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@types/vscode": "^1.52.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^1.19.1",
+    "typescript": "^3.5.3",
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1"
+  },
+  "license": "MIT",
+  "main": "./dist/extension",
+  "activationEvents": [
+    "onLanguage:autoit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loganch/AutoIt-VSCode.git"
+  },
+  "homepage": "https://github.com/loganch/AutoIt-VSCode/blob/master/README.md",
+  "contributes": {
+    "languages": [
+      {
+        "id": "autoit",
+        "aliases": [
+          "AutoIt",
+          "Autoit"
+        ],
+        "extensions": [
+          ".au3"
+        ],
+        "configuration": "./syntaxes/autoit-language-configuration.json"
+      },
+      {
+        "id": "vscode-autoit-output",
+        "aliases": [],
+        "mimetypes": [
+          "text/x-code-output"
+        ]
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "when": "editorLangId == autoit",
+          "command": "extension.runScript"
+        },
+        {
+          "when": "editorLangId == autoit",
+          "command": "extension.compile"
+        },
+        {
+          "command": "extension.tidy",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.check",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.build",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.launchHelp",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.launchInfo",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.debugMsgBox",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.debugConsole",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.launchKoda",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.killScript",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.killScriptOpened",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.insertHeader",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.openInclude",
+          "when": "editorLangId == autoit"
+        },
+        {
+          "command": "extension.restartScript",
+          "when": "editorLangId == autoit"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.runScript",
+        "title": "AutoIt: Run Script"
+      },
+      {
+        "command": "extension.compile",
+        "title": "AutoIt: Compile"
+      },
+      {
+        "command": "extension.tidy",
+        "title": "AutoIt: Tidy"
+      },
+      {
+        "command": "extension.check",
+        "title": "AutoIt: Check"
+      },
+      {
+        "command": "extension.build",
+        "title": "AutoIt: Build"
+      },
+      {
+        "command": "extension.launchHelp",
+        "title": "AutoIt: Help"
+      },
+      {
+        "command": "extension.launchInfo",
+        "title": "AutoIt: Au3Info"
+      },
+      {
+        "command": "extension.debugMsgBox",
+        "title": "AutoIt: Debug to MsgBox"
+      },
+      {
+        "command": "extension.debugConsole",
+        "title": "AutoIt: Debug to Console"
+      },
+      {
+        "command": "extension.launchKoda",
+        "title": "AutoIt: Koda Form Designer"
+      },
+      {
+        "command": "extension.changeParams",
+        "title": "AutoIt: Change Console Parameters"
+      },
+      {
+        "command": "extension.killScript",
+        "title": "AutoIt: Kill Running Script"
+      },
+      {
+        "command": "extension.killScriptOpened",
+        "title": "AutoIt: Kill Running Opened Script"
+      },
+      {
+        "command": "extension.insertHeader",
+        "title": "AutoIt: Insert Function Header"
+      },
+      {
+        "command": "extension.openInclude",
+        "title": "AutoIt: Open Include File"
+      },
+      {
+        "command": "extension.restartScript",
+        "title": "AutoIt: Restart script"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "autoit",
+        "scopeName": "source.autoit",
+        "path": "./syntaxes/autoit.tmLanguage"
+      },
+      {
+        "language": "vscode-autoit-output",
+        "scopeName": "source.vscode_autoit_output",
+        "path": "syntaxes/vscode-autoit-output.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "autoit",
+        "path": "./snippets/autoit.json"
+      },
+      {
+        "language": "autoit",
+        "path": "./snippets/abbreviations.json"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.runScript",
+        "key": "f5",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.check",
+        "key": "ctrl+f5",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.compile",
+        "key": "ctrl+f7",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.build",
+        "key": "f7",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.launchHelp",
+        "key": "ctrl+f1",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.launchInfo",
+        "key": "ctrl+f6",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.debugMsgBox",
+        "key": "ctrl+shift+d",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.debugConsole",
+        "key": "alt+d",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.launchKoda",
+        "key": "alt+m",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.changeParams",
+        "key": "shift+f8",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.killScript",
+        "key": "ctrl+pausebreak"
+      },
+      {
+        "command": "extension.killScriptOpened",
+        "key": "shift+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.insertHeader",
+        "key": "ctrl+alt+H",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.openInclude",
+        "key": "alt+i",
+        "when": "editorTextFocus && editorLangId == autoit"
+      },
+      {
+        "command": "extension.restartScript",
+        "key": "ctrl+alt+pausebreak",
+        "when": "editorTextFocus && editorLangId == autoit"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "AutoIt",
+      "properties": {
+        "autoit.aiPath": {
+          "order": 1,
+          "type": "string",
+          "default": "C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe",
+          "markdownDescription": "Full path to the AutoIt executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\` or `C:\\Program Files (x86)\\AutoIt3\\AutoIt3.exe`",
+          "format": "uri"
+        },
+        "autoit.wrapperPath": {
+          "order": 1,
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt3Wrapper script, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\AutoIt3Wrapper\\AutoIt3Wrapper.au3`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.checkPath": {
+          "order": 1,
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt syntax Checker (Au3Check) executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AU3Check.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.helpPath": {
+          "order": 1,
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt3Help executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\AutoIt3Help.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.infoPath": {
+          "order": 1,
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the AutoIt Window Info executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\Au3Info.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.kodaPath": {
+          "order": 1,
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Full or relative path to the Koda FormDesigner executable, e.g. `C:\\Program Files (x86)\\AutoIt3\\SciTE\\Koda\\FD.exe`\n\nLeave blank to use default, relative to `#autoit.aiPath#` path."
+        },
+        "autoit.smartHelp": {
+          "order": 1,
+          "type": "object",
+          "description": "Defines prefixes, paths & udf sources for additional help files",
+          "patternProperties": {
+            "^(_[^_]+_|[^_]+)$": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "chmPath": {
+                  "type": "string"
+                },
+                "udfPath": {
+                  "type": [
+                    "array",
+                    "string"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "chmPath",
+                  "udfPath"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false,
+          "default": {
+            "_yourUdfFuncPrefix_": {
+              "chmPath": "",
+              "udfPath": [
+                ""
+              ]
+            }
+          }
+        },
+        "autoit.includePaths": {
+          "order": 1,
+          "type": "array",
+          "default": [
+            ""
+          ],
+          "description": "File paths for additional include folders"
+        },
+        "autoit.showVariablesInGoToSymbol": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determines whether variables show up when you use Ctrl+Shift+O to find symbols within a script"
+        },
+        "autoit.showRegionsInGoToSymbol": {
+          "type": "boolean",
+          "default": true,
+          "description": "Determines whether regions show up when you use Ctrl+Shift+O to find symbols within a script"
+        },
+        "autoit.consoleParams": {
+          "type": "string",
+          "default": "",
+          "description": "Sets the parameters that get passed when scripts are run"
+        },
+        "autoit.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Tells AutoIt-VSCode to provide diagnostics from Au3Check on document open, switch or save"
+        },
+        "autoit.UDFCreator": {
+          "type": "string",
+          "default": "Your Name",
+          "description": "The name that will be added as Author when Insert Function Header is used"
+        },
+        "autoit.multiOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable separate output panel for each running script"
+        },
+        "autoit.multiOutputMaxFinished": {
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "description": "How many output panels to keep after script finished"
+        },
+        "autoit.multiOutputFinishedTimeout": {
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "description": "How long (in seconds) to wait until output panels of finished scripts discarded\n0 = indefinitely"
+        },
+        "autoit.multiOutputReuseOutput": {
+          "type": "boolean",
+          "default": false,
+          "description": "Reuse output for the same file"
+        },
+        "autoit.clearOutput": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Clear output panel before each run. (only applicable when `#autoit.multiOutput#` is `disabled` or `#autoit.multiOutputReuseOutput#` is `enabled`)"
+        },
+        "autoit.terminateRunningOnClose": {
+          "type": "boolean",
+          "default": true,
+          "description": "Terminate running script when script file is closed"
+        },
+        "autoit.outputCodePage": {
+          "type": "string",
+          "description": "If you see incorrect text encoding in the output, set this option to match your system code page"
+        },
+        "autoit.multiOutputShowProcessId": {
+          "type": "string",
+          "default": "Single",
+          "enum": [
+            "None",
+            "Single",
+            "Multi"
+          ],
+          "enumDescriptions": [
+            "No process ID will be shown",
+            "Only on first line until another process's output",
+            "On each line"
+          ],
+          "description": "Show process ID in the Autoit (common) output"
+        },
+        "autoit.outputShowTime": {
+          "type": "string",
+          "default": "None",
+          "enum": [
+            "None",
+            "Global",
+            "Process",
+            "All"
+          ],
+          "enumDescriptions": [
+            "Don't time for each message",
+            "Show time in global output",
+            "Show time in process output",
+            "Show time in all outputs"
+          ],
+          "description": "Show time when each output line was received"
+        },
+        "autoit.outputMaxHistoryLines": {
+          "type": "number",
+          "default": 5000,
+          "description": "Number of output lines to keep"
+        }
+      }
+    },
+    "configurationDefaults": {
+      "editor.detectIndentation": false,
+      "editor.tabSize": 4,
+      "editor.insertSpaces": false,
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "vscode-autoit-output-olive",
+            "settings": {
+              "foreground": "#808000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_CMD",
+            "settings": {
+              "foreground": "#3d85c6"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_DIFF_CHANGED",
+            "settings": {
+              "foreground": "#f70000",
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_DIFF_ADDITION",
+            "settings": {
+              "foreground": "#6aa84f"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_DIFF_DELETION",
+            "settings": {
+              "foreground": "#ff8800"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_DIFF_MESSAGE",
+            "settings": {
+              "foreground": "#7F0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-date",
+            "settings": {
+              "foreground": "#7a837f"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-debug",
+            "settings": {
+              "foreground": "#d6ae5d"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process",
+            "settings": {
+              "foreground": "#a7a061",
+              "fontStyle": "italic"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-id",
+            "settings": {
+              "foreground": "#d65d81",
+              "fontStyle": "italic"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-file",
+            "settings": {
+              "foreground": "#81b2c7"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-process-pid",
+            "settings": {
+              "foreground": "#56bf00"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_BORLAND",
+            "settings": {
+              "foreground": "#B06000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_IFC",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_GCC_INCLUDED_FROM",
+            "settings": {
+              "foreground": "#800080"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_GCC_INCLUDED_FROM",
+            "settings": {
+              "foreground": "#800080"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_IFORT",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_PYTHON",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_PERL",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_NET",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_LUA",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_ELF",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_TIDY",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_JAVA_STACK",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_PHP",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_MS",
+            "settings": {
+              "foreground": "#808000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_GCC",
+            "settings": {
+              "foreground": "#800080"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_GCC_EXCERPT",
+            "settings": {
+              "foreground": "#B06000"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_CTAG",
+            "settings": {
+              "foreground": "#FF00FF"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-EXIT",
+            "settings": {
+              "foreground": "#3d85c6"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-EXIT_ERROR",
+            "settings": {
+              "foreground": "#f70000",
+              "fontStyle": "bold"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-EXIT_WARNING",
+            "settings": {
+              "foreground": "#ff8800"
+            }
+          },
+          {
+            "scope": "vscode-autoit-output-SCE_ERR_ABSF",
+            "settings": {
+              "foreground": "#FF0000"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "scripts": {
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "vscode:prepublish": "webpack --mode production"
+  }
 }

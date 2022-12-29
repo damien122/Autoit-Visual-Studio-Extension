@@ -1,0 +1,42 @@
+{
+    "_GUICtrlAVI_Close": [
+        "Closes an AVI clip",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Close ( $hWnd )\r```"
+    ],
+    "_GUICtrlAVI_Create": [
+        "Creates an AVI control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Create ( $hWnd [, $sFilePath = \"\" [, $iSubFileID = -1 [, $iX = 0 [, $iY = 0 [, $iWidth = 0 [, $iHeight = 0 [, $iStyle = 0x00000006 [, $iExStyle = 0x00000000]]]]]]]] )\r```"
+    ],
+    "_GUICtrlAVI_Destroy": [
+        "Delete the control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlAVI_IsPlaying": [
+        "Checks whether an Audio-Video Interleaved (AVI) clip is playing",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_IsPlaying ( $hWnd )\r```"
+    ],
+    "_GUICtrlAVI_Open": [
+        "Opens an AVI clip and displays its first frame in an animation control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Open ( $hWnd, $sFileName )\r```"
+    ],
+    "_GUICtrlAVI_OpenEx": [
+        "Opens an AVI clip and displays its first frame in an animation control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_OpenEx ( $hWnd, $sFileName, $iResourceID )\r```"
+    ],
+    "_GUICtrlAVI_Play": [
+        "Plays an AVI clip in an animation control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Play ( $hWnd [, $iFrom = 0 [, $iTo = -1 [, $iRepeat = -1]]] )\r```"
+    ],
+    "_GUICtrlAVI_Seek": [
+        "Directs an AVI control to display a particular frame of an AVI clip",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Seek ( $hWnd, $iFrame )\r```"
+    ],
+    "_GUICtrlAVI_Show": [
+        "Show/Hide the AVI control",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Show ( $hWnd, $iState )\r```"
+    ],
+    "_GUICtrlAVI_Stop": [
+        "Stops playing an AVI clip",
+        "```\r#include <GuiAVI.au3>\r_GUICtrlAVI_Stop ( $hWnd )\r```"
+    ]
+}

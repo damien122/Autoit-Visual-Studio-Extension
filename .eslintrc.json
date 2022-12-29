@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "settings": {
+    "import/core-modules": ["vscode"]
+  },
+  "rules": { "prettier/prettier": ["error", { "endOfLine": "auto" }] }
+}

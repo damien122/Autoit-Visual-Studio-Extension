@@ -1,0 +1,194 @@
+{
+    "_GUICtrlMonthCal_Create": [
+        "Creates a Month Calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_Create ( $hWnd, $iX, $iY [, $iStyle = 0x00000000 [, $iExStyle = 0x00000000]] )\r```"
+    ],
+    "_GUICtrlMonthCal_Destroy": [
+        "Delete the MonthCal control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_Destroy ( ByRef $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetCalendarBorder": [
+        "Gets the size of the border, in pixels",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetCalendarBorder ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetCalendarCount": [
+        "Gets the number of calendars currently displayed in the calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetCalendarCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetColor": [
+        "Retrieves a given color for the control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetColor ( $hWnd, $iIndex )\r```"
+    ],
+    "_GUICtrlMonthCal_GetColorArray": [
+        "Retrieves the color for a given portion of a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetColorArray ( $hWnd, $iColor )\r```"
+    ],
+    "_GUICtrlMonthCal_GetCurSel": [
+        "Retrieves the currently selected date",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetCurSel ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetCurSelStr": [
+        "Retrieves the currently selected date in string format",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetCurSelStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetFirstDOW": [
+        "Retrieves the first day of the week",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetFirstDOW ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetFirstDOWStr": [
+        "Retrieves the first day of the week as a string",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetFirstDOWStr ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMaxSelCount": [
+        "Retrieves the maximum date range that can be selected in a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMaxSelCount ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMaxTodayWidth": [
+        "Retrieves the maximum width of the \"today\" string in a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMaxTodayWidth ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMinReqHeight": [
+        "Retrieves the minimum height required to display a full month",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMinReqHeight ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMinReqRect": [
+        "Retrieves the minimum size required to display a full month",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMinReqRect ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMinReqRectArray": [
+        "Retrieves the minimum size required to display a full month in a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMinReqRectArray ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMinReqWidth": [
+        "Retrieves the minimum width required to display a full month",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMinReqWidth ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthDelta": [
+        "Retrieves the scroll rate for a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthDelta ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRange": [
+        "Retrieves date information that represents the high and low display limits",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRange ( $hWnd [, $bPartial = False] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRangeMax": [
+        "Retrieves date information that represents the high limit of the controls display",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRangeMax ( $hWnd [, $bPartial = False] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRangeMaxStr": [
+        "Retrieves date information that represents the high limit of the controls display in string format",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRangeMaxStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRangeMin": [
+        "Retrieves date information that represents the low limit of the controls display",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRangeMin ( $hWnd [, $bPartial = False] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRangeMinStr": [
+        "Retrieves date information that represents the low limit of the controls display in string format",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRangeMinStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetMonthRangeSpan": [
+        "Returns a value that represents the range, in months, spanned",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetMonthRangeSpan ( $hWnd [, $bPartial = False] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetRange": [
+        "Retrieves the minimum and maximum allowable dates",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetRange ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetRangeMax": [
+        "Retrieves the upper limit date range",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetRangeMax ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetRangeMaxStr": [
+        "Retrieves the upper limit date range in string format",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetRangeMaxStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetRangeMin": [
+        "Retrieves the lower limit date range",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetRangeMin ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetRangeMinStr": [
+        "Retrieves the lower limit date range in string form",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetRangeMinStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetSelRange": [
+        "Retrieves the upper and lower limits of the date range currently selected",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetSelRange ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetSelRangeMax": [
+        "Retrieves the upper date range currently selected by the user",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetSelRangeMax ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetSelRangeMaxStr": [
+        "Retrieves the upper date range currently selected by the user in string form",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetSelRangeMaxStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetSelRangeMin": [
+        "Retrieves the lower date range currently selected by the user",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetSelRangeMin ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetSelRangeMinStr": [
+        "Retrieves the lower date range currently selected by the user in string form",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetSelRangeMinStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetToday": [
+        "Retrieves the date information for the date specified as \"today\"",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetToday ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_GetTodayStr": [
+        "Retrieves the date information for the date specified as \"today\" in string format",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetTodayStr ( $hWnd [, $sFormat = \"%02d/%02d/%04d\"] )\r```"
+    ],
+    "_GUICtrlMonthCal_GetUnicodeFormat": [
+        "Retrieves the Unicode character format flag for the control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_GetUnicodeFormat ( $hWnd )\r```"
+    ],
+    "_GUICtrlMonthCal_HitTest": [
+        "Determines which portion of a month calendar control is at a given point",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_HitTest ( $hWnd, $iX, $iY )\r```"
+    ],
+    "_GUICtrlMonthCal_SetCalendarBorder": [
+        "Sets the size of the border, in pixels",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetCalendarBorder ( $hWnd [, $iBorderSize = 4 [, $bSetBorder = True]] )\r```"
+    ],
+    "_GUICtrlMonthCal_SetColor": [
+        "Sets the color for a given portion of the month calendar",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetColor ( $hWnd, $iIndex, $iColor )\r```"
+    ],
+    "_GUICtrlMonthCal_SetCurSel": [
+        "Sets the currently selected date",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetCurSel ( $hWnd, $iYear, $iMonth, $iDay )\r```"
+    ],
+    "_GUICtrlMonthCal_SetDayState": [
+        "Sets the day states for all months that are currently visible",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetDayState ( $hWnd, $aMasks )\r```"
+    ],
+    "_GUICtrlMonthCal_SetFirstDOW": [
+        "Sets the first day of the week for a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetFirstDOW ( $hWnd, $sDay )\r```"
+    ],
+    "_GUICtrlMonthCal_SetMaxSelCount": [
+        "Sets the maximum number of days that can be selected in a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetMaxSelCount ( $hWnd, $iMaxSel )\r```"
+    ],
+    "_GUICtrlMonthCal_SetMonthDelta": [
+        "Sets the scroll rate for a month calendar control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetMonthDelta ( $hWnd, $iDelta )\r```"
+    ],
+    "_GUICtrlMonthCal_SetRange": [
+        "Sets date information that represents the high and low limits",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetRange ( $hWnd, $iMinYear, $iMinMonth, $iMinDay, $iMaxYear, $iMaxMonth, $iMaxDay )\r```"
+    ],
+    "_GUICtrlMonthCal_SetSelRange": [
+        "Sets the selection for a month calendar control to a given date range",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetSelRange ( $hWnd, $iMinYear, $iMinMonth, $iMinDay, $iMaxYear, $iMaxMonth, $iMaxDay )\r```"
+    ],
+    "_GUICtrlMonthCal_SetToday": [
+        "Sets the date information for the date specified as \"today\"",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetToday ( $hWnd, $iYear, $iMonth, $iDay )\r```"
+    ],
+    "_GUICtrlMonthCal_SetUnicodeFormat": [
+        "Sets the Unicode character format flag for the control",
+        "```\r#include <GuiMonthCal.au3>\r_GUICtrlMonthCal_SetUnicodeFormat ( $hWnd [, $bUnicode = False] )\r```"
+    ]
+}
